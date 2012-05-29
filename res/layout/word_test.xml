@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/word_test_kanji_label"
+        android:layout_width="43dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:text="@string/word_test_kanji_label" />
+
+    <EditText
+        android:id="@+id/word_test_kanji_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:singleLine="true" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/word_test_word_label1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_test_word_label"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/word_test_word_input1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/word_test_word_label2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_test_word_label"
+        android:visibility="gone"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/word_test_word_input2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:visibility="gone"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/word_test_word_label3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_test_word_label"
+        android:visibility="gone"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/word_test_word_input3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:visibility="gone"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/word_test_word_label4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_test_word_label"
+        android:visibility="gone"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/word_test_word_input4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:visibility="gone"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/word_test_translate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_test_translate_label"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/word_test_translate_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:singleLine="true"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/word_test_additional_info_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/word_test_additional_info_label"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/word_test_additional_info_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:singleLine="true"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/word_test_button_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+</LinearLayout>
