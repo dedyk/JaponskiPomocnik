@@ -1,6 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.test;
 
-import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -8,6 +8,8 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class WordTest extends Activity {
 	@Override
@@ -31,13 +34,62 @@ public class WordTest extends Activity {
 			
 			public void onClick(View view) {
 				
-				JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
+				final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
 				
-				context.incrementCurrentWordsTextIdx();				
+				// check user answer
+				boolean isCorrectAnswer = isCorrectAnswers(context);
 				
-				fillScreen();
+				if (isCorrectAnswer == true) {
+					Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT).show();
+					
+					context.incrementCurrentWordsTextIdx();				
+					
+					fillScreen();
+				} else {
+					AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
+					
+					alertDialog.setMessage(getString(R.string.word_test_incorrect));
+					alertDialog.setCancelable(false);
+					alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
+
+						public void onClick(DialogInterface dialog, int which) {
+							
+							List<DictionaryEntry> wordDictionaryEntries = context.getWordsTest();
+							int currentWordsTextIdx = context.getCurrentWordsTextIdx();
+							
+							wordDictionaryEntries.add(wordDictionaryEntries.get(currentWordsTextIdx));
+							
+							context.incrementCurrentWordsTextIdx();				
+							
+							fillScreen();
+						}
+					});
+					
+					alertDialog.show();					
+				}				
 			}
 		});		
+	}
+	
+	private boolean isCorrectAnswers(JapaneseAndroidLearnHelperContext context) {		
+		List<DictionaryEntry> wordDictionaryEntries = context.getWordsTest();
+		int currentWordsTextIdx = context.getCurrentWordsTextIdx();
+		
+		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);
+		List<String> fullKanaList = currentWordDictionaryEntry.getFullKanaList();
+		
+		List<String> fullKanaListToRemove = new ArrayList<String>(fullKanaList);
+		
+		TextViewAndEditText[] textViewAndEditTextForWordAsArray = getTextViewAndEditTextForWordAsArray();
+		
+		for (int kanaListIdx = 0; kanaListIdx < fullKanaList.size(); ++kanaListIdx) {
+			
+			String currentUserAnswer = textViewAndEditTextForWordAsArray[kanaListIdx].editText.getText().toString();
+			
+			fullKanaListToRemove.remove(currentUserAnswer);
+		}
+		
+		return fullKanaListToRemove.size() == 0;
 	}
 
 	@Override

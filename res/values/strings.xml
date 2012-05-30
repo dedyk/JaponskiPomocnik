@@ -10,5 +10,8 @@
     <string name="word_test_state">Pozycja: %1$d z %2$d</string>
     <string name="word_test_next_button">Dalej</string>
     <string name="word_test_view_label">Test ze słówek</string>
+    <string name="word_test_correct">Prawidłowa odpowiedź</string>
+    <string name="word_test_incorrect">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:</string>
+    <string name="word_test_incorrect_ok">OK</string>
 
 </resources>
