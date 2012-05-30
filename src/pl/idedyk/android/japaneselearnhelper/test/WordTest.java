@@ -2,8 +2,9 @@ package pl.idedyk.android.japaneselearnhelper.test;
 
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class WordTest extends Activity {
 	@Override
@@ -19,44 +21,158 @@ public class WordTest extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.word_test);
 		
+		fillScreen();
+		
 		Button testButton = (Button)findViewById(R.id.word_test_button_test);
 		
 		testButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
 				
-				// findViewById(R.id.word_test_word_label2).setVisibility(View.VISIBLE);
-				// findViewById(R.id.word_test_word_input2).setVisibility(View.VISIBLE);
+				JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
 				
-				List<DictionaryEntry> wordDictionaryEntries = DictionaryManager.getInstance().getWordDictionaryEntries();
+				context.incrementCurrentWordsTextIdx();				
 				
-				DictionaryEntry dictionaryEntry = wordDictionaryEntries.get(413);
-				
-				EditText kanjiInput = (EditText)findViewById(R.id.word_test_kanji_input);
-				kanjiInput.setText(dictionaryEntry.getFullKanji());
-				kanjiInput.setEnabled(false);
-				
-				EditText wordInput1 = (EditText)findViewById(R.id.word_test_word_input1); // FIXME 
-				wordInput1.setText(dictionaryEntry.getKanaList().get(0)); // FIXME
-				
-				EditText translateInput = (EditText)findViewById(R.id.word_test_translate_input); // FIXME 
-				translateInput.setText("" + dictionaryEntry.getTranslates()); // FIXME
-				translateInput.setEnabled(false);
-				
-				EditText additionalInfoInput = (EditText)findViewById(R.id.word_test_additional_info_input); // FIXME 
-				additionalInfoInput.setText("" + dictionaryEntry.getInfo()); // FIXME
-				additionalInfoInput.setEnabled(false);
-				
-				
-				
+				fillScreen();
 			}
-		});
-		
-		
+		});		
 	}
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
+		
+		fillScreen();
+	}
+	
+	private void fillScreen() {
+		JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
+		
+		List<DictionaryEntry> wordDictionaryEntries = context.getWordsTest();
+		int currentWordsTextIdx = context.getCurrentWordsTextIdx();
+		
+		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);
+		
+		String kanji = currentWordDictionaryEntry.getKanji();
+		
+		TextView kanjiLabel = (TextView)findViewById(R.id.word_test_kanji_label);
+		EditText kanjiInput = (EditText)findViewById(R.id.word_test_kanji_input);
+		
+		if (kanji != null) {
+			kanjiInput.setText(currentWordDictionaryEntry.getFullKanji());
+			
+			kanjiLabel.setVisibility(View.VISIBLE);
+			kanjiInput.setVisibility(View.VISIBLE);
+			kanjiInput.setEnabled(false);
+		} else {
+			kanjiInput.setText("");
+			
+			kanjiLabel.setVisibility(View.GONE);
+			kanjiInput.setVisibility(View.GONE);
+			kanjiInput.setEnabled(false);
+		}
+		
+		List<String> kanaList = currentWordDictionaryEntry.getFullKanaList();
+		
+		if (kanaList.size() >= 5) {
+			throw new RuntimeException("Kana list size");
+		}
+		
+		TextViewAndEditText[] textViewAndEditTextForWordAsArray = getTextViewAndEditTextForWordAsArray();
+		
+		for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
+			
+			TextViewAndEditText currentTextViewAndEditText = textViewAndEditTextForWordAsArray[kanaListIdx];
+			
+			String currentKana = null;
+			
+			if (kanaListIdx < kanaList.size()) {
+				currentKana = kanaList.get(kanaListIdx);
+			}
+			
+			if (currentKana != null) {
+				currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
+				
+				currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
+				currentTextViewAndEditText.editText.setText(currentKana);
+			} else {
+				currentTextViewAndEditText.textView.setVisibility(View.GONE);
+				
+				currentTextViewAndEditText.editText.setVisibility(View.GONE);
+				currentTextViewAndEditText.editText.setText("");
+			}
+		}
+		
+		EditText translateInput = (EditText)findViewById(R.id.word_test_translate_input); 
+		translateInput.setText(getTranslates(currentWordDictionaryEntry.getTranslates()));
+		translateInput.setEnabled(false);
+		
+		TextView additionalInfoLabel = (TextView)findViewById(R.id.word_test_additional_info_label);
+		EditText additionalInfoInput = (EditText)findViewById(R.id.word_test_additional_info_input);
+
+		String additionalInfo = currentWordDictionaryEntry.getFullInfo();
+		
+		if (additionalInfo != null) {
+			additionalInfoInput.setText(additionalInfo);
+			additionalInfoInput.setEnabled(false);
+			
+			additionalInfoLabel.setVisibility(View.VISIBLE);
+			additionalInfoInput.setVisibility(View.VISIBLE);
+		} else {
+			additionalInfoInput.setText("");
+			additionalInfoInput.setEnabled(false);
+			
+			additionalInfoLabel.setVisibility(View.GONE);
+			additionalInfoInput.setVisibility(View.GONE);			
+		}
+	}
+	
+	private TextViewAndEditText[] getTextViewAndEditTextForWordAsArray() {
+		
+		TextView wordLabel1 = (TextView)findViewById(R.id.word_test_word_label1);
+		EditText wordInput1 = (EditText)findViewById(R.id.word_test_word_input1);
+
+		TextView wordLabel2 = (TextView)findViewById(R.id.word_test_word_label2);
+		EditText wordInput2 = (EditText)findViewById(R.id.word_test_word_input2);
+
+		TextView wordLabel3 = (TextView)findViewById(R.id.word_test_word_label3);
+		EditText wordInput3 = (EditText)findViewById(R.id.word_test_word_input3);
+
+		TextView wordLabel4 = (TextView)findViewById(R.id.word_test_word_label4);
+		EditText wordInput4 = (EditText)findViewById(R.id.word_test_word_input4);
+		
+		TextViewAndEditText[] result = new TextViewAndEditText[4];
+		
+		result[0] = new TextViewAndEditText(wordLabel1, wordInput1);
+		result[1] = new TextViewAndEditText(wordLabel2, wordInput2);
+		result[2] = new TextViewAndEditText(wordLabel3, wordInput3);
+		result[3] = new TextViewAndEditText(wordLabel4, wordInput4);
+		
+		return result;
+	}
+	
+	private String getTranslates(List<String> translates) {
+		
+		StringBuffer sb = new StringBuffer();
+		
+		for (int idx = 0; idx < translates.size(); ++idx) {
+			sb.append(translates.get(idx));
+			
+			if (idx != translates.size() - 1) {
+				sb.append("\n");
+			}
+		}
+		
+		return sb.toString();
+	}
+	
+	private static class TextViewAndEditText {
+		TextView textView;
+		EditText editText;
+		
+		public TextViewAndEditText(TextView textView, EditText editText) {
+			this.textView = textView;
+			this.editText = editText;
+		}
 	}
 }

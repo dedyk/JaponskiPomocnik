@@ -93,15 +93,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/word_test_translate_label"
-        android:singleLine="true" />
+        android:singleLine="false" />
 
     <EditText
         android:id="@+id/word_test_translate_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:singleLine="true"
-        android:inputType="text" />
+        android:inputType="text|textMultiLine"
+        android:singleLine="false" />
 
     <TextView
         android:id="@+id/word_test_additional_info_label"

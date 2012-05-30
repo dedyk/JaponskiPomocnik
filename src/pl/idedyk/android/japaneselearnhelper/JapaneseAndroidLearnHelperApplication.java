@@ -1,8 +1,8 @@
 package pl.idedyk.android.japaneselearnhelper;
 
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import android.app.Application;
 import android.content.res.Configuration;
-import android.util.Log;
 
 public class JapaneseAndroidLearnHelperApplication extends Application {
 	
@@ -11,6 +11,8 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	public static JapaneseAndroidLearnHelperApplication getInstance() {
 		return singleton;
 	}
+	
+	private JapaneseAndroidLearnHelperContext context;
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -33,5 +35,12 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	public void onTerminate() {
 		super.onTerminate();
 	}
+	
+	public void setContext(JapaneseAndroidLearnHelperContext context) {
+		this.context = context;
+	}
 
+	public JapaneseAndroidLearnHelperContext getContext() {
+		return context;
+	}
 }

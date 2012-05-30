@@ -3,7 +3,9 @@ package pl.idedyk.android.japaneselearnhelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.test.WordTest;
 
 import android.app.Activity;
@@ -52,11 +54,28 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				
+				JapaneseAndroidLearnHelperContext context = new JapaneseAndroidLearnHelperContext();
+				
+				// FIXME
+				JapaneseAndroidLearnHelperApplication.getInstance().setContext(context);
+				
+				DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+				
 				// word test selected
 				if (position == 0) {
+					
+					List<DictionaryEntry> wordsTest = new ArrayList<DictionaryEntry>();
+					
+					wordsTest.addAll(dictionaryManager.getWordsGroup(50));
+					wordsTest.addAll(dictionaryManager.getWordsGroup(51));
+					wordsTest.addAll(dictionaryManager.getWordsGroup(52));
+					
+					context.setWordsTest(wordsTest);
+					
+					
 					Intent intent = new Intent(getApplicationContext(), WordTest.class);	
 					
-					DictionaryManager.getInstance(); // FIXME !!!
+					 // FIXME !!!
 					
 					//MyObject value = MyApplication.getInstance().getGlobalStateValue();
 					//MyApplication.getInstance().setGlobalStateValue(myObjectValue);

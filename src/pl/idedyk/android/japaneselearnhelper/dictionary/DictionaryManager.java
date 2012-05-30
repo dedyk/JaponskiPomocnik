@@ -14,6 +14,8 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryExce
 
 public class DictionaryManager {
 	
+	private static int GROUP_SIZE = 10;
+	
 	private static final String FILE_WORD = "/word.csv";
 
 	private static DictionaryManager instance;
@@ -56,8 +58,8 @@ public class DictionaryManager {
 			String prefixString = csvReader.get(2);
 			String kanjiString = csvReader.get(3);
 			
-			if (kanjiString.equals("") == true) {
-				throw new DictionaryException("Empty kanji!");
+			if (kanjiString.equals("") == true || kanjiString.equals("-") == true) {
+				kanjiString = null;
 			}
 			
 			String kanaListString = csvReader.get(5);
@@ -93,7 +95,26 @@ public class DictionaryManager {
 		return result;		
 	}
 	
-	public List<DictionaryEntry> getWordDictionaryEntries() {
-		return wordDictionaryEntries;
+	public int getWordGroupsNo() {		
+		int result = wordDictionaryEntries.size() / GROUP_SIZE;
+		
+		if (wordDictionaryEntries.size() % GROUP_SIZE > 0) {
+			result++;
+		}
+		
+		return result;
+	}
+
+	public List<DictionaryEntry> getWordsGroup(int groupNo) {
+		
+		List<DictionaryEntry> result = new ArrayList<DictionaryEntry>();
+		
+		for (int idx = groupNo * GROUP_SIZE; idx < (groupNo + 1) * GROUP_SIZE && idx < wordDictionaryEntries.size(); ++idx) {
+			DictionaryEntry currentDictionaryEntry = wordDictionaryEntries.get(idx);
+			
+			result.add(currentDictionaryEntry);
+		}
+		
+		return result;
 	}
 }
