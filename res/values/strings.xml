@@ -11,7 +11,12 @@
     <string name="word_test_next_button">Dalej</string>
     <string name="word_test_view_label">Test ze słówek</string>
     <string name="word_test_correct">Prawidłowa odpowiedź</string>
-    <string name="word_test_incorrect">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:</string>
+    <string name="word_test_incorrect">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n</string>
     <string name="word_test_incorrect_ok">OK</string>
+    <string name="word_test_summary_result_label">Rezultat</string>
+    <string name="word_test_summary_result_value_label">0%</string>
+    <string name="word_test_summary_answers_no_label">Liczba odpowiedzi</string>
+    <string name="word_test_summary_answers_no_value_label">0</string>
+    <string name="word_test_summary_view_label">Wyniki</string>
 
 </resources>

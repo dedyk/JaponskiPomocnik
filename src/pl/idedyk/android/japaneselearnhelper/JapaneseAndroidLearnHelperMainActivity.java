@@ -65,8 +65,8 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					List<DictionaryEntry> wordsTest = new ArrayList<DictionaryEntry>();
 					
 					wordsTest.addAll(dictionaryManager.getWordsGroup(50));
-					wordsTest.addAll(dictionaryManager.getWordsGroup(51));
-					wordsTest.addAll(dictionaryManager.getWordsGroup(52));
+					//wordsTest.addAll(dictionaryManager.getWordsGroup(51));
+					//wordsTest.addAll(dictionaryManager.getWordsGroup(52));
 					
 					context.setWordsTest(wordsTest);
 					
