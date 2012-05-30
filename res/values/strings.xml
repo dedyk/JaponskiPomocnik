@@ -14,9 +14,13 @@
     <string name="word_test_incorrect">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n</string>
     <string name="word_test_incorrect_ok">OK</string>
     <string name="word_test_summary_result_label">Rezultat</string>
-    <string name="word_test_summary_result_value_label">0%</string>
+    <string name="word_test_summary_result_value_label">0 %</string>
     <string name="word_test_summary_answers_no_label">Liczba odpowiedzi</string>
     <string name="word_test_summary_answers_no_value_label">0</string>
     <string name="word_test_summary_view_label">Wyniki</string>
-
+    <string name="word_test_summary_correct_answers_no_label">Liczba prawidłowych odpowiedzi</string>
+    <string name="word_test_summary_correct_answers_no_value_label">0</string>
+    <string name="word_test_summary_incorrect_answers_no_label">Liczba nieprawidłowych odpowiedzi</string>
+    <string name="word_test_summary_incorrect_answers_no_value_label">0</string>
+    
 </resources>

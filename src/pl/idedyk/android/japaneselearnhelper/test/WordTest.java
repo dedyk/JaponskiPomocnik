@@ -40,25 +40,31 @@ public class WordTest extends Activity {
 				
 				final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
 				
-				// check user answer
-				boolean isCorrectAnswer = isCorrectAnswers(context);
+				final List<DictionaryEntry> wordDictionaryEntries = context.getWordsTest();
+				int wordsTestIdx = context.getWordsTestIdx();
 				
-				if (isCorrectAnswer == true) {
+				final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(wordsTestIdx);
+				
+				List<String> fullKanaList = currentWordDictionaryEntry.getFullKanaList();
+				
+				// check user answer
+				int correctAnswersNo = getCorrectAnswersNo(context);
+				
+				context.addWordTestAnswers(fullKanaList.size());
+				context.addWordTestCorrectAnswers(correctAnswersNo);
+				context.addWordTestIncorrentAnswers(fullKanaList.size() - correctAnswersNo);
+				
+				if (correctAnswersNo == fullKanaList.size()) {
 					Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT).show();
 					
-					context.incrementCurrentWordsTextIdx();				
+					context.incrementWordsTestIdx();				
 					
 					fillScreen();
-				} else {
-					final List<DictionaryEntry> wordDictionaryEntries = context.getWordsTest();
-					int currentWordsTextIdx = context.getCurrentWordsTextIdx();
-					
-					final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);
-					
+				} else {					
 					AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
 					
 					alertDialog.setMessage(getString(R.string.word_test_incorrect) + 
-							ListUtil.getListAsString(currentWordDictionaryEntry.getFullKanaList(), "\n"));
+							ListUtil.getListAsString(fullKanaList, "\n"));
 					
 					alertDialog.setCancelable(false);
 					alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
@@ -67,7 +73,7 @@ public class WordTest extends Activity {
 														
 							wordDictionaryEntries.add(currentWordDictionaryEntry);
 							
-							context.incrementCurrentWordsTextIdx();				
+							context.incrementWordsTestIdx();				
 							
 							fillScreen();
 						}
@@ -79,9 +85,9 @@ public class WordTest extends Activity {
 		});		
 	}
 	
-	private boolean isCorrectAnswers(JapaneseAndroidLearnHelperContext context) {		
+	private int getCorrectAnswersNo(JapaneseAndroidLearnHelperContext context) {		
 		List<DictionaryEntry> wordDictionaryEntries = context.getWordsTest();
-		int currentWordsTextIdx = context.getCurrentWordsTextIdx();
+		int currentWordsTextIdx = context.getWordsTestIdx();
 		
 		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);
 		List<String> fullKanaList = currentWordDictionaryEntry.getFullKanaList();
@@ -97,7 +103,7 @@ public class WordTest extends Activity {
 			fullKanaListToRemove.remove(currentUserAnswer);
 		}
 		
-		return fullKanaListToRemove.size() == 0;
+		return fullKanaList.size() - fullKanaListToRemove.size();
 	}
 
 	@Override
@@ -111,7 +117,7 @@ public class WordTest extends Activity {
 		JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
 		
 		List<DictionaryEntry> wordDictionaryEntries = context.getWordsTest();
-		int currentWordsTextIdx = context.getCurrentWordsTextIdx();
+		int currentWordsTextIdx = context.getWordsTestIdx();
 		
 		if (currentWordsTextIdx >= wordDictionaryEntries.size()) {
 			
