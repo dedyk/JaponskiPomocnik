@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.test.WordTest;
+import pl.idedyk.android.japaneselearnhelper.test.WordTestGroup;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,7 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class JapaneseAndroidLearnHelperMainActivity extends Activity {
-    /** Called when the activity is first created. */
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +55,12 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				// FIXME
 				JapaneseAndroidLearnHelperApplication.getInstance().setContext(context);
 				
-				DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+				//
 				
 				// word test selected
 				if (position == 0) {
 					
+					/*
 					List<DictionaryEntry> wordsTest = new ArrayList<DictionaryEntry>();
 					
 					wordsTest.addAll(dictionaryManager.getWordsGroup(50));
@@ -72,7 +71,7 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					
 					
 					Intent intent = new Intent(getApplicationContext(), WordTest.class);	
-					
+					*/
 					 // FIXME !!!
 					
 					//MyObject value = MyApplication.getInstance().getGlobalStateValue();
@@ -80,7 +79,12 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					
 					
 
+					//startActivity(intent);
+					
+					Intent intent = new Intent(getApplicationContext(), WordTestGroup.class);
+					
 					startActivity(intent);
+					
 				}
 			}
 		});
