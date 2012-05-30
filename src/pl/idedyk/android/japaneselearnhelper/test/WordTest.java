@@ -173,7 +173,7 @@ public class WordTest extends Activity {
 					currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
 					
 					currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
-					currentTextViewAndEditText.editText.setText(currentKana);
+					currentTextViewAndEditText.editText.setText("");
 				} else {
 					currentTextViewAndEditText.textView.setVisibility(View.GONE);
 					

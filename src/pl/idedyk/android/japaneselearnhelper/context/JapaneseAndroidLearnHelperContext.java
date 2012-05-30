@@ -1,11 +1,14 @@
 package pl.idedyk.android.japaneselearnhelper.context;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 
 public class JapaneseAndroidLearnHelperContext {
 	
+	private Set<Integer> lastWordsGroupChecked = null;
 	private List<DictionaryEntry> wordsTest;
 	private int wordsTestIdx = 0;
 	
@@ -31,6 +34,14 @@ public class JapaneseAndroidLearnHelperContext {
 	
 	public void incrementWordsTestIdx() {
 		wordsTestIdx++;
+	}
+
+	public Set<Integer> getLastWordsGroupChecked() {
+		if (lastWordsGroupChecked == null) {
+			lastWordsGroupChecked = new HashSet<Integer>();
+		}
+		
+		return lastWordsGroupChecked;
 	}
 
 	public int getWordTestAnswers() {

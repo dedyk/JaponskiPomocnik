@@ -44,43 +44,19 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     }
 	
     private void initMenuActions() {
+		JapaneseAndroidLearnHelperContext context = new JapaneseAndroidLearnHelperContext();
+		
+		// FIXME
+		JapaneseAndroidLearnHelperApplication.getInstance().setContext(context);
+    	
     	final ListView mainMenuListView = (ListView)findViewById(R.id.mainMenuList);
     	
     	mainMenuListView.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				
-				JapaneseAndroidLearnHelperContext context = new JapaneseAndroidLearnHelperContext();
-				
-				// FIXME
-				JapaneseAndroidLearnHelperApplication.getInstance().setContext(context);
-				
-				//
-				
+								
 				// word test selected
-				if (position == 0) {
-					
-					/*
-					List<DictionaryEntry> wordsTest = new ArrayList<DictionaryEntry>();
-					
-					wordsTest.addAll(dictionaryManager.getWordsGroup(50));
-					//wordsTest.addAll(dictionaryManager.getWordsGroup(51));
-					//wordsTest.addAll(dictionaryManager.getWordsGroup(52));
-					
-					context.setWordsTest(wordsTest);
-					
-					
-					Intent intent = new Intent(getApplicationContext(), WordTest.class);	
-					*/
-					 // FIXME !!!
-					
-					//MyObject value = MyApplication.getInstance().getGlobalStateValue();
-					//MyApplication.getInstance().setGlobalStateValue(myObjectValue);
-					
-					
-
-					//startActivity(intent);
-					
+				if (position == 0) {					
 					Intent intent = new Intent(getApplicationContext(), WordTestGroup.class);
 					
 					startActivity(intent);
@@ -88,6 +64,5 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				}
 			}
 		});
-		
 	}
 }

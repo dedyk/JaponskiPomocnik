@@ -1,19 +1,26 @@
 package pl.idedyk.android.japaneselearnhelper.test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,23 +33,55 @@ public class WordTestGroup extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.word_test_group);
 
-		DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
+		final DictionaryManager dictionaryManager = DictionaryManager.getInstance();
 		
 		// create menu list
 
 		ListView groupList = (ListView)findViewById(R.id.word_test_group_list);
 
-		List<GroupItem> groupListItems = new ArrayList<GroupItem>();
+		final List<GroupItem> groupListItems = new ArrayList<GroupItem>();
 		
 		int wordGroupsNo = dictionaryManager.getWordGroupsNo();
 		
 		for (int idx = 0; idx < wordGroupsNo; ++idx) {
-			groupListItems.add(new GroupItem(getResources(), idx, false));
+			
+			boolean checked = context.getLastWordsGroupChecked().contains(idx);
+			
+			groupListItems.add(new GroupItem(getResources(), idx, checked));
 		}
 
 		ArrayAdapter<GroupItem> groupListItemsAdapter = new GroupListArrayAdapter(this, groupListItems);
 
 		groupList.setAdapter(groupListItemsAdapter);
+		
+		Button startButton = (Button)findViewById(R.id.word_test_group_start_button);
+		
+		startButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				List<DictionaryEntry> wordsTest = new ArrayList<DictionaryEntry>();
+				
+				context.getLastWordsGroupChecked().clear();
+				
+				for (GroupItem currentGroupItem : groupListItems) {
+					if (currentGroupItem.isChecked() == true) {
+						context.getLastWordsGroupChecked().add(currentGroupItem.getGroupNo());
+						
+						wordsTest.addAll(dictionaryManager.getWordsGroup(currentGroupItem.getGroupNo()));
+					}
+				}
+				
+				Collections.shuffle(wordsTest);
+				
+				context.setWordsTest(wordsTest);
+				
+				Intent intent = new Intent(getApplicationContext(), WordTest.class);
+				
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override

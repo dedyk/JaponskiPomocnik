@@ -24,5 +24,6 @@
     <string name="word_test_summary_incorrect_answers_no_value_label">0</string>
     <string name="word_test_group_view_label">Proszę wybrać grupę do testu</string>
     <string name="word_test_group_no">Grupa nr. %1$d</string>
+    <string name="word_test_group_start_button">Start</string>
     
 </resources>
