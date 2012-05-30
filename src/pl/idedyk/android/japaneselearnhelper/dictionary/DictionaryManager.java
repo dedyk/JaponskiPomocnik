@@ -16,6 +16,8 @@ public class DictionaryManager {
 	
 	private static int GROUP_SIZE = 10;
 	
+	private static int MAX_LIST_SIZE = 4;
+	
 	private static final String FILE_WORD = "/word.csv";
 
 	private static DictionaryManager instance;
@@ -90,6 +92,10 @@ public class DictionaryManager {
 		
 		for (String currentSplitedText : splitedText) {			
 			result.add(currentSplitedText);
+		}
+		
+		if (result.size() > MAX_LIST_SIZE) {
+			throw new RuntimeException("parseStringIntoList max list size");
 		}
 		
 		return result;		

@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.test;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -8,6 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperC
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import android.app.Activity;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,9 +25,9 @@ public class WordTest extends Activity {
 		
 		fillScreen();
 		
-		Button testButton = (Button)findViewById(R.id.word_test_button_test);
+		Button nextButton = (Button)findViewById(R.id.word_test_next_button);
 		
-		testButton.setOnClickListener(new OnClickListener() {
+		nextButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
 				
@@ -90,6 +92,10 @@ public class WordTest extends Activity {
 				currentKana = kanaList.get(kanaListIdx);
 			}
 			
+			if (currentKana != null && kanaListIdx == 0) {
+				currentTextViewAndEditText.editText.requestFocus();
+			}
+			
 			if (currentKana != null) {
 				currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
 				
@@ -125,6 +131,12 @@ public class WordTest extends Activity {
 			additionalInfoLabel.setVisibility(View.GONE);
 			additionalInfoInput.setVisibility(View.GONE);			
 		}
+		
+		TextView state = (TextView)findViewById(R.id.word_test_state);
+		
+		Resources resources = getResources();
+		
+		state.setText(resources.getString(R.string.word_test_state, (currentWordsTextIdx + 1), wordDictionaryEntries.size()));
 	}
 	
 	private TextViewAndEditText[] getTextViewAndEditTextForWordAsArray() {

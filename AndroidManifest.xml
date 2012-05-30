@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.WordTest"></activity>
+        <activity android:name=".test.WordTest" android:label="@string/word_test_view_label" android:noHistory="true"></activity>
     </application>
 
 </manifest>

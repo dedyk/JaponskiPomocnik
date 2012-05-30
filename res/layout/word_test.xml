@@ -1,127 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/word_test_scrollview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/word_test_kanji_label"
-        android:layout_width="43dp"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:text="@string/word_test_kanji_label" />
-
-    <EditText
-        android:id="@+id/word_test_kanji_input"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:singleLine="true" >
+        android:orientation="vertical" >
 
-        <requestFocus />
-    </EditText>
+        <TextView
+            android:id="@+id/word_test_kanji_label"
+            android:layout_width="43dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/word_test_kanji_label" />
 
-    <TextView
-        android:id="@+id/word_test_word_label1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/word_test_word_label"
-        android:singleLine="true" />
+        <EditText
+            android:id="@+id/word_test_kanji_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:singleLine="true" >
 
-    <EditText
-        android:id="@+id/word_test_word_input1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:singleLine="true" />
+            <requestFocus />
+        </EditText>
 
-    <TextView
-        android:id="@+id/word_test_word_label2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/word_test_word_label"
-        android:visibility="gone"
-        android:singleLine="true" />
+        <TextView
+            android:id="@+id/word_test_word_label1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/word_test_word_label" />
 
-    <EditText
-        android:id="@+id/word_test_word_input2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:visibility="gone"
-        android:singleLine="true" />
+        <EditText
+            android:id="@+id/word_test_word_input1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:singleLine="true" />
 
-    <TextView
-        android:id="@+id/word_test_word_label3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/word_test_word_label"
-        android:visibility="gone"
-        android:singleLine="true" />
+        <TextView
+            android:id="@+id/word_test_word_label2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/word_test_word_label"
+            android:visibility="gone" />
 
-    <EditText
-        android:id="@+id/word_test_word_input3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:visibility="gone"
-        android:singleLine="true" />
+        <EditText
+            android:id="@+id/word_test_word_input2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:singleLine="true"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/word_test_word_label4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/word_test_word_label"
-        android:visibility="gone"
-        android:singleLine="true" />
+        <TextView
+            android:id="@+id/word_test_word_label3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/word_test_word_label"
+            android:visibility="gone" />
 
-    <EditText
-        android:id="@+id/word_test_word_input4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:visibility="gone"
-        android:singleLine="true" />
+        <EditText
+            android:id="@+id/word_test_word_input3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:singleLine="true"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/word_test_translate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/word_test_translate_label"
-        android:singleLine="false" />
+        <TextView
+            android:id="@+id/word_test_word_label4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/word_test_word_label"
+            android:visibility="gone" />
 
-    <EditText
-        android:id="@+id/word_test_translate_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text|textMultiLine"
-        android:singleLine="false" />
+        <EditText
+            android:id="@+id/word_test_word_input4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:singleLine="true"
+            android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/word_test_additional_info_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/word_test_additional_info_label"
-        android:singleLine="true" />
+        <TextView
+            android:id="@+id/word_test_translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="@string/word_test_translate_label" />
 
-    <EditText
-        android:id="@+id/word_test_additional_info_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:singleLine="true"
-        android:inputType="text" />
+        <EditText
+            android:id="@+id/word_test_translate_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text|textMultiLine"
+            android:singleLine="false" />
 
-    <Button
-        android:id="@+id/word_test_button_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        <TextView
+            android:id="@+id/word_test_additional_info_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/word_test_additional_info_label" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/word_test_additional_info_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/word_test_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/word_test_next_button" />
+
+        <TextView
+            android:id="@+id/word_test_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/word_test_state" />
+
+    </LinearLayout>
+
+</ScrollView>

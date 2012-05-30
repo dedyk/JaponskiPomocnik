@@ -30,8 +30,6 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
         
         // init menu actions
         initMenuActions();
-        
-        
     }
 
 	private void createMenuList() {
@@ -80,7 +78,7 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					//MyObject value = MyApplication.getInstance().getGlobalStateValue();
 					//MyApplication.getInstance().setGlobalStateValue(myObjectValue);
 					
-					intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+					
 
 					startActivity(intent);
 				}
