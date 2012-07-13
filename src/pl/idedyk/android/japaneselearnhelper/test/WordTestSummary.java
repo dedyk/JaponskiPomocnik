@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.test;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperWordTestContext;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -30,10 +31,11 @@ public class WordTestSummary extends Activity {
 	private void fillScreen() {
 		
 		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
+		final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
 		
-		int allAnswersNo = context.getWordTestAnswers();
-		int correctAnswerNo = context.getWordTestCorrectAnswers();
-		int incorrectAnswerNo = context.getWordTestIncorrentAnswers();
+		int allAnswersNo = wordTestContext.getWordTestAnswers();
+		int correctAnswerNo = wordTestContext.getWordTestCorrectAnswers();
+		int incorrectAnswerNo = wordTestContext.getWordTestIncorrentAnswers();
 		
 		TextView resultValueLabel = (TextView)findViewById(R.id.word_test_summary_result_value_label);
 		resultValueLabel.setText("" + ((correctAnswerNo * 100) / allAnswersNo) + " %");

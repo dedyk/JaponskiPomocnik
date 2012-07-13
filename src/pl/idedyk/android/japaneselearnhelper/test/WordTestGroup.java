@@ -7,6 +7,7 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperWordTestContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import android.app.Activity;
@@ -34,6 +35,7 @@ public class WordTestGroup extends Activity {
 		setContentView(R.layout.word_test_group);
 
 		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
+		final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
 		final DictionaryManager dictionaryManager = DictionaryManager.getInstance();
 		
 		// create menu list
@@ -46,7 +48,7 @@ public class WordTestGroup extends Activity {
 		
 		for (int idx = 0; idx < wordGroupsNo; ++idx) {
 			
-			boolean checked = context.getLastWordsGroupChecked().contains(idx);
+			boolean checked = wordTestContext.getLastWordsGroupChecked().contains(idx);
 			
 			groupListItems.add(new GroupItem(getResources(), idx, checked));
 		}
@@ -63,11 +65,11 @@ public class WordTestGroup extends Activity {
 				
 				List<DictionaryEntry> wordsTest = new ArrayList<DictionaryEntry>();
 				
-				context.getLastWordsGroupChecked().clear();
+				wordTestContext.getLastWordsGroupChecked().clear();
 				
 				for (GroupItem currentGroupItem : groupListItems) {
 					if (currentGroupItem.isChecked() == true) {
-						context.getLastWordsGroupChecked().add(currentGroupItem.getGroupNo());
+						wordTestContext.getLastWordsGroupChecked().add(currentGroupItem.getGroupNo());
 						
 						wordsTest.addAll(dictionaryManager.getWordsGroup(currentGroupItem.getGroupNo()));
 					}
@@ -75,7 +77,7 @@ public class WordTestGroup extends Activity {
 				
 				Collections.shuffle(wordsTest);
 				
-				context.setWordsTest(wordsTest);
+				wordTestContext.setWordsTest(wordsTest);
 				
 				Intent intent = new Intent(getApplicationContext(), WordTest.class);
 				
