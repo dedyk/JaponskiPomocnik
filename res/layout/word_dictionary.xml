@@ -24,11 +24,21 @@
         </EditText>
         
     </LinearLayout>
+    
+    	<ListView
+    	    android:id="@+id/word_dictionary_search_result_list"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="0dp"
+    	    android:layout_weight="1" >
 
-    <ListView
-        android:id="@+id/word_dictionary_search_result_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+    	</ListView>
+    	
+    <TextView
+        android:id="@+id/word_dictionary_elements_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_weight="0.05"
+        android:text="@string/word_dictionary_elements_no" />
 
 </LinearLayout>
