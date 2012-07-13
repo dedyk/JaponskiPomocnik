@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">JapaneseAndroidLearnHelper</string>
+    <string name="main_menu_dictionary">Słowniczek</string>
     <string name="main_menu_word_test">Test ze słówek</string>
     <string name="main_menu_kanji_test">Test z kanji</string>
+    <string name="word_dictionary_view_label">Słowniczek</string>
+    <string name="word_dictionary_search_label">Szukana faza</string>
     <string name="word_test_kanji_label">Kanji</string>
     <string name="word_test_word_label">Słowo</string>
     <string name="word_test_translate_label">Tłumaczenie</string>

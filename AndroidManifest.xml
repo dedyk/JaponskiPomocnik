@@ -21,6 +21,7 @@
         <activity android:name=".test.WordTest" android:label="@string/word_test_view_label" android:noHistory="true"></activity>
         <activity android:name=".test.WordTestSummary" android:noHistory="true" android:label="@string/word_test_summary_view_label"></activity>
         <activity android:name=".test.WordTestGroup" android:noHistory="true" android:label="@string/word_test_group_view_label"></activity>
+        <activity android:name=".dictionaryscreen.Dictionary" android:label="@string/word_dictionary_view_label"></activity>
     </application>
 
 </manifest>
