@@ -12,6 +12,8 @@ public class DictionaryEntry {
 	private String kanji;
 	
 	private List<String> kanaList;
+	
+	private List<String> romajiList;
 		
 	private List<String> translates;
 	
@@ -77,6 +79,14 @@ public class DictionaryEntry {
 		}
 	}
 
+	public List<String> getRomajiList() {
+		return romajiList;
+	}
+
+	public void setRomajiList(List<String> romajiList) {
+		this.romajiList = romajiList;
+	}
+
 	public void setDictionaryEntryType(DictionaryEntryType dictionaryEntryType) {
 		this.dictionaryEntryType = dictionaryEntryType;
 	}
@@ -106,6 +116,11 @@ public class DictionaryEntry {
 	}
 	
 	public String getFullKanji() {
-		return kanji.equals("-") == false ? prefix + kanji : kanji;
+		
+		if (kanji != null) {
+			return kanji.equals("-") == false ? prefix + kanji : kanji;	
+		} else {
+			return null;
+		}
 	}
 }

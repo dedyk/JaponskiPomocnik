@@ -18,6 +18,8 @@ public class DictionaryManager {
 	
 	private static int MAX_LIST_SIZE = 4;
 	
+	private static int MAX_SEARCH_RESULT = 50;
+	
 	private static final String FILE_WORD = "/word.csv";
 
 	private static DictionaryManager instance;
@@ -65,6 +67,7 @@ public class DictionaryManager {
 			}
 			
 			String kanaListString = csvReader.get(5);
+			String romajiListString = csvReader.get(6);
 			String translateListString = csvReader.get(7);
 			String infoString = csvReader.get(8);
 			
@@ -73,6 +76,7 @@ public class DictionaryManager {
 			entry.setDictionaryEntryType(DictionaryEntryType.valueOf(dictionaryEntryType));
 			entry.setPrefix(prefixString);
 			entry.setKanji(kanjiString);
+			entry.setRomajiList(parseStringIntoList(romajiListString));
 			entry.setKanaList(parseStringIntoList(kanaListString));
 			entry.setTranslates(parseStringIntoList(translateListString));
 			
@@ -122,5 +126,62 @@ public class DictionaryManager {
 		}
 		
 		return result;
+	}
+	
+	public List<DictionaryEntry> findWord(String word) {
+		
+		List<DictionaryEntry> result = new ArrayList<DictionaryEntry>();
+		
+		for (DictionaryEntry currentWordDictionaryEntry : wordDictionaryEntries) {
+			
+			if (matchWord(currentWordDictionaryEntry, word) == true) {
+				result.add(currentWordDictionaryEntry);
+			}
+			
+			if (result.size() >= MAX_SEARCH_RESULT) {
+				break;
+			}
+		}
+		
+		return result;
+	}
+	
+	public boolean matchWord(DictionaryEntry dictionaryEntry, String word) {
+		
+		String fullKanji = dictionaryEntry.getFullKanji();
+		
+		if (fullKanji != null && fullKanji.contains(word) == true) {
+			return true;
+		}
+		
+		List<String> fullKanaList = dictionaryEntry.getFullKanaList();
+		
+		for (String currentFullKanaList : fullKanaList) {
+			
+			if (currentFullKanaList.toLowerCase().contains(word) == true) {
+				return true;
+			}
+		}
+		
+		String wordLowerCase = word.toLowerCase();
+		
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+		
+		for (String currentRomaji : romajiList) {
+			if (currentRomaji.toLowerCase().contains(wordLowerCase) == true) {
+				return true;
+			}
+		}
+		
+		List<String> translates = dictionaryEntry.getTranslates();
+		
+		
+		for (String currentTranslate : translates) {
+			if (currentTranslate.toLowerCase().contains(wordLowerCase) == true) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }

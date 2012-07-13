@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
-import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.Dictionary;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestGroup;
 
 import android.app.Activity;
@@ -59,7 +59,7 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				
 				if (position == 0) { // dictionary selected
-					Intent intent = new Intent(getApplicationContext(), Dictionary.class);
+					Intent intent = new Intent(getApplicationContext(), WordDictionary.class);
 					
 					startActivity(intent);					
 				} else if (position == 1) { // word test selected					
