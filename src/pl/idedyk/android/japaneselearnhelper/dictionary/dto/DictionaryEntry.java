@@ -123,4 +123,62 @@ public class DictionaryEntry {
 			return null;
 		}
 	}
+	
+	public String getFullText() {
+		
+		StringBuffer sb = new StringBuffer();
+		
+		String tempPrefix = prefix != null && prefix.equals("") == false ? prefix : null;
+				
+		if (kanji != null && kanji.equals("-") == false) {
+			
+			if (tempPrefix != null) {
+				sb.append("(").append(tempPrefix).append(") ");
+			}
+			
+			sb.append(kanji).append(" ");
+		}
+		
+		if (kanaList != null && kanaList.size() > 0) {
+			sb.append(toString(kanaList, tempPrefix)).append(" - ");
+		}
+
+		if (romajiList != null && romajiList.size() > 0) {
+			sb.append(toString(romajiList, null));
+		}
+
+		if (translates != null && translates.size() > 0) {
+			sb.append("\n\n");
+			sb.append(toString(translates, null));
+		}
+		
+		if (info != null && info.equals("") == false) {
+			sb.append(" - ").append(info);
+		}
+		
+		return sb.toString();
+	}
+	
+	private String toString(List<String> listString, String prefix) {
+		
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("[");
+		
+		for (int idx = 0; idx < listString.size(); ++idx) {
+			if (prefix != null) {
+				sb.append("(").append(prefix).append(")");
+			}
+			
+			sb.append(listString.get(idx));
+			
+			if (idx != listString.size() - 1) {
+				sb.append(", ");
+			}
+		}
+		
+		sb.append("]");
+		
+		return sb.toString();
+	}
 }

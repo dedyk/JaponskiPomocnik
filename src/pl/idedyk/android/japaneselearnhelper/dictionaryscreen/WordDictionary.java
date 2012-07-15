@@ -13,8 +13,9 @@ import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
-import android.widget.ArrayAdapter;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,8 +35,9 @@ public class WordDictionary extends Activity {
 		
 		ListView searchResultListView = (ListView)findViewById(R.id.word_dictionary_search_result_list);
 		
-		final List<String> searchResultList = new ArrayList<String>();
-		final ArrayAdapter<String> searchResultArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, searchResultList);
+		final List<WordDictionaryListItem> searchResultList = new ArrayList<WordDictionaryListItem>();
+		final WordDictionaryListItemAdapter searchResultArrayAdapter = new WordDictionaryListItemAdapter(this, 
+				R.layout.word_dictionary_simplerow, searchResultList);
 		
 		searchResultListView.setAdapter(searchResultArrayAdapter);
 		
@@ -70,8 +72,40 @@ public class WordDictionary extends Activity {
 					        
 							wordDictionarySearchElementsNoTextView.setText(resources.getString(R.string.word_dictionary_elements_no, foundWord.size()));
 
+							String findWordLowerCase = findWord.toLowerCase();
+							
 							for (DictionaryEntry currentFoundWord : foundWord) {
-								searchResultList.add("FIXME: " + currentFoundWord.getFullKanji()); // FIXME !!!
+								
+								String currentFoundWordFullText = currentFoundWord.getFullText();
+								
+								currentFoundWordFullText = currentFoundWordFullText.replaceAll("\n", "<br/>");
+								
+								StringBuffer currentFoundWordFullTexStringBuffer = new StringBuffer(currentFoundWordFullText);								
+								StringBuffer currentFoundWordFullTextLowerCase = new StringBuffer(currentFoundWordFullText.toLowerCase());
+																
+								int idxStart = 0;
+								
+								final String fontBegin = "<font color='red'>";
+								final String fontEnd = "</font>";
+								
+								while(true) {
+									
+									int idx1 = currentFoundWordFullTextLowerCase.indexOf(findWordLowerCase, idxStart);
+									
+									if (idx1 == -1) {
+										break;
+									}
+									
+									currentFoundWordFullTexStringBuffer.insert(idx1, fontBegin);
+									currentFoundWordFullTextLowerCase.insert(idx1, fontBegin);
+									
+									currentFoundWordFullTexStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
+									currentFoundWordFullTextLowerCase.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
+
+									idxStart = idx1 + findWordLowerCase.length() + fontBegin.length() + fontEnd.length();
+								}
+																
+								searchResultList.add(new WordDictionaryListItem(currentFoundWord, Html.fromHtml(currentFoundWordFullTexStringBuffer.toString())));								
 							}
 
 							searchResultArrayAdapter.notifyDataSetChanged();
