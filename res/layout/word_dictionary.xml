@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="right"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -22,23 +23,56 @@
             android:layout_height="wrap_content"
             android:inputType="text" >
         </EditText>
-        
     </LinearLayout>
-    
-    	<ListView
-    	    android:id="@+id/word_dictionary_search_result_list"
-    	    android:layout_width="match_parent"
-    	    android:layout_height="0dp"
-    	    android:layout_weight="1" >
 
-    	</ListView>
-    	
-    <TextView
-        android:id="@+id/word_dictionary_elements_no"
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/word_dictionary_search_result_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </ListView>
+    
+    <View
+    android:layout_width="fill_parent"
+    android:layout_height="1dp"
+    android:background="@android:color/darker_gray"/>
+    
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_weight="0.05"
-        android:text="@string/word_dictionary_elements_no" />
+        android:gravity="left"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/word_dictionary_report_problem_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="@string/word_dictionary_search_report_problem" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/word_dictionary_report_problem_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/report_problem" />
+
+        <TextView
+            android:id="@+id/word_dictionary_elements_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:text="@string/word_dictionary_elements_no" />
+    </RelativeLayout>
 
 </LinearLayout>

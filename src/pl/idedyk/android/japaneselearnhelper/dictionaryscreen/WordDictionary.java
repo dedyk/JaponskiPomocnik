@@ -8,6 +8,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.AsyncTask;
@@ -15,7 +16,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
-import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -131,6 +134,26 @@ public class WordDictionary extends Activity {
 		});	
 		
 		wordDictionarySearchElementsNoTextView.setText(resources.getString(R.string.word_dictionary_elements_no, 0));
+		
+		Button reportProblemButton = (Button)findViewById(R.id.word_dictionary_report_problem_button);
+		
+		reportProblemButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				// FIXME !!!
+				
+				Intent email = new Intent(Intent.ACTION_SEND);
+				
+				email.putExtra(Intent.EXTRA_EMAIL, new String[] { "fryderyk.mazurek@gmail.com" } );		  
+				email.putExtra(Intent.EXTRA_SUBJECT, "Słowniczek: Problem w wyszukiwaniu");
+				email.putExtra(Intent.EXTRA_TEXT, "FIXME - Wiadomość");
+				
+				email.setType("message/rfc822");
+				
+				startActivity(Intent.createChooser(email, "Wybierz klienta poczty:"));
+			}
+		});
 	}
 	
 	@Override

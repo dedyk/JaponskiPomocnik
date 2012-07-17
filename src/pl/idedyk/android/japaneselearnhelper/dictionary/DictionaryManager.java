@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.csvreader.CsvReader;
@@ -16,7 +18,7 @@ public class DictionaryManager {
 	
 	private static int GROUP_SIZE = 10;
 	
-	private static int MAX_LIST_SIZE = 4;
+	private static int MAX_LIST_SIZE = 5;
 	
 	private static int MAX_SEARCH_RESULT = 50;
 	
@@ -58,22 +60,30 @@ public class DictionaryManager {
 		
 		while(csvReader.readRecord()) {
 			
-			String dictionaryEntryType = csvReader.get(0);
-			String prefixString = csvReader.get(2);
-			String kanjiString = csvReader.get(3);
+			String idString = csvReader.get(0);
+			String dictionaryEntryTypeString = csvReader.get(2);
+			String prefixString = csvReader.get(4);
+			String kanjiString = csvReader.get(5);
 			
 			if (kanjiString.equals("") == true || kanjiString.equals("-") == true) {
 				kanjiString = null;
 			}
 			
-			String kanaListString = csvReader.get(5);
-			String romajiListString = csvReader.get(6);
-			String translateListString = csvReader.get(7);
-			String infoString = csvReader.get(8);
+			String kanaListString = csvReader.get(7);
+			String romajiListString = csvReader.get(8);
+			String translateListString = csvReader.get(9);
+			String infoString = csvReader.get(10);
+			
+			DictionaryEntryType dictionaryEntryType = DictionaryEntryType.valueOf(dictionaryEntryTypeString);
+			
+			if (dictionaryEntryType == DictionaryEntryType.WORD_KANJI_READING) {
+				continue;
+			} // FIXME
 			
 			DictionaryEntry entry = new DictionaryEntry();
 			
-			entry.setDictionaryEntryType(DictionaryEntryType.valueOf(dictionaryEntryType));
+			entry.setId(Integer.parseInt(idString));
+			entry.setDictionaryEntryType(dictionaryEntryType);
 			entry.setPrefix(prefixString);
 			entry.setKanji(kanjiString);
 			entry.setRomajiList(parseStringIntoList(romajiListString));
@@ -142,6 +152,30 @@ public class DictionaryManager {
 				break;
 			}
 		}
+		
+		Collections.sort(result, new Comparator<DictionaryEntry>() {
+
+			public int compare(DictionaryEntry lhs, DictionaryEntry rhs) {
+				
+				String lhsKanji = lhs.getKanji();
+				String rhsKanji = rhs.getKanji();
+				
+				if (lhsKanji == null && rhsKanji == null) {
+					// noop
+				} else if (lhsKanji != null && rhsKanji == null) {
+					return -1;
+				} else if (lhsKanji == null && rhsKanji != null) {
+					return 1;
+				} else if (lhsKanji != null && rhsKanji != null) {
+					
+					int compareResult = lhsKanji.compareTo(rhsKanji);
+					
+					return compareResult;
+				}				
+				
+				return 0;
+			}
+		});
 		
 		return result;
 	}

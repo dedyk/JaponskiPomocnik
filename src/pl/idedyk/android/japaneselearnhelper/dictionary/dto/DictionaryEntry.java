@@ -5,6 +5,8 @@ import java.util.List;
 
 public class DictionaryEntry {
 	
+	private int id;
+		
 	private DictionaryEntryType dictionaryEntryType;
 	
 	private String prefix;
@@ -159,6 +161,22 @@ public class DictionaryEntry {
 		return sb.toString();
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public List<String> getKanaList() {
+		return kanaList;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	private String toString(List<String> listString, String prefix) {
 		
 		StringBuffer sb = new StringBuffer();

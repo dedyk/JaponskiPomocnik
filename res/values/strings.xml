@@ -5,7 +5,7 @@
     <string name="main_menu_word_test">Test ze słówek</string>
     <string name="main_menu_kanji_test">Test z kanji</string>
     <string name="word_dictionary_view_label">Słowniczek</string>
-    <string name="word_dictionary_search_label">Szukana faza</string>
+    <string name="word_dictionary_search_label">Szukana fraza</string>
     <string name="word_dictionary_elements_no">Liczba elementów: %1$d</string>
     <string name="word_dictionary_searching1">Szukanie</string>
     <string name="word_dictionary_searching2">Proszę czekać</string>
@@ -31,5 +31,7 @@
     <string name="word_test_group_view_label">Proszę wybrać grupę do testu</string>
     <string name="word_test_group_no">Grupa nr. %1$d</string>
     <string name="word_test_group_start_button">Start</string>
+    <string name="report_problem">Zgłoś problem</string>
+    <string name="word_dictionary_search_report_problem">Wydzisz błąd, brakuje szukanego słowa, zgłoś problem</string>
     
 </resources>
