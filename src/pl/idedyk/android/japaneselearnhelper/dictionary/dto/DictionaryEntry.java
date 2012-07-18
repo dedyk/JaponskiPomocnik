@@ -1,10 +1,13 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DictionaryEntry {
+public class DictionaryEntry implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private int id;
 		
 	private DictionaryEntryType dictionaryEntryType;

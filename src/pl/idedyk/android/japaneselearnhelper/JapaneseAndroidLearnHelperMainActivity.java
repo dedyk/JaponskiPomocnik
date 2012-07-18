@@ -61,7 +61,7 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				if (position == 0) { // dictionary selected
 					Intent intent = new Intent(getApplicationContext(), WordDictionary.class);
 					
-					startActivity(intent);					
+					startActivity(intent);
 				} else if (position == 1) { // word test selected					
 					Intent intent = new Intent(getApplicationContext(), WordTestGroup.class);
 					

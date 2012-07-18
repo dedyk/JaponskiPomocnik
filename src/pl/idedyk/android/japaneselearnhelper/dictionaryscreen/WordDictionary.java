@@ -19,6 +19,8 @@ import android.text.Html;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -44,6 +46,21 @@ public class WordDictionary extends Activity {
 				R.layout.word_dictionary_simplerow, searchResultList);
 		
 		searchResultListView.setAdapter(searchResultArrayAdapter);
+		
+		searchResultListView.setOnItemClickListener(new OnItemClickListener() {
+
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				
+				WordDictionaryListItem wordDictionaryListItem = searchResultArrayAdapter.getItem(position);
+				
+				Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+				
+				intent.putExtra("item", wordDictionaryListItem.getDictionaryEntry());
+				
+				startActivity(intent);
+				
+			}
+		});
 		
 		EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);
 		
@@ -161,7 +178,9 @@ public class WordDictionary extends Activity {
 						searchValueEditText.getText(), searchListText.toString());				
 								
 				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
-				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));				
+				
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+				finish();
 			}
 		});
 	}
