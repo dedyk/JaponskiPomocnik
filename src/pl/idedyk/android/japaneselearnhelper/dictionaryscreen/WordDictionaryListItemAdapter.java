@@ -49,6 +49,10 @@ public class WordDictionaryListItemAdapter extends ArrayAdapter<WordDictionaryLi
         return convertView;
     }
     
+    public int size() {
+    	return data.size();
+    }
+    
     static private class WordDictionaryListItemHolder {
     	TextView wordDictionaryListItemHolderValue;    	
     }

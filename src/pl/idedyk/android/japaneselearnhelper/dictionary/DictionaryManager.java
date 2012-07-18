@@ -157,20 +157,25 @@ public class DictionaryManager {
 
 			public int compare(DictionaryEntry lhs, DictionaryEntry rhs) {
 				
-				String lhsKanji = lhs.getKanji();
-				String rhsKanji = rhs.getKanji();
+				List<String> lhsKanaList = lhs.getKanaList();
+				List<String> rhsKanaList = rhs.getKanaList();
 				
-				if (lhsKanji == null && rhsKanji == null) {
-					// noop
-				} else if (lhsKanji != null && rhsKanji == null) {
+				if (lhsKanaList.size() < rhsKanaList.size()) {
 					return -1;
-				} else if (lhsKanji == null && rhsKanji != null) {
+				} else if (lhsKanaList.size() > rhsKanaList.size()) {
 					return 1;
-				} else if (lhsKanji != null && rhsKanji != null) {
+				}
+				
+				for (int idx = 0; idx < lhsKanaList.size(); ++idx) {
 					
-					int compareResult = lhsKanji.compareTo(rhsKanji);
+					String currentLhsKanaList = lhsKanaList.get(idx);
+					String currentRhsKanaList = rhsKanaList.get(idx);
 					
-					return compareResult;
+					int compareResult = currentLhsKanaList.compareToIgnoreCase(currentRhsKanaList);
+					
+					if (compareResult != 0) {
+						return compareResult;
+					}
 				}				
 				
 				return 0;

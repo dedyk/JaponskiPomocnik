@@ -6,6 +6,7 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -141,17 +142,26 @@ public class WordDictionary extends Activity {
 			
 			public void onClick(View view) {
 				
-				// FIXME !!!
+				EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);
+				ListView searchResultListView = (ListView)findViewById(R.id.word_dictionary_search_result_list);
 				
-				Intent email = new Intent(Intent.ACTION_SEND);
+				WordDictionaryListItemAdapter searchResultListViewAdapter = (WordDictionaryListItemAdapter)searchResultListView.getAdapter();				
 				
-				email.putExtra(Intent.EXTRA_EMAIL, new String[] { "fryderyk.mazurek@gmail.com" } );		  
-				email.putExtra(Intent.EXTRA_SUBJECT, "Słowniczek: Problem w wyszukiwaniu");
-				email.putExtra(Intent.EXTRA_TEXT, "FIXME - Wiadomość");
+				StringBuffer searchListText = new StringBuffer();
 				
-				email.setType("message/rfc822");
+				for (int searchResultListViewAdapterIdx = 0; searchResultListViewAdapterIdx < searchResultListViewAdapter.size(); ++searchResultListViewAdapterIdx) {
+					searchListText.append(searchResultListViewAdapter.getItem(searchResultListViewAdapterIdx).getText().toString()).append("\n--\n");
+				}
 				
-				startActivity(Intent.createChooser(email, "Wybierz klienta poczty:"));
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+				
+				String mailSubject = getString(R.string.word_dictionary_search_report_problem_email_subject);
+				
+				String mailBody = getString(R.string.word_dictionary_search_report_problem_email_body,
+						searchValueEditText.getText(), searchListText.toString());				
+								
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));				
 			}
 		});
 	}

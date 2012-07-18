@@ -32,6 +32,9 @@
     <string name="word_test_group_no">Grupa nr. %1$d</string>
     <string name="word_test_group_start_button">Start</string>
     <string name="report_problem">Zgłoś problem</string>
-    <string name="word_dictionary_search_report_problem">Wydzisz błąd, brakuje szukanego słowa, zgłoś problem</string>
+    <string name="word_dictionary_search_report_problem">Wydzisz błąd, brakuje szukanego słowa, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="choose_email_client">Wybierz klienta poczty:</string>
+    <string name="word_dictionary_search_report_problem_email_subject">Słowniczek: Problem w wyszukiwaniu</string>
+    <string name="word_dictionary_search_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\nWpisana fraza: %1$s\n\n--\nAktualna zawartość listy:\n\n%2$s\n</string>
     
 </resources>
