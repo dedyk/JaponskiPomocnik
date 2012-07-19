@@ -37,4 +37,7 @@
     <string name="word_dictionary_search_report_problem_email_subject">Słowniczek: Problem w wyszukiwaniu</string>
     <string name="word_dictionary_search_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\nWpisana fraza: %1$s\n\n--\nAktualna zawartość listy:\n\n%2$s\n</string>
     <string name="word_dictionary_details">Szczegóły wpisu</string>
+    <string name="word_dictionary_details_report_problem">Wydzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="word_dictionary_details_kanji_label">Kanji</string>
+    <string name="word_dictionary_details_kana_label">Kana</string>
 </resources>
