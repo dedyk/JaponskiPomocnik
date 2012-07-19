@@ -180,7 +180,6 @@ public class WordDictionary extends Activity {
 				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
 				
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
-				finish();
 			}
 		});
 	}
