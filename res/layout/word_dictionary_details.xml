@@ -5,41 +5,20 @@
     android:gravity="right"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/word_dictionary_details_main_layout_scroll"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:orientation="vertical" >
+        android:layout_weight="1" >
 
-        <TextView
-            android:id="@+id/word_dictionary_details_kanji_label"
+        <LinearLayout
+            android:id="@+id/word_dictionary_details_main_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/background_color"
-            android:text="@string/word_dictionary_details_kanji_label" />
-
-        <TextView
-            android:id="@+id/word_dictionary_details_kanji_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:textSize="25dp" />
-
-        <TextView
-            android:id="@+id/word_dictionary_details_kana_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/background_color"
-            android:text="@string/word_dictionary_details_kana_label" />
-
-        <TextView
-            android:id="@+id/word_dictionary_details_kana_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:textSize="12dp" />
-    </LinearLayout>
+            android:layout_height="0dip"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
 
     <View
         android:layout_width="fill_parent"
@@ -51,11 +30,9 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/word_dictionary_report_problem_button"
+            android:id="@+id/word_dictionary_details_report_problem_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
             android:text="@string/report_problem" />
 
         <TextView

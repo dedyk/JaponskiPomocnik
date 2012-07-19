@@ -80,14 +80,21 @@ public class DictionaryManager {
 				continue;
 			} // FIXME
 			
+			List<String> romajiList = parseStringIntoList(romajiListString);
+			List<String> kanaList = parseStringIntoList(kanaListString);
+			
+			if (romajiList.size() != kanaList.size()) {
+				throw new DictionaryException("Parse parseStringIntoList size exception");
+			}
+			
 			DictionaryEntry entry = new DictionaryEntry();
 			
 			entry.setId(Integer.parseInt(idString));
 			entry.setDictionaryEntryType(dictionaryEntryType);
 			entry.setPrefix(prefixString);
 			entry.setKanji(kanjiString);
-			entry.setRomajiList(parseStringIntoList(romajiListString));
-			entry.setKanaList(parseStringIntoList(kanaListString));
+			entry.setRomajiList(romajiList);
+			entry.setKanaList(kanaList);
 			entry.setTranslates(parseStringIntoList(translateListString));
 			
 			entry.setInfo(infoString);

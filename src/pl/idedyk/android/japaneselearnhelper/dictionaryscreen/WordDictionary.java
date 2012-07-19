@@ -97,7 +97,7 @@ public class WordDictionary extends Activity {
 							
 							for (DictionaryEntry currentFoundWord : foundWord) {
 								
-								String currentFoundWordFullText = currentFoundWord.getFullText();
+								String currentFoundWordFullText = currentFoundWord.getFullText(false);
 								
 								currentFoundWordFullText = currentFoundWordFullText.replaceAll("\n", "<br/>");
 								

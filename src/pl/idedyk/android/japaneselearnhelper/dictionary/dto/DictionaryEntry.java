@@ -122,20 +122,28 @@ public class DictionaryEntry implements Serializable {
 	
 	public String getFullKanji() {
 		
-		if (kanji != null) {
-			return kanji.equals("-") == false ? prefix + kanji : kanji;	
+		if (isKanjiExists() == true) {
+			return prefix + kanji;	
 		} else {
 			return null;
 		}
 	}
 	
-	public String getFullText() {
+	public boolean isKanjiExists() {
+		if (kanji != null && kanji.equals("-") == false) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public String getFullText(boolean withInfo) {
 		
 		StringBuffer sb = new StringBuffer();
 		
 		String tempPrefix = prefix != null && prefix.equals("") == false ? prefix : null;
 				
-		if (kanji != null && kanji.equals("-") == false) {
+		if (isKanjiExists() == true) {
 			
 			if (tempPrefix != null) {
 				sb.append("(").append(tempPrefix).append(") ");
@@ -157,7 +165,7 @@ public class DictionaryEntry implements Serializable {
 			sb.append(toString(translates, null));
 		}
 		
-		if (info != null && info.equals("") == false) {
+		if (withInfo == true && info != null && info.equals("") == false) {
 			sb.append(" - ").append(info);
 		}
 		
