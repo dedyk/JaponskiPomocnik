@@ -5,6 +5,7 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager.FindWordResult;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
@@ -80,22 +81,23 @@ public class WordDictionary extends Activity {
 							getString(R.string.word_dictionary_searching1),
 							getString(R.string.word_dictionary_searching2));
 					
-					class FindWordAsyncTask extends AsyncTask<Void, Void, List<DictionaryEntry>> {
+					class FindWordAsyncTask extends AsyncTask<Void, Void, FindWordResult> {
 						
 						@Override
-						protected List<DictionaryEntry> doInBackground(Void... params) {							
+						protected FindWordResult doInBackground(Void... params) {							
 							return dictionaryManager.findWord(findWord);
 						}
 						
 					    @Override
-					    protected void onPostExecute(List<DictionaryEntry> foundWord) {
+					    protected void onPostExecute(FindWordResult foundWord) {
 					        super.onPostExecute(foundWord);
 					        
-							wordDictionarySearchElementsNoTextView.setText(resources.getString(R.string.word_dictionary_elements_no, foundWord.size()));
+							wordDictionarySearchElementsNoTextView.setText(resources.getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
+									(foundWord.moreElemetsExists == true ? "+" : "" )));
 
 							String findWordLowerCase = findWord.toLowerCase();
 							
-							for (DictionaryEntry currentFoundWord : foundWord) {
+							for (DictionaryEntry currentFoundWord : foundWord.result) {
 								
 								String currentFoundWordFullText = currentFoundWord.getFullText(false);
 								

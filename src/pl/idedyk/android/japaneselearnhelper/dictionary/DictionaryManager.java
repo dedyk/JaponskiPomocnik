@@ -145,22 +145,26 @@ public class DictionaryManager {
 		return result;
 	}
 	
-	public List<DictionaryEntry> findWord(String word) {
+	public FindWordResult findWord(String word) {
 		
-		List<DictionaryEntry> result = new ArrayList<DictionaryEntry>();
+		FindWordResult findWordResult = new FindWordResult();
+		
+		findWordResult.result = new ArrayList<DictionaryEntry>();
 		
 		for (DictionaryEntry currentWordDictionaryEntry : wordDictionaryEntries) {
 			
 			if (matchWord(currentWordDictionaryEntry, word) == true) {
-				result.add(currentWordDictionaryEntry);
+				findWordResult.result.add(currentWordDictionaryEntry);
 			}
 			
-			if (result.size() >= MAX_SEARCH_RESULT) {
+			if (findWordResult.result.size() >= MAX_SEARCH_RESULT) {
+				findWordResult.moreElemetsExists = true;
+				
 				break;
 			}
 		}
 		
-		Collections.sort(result, new Comparator<DictionaryEntry>() {
+		Collections.sort(findWordResult.result, new Comparator<DictionaryEntry>() {
 
 			public int compare(DictionaryEntry lhs, DictionaryEntry rhs) {
 				
@@ -189,7 +193,7 @@ public class DictionaryManager {
 			}
 		});
 		
-		return result;
+		return findWordResult;
 	}
 	
 	public boolean matchWord(DictionaryEntry dictionaryEntry, String word) {
@@ -229,5 +233,12 @@ public class DictionaryManager {
 		}
 		
 		return false;
+	}
+	
+	public static class FindWordResult {
+		
+		public List<DictionaryEntry> result;
+		
+		public boolean moreElemetsExists = false;		
 	}
 }

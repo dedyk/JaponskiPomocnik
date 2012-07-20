@@ -6,7 +6,7 @@
     <string name="main_menu_kanji_test">Test z kanji</string>
     <string name="word_dictionary_view_label">Słowniczek</string>
     <string name="word_dictionary_search_label">Szukana fraza</string>
-    <string name="word_dictionary_elements_no">Liczba elementów: %1$d</string>
+    <string name="word_dictionary_elements_no">Liczba elementów: %1$s</string>
     <string name="word_dictionary_searching1">Szukanie</string>
     <string name="word_dictionary_searching2">Proszę czekać</string>
     <string name="word_test_kanji_label">Kanji</string>
