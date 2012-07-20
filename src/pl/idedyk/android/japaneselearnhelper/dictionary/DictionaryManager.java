@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 import com.csvreader.CsvReader;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 
 public class DictionaryManager {
@@ -164,6 +166,8 @@ public class DictionaryManager {
 			}
 		}
 		
+		final Map<String, KanaEntry> kanaCache = KanaHelper.getKanaCache();
+		
 		Collections.sort(findWordResult.result, new Comparator<DictionaryEntry>() {
 
 			public int compare(DictionaryEntry lhs, DictionaryEntry rhs) {
@@ -171,6 +175,7 @@ public class DictionaryManager {
 				List<String> lhsKanaList = lhs.getKanaList();
 				List<String> rhsKanaList = rhs.getKanaList();
 				
+				/*
 				if (lhsKanaList.size() < rhsKanaList.size()) {
 					return -1;
 				} else if (lhsKanaList.size() > rhsKanaList.size()) {
@@ -187,9 +192,52 @@ public class DictionaryManager {
 					if (compareResult != 0) {
 						return compareResult;
 					}
-				}				
+				}
+				*/
+				
+				int maxArraySize = lhsKanaList.size();
+				
+				if (maxArraySize < rhsKanaList.size()) {
+					maxArraySize = rhsKanaList.size();
+				}
+				
+				for (int idx = 0; idx < maxArraySize; ++idx) {
+					int compareResult = compare(lhsKanaList, rhsKanaList, idx);
+					
+					if (compareResult != 0) {
+						return compareResult;
+					}
+				}
 				
 				return 0;
+			}
+			
+			private int compare(List<String> lhsKanaList, List<String> rhsKanaList, int idx) {
+				
+				String lhsString = getString(lhsKanaList, idx);
+				
+				String rhsString = getString(rhsKanaList, idx);
+				
+				if (lhsString == null && rhsString == null) {
+					return 0;
+				} else if (lhsString != null && rhsString == null) {
+					return -1;
+				} else if (lhsString == null && rhsString != null) {
+					return 1;
+				} else {
+					String lhsRomaji = KanaHelper.createRomajiString(KanaHelper.convertKanaStringIntoKanaWord(lhsString, kanaCache));
+					String rhsRomaji = KanaHelper.createRomajiString(KanaHelper.convertKanaStringIntoKanaWord(rhsString, kanaCache));
+					
+					return lhsRomaji.compareToIgnoreCase(rhsRomaji);
+				}
+			}
+			
+			private String getString(List<String> kanaList, int kanaListIdx) {
+				if (kanaListIdx < kanaList.size()) {
+					return kanaList.get(kanaListIdx);
+				} else {
+					return null;
+				}
 			}
 		});
 		
