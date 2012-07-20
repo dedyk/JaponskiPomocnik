@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="word_test_kanji_label">Kanji</string>
+    <string name="word_test_word_label">Słowo</string>
+    <string name="word_test_translate_label">Tłumaczenie</string>
+    <string name="word_test_additional_info_label">Dodatkowe informacje</string>
+    <string name="word_test_state">Pozycja: %1$d z %2$d</string>
+    <string name="word_test_next_button">Dalej</string>
+    <string name="word_test_view_label">Test ze słówek</string>
+    <string name="word_test_correct">Prawidłowa odpowiedź</string>
+    <string name="word_test_incorrect">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n</string>
+    <string name="word_test_incorrect_ok">OK</string>
+    <string name="word_test_summary_result_label">Rezultat</string>
+    <string name="word_test_summary_result_value_label">0 %</string>
+    <string name="word_test_summary_answers_no_label">Liczba odpowiedzi</string>
+    <string name="word_test_summary_answers_no_value_label">0</string>
+    <string name="word_test_summary_view_label">Wyniki</string>
+    <string name="word_test_summary_correct_answers_no_label">Liczba prawidłowych odpowiedzi</string>
+    <string name="word_test_summary_correct_answers_no_value_label">0</string>
+    <string name="word_test_summary_incorrect_answers_no_label">Liczba nieprawidłowych odpowiedzi</string>
+    <string name="word_test_summary_incorrect_answers_no_value_label">0</string>
+    <string name="word_test_group_view_label">Proszę wybrać grupę do testu</string>
+    <string name="word_test_group_no">Grupa nr. %1$d</string>
+    <string name="word_test_group_start_button">Start</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JapaneseAndroidLearnHelper</string>
+    <string name="main_menu_dictionary">Słowniczek</string>
+    <string name="main_menu_word_test">Test ze słówek</string>
+    <string name="main_menu_kanji_test">Test z kanji</string>
+    <string name="report_problem">Zgłoś problem</string>
+    <string name="choose_email_client">Wybierz klienta poczty:</string>
+</resources>
