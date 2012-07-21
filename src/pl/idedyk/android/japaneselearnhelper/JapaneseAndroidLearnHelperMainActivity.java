@@ -5,6 +5,7 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
+import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestGroup;
 
 import android.app.Activity;
@@ -36,6 +37,8 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     	
     	List<String> mainMenuListItems = new ArrayList<String>();
     	
+    	mainMenuListItems.add(getResources().getString(R.string.main_menu_kana));
+    	
     	mainMenuListItems.add(getResources().getString(R.string.main_menu_dictionary));
     	
     	mainMenuListItems.add(getResources().getString(R.string.main_menu_word_test));
@@ -58,11 +61,15 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				
-				if (position == 0) { // dictionary selected
+				if (position == 0) { // kana selected
+					Intent intent = new Intent(getApplicationContext(), Kana.class);
+					
+					startActivity(intent);
+				} else if (position == 1) { // dictionary selected
 					Intent intent = new Intent(getApplicationContext(), WordDictionary.class);
 					
 					startActivity(intent);
-				} else if (position == 1) { // word test selected					
+				} else if (position == 2) { // word test selected					
 					Intent intent = new Intent(getApplicationContext(), WordTestGroup.class);
 					
 					startActivity(intent);

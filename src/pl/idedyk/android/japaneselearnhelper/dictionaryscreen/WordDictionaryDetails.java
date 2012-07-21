@@ -6,17 +6,16 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
+import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
+import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class WordDictionaryDetails extends Activity {
 
@@ -66,7 +65,7 @@ public class WordDictionaryDetails extends Activity {
 				
 		LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.word_dictionary_details_main_layout);
 		
-		final List<IWordDictionaryDetailsReportItem> generatedDetails = generateDetails(dictionaryEntry);
+		final List<IScreenItem> generatedDetails = generateDetails(dictionaryEntry);
 		
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 		
@@ -78,7 +77,7 @@ public class WordDictionaryDetails extends Activity {
 				
 				StringBuffer detailsSb = new StringBuffer();
 				
-				for (IWordDictionaryDetailsReportItem currentGeneratedDetails : generatedDetails) {
+				for (IScreenItem currentGeneratedDetails : generatedDetails) {
 					detailsSb.append(currentGeneratedDetails.toString()).append("\n\n");
 				}
 				
@@ -96,9 +95,9 @@ public class WordDictionaryDetails extends Activity {
 		});
 	}
 
-	private List<IWordDictionaryDetailsReportItem> generateDetails(DictionaryEntry dictionaryEntry) {
+	private List<IScreenItem> generateDetails(DictionaryEntry dictionaryEntry) {
 		
-		List<IWordDictionaryDetailsReportItem> report = new ArrayList<IWordDictionaryDetailsReportItem>();
+		List<IScreenItem> report = new ArrayList<IScreenItem>();
 		
 		String prefix = dictionaryEntry.getPrefix();
 		
@@ -107,7 +106,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// Kanji		
-		report.add(new WordDictionaryDetailsReportTitleItem(getString(R.string.word_dictionary_details_kanji_label)));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_kanji_label)));
 		
 		StringBuffer kanjiSb = new StringBuffer();
 		
@@ -121,10 +120,10 @@ public class WordDictionaryDetails extends Activity {
 			kanjiSb.append("-");
 		}
 		
-		report.add(new WordDictionaryDetailsStringValue(kanjiSb.toString(), 35.0f));
+		report.add(new StringValue(kanjiSb.toString(), 35.0f));
 		
 		// Reading
-		report.add(new WordDictionaryDetailsReportTitleItem(getString(R.string.word_dictionary_details_reading_label)));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label)));
 		
 		List<String> kanaList = dictionaryEntry.getKanaList();
 		List<String> romajiList = dictionaryEntry.getRomajiList();
@@ -139,106 +138,45 @@ public class WordDictionaryDetails extends Activity {
 			
 			sb.append(kanaList.get(idx)).append(" - ").append(romajiList.get(idx));
 						
-			report.add(new WordDictionaryDetailsStringValue(sb.toString(), 20.0f));
+			report.add(new StringValue(sb.toString(), 20.0f));
 		}
 		
 		// Translate
-		report.add(new WordDictionaryDetailsReportTitleItem(getString(R.string.word_dictionary_details_translate_label)));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_translate_label)));
 		
 		List<String> translates = dictionaryEntry.getTranslates();
 		
 		for (int idx = 0; idx < translates.size(); ++idx) {
-			report.add(new WordDictionaryDetailsStringValue(translates.get(idx), 20.0f));
+			report.add(new StringValue(translates.get(idx), 20.0f));
 		}
 		
 		// Additional info
-		report.add(new WordDictionaryDetailsReportTitleItem(getString(R.string.word_dictionary_details_additional_info_label)));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_additional_info_label)));
 		
 		String info = dictionaryEntry.getInfo();
 		
 		if (info != null && info.length() > 0) {
-			report.add(new WordDictionaryDetailsStringValue(info, 20.0f));
+			report.add(new StringValue(info, 20.0f));
 		} else {
-			report.add(new WordDictionaryDetailsStringValue("-", 20.0f));
+			report.add(new StringValue("-", 20.0f));
 		}
 		
 		// Word type
 		boolean addableDictionaryEntryTypeInfo = dictionaryEntry.isAddableDictionaryEntryTypeInfo();
 		
 		if (addableDictionaryEntryTypeInfo == true) {
-			report.add(new WordDictionaryDetailsReportTitleItem(getString(R.string.word_dictionary_details_part_of_speech)));
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech)));
 			
-			report.add(new WordDictionaryDetailsStringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f));			
+			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f));			
 		}
 		
 		return report;
 	}
 	
-	private void fillDetailsMainLayout(List<IWordDictionaryDetailsReportItem> generatedDetails, LinearLayout detailsMainLayout) {
+	private void fillDetailsMainLayout(List<IScreenItem> generatedDetails, LinearLayout detailsMainLayout) {
 		
-		for (IWordDictionaryDetailsReportItem currentDetailsReportItem : generatedDetails) {
-			
+		for (IScreenItem currentDetailsReportItem : generatedDetails) {
 			currentDetailsReportItem.generate(this, getResources(), detailsMainLayout);			
-		}
-	}
-	
-	private static interface IWordDictionaryDetailsReportItem {
-		public void generate(Context context, Resources resources, LinearLayout layout);
-		
-		public String toString();
-	}
-	
-	private static class WordDictionaryDetailsReportTitleItem implements IWordDictionaryDetailsReportItem {
-
-		private String title;
-		
-		public WordDictionaryDetailsReportTitleItem(String title) {
-			this.title = title;
-		}
-
-		public void generate(Context context, Resources resources, LinearLayout layout) {
-			TextView textView = new TextView(context);
-			
-			textView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-			textView.setBackgroundColor(resources.getColor(R.color.word_dictionary_details_title_background_color));
-			textView.setTextSize(16.0f);
-			textView.setText(title);		
-			
-			layout.addView(textView);
-		}
-		
-		public String toString() {
-			return " *** " + title;			
-		}
-	}
-	
-	private static class WordDictionaryDetailsStringValue implements IWordDictionaryDetailsReportItem {
-		
-		private String value;
-		
-		private float textSize;
-		
-		public WordDictionaryDetailsStringValue(String value, float textSize) {
-			this.value = value;
-			this.textSize = textSize;
-		}
-
-		public void generate(Context context, Resources resources, LinearLayout layout) {
-			TextView textView = new TextView(context);
-			
-			LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			layoutParam.setMargins(20, 5, 0, 0);
-			
-			textView.setLayoutParams(layoutParam);
-			
-			textView.setTextSize(textSize);
-			textView.setText(value);
-			
-			layout.addView(textView);			
-		}
-		
-		public String toString() {
-			return value;
 		}
 	}
 }

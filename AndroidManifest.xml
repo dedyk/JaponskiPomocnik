@@ -22,7 +22,8 @@
         <activity android:name=".test.WordTestSummary" android:noHistory="true" android:label="@string/word_test_summary_view_label"></activity>
         <activity android:name=".test.WordTestGroup" android:noHistory="true" android:label="@string/word_test_group_view_label"></activity>
         <activity android:name=".dictionaryscreen.WordDictionary" android:label="@string/word_dictionary_view_label"></activity>
-        <activity android:name=".dictionaryscreen.WordDictionaryDetails" android:label="@string/word_dictionary_details"></activity>
+        <activity android:name=".dictionaryscreen.WordDictionaryDetails" android:label="@string/word_dictionary_details_label"></activity>
+        <activity android:name=".kana.Kana" android:label="@string/word_kana_label"></activity>
     </application>
 
 </manifest>

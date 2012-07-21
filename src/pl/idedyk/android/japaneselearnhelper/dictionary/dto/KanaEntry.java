@@ -4,8 +4,6 @@ public class KanaEntry {
 	private String kanaJapanese;
 	
 	private String kana;
-	
-	private String image;
 
 	public KanaEntry(String kanaJapanese, String kana) {
 		this.kanaJapanese = kanaJapanese;
@@ -18,13 +16,5 @@ public class KanaEntry {
 
 	public String getKana() {
 		return kana;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
 	}
 }
