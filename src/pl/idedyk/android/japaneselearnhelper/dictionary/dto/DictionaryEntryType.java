@@ -2,7 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
 public enum DictionaryEntryType {
 	
-	WORD_GREETING("Powitanie"),
+	WORD_GREETING("Zwrot grzecznościowy"),
 		
 	WORD_NUMBER("Liczba"),
 	

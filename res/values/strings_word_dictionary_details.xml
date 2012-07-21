@@ -6,4 +6,5 @@
     <string name="word_dictionary_details_reading_label">Czytanie</string>
     <string name="word_dictionary_details_translate_label">Tłumaczenie</string>
     <string name="word_dictionary_details_additional_info_label">Informacje dodatkowe</string>
+    <string name="word_dictionary_details_part_of_speech">Część mowy</string>
 </resources>

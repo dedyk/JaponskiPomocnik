@@ -58,18 +58,7 @@ public class WordDictionaryDetails extends Activity {
 		setContentView(R.layout.word_dictionary_details);
 		
 		DictionaryEntry dictionaryEntry = (DictionaryEntry)getIntent().getSerializableExtra("item");
-		
-		/*
-		TextView kanjiValue = (TextView)findViewById(R.id.word_dictionary_details_kanji_value);
-		
-		kanjiValue.setText(dictionaryEntry.getFullKanji());
-		
-		
-		TextView kanaValue = (TextView)findViewById(R.id.word_dictionary_details_kana_value);
-		
-		kanaValue.setText(dictionaryEntry.getKanaList().toString());
-		*/
-		
+				
 		LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.word_dictionary_details_main_layout);
 		
 		List<IWordDictionaryDetailsReportItem> generatedDetails = generateDetails(dictionaryEntry);
@@ -143,7 +132,14 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new WordDictionaryDetailsStringValue("-", 20.0f));
 		}
 		
-		// FIXME: dodac typ
+		// Word type
+		boolean addableDictionaryEntryTypeInfo = dictionaryEntry.isAddableDictionaryEntryTypeInfo();
+		
+		if (addableDictionaryEntryTypeInfo == true) {
+			report.add(new WordDictionaryDetailsReportTitleItem(getString(R.string.word_dictionary_details_part_of_speech)));
+			
+			report.add(new WordDictionaryDetailsStringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f));			
+		}
 		
 		return report;
 	}

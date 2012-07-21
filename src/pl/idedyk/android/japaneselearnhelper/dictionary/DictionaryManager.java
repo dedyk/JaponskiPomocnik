@@ -174,27 +174,7 @@ public class DictionaryManager {
 				
 				List<String> lhsKanaList = lhs.getKanaList();
 				List<String> rhsKanaList = rhs.getKanaList();
-				
-				/*
-				if (lhsKanaList.size() < rhsKanaList.size()) {
-					return -1;
-				} else if (lhsKanaList.size() > rhsKanaList.size()) {
-					return 1;
-				}
-				
-				for (int idx = 0; idx < lhsKanaList.size(); ++idx) {
-					
-					String currentLhsKanaList = lhsKanaList.get(idx);
-					String currentRhsKanaList = rhsKanaList.get(idx);
-					
-					int compareResult = currentLhsKanaList.compareToIgnoreCase(currentRhsKanaList);
-					
-					if (compareResult != 0) {
-						return compareResult;
-					}
-				}
-				*/
-				
+								
 				int maxArraySize = lhsKanaList.size();
 				
 				if (maxArraySize < rhsKanaList.size()) {

@@ -54,7 +54,7 @@ public class DictionaryEntry implements Serializable {
 			result.append(info);
 		}
 		
-		if (isAddDictionaryEntryTypeInfo() == true) {
+		if (isAddableDictionaryEntryTypeInfo() == true) {
 			if (result.length() > 0) {
 				result.append(", ");
 			}
@@ -69,14 +69,15 @@ public class DictionaryEntry implements Serializable {
 		}	
 	}
 	
-	private boolean isAddDictionaryEntryTypeInfo() {
+	public boolean isAddableDictionaryEntryTypeInfo() {
 		if (	dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU || 
 				dictionaryEntryType == DictionaryEntryType.WORD_VERB_U ||
 				dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR ||
 				dictionaryEntryType == DictionaryEntryType.WORD_VERB_TE ||
 				dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_I ||
 				dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_NA ||
-				dictionaryEntryType == DictionaryEntryType.WORD_KANJI_READING) {
+				dictionaryEntryType == DictionaryEntryType.WORD_NOUN ||
+				dictionaryEntryType == DictionaryEntryType.WORD_GREETING) {
 			
 			return true;
 		} else {
