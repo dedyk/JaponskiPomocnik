@@ -5,11 +5,16 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -61,9 +66,34 @@ public class WordDictionaryDetails extends Activity {
 				
 		LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.word_dictionary_details_main_layout);
 		
-		List<IWordDictionaryDetailsReportItem> generatedDetails = generateDetails(dictionaryEntry);
+		final List<IWordDictionaryDetailsReportItem> generatedDetails = generateDetails(dictionaryEntry);
 		
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
+		
+		Button reportProblemButton = (Button)findViewById(R.id.word_dictionary_details_report_problem_button);
+		
+		reportProblemButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				StringBuffer detailsSb = new StringBuffer();
+				
+				for (IWordDictionaryDetailsReportItem currentGeneratedDetails : generatedDetails) {
+					detailsSb.append(currentGeneratedDetails.toString()).append("\n\n");
+				}
+				
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+				
+				String mailSubject = getString(R.string.word_dictionary_details_report_problem_email_subject);
+				
+				String mailBody = getString(R.string.word_dictionary_details_report_problem_email_body,
+						detailsSb.toString());				
+								
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
+				
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			}
+		});
 	}
 
 	private List<IWordDictionaryDetailsReportItem> generateDetails(DictionaryEntry dictionaryEntry) {
@@ -154,6 +184,8 @@ public class WordDictionaryDetails extends Activity {
 	
 	private static interface IWordDictionaryDetailsReportItem {
 		public void generate(Context context, Resources resources, LinearLayout layout);
+		
+		public String toString();
 	}
 	
 	private static class WordDictionaryDetailsReportTitleItem implements IWordDictionaryDetailsReportItem {
@@ -173,6 +205,10 @@ public class WordDictionaryDetails extends Activity {
 			textView.setText(title);		
 			
 			layout.addView(textView);
+		}
+		
+		public String toString() {
+			return " *** " + title;			
 		}
 	}
 	
@@ -199,6 +235,10 @@ public class WordDictionaryDetails extends Activity {
 			textView.setText(value);
 			
 			layout.addView(textView);			
+		}
+		
+		public String toString() {
+			return value;
 		}
 	}
 }
