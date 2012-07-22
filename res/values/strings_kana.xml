@@ -3,4 +3,6 @@
     <string name="word_kana_label">Kana</string>
     <string name="word_kana_report_problem">Wydzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
     <string name="word_kana_hiragana_label">Hiragana</string>
+    <string name="word_kana_katakana_label">Katakana</string>
+    <string name="word_kana_katakana_additional_label">Katakana (dodatkowe)</string>
 </resources>
