@@ -78,10 +78,6 @@ public class DictionaryManager {
 			
 			DictionaryEntryType dictionaryEntryType = DictionaryEntryType.valueOf(dictionaryEntryTypeString);
 			
-			if (dictionaryEntryType == DictionaryEntryType.WORD_KANJI_READING) {
-				continue;
-			} // FIXME
-			
 			List<String> romajiList = parseStringIntoList(romajiListString);
 			List<String> kanaList = parseStringIntoList(kanaListString);
 			

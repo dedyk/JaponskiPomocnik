@@ -301,7 +301,7 @@ alkohol",również forma sake,
 235,WORD,UNKNOWN,HIRAGANA,,明日,,あした,ashita,jutro,,
 236,WORD,WORD_ASK,HIRAGANA,,-,,いつ,itsu,kiedy,,
 237,WORD,UNKNOWN,HIRAGANA,,今日,,きょう,kyou,dziś,,
-238,WORD,UNKNOWN,HIRAGANA,,-,,ごろ,goro,około,,
+238,WORD,UNKNOWN,HIRAGANA,,-,,ごろ,goro,około,do czasu,
 239,WORD,UNKNOWN,HIRAGANA,,今晩,,こんばん,konban,dziś wieczorem,,
 240,WORD,WORD_NOUN,HIRAGANA,,週末,,しゅうまつ,shuumatsu,weekend,,
 241,WORD,WORD_DAY_WEEK,HIRAGANA,,土曜日,,どようび,doyoubi,sobota,ziemia,
@@ -466,13 +466,15 @@ młody mnich",,
 374,WORD,WORD_DAY_WEEK,HIRAGANA,,木曜日,,もくようび,mokuyoubi,czwartek,drzewo,
 375,WORD,WORD_DAY_WEEK,HIRAGANA,,金曜日,,きんようび,kin'youbi,piątek,"pieniądze, złoto",
 379,WORD,WORD_VERB_U,HIRAGANA,と,会う,,あう,to au,"spotykać
-widzieć osobę",osoba to,
-380,WORD,WORD_VERB_U,HIRAGANA,が,-,,ある,ga aru,być,do rzeczy martwych,
+widzieć osobę","osoba to, spotkanie zaplanowane",
+380,WORD,WORD_VERB_U,HIRAGANA,が,有る,,ある,ga aru,"być
+istnieć",do rzeczy martwych,
 381,WORD,WORD_VERB_U,HIRAGANA,を,買う,,かう,wo kau,kupować,,
 383,WORD,WORD_VERB_U,HIRAGANA,を,撮る,,とる,wo toru,robić zdjęcie,,
 384,WORD,WORD_VERB_U,HIRAGANA,を,待つ,,まつ,wo matsu,czekać,,
 385,WORD,WORD_VERB_U,HIRAGANA,,-,,がわかる,ga wakaru,rozumieć,,
-386,WORD,WORD_VERB_RU,HIRAGANA,,-,,がいる,ga iru,być,"miejsce ni, do rzeczy żywych",
+386,WORD,WORD_VERB_RU,HIRAGANA,が,-,,いる,ga iru,"być
+istnieć","miejsce ni, do rzeczy żywych",
 387,WORD,UNKNOWN,HIRAGANA,,-,,ぐらい,gurai,około,ogólne,
 388,WORD,WORD_EXPRESSION,HIRAGANA,,-,,ごめんなさい,gomen nasai,przepraszam,,
 389,WORD,UNKNOWN,HIRAGANA,,-,,だから,dakara,ponieważ,,
@@ -793,7 +795,7 @@ nosić",powyżej paska,
 700,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,有名,,ゆうめい,yuumei,sławny,,
 701,WORD,WORD_VERB_U,HIRAGANA,,雨が降る,,あめがふる,ame ga furu,pada deszcz,,
 702,WORD,WORD_VERB_U,HIRAGANA,,洗う,,あらう,arau,myć,,
-704,WORD,WORD_VERB_U,HIRAGANA,,-,,がいる,ga iru,potrzebować,,
+704,WORD,WORD_VERB_U,HIRAGANA,が,-,,いる,ga iru,potrzebować,,
 705,WORD,WORD_VERB_U,HIRAGANA,に,遅くなる,,おそくなる,ni osoku naru,być spóźniony,na,
 706,WORD,WORD_VERB_U,HIRAGANA,,思う,,おもう,omou,myśleć,,
 707,WORD,WORD_VERB_U,HIRAGANA,,切る,,きる,kiru,ciąć,,
@@ -1552,11 +1554,11 @@ podnosić na duchu",,
 1409,WORD,WORD_EXPRESSION,HIRAGANA,,食べやすい,,たべやすい,tabe yasui,łatwość jedzenia,,
 1410,WORD,UNKNOWN,HIRAGANA,,本物,,ほんもの,honmono,prawdziwy,,
 1411,WORD,UNKNOWN,HIRAGANA,,贅沢,,ぜいたく,zeitaku,luksus,,
-1413,WORD,WORD_EXPRESSION,HIRAGANA,,-,,おなかがすいた,onaka ga suita,jestem głodny,,
+1413,WORD,WORD_EXPRESSION,HIRAGANA,,-,,おなかがすいた,onaka ga suita,być głodnym,,
 1414,WORD,WORD_VERB_U,HIRAGANA,,腹減る,,はらへる,hara heru,być głodnym,,
-1415,WORD,WORD_EXPRESSION,HIRAGANA,,腹減った,,はらへった,hara hetta,jestem głodny,,
+1415,WORD,WORD_EXPRESSION,HIRAGANA,,腹減った,,はらへった,hara hetta,być głodnym,,
 1416,WORD,WORD_EXPRESSION,HIRAGANA,,小腹,,こばら,kobara,mały głodek,,
-1417,WORD,WORD_EXPRESSION,HIRAGANA,,小腹がすいた,,こばらがすいた,kobara ga suita,jestem troszeczkę głodny,,
+1417,WORD,WORD_EXPRESSION,HIRAGANA,,小腹がすいた,,こばらがすいた,kobara ga suita,być troszeczkę głodny,,
 1418,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,立派,,りっぱ,rippa,"wspaniały
 dojrzały",,
 1419,WORD,WORD_NOUN,KATAKANA,,-,,ランドセル,randoseru,tornister,,
@@ -1579,612 +1581,6 @@ gigantyczny",,
 1434,WORD,WORD_NOUN,HIRAGANA,,泥棒,,どろぼう,dorobou,złodziej,,
 1435,WORD,UNKNOWN,HIRAGANA,に,注意,,ちゅうい,ni chuui,ostrzeżenie przed,,
 1436,WORD,WORD_NOUN,KATAKANA,,-,,ホワイトボード,howaito boodo,tablica,biała,
-1437,KANJI,WORD_KANJI_READING,HIRAGANA,,一,,"いち
-いつ
-ひと","ichi
-i tsu
-hito",jeden,,
-1438,KANJI,WORD_KANJI_READING,HIRAGANA,,二,,"に
-ふた","ni
-futa",dwa,,
-1439,KANJI,WORD_KANJI_READING,HIRAGANA,,三,,"さん
-みつ","san
-mi tsu",trzy,,
-1440,KANJI,WORD_KANJI_READING,HIRAGANA,,四,,"よん
-よ
-よつ
-し","yon
-yo
-yo tsu
-shi",cztery,,
-1441,KANJI,WORD_KANJI_READING,HIRAGANA,,五,,"ご
-いつ","go
-itsu",pięć,,
-1442,KANJI,WORD_KANJI_READING,HIRAGANA,,六,,"ろく
-ろつ
-むつ","roku
-ro tsu
-mu tsu",sześć,,
-1443,KANJI,WORD_KANJI_READING,HIRAGANA,,七,,"しち
-なな","shichi
-nana",siedem,,
-1444,KANJI,WORD_KANJI_READING,HIRAGANA,,八,,"はち
-はつ
-やつ","hachi
-ha tsu
-ya tsu",osiem,,
-1445,KANJI,WORD_KANJI_READING,HIRAGANA,,九,,"きゅう
-く
-ここの","kyuu
-ku
-kokono",dziewięć,,
-1446,KANJI,WORD_KANJI_READING,HIRAGANA,,十,,"じゅう
-じゅうつ
-とお","juu
-juu tsu
-too",dziesięć,,
-1447,KANJI,WORD_KANJI_READING,HIRAGANA,,百,,"ひゃく
-びゃく
-ぴゃく","hyaku
-byaku
-pyaku",sto,,
-1448,KANJI,WORD_KANJI_READING,HIRAGANA,,千,,"せん
-ぜん","sen
-zen",tysiąc,,
-1449,KANJI,WORD_KANJI_READING,HIRAGANA,,万,,まん,man,dziesięć tysięcy,,
-1450,KANJI,WORD_KANJI_READING,HIRAGANA,,円,,えん,en,"yen
-koło",,
-1451,KANJI,WORD_KANJI_READING,HIRAGANA,,時,,じ,ji,"godzina
-czas",,
-1452,KANJI,WORD_KANJI_READING,HIRAGANA,,日,,"に
-にち
-び
-ひ
-につ","ni
-nichi
-bi
-hi
-ni tsu","dzień
-słońce",,
-1453,KANJI,WORD_KANJI_READING,HIRAGANA,,本,,"ほん
-もと","hon
-moto","książka
-prosto",,
-1454,KANJI,WORD_KANJI_READING,HIRAGANA,,人,,"じん
-ひと
-にん","jin
-hito
-nin",człowiek,,
-1455,KANJI,WORD_KANJI_READING,HIRAGANA,,月,,"げつ
-がつ
-つき","getsu
-gatsu
-tsuki","księżyc
-miesiąc",,
-1456,KANJI,WORD_KANJI_READING,HIRAGANA,,火,,"か
-ひ","ka
-hi",ogień,,
-1457,KANJI,WORD_KANJI_READING,HIRAGANA,,水,,"すい
-みず","sui
-mizu",woda,,
-1458,KANJI,WORD_KANJI_READING,HIRAGANA,,木,,"もく
-き","moku
-ki",drzewo,,
-1459,KANJI,WORD_KANJI_READING,HIRAGANA,,金,,"きん
-かね","kin
-kane","złoto
-pieniądze",,
-1460,KANJI,WORD_KANJI_READING,HIRAGANA,,土,,"ど
-つち","do
-tsuchi",ziemia,,
-1461,KANJI,WORD_KANJI_READING,HIRAGANA,,曜,,よう,you,dzień powszechni,,
-1462,KANJI,WORD_KANJI_READING,HIRAGANA,,上,,"うえ
-じょう","ue
-jou",na,,
-1463,KANJI,WORD_KANJI_READING,HIRAGANA,,下,,"した
-か","shita
-ka",pod,,
-1464,KANJI,WORD_KANJI_READING,HIRAGANA,,中,,"なか
-ちゅう
-じゅう","naka
-chuu
-juu",środek,,
-1465,KANJI,WORD_KANJI_READING,HIRAGANA,,半,,はん,han,połowa,,
-1466,KANJI,WORD_KANJI_READING,HIRAGANA,,山,,"やま
-さん","yama
-san",góra,,
-1467,KANJI,WORD_KANJI_READING,HIRAGANA,,川,,"かわ
-がわ","kawa
-gawa",rzeka,,
-1468,KANJI,WORD_KANJI_READING,HIRAGANA,,元,,げん,gen,położenie,,
-1469,KANJI,WORD_KANJI_READING,HIRAGANA,,気,,き,ki,duch,,
-1470,KANJI,WORD_KANJI_READING,HIRAGANA,,天,,てん,ten,niebo,,
-1471,KANJI,WORD_KANJI_READING,HIRAGANA,,私,,"わたし
-し","watashi
-shi","ja
-prywatne",,
-1472,KANJI,WORD_KANJI_READING,HIRAGANA,,今,,"いま
-こん","ima
-kon",teraz,,
-1473,KANJI,WORD_KANJI_READING,HIRAGANA,,田,,"た
-だ","ta
-da",pole ryżowe,,
-1474,KANJI,WORD_KANJI_READING,HIRAGANA,,女,,"おんな
-じょ","onna
-jo",kobieta,,
-1475,KANJI,WORD_KANJI_READING,HIRAGANA,,男,,"おとこ
-だん","otoko
-dan",mężczyzna,,
-1476,KANJI,WORD_KANJI_READING,HIRAGANA,,見,,"み
-けん","mi
-ken",widzieć,,
-1477,KANJI,WORD_KANJI_READING,HIRAGANA,,行,,"い
-こう
-ぎょう","i
-kou
-gyou",iść,,
-1478,KANJI,WORD_KANJI_READING,HIRAGANA,,食,,"た
-しょく","ta
-shoku",jeść,,
-1479,KANJI,WORD_KANJI_READING,HIRAGANA,,飲,,"の
-いん","no
-in",pić,,
-1480,KANJI,WORD_KANJI_READING,HIRAGANA,,東,,"ひがし
-とう","higashi
-tou",wschód,,
-1481,KANJI,WORD_KANJI_READING,HIRAGANA,,西,,"にし
-せい
-さい","nishi
-sei
-sai",zachód,,
-1482,KANJI,WORD_KANJI_READING,HIRAGANA,,南,,"みなみ
-なん","minami
-nan",południe,,
-1483,KANJI,WORD_KANJI_READING,HIRAGANA,,北,,"きた
-ほく
-ほつ","kita
-hoku
-ho tsu",północ,,
-1484,KANJI,WORD_KANJI_READING,HIRAGANA,,口,,"ぐち
-くち
-こう","guchi
-kuchi
-kou",usta,,
-1485,KANJI,WORD_KANJI_READING,HIRAGANA,,出,,"で
-だ
-しゅつ
-しゅつ","de
-da
-shu tsu
-shutsu",wychodzić,,
-1486,KANJI,WORD_KANJI_READING,HIRAGANA,,右,,"みぎ
-う
-ゆう","migi
-u
-yuu",prawo,,
-1487,KANJI,WORD_KANJI_READING,HIRAGANA,,左,,"ひだり
-さ","hidari
-sa",lewo,,
-1488,KANJI,WORD_KANJI_READING,HIRAGANA,,分,,"ふん
-ぷん
-ぶん","fun
-pun
-bun","minuta
-dzielić",,
-1489,KANJI,WORD_KANJI_READING,HIRAGANA,,先,,"せん
-さき","sen
-saki",na przód,,
-1490,KANJI,WORD_KANJI_READING,HIRAGANA,,生,,"せい
-う
-しょう","sei
-u
-shou",urodziny,,
-1491,KANJI,WORD_KANJI_READING,HIRAGANA,,大,,"だい
-おお
-たい","dai
-oo
-tai",duży,,
-1492,KANJI,WORD_KANJI_READING,HIRAGANA,,学,,"がく
-がつ
-まな","gaku
-ga tsu
-mana",uczyć,,
-1493,KANJI,WORD_KANJI_READING,HIRAGANA,,外,,"がい
-そと","gai
-soto",na zewnątrzn,,
-1494,KANJI,WORD_KANJI_READING,HIRAGANA,,国,,"こく
-ごく
-くに","koku
-goku
-kuni",kraj,,
-1495,KANJI,WORD_KANJI_READING,HIRAGANA,,京,,きょう,kyou,stolica,,
-1496,KANJI,WORD_KANJI_READING,HIRAGANA,,子,,"こ
-し","ko
-shi",dziecko,,
-1497,KANJI,WORD_KANJI_READING,HIRAGANA,,小,,"ちい
-しょう","chii
-shou",mały,,
-1498,KANJI,WORD_KANJI_READING,HIRAGANA,,会,,"あ
-かい","a
-kai",spotykać,,
-1499,KANJI,WORD_KANJI_READING,HIRAGANA,,社,,"しゃ
-じゃ","sha
-ja",firma,,
-1500,KANJI,WORD_KANJI_READING,HIRAGANA,,父,,"ちち
-とう
-ふ","chichi
-tou
-fu",ojciec,,
-1501,KANJI,WORD_KANJI_READING,HIRAGANA,,母,,"はは
-かあ
-ぼ","haha
-kaa
-bo",matka,,
-1502,KANJI,WORD_KANJI_READING,HIRAGANA,,高,,"たか
-こう","taka
-kou",wysoki,,
-1503,KANJI,WORD_KANJI_READING,HIRAGANA,,校,,こう,kou,szkoła,,
-1504,KANJI,WORD_KANJI_READING,HIRAGANA,,毎,,まい,mai,w każdym,,
-1505,KANJI,WORD_KANJI_READING,HIRAGANA,,語,,ご,go,słowo,,
-1506,KANJI,WORD_KANJI_READING,HIRAGANA,,文,,ぶん,bun,zdanie,,
-1507,KANJI,WORD_KANJI_READING,HIRAGANA,,帰,,"かえ
-き","kae
-ki",wracać,,
-1508,KANJI,WORD_KANJI_READING,HIRAGANA,,入,,"はい
-いり
-い
-にゅう","hai
-iri
-i
-nyuu",wchodzić,,
-1509,KANJI,WORD_KANJI_READING,HIRAGANA,,員,,いん,in,członek,,
-1510,KANJI,WORD_KANJI_READING,HIRAGANA,,新,,"あたら
-しん","atara
-shin",nowy,,
-1511,KANJI,WORD_KANJI_READING,HIRAGANA,,聞,,"き
-ぶん","ki
-bun",słuchać,,
-1512,KANJI,WORD_KANJI_READING,HIRAGANA,,作,,"つく
-さく","tsuku
-saku","tworzyć
-robić",,
-1513,KANJI,WORD_KANJI_READING,HIRAGANA,,仕,,し,shi,służyć,,
-1514,KANJI,WORD_KANJI_READING,HIRAGANA,,事,,"ごと
-こと
-じ","goto
-koto
-ji",rzecz,,
-1515,KANJI,WORD_KANJI_READING,HIRAGANA,,電,,でん,den,elektryczność,,
-1516,KANJI,WORD_KANJI_READING,HIRAGANA,,車,,"くるま
-しゃ","kuruma
-sha",samochód,,
-1517,KANJI,WORD_KANJI_READING,HIRAGANA,,休,,"やす
-きゅう","yasu
-kyuu",odpoczywać,,
-1518,KANJI,WORD_KANJI_READING,HIRAGANA,,言,,"い
-げん","i
-gen",mówić,,
-1519,KANJI,WORD_KANJI_READING,HIRAGANA,,読,,"よ
-どく","yo
-doku",czytać,,
-1520,KANJI,WORD_KANJI_READING,HIRAGANA,,思,,"おも
-し","omo
-shi",myśleć,,
-1521,KANJI,WORD_KANJI_READING,HIRAGANA,,次,,"つぎ
-じ","tsugi
-ji",następny,,
-1522,KANJI,WORD_KANJI_READING,HIRAGANA,,何,,"なに
-なん","nani
-nan",co,,
-1523,KANJI,WORD_KANJI_READING,HIRAGANA,,午,,ご,go,południe,czas,
-1524,KANJI,WORD_KANJI_READING,HIRAGANA,,後,,"ご
-あと
-うし","go
-ato
-ushi",za,,
-1525,KANJI,WORD_KANJI_READING,HIRAGANA,,前,,"まえ
-ぜん","mae
-zen",przed,,
-1526,KANJI,WORD_KANJI_READING,HIRAGANA,,名,,"な
-めい","na
-mei",imię,,
-1527,KANJI,WORD_KANJI_READING,HIRAGANA,,白,,"しろ
-はく","shiro
-haku",biały,,
-1528,KANJI,WORD_KANJI_READING,HIRAGANA,,雨,,"あめ
-う","ame
-u",deszcz,,
-1529,KANJI,WORD_KANJI_READING,HIRAGANA,,書,,"か
-しょ","ka
-sho",pisać,,
-1530,KANJI,WORD_KANJI_READING,HIRAGANA,,友,,"とも
-ゆう","tomo
-yuu",przyjaciel,,
-1531,KANJI,WORD_KANJI_READING,HIRAGANA,,間,,"かん
-あいだ","kan
-aida",pomiędzy,,
-1532,KANJI,WORD_KANJI_READING,HIRAGANA,,家,,"いえ
-か","ie
-ka",dom,,
-1533,KANJI,WORD_KANJI_READING,HIRAGANA,,話,,"はな
-はなし
-わ","hana
-hanashi
-wa",rozmawiać,,
-1534,KANJI,WORD_KANJI_READING,HIRAGANA,,少,,"すこ
-すく
-しょう","suko
-suku
-shou",trochę,,
-1535,KANJI,WORD_KANJI_READING,HIRAGANA,,古,,"ふる
-こ","furu
-ko",stary,,
-1536,KANJI,WORD_KANJI_READING,HIRAGANA,,知,,"し
-ち","shi
-chi",wiedzieć,,
-1537,KANJI,WORD_KANJI_READING,HIRAGANA,,来,,"く
-き
-こ
-らい","ku
-ki
-ko
-rai",wiedzieć,,
-1538,KANJI,WORD_KANJI_READING,HIRAGANA,,住,,"す
-じゅう","su
-juu",mieszkać,,
-1539,KANJI,WORD_KANJI_READING,HIRAGANA,,正,,"しょう
-ただ","shou
-tada",właściwy,,
-1540,KANJI,WORD_KANJI_READING,HIRAGANA,,年,,"ねん
-とし","nen
-toshi",rok,,
-1541,KANJI,WORD_KANJI_READING,HIRAGANA,,売,,"う
-ばい","u
-bai",sprzedawać,,
-1542,KANJI,WORD_KANJI_READING,HIRAGANA,,買,,か,ka,kupować,,
-1543,KANJI,WORD_KANJI_READING,HIRAGANA,,町,,"まち
-ちょう","machi
-chou",miasto,,
-1544,KANJI,WORD_KANJI_READING,HIRAGANA,,長,,"なが
-ちょう","naga
-chou",długi,,
-1545,KANJI,WORD_KANJI_READING,HIRAGANA,,道,,"みち
-どう","michi
-dou",droga,,
-1546,KANJI,WORD_KANJI_READING,HIRAGANA,,雪,,"ゆき
-せつ","yuki
-setsu",śnieg,,
-1547,KANJI,WORD_KANJI_READING,HIRAGANA,,立,,"た
-りつ","ta
-ritsu",stać,,
-1548,KANJI,WORD_KANJI_READING,HIRAGANA,,自,,じ,ji,siebie,,
-1549,KANJI,WORD_KANJI_READING,HIRAGANA,,夜,,"よる
-よ
-や","yoru
-yo
-ya",noc,,
-1550,KANJI,WORD_KANJI_READING,HIRAGANA,,朝,,"あさ
-ちょう","asa
-chou",ranek,,
-1551,KANJI,WORD_KANJI_READING,HIRAGANA,,持,,"も
-じ","mo
-ji",mieć,,
-1552,KANJI,WORD_KANJI_READING,HIRAGANA,,手,,"て
-しゅ","te
-shu",ręka,,
-1553,KANJI,WORD_KANJI_READING,HIRAGANA,,紙,,"がみ
-かみ
-し","gami
-kami
-shi",papier,,
-1554,KANJI,WORD_KANJI_READING,HIRAGANA,,好,,"す
-こう
-この","su
-kou
-kono",ulubiony,,
-1555,KANJI,WORD_KANJI_READING,HIRAGANA,,近,,"ちか
-きん","chika
-kin",w pobliżu,,
-1556,KANJI,WORD_KANJI_READING,HIRAGANA,,明,,"あか
-めい","aka
-mei",jasny,,
-1557,KANJI,WORD_KANJI_READING,HIRAGANA,,病,,びょう,byou,chory,,
-1558,KANJI,WORD_KANJI_READING,HIRAGANA,,院,,いん,in,instytucja,,
-1559,KANJI,WORD_KANJI_READING,HIRAGANA,,映,,"えい
-うつ","ei
-utsu",odbijać,,
-1560,KANJI,WORD_KANJI_READING,HIRAGANA,,画,,"が
-かく","ga
-kaku",obrazek,,
-1561,KANJI,WORD_KANJI_READING,HIRAGANA,,歌,,"うた
-か","uta
-ka",śpiewać,,
-1562,KANJI,WORD_KANJI_READING,HIRAGANA,,市,,"し
-いち","shi
-ichi",miasto,,
-1563,KANJI,WORD_KANJI_READING,HIRAGANA,,所,,"ところ
-じょ
-どころ
-しょ","tokoro
-jo
-dokoro
-sho",miejsce,,
-1564,KANJI,WORD_KANJI_READING,HIRAGANA,,勉,,"べん
-つと","ben
-tsuto",robić coś dokładnie,,
-1565,KANJI,WORD_KANJI_READING,HIRAGANA,,強,,"きょう
-つよ
-ごう","kyou
-tsuyo
-gou",siła,,
-1566,KANJI,WORD_KANJI_READING,HIRAGANA,,有,,"ゆう
-あ","yuu
-a",istnieć,,
-1567,KANJI,WORD_KANJI_READING,HIRAGANA,,旅,,"りょ
-たび","ryo
-tabi",podróż,,
-1568,KANJI,WORD_KANJI_READING,HIRAGANA,,昔,,むかし,mukashi,starodawny,,
-1569,KANJI,WORD_KANJI_READING,HIRAGANA,,々,,,,symbol powtórzenia,,
-1570,KANJI,WORD_KANJI_READING,HIRAGANA,,神,,"かみ
-じん
-しん","kami
-jin
-shin",bóg,,
-1571,KANJI,WORD_KANJI_READING,HIRAGANA,,早,,"はや
-そう","haya
-sou",wcześnie,,
-1572,KANJI,WORD_KANJI_READING,HIRAGANA,,起,,"お
-き","o
-ki",wstawać,,
-1573,KANJI,WORD_KANJI_READING,HIRAGANA,,牛,,"うし
-ぎゅう","ushi
-gyuu",krowa,,
-1574,KANJI,WORD_KANJI_READING,HIRAGANA,,使,,"つか
-し","tsuka
-shi",korzystać,,
-1575,KANJI,WORD_KANJI_READING,HIRAGANA,,働,,"はたら
-ばたら
-どう","hatara
-batara
-dou",pracować,,
-1576,KANJI,WORD_KANJI_READING,HIRAGANA,,連,,"つ
-れん","tsu
-ren",wiązać,,
-1577,KANJI,WORD_KANJI_READING,HIRAGANA,,別,,"わか
-べつ","waka
-betsu",rozdzielać,,
-1578,KANJI,WORD_KANJI_READING,HIRAGANA,,度,,ど,do,"raz
-stopień",,
-1579,KANJI,WORD_KANJI_READING,HIRAGANA,,赤,,"あか
-せき","aka
-seki",czerwony,,
-1580,KANJI,WORD_KANJI_READING,HIRAGANA,,青,,"あお
-せい","ao
-sei",niebieski,,
-1581,KANJI,WORD_KANJI_READING,HIRAGANA,,色,,"いろ
-しき
-しょく","iro
-shiki
-shoku",kolor,,
-1582,KANJI,WORD_KANJI_READING,HIRAGANA,,物,,"もの
-ぶつ","mono
-butsu",rzecz,,
-1583,KANJI,WORD_KANJI_READING,HIRAGANA,,鳥,,"とり
-ちょう","tori
-chou",ptak,,
-1584,KANJI,WORD_KANJI_READING,HIRAGANA,,料,,りょう,ryou,"element
-opłata",,
-1585,KANJI,WORD_KANJI_READING,HIRAGANA,,理,,り,ri,powód,,
-1586,KANJI,WORD_KANJI_READING,HIRAGANA,,特,,"とく
-とっ","toku
-to tsu",specjalnie,,
-1587,KANJI,WORD_KANJI_READING,HIRAGANA,,安,,"やす
-あん","yasu
-an","tani
-spokój",,
-1588,KANJI,WORD_KANJI_READING,HIRAGANA,,飯,,はん,han,"jedzenie
-kulka ryżowa",,
-1589,KANJI,WORD_KANJI_READING,HIRAGANA,,肉,,にく,niku,mięso,,
-1590,KANJI,WORD_KANJI_READING,HIRAGANA,,悪,,"わる
-あく","waru
-aku","źle
-zły",,
-1591,KANJI,WORD_KANJI_READING,HIRAGANA,,体,,"からだ
-たん","karada
-tan",ciało,,
-1592,KANJI,WORD_KANJI_READING,HIRAGANA,,空,,"くう
-そら
-あ
-から","kuu
-sora
-a
-kara","niebo
-pusty",,
-1593,KANJI,WORD_KANJI_READING,HIRAGANA,,港,,"こう
-みなと","kou
-minato","port
-zatoka",,
-1594,KANJI,WORD_KANJI_READING,HIRAGANA,,着,,"つ
-き
-ちゃく","tsu
-ki
-chaku","osiągnąć
-nosić",,
-1595,KANJI,WORD_KANJI_READING,HIRAGANA,,同,,"おな
-どう","ona
-dou",taki sam,,
-1596,KANJI,WORD_KANJI_READING,HIRAGANA,,海,,"うみ
-かい","umi
-kai",morze,,
-1597,KANJI,WORD_KANJI_READING,HIRAGANA,,昼,,"ひる
-ちゅう","hiru
-chuu","południe
-za dnia",,
-1598,KANJI,WORD_KANJI_READING,HIRAGANA,,彼,,"かれ
-かの","kare
-kano",on,,
-1599,KANJI,WORD_KANJI_READING,HIRAGANA,,代,,"だい
-か","dai
-ka","wiek
-wymieniać",,
-1600,KANJI,WORD_KANJI_READING,HIRAGANA,,留,,"りゅう
-る
-と","ryuu
-ru
-to","ryuu
-ru
-to",,
-1601,KANJI,WORD_KANJI_READING,HIRAGANA,,族,,ぞく,zoku,"rodzina
-klan",,
-1602,KANJI,WORD_KANJI_READING,HIRAGANA,,親,,"おや
-しん
-した","oya
-shin
-shita","rodzice
-poufałość",,
-1603,KANJI,WORD_KANJI_READING,HIRAGANA,,切,,"せつ
-き
-きっ","setsu
-ki
-ki tsu",ciąć,,
-1604,KANJI,WORD_KANJI_READING,HIRAGANA,,英,,えい,ei,"Anglia
-doskonały",,
-1605,KANJI,WORD_KANJI_READING,HIRAGANA,,店,,"みせ
-てん","mise
-ten",sklep,,
-1606,KANJI,WORD_KANJI_READING,HIRAGANA,,去,,"きょ
-こ
-さ","kyo
-ko
-sa","przyszłość
-odchodzić",,
-1607,KANJI,WORD_KANJI_READING,HIRAGANA,,急,,"きゅう
-いそ","kyuu
-iso","spieszyć się
-krytyczny",,
-1608,KANJI,WORD_KANJI_READING,HIRAGANA,,乗,,"の
-じょう","no
-jou",jeździć,,
-1609,KANJI,WORD_KANJI_READING,HIRAGANA,,当,,"とう
-あ","tou
-a",uderzać,,
-1610,KANJI,WORD_KANJI_READING,HIRAGANA,,音,,"おん
-おと
-ね","on
-oto
-ne",dźwięk,,
-1611,KANJI,WORD_KANJI_READING,HIRAGANA,,楽,,"がく
-たの
-がっ
-らく","gaku
-tano
-ga tsu
-raku","cieszyć się
-przyjemność",,
-1612,KANJI,WORD_KANJI_READING,HIRAGANA,,医,,い,i,doktor,,
-1613,KANJI,WORD_KANJI_READING,HIRAGANA,,者,,"しゃ
-もの","sha
-mono",osoba,,
 1615,KANJI,UNKNOWN,HIRAGANA,,一年生,,いちねんせい,ichinensei,student pierwszego roku,,
 1617,KANJI,WORD_NUMBER,HIRAGANA,,一つ,,ひとつ,hitotsu,"jeden
 1","liczby, liczenie małych przedmiotów",
@@ -2286,7 +1682,8 @@ siebie",,
 1790,KANJI,WORD_NOUN,HIRAGANA,,電子メール,,でんしめえる,denshi meeru,email,,
 1792,KANJI,WORD_NOUN,HIRAGANA,,小学校,,しょうがっこう,shougakkou,szkoła podstawowa,,
 1793,KANJI,WORD_NOUN,HIRAGANA,,小学生,,しょうがくせい,shougakusei,uczeń szkoły podstawowej,,
-1794,KANJI,WORD_VERB_U,HIRAGANA,に,会う,,あう,ni au,spotykać,osoba ni,
+1794,KANJI,WORD_VERB_U,HIRAGANA,に,会う,,あう,ni au,"spotykać
+widzieć osobę","osoba ni, spotkanie przypadkowe",
 1798,KANJI,UNKNOWN,HIRAGANA,,社会,,しゃかい,shakai,społeczeństwo,,
 1802,KANJI,WORD_NOUN,HIRAGANA,,父母,,ふぼ,fubo,ojciec i matka,,
 1805,KANJI,UNKNOWN,HIRAGANA,,母語,,ぼご,bogo,język ojczysty,,
@@ -2377,7 +1774,6 @@ jasny",,
 1995,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,,強情,,ごうじょう,goujou,"konserwatywny
 uparty",,
 1997,KANJI,UNKNOWN,HIRAGANA,,有料,,ゆうりょう,yuuryou,opłata,,
-1998,KANJI,UNKNOWN,HIRAGANA,,有る,,ある,aru,istnieć,,
 2001,KANJI,UNKNOWN,HIRAGANA,,一人旅,,ひとりたび,hitoritabi,podróżować samotnie,,
 2002,KANJI,UNKNOWN,HIRAGANA,,昔,,むかし,mukashi,dawno temu,,
 2003,KANJI,UNKNOWN,HIRAGANA,,昔話,,むかしばなし,mukashi banashi,bajka,,
@@ -2490,3 +1886,5 @@ emocje",,
 2172,WORD,WORD_NOUN,HIRAGANA,,羊,,ひつじ,hitsuji,owca,,
 2173,WORD,WORD_NOUN,HIRAGANA,,蛙,,かえる,kaeru,żaba,,
 2174,WORD,WORD_NOUN,HIRAGANA,,安全ピン,,あんぜんぴん,anzen pin,agrafka,,
+2175,WORD,WORD_ADJECTIVE_I,HIRAGANA,,奥ゆかしい,,おくゆかしい,okuyukashii,skromny,,
+2176,WORD,UNKNOWN,KATAKANA,,-,,ヘルパー,herupaa,pomocnik,,

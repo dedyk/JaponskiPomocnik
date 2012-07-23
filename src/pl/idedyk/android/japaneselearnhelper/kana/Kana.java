@@ -7,14 +7,19 @@ import java.util.Map;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.KanaHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.Gravity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TableLayout;
 
 public class Kana extends Activity {
@@ -27,7 +32,7 @@ public class Kana extends Activity {
 		
 		TableLayout mainTableLayout = (TableLayout)findViewById(R.id.word_kana_main_layout);
 		
-		List<IScreenItem> screenItems = new ArrayList<IScreenItem>();
+		final List<IScreenItem> screenItems = new ArrayList<IScreenItem>();
 		
 		Map<String, KanaEntry> kanaCache = KanaHelper.getKanaCache();
 		
@@ -36,6 +41,31 @@ public class Kana extends Activity {
 		generateKatakanaAdditionalTable(screenItems, kanaCache);
 		
 		fillMainLayout(screenItems, mainTableLayout);
+		
+		Button reportProblemButton = (Button)findViewById(R.id.word_kana_report_problem_button);
+		
+		reportProblemButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				StringBuffer detailsSb = new StringBuffer();
+				
+				for (IScreenItem currentscreenItem : screenItems) {
+					detailsSb.append(currentscreenItem.toString()).append("\n\n");
+				}
+				
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+				
+				String mailSubject = getString(R.string.word_kana_report_problem_email_subject);
+				
+				String mailBody = getString(R.string.word_kana_report_problem_email_body,
+						detailsSb.toString());				
+								
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
+				
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			}
+		});
 	}
 	
 	private void generateHiraganaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {

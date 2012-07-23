@@ -27,4 +27,17 @@ public class TableRow implements IScreenItem {
 			layout.addView(tableRow);			
 		}
 	}
+	
+	public String toString() {
+		
+		StringBuffer sb = new StringBuffer();
+		
+		if (screenItems.size() > 0) {
+			for (IScreenItem currentScreenItem : screenItems) {
+				sb.append(currentScreenItem.toString().replaceAll("\n", " ")).append("; ");
+			}
+		}
+		
+		return sb.toString();
+	}
 }

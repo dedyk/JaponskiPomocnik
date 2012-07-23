@@ -5,4 +5,6 @@
     <string name="word_kana_hiragana_label">Hiragana</string>
     <string name="word_kana_katakana_label">Katakana</string>
     <string name="word_kana_katakana_additional_label">Katakana (dodatkowe)</string>
+    <string name="word_kana_report_problem_email_subject">Tablica kana: Problem</string>
+    <string name="word_kana_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
 </resources>
