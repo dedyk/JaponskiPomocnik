@@ -3,10 +3,8 @@ package pl.idedyk.android.japaneselearnhelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
-import pl.idedyk.android.japaneselearnhelper.splash.Splash;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestGroup;
 
 import android.app.Activity;
@@ -45,18 +43,12 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     	mainMenuListItems.add(getResources().getString(R.string.main_menu_word_test));
     	mainMenuListItems.add(getResources().getString(R.string.main_menu_kanji_test));
     	
-    	mainMenuListItems.add("Splash screen test");
-    	
     	ArrayAdapter<String> mainMenuListItemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mainMenuListItems);
     	
     	mainMenuListView.setAdapter(mainMenuListItemsAdapter);
     }
 	
     private void initMenuActions() {
-		JapaneseAndroidLearnHelperContext context = new JapaneseAndroidLearnHelperContext();
-		
-		// FIXME
-		JapaneseAndroidLearnHelperApplication.getInstance().setContext(context);
     	
     	final ListView mainMenuListView = (ListView)findViewById(R.id.mainMenuList);
     	
@@ -72,12 +64,8 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent intent = new Intent(getApplicationContext(), WordDictionary.class);
 					
 					startActivity(intent);
-				} else if (position == 2) { // word test selected					
+				} else if (position == 2) { // word test selected		
 					Intent intent = new Intent(getApplicationContext(), WordTestGroup.class);
-					
-					startActivity(intent);
-				} else if (position == 4) { // splash test FIXME
-					Intent intent = new Intent(getApplicationContext(), Splash.class);
 					
 					startActivity(intent);
 				}

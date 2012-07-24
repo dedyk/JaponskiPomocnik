@@ -1,12 +1,19 @@
 package pl.idedyk.android.japaneselearnhelper.splash;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperMainActivity;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class Splash extends Activity {
     
@@ -23,35 +30,61 @@ public class Splash extends Activity {
         
         final ProgressBar progressBar = (ProgressBar)findViewById(R.id.splash_progressbar);
         
-        class AsyncTaskTest extends AsyncTask<Integer, Integer, Long> {
+        final TextView progressDesc = (TextView)findViewById(R.id.splash_desc_label);
+        
+        progressDesc.setText(getString(R.string.splash_load_words));
+        
+        // create dictionary manager
+        final DictionaryManager dictionaryManager = new DictionaryManager();
+        
+        class InitJapaneseAndroidLearnHelperContextAsyncTask extends AsyncTask<Void, Integer, Void> {
         	
-			@Override
-			protected Long doInBackground(Integer... params) {
-				
-				for (int idx = 0; idx <= 100; ++idx) {
-					publishProgress(idx);
-					
-					try {
-						Thread.sleep(30);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+        	class LoadWithProgress implements ILoadWithProgress {
+
+				public void setMaxValue(int maxValue) {
+					progressBar.setMax(maxValue);
 				}
+
+				public void setCurrentPos(int currentPos) {
+					progressBar.setProgress(currentPos);
+				}
+
+				public void setDescription(String desc) {
+					progressDesc.setText(desc);
+				}
+        	}
+
+			@Override
+			protected Void doInBackground(Void... params) {
 								
+				LoadWithProgress loadWithProgress = new LoadWithProgress();
+				
+				dictionaryManager.init(loadWithProgress);
+				
+				try {
+					Thread.sleep(1500);
+				} catch (InterruptedException e) {
+				}
+				
 				return null;
 			}
 			
 			@Override
-			protected void onProgressUpdate(Integer... integer) {
-				progressBar.setProgress(integer[0]);
-			}
-			
-			@Override
-			protected void onPostExecute(Long result) {
+			protected void onPostExecute(Void result) {
+								
+				Intent intent = new Intent(getApplicationContext(), JapaneseAndroidLearnHelperMainActivity.class);
+				
+				startActivity(intent);
+				
 				finish();
 			}
         }
         
-        new AsyncTaskTest().execute(new Integer[] { 1 });
+        new InitJapaneseAndroidLearnHelperContextAsyncTask().execute();
+        
+        // create context
+		JapaneseAndroidLearnHelperContext context = new JapaneseAndroidLearnHelperContext();
+		
+		JapaneseAndroidLearnHelperApplication.getInstance().setContext(context);
     }
 }

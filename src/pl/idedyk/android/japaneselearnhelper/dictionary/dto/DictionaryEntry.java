@@ -73,7 +73,6 @@ public class DictionaryEntry implements Serializable {
 		if (	dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU || 
 				dictionaryEntryType == DictionaryEntryType.WORD_VERB_U ||
 				dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR ||
-				dictionaryEntryType == DictionaryEntryType.WORD_VERB_TE ||
 				dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_I ||
 				dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_NA ||
 				dictionaryEntryType == DictionaryEntryType.WORD_NOUN ||

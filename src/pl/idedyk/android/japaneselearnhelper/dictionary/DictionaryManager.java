@@ -31,7 +31,7 @@ public class DictionaryManager {
 	public static DictionaryManager getInstance() {
 		
 		if (instance == null) {
-			instance = new DictionaryManager();
+			throw new RuntimeException("No dictionary manager");
 		}
 		
 		return instance;
@@ -39,7 +39,10 @@ public class DictionaryManager {
 	
 	private List<DictionaryEntry> wordDictionaryEntries = null;
 	
-	private DictionaryManager() {
+	public DictionaryManager() {
+	}
+	
+	public void init(ILoadWithProgress loadWithProgress) {
 		
 		// read word csv file
 		wordDictionaryEntries = new ArrayList<DictionaryEntry>();
@@ -47,20 +50,48 @@ public class DictionaryManager {
 		InputStream fileWordInputStream = DictionaryManager.class.getResourceAsStream(FILE_WORD);
 		
 		try {
-			readDictionaryFile(fileWordInputStream, wordDictionaryEntries);
+			int wordFileSize = getWordSize(fileWordInputStream);
+			
+			loadWithProgress.setMaxValue(wordFileSize);
+			
+			fileWordInputStream = DictionaryManager.class.getResourceAsStream(FILE_WORD);
+			
+			readDictionaryFile(fileWordInputStream, loadWithProgress, wordDictionaryEntries);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
 		}
 		
+		instance = this;
 	}
 	
-	private void readDictionaryFile(InputStream dictionaryInputStream, List<DictionaryEntry> dictionary) throws IOException, DictionaryException {
-				
+	private int getWordSize(InputStream dictionaryInputStream) throws IOException {
+		
+		int size = 0;
+		
 		CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
 		
 		while(csvReader.readRecord()) {
+			size++;			
+		}
+		
+		dictionaryInputStream.close();
+		
+		return size;		
+	}
+	
+	private void readDictionaryFile(InputStream dictionaryInputStream, ILoadWithProgress loadWithProgress, List<DictionaryEntry> dictionary) throws IOException, DictionaryException {
+		
+		CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
+		
+		int currentPos = 1;
+		
+		while(csvReader.readRecord()) {
+			
+			currentPos++;
+			
+			loadWithProgress.setCurrentPos(currentPos);
 			
 			String idString = csvReader.get(0);
 			String dictionaryEntryTypeString = csvReader.get(2);
