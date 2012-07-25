@@ -5,6 +5,7 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestGroup;
 
 import android.app.Activity;
@@ -43,6 +44,8 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     	mainMenuListItems.add(getResources().getString(R.string.main_menu_word_test));
     	mainMenuListItems.add(getResources().getString(R.string.main_menu_kanji_test));
     	
+    	mainMenuListItems.add(getResources().getString(R.string.main_menu_suggestion));
+    	
     	ArrayAdapter<String> mainMenuListItemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mainMenuListItems);
     	
     	mainMenuListView.setAdapter(mainMenuListItemsAdapter);
@@ -68,6 +71,16 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent intent = new Intent(getApplicationContext(), WordTestGroup.class);
 					
 					startActivity(intent);
+				} else if (position == 4) { // suggestion
+					String chooseEmailClientTitle = getString(R.string.choose_email_client);
+					
+					String mailSubject = getString(R.string.main_menu_email_subject);
+					
+					String mailBody = getString(R.string.main_menu_email_body);				
+									
+					Intent reportSuggestionIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody); 
+					
+					startActivity(Intent.createChooser(reportSuggestionIntent, chooseEmailClientTitle));
 				}
 			}
 		});

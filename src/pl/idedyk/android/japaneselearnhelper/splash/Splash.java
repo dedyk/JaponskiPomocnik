@@ -7,6 +7,8 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperC
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -71,17 +73,36 @@ public class Splash extends Activity {
 			
 			@Override
 			protected void onPostExecute(Void result) {
-								
-				Intent intent = new Intent(getApplicationContext(), JapaneseAndroidLearnHelperMainActivity.class);
 				
-				startActivity(intent);
+				AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
 				
-				finish();
+				alertDialog.setCancelable(false);
+				
+				alertDialog.setTitle(getString(R.string.splash_message_box_title));
+				alertDialog.setMessage(getString(R.string.splash_message_box_info));
+				
+				alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog, int which) {
+													
+						Intent intent = new Intent(getApplicationContext(), JapaneseAndroidLearnHelperMainActivity.class);
+						
+						startActivity(intent);
+				        
+				        
+						finish();
+					}
+				});
+				
+				alertDialog.show();			
 			}
         }
         
-        new InitJapaneseAndroidLearnHelperContextAsyncTask().execute();
+        InitJapaneseAndroidLearnHelperContextAsyncTask initJapaneseAndroidLearnHelperContextAsyncTask = 
+        		new InitJapaneseAndroidLearnHelperContextAsyncTask();
         
+        initJapaneseAndroidLearnHelperContextAsyncTask.execute();
+		
         // create context
 		JapaneseAndroidLearnHelperContext context = new JapaneseAndroidLearnHelperContext();
 		
