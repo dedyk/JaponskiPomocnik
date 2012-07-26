@@ -101,8 +101,6 @@ public class WordDictionary extends Activity {
 								
 								String currentFoundWordFullText = currentFoundWord.getFullText(false);
 								
-								currentFoundWordFullText = currentFoundWordFullText.replaceAll("\n", "<br/>");
-								
 								StringBuffer currentFoundWordFullTexStringBuffer = new StringBuffer(currentFoundWordFullText);								
 								StringBuffer currentFoundWordFullTextLowerCase = new StringBuffer(currentFoundWordFullText.toLowerCase());
 																
@@ -128,7 +126,7 @@ public class WordDictionary extends Activity {
 									idxStart = idx1 + findWordLowerCase.length() + fontBegin.length() + fontEnd.length();
 								}
 																
-								searchResultList.add(new WordDictionaryListItem(currentFoundWord, Html.fromHtml(currentFoundWordFullTexStringBuffer.toString())));								
+								searchResultList.add(new WordDictionaryListItem(currentFoundWord, Html.fromHtml(currentFoundWordFullTexStringBuffer.toString().replaceAll("\n", "<br/>"))));								
 							}
 
 							searchResultArrayAdapter.notifyDataSetChanged();
