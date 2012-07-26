@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
+import pl.idedyk.android.japaneselearnhelper.info.InfoActivity;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
-import pl.idedyk.android.japaneselearnhelper.test.WordTestGroup;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -44,6 +44,7 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     			getString(R.string.main_menu_dictionary_kanji),
     			getString(R.string.main_menu_dictionary_text)));
     	
+    	/*
     	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_word_test_kanji),
     			getString(R.string.main_menu_word_test_text)));
@@ -51,10 +52,15 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_kanji_test_kanji),
     			getString(R.string.main_menu_kanji_test_text)));
+    	*/
     	
     	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_suggestion_kanji),
     			getString(R.string.main_menu_suggestion_text)));
+    	
+    	mainMenuListItems.add(new MainMenuItem(
+    			getString(R.string.main_menu_information_kanji),
+    			getString(R.string.main_menu_information_text)));    	
     	
     	MainMenuListItemAdapter mainMenuListItemsAdapter = new MainMenuListItemAdapter(this, R.layout.main_menu_simplerow, mainMenuListItems);
     	
@@ -77,11 +83,15 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent intent = new Intent(getApplicationContext(), WordDictionary.class);
 					
 					startActivity(intent);
-				} else if (position == 2) { // word test selected		
+				} 
+				/*
+				else if (position == X) { // word test selected		
 					Intent intent = new Intent(getApplicationContext(), WordTestGroup.class);
 					
 					startActivity(intent);
-				} else if (position == 4) { // suggestion
+				}
+				*/
+				else if (position == 2) { // suggestion
 					String chooseEmailClientTitle = getString(R.string.choose_email_client);
 					
 					String mailSubject = getString(R.string.main_menu_email_subject);
@@ -91,6 +101,10 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent reportSuggestionIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody); 
 					
 					startActivity(Intent.createChooser(reportSuggestionIntent, chooseEmailClientTitle));
+				} else if (position == 3) { // info
+					Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
+					
+					startActivity(intent);
 				}
 			}
 		});

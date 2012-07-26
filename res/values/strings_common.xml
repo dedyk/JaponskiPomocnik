@@ -16,6 +16,9 @@
     
     <string name="main_menu_suggestion_text">Zgłoś sugestię</string>
     <string name="main_menu_suggestion_kanji">提案</string>
+
+    <string name="main_menu_information_text">Informacje</string>
+    <string name="main_menu_information_kanji">情報</string>
     
     <string name="main_menu_email_subject">Japoński pomocnik - sugestia</string>
     <string name="main_menu_email_body">Treść sugestii:\n\n</string>

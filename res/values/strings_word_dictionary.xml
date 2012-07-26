@@ -6,6 +6,6 @@
     <string name="word_dictionary_searching1">Szukanie</string>
     <string name="word_dictionary_searching2">Proszę czekać</string>
     <string name="word_dictionary_search_report_problem">Wydzisz błąd, brakuje szukanego słowa, coś można zrobić lepiej, zgłoś problem</string>
-    <string name="word_dictionary_search_report_problem_email_subject">Słowniczek: Problem w wyszukiwaniu</string>
+    <string name="word_dictionary_search_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem w wyszukiwaniu</string>
     <string name="word_dictionary_search_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\nWpisana fraza: %1$s\n\n--\nAktualna zawartość listy:\n\n%2$s\n</string>
 </resources>

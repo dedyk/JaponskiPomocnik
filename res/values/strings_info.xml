@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="info_label">Informacje</string>
+    
+    <string name="info_title_pl">Mały, skromny japoński pomocnik</string>
+    <string name="info_title_jp">小さくて奥ゆかしい日本語ヘルパー</string>
+    
+    <string name="info_body">\tMój mały, skromny, prosty program powstał, aby choć w niewielkim stopniu wspomóc naukę języka japońskiego. Dlatego też zawiera on słownik japońsko-polski, którego ciężko znaleźć w polskim internecie. Zakres słownika mniej więcej odpowiada mojemu zakresowi słów, gdyż od momentu rozpoczęcia swojej nauki języka, każde nowe słowo zapisywałem oraz klasyfikowałem w wyniku powstał ten słownik. Choć w tej chwili nie zawiera on dużej liczby słów i wiem, że może zawierać w sobie błędy, gdyż czasami trochę trudno jest tym wszystkim zarządzać to jednak mam nadzieję, że z czasem zrobi się z niego potężny i wiarygodny słownik. Duża w tym może też być Twoja zasługa, aby zgłaszać zauważalne błędy oraz informować o nowo odkrytych słowach. W ten sposób można pomóc sobie, a także innym.\n\n\tProgram zawiera również inne pożyteczne funkcje, które mogą pomóc w poznawaniu języka. Jeśli uważasz, że brakuje mu jakieś funkcji, bądź coś można zrobić lepiej to bez wachania zgłoś mi to. Ja ze swojej strony w ramach swoich możliwości postaram się dany element zaimplementować, bądź ulepszyć. Jestem otwarty na wszelkie uwagi i sugestie.\n\n\tA teraz parę słów o mnie. Nazywam się Fryderyk i jestem sobie taki mały, chudy człek. Mam 29 lat i moje dwie pasje to informatyka oraz japonistyka. Języka japońskiego uczę się dopiero od roku i choć niewiele jeszcze potrafię powiedzieć po japońsku to mimo tego staram się, jak najlepiej potrafię. Ponieważ ja jestem człek leniwy i strasznie lubię sobie ułatwiać życie to postanowiłem połączyć obie moje pasje i tak oto powstał ten mój mały, skromny, prosty pomocnik. Mam nadzieję, że i innym troszeczkę ułatwi to życie.
+</string>
+
+</resources>
