@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class JapaneseAndroidLearnHelperMainActivity extends Activity {
@@ -35,18 +34,29 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 	private void createMenuList() {
     	ListView mainMenuListView = (ListView)findViewById(R.id.mainMenuList);
     	
-    	List<String> mainMenuListItems = new ArrayList<String>();
+    	List<MainMenuItem> mainMenuListItems = new ArrayList<MainMenuItem>();
     	
-    	mainMenuListItems.add(getResources().getString(R.string.main_menu_kana));
+    	mainMenuListItems.add(new MainMenuItem(
+    			getString(R.string.main_menu_kana_kanji),
+    			getString(R.string.main_menu_kana_text)));
     	
-    	mainMenuListItems.add(getResources().getString(R.string.main_menu_dictionary));
+    	mainMenuListItems.add(new MainMenuItem(
+    			getString(R.string.main_menu_dictionary_kanji),
+    			getString(R.string.main_menu_dictionary_text)));
     	
-    	mainMenuListItems.add(getResources().getString(R.string.main_menu_word_test));
-    	mainMenuListItems.add(getResources().getString(R.string.main_menu_kanji_test));
+    	mainMenuListItems.add(new MainMenuItem(
+    			getString(R.string.main_menu_word_test_kanji),
+    			getString(R.string.main_menu_word_test_text)));
     	
-    	mainMenuListItems.add(getResources().getString(R.string.main_menu_suggestion));
+    	mainMenuListItems.add(new MainMenuItem(
+    			getString(R.string.main_menu_kanji_test_kanji),
+    			getString(R.string.main_menu_kanji_test_text)));
     	
-    	ArrayAdapter<String> mainMenuListItemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mainMenuListItems);
+    	mainMenuListItems.add(new MainMenuItem(
+    			getString(R.string.main_menu_suggestion_kanji),
+    			getString(R.string.main_menu_suggestion_text)));
+    	
+    	MainMenuListItemAdapter mainMenuListItemsAdapter = new MainMenuListItemAdapter(this, R.layout.main_menu_simplerow, mainMenuListItems);
     	
     	mainMenuListView.setAdapter(mainMenuListItemsAdapter);
     }
