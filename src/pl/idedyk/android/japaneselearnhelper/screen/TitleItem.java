@@ -11,8 +11,11 @@ public class TitleItem implements IScreenItem {
 
 	private String title;
 	
-	public TitleItem(String title) {
+	private int level;
+	
+	public TitleItem(String title, int level) {
 		this.title = title;
+		this.level = level;
 	}
 
 	public void generate(Context context, Resources resources, ViewGroup layout) {
@@ -21,7 +24,15 @@ public class TitleItem implements IScreenItem {
 		textView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		textView.setBackgroundColor(resources.getColor(R.color.word_dictionary_details_title_background_color));
 		textView.setTextSize(16.0f);
-		textView.setText(title);		
+		
+		StringBuffer titleSb = new StringBuffer();
+		
+		for (int levelIdx = 0; levelIdx < level; ++levelIdx) {
+			titleSb.append("   ");
+		}
+		titleSb.append(title);
+		
+		textView.setText(titleSb);	
 		
 		layout.addView(textView);
 	}

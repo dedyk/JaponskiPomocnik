@@ -70,7 +70,7 @@ public class Kana extends Activity {
 	
 	private void generateHiraganaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
 		
-		screenItems.add(new TitleItem(getString(R.string.word_kana_hiragana_label)));
+		screenItems.add(new TitleItem(getString(R.string.word_kana_hiragana_label), 0));
 		
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow a_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 		
@@ -345,7 +345,7 @@ public class Kana extends Activity {
 
 	private void generateKatakanaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
 		
-		screenItems.add(new TitleItem(getString(R.string.word_kana_katakana_label)));
+		screenItems.add(new TitleItem(getString(R.string.word_kana_katakana_label), 0));
 		
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow a_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 		
@@ -620,7 +620,7 @@ public class Kana extends Activity {
 	
 	private void generateKatakanaAdditionalTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
 		
-		screenItems.add(new TitleItem(getString(R.string.word_kana_katakana_additional_label)));
+		screenItems.add(new TitleItem(getString(R.string.word_kana_katakana_additional_label), 0));
 
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow u_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
@@ -714,9 +714,9 @@ public class Kana extends Activity {
 			
 			Spanned spanned = Html.fromHtml("<b>" + kanaEntry.getKana() + "</b><br/>" + kanaEntry.getKanaJapanese() + "<br/>");
 			
-			stringValue = new StringValue(spanned, 20);			
+			stringValue = new StringValue(spanned, 20, 0);			
 		} else {
-			stringValue = new StringValue("", 20);
+			stringValue = new StringValue("", 20, 0);
 		}
 		
 		stringValue.setGravity(Gravity.CENTER);

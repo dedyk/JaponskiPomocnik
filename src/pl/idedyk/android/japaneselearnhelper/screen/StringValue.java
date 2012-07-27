@@ -16,14 +16,18 @@ public class StringValue implements IScreenItem {
 	
 	private Integer gravity;
 	
-	public StringValue(String value, float textSize) {
+	private int level;
+	
+	public StringValue(String value, float textSize, int level) {
 		this.value = value;
 		this.textSize = textSize;
+		this.level = level;
 	}
 
-	public StringValue(Spanned value, float textSize) {
+	public StringValue(Spanned value, float textSize, int level) {
 		this.value = value;
 		this.textSize = textSize;
+		this.level = level;
 	}
 	
 	public void setGravity(int gravity) {
@@ -40,7 +44,7 @@ public class StringValue implements IScreenItem {
 			textView.setLayoutParams(layoutParam);
 		} else if (layout instanceof LinearLayout) {
 			LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			layoutParam.setMargins(20, 5, 0, 0);
+			layoutParam.setMargins(20 + level * 20, 5, 0, 0);
 			
 			textView.setLayoutParams(layoutParam);
 		} else {

@@ -5,6 +5,8 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
@@ -106,7 +108,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// Kanji		
-		report.add(new TitleItem(getString(R.string.word_dictionary_details_kanji_label)));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_kanji_label), 0));
 		
 		StringBuffer kanjiSb = new StringBuffer();
 		
@@ -120,10 +122,10 @@ public class WordDictionaryDetails extends Activity {
 			kanjiSb.append("-");
 		}
 		
-		report.add(new StringValue(kanjiSb.toString(), 35.0f));
+		report.add(new StringValue(kanjiSb.toString(), 35.0f, 0));
 		
 		// Reading
-		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label)));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
 		
 		List<String> kanaList = dictionaryEntry.getKanaList();
 		List<String> romajiList = dictionaryEntry.getRomajiList();
@@ -138,37 +140,86 @@ public class WordDictionaryDetails extends Activity {
 			
 			sb.append(kanaList.get(idx)).append(" - ").append(romajiList.get(idx));
 						
-			report.add(new StringValue(sb.toString(), 20.0f));
+			report.add(new StringValue(sb.toString(), 20.0f, 0));
 		}
 		
 		// Translate
-		report.add(new TitleItem(getString(R.string.word_dictionary_details_translate_label)));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_translate_label), 0));
 		
 		List<String> translates = dictionaryEntry.getTranslates();
 		
 		for (int idx = 0; idx < translates.size(); ++idx) {
-			report.add(new StringValue(translates.get(idx), 20.0f));
+			report.add(new StringValue(translates.get(idx), 20.0f, 0));
 		}
 		
 		// Additional info
-		report.add(new TitleItem(getString(R.string.word_dictionary_details_additional_info_label)));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_additional_info_label), 0));
 		
 		String info = dictionaryEntry.getInfo();
 		
 		if (info != null && info.length() > 0) {
-			report.add(new StringValue(info, 20.0f));
+			report.add(new StringValue(info, 20.0f, 0));
 		} else {
-			report.add(new StringValue("-", 20.0f));
+			report.add(new StringValue("-", 20.0f, 0));
 		}
 		
 		// Word type
 		boolean addableDictionaryEntryTypeInfo = dictionaryEntry.isAddableDictionaryEntryTypeInfo();
 		
 		if (addableDictionaryEntryTypeInfo == true) {
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech)));
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));
 			
-			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f));			
+			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));			
 		}
+		
+		// Conjugater
+		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = dictionaryEntry.getGrammaFormConjugateGroupTypeElementsList();
+		
+		if (grammaFormConjugateGroupTypeElementsList != null) {
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0));
+			
+			for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : 
+				grammaFormConjugateGroupTypeElementsList) {
+				
+				report.add(new TitleItem(currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().getName(), 1));
+				
+				List<GrammaFormConjugateResult> grammaFormConjugateResults = currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults();
+				
+				for (GrammaFormConjugateResult currentGrammaFormConjugateResult : grammaFormConjugateResults) {
+					report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
+					
+					String grammaFormKanji = currentGrammaFormConjugateResult.getKanji();
+					
+					StringBuffer grammaFormKanjiSb = new StringBuffer();
+					
+					if (grammaFormKanji != null) {
+						if (prefix != null) {
+							grammaFormKanjiSb.append("(").append(prefix).append(") ");
+						}
+						
+						grammaFormKanjiSb.append(grammaFormKanji);
+						
+						report.add(new StringValue(grammaFormKanjiSb.toString(), 15.0f, 2));
+					}
+					
+					List<String> grammaFormKanaList = currentGrammaFormConjugateResult.getKanaList();
+					List<String> grammaFormRomajiList = currentGrammaFormConjugateResult.getRomajiList();
+					
+					for (int idx = 0; idx < grammaFormKanaList.size(); ++idx) {
+						
+						StringBuffer sb = new StringBuffer();
+						
+						if (prefix != null) {
+							sb.append("(").append(prefix).append(") ");
+						}
+						
+						sb.append(grammaFormKanaList.get(idx)).append(" - ").append(grammaFormRomajiList.get(idx));
+									
+						report.add(new StringValue(sb.toString(), 15.0f, 2));
+					}
+				}				
+			}
+		}		
 		
 		return report;
 	}

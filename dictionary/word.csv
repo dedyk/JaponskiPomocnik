@@ -536,10 +536,12 @@ energiczny",,
 442,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,静か,,しずか,shizuka,cichy,,
 443,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,好き,,すき,suki,lubić,,
 444,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,大嫌い,,だいきらい,daikirai,nienawidzić,,
-445,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,大好き,,だいすき,daisuki,kochać,,
+445,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,大好き,,だいすき,daisuki,"kochać
+bardzo lubić",,
 446,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,-,,にぎやか,nigiyaka,żywy,,
-447,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,-,,はんさむ,hansamu,przystojny,,
-448,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,暇,,ひま,hima,nie zajęty,,
+447,WORD,WORD_ADJECTIVE_NA,KATAKANA,,-,,ハンサ厶,hansamu,przystojny,,
+448,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,暇,,ひま,hima,"nie zajęty
+wolny",,
 449,WORD,WORD_VERB_U,HIRAGANA,,泳ぐ,,およぐ,oyogu,pływać,,
 450,WORD,WORD_VERB_U,HIRAGANA,に,聞く,,きく,ni kiku,pytać,osobę,
 451,WORD,WORD_VERB_U,HIRAGANA,に,乗る,,のる,ni noru,"podróżować

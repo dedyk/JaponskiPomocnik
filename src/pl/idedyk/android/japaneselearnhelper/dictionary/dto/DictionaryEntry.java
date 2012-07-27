@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
+
 public class DictionaryEntry implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -23,6 +25,8 @@ public class DictionaryEntry implements Serializable {
 	private List<String> translates;
 	
 	private String info;
+	
+	private List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList;
 
 	public DictionaryEntryType getDictionaryEntryType() {
 		return dictionaryEntryType;
@@ -209,5 +213,15 @@ public class DictionaryEntry implements Serializable {
 		sb.append("]");
 		
 		return sb.toString();
+	}
+
+	public List<GrammaFormConjugateGroupTypeElements> getGrammaFormConjugateGroupTypeElementsList() {
+		return grammaFormConjugateGroupTypeElementsList;
+	}
+
+	public void setGrammaFormConjugateGroupTypeElementsList(
+			List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList) {
+		
+		this.grammaFormConjugateGroupTypeElementsList = grammaFormConjugateGroupTypeElementsList;
 	}
 }
