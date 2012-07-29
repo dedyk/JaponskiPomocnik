@@ -7,7 +7,7 @@
     <string name="word_dictionary_details_translate_label">Tłumaczenie</string>
     <string name="word_dictionary_details_additional_info_label">Informacje dodatkowe</string>
     <string name="word_dictionary_details_part_of_speech">Część mowy</string>
-    <string name="word_dictionary_details_conjugater_label">Odmiana</string>
+    <string name="word_dictionary_details_conjugater_label">Odmiany</string>
     <string name="word_dictionary_details_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem w szczegółach słowa</string>
     <string name="word_dictionary_details_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
 </resources>

@@ -176,6 +176,7 @@ public class WordDictionaryDetails extends Activity {
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = dictionaryEntry.getGrammaFormConjugateGroupTypeElementsList();
 		
 		if (grammaFormConjugateGroupTypeElementsList != null) {
+			report.add(new StringValue("", 15.0f, 2));
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0));
 			
 			for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : 
@@ -217,7 +218,9 @@ public class WordDictionaryDetails extends Activity {
 									
 						report.add(new StringValue(sb.toString(), 15.0f, 2));
 					}
-				}				
+				}
+				
+				report.add(new StringValue("", 15.0f, 1));
 			}
 		}		
 		
