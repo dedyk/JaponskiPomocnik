@@ -8,9 +8,11 @@ public enum GrammaFormConjugateResultType {
 	ADJECTIVE_I_INFORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły"),
 	
 	ADJECTIVE_I_FORMAL_PRESENT("Twierdzenie, czas teraźniejszy"),	
-	ADJECTIVE_I_FORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy"),	
+	ADJECTIVE_I_FORMAL_PRESENT_NEGATIVE_V1("Przeczenie, czas teraźniejszy"),
+	ADJECTIVE_I_FORMAL_PRESENT_NEGATIVE_V2("Przeczenie, czas teraźniejszy"),
 	ADJECTIVE_I_FORMAL_PAST("Twierdzenie, czas przeszły"),	
-	ADJECTIVE_I_FORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły");
+	ADJECTIVE_I_FORMAL_PAST_NEGATIVE_V1("Przeczenie, czas przeszły"),
+	ADJECTIVE_I_FORMAL_PAST_NEGATIVE_V2("Przeczenie, czas przeszły");
 
 	private String name;
 	
