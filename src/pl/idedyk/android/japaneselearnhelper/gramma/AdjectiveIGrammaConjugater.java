@@ -156,6 +156,8 @@ public class AdjectiveIGrammaConjugater {
 		String kanji = dictionaryEntry.getKanji();
 
 		if (kanji != null) {
+			kanji = getKanaToConjugate(kanji, grammaFormConjugateResultType);
+			
 			result.setKanji(removeLastChar(kanji) + postfixKana);
 		}
 
@@ -204,7 +206,7 @@ public class AdjectiveIGrammaConjugater {
 		if (grammaFormConjugateResultType != GrammaFormConjugateResultType.ADJECTIVE_I_FORMAL_PRESENT && 
 				grammaFormConjugateResultType != GrammaFormConjugateResultType.ADJECTIVE_I_INFORMAL_PRESENT) {
 
-			if (romaji.endsWith("ii") == true) {
+			if (romaji.equals("ii") == true || romaji.endsWith(" ii") == true) {
 				return romaji.substring(0, romaji.length() - 2) + "yoi";
 			}
 		}
