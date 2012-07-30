@@ -14,6 +14,8 @@ public class GrammaFormConjugateResult implements Serializable {
 	private List<String> kanaList;
 	
 	private List<String> romajiList;
+	
+	private GrammaFormConjugateResult alternative;
 
 	public String getKanji() {
 		return kanji;
@@ -45,5 +47,13 @@ public class GrammaFormConjugateResult implements Serializable {
 
 	public void setResultType(GrammaFormConjugateResultType resultType) {
 		this.resultType = resultType;
+	}
+
+	public GrammaFormConjugateResult getAlternative() {
+		return alternative;
+	}
+
+	public void setAlternative(GrammaFormConjugateResult alternative) {
+		this.alternative = alternative;
 	}
 }

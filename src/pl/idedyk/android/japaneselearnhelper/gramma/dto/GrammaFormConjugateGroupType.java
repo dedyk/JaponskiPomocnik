@@ -3,8 +3,10 @@ package pl.idedyk.android.japaneselearnhelper.gramma.dto;
 public enum GrammaFormConjugateGroupType {
 	
 	ADJECTIVE_I_INFORMAL("Forma nieformalna (prosta)"),
-	
-	ADJECTIVE_I_FORMAL("Forma formalna");
+	ADJECTIVE_I_FORMAL("Forma formalna"),
+
+	ADJECTIVE_NA_INFORMAL("Forma nieformalna (prosta)"),
+	ADJECTIVE_NA_FORMAL("Forma formalna");
 	
 	private String name;
 	

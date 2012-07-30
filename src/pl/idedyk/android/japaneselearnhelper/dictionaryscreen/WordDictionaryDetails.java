@@ -187,37 +187,10 @@ public class WordDictionaryDetails extends Activity {
 				List<GrammaFormConjugateResult> grammaFormConjugateResults = currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults();
 				
 				for (GrammaFormConjugateResult currentGrammaFormConjugateResult : grammaFormConjugateResults) {
+					
 					report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
 					
-					String grammaFormKanji = currentGrammaFormConjugateResult.getKanji();
-					
-					StringBuffer grammaFormKanjiSb = new StringBuffer();
-					
-					if (grammaFormKanji != null) {
-						if (prefix != null) {
-							grammaFormKanjiSb.append("(").append(prefix).append(") ");
-						}
-						
-						grammaFormKanjiSb.append(grammaFormKanji);
-						
-						report.add(new StringValue(grammaFormKanjiSb.toString(), 15.0f, 2));
-					}
-					
-					List<String> grammaFormKanaList = currentGrammaFormConjugateResult.getKanaList();
-					List<String> grammaFormRomajiList = currentGrammaFormConjugateResult.getRomajiList();
-					
-					for (int idx = 0; idx < grammaFormKanaList.size(); ++idx) {
-						
-						StringBuffer sb = new StringBuffer();
-						
-						if (prefix != null) {
-							sb.append("(").append(prefix).append(") ");
-						}
-						
-						sb.append(grammaFormKanaList.get(idx)).append(" - ").append(grammaFormRomajiList.get(idx));
-									
-						report.add(new StringValue(sb.toString(), 15.0f, 2));
-					}
+					addGrammaFormConjugateResult(report, prefix, currentGrammaFormConjugateResult);
 				}
 				
 				report.add(new StringValue("", 15.0f, 1));
@@ -232,5 +205,46 @@ public class WordDictionaryDetails extends Activity {
 		for (IScreenItem currentDetailsReportItem : generatedDetails) {
 			currentDetailsReportItem.generate(this, getResources(), detailsMainLayout);			
 		}
+	}
+	
+	private void addGrammaFormConjugateResult(List<IScreenItem> report, String prefix, GrammaFormConjugateResult grammaFormConjugateResult) {
+		
+		String grammaFormKanji = grammaFormConjugateResult.getKanji();
+		
+		StringBuffer grammaFormKanjiSb = new StringBuffer();
+		
+		if (grammaFormKanji != null) {
+			if (prefix != null) {
+				grammaFormKanjiSb.append("(").append(prefix).append(") ");
+			}
+			
+			grammaFormKanjiSb.append(grammaFormKanji);
+			
+			report.add(new StringValue(grammaFormKanjiSb.toString(), 15.0f, 2));
+		}
+		
+		List<String> grammaFormKanaList = grammaFormConjugateResult.getKanaList();
+		List<String> grammaFormRomajiList = grammaFormConjugateResult.getRomajiList();
+		
+		for (int idx = 0; idx < grammaFormKanaList.size(); ++idx) {
+			
+			StringBuffer sb = new StringBuffer();
+			
+			if (prefix != null) {
+				sb.append("(").append(prefix).append(") ");
+			}
+			
+			sb.append(grammaFormKanaList.get(idx)).append(" - ").append(grammaFormRomajiList.get(idx));
+						
+			report.add(new StringValue(sb.toString(), 15.0f, 2));
+		}
+		
+		GrammaFormConjugateResult alternative = grammaFormConjugateResult.getAlternative();
+		
+		if (alternative != null) {
+			report.add(new StringValue("", 5.0f, 1));
+			
+			addGrammaFormConjugateResult(report, prefix, alternative);	
+		}		
 	}
 }
