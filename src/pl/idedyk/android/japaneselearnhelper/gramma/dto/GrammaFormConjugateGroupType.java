@@ -9,7 +9,9 @@ public enum GrammaFormConjugateGroupType {
 	ADJECTIVE_NA_FORMAL("Forma formalna"),
 
 	NOUN_INFORMAL("Forma nieformalna (prosta)"),
-	NOUN_FORMAL("Forma formalna");
+	NOUN_FORMAL("Forma formalna"),
+	
+	VERB_FORMAL("Forma formalna (długa)");
 	
 	private String name;
 	

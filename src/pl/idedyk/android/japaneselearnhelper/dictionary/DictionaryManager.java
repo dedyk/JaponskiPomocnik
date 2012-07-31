@@ -18,6 +18,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryExce
 import pl.idedyk.android.japaneselearnhelper.gramma.AdjectiveIGrammaConjugater;
 import pl.idedyk.android.japaneselearnhelper.gramma.AdjectiveNaGrammaConjugater;
 import pl.idedyk.android.japaneselearnhelper.gramma.NounGrammaConjugater;
+import pl.idedyk.android.japaneselearnhelper.gramma.VerbGrammaConjugater;
 
 public class DictionaryManager {
 	
@@ -133,12 +134,20 @@ public class DictionaryManager {
 			
 			if (dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_I) {
 				entry.setGrammaFormConjugateGroupTypeElementsList(AdjectiveIGrammaConjugater.makeAll(entry));
+			
 			} else if (dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_NA) {
 				entry.setGrammaFormConjugateGroupTypeElementsList(AdjectiveNaGrammaConjugater.makeAll(entry));
+			
 			} else if (dictionaryEntryType == DictionaryEntryType.WORD_NOUN) {
 				entry.setGrammaFormConjugateGroupTypeElementsList(NounGrammaConjugater.makeAll(entry));
-			}
 			
+			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U ||
+					dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU ||
+					dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+				
+				entry.setGrammaFormConjugateGroupTypeElementsList(VerbGrammaConjugater.makeAll(entry));
+			}
+
 			dictionary.add(entry);
 		}
 		

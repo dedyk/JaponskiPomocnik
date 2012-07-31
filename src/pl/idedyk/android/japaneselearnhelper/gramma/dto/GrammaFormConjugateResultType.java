@@ -30,7 +30,12 @@ public enum GrammaFormConjugateResultType {
 	NOUN_FORMAL_PRESENT("Twierdzenie, czas teraźniejszy"),	
 	NOUN_FORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy"),
 	NOUN_FORMAL_PAST("Twierdzenie, czas przeszły"),	
-	NOUN_FORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły");
+	NOUN_FORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły"),
+
+	VERB_FORMAL_PRESENT("Twierdzenie, czas teraźniejszy"),	
+	VERB_FORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy"),
+	VERB_FORMAL_PAST("Twierdzenie, czas przeszły"),	
+	VERB_FORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły");
 	
 	private String name;
 	
