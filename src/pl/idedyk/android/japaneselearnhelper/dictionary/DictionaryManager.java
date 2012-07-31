@@ -17,6 +17,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.gramma.AdjectiveIGrammaConjugater;
 import pl.idedyk.android.japaneselearnhelper.gramma.AdjectiveNaGrammaConjugater;
+import pl.idedyk.android.japaneselearnhelper.gramma.NounGrammaConjugater;
 
 public class DictionaryManager {
 	
@@ -134,6 +135,8 @@ public class DictionaryManager {
 				entry.setGrammaFormConjugateGroupTypeElementsList(AdjectiveIGrammaConjugater.makeAll(entry));
 			} else if (dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_NA) {
 				entry.setGrammaFormConjugateGroupTypeElementsList(AdjectiveNaGrammaConjugater.makeAll(entry));
+			} else if (dictionaryEntryType == DictionaryEntryType.WORD_NOUN) {
+				entry.setGrammaFormConjugateGroupTypeElementsList(NounGrammaConjugater.makeAll(entry));
 			}
 			
 			dictionary.add(entry);
