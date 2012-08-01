@@ -188,7 +188,9 @@ public class WordDictionaryDetails extends Activity {
 				
 				for (GrammaFormConjugateResult currentGrammaFormConjugateResult : grammaFormConjugateResults) {
 					
-					report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
+					if (currentGrammaFormConjugateResult.getResultType().isShow() == true) {
+						report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
+					}
 					
 					addGrammaFormConjugateResult(report, prefix, currentGrammaFormConjugateResult);
 				}

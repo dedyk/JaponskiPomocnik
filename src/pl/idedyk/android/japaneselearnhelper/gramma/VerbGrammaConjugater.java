@@ -17,6 +17,9 @@ public class VerbGrammaConjugater {
 	private static Map<String, String> lastKanaCharsMapperToIChar;
 	private static Map<String, String> lastRomajiCharsMapperToIChar;
 	
+	private static Map<String, String> lastKanaCharsMapperToTeFormChar;
+	private static Map<String, String> lastRomajiCharsMapperToTeFormChar;
+	
 	static {
 		lastKanaCharsMapperToIChar = new HashMap<String, String>();
 		
@@ -41,6 +44,34 @@ public class VerbGrammaConjugater {
 		lastRomajiCharsMapperToIChar.put("ru", "ri");
 		lastRomajiCharsMapperToIChar.put("gu", "gi");
 		lastRomajiCharsMapperToIChar.put("bu", "bi");
+		
+		lastKanaCharsMapperToTeFormChar = new HashMap<String, String>();
+		
+		lastKanaCharsMapperToTeFormChar.put("う", "って");
+		lastKanaCharsMapperToTeFormChar.put("つ", "って");
+		lastKanaCharsMapperToTeFormChar.put("る", "って");
+		
+		lastKanaCharsMapperToTeFormChar.put("む", "んで");
+		lastKanaCharsMapperToTeFormChar.put("ぶ", "んで");
+		lastKanaCharsMapperToTeFormChar.put("ぬ", "んで");
+		
+		lastKanaCharsMapperToTeFormChar.put("く", "いて");
+		lastKanaCharsMapperToTeFormChar.put("ぐ", "いで");
+		lastKanaCharsMapperToTeFormChar.put("す", "して");
+
+		lastRomajiCharsMapperToTeFormChar = new HashMap<String, String>();
+		
+		lastRomajiCharsMapperToTeFormChar.put("u", "tte");
+		lastRomajiCharsMapperToTeFormChar.put("tsu", "tte");
+		lastRomajiCharsMapperToTeFormChar.put("ru", "tte");
+		
+		lastRomajiCharsMapperToTeFormChar.put("mu", "nde");
+		lastRomajiCharsMapperToTeFormChar.put("bu", "nde");
+		lastRomajiCharsMapperToTeFormChar.put("nu", "nde");
+		
+		lastRomajiCharsMapperToTeFormChar.put("ku", "ite");
+		lastRomajiCharsMapperToTeFormChar.put("gu", "ide");
+		lastRomajiCharsMapperToTeFormChar.put("su", "shite");
 	}
 
 	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry) {
@@ -59,9 +90,20 @@ public class VerbGrammaConjugater {
 
 		result.add(formal);
 		
+		// forma nieformalna (prosta) FIXME !!!
+		
+		// forma te
+		GrammaFormConjugateGroupTypeElements teForm = new GrammaFormConjugateGroupTypeElements();
+		
+		teForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_TE);
+		
+		teForm.getGrammaFormConjugateResults().add(makeTeForm(dictionaryEntry));
+		
+		result.add(teForm);
+		
 		return result;		
 	}
-	
+
 	public static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma formalna, -masu
 
@@ -338,5 +380,148 @@ public class VerbGrammaConjugater {
 		}
 		
 		return lastCharConvertedToI;
+	}
+	
+	private static GrammaFormConjugateResult makeTeForm(DictionaryEntry dictionaryEntry) {
+		
+		// forma te
+		
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+		
+		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+
+		result.setResultType(GrammaFormConjugateResultType.VERB_TE);
+
+		String kanji = dictionaryEntry.getKanji();
+		
+		if (kanji != null) {
+			String teFormKanji = makeTeFormForKanjiOrKana(kanji, dictionaryEntryType);
+
+			result.setKanji(teFormKanji);
+		}
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+
+		List<String> kanaListResult = new ArrayList<String>();
+
+		for (String currentKana : kanaList) {			
+			String teFormKana = makeTeFormForKanjiOrKana(currentKana, dictionaryEntryType);
+			
+			kanaListResult.add(teFormKana);
+		}
+
+		result.setKanaList(kanaListResult);
+		
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+
+		List<String> romajiListResult = new ArrayList<String>();
+
+		for (String currentRomaji : romajiList) {
+			String teFormRomaji = makeTeFormForRomaji(currentRomaji, dictionaryEntryType);
+			
+			romajiListResult.add(teFormRomaji);
+		}
+
+		result.setRomajiList(romajiListResult);
+
+		return result;
+	}
+
+	private static String makeTeFormForKanjiOrKana(String text, DictionaryEntryType dictionaryEntryType) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU) {
+			return removeLastChar(text) + "て";
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U) {
+			
+			boolean ikuException = false;
+			
+			if (text.equals("行く") == true || text.endsWith("行く") == true ||
+				text.equals("いく") == true || text.endsWith("いく") == true) {
+				
+				ikuException = true;
+			}
+			
+			String lastChar = getLastChars(text, 1);
+			
+			String tePostfix = null;
+			
+			if (ikuException == false) {
+				tePostfix = lastKanaCharsMapperToTeFormChar.get(lastChar);	
+			} else {
+				tePostfix = "って";
+			}
+			
+			if (tePostfix == null) {
+				throw new RuntimeException("tePostfix == null");
+			}
+			
+			return removeLastChar(text) + tePostfix;
+			
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
+			if (text.endsWith("来る") == true) {
+				return removeChars(text, 1) + "て";
+				
+			} else if (text.endsWith("くる") == true) {
+				return removeChars(text, 2) + "きて";
+				
+			} else if (text.endsWith("する") == true) {
+				return removeChars(text, 2) + "して";
+			} else {
+				throw new RuntimeException("makeTeFormForKanjiOrKana 1");	
+			}
+		}
+		
+		throw new RuntimeException("makeTeFormForKanjiOrKana 2");
+	}
+	
+	private static String makeTeFormForRomaji(String romaji, DictionaryEntryType dictionaryEntryType) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU) {
+			return removeChars(romaji, 2) + "te";
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U) {
+			
+			boolean ikuException = false;
+			
+			if (romaji.equals("iku") == true || romaji.endsWith(" iku") == true) {
+				ikuException = true;
+			}
+			
+			if (ikuException == false) {
+				String romajiLastThreeChars = getLastChars(romaji, 3);
+				
+				if (romajiLastThreeChars != null && lastRomajiCharsMapperToTeFormChar.containsKey(romajiLastThreeChars) == true) {
+					return removeChars(romaji, 3) + lastRomajiCharsMapperToTeFormChar.get(romajiLastThreeChars);
+				}
+				
+				String romajiLastTwoChars = getLastChars(romaji, 2);
+				
+				if (romajiLastTwoChars != null && lastRomajiCharsMapperToTeFormChar.containsKey(romajiLastTwoChars) == true) {
+					return removeChars(romaji, 2) + lastRomajiCharsMapperToTeFormChar.get(romajiLastTwoChars);
+				}
+				
+				String romajiLastOneChar = getLastChars(romaji, 1);
+				
+				if (romajiLastOneChar != null && lastRomajiCharsMapperToTeFormChar.containsKey(romajiLastOneChar) == true) {
+					return removeChars(romaji, 1) + lastRomajiCharsMapperToTeFormChar.get(romajiLastOneChar);
+				}
+				
+				throw new RuntimeException("makeTeFormForRomaji 1");
+			} else {
+				return removeChars(romaji, 2) + "tte";
+			}
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
+			if (romaji.endsWith("kuru") == true) {
+				return removeChars(romaji, 4) + "kite";
+			} else if (romaji.endsWith("suru") == true) {
+				return removeChars(romaji, 4) + "shite";
+			} else {
+				throw new RuntimeException("makeTeFormForRomaji 2");
+			}
+		} else {
+			throw new RuntimeException("makeTeFormForRomaji 3");
+		}
 	}
 }
