@@ -20,6 +20,9 @@ public class VerbGrammaConjugater {
 	private static Map<String, String> lastKanaCharsMapperToTeFormChar;
 	private static Map<String, String> lastRomajiCharsMapperToTeFormChar;
 	
+	private static Map<String, String> lastKanaCharsMapperToAChar;
+	private static Map<String, String> lastRomajiCharsMapperToAChar;
+	
 	static {
 		lastKanaCharsMapperToIChar = new HashMap<String, String>();
 		
@@ -72,6 +75,30 @@ public class VerbGrammaConjugater {
 		lastRomajiCharsMapperToTeFormChar.put("ku", "ite");
 		lastRomajiCharsMapperToTeFormChar.put("gu", "ide");
 		lastRomajiCharsMapperToTeFormChar.put("su", "shite");
+		
+		lastKanaCharsMapperToAChar = new HashMap<String, String>();
+		
+		lastKanaCharsMapperToAChar.put("う", "わ");
+		lastKanaCharsMapperToAChar.put("く", "か");
+		lastKanaCharsMapperToAChar.put("す", "さ");
+		lastKanaCharsMapperToAChar.put("つ", "た");
+		lastKanaCharsMapperToAChar.put("ぬ", "な");
+		lastKanaCharsMapperToAChar.put("む", "ま");
+		lastKanaCharsMapperToAChar.put("る", "ら");
+		lastKanaCharsMapperToAChar.put("ぐ", "が");
+		lastKanaCharsMapperToAChar.put("ぶ", "ば");
+
+		lastRomajiCharsMapperToAChar = new HashMap<String, String>();
+		
+		lastRomajiCharsMapperToAChar.put("u", "wa");
+		lastRomajiCharsMapperToAChar.put("ku", "ka");
+		lastRomajiCharsMapperToAChar.put("su", "sa");
+		lastRomajiCharsMapperToAChar.put("tsu", "ta");
+		lastRomajiCharsMapperToAChar.put("nu", "na");
+		lastRomajiCharsMapperToAChar.put("mu", "ma");
+		lastRomajiCharsMapperToAChar.put("ru", "ra");
+		lastRomajiCharsMapperToAChar.put("gu", "ga");
+		lastRomajiCharsMapperToAChar.put("bu", "ba");
 	}
 
 	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry) {
@@ -90,7 +117,17 @@ public class VerbGrammaConjugater {
 
 		result.add(formal);
 		
-		// forma nieformalna (prosta) FIXME !!!
+		// forma nieformalna (prosta)
+		GrammaFormConjugateGroupTypeElements informal = new GrammaFormConjugateGroupTypeElements();
+		
+		informal.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_INFORMAL);
+		
+		informal.getGrammaFormConjugateResults().add(makeInformalPresentForm(dictionaryEntry));
+		informal.getGrammaFormConjugateResults().add(makeInformalPresentNegativeForm(dictionaryEntry));
+		informal.getGrammaFormConjugateResults().add(makeInformalPastForm(dictionaryEntry));
+		informal.getGrammaFormConjugateResults().add(makeInformalPastNegativeForm(dictionaryEntry));
+		
+		result.add(informal);
 		
 		// forma te
 		GrammaFormConjugateGroupTypeElements teForm = new GrammaFormConjugateGroupTypeElements();
@@ -523,5 +560,283 @@ public class VerbGrammaConjugater {
 		} else {
 			throw new RuntimeException("makeTeFormForRomaji 3");
 		}
+	}
+	
+	private static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
+		// czas terazniejszy, twierdzenie, forma nieformalna (prosta)
+		
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+
+		result.setResultType(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT);
+		
+		result.setKanji(dictionaryEntry.getKanji());
+		
+		result.setKanaList(dictionaryEntry.getKanaList());
+		
+		result.setRomajiList(dictionaryEntry.getRomajiList());		
+		
+		return result;
+	}
+	
+	private static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+		// czas terazniejszy, przeczenie, forma nieformalna (prosta)
+		
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+
+		result.setResultType(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
+
+		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+		
+		String kanji = dictionaryEntry.getKanji();
+		
+		if (kanji != null) {
+			String informalKanji = makeInformalPresentNegativeFormForKanjiOrKana(kanji, dictionaryEntryType);
+						
+			result.setKanji(informalKanji);
+		}
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+
+		List<String> kanaListResult = new ArrayList<String>();
+
+		for (String currentKana : kanaList) {			
+			String informalKana = makeInformalPresentNegativeFormForKanjiOrKana(currentKana, dictionaryEntryType);
+
+			kanaListResult.add(informalKana);
+		}
+
+		result.setKanaList(kanaListResult);		
+
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+
+		List<String> romajiListResult = new ArrayList<String>();
+
+		for (String currentRomaji : romajiList) {
+			String informalRomaji = makeInformalPresentNegativeFormForRomaji(currentRomaji, dictionaryEntryType);
+			
+			romajiListResult.add(informalRomaji);
+		}
+
+		result.setRomajiList(romajiListResult);		
+		
+		return result;
+	}
+	
+	private static String makeInformalPresentNegativeFormForKanjiOrKana(String text, DictionaryEntryType dictionaryEntryType) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU) {
+			return removeLastChar(text) + "ない";
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U) {
+			
+			boolean aruException = false;
+			
+			if (text.equals("有る") == true || text.endsWith("有る") == true ||
+					text.equals("ある") == true || text.endsWith("ある") == true) {
+
+				aruException = true;
+			}
+			
+			if (aruException == false) {
+				
+				String lastChar = getLastChars(text, 1);
+				
+				String postfix = lastKanaCharsMapperToAChar.get(lastChar);
+				
+				if (postfix == null) {
+					throw new RuntimeException("postfix == null");
+				}
+				
+				return removeLastChar(text) + postfix + "ない";
+				
+			} else {
+				return removeChars(text, 2) + "ない";
+			}
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
+			if (text.endsWith("来る") == true) {
+				return removeChars(text, 2) + "こない";
+				
+			} else if (text.endsWith("くる") == true) {
+				return removeChars(text, 2) + "こない";
+				
+			} else if (text.endsWith("する") == true) {
+				return removeChars(text, 2) + "しない";
+			} else {
+				throw new RuntimeException("makeInformalPresentNegativeFormForKanjiOrKana 1");	
+			}
+		}
+		
+		throw new RuntimeException("makeInformalPresentNegativeFormForKanjiOrKana 2");
+	}
+	
+	private static String makeInformalPresentNegativeFormForRomaji(String romaji, DictionaryEntryType dictionaryEntryType) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU) {
+			
+			return removeChars(romaji, 2) + "nai";
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U) {
+			
+			boolean aruException = false;
+			
+			if (romaji.equals("aru") == true || romaji.endsWith(" aru") == true) {
+				aruException = true;
+			}
+			
+			if (aruException == false) {
+				
+				String romajiLastThreeChars = getLastChars(romaji, 3);
+				
+				if (romajiLastThreeChars != null && lastRomajiCharsMapperToAChar.containsKey(romajiLastThreeChars) == true) {
+					return removeChars(romaji, 3) + lastRomajiCharsMapperToAChar.get(romajiLastThreeChars) + "nai";
+				}
+				
+				String romajiLastTwoChars = getLastChars(romaji, 2);
+				
+				if (romajiLastTwoChars != null && lastRomajiCharsMapperToAChar.containsKey(romajiLastTwoChars) == true) {
+					return removeChars(romaji, 2) + lastRomajiCharsMapperToAChar.get(romajiLastTwoChars) + "nai";
+				}
+				
+				String romajiLastOneChar = getLastChars(romaji, 1);
+				
+				if (romajiLastOneChar != null && lastRomajiCharsMapperToAChar.containsKey(romajiLastOneChar) == true) {
+					return removeChars(romaji, 1) + lastRomajiCharsMapperToAChar.get(romajiLastOneChar) + "nai";
+				}
+				
+				throw new RuntimeException("makeInformalPresentNegativeFormForRomaji 1");
+
+			} else {				
+				return removeChars(romaji, 3) + "nai";
+			}
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
+			if (romaji.endsWith("kuru") == true) {
+				return removeChars(romaji, 4) + "konai";
+			} else if (romaji.endsWith("suru") == true) {
+				return removeChars(romaji, 4) + "shinai";
+			} else {
+				throw new RuntimeException("makeInformalPresentNegativeFormForRomaji 2");
+			}
+		} else {
+			throw new RuntimeException("makeInformalPresentNegativeFormForRomaji 3");
+		}
+	}
+	
+	private static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
+		// czas przeszly, twierdzenie, forma nieformalna (prosta)
+		
+		GrammaFormConjugateResult teForm = makeTeForm(dictionaryEntry);
+		
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+
+		result.setResultType(GrammaFormConjugateResultType.VERB_INFORMAL_PAST);
+		
+		String teKanji = teForm.getKanji();
+		
+		if (teKanji != null) {
+			String taKanji = convertTeFormToTaFormForKanjiOrKana(teKanji);
+			
+			result.setKanji(taKanji);
+		}
+		
+		List<String> teKanaList = teForm.getKanaList();
+
+		List<String> kanaListResult = new ArrayList<String>();
+
+		for (String teCurrentKana : teKanaList) {			
+			String taCurrentKana = convertTeFormToTaFormForKanjiOrKana(teCurrentKana);
+
+			kanaListResult.add(taCurrentKana);
+		}
+
+		result.setKanaList(kanaListResult);
+		
+		List<String> teRomajiList = teForm.getRomajiList();
+
+		List<String> romajiListResult = new ArrayList<String>();
+
+		for (String teCurrentRomaji : teRomajiList) {
+			String taCurrentRomaji = convertTeFormToTaFormForRomaji(teCurrentRomaji);
+			
+			romajiListResult.add(taCurrentRomaji);
+		}
+
+		result.setRomajiList(romajiListResult);		
+		
+		return result;
+	}
+	
+	private static String convertTeFormToTaFormForKanjiOrKana(String text) {
+		
+		String lastChars = getLastChars(text, 1);
+		
+		String postfix = null;
+		
+		if (lastChars.equals("て") == true) {
+			postfix = "た";
+		} else if (lastChars.equals("で") == true) {
+			postfix = "だ";
+		} else {
+			throw new RuntimeException("convertTeFormToTaFormKanjiOrKana 1");
+		}
+		
+		return removeChars(text, 1) + postfix;
+	}
+
+	private static String convertTeFormToTaFormForRomaji(String text) {
+		
+		String lastChars = getLastChars(text, 1);
+		
+		String postfix = null;
+		
+		if (lastChars.equals("e") == true) {
+			postfix = "a";
+		} else {
+			throw new RuntimeException("convertTeFormToTaFormForRomaji 1");
+		}
+		
+		return removeChars(text, 1) + postfix;
+	}
+	
+	private static GrammaFormConjugateResult makeInformalPastNegativeForm(DictionaryEntry dictionaryEntry) {
+		
+		// czas przeszly, przeczenie, forma nieformalna (prosta)
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+
+		result.setResultType(GrammaFormConjugateResultType.VERB_INFORMAL_PAST_NEGATIVE);
+		
+		String informalPresentNegativeFormKanji = informalPresentNegativeForm.getKanji();
+		
+		if (informalPresentNegativeFormKanji != null) {
+			result.setKanji(removeLastChar(informalPresentNegativeFormKanji) + "かった");
+		}
+		
+		List<String> informalPresentNegativeFormKanjiKanaList = informalPresentNegativeForm.getKanaList();
+		
+		List<String> kanaListResult = new ArrayList<String>();
+		
+		for (String currentInformalPresentNegativeFormKanjiKanaList : informalPresentNegativeFormKanjiKanaList) {
+			kanaListResult.add(removeLastChar(currentInformalPresentNegativeFormKanjiKanaList) + "かった");
+		}
+		
+		result.setKanaList(kanaListResult);
+		
+		List<String> informalPresentNegativeFormKanjiRomajiList = informalPresentNegativeForm.getRomajiList();
+		
+		List<String> romajiListResult = new ArrayList<String>();
+		
+		for (String currentInformalPresentNegativeFormKanjiRomajiList : informalPresentNegativeFormKanjiRomajiList) {
+			romajiListResult.add(removeLastChar(currentInformalPresentNegativeFormKanjiRomajiList) + "katta");
+		}
+		
+		result.setRomajiList(romajiListResult);
+		
+		return result;
 	}
 }
