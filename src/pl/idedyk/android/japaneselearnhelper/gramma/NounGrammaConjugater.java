@@ -40,9 +40,18 @@ public class NounGrammaConjugater {
 
 		result.add(informal);
 		
+		// forma te
+		GrammaFormConjugateGroupTypeElements teForm = new GrammaFormConjugateGroupTypeElements();
+		
+		teForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.NOUN_TE);
+		
+		teForm.getGrammaFormConjugateResults().add(makeTeForm(dictionaryEntry));
+		
+		result.add(teForm);
+		
 		return result;
 	}
-	
+
 	public static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma formalna, -desu
 
@@ -207,5 +216,16 @@ public class NounGrammaConjugater {
 		if (dictionaryEntryType != DictionaryEntryType.WORD_NOUN) {
 			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_NOUN");
 		}		
+	}
+	
+	private static GrammaFormConjugateResult makeTeForm(DictionaryEntry dictionaryEntry) {
+		
+		// forma te
+		
+		final String postfixKana = "で";
+		final String postfixRomaji = " de";
+
+		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_TE,
+				postfixKana, postfixRomaji);
 	}
 }

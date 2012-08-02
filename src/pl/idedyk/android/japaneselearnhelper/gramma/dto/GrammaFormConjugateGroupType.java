@@ -14,6 +14,9 @@ public enum GrammaFormConjugateGroupType {
 	VERB_FORMAL("Forma formalna (długa)"),
 	VERB_INFORMAL("Forma nieformalna (prosta)"),
 	
+	ADJECTIVE_I_TE("Forma te"),
+	ADJECTIVE_NA_TE("Forma te"),
+	NOUN_TE("Forma te"),
 	VERB_TE("Forma te");
 	
 	private String name;

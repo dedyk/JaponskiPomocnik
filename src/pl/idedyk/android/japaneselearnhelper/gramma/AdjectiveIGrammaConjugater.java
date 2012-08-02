@@ -39,6 +39,15 @@ public class AdjectiveIGrammaConjugater {
 		informal.getGrammaFormConjugateResults().add(makeInformalPastNegativeForm(dictionaryEntry));
 
 		result.add(informal);
+		
+		// forma te
+		GrammaFormConjugateGroupTypeElements teForm = new GrammaFormConjugateGroupTypeElements();
+		
+		teForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.ADJECTIVE_I_TE);
+		
+		teForm.getGrammaFormConjugateResults().add(makeTeForm(dictionaryEntry));
+		
+		result.add(teForm);
 
 		return result;		
 	}
@@ -265,5 +274,51 @@ public class AdjectiveIGrammaConjugater {
 				throw new RuntimeException("currentRomaji.endsWith(i) == false");
 			}
 		}		
+	}
+	
+	private static GrammaFormConjugateResult makeTeForm(DictionaryEntry dictionaryEntry) {
+		// forma te
+		
+		String postfixKana = "くて";
+		String postfixRomaji = "kute";
+		
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+		
+		result.setResultType(GrammaFormConjugateResultType.ADJECTIVE_I_TE);
+		
+		String kanji = dictionaryEntry.getKanji();
+
+		if (kanji != null) {
+			kanji = getKanaToConjugate(kanji, GrammaFormConjugateResultType.ADJECTIVE_I_TE);
+			
+			result.setKanji(removeLastChar(kanji) + postfixKana);
+		}
+
+		List<String> kanaList = dictionaryEntry.getKanaList();
+
+		List<String> kanaListResult = new ArrayList<String>();
+
+		for (String currentKana : kanaList) {			
+			currentKana = getKanaToConjugate(currentKana, GrammaFormConjugateResultType.ADJECTIVE_I_TE);
+
+			kanaListResult.add(removeLastChar(currentKana) + postfixKana);
+		}
+
+		result.setKanaList(kanaListResult);		
+
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+
+		List<String> romajiListResult = new ArrayList<String>();
+
+		for (String currentRomaji : romajiList) {
+			currentRomaji = getRomajiToConjugate(currentRomaji, GrammaFormConjugateResultType.ADJECTIVE_I_TE);
+
+			romajiListResult.add(removeLastChar(currentRomaji) + postfixRomaji);
+		}
+
+		result.setRomajiList(romajiListResult);		
+		
+		return result;
 	}
 }

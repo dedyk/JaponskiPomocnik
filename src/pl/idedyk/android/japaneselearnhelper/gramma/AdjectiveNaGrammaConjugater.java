@@ -40,9 +40,18 @@ public class AdjectiveNaGrammaConjugater {
 
 		result.add(informal);
 		
+		// forma te
+		GrammaFormConjugateGroupTypeElements teForm = new GrammaFormConjugateGroupTypeElements();
+		
+		teForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.ADJECTIVE_NA_TE);
+		
+		teForm.getGrammaFormConjugateResults().add(makeTeForm(dictionaryEntry));
+		
+		result.add(teForm);
+		
 		return result;
 	}
-	
+
 	public static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma formalna, -desu
 
@@ -207,5 +216,15 @@ public class AdjectiveNaGrammaConjugater {
 		if (dictionaryEntryType != DictionaryEntryType.WORD_ADJECTIVE_NA) {
 			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_ADJECTIVE_NA");
 		}		
+	}
+	
+	private static GrammaFormConjugateResult makeTeForm(DictionaryEntry dictionaryEntry) {
+		// forma te
+		
+		final String postfixKana = "で";
+		final String postfixRomaji = " de";
+
+		return makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_NA_TE,
+				postfixKana, postfixRomaji);
 	}
 }

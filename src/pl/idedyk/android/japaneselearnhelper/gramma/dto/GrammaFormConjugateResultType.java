@@ -42,7 +42,10 @@ public enum GrammaFormConjugateResultType {
 	VERB_INFORMAL_PAST("Twierdzenie, czas przeszły", true),
 	VERB_INFORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły", true),
 	
-	VERB_TE("Forma te", false);
+	VERB_TE("Forma te", false),
+	ADJECTIVE_I_TE("Forma te", false),
+	ADJECTIVE_NA_TE("Forma te", false),
+	NOUN_TE("Forma te", false);
 	
 	private String name;
 	
