@@ -47,7 +47,9 @@ public enum GrammaFormConjugateResultType {
 	ADJECTIVE_NA_TE("Forma te", false),
 	NOUN_TE("Forma te", false),
 	
-	VERB_STEM("Temat czasownika (ang: stem)", false);
+	VERB_STEM("Temat czasownika (ang: stem)", false),
+	
+	VERB_MASHOU("Forma mashou", false);
 	
 	private String name;
 	

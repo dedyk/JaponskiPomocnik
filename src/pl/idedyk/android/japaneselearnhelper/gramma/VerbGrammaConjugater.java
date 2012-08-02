@@ -138,6 +138,15 @@ public class VerbGrammaConjugater {
 		
 		result.add(stemForm);
 		
+		// mashou
+		GrammaFormConjugateGroupTypeElements mashouForm = new GrammaFormConjugateGroupTypeElements();
+		
+		mashouForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_MASHOU);
+		
+		mashouForm.getGrammaFormConjugateResults().add(makeMashouForm(dictionaryEntry));
+		
+		result.add(mashouForm);
+		
 		// forma te
 		GrammaFormConjugateGroupTypeElements teForm = new GrammaFormConjugateGroupTypeElements();
 		
@@ -855,5 +864,19 @@ public class VerbGrammaConjugater {
 
 		return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_STEM,
 				"", "");
+	}
+	
+	private static GrammaFormConjugateResult makeMashouForm(DictionaryEntry dictionaryEntry) {
+		
+		// mashou
+		
+		GrammaFormConjugateResult mashouForm = makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_MASHOU,
+				"ましょう", "mashou");
+		
+		mashouForm.setAlternative(
+				makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_MASHOU,
+						"ましょうか", "mashou ka"));
+		
+		return mashouForm;
 	}
 }
