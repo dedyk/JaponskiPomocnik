@@ -17,7 +17,9 @@ public enum GrammaFormConjugateGroupType {
 	ADJECTIVE_I_TE("Forma te"),
 	ADJECTIVE_NA_TE("Forma te"),
 	NOUN_TE("Forma te"),
-	VERB_TE("Forma te");
+	VERB_TE("Forma te"),
+	
+	VERB_STEM("Temat czasownika (ang: stem)");
 	
 	private String name;
 	

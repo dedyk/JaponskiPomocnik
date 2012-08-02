@@ -129,6 +129,15 @@ public class VerbGrammaConjugater {
 		
 		result.add(informal);
 		
+		// stem
+		GrammaFormConjugateGroupTypeElements stemForm = new GrammaFormConjugateGroupTypeElements();
+		
+		stemForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_STEM);
+		
+		stemForm.getGrammaFormConjugateResults().add(makeStemForm(dictionaryEntry));
+		
+		result.add(stemForm);
+		
 		// forma te
 		GrammaFormConjugateGroupTypeElements teForm = new GrammaFormConjugateGroupTypeElements();
 		
@@ -137,7 +146,7 @@ public class VerbGrammaConjugater {
 		teForm.getGrammaFormConjugateResults().add(makeTeForm(dictionaryEntry));
 		
 		result.add(teForm);
-		
+				
 		return result;		
 	}
 
@@ -838,5 +847,13 @@ public class VerbGrammaConjugater {
 		result.setRomajiList(romajiListResult);
 		
 		return result;
+	}
+	
+	private static GrammaFormConjugateResult makeStemForm(DictionaryEntry dictionaryEntry) {
+		
+		// stem
+
+		return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_STEM,
+				"", "");
 	}
 }
