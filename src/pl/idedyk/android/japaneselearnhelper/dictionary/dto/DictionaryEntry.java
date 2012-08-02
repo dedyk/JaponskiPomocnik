@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 
 public class DictionaryEntry implements Serializable {
@@ -27,6 +28,8 @@ public class DictionaryEntry implements Serializable {
 	private String info;
 	
 	private List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList;
+	
+	private List<ExampleGroupTypeElements> exampleGroupTypeElementsList;
 
 	public DictionaryEntryType getDictionaryEntryType() {
 		return dictionaryEntryType;
@@ -223,5 +226,13 @@ public class DictionaryEntry implements Serializable {
 			List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList) {
 		
 		this.grammaFormConjugateGroupTypeElementsList = grammaFormConjugateGroupTypeElementsList;
+	}
+
+	public List<ExampleGroupTypeElements> getExampleGroupTypeElementsList() {
+		return exampleGroupTypeElementsList;
+	}
+
+	public void setExampleGroupTypeElementsList(List<ExampleGroupTypeElements> exampleGroupTypeElementsList) {
+		this.exampleGroupTypeElementsList = exampleGroupTypeElementsList;
 	}
 }

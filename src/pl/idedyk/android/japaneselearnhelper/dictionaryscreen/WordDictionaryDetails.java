@@ -5,6 +5,8 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
+import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -197,7 +199,32 @@ public class WordDictionaryDetails extends Activity {
 				
 				report.add(new StringValue("", 15.0f, 1));
 			}
-		}		
+		}	
+		
+		// Exampler
+		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = dictionaryEntry.getExampleGroupTypeElementsList();
+		
+		if (exampleGroupTypeElementsList != null) {
+			
+			if (grammaFormConjugateGroupTypeElementsList == null) {
+				report.add(new StringValue("", 15.0f, 2));	
+			}
+			
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_exampler_label), 0));
+			
+			for (ExampleGroupTypeElements currentExampleGroupTypeElements : exampleGroupTypeElementsList) {
+				
+				report.add(new TitleItem(currentExampleGroupTypeElements.getExampleGroupType().getName(), 1));
+				
+				List<ExampleResult> exampleResults = currentExampleGroupTypeElements.getExampleResults();
+				
+				for (ExampleResult currentExampleResult : exampleResults) {					
+					addExampleResult(report, prefix, currentExampleResult);
+				}
+				
+				report.add(new StringValue("", 15.0f, 1));
+			}
+		}
 		
 		return report;
 	}
@@ -247,6 +274,47 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new StringValue("", 5.0f, 1));
 			
 			addGrammaFormConjugateResult(report, prefix, alternative);	
+		}		
+	}
+	
+	private void addExampleResult(List<IScreenItem> report, String prefix, ExampleResult exampleResult) {
+		
+		String exampleKanji = exampleResult.getKanji();
+		
+		StringBuffer exampleKanjiSb = new StringBuffer();
+		
+		if (exampleKanji != null) {
+			if (prefix != null && exampleResult.isCanAddPrefix() == true) {
+				exampleKanjiSb.append("(").append(prefix).append(") ");
+			}
+			
+			exampleKanjiSb.append(exampleKanji);
+			
+			report.add(new StringValue(exampleKanjiSb.toString(), 15.0f, 2));
+		}
+		
+		List<String> exampleKanaList = exampleResult.getKanaList();
+		List<String> exampleRomajiList = exampleResult.getRomajiList();
+		
+		for (int idx = 0; idx < exampleKanaList.size(); ++idx) {
+			
+			StringBuffer sb = new StringBuffer();
+			
+			if (prefix != null && exampleResult.isCanAddPrefix() == true) {
+				sb.append("(").append(prefix).append(") ");
+			}
+			
+			sb.append(exampleKanaList.get(idx)).append(" - ").append(exampleRomajiList.get(idx));
+						
+			report.add(new StringValue(sb.toString(), 15.0f, 2));
+		}
+		
+		ExampleResult alternative = exampleResult.getAlternative();
+		
+		if (alternative != null) {
+			report.add(new StringValue("", 5.0f, 1));
+			
+			addExampleResult(report, prefix, alternative);	
 		}		
 	}
 }
