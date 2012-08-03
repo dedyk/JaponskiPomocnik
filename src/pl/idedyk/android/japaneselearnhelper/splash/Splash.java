@@ -46,7 +46,7 @@ public class Splash extends Activity {
 				public void setMaxValue(int maxValue) {
 					progressBar.setMax(maxValue);
 				}
-
+				
 				public void setCurrentPos(int currentPos) {
 					progressBar.setProgress(currentPos);
 				}

@@ -437,7 +437,7 @@ public class VerbGrammaConjugater {
 		return lastCharConvertedToI;
 	}
 	
-	private static GrammaFormConjugateResult makeTeForm(DictionaryEntry dictionaryEntry) {
+	public static GrammaFormConjugateResult makeTeForm(DictionaryEntry dictionaryEntry) {
 		
 		// forma te
 		
@@ -580,7 +580,7 @@ public class VerbGrammaConjugater {
 		}
 	}
 	
-	private static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
+	public static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma nieformalna (prosta)
 		
 		// make common
@@ -597,7 +597,7 @@ public class VerbGrammaConjugater {
 		return result;
 	}
 	
-	private static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+	public static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, przeczenie, forma nieformalna (prosta)
 		
 		// make common
@@ -741,7 +741,7 @@ public class VerbGrammaConjugater {
 		}
 	}
 	
-	private static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
+	public static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
 		// czas przeszly, twierdzenie, forma nieformalna (prosta)
 		
 		GrammaFormConjugateResult teForm = makeTeForm(dictionaryEntry);
@@ -818,7 +818,7 @@ public class VerbGrammaConjugater {
 		return removeChars(text, 1) + postfix;
 	}
 	
-	private static GrammaFormConjugateResult makeInformalPastNegativeForm(DictionaryEntry dictionaryEntry) {
+	public static GrammaFormConjugateResult makeInformalPastNegativeForm(DictionaryEntry dictionaryEntry) {
 		
 		// czas przeszly, przeczenie, forma nieformalna (prosta)
 		
@@ -858,7 +858,7 @@ public class VerbGrammaConjugater {
 		return result;
 	}
 	
-	private static GrammaFormConjugateResult makeStemForm(DictionaryEntry dictionaryEntry) {
+	public static GrammaFormConjugateResult makeStemForm(DictionaryEntry dictionaryEntry) {
 		
 		// stem
 
@@ -866,7 +866,7 @@ public class VerbGrammaConjugater {
 				"", "");
 	}
 	
-	private static GrammaFormConjugateResult makeMashouForm(DictionaryEntry dictionaryEntry) {
+	public static GrammaFormConjugateResult makeMashouForm(DictionaryEntry dictionaryEntry) {
 		
 		// mashou
 		

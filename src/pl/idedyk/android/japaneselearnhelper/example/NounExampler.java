@@ -13,23 +13,11 @@ public class NounExampler {
 		
 		List<ExampleGroupTypeElements> result = new ArrayList<ExampleGroupTypeElements>();
 		
-		// like : suki
-		ExampleGroupTypeElements likeExample = new ExampleGroupTypeElements();
+		// like : suki		
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_LIKE, makeSukiExample(dictionaryEntry));
 		
-		likeExample.setExampleGroupType(ExampleGroupType.NOUN_LIKE);
-		
-		likeExample.getExampleResults().add(makeSukiExample(dictionaryEntry));
-		
-		result.add(likeExample);
-		
-		// dislike : kirai
-		ExampleGroupTypeElements dislikeExample = new ExampleGroupTypeElements();
-		
-		dislikeExample.setExampleGroupType(ExampleGroupType.NOUN_DISLIKE);
-		
-		dislikeExample.getExampleResults().add(makeDislikeExample(dictionaryEntry));
-		
-		result.add(dislikeExample);
+		// dislike : kirai		
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_DISLIKE, makeKiraiExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -40,51 +28,15 @@ public class NounExampler {
 		final String templateKana = "%sがすき";
 		final String templateRomaji = "%s ga suki";
 		
-		return makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 
-	private static ExampleResult makeDislikeExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeKiraiExample(DictionaryEntry dictionaryEntry) {
 		
 		final String templateKanji = "%sがきらい";
 		final String templateKana = "%sがきらい";
 		final String templateRomaji = "%s ga kirai";
 		
-		return makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
-	}
-	
-	private static ExampleResult makeSimpleTemplateExample(DictionaryEntry dictionaryEntry,
-			String templateKanji, String templateKana, String templateRomaji, boolean canAddPrefix) {
-		
-		ExampleResult result = new ExampleResult();
-		
-		result.setCanAddPrefix(canAddPrefix);
-		
-		String kanji = dictionaryEntry.getKanji();
-
-		if (kanji != null) {		
-			result.setKanji(String.format(templateKanji, kanji));
-		}
-
-		List<String> kanaList = dictionaryEntry.getKanaList();
-
-		List<String> kanaListResult = new ArrayList<String>();
-
-		for (String currentKana : kanaList) {			
-			kanaListResult.add(String.format(templateKana, currentKana));
-		}
-
-		result.setKanaList(kanaListResult);		
-
-		List<String> romajiList = dictionaryEntry.getRomajiList();
-
-		List<String> romajiListResult = new ArrayList<String>();
-
-		for (String currentRomaji : romajiList) {
-			romajiListResult.add(String.format(templateRomaji, currentRomaji));
-		}
-
-		result.setRomajiList(romajiListResult);
-		
-		return result;		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 }

@@ -16,6 +16,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.example.NounExampler;
+import pl.idedyk.android.japaneselearnhelper.example.VerbExampler;
 import pl.idedyk.android.japaneselearnhelper.gramma.AdjectiveIGrammaConjugater;
 import pl.idedyk.android.japaneselearnhelper.gramma.AdjectiveNaGrammaConjugater;
 import pl.idedyk.android.japaneselearnhelper.gramma.NounGrammaConjugater;
@@ -148,6 +149,7 @@ public class DictionaryManager {
 					dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
 				
 				entry.setGrammaFormConjugateGroupTypeElementsList(VerbGrammaConjugater.makeAll(entry));
+				entry.setExampleGroupTypeElementsList(VerbExampler.makeAll(entry));
 			}
 
 			dictionary.add(entry);
