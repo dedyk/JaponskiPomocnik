@@ -16,7 +16,9 @@ public enum ExampleGroupType {
 	
 	VERB_TE_MO_II("Pozwolenie"),
 	
-	VERB_TE_HA_IKEMASEN("Zakaz");
+	VERB_TE_HA_IKEMASEN("Zakaz 1"),
+	
+	VERB_NAI_DE_KUDASAI("Zakaz 2");
 	
 	private String name;
 	

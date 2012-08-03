@@ -30,6 +30,9 @@ public class VerbExampler {
 		// te wa ikemasen
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_HA_IKEMASEN, makeTeHaIkemasenExample(dictionaryEntry));
 		
+		// nai de kudasai
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAI_DE_KUDASAI, makeNaiDeKudasai(dictionaryEntry));
+		
 		// like : suki		
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_LIKE, makeSukiExample(dictionaryEntry));
 		
@@ -97,6 +100,17 @@ public class VerbExampler {
 				ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji + "か", templateKana + "か", templateRomaji + " ka", true));
 		
 		return moIidesu;
+	}
+	
+	private static ExampleResult makeNaiDeKudasai(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sでください";
+		final String templateKana = "%sでください";
+		final String templateRomaji = "%s de kudasai";
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		return ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true);
 	}
 	
 	private static ExampleResult makeTeHaIkemasenExample(DictionaryEntry dictionaryEntry) {
