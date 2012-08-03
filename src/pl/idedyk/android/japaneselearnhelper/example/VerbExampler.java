@@ -15,6 +15,9 @@ public class VerbExampler {
 		
 		List<ExampleGroupTypeElements> result = new ArrayList<ExampleGroupTypeElements>();
 		
+		// stem + ni + iku
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_STEM_NI_IKU, makeStemNiIkuExample(dictionaryEntry));
+		
 		// te iru
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_IRU, makeTeIruExample(dictionaryEntry));
 		
@@ -32,6 +35,28 @@ public class VerbExampler {
 		
 		// dislike : kirai		
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_DISLIKE, makeKiraiExample(dictionaryEntry));
+		
+		return result;
+	}
+
+	private static ExampleResult makeStemNiIkuExample(DictionaryEntry dictionaryEntry) {
+		
+		final String[][] templates = {
+				{ "[miejsce] [に/へ] %sに行く", "[miejsce] [に/へ] %sにいく", "[miejsce] [に/へ] %s ni iku" }, 
+				{ "[miejsce] [に/へ] %sに来る", "[miejsce] [に/へ] %sにくる", "[miejsce] [に/へ] %s ni kuru" },
+				{ "[miejsce] [に/へ] %sに帰る", "[miejsce] [に/へ] %sにかえる", "[miejsce] [に/へ] %s ni kaeru" }
+		};
+		
+		GrammaFormConjugateResult stemForm = VerbGrammaConjugater.makeStemForm(dictionaryEntry);
+		
+		ExampleResult result = ExampleHelper.makeSimpleTemplateExample(stemForm, templates[0][0], templates[0][1], templates[0][2], false);
+		
+		ExampleResult alternative1 = ExampleHelper.makeSimpleTemplateExample(stemForm, templates[1][0], templates[1][1], templates[1][2], false);
+		
+		ExampleResult alternative2 = ExampleHelper.makeSimpleTemplateExample(stemForm, templates[2][0], templates[2][1], templates[2][2], false);
+		
+		alternative1.setAlternative(alternative2);		
+		result.setAlternative(alternative1);
 		
 		return result;
 	}

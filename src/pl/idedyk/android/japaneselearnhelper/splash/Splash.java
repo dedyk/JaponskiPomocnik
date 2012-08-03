@@ -63,11 +63,6 @@ public class Splash extends Activity {
 				
 				dictionaryManager.init(loadWithProgress);
 				
-				try {
-					Thread.sleep(1500);
-				} catch (InterruptedException e) {
-				}
-				
 				return null;
 			}
 			

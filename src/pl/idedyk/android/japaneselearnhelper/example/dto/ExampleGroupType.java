@@ -8,6 +8,8 @@ public enum ExampleGroupType {
 	VERB_LIKE("Lubić"),
 	VERB_DISLIKE("Nie lubić"),
 	
+	VERB_STEM_NI_IKU("\"Idę, aby ...\""),
+	
 	VERB_TE_IRU("Trwanie czynności/stanu"),
 	
 	VERB_TE_KUDASAI("Prośba"),
