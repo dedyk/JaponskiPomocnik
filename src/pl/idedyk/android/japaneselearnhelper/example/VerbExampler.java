@@ -33,6 +33,12 @@ public class VerbExampler {
 		// nai de kudasai
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAI_DE_KUDASAI, makeNaiDeKudasai(dictionaryEntry));
 		
+		// tsumori desu
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TSUMORI_DESU, makeTsumoriDesu(dictionaryEntry));
+		
+		// koto ga aru
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_KOTO_GA_ARU, makeKotoGaAru(dictionaryEntry));
+		
 		// like : suki		
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_LIKE, makeSukiExample(dictionaryEntry));
 		
@@ -111,6 +117,42 @@ public class VerbExampler {
 		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
 		
 		return ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeTsumoriDesu(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult informalPresentForm = VerbGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		final String templateKanji = "%sつもりです";
+		final String templateKana = "%sつもりです";
+		final String templateRomaji = "%s tsumori desu";
+		
+		ExampleResult tsumoriDesu = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji, templateKana, templateRomaji, true);
+		
+		ExampleResult naiTsumoriDesu = ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true);
+		
+		tsumoriDesu.setAlternative(naiTsumoriDesu);
+		
+		return tsumoriDesu;
+	}
+	
+	private static ExampleResult makeKotoGaAru(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		
+		final String templateKanji = "%sことがある";
+		final String templateKana = "%sことがある";
+		final String templateRomaji = "%s koto ga aru";
+		
+		ExampleResult kotoGaAru = ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
+		
+		ExampleResult kotoGaAruKa = ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji + "か", templateKana + "か", templateRomaji + " ka", true);
+		
+		kotoGaAru.setAlternative(kotoGaAruKa);
+		
+		return kotoGaAru;
 	}
 	
 	private static ExampleResult makeTeHaIkemasenExample(DictionaryEntry dictionaryEntry) {

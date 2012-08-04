@@ -18,7 +18,11 @@ public enum ExampleGroupType {
 	
 	VERB_TE_HA_IKEMASEN("Zakaz 1"),
 	
-	VERB_NAI_DE_KUDASAI("Zakaz 2");
+	VERB_NAI_DE_KUDASAI("Zakaz 2"),
+	
+	VERB_TSUMORI_DESU("Zamiar"),
+	
+	VERB_KOTO_GA_ARU("Mieć doświadczenie");
 	
 	private String name;
 	
