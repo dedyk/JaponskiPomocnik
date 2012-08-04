@@ -57,6 +57,9 @@ public class VerbExampler {
 		// advice
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_ADVICE, makeAdviceExample(dictionaryEntry));
 		
+		// nakucha ikemasen
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAKUCHA_IKEMASEN, makeNakuchaIkemasenExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -244,5 +247,46 @@ public class VerbExampler {
 		
 		return houGaIiDesu;
 	}
+	
+	private static ExampleResult makeNakuchaIkemasenExample(DictionaryEntry dictionaryEntry) {
+		
+		String postfixKana = "くちゃいけません";
+		String postfixRomaji = "kucha ikemasen";
+		
+		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		String kanji = informalPastForm.getKanji();
+		List<String> kanaList = informalPastForm.getKanaList();
+		List<String> romajiList = informalPastForm.getRomajiList();
 
+		ExampleResult result = new ExampleResult();
+		
+		result.setCanAddPrefix(true);
+		
+		if (kanji != null) {		
+			result.setKanji(removeLastChar(kanji) + postfixKana);
+		}
+
+		List<String> kanaListResult = new ArrayList<String>();
+
+		for (String currentKana : kanaList) {			
+			kanaListResult.add(removeLastChar(currentKana) + postfixKana);
+		}
+
+		result.setKanaList(kanaListResult);
+
+		List<String> romajiListResult = new ArrayList<String>();
+
+		for (String currentRomaji : romajiList) {
+			romajiListResult.add(removeLastChar(currentRomaji) + postfixRomaji);
+		}
+
+		result.setRomajiList(romajiListResult);
+		
+		return result;		
+	}
+	
+	private static String removeLastChar(String text) {
+		return text.substring(0, text.length() - 1);
+	}
 }

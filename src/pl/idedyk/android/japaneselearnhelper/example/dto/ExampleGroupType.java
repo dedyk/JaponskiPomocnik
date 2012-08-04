@@ -46,7 +46,9 @@ public enum ExampleGroupType {
 	
 	VERB_N_DESU("Forma wyjaśniająca"),
 	
-	VERB_ADVICE("Rada");
+	VERB_ADVICE("Rada"),
+	
+	VERB_NAKUCHA_IKEMASEN("Musieć");
 	
 	private String name;
 	
