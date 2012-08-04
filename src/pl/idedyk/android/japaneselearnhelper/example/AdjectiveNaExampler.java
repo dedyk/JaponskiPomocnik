@@ -23,6 +23,9 @@ public class AdjectiveNaExampler {
 		// sugiru
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_SUGIRU, makeSugiruExample(dictionaryEntry));
 		
+		// deshou
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_DESHOU, makeDeshouExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -49,6 +52,15 @@ public class AdjectiveNaExampler {
 		final String templateKanji = "%sすぎる";
 		final String templateKana = "%sすぎる";
 		final String templateRomaji = "%s sugiru";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+
+	private static ExampleResult makeDeshouExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sでしょう";
+		final String templateKana = "%sでしょう";
+		final String templateRomaji = "%s deshou";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}

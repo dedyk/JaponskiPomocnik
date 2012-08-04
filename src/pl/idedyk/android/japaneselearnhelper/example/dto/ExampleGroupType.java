@@ -8,11 +8,15 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_SUGIRU("\"Zbyt wiele\""),
 	
+	ADJECTIVE_I_DESHOU("Prawdopodobnie"),
+	
 	ADJECTIVE_NA_NARU("Stawać się"),
 	
 	ADJECTIVE_NA_NA_DESU("Forma wyjaśniająca"),
 	
 	ADJECTIVE_NA_SUGIRU("\"Zbyt wiele\""),
+	
+	ADJECTIVE_NA_DESHOU("Prawdopodobnie"),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -20,6 +24,8 @@ public enum ExampleGroupType {
 	NOUN_DISLIKE("Nie lubić"),
 	
 	NOUN_NA_DESU("Forma wyjaśniająca"),
+	
+	NOUN_DESHOU("Prawdopodobnie"),
 	
 	VERB_TAI("Chcieć"),
 	
@@ -48,7 +54,9 @@ public enum ExampleGroupType {
 	
 	VERB_ADVICE("Rada"),
 	
-	VERB_NAKUCHA_IKEMASEN("Musieć");
+	VERB_NAKUCHA_IKEMASEN("Musieć"),
+	
+	VERB_DESHOU("Prawdopodobnie");
 	
 	private String name;
 	

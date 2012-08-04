@@ -60,6 +60,9 @@ public class VerbExampler {
 		// nakucha ikemasen
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAKUCHA_IKEMASEN, makeNakuchaIkemasenExample(dictionaryEntry));
 		
+		// deshou
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_DESHOU, makeDeshouExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -288,5 +291,14 @@ public class VerbExampler {
 	
 	private static String removeLastChar(String text) {
 		return text.substring(0, text.length() - 1);
+	}
+	
+	private static ExampleResult makeDeshouExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sでしょう";
+		final String templateKana = "%sでしょう";
+		final String templateRomaji = "%s deshou";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 }

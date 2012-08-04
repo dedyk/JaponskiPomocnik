@@ -25,6 +25,9 @@ public class AdjectiveIExampler {
 		// sugiru
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SUGIRU, makeSugiruExample(dictionaryEntry));
 		
+		// deshou
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_DESHOU, makeDeshouExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -57,5 +60,14 @@ public class AdjectiveIExampler {
 		final String templateRomaji = "%s sugiru";
 		
 		return ExampleHelper.makeSimpleTemplateExample(virtualForm, templateKanji, templateKana, templateRomaji, true);
+	}
+
+	private static ExampleResult makeDeshouExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sでしょう";
+		final String templateKana = "%sでしょう";
+		final String templateRomaji = "%s deshou";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 }
