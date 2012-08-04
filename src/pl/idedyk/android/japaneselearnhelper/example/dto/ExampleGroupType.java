@@ -11,6 +11,8 @@ public enum ExampleGroupType {
 	NOUN_LIKE("Lubić"),
 	NOUN_DISLIKE("Nie lubić"),
 	
+	VERB_TAI("Chcieć"),
+	
 	VERB_LIKE("Lubić"),
 	VERB_DISLIKE("Nie lubić"),
 	

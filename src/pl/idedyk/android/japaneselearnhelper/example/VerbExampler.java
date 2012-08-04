@@ -39,6 +39,9 @@ public class VerbExampler {
 		// koto ga aru
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_KOTO_GA_ARU, makeKotoGaAru(dictionaryEntry));
 		
+		// tai
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TAI, makeTaiExample(dictionaryEntry));
+		
 		// like : suki		
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_LIKE, makeSukiExample(dictionaryEntry));
 		
@@ -166,6 +169,17 @@ public class VerbExampler {
 		ExampleResult moIidesu = ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
 				
 		return moIidesu;
+	}
+	
+	private static ExampleResult makeTaiExample(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult stemForm = VerbGrammaConjugater.makeStemForm(dictionaryEntry);
+		
+		final String templateKanji = "%sたいです";
+		final String templateKana = "%sたいです";
+		final String templateRomaji = "%stai desu";
+		
+		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
 	}
 
 	private static ExampleResult makeSukiExample(DictionaryEntry dictionaryEntry) {
