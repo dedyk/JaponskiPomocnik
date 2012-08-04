@@ -250,6 +250,7 @@ public class KanaHelper {
 		katakanaEntries.add(new KanaEntry("マ", "ma"));
 		katakanaEntries.add(new KanaEntry("ミ", "mi"));
 		katakanaEntries.add(new KanaEntry("厶", "mu"));
+		katakanaEntries.add(new KanaEntry("ム", "mu"));
 		katakanaEntries.add(new KanaEntry("メ", "me"));
 		katakanaEntries.add(new KanaEntry("モ", "mo"));
 		

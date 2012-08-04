@@ -51,6 +51,14 @@ public class AdjectiveIGrammaConjugater {
 
 		return result;		
 	}
+	
+	public static GrammaFormConjugateResult makeVirtualForm(DictionaryEntry dictionaryEntry) {
+		
+		// wirtualna metoda bez "i" na koncu i ewentualne przerobienie ii na yoi
+		
+		return makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_I_VIRTUAL,
+				"", "");
+	}
 
 	public static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma formalna, -i desu

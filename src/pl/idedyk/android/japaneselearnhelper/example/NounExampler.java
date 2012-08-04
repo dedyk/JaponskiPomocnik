@@ -19,6 +19,9 @@ public class NounExampler {
 		// dislike : kirai		
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_DISLIKE, makeKiraiExample(dictionaryEntry));
 		
+		// ni naru
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_NARU, makeNounNaru(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -36,6 +39,15 @@ public class NounExampler {
 		final String templateKanji = "%sがきらい";
 		final String templateKana = "%sがきらい";
 		final String templateRomaji = "%s ga kirai";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeNounNaru(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sになる";
+		final String templateKana = "%sになる";
+		final String templateRomaji = "%s ni naru";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}

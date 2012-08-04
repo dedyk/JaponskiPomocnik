@@ -2,6 +2,12 @@ package pl.idedyk.android.japaneselearnhelper.example.dto;
 
 public enum ExampleGroupType {
 	
+	ADJECTIVE_I_NARU("Stawać się"),
+	
+	ADJECTIVE_NA_NARU("Stawać się"),
+	
+	NOUN_NARU("Stawać się"),
+	
 	NOUN_LIKE("Lubić"),
 	NOUN_DISLIKE("Nie lubić"),
 	
