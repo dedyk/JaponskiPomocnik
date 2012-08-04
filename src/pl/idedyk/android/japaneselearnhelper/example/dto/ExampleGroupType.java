@@ -4,12 +4,18 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_NARU("Stawać się"),
 	
+	ADJECTIVE_I_N_DESU("Forma wyjaśniająca"),
+	
 	ADJECTIVE_NA_NARU("Stawać się"),
+	
+	ADJECTIVE_NA_NA_DESU("Forma wyjaśniająca"),
 	
 	NOUN_NARU("Stawać się"),
 	
 	NOUN_LIKE("Lubić"),
 	NOUN_DISLIKE("Nie lubić"),
+	
+	NOUN_NA_DESU("Forma wyjaśniająca"),
 	
 	VERB_TAI("Chcieć"),
 	
@@ -30,7 +36,9 @@ public enum ExampleGroupType {
 	
 	VERB_TSUMORI_DESU("Zamiar"),
 	
-	VERB_KOTO_GA_ARU("Mieć doświadczenie");
+	VERB_KOTO_GA_ARU("Mieć doświadczenie"),
+	
+	VERB_N_DESU("Forma wyjaśniająca");
 	
 	private String name;
 	

@@ -22,6 +22,9 @@ public class NounExampler {
 		// ni naru
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_NARU, makeNounNaru(dictionaryEntry));
 		
+		// na desu
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_NA_DESU, makeNaDesuExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -48,6 +51,15 @@ public class NounExampler {
 		final String templateKanji = "%sになる";
 		final String templateKana = "%sになる";
 		final String templateRomaji = "%s ni naru";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeNaDesuExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sなんです";
+		final String templateKana = "%sなんです";
+		final String templateRomaji = "%s nan desu";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}

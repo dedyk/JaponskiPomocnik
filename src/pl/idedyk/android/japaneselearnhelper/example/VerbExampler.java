@@ -42,6 +42,9 @@ public class VerbExampler {
 		// tai
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TAI, makeTaiExample(dictionaryEntry));
 		
+		// n desu
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_N_DESU, makeNDesuExample(dictionaryEntry));
+		
 		// like : suki		
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_LIKE, makeSukiExample(dictionaryEntry));
 		
@@ -180,6 +183,15 @@ public class VerbExampler {
 		final String templateRomaji = "%stai desu";
 		
 		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeNDesuExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sんです";
+		final String templateKana = "%sんです";
+		final String templateRomaji = "%sn desu";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 
 	private static ExampleResult makeSukiExample(DictionaryEntry dictionaryEntry) {

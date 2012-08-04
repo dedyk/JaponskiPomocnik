@@ -19,6 +19,9 @@ public class AdjectiveIExampler {
 		// ku naru
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_NARU, makeAdjectiveINaru(dictionaryEntry));
 		
+		// n desu
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_N_DESU, makeNDesuExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -31,5 +34,14 @@ public class AdjectiveIExampler {
 		final String templateRomaji = "%sku naru";
 		
 		return ExampleHelper.makeSimpleTemplateExample(virtualForm, templateKanji, templateKana, templateRomaji, true);
+	}
+
+	private static ExampleResult makeNDesuExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sんです";
+		final String templateKana = "%sんです";
+		final String templateRomaji = "%sn desu";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 }
