@@ -44,7 +44,9 @@ public enum ExampleGroupType {
 	
 	VERB_KOTO_GA_ARU("Mieć doświadczenie"),
 	
-	VERB_N_DESU("Forma wyjaśniająca");
+	VERB_N_DESU("Forma wyjaśniająca"),
+	
+	VERB_ADVICE("Rada");
 	
 	private String name;
 	

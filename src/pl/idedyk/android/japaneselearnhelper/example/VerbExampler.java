@@ -15,6 +15,12 @@ public class VerbExampler {
 		
 		List<ExampleGroupTypeElements> result = new ArrayList<ExampleGroupTypeElements>();
 		
+		// like : suki		
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_LIKE, makeSukiExample(dictionaryEntry));
+		
+		// dislike : kirai		
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_DISLIKE, makeKiraiExample(dictionaryEntry));
+		
 		// stem + ni + iku
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_STEM_NI_IKU, makeStemNiIkuExample(dictionaryEntry));
 		
@@ -48,11 +54,8 @@ public class VerbExampler {
 		// sugiru
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_SUGIRU, makeSugiruExample(dictionaryEntry));
 		
-		// like : suki		
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_LIKE, makeSukiExample(dictionaryEntry));
-		
-		// dislike : kirai		
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_DISLIKE, makeKiraiExample(dictionaryEntry));
+		// advice
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_ADVICE, makeAdviceExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -225,4 +228,21 @@ public class VerbExampler {
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
+	
+	private static ExampleResult makeAdviceExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sほうがいいです";
+		final String templateKana = "%sほうがいいです";
+		final String templateRomaji = "%s hou ga ii desu";
+		
+		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		ExampleResult houGaIiDesu = ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
+		
+		houGaIiDesu.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true));
+		
+		return houGaIiDesu;
+	}
+
 }
