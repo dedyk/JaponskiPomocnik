@@ -5,8 +5,10 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
+import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -175,7 +177,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 		
 		// Conjugater
-		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = dictionaryEntry.getGrammaFormConjugateGroupTypeElementsList();
+		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = GrammaConjugaterManager.getGrammaConjufateResult(dictionaryEntry);
 		
 		if (grammaFormConjugateGroupTypeElementsList != null) {
 			report.add(new StringValue("", 15.0f, 2));
@@ -202,7 +204,7 @@ public class WordDictionaryDetails extends Activity {
 		}	
 		
 		// Exampler
-		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = dictionaryEntry.getExampleGroupTypeElementsList();
+		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(dictionaryEntry);
 		
 		if (exampleGroupTypeElementsList != null) {
 			

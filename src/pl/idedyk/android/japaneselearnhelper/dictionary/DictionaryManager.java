@@ -15,14 +15,6 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
-import pl.idedyk.android.japaneselearnhelper.example.AdjectiveIExampler;
-import pl.idedyk.android.japaneselearnhelper.example.AdjectiveNaExampler;
-import pl.idedyk.android.japaneselearnhelper.example.NounExampler;
-import pl.idedyk.android.japaneselearnhelper.example.VerbExampler;
-import pl.idedyk.android.japaneselearnhelper.gramma.AdjectiveIGrammaConjugater;
-import pl.idedyk.android.japaneselearnhelper.gramma.AdjectiveNaGrammaConjugater;
-import pl.idedyk.android.japaneselearnhelper.gramma.NounGrammaConjugater;
-import pl.idedyk.android.japaneselearnhelper.gramma.VerbGrammaConjugater;
 
 public class DictionaryManager {
 	
@@ -136,26 +128,6 @@ public class DictionaryManager {
 			
 			entry.setInfo(infoString);
 			
-			if (dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_I) {
-				entry.setGrammaFormConjugateGroupTypeElementsList(AdjectiveIGrammaConjugater.makeAll(entry));
-				entry.setExampleGroupTypeElementsList(AdjectiveIExampler.makeAll(entry));
-			
-			} else if (dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_NA) {
-				entry.setGrammaFormConjugateGroupTypeElementsList(AdjectiveNaGrammaConjugater.makeAll(entry));
-				entry.setExampleGroupTypeElementsList(AdjectiveNaExampler.makeAll(entry));
-			
-			} else if (dictionaryEntryType == DictionaryEntryType.WORD_NOUN) {
-				entry.setGrammaFormConjugateGroupTypeElementsList(NounGrammaConjugater.makeAll(entry));
-				entry.setExampleGroupTypeElementsList(NounExampler.makeAll(entry));
-			
-			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U ||
-					dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU ||
-					dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
-				
-				entry.setGrammaFormConjugateGroupTypeElementsList(VerbGrammaConjugater.makeAll(entry));
-				entry.setExampleGroupTypeElementsList(VerbExampler.makeAll(entry));
-			}
-
 			dictionary.add(entry);
 		}
 		
