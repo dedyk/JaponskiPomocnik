@@ -45,6 +45,9 @@ public class VerbExampler {
 		// n desu
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_N_DESU, makeNDesuExample(dictionaryEntry));
 		
+		// sugiru
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_SUGIRU, makeSugiruExample(dictionaryEntry));
+		
 		// like : suki		
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_LIKE, makeSukiExample(dictionaryEntry));
 		
@@ -192,6 +195,17 @@ public class VerbExampler {
 		final String templateRomaji = "%sn desu";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeSugiruExample(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult stemForm = VerbGrammaConjugater.makeStemForm(dictionaryEntry);
+		
+		final String templateKanji = "%sすぎる";
+		final String templateKana = "%sすぎる";
+		final String templateRomaji = "%s sugiru";
+		
+		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
 	}
 
 	private static ExampleResult makeSukiExample(DictionaryEntry dictionaryEntry) {

@@ -6,9 +6,13 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_N_DESU("Forma wyjaśniająca"),
 	
+	ADJECTIVE_I_SUGIRU("\"Zbyt wiele\""),
+	
 	ADJECTIVE_NA_NARU("Stawać się"),
 	
 	ADJECTIVE_NA_NA_DESU("Forma wyjaśniająca"),
+	
+	ADJECTIVE_NA_SUGIRU("\"Zbyt wiele\""),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -18,6 +22,8 @@ public enum ExampleGroupType {
 	NOUN_NA_DESU("Forma wyjaśniająca"),
 	
 	VERB_TAI("Chcieć"),
+	
+	VERB_SUGIRU("\"Zbyt wiele\""),
 	
 	VERB_LIKE("Lubić"),
 	VERB_DISLIKE("Nie lubić"),

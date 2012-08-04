@@ -22,6 +22,9 @@ public class AdjectiveIExampler {
 		// n desu
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_N_DESU, makeNDesuExample(dictionaryEntry));
 		
+		// sugiru
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SUGIRU, makeSugiruExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -43,5 +46,16 @@ public class AdjectiveIExampler {
 		final String templateRomaji = "%sn desu";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeSugiruExample(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult virtualForm = AdjectiveIGrammaConjugater.makeVirtualForm(dictionaryEntry);
+		
+		final String templateKanji = "%sすぎる";
+		final String templateKana = "%sすぎる";
+		final String templateRomaji = "%s sugiru";
+		
+		return ExampleHelper.makeSimpleTemplateExample(virtualForm, templateKanji, templateKana, templateRomaji, true);
 	}
 }
