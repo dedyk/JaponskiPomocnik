@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.GZIPInputStream;
 
 import com.csvreader.CsvReader;
 
@@ -15,6 +16,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.android.japaneselearnhelper.utils.XorInputStream;
 
 public class DictionaryManager {
 	
@@ -44,17 +46,19 @@ public class DictionaryManager {
 	
 	public void init(ILoadWithProgress loadWithProgress) {
 		
+		final int k = 23;
+		
 		// read word csv file
 		wordDictionaryEntries = new ArrayList<DictionaryEntry>();
 		
-		InputStream fileWordInputStream = DictionaryManager.class.getResourceAsStream(FILE_WORD);
-		
 		try {
+			InputStream fileWordInputStream = new GZIPInputStream(new XorInputStream(DictionaryManager.class.getResourceAsStream(FILE_WORD), k));
+			
 			int wordFileSize = getWordSize(fileWordInputStream);
 			
 			loadWithProgress.setMaxValue(wordFileSize);
 			
-			fileWordInputStream = DictionaryManager.class.getResourceAsStream(FILE_WORD);
+			fileWordInputStream = new GZIPInputStream(new XorInputStream(DictionaryManager.class.getResourceAsStream(FILE_WORD), k));
 			
 			readDictionaryFile(fileWordInputStream, loadWithProgress, wordDictionaryEntries);
 		} catch (IOException e) {
