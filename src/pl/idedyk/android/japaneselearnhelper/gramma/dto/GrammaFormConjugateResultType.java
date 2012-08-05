@@ -51,7 +51,9 @@ public enum GrammaFormConjugateResultType {
 	
 	VERB_STEM("Temat czasownika (ang: stem)", false),
 	
-	VERB_MASHOU("Forma mashou", false);
+	VERB_MASHOU("Forma mashou", false),
+	
+	VERB_POTENTIAL("Forma potencjalna", false);
 	
 	private String name;
 	

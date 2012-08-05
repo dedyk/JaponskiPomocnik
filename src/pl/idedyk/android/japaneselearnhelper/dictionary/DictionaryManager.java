@@ -132,8 +132,9 @@ public class DictionaryManager {
 			
 			entry.setInfo(infoString);
 			
-			//pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager.getGrammaConjufateResult(entry);
-			//pl.idedyk.android.japaneselearnhelper.example.ExampleManager.getExamples(entry);
+			// tutaj
+			// pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager.getGrammaConjufateResult(entry);
+			// pl.idedyk.android.japaneselearnhelper.example.ExampleManager.getExamples(entry);
 			
 			dictionary.add(entry);
 		}
