@@ -27,7 +27,10 @@ public class NounExampler {
 		
 		// deshou
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_DESHOU, makeDeshouExample(dictionaryEntry));
-		
+
+		// hoshii
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_HOSHII, makeHoshiiExample(dictionaryEntry));
+
 		return result;
 	}
 
@@ -72,6 +75,15 @@ public class NounExampler {
 		final String templateKanji = "%sでしょう";
 		final String templateKana = "%sでしょう";
 		final String templateRomaji = "%s deshou";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeHoshiiExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sがほしい";
+		final String templateKana = "%sがほしい";
+		final String templateRomaji = "%s ga hoshii";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}

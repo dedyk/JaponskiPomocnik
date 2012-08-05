@@ -31,6 +31,8 @@ public enum ExampleGroupType {
 	
 	NOUN_DESHOU("Prawdopodobnie"),
 	
+	NOUN_HOSHII("Chcieć"),
+	
 	VERB_TAI("Chcieć"),
 	
 	VERB_SUGIRU("\"Zbyt wiele\""),
