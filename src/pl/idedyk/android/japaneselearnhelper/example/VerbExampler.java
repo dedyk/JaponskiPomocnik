@@ -65,6 +65,9 @@ public class VerbExampler {
 		
 		// te miru
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MIRU, makeTeMiruExample(dictionaryEntry));
+
+		// kamoshi remasen
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -316,5 +319,14 @@ public class VerbExampler {
 		ExampleResult teMiru = ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
 				
 		return teMiru;
+	}
+	
+	private static ExampleResult makeKamoshiRemasenExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sかもしれません";
+		final String templateKana = "%sかもしれません";
+		final String templateRomaji = "%s kamoshi remasen";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 }

@@ -31,6 +31,9 @@ public class AdjectiveIExampler {
 		// sou desu
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SOU_DESU, makeSouDesuExample(dictionaryEntry));		
 		
+		// kamoshi remasen
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -112,5 +115,14 @@ public class AdjectiveIExampler {
 				informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
 		
 		return souDesuResult;
+	}
+	
+	private static ExampleResult makeKamoshiRemasenExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sかもしれません";
+		final String templateKana = "%sかもしれません";
+		final String templateRomaji = "%s kamoshi remasen";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 }

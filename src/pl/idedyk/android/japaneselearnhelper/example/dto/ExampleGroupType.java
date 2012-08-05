@@ -8,9 +8,11 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_SUGIRU("\"Zbyt wiele\""),
 	
-	ADJECTIVE_I_DESHOU("Prawdopodobnie"),
+	ADJECTIVE_I_DESHOU("Prawdopodobnie, ok. 60%"),
 	
 	ADJECTIVE_I_SOU_DESU("\"Wygląda na\""),
+	
+	ADJECTIVE_I_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
 	ADJECTIVE_NA_NARU("Stawać się"),
 	
@@ -18,9 +20,11 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_NA_SUGIRU("\"Zbyt wiele\""),
 	
-	ADJECTIVE_NA_DESHOU("Prawdopodobnie"),
+	ADJECTIVE_NA_DESHOU("Prawdopodobnie, ok. 60%"),
 	
 	ADJECTIVE_NA_SOU_DESU("\"Wygląda na\""),
+	
+	ADJECTIVE_NA_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -29,9 +33,11 @@ public enum ExampleGroupType {
 	
 	NOUN_NA_DESU("Forma wyjaśniająca"),
 	
-	NOUN_DESHOU("Prawdopodobnie"),
+	NOUN_DESHOU("Prawdopodobnie, ok. 60%"),
 	
 	NOUN_HOSHII("Chcieć"),
+	
+	NOUN_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
 	VERB_TAI("Chcieć"),
 	
@@ -62,9 +68,11 @@ public enum ExampleGroupType {
 	
 	VERB_NAKUCHA_IKEMASEN("Musieć"),
 	
-	VERB_DESHOU("Prawdopodobnie"),
+	VERB_DESHOU("Prawdopodobnie, ok. 60%"),
 	
-	VERB_TE_MIRU("Próbować");
+	VERB_TE_MIRU("Próbować"),
+	
+	VERB_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%");
 	
 	private String name;
 	

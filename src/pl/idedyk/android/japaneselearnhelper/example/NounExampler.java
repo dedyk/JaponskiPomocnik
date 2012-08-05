@@ -31,6 +31,9 @@ public class NounExampler {
 		// hoshii
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_HOSHII, makeHoshiiExample(dictionaryEntry));
 
+		// kamoshi remasen
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -84,6 +87,15 @@ public class NounExampler {
 		final String templateKanji = "%sがほしい";
 		final String templateKana = "%sがほしい";
 		final String templateRomaji = "%s ga hoshii";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeKamoshiRemasenExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sかもしれません";
+		final String templateKana = "%sかもしれません";
+		final String templateRomaji = "%s kamoshi remasen";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
