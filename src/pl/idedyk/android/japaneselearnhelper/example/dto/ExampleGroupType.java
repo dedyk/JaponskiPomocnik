@@ -60,7 +60,9 @@ public enum ExampleGroupType {
 	
 	VERB_NAKUCHA_IKEMASEN("Musieć"),
 	
-	VERB_DESHOU("Prawdopodobnie");
+	VERB_DESHOU("Prawdopodobnie"),
+	
+	VERB_TE_MIRU("Próbować");
 	
 	private String name;
 	

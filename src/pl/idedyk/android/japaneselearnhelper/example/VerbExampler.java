@@ -63,6 +63,9 @@ public class VerbExampler {
 		// deshou
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_DESHOU, makeDeshouExample(dictionaryEntry));
 		
+		// te miru
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MIRU, makeTeMiruExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -300,5 +303,18 @@ public class VerbExampler {
 		final String templateRomaji = "%s deshou";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeTeMiruExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sみる";
+		final String templateKana = "%sみる";
+		final String templateRomaji = "%s miru";
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		
+		ExampleResult teMiru = ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
+				
+		return teMiru;
 	}
 }
