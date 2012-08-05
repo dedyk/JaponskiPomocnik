@@ -7,6 +7,8 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
+import pl.idedyk.android.japaneselearnhelper.gramma.AdjectiveNaGrammaConjugater;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 
 public class AdjectiveNaExampler {
 
@@ -25,6 +27,9 @@ public class AdjectiveNaExampler {
 		
 		// deshou
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_DESHOU, makeDeshouExample(dictionaryEntry));
+		
+		// sou desu
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_SOU_DESU, makeSouDesuExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -63,5 +68,26 @@ public class AdjectiveNaExampler {
 		final String templateRomaji = "%s deshou";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeSouDesuExample(DictionaryEntry dictionaryEntry) {
+		
+		String templateKanji1 = "%sそうです";
+		String templateKana1 = "%sそうです";
+		String templateRomaji1 = "%s sou desu";	
+		
+		String templateKanji2 = "%sさそうです";
+		String templateKana2 = "%sさそうです";
+		String templateRomaji2 = "%s sasou desu";
+
+		
+		ExampleResult souDesuResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult makeInformalPresentNegativeForm = AdjectiveNaGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		souDesuResult.setAlternative(ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(
+				makeInformalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));		
+		
+		return souDesuResult;
 	}
 }

@@ -41,6 +41,26 @@ public class ExampleHelper {
 		
 		return makeSimpleTemplateExample(kanji, kanaList, romajiList, templateKanji, templateKana, templateRomaji, canAddPrefix);
 	}
+
+	public static ExampleResult makeSimpleTemplateExampleWithLastCharRemove(DictionaryEntry dictionaryEntry,
+			String templateKanji, String templateKana, String templateRomaji, boolean canAddPrefix) {
+		
+		String kanji = dictionaryEntry.getKanji();
+		List<String> kanaList = dictionaryEntry.getKanaList();
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+		
+		return makeSimpleTemplateExampleWithLastCharRemove(kanji, kanaList, romajiList, templateKanji, templateKana, templateRomaji, canAddPrefix);
+	}
+
+	public static ExampleResult makeSimpleTemplateExampleWithLastCharRemove(GrammaFormConjugateResult grammaFormConjugateResult,
+			String templateKanji, String templateKana, String templateRomaji, boolean canAddPrefix) {
+		
+		String kanji = grammaFormConjugateResult.getKanji();
+		List<String> kanaList = grammaFormConjugateResult.getKanaList();
+		List<String> romajiList = grammaFormConjugateResult.getRomajiList();
+		
+		return makeSimpleTemplateExampleWithLastCharRemove(kanji, kanaList, romajiList, templateKanji, templateKana, templateRomaji, canAddPrefix);
+	}
 	
 	private static ExampleResult makeSimpleTemplateExample(String kanji, List<String> kanaList, List<String> romajiList,
 			String templateKanji, String templateKana, String templateRomaji, boolean canAddPrefix) {
@@ -73,4 +93,38 @@ public class ExampleHelper {
 		return result;		
 	}
 
+	private static ExampleResult makeSimpleTemplateExampleWithLastCharRemove(String kanji, List<String> kanaList, List<String> romajiList,
+			String templateKanji, String templateKana, String templateRomaji, boolean canAddPrefix) {
+		
+		ExampleResult result = new ExampleResult();
+		
+		result.setCanAddPrefix(canAddPrefix);
+		
+
+		if (kanji != null) {		
+			result.setKanji(String.format(templateKanji, removeLastChar(kanji)));
+		}
+
+		List<String> kanaListResult = new ArrayList<String>();
+
+		for (String currentKana : kanaList) {			
+			kanaListResult.add(String.format(templateKana, removeLastChar(currentKana)));
+		}
+
+		result.setKanaList(kanaListResult);
+
+		List<String> romajiListResult = new ArrayList<String>();
+
+		for (String currentRomaji : romajiList) {
+			romajiListResult.add(String.format(templateRomaji, removeLastChar(currentRomaji)));
+		}
+
+		result.setRomajiList(romajiListResult);
+		
+		return result;		
+	}
+	
+	private static String removeLastChar(String text) {
+		return text.substring(0, text.length() - 1);
+	}
 }

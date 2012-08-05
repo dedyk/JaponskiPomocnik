@@ -28,6 +28,9 @@ public class AdjectiveIExampler {
 		// deshou
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_DESHOU, makeDeshouExample(dictionaryEntry));
 		
+		// sou desu
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SOU_DESU, makeSouDesuExample(dictionaryEntry));		
+		
 		return result;
 	}
 
@@ -69,5 +72,45 @@ public class AdjectiveIExampler {
 		final String templateRomaji = "%s deshou";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeSouDesuExample(DictionaryEntry dictionaryEntry) {
+		
+		boolean isIiAdjective = false;
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+		
+		for (String currentKana : kanaList) {
+			if (currentKana.endsWith("いい") == true) {
+				isIiAdjective = true;
+				
+				break;
+			}
+		}
+		
+		GrammaFormConjugateResult virtualForm = AdjectiveIGrammaConjugater.makeVirtualForm(dictionaryEntry);
+		
+		String templateKanji1 = "%sそうです";
+		String templateKana1 = "%sそうです";
+		String templateRomaji1 = "%s sou desu";	
+		
+		String templateKanji2 = "%sさそうです";
+		String templateKana2 = "%sさそうです";
+		String templateRomaji2 = "%s sasou desu";
+		
+		ExampleResult souDesuResult = null;
+		
+		if (isIiAdjective == false) {
+			souDesuResult = ExampleHelper.makeSimpleTemplateExample(virtualForm, templateKanji1, templateKana1, templateRomaji1, true);		
+		} else {
+			souDesuResult = ExampleHelper.makeSimpleTemplateExample(virtualForm, templateKanji2, templateKana2, templateRomaji2, true);
+		}
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = AdjectiveIGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		souDesuResult.setAlternative(ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(
+				informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return souDesuResult;
 	}
 }

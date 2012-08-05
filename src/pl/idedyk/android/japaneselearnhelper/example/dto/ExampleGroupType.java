@@ -10,6 +10,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_DESHOU("Prawdopodobnie"),
 	
+	ADJECTIVE_I_SOU_DESU("\"Wygląda na\""),
+	
 	ADJECTIVE_NA_NARU("Stawać się"),
 	
 	ADJECTIVE_NA_NA_DESU("Forma wyjaśniająca"),
@@ -17,6 +19,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_SUGIRU("\"Zbyt wiele\""),
 	
 	ADJECTIVE_NA_DESHOU("Prawdopodobnie"),
+	
+	ADJECTIVE_NA_SOU_DESU("\"Wygląda na\""),
 	
 	NOUN_NARU("Stawać się"),
 	
