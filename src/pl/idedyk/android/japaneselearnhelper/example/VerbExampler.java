@@ -71,6 +71,9 @@ public class VerbExampler {
 		
 		// tara dou desu ka
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA_DOU_DESU_KA, makeTaraDouDesuKaExample(dictionaryEntry));
+
+		// te oku
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_OKU, makeTeOkuExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -342,5 +345,16 @@ public class VerbExampler {
 		final String templateRomaji = "%sra dou desu ka";
 		
 		return ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeTeOkuExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sおく";
+		final String templateKana = "%sおく";
+		final String templateRomaji = "%s oku";
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		
+		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
 	}
 }
