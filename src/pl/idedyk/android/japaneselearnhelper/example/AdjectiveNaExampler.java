@@ -32,7 +32,7 @@ public class AdjectiveNaExampler {
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_SOU_DESU, makeSouDesuExample(dictionaryEntry));
 		
 		// kamoshi remasen
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
 		
 		return result;
 	}

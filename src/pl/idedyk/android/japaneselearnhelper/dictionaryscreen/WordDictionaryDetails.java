@@ -265,9 +265,10 @@ public class WordDictionaryDetails extends Activity {
 				sb.append("(").append(prefix).append(") ");
 			}
 			
-			sb.append(grammaFormKanaList.get(idx)).append(" - ").append(grammaFormRomajiList.get(idx));
+			sb.append(grammaFormKanaList.get(idx));
 						
 			report.add(new StringValue(sb.toString(), 15.0f, 2));
+			report.add(new StringValue(grammaFormRomajiList.get(idx), 15.0f, 2));
 		}
 		
 		GrammaFormConjugateResult alternative = grammaFormConjugateResult.getAlternative();
@@ -306,9 +307,10 @@ public class WordDictionaryDetails extends Activity {
 				sb.append("(").append(prefix).append(") ");
 			}
 			
-			sb.append(exampleKanaList.get(idx)).append(" - ").append(exampleRomajiList.get(idx));
+			sb.append(exampleKanaList.get(idx));
 						
 			report.add(new StringValue(sb.toString(), 15.0f, 2));
+			report.add(new StringValue(exampleRomajiList.get(idx), 15.0f, 2));
 		}
 		
 		ExampleResult alternative = exampleResult.getAlternative();

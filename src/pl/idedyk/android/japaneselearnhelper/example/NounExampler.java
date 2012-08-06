@@ -32,7 +32,16 @@ public class NounExampler {
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_HOSHII, makeHoshiiExample(dictionaryEntry));
 
 		// kamoshi remasen
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
+		
+		// ageru
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_AGERU, makeAgeruExample(dictionaryEntry));
+		
+		// kureru
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_KURERU, makeKureruExample(dictionaryEntry));
+		
+		// morau
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_MORAU, makeMorauExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -96,6 +105,33 @@ public class NounExampler {
 		final String templateKanji = "%sかもしれません";
 		final String templateKana = "%sかもしれません";
 		final String templateRomaji = "%s kamoshi remasen";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeAgeruExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "私 [は/が] [odbiorca] に%sをあげる";
+		final String templateKana = "わたし [は/が] [odbiorca] に%sをあげる";
+		final String templateRomaji = "watashi [wa/ga] [odbiorca] ni %s wo ageru";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeKureruExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "[dający] [は/が] [odbiorca] に%sをくれる";
+		final String templateKana = "[dający] [は/が] [odbiorca] に%sをくれる";
+		final String templateRomaji = "[dający] [wa/ga] [odbiorca] ni %s wo kureru";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeMorauExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "[odbiorca] [は/が] [dający] [に/から] %sをもらう";
+		final String templateKana = "[odbiorca] [は/が] [dający] [に/から] %sをもらう";
+		final String templateRomaji = "[odbiorca] [wa/ga] [dający] [ni/kara] %s wo morau";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}

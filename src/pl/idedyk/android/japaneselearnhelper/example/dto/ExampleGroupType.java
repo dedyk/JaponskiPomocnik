@@ -39,6 +39,12 @@ public enum ExampleGroupType {
 	
 	NOUN_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
+	NOUN_AGERU("Dać (od siebie)"),
+	
+	NOUN_KURERU("Dać (od kogoś)"),
+	
+	NOUN_MORAU("Otrzymać"),
+	
 	VERB_TAI("Chcieć"),
 	
 	VERB_SUGIRU("\"Zbyt wiele\""),
