@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.idedyk.android.japaneselearnhelper"
     android:versionCode="1"
-    android:versionName="20120804" >
+    android:versionName="20120806" >
 
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="8" />
     
