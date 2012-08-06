@@ -69,6 +69,9 @@ public class VerbExampler {
 		// kamoshi remasen
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
 		
+		// tara dou desu ka
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA_DOU_DESU_KA, makeTaraDouDesuKaExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -328,5 +331,16 @@ public class VerbExampler {
 		final String templateRomaji = "%s kamoshi remasen";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeTaraDouDesuKaExample(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+
+		final String templateKanji = "%sらどうですか";
+		final String templateKana = "%sらどうですか";
+		final String templateRomaji = "%sra dou desu ka";
+		
+		return ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
 	}
 }

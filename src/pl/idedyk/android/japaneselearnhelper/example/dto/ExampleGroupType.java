@@ -78,15 +78,28 @@ public enum ExampleGroupType {
 	
 	VERB_TE_MIRU("Próbować"),
 	
-	VERB_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%");
+	VERB_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
+	
+	VERB_TARA_DOU_DESU_KA("Rada lub zalecenie", "Uwaga: Nie używane w zaproszeniach");
 	
 	private String name;
+	
+	private String info;
 	
 	ExampleGroupType(String name) {
 		this.name = name;
 	}
 
+	ExampleGroupType(String name, String info) {
+		this.name = name;
+		this.info = info;
+	}
+	
 	public String getName() {
 		return name;
+	}
+
+	public String getInfo() {
+		return info;
 	}
 }
