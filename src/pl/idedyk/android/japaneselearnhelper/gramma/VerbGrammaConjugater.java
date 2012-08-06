@@ -25,6 +25,9 @@ public class VerbGrammaConjugater {
 	
 	private static Map<String, String> lastKanaCharsMapperToEChar;
 	private static Map<String, String> lastRomajiCharsMapperToEChar;
+
+	private static Map<String, String> lastKanaCharsMapperToCharForVolitionalForm;
+	private static Map<String, String> lastRomajiCharsMapperToCharForVolitionalForm;
 	
 	static {
 		lastKanaCharsMapperToIChar = new HashMap<String, String>();
@@ -125,7 +128,31 @@ public class VerbGrammaConjugater {
 		lastRomajiCharsMapperToEChar.put("mu", "me");
 		lastRomajiCharsMapperToEChar.put("ru", "re");
 		lastRomajiCharsMapperToEChar.put("gu", "ge");
-		lastRomajiCharsMapperToEChar.put("bu", "be");		
+		lastRomajiCharsMapperToEChar.put("bu", "be");
+		
+		lastKanaCharsMapperToCharForVolitionalForm = new HashMap<String, String>();
+		
+		lastKanaCharsMapperToCharForVolitionalForm.put("う", "おう");
+		lastKanaCharsMapperToCharForVolitionalForm.put("く", "こう");
+		lastKanaCharsMapperToCharForVolitionalForm.put("す", "そう");
+		lastKanaCharsMapperToCharForVolitionalForm.put("つ", "とう");
+		lastKanaCharsMapperToCharForVolitionalForm.put("ぬ", "のう");
+		lastKanaCharsMapperToCharForVolitionalForm.put("む", "もう");
+		lastKanaCharsMapperToCharForVolitionalForm.put("る", "ろう");
+		lastKanaCharsMapperToCharForVolitionalForm.put("ぐ", "ごう");
+		lastKanaCharsMapperToCharForVolitionalForm.put("ぶ", "ぼう");
+
+		lastRomajiCharsMapperToCharForVolitionalForm = new HashMap<String, String>();
+		
+		lastRomajiCharsMapperToCharForVolitionalForm.put("u", "ou");
+		lastRomajiCharsMapperToCharForVolitionalForm.put("ku", "kou");
+		lastRomajiCharsMapperToCharForVolitionalForm.put("su", "sou");
+		lastRomajiCharsMapperToCharForVolitionalForm.put("tsu", "tou");
+		lastRomajiCharsMapperToCharForVolitionalForm.put("nu", "nou");
+		lastRomajiCharsMapperToCharForVolitionalForm.put("mu", "mou");
+		lastRomajiCharsMapperToCharForVolitionalForm.put("ru", "rou");
+		lastRomajiCharsMapperToCharForVolitionalForm.put("gu", "gou");
+		lastRomajiCharsMapperToCharForVolitionalForm.put("bu", "bou");
 	}
 
 	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry) {
@@ -191,6 +218,15 @@ public class VerbGrammaConjugater {
 		potentialForm.getGrammaFormConjugateResults().add(makePotentialForm(dictionaryEntry));
 		
 		result.add(potentialForm);
+		
+		// forma wolicjonalna
+		GrammaFormConjugateGroupTypeElements volitionalForm = new GrammaFormConjugateGroupTypeElements();
+		
+		volitionalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_VOLITIONAL);
+		
+		volitionalForm.getGrammaFormConjugateResults().add(makeVolitionalForm(dictionaryEntry));
+		
+		result.add(volitionalForm);
 				
 		return result;		
 	}
@@ -1050,5 +1086,117 @@ public class VerbGrammaConjugater {
 		}
 		
 		throw new RuntimeException("makePotentialFormForRomaji 3");
+	}
+	
+	private static GrammaFormConjugateResult makeVolitionalForm(DictionaryEntry dictionaryEntry) {
+				
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+		
+		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+		
+		result.setResultType(GrammaFormConjugateResultType.VERB_VOLITIONAL);
+		
+		String kanji = dictionaryEntry.getKanji();
+		
+		if (kanji != null) {
+			result.setKanji(makeVolitionalFormForKanjiOrKana(kanji, dictionaryEntryType));
+		}
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+		
+		List<String> kanaListResult = new ArrayList<String>();
+		
+		for (String currentKanaList : kanaList) {
+			kanaListResult.add(makeVolitionalFormForKanjiOrKana(currentKanaList, dictionaryEntryType));
+		}
+		
+		result.setKanaList(kanaListResult);
+		
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+		
+		List<String> romajiListResult = new ArrayList<String>();
+		
+		for (String currentRomajiList : romajiList) {
+			romajiListResult.add(makeVolitionalFormForRomaji(currentRomajiList, dictionaryEntryType));
+		}
+		
+		result.setRomajiList(romajiListResult);
+		
+		return result;
+	}
+	
+	private static String makeVolitionalFormForKanjiOrKana(String kana, DictionaryEntryType dictionaryEntryType) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU) {
+			return removeLastChar(kana) + "よう";
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U) {
+			
+			String kanaWithoutLastChar = removeLastChar(kana);
+			String lastChar = getLastChars(kana, 1);
+			
+			String lastCharMappedToYou = lastKanaCharsMapperToCharForVolitionalForm.get(lastChar);
+			
+			if (lastCharMappedToYou == null) {
+				throw new RuntimeException("lastCharMappedToYou == null");
+			}
+			
+			return kanaWithoutLastChar + lastCharMappedToYou;
+			
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
+			if (kana.endsWith("来る") == true) {
+				return removeChars(kana, 1) + "よう";
+				
+			} else if (kana.endsWith("くる") == true) {
+				return removeChars(kana, 2) + "こ" + "よう";
+				
+			} else if (kana.endsWith("する") == true) {
+				return removeChars(kana, 2) + "しよう";
+			} else {
+				throw new RuntimeException("makeVolitionalFormForKanjiOrKana 1");	
+			}
+		}
+		
+		throw new RuntimeException("makeVolitionalFormForKanjiOrKana 2");
+	}
+	
+	private static String makeVolitionalFormForRomaji(String romaji, DictionaryEntryType dictionaryEntryType) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU) {
+			return removeChars(romaji, 2) + "you";
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U) {
+			
+			String romajiLastThreeChars = getLastChars(romaji, 3);
+			
+			if (romajiLastThreeChars != null && lastRomajiCharsMapperToCharForVolitionalForm.containsKey(romajiLastThreeChars) == true) {
+				return removeChars(romaji, 3) + lastRomajiCharsMapperToCharForVolitionalForm.get(romajiLastThreeChars);
+			}
+			
+			String romajiLastTwoChars = getLastChars(romaji, 2);
+			
+			if (romajiLastTwoChars != null && lastRomajiCharsMapperToCharForVolitionalForm.containsKey(romajiLastTwoChars) == true) {
+				return removeChars(romaji, 2) + lastRomajiCharsMapperToCharForVolitionalForm.get(romajiLastTwoChars);
+			}
+			
+			String romajiLastOneChar = getLastChars(romaji, 1);
+			
+			if (romajiLastOneChar != null && lastRomajiCharsMapperToCharForVolitionalForm.containsKey(romajiLastOneChar) == true) {
+				return removeChars(romaji, 1) + lastRomajiCharsMapperToCharForVolitionalForm.get(romajiLastOneChar);
+			}
+			
+			throw new RuntimeException("makeVolitionalFormForRomaji 1");
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
+			if (romaji.endsWith("kuru") == true) {
+				return removeChars(romaji, 4) + "ko" + "you";
+			} else if (romaji.endsWith("suru") == true) {
+				return removeChars(romaji, 4) + "shiyou";
+			} else {
+				throw new RuntimeException("makeVolitionalFormForRomaji 2");
+			}
+		}
+		
+		throw new RuntimeException("makeVolitionalFormForRomaji 3");
 	}
 }

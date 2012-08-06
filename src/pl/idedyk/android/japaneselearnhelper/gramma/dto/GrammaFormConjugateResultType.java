@@ -53,7 +53,9 @@ public enum GrammaFormConjugateResultType {
 	
 	VERB_MASHOU("Forma mashou", false),
 	
-	VERB_POTENTIAL("Forma potencjalna", false);
+	VERB_POTENTIAL("Forma potencjalna", false),
+	
+	VERB_VOLITIONAL("Forma wolicjonalna", false);
 	
 	private String name;
 	

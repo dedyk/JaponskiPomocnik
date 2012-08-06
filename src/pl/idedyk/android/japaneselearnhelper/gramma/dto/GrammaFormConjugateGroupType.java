@@ -23,7 +23,9 @@ public enum GrammaFormConjugateGroupType {
 	
 	VERB_MASHOU("Forma mashou"),
 	
-	VERB_POTENTIAL("Forma potencjalna");
+	VERB_POTENTIAL("Forma potencjalna"),
+	
+	VERB_VOLITIONAL("Forma wolicjonalna");
 	
 	private String name;
 	
