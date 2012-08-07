@@ -3,7 +3,6 @@
     android:id="@+id/word_kana_test_options_layout_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/word_kana_test_options_shape"
     android:orientation="vertical" >
 
     <TextView
