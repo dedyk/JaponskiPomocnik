@@ -108,6 +108,11 @@ public class DictionaryManager {
 			
 			String kanaListString = csvReader.get(6);
 			String prefixRomajiString = csvReader.get(7);
+
+			if (prefixRomajiString.equals("") == true || prefixRomajiString.equals("-") == true) {
+				prefixRomajiString = null;
+			}
+			
 			String romajiListString = csvReader.get(8);
 			String translateListString = csvReader.get(9);
 			String infoString = csvReader.get(10);
