@@ -4,6 +4,9 @@
     
     <string name="main_menu_kana_text">Tablica hiragana i katakana</string>
     <string name="main_menu_kana_kanji">あ</string>
+
+    <string name="main_menu_kana_test_text">Test z hiragana i katakana</string>
+    <string name="main_menu_kana_test_kanji">ア</string>
     
     <string name="main_menu_dictionary_text">Słowniczek</string>
     <string name="main_menu_dictionary_kanji">辞書</string>
