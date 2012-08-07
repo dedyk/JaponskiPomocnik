@@ -99,14 +99,15 @@ public class DictionaryManager {
 			
 			String idString = csvReader.get(0);
 			String dictionaryEntryTypeString = csvReader.get(2);
-			String prefixString = csvReader.get(4);
+			String prefixKanaString = csvReader.get(4);
 			String kanjiString = csvReader.get(5);
 			
 			if (kanjiString.equals("") == true || kanjiString.equals("-") == true) {
 				kanjiString = null;
 			}
 			
-			String kanaListString = csvReader.get(7);
+			String kanaListString = csvReader.get(6);
+			String prefixRomajiString = csvReader.get(7);
 			String romajiListString = csvReader.get(8);
 			String translateListString = csvReader.get(9);
 			String infoString = csvReader.get(10);
@@ -124,8 +125,9 @@ public class DictionaryManager {
 			
 			entry.setId(Integer.parseInt(idString));
 			entry.setDictionaryEntryType(dictionaryEntryType);
-			entry.setPrefix(prefixString);
+			entry.setPrefixKana(prefixKanaString);
 			entry.setKanji(kanjiString);
+			entry.setPrefixRomaji(prefixRomajiString);
 			entry.setRomajiList(romajiList);
 			entry.setKanaList(kanaList);
 			entry.setTranslates(parseStringIntoList(translateListString));

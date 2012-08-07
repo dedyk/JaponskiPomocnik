@@ -12,11 +12,13 @@ public class DictionaryEntry implements Serializable {
 		
 	private DictionaryEntryType dictionaryEntryType;
 	
-	private String prefix;
+	private String prefixKana;
 	
 	private String kanji;
 	
 	private List<String> kanaList;
+	
+	private String prefixRomaji;
 	
 	private List<String> romajiList;
 		
@@ -36,7 +38,7 @@ public class DictionaryEntry implements Serializable {
 		List<String> result = new ArrayList<String>();
 		
 		for (String currentKanaList : kanaList) {
-			result.add(prefix + currentKanaList);
+			result.add(prefixKana + currentKanaList);
 		}
 		
 		return result;
@@ -112,18 +114,18 @@ public class DictionaryEntry implements Serializable {
 		this.info = info;
 	}
 
-	public String getPrefix() {
-		return prefix;
+	public String getPrefixKana() {
+		return prefixKana;
 	}
 
-	public void setPrefix(String prefix) {
-		this.prefix = prefix;
+	public void setPrefixKana(String prefixKana) {
+		this.prefixKana = prefixKana;
 	}
 	
 	public String getFullKanji() {
 		
 		if (isKanjiExists() == true) {
-			return prefix + kanji;	
+			return prefixKana + kanji;	
 		} else {
 			return null;
 		}
@@ -141,23 +143,24 @@ public class DictionaryEntry implements Serializable {
 		
 		StringBuffer sb = new StringBuffer();
 		
-		String tempPrefix = prefix != null && prefix.equals("") == false ? prefix : null;
+		String tempPrefixKana = prefixKana != null && prefixKana.equals("") == false ? prefixKana : null;
+		String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
 				
 		if (isKanjiExists() == true) {
 			
-			if (tempPrefix != null) {
-				sb.append("(").append(tempPrefix).append(") ");
+			if (tempPrefixKana != null) {
+				sb.append("(").append(tempPrefixKana).append(") ");
 			}
 			
 			sb.append(kanji).append(" ");
 		}
 		
 		if (kanaList != null && kanaList.size() > 0) {
-			sb.append(toString(kanaList, tempPrefix)).append(" - ");
+			sb.append(toString(kanaList, tempPrefixKana)).append(" - ");
 		}
 
 		if (romajiList != null && romajiList.size() > 0) {
-			sb.append(toString(romajiList, null));
+			sb.append(toString(romajiList, tempPrefixRomaji));
 		}
 
 		if (translates != null && translates.size() > 0) {
@@ -196,7 +199,7 @@ public class DictionaryEntry implements Serializable {
 		
 		for (int idx = 0; idx < listString.size(); ++idx) {
 			if (prefix != null) {
-				sb.append("(").append(prefix).append(")");
+				sb.append("(").append(prefix).append(") ");
 			}
 			
 			sb.append(listString.get(idx));
@@ -209,5 +212,13 @@ public class DictionaryEntry implements Serializable {
 		sb.append("]");
 		
 		return sb.toString();
+	}
+
+	public String getPrefixRomaji() {
+		return prefixRomaji;
+	}
+
+	public void setPrefixRomaji(String prefixRomaji) {
+		this.prefixRomaji = prefixRomaji;
 	}
 }

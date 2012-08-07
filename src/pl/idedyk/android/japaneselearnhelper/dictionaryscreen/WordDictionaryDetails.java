@@ -105,10 +105,11 @@ public class WordDictionaryDetails extends Activity {
 		
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 		
-		String prefix = dictionaryEntry.getPrefix();
+		String prefixKana = dictionaryEntry.getPrefixKana();
+		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
 		
-		if (prefix != null && prefix.length() == 0) {
-			prefix = null;
+		if (prefixKana != null && prefixKana.length() == 0) {
+			prefixKana = null;
 		}
 
 		// Kanji		
@@ -117,8 +118,8 @@ public class WordDictionaryDetails extends Activity {
 		StringBuffer kanjiSb = new StringBuffer();
 		
 		if (dictionaryEntry.isKanjiExists() == true) {
-			if (prefix != null) {
-				kanjiSb.append("(").append(prefix).append(") ");
+			if (prefixKana != null) {
+				kanjiSb.append("(").append(prefixKana).append(") ");
 			}
 			
 			kanjiSb.append(dictionaryEntry.getKanji());
@@ -138,11 +139,17 @@ public class WordDictionaryDetails extends Activity {
 			
 			StringBuffer sb = new StringBuffer();
 			
-			if (prefix != null) {
-				sb.append("(").append(prefix).append(") ");
+			if (prefixKana != null) {
+				sb.append("(").append(prefixKana).append(") ");
 			}
 			
-			sb.append(kanaList.get(idx)).append(" - ").append(romajiList.get(idx));
+			sb.append(kanaList.get(idx)).append(" - ");
+			
+			if (prefixRomaji != null) {
+				sb.append("(").append(prefixRomaji).append(") ");
+			}
+			
+			sb.append(romajiList.get(idx));
 						
 			report.add(new StringValue(sb.toString(), 20.0f, 0));
 		}
@@ -196,7 +203,7 @@ public class WordDictionaryDetails extends Activity {
 						report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
 					}
 					
-					addGrammaFormConjugateResult(report, prefix, currentGrammaFormConjugateResult);
+					addGrammaFormConjugateResult(report, prefixKana, prefixRomaji, currentGrammaFormConjugateResult);
 				}
 				
 				report.add(new StringValue("", 15.0f, 1));
@@ -227,7 +234,7 @@ public class WordDictionaryDetails extends Activity {
 				List<ExampleResult> exampleResults = currentExampleGroupTypeElements.getExampleResults();
 				
 				for (ExampleResult currentExampleResult : exampleResults) {					
-					addExampleResult(report, prefix, currentExampleResult);
+					addExampleResult(report, prefixKana, prefixRomaji, currentExampleResult);
 				}
 				
 				report.add(new StringValue("", 15.0f, 1));
@@ -244,15 +251,15 @@ public class WordDictionaryDetails extends Activity {
 		}
 	}
 	
-	private void addGrammaFormConjugateResult(List<IScreenItem> report, String prefix, GrammaFormConjugateResult grammaFormConjugateResult) {
+	private void addGrammaFormConjugateResult(List<IScreenItem> report, String prefixKana, String prefixRomaji, GrammaFormConjugateResult grammaFormConjugateResult) {
 		
 		String grammaFormKanji = grammaFormConjugateResult.getKanji();
 		
 		StringBuffer grammaFormKanjiSb = new StringBuffer();
 		
 		if (grammaFormKanji != null) {
-			if (prefix != null) {
-				grammaFormKanjiSb.append("(").append(prefix).append(") ");
+			if (prefixKana != null) {
+				grammaFormKanjiSb.append("(").append(prefixKana).append(") ");
 			}
 			
 			grammaFormKanjiSb.append(grammaFormKanji);
@@ -267,14 +274,23 @@ public class WordDictionaryDetails extends Activity {
 			
 			StringBuffer sb = new StringBuffer();
 			
-			if (prefix != null) {
-				sb.append("(").append(prefix).append(") ");
+			if (prefixKana != null) {
+				sb.append("(").append(prefixKana).append(") ");
 			}
 			
 			sb.append(grammaFormKanaList.get(idx));
 						
 			report.add(new StringValue(sb.toString(), 15.0f, 2));
-			report.add(new StringValue(grammaFormRomajiList.get(idx), 15.0f, 2));
+			
+			StringBuffer grammaFormRomajiSb = new StringBuffer();
+			
+			if (prefixRomaji != null) {
+				grammaFormRomajiSb.append("(").append(prefixRomaji).append(") ");
+			}
+			
+			grammaFormRomajiSb.append(grammaFormRomajiList.get(idx));
+			
+			report.add(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
 		}
 		
 		GrammaFormConjugateResult alternative = grammaFormConjugateResult.getAlternative();
@@ -282,19 +298,19 @@ public class WordDictionaryDetails extends Activity {
 		if (alternative != null) {
 			report.add(new StringValue("", 5.0f, 1));
 			
-			addGrammaFormConjugateResult(report, prefix, alternative);	
+			addGrammaFormConjugateResult(report, prefixKana, prefixRomaji, alternative);	
 		}		
 	}
 	
-	private void addExampleResult(List<IScreenItem> report, String prefix, ExampleResult exampleResult) {
+	private void addExampleResult(List<IScreenItem> report, String prefixKana, String prefixRomaji, ExampleResult exampleResult) {
 		
 		String exampleKanji = exampleResult.getKanji();
 		
 		StringBuffer exampleKanjiSb = new StringBuffer();
 		
 		if (exampleKanji != null) {
-			if (prefix != null && exampleResult.isCanAddPrefix() == true) {
-				exampleKanjiSb.append("(").append(prefix).append(") ");
+			if (prefixKana != null && exampleResult.isCanAddPrefix() == true) {
+				exampleKanjiSb.append("(").append(prefixKana).append(") ");
 			}
 			
 			exampleKanjiSb.append(exampleKanji);
@@ -309,14 +325,23 @@ public class WordDictionaryDetails extends Activity {
 			
 			StringBuffer sb = new StringBuffer();
 			
-			if (prefix != null && exampleResult.isCanAddPrefix() == true) {
-				sb.append("(").append(prefix).append(") ");
+			if (prefixKana != null && exampleResult.isCanAddPrefix() == true) {
+				sb.append("(").append(prefixKana).append(") ");
 			}
 			
 			sb.append(exampleKanaList.get(idx));
 						
 			report.add(new StringValue(sb.toString(), 15.0f, 2));
-			report.add(new StringValue(exampleRomajiList.get(idx), 15.0f, 2));
+			
+			StringBuffer exampleRomajiSb = new StringBuffer();
+
+			if (prefixRomaji != null && exampleResult.isCanAddPrefix() == true) {
+				exampleRomajiSb.append("(").append(prefixRomaji).append(") ");
+			}
+			
+			exampleRomajiSb.append(exampleRomajiList.get(idx));
+			
+			report.add(new StringValue(exampleRomajiSb.toString(), 15.0f, 2));
 		}
 		
 		ExampleResult alternative = exampleResult.getAlternative();
@@ -324,7 +349,7 @@ public class WordDictionaryDetails extends Activity {
 		if (alternative != null) {
 			report.add(new StringValue("", 5.0f, 1));
 			
-			addExampleResult(report, prefix, alternative);	
+			addExampleResult(report, prefixKana, prefixRomaji, alternative);	
 		}		
 	}
 }
