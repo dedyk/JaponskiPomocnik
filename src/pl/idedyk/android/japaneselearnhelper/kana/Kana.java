@@ -56,9 +56,9 @@ public class Kana extends Activity {
 				
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
 				
-				String mailSubject = getString(R.string.word_kana_report_problem_email_subject);
+				String mailSubject = getString(R.string.kana_report_problem_email_subject);
 				
-				String mailBody = getString(R.string.word_kana_report_problem_email_body,
+				String mailBody = getString(R.string.kana_report_problem_email_body,
 						detailsSb.toString());				
 								
 				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
@@ -70,7 +70,7 @@ public class Kana extends Activity {
 	
 	private void generateHiraganaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
 		
-		screenItems.add(new TitleItem(getString(R.string.word_kana_hiragana_label), 0));
+		screenItems.add(new TitleItem(getString(R.string.kana_hiragana_label), 0));
 		
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow a_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 		
@@ -345,7 +345,7 @@ public class Kana extends Activity {
 
 	private void generateKatakanaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
 		
-		screenItems.add(new TitleItem(getString(R.string.word_kana_katakana_label), 0));
+		screenItems.add(new TitleItem(getString(R.string.kana_katakana_label), 0));
 		
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow a_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 		
@@ -620,7 +620,7 @@ public class Kana extends Activity {
 	
 	private void generateKatakanaAdditionalTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
 		
-		screenItems.add(new TitleItem(getString(R.string.word_kana_katakana_additional_label), 0));
+		screenItems.add(new TitleItem(getString(R.string.kana_katakana_additional_label), 0));
 
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow u_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 

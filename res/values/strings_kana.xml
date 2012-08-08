@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="word_kana_label">Kana</string>
-    <string name="word_kana_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
-    <string name="word_kana_hiragana_label">Hiragana</string>
-    <string name="word_kana_katakana_label">Katakana</string>
-    <string name="word_kana_katakana_additional_label">Katakana (dodatkowe)</string>
-    <string name="word_kana_report_problem_email_subject">Japoński pomocnik - tablica hiragana i katakana: Problem</string>
-    <string name="word_kana_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
-    <string name="word_kana_test_options_label">Opcje</string>
-    <string name="word_kana_test_label">Test</string>
+    <string name="kana_label">Kana</string>
+    <string name="kana_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kana_hiragana_label">Hiragana</string>
+    <string name="kana_katakana_label">Katakana</string>
+    <string name="kana_katakana_additional_label">Katakana (dodatkowe)</string>
+    <string name="kana_report_problem_email_subject">Japoński pomocnik - tablica hiragana i katakana: Problem</string>
+    <string name="kana_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kana_test_options_label">Opcje testu</string>
+    <string name="kana_test_label">Test</string>
+    <string name="kana_test_range">Zakres testu</string>
+    <string name="kana_test_range_hiragana">Hiragana</string>
+    <string name="kana_test_range_katakana">Katakana</string>
+    <string name="kana_test_range_hiragana_katakana">Hiragana i Katakana</string>
+    <string name="kana_test_mode1">Tryb testu 1</string>
+    <string name="kana_test_mode1_choose">Wybór</string>
+    <string name="kana_test_mode1_input">Wpisywanie</string>
+    <string name="kana_test_mode2">Tryb testu 2</string>
+    <string name="kana_test_mode2_kana_to_romaji">Hiragana, Katakana na Romaji</string>
+    <string name="kana_test_mode2_romaji_to_kana">Romaji na Hiragana, Katakana</string>
+    <string name="kana_test_mode2_romaji_to_kana_info">Uwaga: Do prawidłowego działania potrzebna jest japońska klawiatura</string>
+    <string name="kana_test_other">Inne opcje</string>
+    <string name="kana_test_until_success">"Powtarzaj aż do sukcesu"</string>
 </resources>

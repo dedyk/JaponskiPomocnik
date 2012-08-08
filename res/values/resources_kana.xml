@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="kana_test_range_hiragana_id" type="id"/>
+    <item name="kana_test_range_katakana_id" type="id"/>
+    <item name="kana_test_range_hiragana_katakana_id" type="id"/>
+    <item name="kana_test_mode1_choose_id" type="id"/>
+    <item name="kana_test_mode1_input_id" type="id"/>
+    <item name="kana_test_mode2_kana_to_romaji_id" type="id"/>
+    <item name="kana_test_mode2_romaji_to_kana_id" type="id"/>
+    <item name="kana_test_until_success_id" type="id"/>
+</resources>
