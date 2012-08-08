@@ -25,4 +25,29 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp" />
 
+        <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/kana_test_options_report_problem_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/report_problem" />
+
+        <TextView
+            android:id="@+id/kana_test_options_problem_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="@string/kana_test_options_report_problem" />
+    </LinearLayout>
+    
 </LinearLayout>

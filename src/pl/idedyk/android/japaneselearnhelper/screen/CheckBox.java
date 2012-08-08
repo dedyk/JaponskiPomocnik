@@ -20,6 +20,10 @@ public class CheckBox implements IScreenItem {
 		checkBox.setTextSize(16.0f);
 		checkBox.setChecked(defaultSelected);		
 	}
+	
+	public boolean isChecked() {
+		return checkBox.isChecked();
+	}
 
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		layout.addView(checkBox);

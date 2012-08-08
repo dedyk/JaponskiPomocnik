@@ -44,6 +44,10 @@ public class RadioGroup implements IScreenItem {
 		return radioButton;
 	}
 	
+	public int getCheckedRadioButtonId() {
+		return radioGroup.getCheckedRadioButtonId();
+	}
+	
 	public String toString() {
 		
 		StringBuffer sb = new StringBuffer(" *** \n\n");
