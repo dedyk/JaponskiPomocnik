@@ -45,7 +45,9 @@ public enum ExampleGroupType {
 	
 	NOUN_MORAU("Otrzymać"),
 	
-	VERB_TAI("Chcieć"),
+	VERB_TAI("Chcieć (I i II osoba)"),
+	
+	VERB_TAGATTE_IRU("Chcieć (III osoba)"),
 	
 	VERB_SUGIRU("\"Zbyt wiele\""),
 	

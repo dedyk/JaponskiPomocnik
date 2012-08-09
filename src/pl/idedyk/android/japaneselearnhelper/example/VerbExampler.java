@@ -47,6 +47,9 @@ public class VerbExampler {
 		
 		// tai
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TAI, makeTaiExample(dictionaryEntry));
+
+		// tagatte iru
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TAGATTE_IRU, makeTagatteIruExample(dictionaryEntry));
 		
 		// n desu
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_N_DESU, makeNDesuExample(dictionaryEntry));
@@ -205,6 +208,17 @@ public class VerbExampler {
 		final String templateKanji = "%sたいです";
 		final String templateKana = "%sたいです";
 		final String templateRomaji = "%stai desu";
+		
+		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+	}
+
+	private static ExampleResult makeTagatteIruExample(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult stemForm = VerbGrammaConjugater.makeStemForm(dictionaryEntry);
+		
+		final String templateKanji = "%sたがっている";
+		final String templateKana = "%sたがっている";
+		final String templateRomaji = "%stagatte iru";
 		
 		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
 	}
