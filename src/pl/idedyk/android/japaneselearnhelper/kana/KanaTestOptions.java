@@ -141,6 +141,8 @@ public class KanaTestOptions extends Activity {
 				Intent intent = new Intent(getApplicationContext(), KanaTest.class);
 				
 				startActivity(intent);
+				
+				finish();
 			}
 		});
 		
