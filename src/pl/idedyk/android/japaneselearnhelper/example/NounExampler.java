@@ -31,6 +31,9 @@ public class NounExampler {
 		// hoshii
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_HOSHII, makeHoshiiExample(dictionaryEntry));
 
+		// hoshigatte iru
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_HOSHIGATE_IRU, makeHoshigatteIruExample(dictionaryEntry));
+		
 		// kamoshi remasen
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
 		
@@ -96,6 +99,15 @@ public class NounExampler {
 		final String templateKanji = "%sがほしい";
 		final String templateKana = "%sがほしい";
 		final String templateRomaji = "%s ga hoshii";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+
+	private static ExampleResult makeHoshigatteIruExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sをほしがっている";
+		final String templateKana = "%sをほしがっている";
+		final String templateRomaji = "%s wo hoshigatte iru";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}

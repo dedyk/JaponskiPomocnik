@@ -35,7 +35,9 @@ public enum ExampleGroupType {
 	
 	NOUN_DESHOU("Prawdopodobnie, ok. 60%"),
 	
-	NOUN_HOSHII("Chcieć"),
+	NOUN_HOSHII("Chcieć (I i II osoba)"),
+	
+	NOUN_HOSHIGATE_IRU("Chcieć (III osoba)"),
 	
 	NOUN_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
