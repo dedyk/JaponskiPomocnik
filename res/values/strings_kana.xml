@@ -26,4 +26,7 @@
     <string name="kana_test_options_report_problem_email_subject">Japoński pomocnik - opcje testu hiragana i katakana: Problem</string>
     <string name="kana_test_options_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kana_test_options_startTest">Start</string>
+    <string name="kana_test_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kana_test_char">Znak</string>
+    <string name="kana_test_choose">Proszę wybrać prawidłową odpowiedź</string>
 </resources>

@@ -5,11 +5,14 @@ public class KanaEntry {
 	
 	private String kana;
 	
+	private KanaType kanaType;
+	
 	private KanaGroup kanaGroup;
 
-	public KanaEntry(String kanaJapanese, String kana, KanaGroup kanaGroup) {
+	public KanaEntry(String kanaJapanese, String kana, KanaType kanaType, KanaGroup kanaGroup) {
 		this.kanaJapanese = kanaJapanese;
 		this.kana = kana;
+		this.kanaType = kanaType;
 		this.kanaGroup = kanaGroup;
 	}
 
@@ -21,8 +24,18 @@ public class KanaEntry {
 		return kana;
 	}
 	
+	public KanaType getKanaType() {
+		return kanaType;
+	}
+
 	public KanaGroup getKanaGroup() {
 		return kanaGroup;
+	}
+	
+	public static enum KanaType {
+		HIRAGANA,
+		
+		KATAKANA;
 	}
 
 	public static enum KanaGroup {

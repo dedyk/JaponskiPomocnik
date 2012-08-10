@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class StringValue implements IScreenItem {
 	
+	private TextView textView;
+	
 	private CharSequence value;
 	
 	private float textSize;
@@ -17,6 +19,10 @@ public class StringValue implements IScreenItem {
 	private Integer gravity;
 	
 	private int level;
+	
+	private boolean nullMargins = false;
+	
+	private Integer layoutWeight;
 	
 	public StringValue(String value, float textSize, int level) {
 		this.value = value;
@@ -30,21 +36,48 @@ public class StringValue implements IScreenItem {
 		this.level = level;
 	}
 	
+	public void setValue(CharSequence value) {
+		this.value = value;
+		
+		if (textView != null) {
+			textView.setText(this.value);
+		}
+	}
+	
 	public void setGravity(int gravity) {
 		this.gravity = gravity;
 	}
+	
+	public void setLayoutWidth(Integer layoutWeight) {
+		this.layoutWeight = layoutWeight;
+	}
+	
+	public void setNullMargins(boolean nullMargins) {
+		this.nullMargins = nullMargins;
+	}
 
 	public void generate(Context context, Resources resources, ViewGroup layout) {
-		TextView textView = new TextView(context);
+		textView = new TextView(context);
 		
 		if (layout instanceof android.widget.TableRow) {
 			android.widget.TableRow.LayoutParams layoutParam = new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.WRAP_CONTENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT);
 			layoutParam.setMargins(0, 0, 0, 0);
+
+			if (layoutWeight != null) {
+				layoutParam.weight = layoutWeight;
+			}
 			
 			textView.setLayoutParams(layoutParam);
 		} else if (layout instanceof LinearLayout) {
 			LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			layoutParam.setMargins(20 + level * 20, 5, 0, 0);
+			
+			if (nullMargins == false) {
+				layoutParam.setMargins(20 + level * 20, 5, 0, 0);
+			}
+			
+			if (layoutWeight != null) {
+				layoutParam.weight = layoutWeight;
+			}
 			
 			textView.setLayoutParams(layoutParam);
 		} else {
