@@ -25,9 +25,13 @@ import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class KanaTest extends Activity {
 	
@@ -39,6 +43,8 @@ public class KanaTest extends Activity {
 	private Map<String, List<KanaEntry>> allKanaEntriesGroupBy;
 	
 	private StringValue charTest;
+	
+	private StringValue position;
 	
 	private Button[][] chooseButtons;
 	
@@ -151,18 +157,26 @@ public class KanaTest extends Activity {
 		charTest = new StringValue("", 90.0f, 0);
 		charTest.setGravity(Gravity.CENTER);
 		charTest.setNullMargins(true);
-		charTest.setLayoutWidth(1);
 		
 		result.add(charTest);
+		
+		position = new StringValue("", 12.0f, 0);
+		position.setGravity(Gravity.RIGHT);
+		position.setNullMargins(true);
+		position.setLayoutWidth(1);
+		
+		result.add(position);
 		
 		return result;
 	}
 	
-	private List<IScreenItem> createAnswerScreenTest(JapaneseAndroidLearnHelperKanaTestContext kanaTestContext) {
+	private List<IScreenItem> createAnswerScreenTest(final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext) {
 
 		final List<IScreenItem> result = new ArrayList<IScreenItem>();
 		
-		TestMode1 testMode1 = kanaTestContext.getTestMode1();
+		final TestMode1 testMode1 = kanaTestContext.getTestMode1();
+		
+		final boolean untilSuccess = kanaTestContext.isUntilSuccess();
 
 		if (testMode1 == TestMode1.CHOOSE) {
 			result.add(new TitleItem(getString(R.string.kana_test_choose), 0));
@@ -181,6 +195,18 @@ public class KanaTest extends Activity {
 					chooseButtons[x][y].setTextSize(20.0f);
 					
 					currentTableRow.addScreenItem(chooseButtons[x][y]);
+					
+					chooseButtons[x][y].setOnClickListener(new View.OnClickListener() {
+						public void onClick(View view) {
+							
+							// check answer
+							android.widget.Button choseButton = (android.widget.Button)view;
+							
+							String userAnswer = choseButton.getText().toString();
+							
+							checkUserAnswer(kanaTestContext, untilSuccess, userAnswer);
+						}
+					});
 				}
 				
 				chooseTableLayout.addTableRow(currentTableRow);
@@ -201,6 +227,14 @@ public class KanaTest extends Activity {
 	
 	private void fillScreenValue(JapaneseAndroidLearnHelperKanaTestContext kanaTestContext) {
 		
+		if (allKanaEntriesIdx >= allKanaEntries.size()) {
+			// test end
+			
+			finish();
+			
+			return;
+		}
+		
 		TestMode1 testMode1 = kanaTestContext.getTestMode1();
 		
 		TestMode2 testMode2 = kanaTestContext.getTestMode2();
@@ -216,6 +250,8 @@ public class KanaTest extends Activity {
 		} else {
 			throw new RuntimeException("testMode2");
 		}
+		
+		position.setValue(getString(R.string.kana_test_state, (allKanaEntriesIdx + 1), allKanaEntries.size()));
 
 		if (testMode1 == TestMode1.CHOOSE) {
 			
@@ -270,6 +306,7 @@ public class KanaTest extends Activity {
 			}
 			
 			result.add(answersToCheck);
+			alreadyChoosenKanaEntries.add(answersToCheck.getKanaJapanese());
 			
 			if (result.size() >= maxSize) {
 				break;
@@ -286,6 +323,52 @@ public class KanaTest extends Activity {
 			
 		} else if (testMode2 == TestMode2.ROMAJI_TO_KANA) {
 			chooseButtons[x][y].setText(kanaEntry.getKanaJapanese());
+		}
+	}
+	
+	private void checkUserAnswer(final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext, final boolean untilSuccess, String userAnswer) {
+		
+		TestMode2 testMode2 = kanaTestContext.getTestMode2();
+		
+		final KanaEntry currentKanaEntryToTest = allKanaEntries.get(allKanaEntriesIdx);
+		
+		String correctAnswer = null;
+		
+		if (testMode2 == TestMode2.KANA_TO_ROMAJI) {
+			correctAnswer = currentKanaEntryToTest.getKana();
+			
+		} else if (testMode2 == TestMode2.ROMAJI_TO_KANA) {
+			correctAnswer = currentKanaEntryToTest.getKanaJapanese();
+		}
+		
+		if (correctAnswer.equals(userAnswer) == true) {
+			Toast.makeText(this, getString(R.string.kana_test_correct_answer), Toast.LENGTH_SHORT).show();
+			
+			allKanaEntriesIdx++;
+			
+			fillScreenValue(kanaTestContext);
+			
+		} else {
+			AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+			
+			alertDialog.setMessage(getString(R.string.kana_test_incorrect_answer, correctAnswer));
+			
+			alertDialog.setCancelable(false);
+			alertDialog.setButton(getString(R.string.kana_test_incorrect_ok), new DialogInterface.OnClickListener() {
+
+				public void onClick(DialogInterface dialog, int which) {
+					
+					if (untilSuccess == true) {
+						allKanaEntries.add(currentKanaEntryToTest);
+					}
+					
+					allKanaEntriesIdx++;
+					
+					fillScreenValue(kanaTestContext);
+				}
+			});
+			
+			alertDialog.show();
 		}
 	}
 }

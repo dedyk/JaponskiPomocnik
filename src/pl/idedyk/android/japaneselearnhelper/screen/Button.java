@@ -29,6 +29,10 @@ public class Button implements IScreenItem {
 		}
 	}
 	
+	public String getText() {
+		return text;
+	}
+	
 	public void setTextSize(Float textSize) {
 		this.textSize = textSize;
 
