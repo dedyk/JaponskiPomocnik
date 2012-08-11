@@ -20,6 +20,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.KanaHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry.KanaGroup;
 import pl.idedyk.android.japaneselearnhelper.screen.Button;
+import pl.idedyk.android.japaneselearnhelper.screen.EditText;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
@@ -46,6 +47,8 @@ public class KanaTest extends Activity {
 	private Button[][] chooseButtons;
 	
 	private TitleItem answerTitleItem;
+	
+	private EditText inputAnswerEditText;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {	
@@ -243,8 +246,14 @@ public class KanaTest extends Activity {
 			result.add(chooseTableLayout);			
 		} else if (testMode1 == TestMode1.INPUT) {
 			
-			// FIXME !!!
+			answerTitleItem = new TitleItem(getString(R.string.kana_test_input), 0);
 			
+			result.add(answerTitleItem);
+			result.add(new StringValue("", 7.0f, 0));
+			
+			inputAnswerEditText = new EditText();
+			
+			result.add(inputAnswerEditText);
 			
 		} else {
 			throw new RuntimeException("testMode1");
