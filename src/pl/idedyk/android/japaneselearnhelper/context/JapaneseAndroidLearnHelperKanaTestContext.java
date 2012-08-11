@@ -22,11 +22,15 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 	
 	private int allKanaEntriesIdx = 0;
 	
-	private boolean initialized;
+	private boolean initialized = false;
 	
 	private String charTestValue;
 	
 	private String[][] buttonValues;
+	
+	private int correctAnswers = 0;
+	
+	private int incorrectAnswers = 0;
 	
 	// methods
 	
@@ -113,6 +117,22 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 
 	public void setButtonValues(String[][] buttonValues) {
 		this.buttonValues = buttonValues;
+	}
+	
+	public void incrementCorrectAnswers() {
+		correctAnswers++;
+	}
+	
+	public void incrementIncorrectAnswers() {
+		incorrectAnswers++;
+	}
+
+	public int getCorrectAnswers() {
+		return correctAnswers;
+	}
+
+	public int getIncorrectAnswers() {
+		return incorrectAnswers;
 	}
 
 	public static enum RangeTest {

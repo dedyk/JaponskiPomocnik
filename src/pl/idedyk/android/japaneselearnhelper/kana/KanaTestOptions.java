@@ -46,7 +46,7 @@ public class KanaTestOptions extends Activity {
 	
 	private List<IScreenItem> generateOptionsScreen() {
 		
-		JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
+		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().createKanaTestContext();
 		
 		final List<IScreenItem> result = new ArrayList<IScreenItem>();
 		
@@ -102,8 +102,6 @@ public class KanaTestOptions extends Activity {
 		startButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
-				
-				JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 				
 				int rangeTestRadioGroupCheckedRadioButtonId = rangeTestRadioGroup.getCheckedRadioButtonId();
 				

@@ -372,6 +372,8 @@ public class KanaTest extends Activity {
 			
 			toast.show();
 			
+			kanaTestContext.incrementCorrectAnswers();
+			
 			kanaTestContext.setAllKanaEntriesIdx(kanaTestContext.getAllKanaEntriesIdx() + 1);
 						
 			checkTestStateAndGenerateAnswers();
@@ -391,6 +393,7 @@ public class KanaTest extends Activity {
 						allKanaEntries.add(currentKanaEntryToTest);
 					}
 					
+					kanaTestContext.incrementIncorrectAnswers();
 					kanaTestContext.setAllKanaEntriesIdx(kanaTestContext.getAllKanaEntriesIdx() + 1);
 					
 					checkTestStateAndGenerateAnswers();
