@@ -7,7 +7,6 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.RangeTest;
-import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode1;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode2;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.CheckBox;
@@ -63,6 +62,7 @@ public class KanaTestOptions extends Activity {
 		
 		result.add(rangeTestRadioGroup);
 		
+		/*
 		result.add(new TitleItem(getString(R.string.kana_test_mode1), 0));
 		
 		final RadioGroup testMode1RadioGroup = new RadioGroup(this);
@@ -73,6 +73,7 @@ public class KanaTestOptions extends Activity {
 		testMode1RadioGroup.addRadioButton(this, getString(R.string.kana_test_mode1_input), R.id.kana_test_mode1_input_id, (testMode1 == TestMode1.INPUT ? true : false));
 		
 		result.add(testMode1RadioGroup);
+		*/
 		
 		result.add(new TitleItem(getString(R.string.kana_test_mode2), 0));
 		
@@ -85,7 +86,7 @@ public class KanaTestOptions extends Activity {
 		testMode2RadioGroup.addRadioButton(this, getString(R.string.kana_test_mode2_romaji_to_kana), R.id.kana_test_mode2_romaji_to_kana_id, (testMode2 == TestMode2.ROMAJI_TO_KANA ? true : false));
 		
 		result.add(testMode2RadioGroup);
-		result.add(new StringValue(getString(R.string.kana_test_mode2_romaji_to_kana_info), 12.0f, 2));
+		//result.add(new StringValue(getString(R.string.kana_test_mode2_romaji_to_kana_info), 12.0f, 2));
 		
 		result.add(new TitleItem(getString(R.string.kana_test_other), 0));
 		
@@ -116,6 +117,7 @@ public class KanaTestOptions extends Activity {
 					throw new RuntimeException("rangeTestRadioGroupCheckedRadioButtonId");
 				}
 				
+				/*
 				int testMode1RadioGroupCheckedRadioButtonId = testMode1RadioGroup.getCheckedRadioButtonId();
 				
 				if (testMode1RadioGroupCheckedRadioButtonId == R.id.kana_test_mode1_choose_id) {
@@ -125,6 +127,9 @@ public class KanaTestOptions extends Activity {
 				} else {
 					throw new RuntimeException("testMode1RadioGroupCheckedRadioButtonId");
 				}
+				*/
+				
+				kanaTestContext.setTestMode1(JapaneseAndroidLearnHelperKanaTestContext.TestMode1.CHOOSE);
 				
 				int testMode2RadioGroupCheckedRadioButtonId = testMode2RadioGroup.getCheckedRadioButtonId();
 				

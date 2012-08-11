@@ -16,7 +16,7 @@
     <string name="kana_test_mode1">Tryb testu 1</string>
     <string name="kana_test_mode1_choose">Wybór</string>
     <string name="kana_test_mode1_input">Wpisywanie</string>
-    <string name="kana_test_mode2">Tryb testu 2</string>
+    <string name="kana_test_mode2">Tryb testu</string>
     <string name="kana_test_mode2_kana_to_romaji">Zamiana hiragana, katakana na romaji</string>
     <string name="kana_test_mode2_romaji_to_kana">Zamiana romaji na hiragana, katakana</string>
     <string name="kana_test_mode2_romaji_to_kana_info">Uwaga: Do prawidłowego działania potrzebna jest japońska klawiatura. Japońska klawiatura nie może być również typu qwerty, gdyż test nie ma wtedy sensu.</string>
