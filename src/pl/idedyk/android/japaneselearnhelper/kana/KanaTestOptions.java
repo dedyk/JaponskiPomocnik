@@ -138,6 +138,8 @@ public class KanaTestOptions extends Activity {
 				
 				kanaTestContext.setUntilSuccess(untilSuccessCheckBox.isChecked());
 				
+				kanaTestContext.setInitialized(false);
+				
 				Intent intent = new Intent(getApplicationContext(), KanaTest.class);
 				
 				startActivity(intent);

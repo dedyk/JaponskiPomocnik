@@ -4,9 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
-import pl.idedyk.android.japaneselearnhelper.screen.Button;
-import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
-import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 
 public class JapaneseAndroidLearnHelperKanaTestContext {
 
@@ -19,22 +16,19 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 	private Boolean untilSuccess;
 	
 	// from test
-	
 	private List<KanaEntry> allKanaEntries;
 	
 	private Map<String, List<KanaEntry>> allKanaEntriesGroupBy;
 	
-	private StringValue charTest;
-	
-	private StringValue position;
-	
-	private Button[][] chooseButtons;
-	
 	private int allKanaEntriesIdx = 0;
 	
-	private TitleItem answerTitleItem;
-	
 	private boolean initialized;
+	
+	private String charTestValue;
+	
+	private String[][] buttonValues;
+	
+	// methods
 	
 	public RangeTest getRangeTest() {
 		return rangeTest;
@@ -80,24 +74,12 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 		return allKanaEntriesGroupBy;
 	}
 
-	public StringValue getCharTest() {
-		return charTest;
-	}
-
-	public StringValue getPosition() {
-		return position;
-	}
-
-	public Button[][] getChooseButtons() {
-		return chooseButtons;
-	}
-
 	public int getAllKanaEntriesIdx() {
 		return allKanaEntriesIdx;
 	}
 
-	public TitleItem getAnswerTitleItem() {
-		return answerTitleItem;
+	public boolean isInitialized() {
+		return initialized;
 	}
 
 	public void setAllKanaEntries(List<KanaEntry> allKanaEntries) {
@@ -109,32 +91,28 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 		this.allKanaEntriesGroupBy = allKanaEntriesGroupBy;
 	}
 
-	public void setCharTest(StringValue charTest) {
-		this.charTest = charTest;
-	}
-
-	public void setPosition(StringValue position) {
-		this.position = position;
-	}
-
-	public void setChooseButtons(Button[][] chooseButtons) {
-		this.chooseButtons = chooseButtons;
-	}
-
 	public void setAllKanaEntriesIdx(int allKanaEntriesIdx) {
 		this.allKanaEntriesIdx = allKanaEntriesIdx;
 	}
 
-	public void setAnswerTitleItem(TitleItem answerTitleItem) {
-		this.answerTitleItem = answerTitleItem;
-	}
-	
-	public boolean isInitialized() {
-		return initialized;
-	}
-
 	public void setInitialized(boolean initialized) {
 		this.initialized = initialized;
+	}
+
+	public String getCharTestValue() {
+		return charTestValue;
+	}
+
+	public void setCharTestValue(String charTestValue) {
+		this.charTestValue = charTestValue;
+	}
+
+	public String[][] getButtonValues() {
+		return buttonValues;
+	}
+
+	public void setButtonValues(String[][] buttonValues) {
+		this.buttonValues = buttonValues;
 	}
 
 	public static enum RangeTest {

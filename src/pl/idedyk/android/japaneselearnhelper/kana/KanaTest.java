@@ -38,17 +38,11 @@ public class KanaTest extends Activity {
 	final int max_x = 4;
 	final int max_y = 3;
 
-	private List<KanaEntry> allKanaEntries;
-	
-	private Map<String, List<KanaEntry>> allKanaEntriesGroupBy;
-	
 	private StringValue charTest;
 	
 	private StringValue position;
 	
 	private Button[][] chooseButtons;
-	
-	private int allKanaEntriesIdx = 0;
 	
 	private TitleItem answerTitleItem;
 	
@@ -58,10 +52,29 @@ public class KanaTest extends Activity {
 		
 		setContentView(R.layout.kana_test);
 		
+		generateDatas();
+		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kana_test_main_layout);
 		LinearLayout answerLayout = (LinearLayout)findViewById(R.id.kana_test_answer_layout);
 		
+		List<IScreenItem> screenMainItems = createMainScreenTest();
+		List<IScreenItem> screenAnswerItems = createAnswerScreenTest();
+		
+		fillLayout(screenMainItems, mainLayout);
+		fillLayout(screenAnswerItems, answerLayout);
+		
+		fillScreenValue();
+	}
+	
+	private void generateDatas() {
+		
 		JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
+		
+		if (kanaTestContext.isInitialized() == true) {
+			return;
+		}
+		
+		List<KanaEntry> allKanaEntries = null;
 		
 		RangeTest rangeTest = kanaTestContext.getRangeTest();
 		
@@ -84,17 +97,20 @@ public class KanaTest extends Activity {
 			throw new RuntimeException("allKanaEntries");
 		}
 		
-		filterAllKanaEntries();
-		allKanaEntriesGroupBy();
-		randomAllKanaEntries();
+		allKanaEntries = filterAllKanaEntries(allKanaEntries);
 		
-		List<IScreenItem> screenMainItems = createMainScreenTest(kanaTestContext);
-		List<IScreenItem> screenAnswerItems = createAnswerScreenTest(kanaTestContext);
+		Map<String, List<KanaEntry>> allKanaEntriesGroupBy = allKanaEntriesGroupBy(allKanaEntries);
 		
-		fillLayout(screenMainItems, mainLayout);
-		fillLayout(screenAnswerItems, answerLayout);
+		allKanaEntries = randomAllKanaEntries(allKanaEntries);
 		
-		fillScreenValue(kanaTestContext);
+		// set
+		kanaTestContext.setAllKanaEntriesIdx(0);
+		kanaTestContext.setAllKanaEntries(allKanaEntries);
+		kanaTestContext.setAllKanaEntriesGroupBy(allKanaEntriesGroupBy);
+		
+		kanaTestContext.setInitialized(true);
+		
+		checkTestStateAndGenerateAnswers();
 	}
 
 	private void fillLayout(List<IScreenItem> screenItems, LinearLayout layout) {
@@ -104,7 +120,7 @@ public class KanaTest extends Activity {
 		}
 	}
 
-	private void filterAllKanaEntries() {
+	private List<KanaEntry> filterAllKanaEntries(List<KanaEntry> allKanaEntries) {
 		
 		List<KanaEntry> result = new ArrayList<KanaEntry>();
 		
@@ -119,12 +135,12 @@ public class KanaTest extends Activity {
 			result.add(currentKanaEntry);
 		}
 		
-		allKanaEntries = result;
+		return result;
 	}
 	
-	private void allKanaEntriesGroupBy() {
+	private Map<String, List<KanaEntry>> allKanaEntriesGroupBy(List<KanaEntry> allKanaEntries) {
 		
-		allKanaEntriesGroupBy = new HashMap<String, List<KanaEntry>>();
+		Map<String, List<KanaEntry>> allKanaEntriesGroupBy = new HashMap<String, List<KanaEntry>>();
 		
 		for (KanaEntry currentKanaEntry : allKanaEntries) {
 			
@@ -139,18 +155,22 @@ public class KanaTest extends Activity {
 			kanaGroupListKanaEntries.add(currentKanaEntry);
 			
 			allKanaEntriesGroupBy.put(key, kanaGroupListKanaEntries);
-		}		
+		}
+		
+		return allKanaEntriesGroupBy;
 	}
 	
 	private String getKanaEntryKey(KanaEntry kanaEntry) {
 		return kanaEntry.getKanaType().toString() + "." + kanaEntry.getKanaGroup().toString();
 	}
 	
-	private void randomAllKanaEntries() {
+	private List<KanaEntry> randomAllKanaEntries(List<KanaEntry> allKanaEntries) {
 		Collections.shuffle(allKanaEntries);
+		
+		return allKanaEntries;
 	}
 	
-	private List<IScreenItem> createMainScreenTest(JapaneseAndroidLearnHelperKanaTestContext kanaTestContext) {
+	private List<IScreenItem> createMainScreenTest() {
 		
 		final List<IScreenItem> result = new ArrayList<IScreenItem>();
 		
@@ -172,8 +192,10 @@ public class KanaTest extends Activity {
 		return result;
 	}
 	
-	private List<IScreenItem> createAnswerScreenTest(final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext) {
+	private List<IScreenItem> createAnswerScreenTest() {
 
+		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
+		
 		final List<IScreenItem> result = new ArrayList<IScreenItem>();
 		
 		final TestMode1 testMode1 = kanaTestContext.getTestMode1();
@@ -230,52 +252,27 @@ public class KanaTest extends Activity {
 		return result;
 	}
 	
-	private void fillScreenValue(JapaneseAndroidLearnHelperKanaTestContext kanaTestContext) {
+	private void fillScreenValue() {
+
+		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = 
+				JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 		
-		if (allKanaEntriesIdx >= allKanaEntries.size()) {
-			// test end
-			
-			finish();
-			
-			return;
-		}
+		List<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
+		int allKanaEntriesIdx = kanaTestContext.getAllKanaEntriesIdx();
+		
+		charTest.setValue(kanaTestContext.getCharTestValue());
+		
+		position.setValue(getString(R.string.kana_test_state, (allKanaEntriesIdx + 1), allKanaEntries.size()));
 		
 		TestMode1 testMode1 = kanaTestContext.getTestMode1();
 		
-		TestMode2 testMode2 = kanaTestContext.getTestMode2();
-		
-		KanaEntry currentKanaEntryToTest = allKanaEntries.get(allKanaEntriesIdx);
-		
-		if (testMode2 == TestMode2.KANA_TO_ROMAJI) {
-			charTest.setValue(currentKanaEntryToTest.getKanaJapanese());
-			
-		} else if (testMode2 == TestMode2.ROMAJI_TO_KANA) {
-			charTest.setValue(currentKanaEntryToTest.getKana());
-			
-		} else {
-			throw new RuntimeException("testMode2");
-		}
-		
-		position.setValue(getString(R.string.kana_test_state, (allKanaEntriesIdx + 1), allKanaEntries.size()));
-
 		if (testMode1 == TestMode1.CHOOSE) {
 			
-			Random random = new Random();
-			
-			int correctAnswerPos = random.nextInt(max_x * max_y);
-			
-			List<KanaEntry> incorrectAnswers = getIncorrectAnswers(currentKanaEntryToTest, max_x * max_y);
-			
+			String[][] buttonValues = kanaTestContext.getButtonValues();
+						
 			for (int y = 0; y < max_y; ++y) {
 				for (int x = 0; x < max_x; ++x) {
-
-					int currentPosIdx = y * max_x + x;
-
-					if (correctAnswerPos == currentPosIdx) {
-						setButtonValue(testMode2, x, y, currentKanaEntryToTest);
-					} else {
-						setButtonValue(testMode2, x, y, incorrectAnswers.get(currentPosIdx));
-					}
+					chooseButtons[x][y].setText(buttonValues[x][y]);
 				}
 			}			
 			
@@ -291,13 +288,16 @@ public class KanaTest extends Activity {
 	
 	private List<KanaEntry> getIncorrectAnswers(KanaEntry correctKanaEntry, int maxSize) {
 		
+		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = 
+				JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
+		
 		List<KanaEntry> result = new ArrayList<KanaEntry>();
 		
 		Set<String> alreadyChoosenKanaEntries = new HashSet<String>();
 		
 		alreadyChoosenKanaEntries.add(correctKanaEntry.getKanaJapanese());		
 		
-		List<KanaEntry> answers = allKanaEntriesGroupBy.get(getKanaEntryKey(correctKanaEntry));
+		List<KanaEntry> answers = kanaTestContext.getAllKanaEntriesGroupBy().get(getKanaEntryKey(correctKanaEntry));
 		
 		Random random = new Random();
 		
@@ -321,23 +321,27 @@ public class KanaTest extends Activity {
 		return result;
 	}
 
-	private void setButtonValue(TestMode2 testMode2, int x, int y, KanaEntry kanaEntry) {
+	private String getButtonValue(TestMode2 testMode2, KanaEntry kanaEntry) {
 		
 		if (testMode2 == TestMode2.KANA_TO_ROMAJI) {
-			chooseButtons[x][y].setText(kanaEntry.getKana());
+			return kanaEntry.getKana();
 			
 		} else if (testMode2 == TestMode2.ROMAJI_TO_KANA) {
-			chooseButtons[x][y].setText(kanaEntry.getKanaJapanese());
+			return kanaEntry.getKanaJapanese();
+		} else {
+			throw new RuntimeException("getButtonValue");
 		}
 	}
 	
 	private void checkUserAnswer(final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext, final boolean untilSuccess, String userAnswer) {
 		
-		TestMode2 testMode2 = kanaTestContext.getTestMode2();
+		final List<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
 		
-		final KanaEntry currentKanaEntryToTest = allKanaEntries.get(allKanaEntriesIdx);
+		final KanaEntry currentKanaEntryToTest = allKanaEntries.get(kanaTestContext.getAllKanaEntriesIdx());
 		
 		String correctAnswer = null;
+
+		TestMode2 testMode2 = kanaTestContext.getTestMode2();
 		
 		if (testMode2 == TestMode2.KANA_TO_ROMAJI) {
 			correctAnswer = currentKanaEntryToTest.getKana();
@@ -357,9 +361,10 @@ public class KanaTest extends Activity {
 			
 			toast.show();
 			
-			allKanaEntriesIdx++;
-			
-			fillScreenValue(kanaTestContext);
+			kanaTestContext.setAllKanaEntriesIdx(kanaTestContext.getAllKanaEntriesIdx() + 1);
+						
+			checkTestStateAndGenerateAnswers();
+			fillScreenValue();
 			
 		} else {
 			AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -375,13 +380,81 @@ public class KanaTest extends Activity {
 						allKanaEntries.add(currentKanaEntryToTest);
 					}
 					
-					allKanaEntriesIdx++;
+					kanaTestContext.setAllKanaEntriesIdx(kanaTestContext.getAllKanaEntriesIdx() + 1);
 					
-					fillScreenValue(kanaTestContext);
+					checkTestStateAndGenerateAnswers();
+					fillScreenValue();
 				}
 			});
 			
 			alertDialog.show();
 		}
+	}
+	
+	private void checkTestStateAndGenerateAnswers() {
+		
+		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = 
+				JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
+		
+		List<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
+		int allKanaEntriesIdx = kanaTestContext.getAllKanaEntriesIdx();
+		
+		if (allKanaEntriesIdx >= allKanaEntries.size()) {
+			// test end
+			
+			finish();
+			
+			return;
+		}
+		
+		TestMode1 testMode1 = kanaTestContext.getTestMode1();
+		
+		TestMode2 testMode2 = kanaTestContext.getTestMode2();
+		
+		KanaEntry currentKanaEntryToTest = allKanaEntries.get(allKanaEntriesIdx);
+		
+		if (testMode2 == TestMode2.KANA_TO_ROMAJI) {
+			kanaTestContext.setCharTestValue(currentKanaEntryToTest.getKanaJapanese());
+			
+		} else if (testMode2 == TestMode2.ROMAJI_TO_KANA) {
+			kanaTestContext.setCharTestValue(currentKanaEntryToTest.getKana());
+			
+		} else {
+			throw new RuntimeException("testMode2");
+		}
+		
+		if (testMode1 == TestMode1.CHOOSE) {
+			
+			String[][] buttonValues = new String[max_x][max_y];
+			
+			Random random = new Random();
+			
+			int correctAnswerPos = random.nextInt(max_x * max_y);
+			
+			List<KanaEntry> incorrectAnswers = getIncorrectAnswers(currentKanaEntryToTest, max_x * max_y);
+			
+			for (int y = 0; y < max_y; ++y) {
+				for (int x = 0; x < max_x; ++x) {
+
+					int currentPosIdx = y * max_x + x;
+
+					if (correctAnswerPos == currentPosIdx) {
+						buttonValues[x][y] = getButtonValue(testMode2, currentKanaEntryToTest);
+					} else {
+						buttonValues[x][y] = getButtonValue(testMode2, incorrectAnswers.get(currentPosIdx));
+					}
+				}
+			}
+			
+			kanaTestContext.setButtonValues(buttonValues);
+			
+		} else if (testMode1 == TestMode1.INPUT) {
+			
+			// FIXME !!!
+			
+			
+		} else {
+			throw new RuntimeException("testMode1");
+		}		
 	}
 }
