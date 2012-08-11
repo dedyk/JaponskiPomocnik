@@ -97,4 +97,16 @@ public class StringValue implements IScreenItem {
 	public String toString() {
 		return value.toString();
 	}
+	
+	public int getBottomPositionOnScreen() {
+		if (textView == null) {
+			throw new RuntimeException("getBottomPositionOnScreen");
+		}
+		
+		int[] location = new int[2];
+		
+		textView.getLocationOnScreen(location);
+		
+		return location[1] + textView.getHeight();
+	}
 }

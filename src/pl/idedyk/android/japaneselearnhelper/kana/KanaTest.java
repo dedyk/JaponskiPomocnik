@@ -50,6 +50,8 @@ public class KanaTest extends Activity {
 	
 	private int allKanaEntriesIdx = 0;
 	
+	private TitleItem answerTitleItem;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {	
 		super.onCreate(savedInstanceState);
@@ -179,7 +181,10 @@ public class KanaTest extends Activity {
 		final boolean untilSuccess = kanaTestContext.isUntilSuccess();
 
 		if (testMode1 == TestMode1.CHOOSE) {
-			result.add(new TitleItem(getString(R.string.kana_test_choose), 0));
+			
+			answerTitleItem = new TitleItem(getString(R.string.kana_test_choose), 0);
+			
+			result.add(answerTitleItem);
 			result.add(new StringValue("", 7.0f, 0));
 			
 			TableLayout chooseTableLayout = new TableLayout();
@@ -342,7 +347,15 @@ public class KanaTest extends Activity {
 		}
 		
 		if (correctAnswer.equals(userAnswer) == true) {
-			Toast.makeText(this, getString(R.string.kana_test_correct_answer), Toast.LENGTH_SHORT).show();
+			
+			int positionBottomPositionOnScreen = position.getBottomPositionOnScreen();
+			int answerTitleItemTopPositionOnScreen = answerTitleItem.getTopPositionOnScreen();
+			
+			Toast toast = Toast.makeText(this, getString(R.string.kana_test_correct_answer), Toast.LENGTH_SHORT);
+			
+			toast.setGravity(Gravity.TOP, 0, ((answerTitleItemTopPositionOnScreen + positionBottomPositionOnScreen) / 2) - 60);
+			
+			toast.show();
 			
 			allKanaEntriesIdx++;
 			
