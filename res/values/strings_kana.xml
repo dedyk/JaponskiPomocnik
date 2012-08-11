@@ -34,4 +34,11 @@
     <string name="kana_test_incorrect_answer">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n%1$s</string>
     <string name="kana_test_incorrect_ok">OK</string>
     <string name="kana_test_state">Pozycja: %1$d z %2$d</string>
+    <string name="kana_test_summary_label">Wynik testu</string>
+    <string name="kana_test_result">Rezultat</string>
+    <string name="kana_test_answers_no">Liczba odpowiedzi</string>
+    <string name="kana_test_correct_answers_no">Liczba odpowiedzi prawidłowych</string>
+    <string name="kana_test_incorrect_answers_no">Liczba odpowiedzi nieprawidłowych</string>
+    <string name="kana_test_report_problem_email_subject">Japoński pomocnik - test hiragana i katakana: Problem</string>
+    <string name="kana_test_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
 </resources>

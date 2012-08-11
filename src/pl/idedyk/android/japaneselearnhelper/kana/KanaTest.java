@@ -19,6 +19,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.dictionary.KanaHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry.KanaGroup;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.Button;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
@@ -28,9 +29,12 @@ import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -60,13 +64,45 @@ public class KanaTest extends Activity {
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kana_test_main_layout);
 		LinearLayout answerLayout = (LinearLayout)findViewById(R.id.kana_test_answer_layout);
 		
-		List<IScreenItem> screenMainItems = createMainScreenTest();
-		List<IScreenItem> screenAnswerItems = createAnswerScreenTest();
+		final List<IScreenItem> screenMainItems = createMainScreenTest();
+		final List<IScreenItem> screenAnswerItems = createAnswerScreenTest();
 		
 		fillLayout(screenMainItems, mainLayout);
 		fillLayout(screenAnswerItems, answerLayout);
 		
 		fillScreenValue();
+		
+		android.widget.Button reportProblemButton = (android.widget.Button)findViewById(R.id.kana_test_report_problem_button);
+		
+		reportProblemButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				StringBuffer detailsSb = new StringBuffer();
+				
+				for (IScreenItem currentScreenItem : screenMainItems) {
+					detailsSb.append(currentScreenItem.toString()).append("\n\n");
+				}
+
+				for (IScreenItem currentScreenItem : screenAnswerItems) {
+					detailsSb.append(currentScreenItem.toString()).append("\n\n");
+				}
+				
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+				
+				String mailSubject = getString(R.string.kana_test_report_problem_email_subject);
+				
+				String mailBody = getString(R.string.kana_test_report_problem_email_body,
+						detailsSb.toString());				
+				
+				Log.d("AAA", mailBody.toString());
+				
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
+				
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			}
+		});
+
 	}
 	
 	private void generateDatas() {
@@ -415,6 +451,10 @@ public class KanaTest extends Activity {
 		
 		if (allKanaEntriesIdx >= allKanaEntries.size()) {
 			// test end
+			
+			Intent intent = new Intent(getApplicationContext(), KanaTestSummary.class);
+			
+			startActivity(intent);			
 			
 			finish();
 			

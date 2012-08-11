@@ -35,6 +35,12 @@ public class TableLayout implements IScreenItem {
 	}
 	
 	public String toString() {
-		return "";
+		StringBuffer sb = new StringBuffer();
+		
+		for (TableRow currentTableRow : tableRows) {
+			sb.append(currentTableRow.toString()).append("\n");
+		}
+		
+		return sb.toString();
 	}
 }

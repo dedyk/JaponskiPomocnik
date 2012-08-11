@@ -30,6 +30,7 @@
         <activity android:name=".info.InfoActivity" android:label="@string/info_label"></activity>
         <activity android:name=".kana.KanaTestOptions" android:label="@string/kana_test_options_label" ></activity>
         <activity android:name=".kana.KanaTest" android:label="@string/kana_test_label" ></activity>
+        <activity android:label="@string/kana_test_summary_label" android:name=".kana.KanaTestSummary"></activity>
     </application>
 
 </manifest>
