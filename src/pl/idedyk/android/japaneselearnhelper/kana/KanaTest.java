@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.kana;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -36,7 +37,7 @@ import android.widget.Toast;
 public class KanaTest extends Activity {
 	
 	final int max_x = 4;
-	final int max_y = 3;
+	final int max_y = 4;
 
 	private StringValue charTest;
 	
@@ -425,13 +426,13 @@ public class KanaTest extends Activity {
 		
 		if (testMode1 == TestMode1.CHOOSE) {
 			
-			String[][] buttonValues = new String[max_x][max_y];
-			
 			Random random = new Random();
 			
 			int correctAnswerPos = random.nextInt(max_x * max_y);
 			
 			List<KanaEntry> incorrectAnswers = getIncorrectAnswers(currentKanaEntryToTest, max_x * max_y);
+			
+			String[] buttonsValuesLinear = new String[max_x * max_y];
 			
 			for (int y = 0; y < max_y; ++y) {
 				for (int x = 0; x < max_x; ++x) {
@@ -439,11 +440,23 @@ public class KanaTest extends Activity {
 					int currentPosIdx = y * max_x + x;
 
 					if (correctAnswerPos == currentPosIdx) {
-						buttonValues[x][y] = getButtonValue(testMode2, currentKanaEntryToTest);
+						buttonsValuesLinear[currentPosIdx] = getButtonValue(testMode2, currentKanaEntryToTest);
 					} else {
-						buttonValues[x][y] = getButtonValue(testMode2, incorrectAnswers.get(currentPosIdx));
+						buttonsValuesLinear[currentPosIdx] = getButtonValue(testMode2, incorrectAnswers.get(currentPosIdx));
 					}
 				}
+			}
+			
+			Arrays.sort(buttonsValuesLinear);
+			
+			String[][] buttonValues = new String[max_x][max_y];
+			
+			for (int idx = 0; idx < buttonsValuesLinear.length; ++idx) {
+				
+				int y = idx / max_x;
+				int x = idx - y * max_x;
+				
+				buttonValues[x][y] = buttonsValuesLinear[idx];
 			}
 			
 			kanaTestContext.setButtonValues(buttonValues);
