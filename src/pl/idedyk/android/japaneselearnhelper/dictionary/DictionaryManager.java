@@ -142,6 +142,11 @@ public class DictionaryManager {
 			// tutaj
 			// pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager.getGrammaConjufateResult(entry);
 			// pl.idedyk.android.japaneselearnhelper.example.ExampleManager.getExamples(entry);
+			// final Map<String, KanaEntry> kanaCache = KanaHelper.getKanaCache();
+			// for (String currentKana : kanaList) {
+			// 	KanaHelper.createRomajiString(KanaHelper.convertKanaStringIntoKanaWord(currentKana, kanaCache));
+			// }
+			// koniec
 			
 			dictionary.add(entry);
 		}

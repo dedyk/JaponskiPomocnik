@@ -400,7 +400,7 @@ public class Kana extends Activity {
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow h_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(h_tableRow, kanaCache, "ハ");
-		addKanaItem(h_tableRow, kanaCache, "匕");
+		addKanaItem(h_tableRow, kanaCache, "ヒ");
 		addKanaItem(h_tableRow, kanaCache, "フ");
 		addKanaItem(h_tableRow, kanaCache, "ヘ");
 		addKanaItem(h_tableRow, kanaCache, "ホ");
@@ -411,7 +411,7 @@ public class Kana extends Activity {
 
 		addKanaItem(m_tableRow, kanaCache, "マ");
 		addKanaItem(m_tableRow, kanaCache, "ミ");
-		addKanaItem(m_tableRow, kanaCache, "厶");
+		addKanaItem(m_tableRow, kanaCache, "ム");
 		addKanaItem(m_tableRow, kanaCache, "メ");
 		addKanaItem(m_tableRow, kanaCache, "モ");
 		

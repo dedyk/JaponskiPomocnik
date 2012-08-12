@@ -244,14 +244,13 @@ public class KanaHelper {
 		katakanaEntries.add(new KanaEntry("ノ", "no", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		
 		katakanaEntries.add(new KanaEntry("ハ", "ha", KanaType.KATAKANA, KanaGroup.GOJUUON));
-		katakanaEntries.add(new KanaEntry("匕", "hi", KanaType.KATAKANA, KanaGroup.GOJUUON));
+		katakanaEntries.add(new KanaEntry("ヒ", "hi", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		katakanaEntries.add(new KanaEntry("フ", "fu", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		katakanaEntries.add(new KanaEntry("ヘ", "he", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		katakanaEntries.add(new KanaEntry("ホ", "ho", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		
 		katakanaEntries.add(new KanaEntry("マ", "ma", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		katakanaEntries.add(new KanaEntry("ミ", "mi", KanaType.KATAKANA, KanaGroup.GOJUUON));
-		katakanaEntries.add(new KanaEntry("厶", "mu", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		katakanaEntries.add(new KanaEntry("ム", "mu", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		katakanaEntries.add(new KanaEntry("メ", "me", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		katakanaEntries.add(new KanaEntry("モ", "mo", KanaType.KATAKANA, KanaGroup.GOJUUON));
