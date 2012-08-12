@@ -48,22 +48,22 @@ public class KanaTestSummary extends Activity {
 		
 		result.add(new TitleItem(getString(R.string.kana_test_result), 0));
 		
-		StringValue resultStringValue = new StringValue("" + ((correctAnswerNo * 100) / allAnswersNo) + " %", 12.0f, 1);
+		StringValue resultStringValue = new StringValue("" + ((correctAnswerNo * 100) / allAnswersNo) + " %", 16.0f, 1);
 		result.add(resultStringValue);
 		
 		result.add(new TitleItem(getString(R.string.kana_test_answers_no), 0));
 		
-		StringValue allAnswersNoStringValue = new StringValue("" + allAnswersNo, 12.0f, 1);
+		StringValue allAnswersNoStringValue = new StringValue("" + allAnswersNo, 16.0f, 1);
 		result.add(allAnswersNoStringValue);
 		
 		result.add(new TitleItem(getString(R.string.kana_test_correct_answers_no), 0));
 		
-		StringValue allCorrectAnswersNoStringValue = new StringValue("" + correctAnswerNo, 12.0f, 1);
+		StringValue allCorrectAnswersNoStringValue = new StringValue("" + correctAnswerNo, 16.0f, 1);
 		result.add(allCorrectAnswersNoStringValue);
 		
 		result.add(new TitleItem(getString(R.string.kana_test_incorrect_answers_no), 0));
 		
-		StringValue allIncorrectAnswersNoStringValue = new StringValue("" + incorrectAnswerNo, 12.0f, 1);
+		StringValue allIncorrectAnswersNoStringValue = new StringValue("" + incorrectAnswerNo, 16.0f, 1);
 		result.add(allIncorrectAnswersNoStringValue);
 		
 		return result;

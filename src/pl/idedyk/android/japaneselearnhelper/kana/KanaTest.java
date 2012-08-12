@@ -136,7 +136,11 @@ public class KanaTest extends Activity {
 			throw new RuntimeException("allKanaEntries");
 		}
 		
-		allKanaEntries = filterAllKanaEntries(allKanaEntries);
+		boolean gojuuon = kanaTestContext.getGojuuon();
+		boolean dakutenHandakuten = kanaTestContext.getDakutenHandakuten();
+		boolean youon = kanaTestContext.getYouon();
+		
+		allKanaEntries = filterAllKanaEntries(allKanaEntries, gojuuon, dakutenHandakuten, youon);
 		
 		Map<String, List<KanaEntry>> allKanaEntriesGroupBy = allKanaEntriesGroupBy(allKanaEntries);
 		
@@ -159,7 +163,7 @@ public class KanaTest extends Activity {
 		}
 	}
 
-	private List<KanaEntry> filterAllKanaEntries(List<KanaEntry> allKanaEntries) {
+	private List<KanaEntry> filterAllKanaEntries(List<KanaEntry> allKanaEntries, boolean gojuuon, Boolean dakutenHandakuten, Boolean youon) {
 		
 		List<KanaEntry> result = new ArrayList<KanaEntry>();
 		
@@ -167,11 +171,29 @@ public class KanaTest extends Activity {
 			
 			KanaGroup currentKanaEntryKanaGroup = currentKanaEntry.getKanaGroup();
 			
-			if (currentKanaEntryKanaGroup == KanaGroup.OTHER) {
+			if (currentKanaEntryKanaGroup == KanaGroup.GOJUUON && gojuuon == true) {
+				result.add(currentKanaEntry);
+				
 				continue;
 			}
 			
-			result.add(currentKanaEntry);
+			if (currentKanaEntryKanaGroup == KanaGroup.DAKUTEN && dakutenHandakuten == true) {
+				result.add(currentKanaEntry);
+				
+				continue;
+			}
+
+			if (currentKanaEntryKanaGroup == KanaGroup.HANDAKUTEN && dakutenHandakuten == true) {
+				result.add(currentKanaEntry);
+				
+				continue;
+			}
+			
+			if (currentKanaEntryKanaGroup == KanaGroup.YOUON && youon == true) {
+				result.add(currentKanaEntry);
+				
+				continue;
+			}
 		}
 		
 		return result;
@@ -200,7 +222,14 @@ public class KanaTest extends Activity {
 	}
 	
 	private String getKanaEntryKey(KanaEntry kanaEntry) {
-		return kanaEntry.getKanaType().toString() + "." + kanaEntry.getKanaGroup().toString();
+		
+		KanaGroup kanaGroup = kanaEntry.getKanaGroup();
+		
+		if (kanaGroup == KanaGroup.HANDAKUTEN) {
+			kanaGroup = KanaGroup.DAKUTEN;
+		}
+		
+		return kanaEntry.getKanaType().toString() + "." + kanaGroup.toString();
 	}
 	
 	private List<KanaEntry> randomAllKanaEntries(List<KanaEntry> allKanaEntries) {
@@ -239,7 +268,7 @@ public class KanaTest extends Activity {
 		
 		final TestMode1 testMode1 = kanaTestContext.getTestMode1();
 		
-		final boolean untilSuccess = kanaTestContext.isUntilSuccess();
+		final boolean untilSuccess = kanaTestContext.getUntilSuccess();
 
 		if (testMode1 == TestMode1.CHOOSE) {
 			
@@ -347,8 +376,9 @@ public class KanaTest extends Activity {
 		List<KanaEntry> answers = kanaTestContext.getAllKanaEntriesGroupBy().get(getKanaEntryKey(correctKanaEntry));
 		
 		Random random = new Random();
-		
+				
 		while(true) {
+						
 			int randomAnswersIdx = random.nextInt(answers.size());
 			
 			KanaEntry answersToCheck = answers.get(randomAnswersIdx);

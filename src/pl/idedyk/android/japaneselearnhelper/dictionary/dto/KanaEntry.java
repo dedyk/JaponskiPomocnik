@@ -44,8 +44,10 @@ public class KanaEntry {
 		
 		DAKUTEN,
 		
-		YOOUN,
+		HANDAKUTEN,
 		
-		OTHER;
+		YOUON,
+		
+		SOKUON;
 	}
 }

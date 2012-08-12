@@ -8,4 +8,7 @@
     <item name="kana_test_mode2_kana_to_romaji_id" type="id"/>
     <item name="kana_test_mode2_romaji_to_kana_id" type="id"/>
     <item name="kana_test_until_success_id" type="id"/>
+    <item name="kana_test_char_range_gojuuon" type="id"/>
+    <item name="kana_test_char_range_dakuten_handakuten" type="id"/>
+    <item name="kana_test_char_range_youon" type="id"/>
 </resources>

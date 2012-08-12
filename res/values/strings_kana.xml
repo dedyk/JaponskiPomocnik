@@ -41,4 +41,8 @@
     <string name="kana_test_incorrect_answers_no">Liczba odpowiedzi nieprawidłowych</string>
     <string name="kana_test_report_problem_email_subject">Japoński pomocnik - test hiragana i katakana: Problem</string>
     <string name="kana_test_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kana_test_char_range">Zakres znaków</string>
+    <string name="kana_test_char_range_gojuuon">Gojuuon (あ/ア - ん/ン)</string>
+    <string name="kana_test_char_range_dakuten_handakuten">Dakuten + Handakuten (が/ガ - ぽ/ポ)</string>
+    <string name="kana_test_char_range_youon">Youon (きゃ/キャ - ぴょ/ピョ)</string>
 </resources>

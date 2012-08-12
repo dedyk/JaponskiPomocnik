@@ -15,6 +15,12 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 	
 	private Boolean untilSuccess;
 	
+	private Boolean gojuuon;
+	
+	private Boolean dakutenHandakuten;
+	
+	private Boolean youon;
+	
 	// from test
 	private List<KanaEntry> allKanaEntries;
 	
@@ -33,6 +39,17 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 	private int incorrectAnswers = 0;
 	
 	// methods
+	
+	public void resetTest() {
+		allKanaEntries = null;
+		allKanaEntriesGroupBy = null;
+		allKanaEntriesIdx = 0;
+		initialized = false;
+		charTestValue = null;
+		buttonValues = null;
+		correctAnswers = 0;
+		incorrectAnswers = 0;
+	}
 	
 	public RangeTest getRangeTest() {
 		return rangeTest;
@@ -58,16 +75,12 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 		this.testMode2 = testMode2;
 	}
 
-	public Boolean isUntilSuccess() {
+	public Boolean getUntilSuccess() {
 		return untilSuccess;
 	}
 
 	public void setUntilSuccess(Boolean untilSuccess) {
 		this.untilSuccess = untilSuccess;
-	}
-
-	public Boolean getUntilSuccess() {
-		return untilSuccess;
 	}
 
 	public List<KanaEntry> getAllKanaEntries() {
@@ -133,6 +146,30 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 
 	public int getIncorrectAnswers() {
 		return incorrectAnswers;
+	}
+	
+	public Boolean getGojuuon() {
+		return gojuuon;
+	}
+
+	public Boolean getDakutenHandakuten() {
+		return dakutenHandakuten;
+	}
+
+	public Boolean getYouon() {
+		return youon;
+	}
+
+	public void setGojuuon(Boolean gojuuon) {
+		this.gojuuon = gojuuon;
+	}
+
+	public void setDakutenHandakuten(Boolean dakutenHandakuten) {
+		this.dakutenHandakuten = dakutenHandakuten;
+	}
+
+	public void setYouon(Boolean youon) {
+		this.youon = youon;
 	}
 
 	public static enum RangeTest {

@@ -46,9 +46,22 @@ public class KanaTestOptions extends Activity {
 	
 	private List<IScreenItem> generateOptionsScreen() {
 		
-		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().createKanaTestContext();
+		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 		
 		final List<IScreenItem> result = new ArrayList<IScreenItem>();
+		
+		result.add(new TitleItem(getString(R.string.kana_test_mode2), 0));
+		
+		final RadioGroup testMode2RadioGroup = new RadioGroup(this);
+		
+		TestMode2 testMode2 = kanaTestContext.getTestMode2();
+		
+		testMode2RadioGroup.addRadioButton(this, getString(R.string.kana_test_mode2_kana_to_romaji), R.id.kana_test_mode2_kana_to_romaji_id, (testMode2 == null ? true : (testMode2 == TestMode2.KANA_TO_ROMAJI ? true : false)));
+		
+		testMode2RadioGroup.addRadioButton(this, getString(R.string.kana_test_mode2_romaji_to_kana), R.id.kana_test_mode2_romaji_to_kana_id, (testMode2 == TestMode2.ROMAJI_TO_KANA ? true : false));
+		
+		result.add(testMode2RadioGroup);
+		//result.add(new StringValue(getString(R.string.kana_test_mode2_romaji_to_kana_info), 12.0f, 2));
 		
 		result.add(new TitleItem(getString(R.string.kana_test_range), 0));
 		
@@ -75,22 +88,26 @@ public class KanaTestOptions extends Activity {
 		result.add(testMode1RadioGroup);
 		*/
 		
-		result.add(new TitleItem(getString(R.string.kana_test_mode2), 0));
+		result.add(new TitleItem(getString(R.string.kana_test_char_range), 0));
 		
-		final RadioGroup testMode2RadioGroup = new RadioGroup(this);
+		Boolean gojuuon = kanaTestContext.getGojuuon();
 		
-		TestMode2 testMode2 = kanaTestContext.getTestMode2();
+		final CheckBox gojuuonCheckBox = new CheckBox(this, getString(R.string.kana_test_char_range_gojuuon), (gojuuon == null ? true : gojuuon.booleanValue()), R.id.kana_test_char_range_gojuuon);
+		result.add(gojuuonCheckBox);
 		
-		testMode2RadioGroup.addRadioButton(this, getString(R.string.kana_test_mode2_kana_to_romaji), R.id.kana_test_mode2_kana_to_romaji_id, (testMode2 == null ? true : (testMode2 == TestMode2.KANA_TO_ROMAJI ? true : false)));
+		Boolean dakutenHandakuten = kanaTestContext.getDakutenHandakuten();
 		
-		testMode2RadioGroup.addRadioButton(this, getString(R.string.kana_test_mode2_romaji_to_kana), R.id.kana_test_mode2_romaji_to_kana_id, (testMode2 == TestMode2.ROMAJI_TO_KANA ? true : false));
+		final CheckBox dakutenHandakutenCheckBox = new CheckBox(this, getString(R.string.kana_test_char_range_dakuten_handakuten), (dakutenHandakuten == null ? true : dakutenHandakuten.booleanValue()), R.id.kana_test_char_range_dakuten_handakuten);
+		result.add(dakutenHandakutenCheckBox);
 		
-		result.add(testMode2RadioGroup);
-		//result.add(new StringValue(getString(R.string.kana_test_mode2_romaji_to_kana_info), 12.0f, 2));
+		Boolean youon = kanaTestContext.getYouon();
 		
+		final CheckBox youonCheckBox = new CheckBox(this, getString(R.string.kana_test_char_range_youon), (youon == null ? true : youon.booleanValue()), R.id.kana_test_char_range_youon);
+		result.add(youonCheckBox);
+				
 		result.add(new TitleItem(getString(R.string.kana_test_other), 0));
 		
-		Boolean untilSuccess = kanaTestContext.isUntilSuccess();
+		Boolean untilSuccess = kanaTestContext.getUntilSuccess();
 		
 		final CheckBox untilSuccessCheckBox = new CheckBox(this, getString(R.string.kana_test_until_success), (untilSuccess == null ? true : untilSuccess.booleanValue()), R.id.kana_test_until_success_id);
 		
@@ -102,6 +119,8 @@ public class KanaTestOptions extends Activity {
 		startButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
+				
+				kanaTestContext.resetTest();
 				
 				int rangeTestRadioGroupCheckedRadioButtonId = rangeTestRadioGroup.getCheckedRadioButtonId();
 				
@@ -140,6 +159,10 @@ public class KanaTestOptions extends Activity {
 				}
 				
 				kanaTestContext.setUntilSuccess(untilSuccessCheckBox.isChecked());
+				
+				kanaTestContext.setGojuuon(gojuuonCheckBox.isChecked());
+				kanaTestContext.setDakutenHandakuten(dakutenHandakutenCheckBox.isChecked());
+				kanaTestContext.setYouon(youonCheckBox.isChecked());
 				
 				kanaTestContext.setInitialized(false);
 				

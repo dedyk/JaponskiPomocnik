@@ -8,16 +8,11 @@ public class JapaneseAndroidLearnHelperContext {
 
 	public JapaneseAndroidLearnHelperContext() {
 		this.wordTestContext = new JapaneseAndroidLearnHelperWordTestContext();
+		this.kanaTestContext = new JapaneseAndroidLearnHelperKanaTestContext();
 	}
 
 	public JapaneseAndroidLearnHelperWordTestContext getWordTestContext() {
 		return wordTestContext;
-	}
-
-	public JapaneseAndroidLearnHelperKanaTestContext createKanaTestContext() {
-		this.kanaTestContext = new JapaneseAndroidLearnHelperKanaTestContext();
-		
-		return kanaTestContext;
 	}
 	
 	public JapaneseAndroidLearnHelperKanaTestContext getKanaTestContext() {

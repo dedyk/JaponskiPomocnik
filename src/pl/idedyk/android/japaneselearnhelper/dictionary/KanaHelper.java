@@ -154,57 +154,57 @@ public class KanaHelper {
 		hiraganaEntries.add(new KanaEntry("べ", "be", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
 		hiraganaEntries.add(new KanaEntry("ぼ", "bo", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
 		
-		hiraganaEntries.add(new KanaEntry("ぱ", "pa", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
-		hiraganaEntries.add(new KanaEntry("ぴ", "pi", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
-		hiraganaEntries.add(new KanaEntry("ぷ", "pu", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
-		hiraganaEntries.add(new KanaEntry("ぺ", "pe", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
-		hiraganaEntries.add(new KanaEntry("ぽ", "po", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
+		hiraganaEntries.add(new KanaEntry("ぱ", "pa", KanaType.HIRAGANA, KanaGroup.HANDAKUTEN));
+		hiraganaEntries.add(new KanaEntry("ぴ", "pi", KanaType.HIRAGANA, KanaGroup.HANDAKUTEN));
+		hiraganaEntries.add(new KanaEntry("ぷ", "pu", KanaType.HIRAGANA, KanaGroup.HANDAKUTEN));
+		hiraganaEntries.add(new KanaEntry("ぺ", "pe", KanaType.HIRAGANA, KanaGroup.HANDAKUTEN));
+		hiraganaEntries.add(new KanaEntry("ぽ", "po", KanaType.HIRAGANA, KanaGroup.HANDAKUTEN));
 		
-		hiraganaEntries.add(new KanaEntry("きゃ", "kya", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("きゅ", "kyu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("きょ", "kyo", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("きゃ", "kya", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("きゅ", "kyu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("きょ", "kyo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("しゃ", "sha", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("しゅ", "shu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("しょ", "sho", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("しゃ", "sha", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("しゅ", "shu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("しょ", "sho", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("ちゃ", "cha", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("ちゅ", "chu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("ちょ", "cho", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("ちゃ", "cha", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("ちゅ", "chu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("ちょ", "cho", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("にゃ", "nya", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("にゅ", "nyu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("にょ", "nyo", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("にゃ", "nya", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("にゅ", "nyu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("にょ", "nyo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("ひゃ", "hya", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("ひゅ", "hyu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("ひょ", "hyo", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("ひゃ", "hya", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("ひゅ", "hyu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("ひょ", "hyo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("みゃ", "mya", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("みゅ", "myu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("みょ", "myo", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("みゃ", "mya", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("みゅ", "myu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("みょ", "myo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("りゃ", "rya", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("りゅ", "ryu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("りょ", "ryo", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("りゃ", "rya", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("りゅ", "ryu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("りょ", "ryo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("ぎゃ", "gya", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("ぎゅ", "gyu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("ぎょ", "gyo", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("ぎゃ", "gya", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("ぎゅ", "gyu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("ぎょ", "gyo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("じゃ", "ja", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("じゅ", "ju", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("じょ", "jo", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("じゃ", "ja", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("じゅ", "ju", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("じょ", "jo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("びゃ", "bya", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("びゅ", "byu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("びょ", "byo", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("びゃ", "bya", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("びゅ", "byu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("びょ", "byo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("ぴゃ", "pya", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("ぴゅ", "pyu", KanaType.HIRAGANA, KanaGroup.YOOUN));
-		hiraganaEntries.add(new KanaEntry("ぴょ", "pyo", KanaType.HIRAGANA, KanaGroup.YOOUN));
+		hiraganaEntries.add(new KanaEntry("ぴゃ", "pya", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("ぴゅ", "pyu", KanaType.HIRAGANA, KanaGroup.YOUON));
+		hiraganaEntries.add(new KanaEntry("ぴょ", "pyo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
-		hiraganaEntries.add(new KanaEntry("っ", "ttsu", KanaType.HIRAGANA, KanaGroup.OTHER));
+		hiraganaEntries.add(new KanaEntry("っ", "ttsu", KanaType.HIRAGANA, KanaGroup.SOKUON));
 				
 		return hiraganaEntries;		
 	}
@@ -295,74 +295,74 @@ public class KanaHelper {
 		katakanaEntries.add(new KanaEntry("ベ", "be", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		katakanaEntries.add(new KanaEntry("ボ", "bo", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		
-		katakanaEntries.add(new KanaEntry("パ", "pa", KanaType.KATAKANA, KanaGroup.DAKUTEN));
-		katakanaEntries.add(new KanaEntry("ピ", "pi", KanaType.KATAKANA, KanaGroup.DAKUTEN));
-		katakanaEntries.add(new KanaEntry("プ", "pu", KanaType.KATAKANA, KanaGroup.DAKUTEN));
-		katakanaEntries.add(new KanaEntry("ペ", "pe", KanaType.KATAKANA, KanaGroup.DAKUTEN));
-		katakanaEntries.add(new KanaEntry("ポ", "po", KanaType.KATAKANA, KanaGroup.DAKUTEN));
+		katakanaEntries.add(new KanaEntry("パ", "pa", KanaType.KATAKANA, KanaGroup.HANDAKUTEN));
+		katakanaEntries.add(new KanaEntry("ピ", "pi", KanaType.KATAKANA, KanaGroup.HANDAKUTEN));
+		katakanaEntries.add(new KanaEntry("プ", "pu", KanaType.KATAKANA, KanaGroup.HANDAKUTEN));
+		katakanaEntries.add(new KanaEntry("ペ", "pe", KanaType.KATAKANA, KanaGroup.HANDAKUTEN));
+		katakanaEntries.add(new KanaEntry("ポ", "po", KanaType.KATAKANA, KanaGroup.HANDAKUTEN));
 		
-		katakanaEntries.add(new KanaEntry("キャ", "kya", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("キュ", "kyu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("キョ", "kyo", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("キャ", "kya", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("キュ", "kyu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("キョ", "kyo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("シャ", "sha", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("シュ", "shu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ショ", "sho", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("シャ", "sha", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("シュ", "shu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ショ", "sho", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("チャ", "cha", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("チュ", "chu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("チョ", "cho", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("チャ", "cha", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("チュ", "chu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("チョ", "cho", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ニャ", "nya", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ニュ", "nyu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ニョ", "nyo", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("ニャ", "nya", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ニュ", "nyu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ニョ", "nyo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ヒャ", "hya", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ヒュ", "hyu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ヒョ", "hyo", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("ヒャ", "hya", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ヒュ", "hyu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ヒョ", "hyo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ミャ", "mya", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ミュ", "myu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ミョ", "myo", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("ミャ", "mya", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ミュ", "myu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ミョ", "myo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("リャ", "rya", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("リュ", "ryu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("リョ", "ryo", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("リャ", "rya", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("リュ", "ryu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("リョ", "ryo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ギャ", "gya", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ギュ", "gyu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ギョ", "gyo", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("ギャ", "gya", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ギュ", "gyu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ギョ", "gyo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ジャ", "ja", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ジュ", "ju", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ジョ", "jo", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("ジャ", "ja", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ジュ", "ju", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ジョ", "jo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ビャ", "bya", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ビュ", "byu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ビョ", "byo", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("ビャ", "bya", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ビュ", "byu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ビョ", "byo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ピャ", "pya", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ピュ", "pyu", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ピョ", "pyo", KanaType.KATAKANA, KanaGroup.YOOUN));	
+		katakanaEntries.add(new KanaEntry("ピャ", "pya", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ピュ", "pyu", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ピョ", "pyo", KanaType.KATAKANA, KanaGroup.YOUON));	
 		
-		katakanaEntries.add(new KanaEntry("ウィ", "wi", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ウェ", "we", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("ウィ", "wi", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ウェ", "we", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("シェ", "she", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ジェ", "je", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("チェ", "che", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("シェ", "she", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ジェ", "je", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("チェ", "che", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ファ", "fa", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("フィ", "fi", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("フェ", "fe", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("フォ", "fo", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("ファ", "fa", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("フィ", "fi", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("フェ", "fe", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("フォ", "fo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ティ", "ti", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ディ", "di", KanaType.KATAKANA, KanaGroup.YOOUN));
-		katakanaEntries.add(new KanaEntry("ヂュ", "dyu", KanaType.KATAKANA, KanaGroup.YOOUN));
+		katakanaEntries.add(new KanaEntry("ティ", "ti", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ディ", "di", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ヂュ", "dyu", KanaType.KATAKANA, KanaGroup.YOUON));
 		
-		katakanaEntries.add(new KanaEntry("ッ", "ttsu", KanaType.KATAKANA, KanaGroup.OTHER));
-		katakanaEntries.add(new KanaEntry("ー", "ttsu2", KanaType.KATAKANA, KanaGroup.OTHER));
+		katakanaEntries.add(new KanaEntry("ッ", "ttsu", KanaType.KATAKANA, KanaGroup.SOKUON));
+		katakanaEntries.add(new KanaEntry("ー", "ttsu2", KanaType.KATAKANA, KanaGroup.SOKUON));
 		
 		return katakanaEntries;
 	}
