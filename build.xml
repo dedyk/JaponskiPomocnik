@@ -93,19 +93,11 @@
 	<delete dir="release" />
     </target>
 
-    <target name="-post-package">
-	<exec dir="dictionary" executable="${aapt}" failonerror="true">
-	    <arg value="add" />
-	    <arg value="${out.packaged.file}" />
-	    <arg value="word.csv" />
-	</exec>
-    </target>
-
     <target name="-post-build">
 	<xmlproperty file="AndroidManifest.xml" prefix="manifest" collapseAttributes="true"/>
 
-	<copy file="${out.final.file}" tofile="release/${ant.project.name}_release_${manifest.manifest.android:versionCode}_${manifest.manifest.android:versionName}.apk" />
-	<copy todir="release/proguard" >
+	<copy file="${out.final.file}" tofile="release/release_${manifest.manifest.android:versionCode}_${manifest.manifest.android:versionName}/${ant.project.name}_release_${manifest.manifest.android:versionCode}_${manifest.manifest.android:versionName}.apk" />
+	<copy todir="release/release_${manifest.manifest.android:versionCode}_${manifest.manifest.android:versionName}/proguard" >
 	    <fileset dir="bin/proguard" />
 	</copy>
 

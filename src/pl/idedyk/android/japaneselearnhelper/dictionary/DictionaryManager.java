@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 
+import android.content.res.AssetManager;
+
 import com.csvreader.CsvReader;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
@@ -26,7 +28,7 @@ public class DictionaryManager {
 	
 	private static int MAX_SEARCH_RESULT = 50;
 	
-	private static final String FILE_WORD = "/word.csv";
+	private static final String FILE_WORD = "word.csv";
 
 	private static DictionaryManager instance;
 	
@@ -44,7 +46,7 @@ public class DictionaryManager {
 	public DictionaryManager() {
 	}
 	
-	public void init(ILoadWithProgress loadWithProgress) {
+	public void init(ILoadWithProgress loadWithProgress, AssetManager assets) {
 		
 		final int k = 23;
 		
@@ -52,13 +54,13 @@ public class DictionaryManager {
 		wordDictionaryEntries = new ArrayList<DictionaryEntry>();
 		
 		try {
-			InputStream fileWordInputStream = new GZIPInputStream(new XorInputStream(DictionaryManager.class.getResourceAsStream(FILE_WORD), k));
+			InputStream fileWordInputStream = new GZIPInputStream(new XorInputStream(assets.open(FILE_WORD), k));
 			
 			int wordFileSize = getWordSize(fileWordInputStream);
 			
 			loadWithProgress.setMaxValue(wordFileSize);
 			
-			fileWordInputStream = new GZIPInputStream(new XorInputStream(DictionaryManager.class.getResourceAsStream(FILE_WORD), k));
+			fileWordInputStream = new GZIPInputStream(new XorInputStream(assets.open(FILE_WORD), k));
 			
 			readDictionaryFile(fileWordInputStream, loadWithProgress, wordDictionaryEntries);
 		} catch (IOException e) {

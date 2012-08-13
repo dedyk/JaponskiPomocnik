@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Window;
@@ -36,6 +37,8 @@ public class Splash extends Activity {
         
         progressDesc.setText(getString(R.string.splash_load_words));
         
+        final AssetManager assets = getAssets();
+        
         // create dictionary manager
         final DictionaryManager dictionaryManager = new DictionaryManager();
         
@@ -61,7 +64,7 @@ public class Splash extends Activity {
 								
 				LoadWithProgress loadWithProgress = new LoadWithProgress();
 				
-				dictionaryManager.init(loadWithProgress);
+				dictionaryManager.init(loadWithProgress, assets);
 				
 				return null;
 			}
