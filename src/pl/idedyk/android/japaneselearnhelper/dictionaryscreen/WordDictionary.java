@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class WordDictionary extends Activity {
 				
 			}
 		});
-		
+				
 		EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);
 		
 		final Resources resources = getResources();
@@ -149,8 +150,8 @@ public class WordDictionary extends Activity {
 			
 			public void afterTextChanged(Editable s) {				
 			}
-		});	
-		
+		});
+				
 		wordDictionarySearchElementsNoTextView.setText(resources.getString(R.string.word_dictionary_elements_no, 0));
 		
 		Button reportProblemButton = (Button)findViewById(R.id.word_dictionary_report_problem_button);
@@ -182,6 +183,10 @@ public class WordDictionary extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		
+		String inputFindWord = (String)getIntent().getSerializableExtra("find");
+		
+		searchValueEditText.setText(inputFindWord);
 	}
 	
 	@Override
