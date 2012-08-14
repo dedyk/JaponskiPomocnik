@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
 public class InfoActivity extends Activity {
@@ -30,5 +31,9 @@ public class InfoActivity extends Activity {
         }
         
         titleVersion.setText(getString(R.string.info_version, versionCode, versionName));
+        
+        TextView infoBody = (TextView)findViewById(R.id.info_body);
+        
+        infoBody.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }
