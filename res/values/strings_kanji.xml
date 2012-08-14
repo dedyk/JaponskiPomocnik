@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="kanji_details_label">Szczegóły znaku kanji</string>
+    <string name="kanji_details_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kanji_details_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem w szczegółach znaku kanji</string>
+    <string name="kanji_details_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kanji_details_kanji_label">Kanji</string>
+    <string name="kanji_details_translate_label">Tłumaczenie</string>
+    <string name="kanji_details_additional_info_label">Informacje dodatkowe</string>
+    <string name="kanji_details_stroke_count_label">Liczba kresek</string>
+    <string name="kanji_details_radicals">Znaki podstawowe</string>
+    <string name="kanji_details_kun_reading">Czytanie kun\'yomi (rdzennie japońskie)</string>
+    <string name="kanji_details_on_reading">Odczyty on\'yomi (sino-japońskie)</string>
 </resources>
