@@ -1,6 +1,5 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
