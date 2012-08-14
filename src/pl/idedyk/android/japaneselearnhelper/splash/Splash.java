@@ -11,6 +11,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Window;
@@ -35,27 +36,48 @@ public class Splash extends Activity {
         
         final TextView progressDesc = (TextView)findViewById(R.id.splash_desc_label);
         
-        progressDesc.setText(getString(R.string.splash_load_words));
+        progressDesc.setText("");
         
+        final Resources resources = getResources();
         final AssetManager assets = getAssets();
         
         // create dictionary manager
         final DictionaryManager dictionaryManager = new DictionaryManager();
         
-        class InitJapaneseAndroidLearnHelperContextAsyncTask extends AsyncTask<Void, Integer, Void> {
-        	
+    	class ProgressInfo {
+    		Integer progressBarMaxValue;
+    		
+    		Integer progressBarValue;
+    		
+    		String description;    		
+    	}
+        
+        class InitJapaneseAndroidLearnHelperContextAsyncTask extends AsyncTask<Void, ProgressInfo, Void> {
+        	        	
         	class LoadWithProgress implements ILoadWithProgress {
 
-				public void setMaxValue(int maxValue) {
-					progressBar.setMax(maxValue);
+				public void setMaxValue(int maxValue) {					
+					ProgressInfo progressInfo = new ProgressInfo();
+					
+					progressInfo.progressBarMaxValue = maxValue;
+					
+					publishProgress(progressInfo);
 				}
 				
 				public void setCurrentPos(int currentPos) {
-					progressBar.setProgress(currentPos);
+					ProgressInfo progressInfo = new ProgressInfo();
+					
+					progressInfo.progressBarValue = currentPos;
+					
+					publishProgress(progressInfo);
 				}
 
 				public void setDescription(String desc) {
-					progressDesc.setText(desc);
+					ProgressInfo progressInfo = new ProgressInfo();
+					
+					progressInfo.description = desc;
+					
+					publishProgress(progressInfo);
 				}
         	}
 
@@ -64,11 +86,30 @@ public class Splash extends Activity {
 								
 				LoadWithProgress loadWithProgress = new LoadWithProgress();
 				
-				dictionaryManager.init(loadWithProgress, assets);
+				dictionaryManager.init(loadWithProgress, resources, assets);
 				
 				return null;
 			}
 			
+			@Override
+			protected void onProgressUpdate(ProgressInfo... values) {
+				super.onProgressUpdate(values);
+				
+				ProgressInfo progressInfo = values[0];
+				
+				if (progressInfo.description != null) {
+					progressDesc.setText(progressInfo.description);
+				}
+				
+				if (progressInfo.progressBarMaxValue != null) {
+					progressBar.setMax(progressInfo.progressBarMaxValue);
+				}
+
+				if (progressInfo.progressBarValue != null) {
+					progressBar.setProgress(progressInfo.progressBarValue);
+				}				
+			}
+
 			@Override
 			protected void onPostExecute(Void result) {
 				

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="splash_image_description"/>
-    <string name="splash_load_words">Ładowanie słownika</string>
     <string name="splash_message_box_title">Informacja</string>
     <string name="splash_message_box_info">Autor powyższego programu dopełnia wszelkich starań, aby zawarte w aplikacji informacje były rzetelne i zgodne z prawdą.\n\nJednakże autor nie ponosi żadnej odpowiedzialności za aktualność, poprawność, kompletność i jakość prezentowanych informacji.\n\nJeśli widzisz błąd, koniecznie zgłoś go.\n</string>
     <string name="splash_ok">OK</string>

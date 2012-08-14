@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
@@ -18,6 +20,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -182,6 +185,23 @@ public class WordDictionaryDetails extends Activity {
 			
 			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));			
 		}
+		
+		List<KanjiEntry> knownKanji = null;
+		
+		if (dictionaryEntry.isKanjiExists() == true) {
+			knownKanji = DictionaryManager.getInstance().findKnownKanji(dictionaryEntry.getKanji());
+		}
+		/*
+		if (knownKanji != null && knownKanji.size() > 0) {
+			
+			report.add(new StringValue("", 15.0f, 2));
+			report.add(new TitleItem(getString(R.string.word_dictionary_known_kanji), 0));
+			
+			
+			
+			
+		}
+		*/
 		
 		// Conjugater
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = GrammaConjugaterManager.getGrammaConjufateResult(dictionaryEntry);
