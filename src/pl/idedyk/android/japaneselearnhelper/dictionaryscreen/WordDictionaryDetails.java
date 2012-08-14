@@ -13,14 +13,15 @@ import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.screen.GroupScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -191,18 +192,52 @@ public class WordDictionaryDetails extends Activity {
 		if (dictionaryEntry.isKanjiExists() == true) {
 			knownKanji = DictionaryManager.getInstance().findKnownKanji(dictionaryEntry.getKanji());
 		}
-		/*
+		
 		if (knownKanji != null && knownKanji.size() > 0) {
 			
 			report.add(new StringValue("", 15.0f, 2));
 			report.add(new TitleItem(getString(R.string.word_dictionary_known_kanji), 0));
+			report.add(new StringValue(getString(R.string.word_dictionary_known_kanji_info), 12.0f, 0));
 			
-			
-			
-			
+			for (int knownKanjiIdx = 0; knownKanjiIdx < knownKanji.size(); ++knownKanjiIdx) {
+				
+				final KanjiEntry kanjiEntry = knownKanji.get(knownKanjiIdx);				
+				
+				OnClickListener kanjiOnClickListener = new OnClickListener() {
+					
+					public void onClick(View v) {
+						
+						// show kanji details
+						
+						Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
+						
+						intent.putExtra("item", kanjiEntry);
+						
+						startActivity(intent);
+					}
+				};
+				
+				GroupScreenItem groupScreenItem = new GroupScreenItem(1);
+				
+				groupScreenItem.setOnClickListener(kanjiOnClickListener);
+				
+				StringValue kanjiStringValue = new StringValue(kanjiEntry.getKanji(), 16.0f, 1);
+				StringValue polishTranslateStringValue = new StringValue(kanjiEntry.getPolishTranslates().toString(), 16.0f, 1);
+				
+				kanjiStringValue.setOnClickListener(kanjiOnClickListener);
+				polishTranslateStringValue.setOnClickListener(kanjiOnClickListener);
+				
+				groupScreenItem.add(kanjiStringValue);
+				groupScreenItem.add(polishTranslateStringValue);
+				
+				if (knownKanjiIdx != knownKanji.size() - 1) {
+					groupScreenItem.add(new StringValue("", 10.0f, 1));
+				}
+				
+				report.add(groupScreenItem);
+			}
 		}
-		*/
-		
+				
 		// Conjugater
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = GrammaConjugaterManager.getGrammaConjufateResult(dictionaryEntry);
 		

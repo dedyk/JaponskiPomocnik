@@ -1,6 +1,11 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
-public class KanaEntry {
+import java.io.Serializable;
+
+public class KanaEntry implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
 	private String kanaJapanese;
 	
 	private String kana;

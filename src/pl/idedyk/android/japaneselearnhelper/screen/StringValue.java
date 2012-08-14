@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.text.Spanned;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,6 +24,8 @@ public class StringValue implements IScreenItem {
 	private boolean nullMargins = false;
 	
 	private Integer layoutWeight;
+	
+	private OnClickListener onClickListener;
 	
 	public StringValue(String value, float textSize, int level) {
 		this.value = value;
@@ -91,6 +94,8 @@ public class StringValue implements IScreenItem {
 		textView.setTextSize(textSize);
 		textView.setText(value);
 		
+		textView.setOnClickListener(onClickListener);
+		
 		layout.addView(textView);			
 	}
 	
@@ -108,5 +113,9 @@ public class StringValue implements IScreenItem {
 		textView.getLocationOnScreen(location);
 		
 		return location[1] + textView.getHeight();
+	}
+	
+	public void setOnClickListener(OnClickListener onClickListener) {
+		this.onClickListener = onClickListener;		
 	}
 }

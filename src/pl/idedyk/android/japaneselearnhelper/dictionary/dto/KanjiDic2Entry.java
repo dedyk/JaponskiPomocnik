@@ -1,9 +1,12 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class KanjiDic2Entry {
+public class KanjiDic2Entry implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private String kanji;
 	
 	private int strokeCount;
