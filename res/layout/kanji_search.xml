@@ -17,9 +17,26 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:orientation="vertical" >
-
         </LinearLayout>
     </ScrollView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/kanji_search_report_problem_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/kanji_search_kanji" />
+    </LinearLayout>
 
     <View
         android:layout_width="fill_parent"

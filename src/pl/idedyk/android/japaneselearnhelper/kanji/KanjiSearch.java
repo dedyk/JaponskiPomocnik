@@ -118,12 +118,7 @@ public class KanjiSearch extends Activity {
 		}
 		
 		result.add(new StringValue("", 12.0f, 0));
-		
-		pl.idedyk.android.japaneselearnhelper.screen.Button findKanji = new pl.idedyk.android.japaneselearnhelper.screen.Button(
-				getString(R.string.kanji_search_kanji));
-
-		result.add(findKanji);
-		
+				
 		return result;
 	}
 }
