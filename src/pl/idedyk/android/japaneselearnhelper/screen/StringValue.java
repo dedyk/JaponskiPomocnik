@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.screen;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.Spanned;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -26,6 +27,8 @@ public class StringValue implements IScreenItem {
 	private Integer layoutWeight;
 	
 	private OnClickListener onClickListener;
+	
+	private OnTouchListener onTouchListener;
 	
 	public StringValue(String value, float textSize, int level) {
 		this.value = value;
@@ -95,7 +98,8 @@ public class StringValue implements IScreenItem {
 		textView.setText(value);
 		
 		textView.setOnClickListener(onClickListener);
-		
+		textView.setOnTouchListener(onTouchListener);
+				
 		layout.addView(textView);			
 	}
 	
@@ -117,5 +121,9 @@ public class StringValue implements IScreenItem {
 	
 	public void setOnClickListener(OnClickListener onClickListener) {
 		this.onClickListener = onClickListener;		
+	}
+
+	public void setOnTouchListener(OnTouchListener onTouchListener) {
+		this.onTouchListener = onTouchListener;
 	}
 }

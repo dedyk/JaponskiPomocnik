@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -18,6 +19,10 @@ public class GroupScreenItem implements IScreenItem {
 	
 	private OnClickListener onClickListener;
 	
+	private OnTouchListener onTouchListener;
+	
+	private android.widget.LinearLayout linearLayout;
+	
 	public GroupScreenItem(int level) {
 		this.level = level;
 	}
@@ -28,7 +33,7 @@ public class GroupScreenItem implements IScreenItem {
 	
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		
-		android.widget.LinearLayout linearLayout = new android.widget.TableLayout(context);
+		linearLayout = new android.widget.TableLayout(context);
 		
 		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		
@@ -43,6 +48,7 @@ public class GroupScreenItem implements IScreenItem {
 		linearLayout.setOrientation(android.widget.LinearLayout.VERTICAL);
 		
 		linearLayout.setOnClickListener(onClickListener);
+		linearLayout.setOnTouchListener(onTouchListener);
 		
 		layout.addView(linearLayout);
 	}
@@ -59,5 +65,15 @@ public class GroupScreenItem implements IScreenItem {
 	
 	public void setOnClickListener(OnClickListener onClickListener) {
 		this.onClickListener = onClickListener;		
+	}
+	
+	public void setBackgroundColor(int color) {
+		if (linearLayout != null) {
+			linearLayout.setBackgroundColor(color);
+		}
+	}
+
+	public void setOnTouchListener(OnTouchListener onTouchListener) {
+		this.onTouchListener = onTouchListener;
 	}
 }
