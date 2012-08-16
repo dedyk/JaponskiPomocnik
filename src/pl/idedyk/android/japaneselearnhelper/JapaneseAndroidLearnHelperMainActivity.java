@@ -7,6 +7,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
 import pl.idedyk.android.japaneselearnhelper.info.InfoActivity;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.kana.KanaTestOptions;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 
 import android.app.Activity;
@@ -58,6 +59,10 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     			getString(R.string.main_menu_kanji_test_kanji),
     			getString(R.string.main_menu_kanji_test_text)));
     	*/
+
+    	mainMenuListItems.add(new MainMenuItem(
+    			getString(R.string.main_menu_kanji_kanji),
+    			getString(R.string.main_menu_kanji_text)));
     	
     	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_suggestion_kanji),
@@ -99,8 +104,13 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					
 					startActivity(intent);
 				}
-				*/
-				else if (position == 3) { // suggestion
+					*/
+				else if (position == 3) { // kanji search
+					Intent intent = new Intent(getApplicationContext(), KanjiSearch.class);
+					
+					startActivity(intent);
+				} 
+				else if (position == 4) { // suggestion
 					String chooseEmailClientTitle = getString(R.string.choose_email_client);
 					
 					String mailSubject = getString(R.string.main_menu_email_subject);
@@ -110,7 +120,7 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent reportSuggestionIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody); 
 					
 					startActivity(Intent.createChooser(reportSuggestionIntent, chooseEmailClientTitle));
-				} else if (position == 4) { // info
+				} else if (position == 5) { // info
 					Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
 					
 					startActivity(intent);

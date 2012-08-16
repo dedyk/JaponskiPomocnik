@@ -720,6 +720,7 @@ public class Kana extends Activity {
 		}
 		
 		stringValue.setGravity(Gravity.CENTER);
+		stringValue.setNullMargins(true);
 		
 		tableRow.addScreenItem(stringValue);		
 	}

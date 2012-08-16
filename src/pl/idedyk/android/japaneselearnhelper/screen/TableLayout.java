@@ -6,10 +6,36 @@ import java.util.List;
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.ViewGroup;
+import android.widget.TableLayout.LayoutParams;
 
 public class TableLayout implements IScreenItem {
+	
+	public static enum LayoutParam {
+		
+		FillParent_WrapContent(new android.widget.TableLayout.LayoutParams(
+				android.widget.TableLayout.LayoutParams.FILL_PARENT, android.widget.TableLayout.LayoutParams.WRAP_CONTENT)),
+		
+		WrapContent_WrapContent(new android.widget.TableLayout.LayoutParams(
+				android.widget.TableLayout.LayoutParams.WRAP_CONTENT, android.widget.TableLayout.LayoutParams.WRAP_CONTENT));
+		
+		private android.widget.TableLayout.LayoutParams layoutParam;
+
+		private LayoutParam(LayoutParams layoutParam) {
+			this.layoutParam = layoutParam;
+		}
+
+		public android.widget.TableLayout.LayoutParams getLayoutParam() {
+			return layoutParam;
+		}
+	}
+		
+	private LayoutParam layoutParam;
 
 	private List<TableRow> tableRows = new ArrayList<TableRow>();
+	
+	public TableLayout(LayoutParam layoutParam) {
+		this.layoutParam = layoutParam;
+	}
 	
 	public void addTableRow(TableRow tableRow) {
 		tableRows.add(tableRow);
@@ -18,11 +44,8 @@ public class TableLayout implements IScreenItem {
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		
 		android.widget.TableLayout tableLayout = new android.widget.TableLayout(context);
-		
-		android.widget.TableLayout.LayoutParams layoutParam = new android.widget.TableLayout.LayoutParams(
-				android.widget.TableLayout.LayoutParams.FILL_PARENT, android.widget.TableLayout.LayoutParams.WRAP_CONTENT);
-		
-		tableLayout.setLayoutParams(layoutParam);
+				
+		tableLayout.setLayoutParams(layoutParam.getLayoutParam());
 		
 		tableLayout.setShrinkAllColumns(true);
 		tableLayout.setStretchAllColumns(true);

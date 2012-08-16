@@ -67,7 +67,12 @@ public class StringValue implements IScreenItem {
 		
 		if (layout instanceof android.widget.TableRow) {
 			android.widget.TableRow.LayoutParams layoutParam = new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.WRAP_CONTENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT);
-			layoutParam.setMargins(0, 0, 0, 0);
+			
+			if (nullMargins == true) {
+				layoutParam.setMargins(0, 0, 0, 0);
+			} else {
+				layoutParam.setMargins(20 + level * 20, 5, 0, 0);
+			}
 
 			if (layoutWeight != null) {
 				layoutParam.weight = layoutWeight;
@@ -99,7 +104,7 @@ public class StringValue implements IScreenItem {
 		
 		textView.setOnClickListener(onClickListener);
 		textView.setOnTouchListener(onTouchListener);
-				
+		
 		layout.addView(textView);			
 	}
 	

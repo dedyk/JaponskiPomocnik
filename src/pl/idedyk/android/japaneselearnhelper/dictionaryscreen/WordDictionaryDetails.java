@@ -15,7 +15,6 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroup
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
-import pl.idedyk.android.japaneselearnhelper.screen.GroupScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
@@ -217,24 +216,19 @@ public class WordDictionaryDetails extends Activity {
 					}
 				};
 				
-				GroupScreenItem groupScreenItem = new GroupScreenItem(1);
-				
-				groupScreenItem.setOnClickListener(kanjiOnClickListener);
-				
 				StringValue kanjiStringValue = new StringValue(kanjiEntry.getKanji(), 16.0f, 1);
 				StringValue polishTranslateStringValue = new StringValue(kanjiEntry.getPolishTranslates().toString(), 16.0f, 1);
 				
 				kanjiStringValue.setOnClickListener(kanjiOnClickListener);
 				polishTranslateStringValue.setOnClickListener(kanjiOnClickListener);
-				
-				groupScreenItem.add(kanjiStringValue);
-				groupScreenItem.add(polishTranslateStringValue);
+											
+				report.add(kanjiStringValue);
+				report.add(polishTranslateStringValue);
 				
 				if (knownKanjiIdx != knownKanji.size() - 1) {
-					groupScreenItem.add(new StringValue("", 10.0f, 1));
+					report.add(new StringValue("", 10.0f, 1));
 				}
-				
-				report.add(groupScreenItem);
+
 			}
 		}
 				

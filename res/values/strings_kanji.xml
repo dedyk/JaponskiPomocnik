@@ -12,4 +12,8 @@
     <string name="kanji_details_kun_reading">Czytanie kun\'yomi (rdzennie japońskie)</string>
     <string name="kanji_details_on_reading">Odczyty on\'yomi (sino-japońskie)</string>
     <string name="kanji_details_find_kanji_in_words">Szukaj wystąpień znaku w słowniku</string>
+    <string name="kanji_search_label">Wyszukiwarka znaków kanji</string>
+    <string name="kanji_search_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kanji_search_title">Proszę zaznaczyć elementy podstawowe</string>
+    <string name="kanji_search_kanji">Szukaj kanji</string>
 </resources>

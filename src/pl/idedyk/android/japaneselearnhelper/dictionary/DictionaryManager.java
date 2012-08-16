@@ -508,6 +508,10 @@ public class DictionaryManager {
 		csvReader.close();
 	}
 	
+	public List<RadicalInfo> getRadicalList() {
+		return radicalList;
+	}
+
 	public static class FindWordResult {
 		
 		public List<DictionaryEntry> result;

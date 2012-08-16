@@ -14,6 +14,10 @@ public class TableRow implements IScreenItem {
 	public void addScreenItem(IScreenItem item) {
 		screenItems.add(item);
 	}
+	
+	public int getScreenItemSize() {
+		return screenItems.size();
+	}
 
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		

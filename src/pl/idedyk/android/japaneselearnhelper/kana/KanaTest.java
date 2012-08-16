@@ -277,7 +277,7 @@ public class KanaTest extends Activity {
 			result.add(answerTitleItem);
 			result.add(new StringValue("", 7.0f, 0));
 			
-			TableLayout chooseTableLayout = new TableLayout();
+			TableLayout chooseTableLayout = new TableLayout(TableLayout.LayoutParam.FillParent_WrapContent);
 			
 			chooseButtons = new Button[max_x][max_y];
 			

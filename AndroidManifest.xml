@@ -32,6 +32,7 @@
         <activity android:name=".kana.KanaTest" android:label="@string/kana_test_label" ></activity>
         <activity android:label="@string/kana_test_summary_label" android:name=".kana.KanaTestSummary"></activity>
         <activity android:name=".kanji.KanjiDetails" android:label="@string/kanji_details_label"></activity>
+        <activity android:name=".kanji.KanjiSearch" android:label="@string/kanji_search_label"></activity>
     </application>
 
 </manifest>
