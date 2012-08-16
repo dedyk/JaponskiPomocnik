@@ -22,6 +22,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
@@ -38,6 +39,8 @@ public class DictionaryManager {
 	private static final String FILE_WORD = "word.csv";
 	
 	private static final String KANJI_WORD = "kanji.csv";
+	
+	private static final String RADICAL_WORD = "radical.csv";
 
 	private static DictionaryManager instance;
 	
@@ -53,6 +56,8 @@ public class DictionaryManager {
 	private List<DictionaryEntry> wordDictionaryEntries = null;
 	
 	private Map<String, KanjiEntry> kanjiEntriesMap = null;
+	
+	private List<RadicalInfo> radicalList = null;
 	
 	public DictionaryManager() {
 	}
@@ -77,6 +82,20 @@ public class DictionaryManager {
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_words));
 			
 			readDictionaryFile(fileWordInputStream, loadWithProgress);
+			
+			// wczytywanie informacji o znakach podstawowych
+			InputStream radicalInputStream = new GZIPInputStream(new XorInputStream(assets.open(RADICAL_WORD), k));
+			
+			int radicalFileSize = getWordSize(radicalInputStream);
+			
+			loadWithProgress.setCurrentPos(0);
+			loadWithProgress.setMaxValue(radicalFileSize);
+			
+			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_radical));
+			
+			radicalInputStream = new GZIPInputStream(new XorInputStream(assets.open(RADICAL_WORD), k));
+			
+			readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);			
 			
 			// wczytywanie kanji
 			InputStream kanjiInputStream = new GZIPInputStream(new XorInputStream(assets.open(KANJI_WORD), k));
@@ -449,6 +468,44 @@ public class DictionaryManager {
 		}
 		
 		return result;
+	}
+	
+	private void readRadicalEntriesFromCsv(InputStream radicalInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
+		
+		radicalList = new ArrayList<RadicalInfo>();
+		
+		CsvReader csvReader = new CsvReader(new InputStreamReader(radicalInputStream), ',');
+		
+		int currentPos = 1;
+		
+		while(csvReader.readRecord()) {			
+			
+			currentPos++;
+			
+			loadWithProgress.setCurrentPos(currentPos);
+			
+			int id = Integer.parseInt(csvReader.get(0));
+					
+			String radical = csvReader.get(1);
+			
+			if (radical.equals("") == true) {
+				throw new DictionaryException("Empty radical!");
+			}
+			
+			String strokeCountString = csvReader.get(2);
+			
+			int strokeCount = Integer.parseInt(strokeCountString);
+			
+			RadicalInfo entry = new RadicalInfo();
+			
+			entry.setId(id);
+			entry.setRadical(radical);
+			entry.setStrokeCount(strokeCount);
+			
+			radicalList.add(entry);
+		}
+		
+		csvReader.close();
 	}
 	
 	public static class FindWordResult {

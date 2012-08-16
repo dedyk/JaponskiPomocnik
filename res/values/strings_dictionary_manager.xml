@@ -3,6 +3,7 @@
     <string name="dictionary_manager_load_init">Inicjalizacja</string>
     <string name="dictionary_manager_load_words">Wczytywanie słownika</string>
     <string name="dictionary_manager_count_word_forms">Obliczanie form</string>
+    <string name="dictionary_manager_load_radical">Wczytywanie znaków podstawowych kanji</string>
     <string name="dictionary_manager_load_kanji">Wczytywanie znaków kanji</string>
     <string name="dictionary_manager_load_ready">Gotowe</string>
 </resources>
