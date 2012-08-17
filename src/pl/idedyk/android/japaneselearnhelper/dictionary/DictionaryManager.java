@@ -539,6 +539,26 @@ public class DictionaryManager {
 			}
 		}
 		
+		Collections.sort(result, new Comparator<KanjiEntry>() {
+
+			public int compare(KanjiEntry lhs, KanjiEntry rhs) {
+				
+				int lhsId = lhs.getId();
+				int rhsId = rhs.getId();
+				
+				if (lhsId < rhsId) {
+					return -1;
+				} else if (lhsId > rhsId) {
+					return 1;
+				} else {
+					String lhsKanji = lhs.getKanji();
+					String rhsKanji = rhs.getKanji();
+					
+					return lhsKanji.compareTo(rhsKanji);
+				}
+			}
+		});
+		
 		return result;
 	}
 	
