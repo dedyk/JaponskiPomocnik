@@ -8,7 +8,7 @@
     <string name="kanji_details_translate_label">Tłumaczenie</string>
     <string name="kanji_details_additional_info_label">Informacje dodatkowe</string>
     <string name="kanji_details_stroke_count_label">Liczba kresek</string>
-    <string name="kanji_details_radicals">Znaki podstawowe</string>
+    <string name="kanji_details_radicals">Elementy podstawowe</string>
     <string name="kanji_details_kun_reading">Czytanie kun\'yomi (rdzennie japońskie)</string>
     <string name="kanji_details_on_reading">Odczyty on\'yomi (sino-japońskie)</string>
     <string name="kanji_details_find_kanji_in_words">Szukaj wystąpień znaku w słowniku</string>
@@ -18,4 +18,13 @@
     <string name="kanji_search_kanji">Szukaj kanji</string>
     <string name="kanji_search_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem w wyszukiwaniu elementów podsawowych kanji</string>
     <string name="kanji_search_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kanji_entry_search_label">Wybrane elementy podstawowe</string>
+    <string name="kanji_entry_elements_no">Liczba elementów: %1$s</string>
+    <string name="kanji_entry_search_report_problem">Widzisz błąd, brakuje szukanego znaku, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kanji_entry_search_result_view_label">Znalezione kanji</string>
+    <string name="kanji_entry_search_button_empty_radicals">Proszę zaznaczyć co najmniej jeden element podstawowy</string>
+    <string name="kanji_entry_searching1">Szukanie</string>
+    <string name="kanji_entry_searching2">Proszę czekać</string>
+    <string name="kanji_search_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem na liście wyszukiwania elementów podsawowych kanji</string>
+    <string name="kanji_search_result_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\nWpisana fraza: %1$s\n\n--\nAktualna zawartość listy:\n\n%2$s\n</string>
 </resources>

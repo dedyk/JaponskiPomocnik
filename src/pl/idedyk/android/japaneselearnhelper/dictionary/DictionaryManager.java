@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.zip.GZIPInputStream;
 
 import android.content.res.AssetManager;
@@ -517,5 +520,49 @@ public class DictionaryManager {
 		public List<DictionaryEntry> result;
 		
 		public boolean moreElemetsExists = false;		
+	}
+
+	public List<KanjiEntry> findKnownKanjiFromRadicals(String[] radicals) {
+		
+		List<KanjiEntry> result = new ArrayList<KanjiEntry>();
+		
+		Iterator<String> kanjiEntriesMapKeySetIterator = kanjiEntriesMap.keySet().iterator();
+		
+		while(kanjiEntriesMapKeySetIterator.hasNext()) {
+			
+			String currentKanji = kanjiEntriesMapKeySetIterator.next();
+			
+			KanjiEntry currentKanjiKanjiEntry = kanjiEntriesMap.get(currentKanji);
+			
+			if (hasAllRadicals(currentKanjiKanjiEntry, radicals) == true) {				
+				result.add(currentKanjiKanjiEntry);
+			}
+		}
+		
+		return result;
+	}
+	
+	private boolean hasAllRadicals(KanjiEntry kanjiEntry, String[] radicals) {
+		
+		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
+		
+		if (kanjiDic2Entry == null) {
+			return false;
+		}
+		
+		List<String> kanjiEntryRadicals = kanjiDic2Entry.getRadicals();
+		
+		Set<String> kanjiEntryRadicalsSet = new HashSet<String>(kanjiEntryRadicals);
+		
+		for (String currentRadical : radicals) {
+			
+			boolean containsResult = kanjiEntryRadicalsSet.contains(currentRadical);
+			
+			if (containsResult == false) {				
+				return false;
+			}
+		}
+		
+		return true;
 	}
 }

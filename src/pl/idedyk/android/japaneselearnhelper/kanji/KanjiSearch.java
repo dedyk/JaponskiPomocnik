@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -23,6 +24,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class KanjiSearch extends Activity {
 	
@@ -36,7 +38,9 @@ public class KanjiSearch extends Activity {
 		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_main_layout);
 		
-		final List<IScreenItem> screenItems = generateScreen(radicalList);
+		final Set<String> selectedRadicals = new HashSet<String>();
+		
+		final List<IScreenItem> screenItems = generateScreen(radicalList, selectedRadicals);
 		
 		fillMainLayout(screenItems, mainLayout);
 		
@@ -64,6 +68,35 @@ public class KanjiSearch extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		
+		Button searchKanjiButton = (Button)findViewById(R.id.kanji_search_kanji_button);
+		
+		searchKanjiButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				if (selectedRadicals.size() == 0) {
+					
+					Toast toast = Toast.makeText(KanjiSearch.this, getString(R.string.kanji_entry_search_button_empty_radicals), Toast.LENGTH_SHORT);
+					
+					toast.show();
+
+					return;					
+				}
+				
+				String[] selectedRadicalsArray = new String[selectedRadicals.size()];
+				
+				selectedRadicals.toArray(selectedRadicalsArray);
+				
+				Arrays.sort(selectedRadicalsArray);
+				
+				Intent intent = new Intent(getApplicationContext(), KanjiSearchResult.class);
+				
+				intent.putExtra("search", selectedRadicalsArray);
+				
+				startActivity(intent);
+			}
+		});
 	}
 	
 	private void fillMainLayout(List<IScreenItem> screenItems, LinearLayout mainLayout) {
@@ -73,9 +106,7 @@ public class KanjiSearch extends Activity {
 		}
 	}
 
-	private List<IScreenItem> generateScreen(List<RadicalInfo> radicalList) {
-		
-		final Set<String> selectedRadicals = new HashSet<String>();
+	private List<IScreenItem> generateScreen(List<RadicalInfo> radicalList, final Set<String> selectedRadicals) {
 		
 		List<IScreenItem> result = new ArrayList<IScreenItem>();
 		
