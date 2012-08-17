@@ -8,15 +8,19 @@ import java.util.Set;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,9 +36,34 @@ public class KanjiSearch extends Activity {
 		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_main_layout);
 		
-		List<IScreenItem> screenItems = generateScreen(radicalList);
+		final List<IScreenItem> screenItems = generateScreen(radicalList);
 		
 		fillMainLayout(screenItems, mainLayout);
+		
+		Button reportProblemButton = (Button)findViewById(R.id.kanji_search_report_problem_button);
+		
+		reportProblemButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				StringBuffer detailsSb = new StringBuffer();
+				
+				for (IScreenItem currentScreenItem : screenItems) {
+					detailsSb.append(currentScreenItem.toString()).append("\n\n");
+				}
+				
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+				
+				String mailSubject = getString(R.string.kanji_search_report_problem_email_subject);
+				
+				String mailBody = getString(R.string.kanji_search_report_problem_email_body,
+						detailsSb.toString());				
+								
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
+				
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			}
+		});
 	}
 	
 	private void fillMainLayout(List<IScreenItem> screenItems, LinearLayout mainLayout) {

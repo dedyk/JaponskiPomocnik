@@ -16,4 +16,6 @@
     <string name="kanji_search_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
     <string name="kanji_search_title">Proszę zaznaczyć elementy podstawowe</string>
     <string name="kanji_search_kanji">Szukaj kanji</string>
+    <string name="kanji_search_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem w wyszukiwaniu elementów podsawowych kanji</string>
+    <string name="kanji_search_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
 </resources>

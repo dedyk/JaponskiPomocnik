@@ -32,7 +32,7 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/kanji_search_report_problem_button"
+            android:id="@+id/kanji_search_kanji_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/kanji_search_kanji" />
