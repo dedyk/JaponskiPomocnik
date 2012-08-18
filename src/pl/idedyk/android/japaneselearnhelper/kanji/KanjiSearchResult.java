@@ -92,7 +92,7 @@ public class KanjiSearchResult extends Activity {
 					
 					StringBuffer currentKanjiEntryFullText = new StringBuffer();
 					
-					currentKanjiEntryFullText.append(currentKanjiEntry.getKanji()).append(" - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
+					currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
 					currentKanjiEntryFullText.append(kanjiDic2Entry.getRadicals().toString());
 													
 					int idxStart = 0;
