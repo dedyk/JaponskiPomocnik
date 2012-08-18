@@ -31,6 +31,8 @@ public class StringValue implements IScreenItem {
 	private OnTouchListener onTouchListener;
 	
 	private Integer textColor;
+	
+	private Integer defaultTextColor;
 
 	public StringValue(String value, float textSize, int level) {
 		this.value = value;
@@ -50,6 +52,10 @@ public class StringValue implements IScreenItem {
 		if (textView != null) {
 			textView.setText(this.value);
 		}
+	}
+	
+	public String getValue() {
+		return this.value.toString();
 	}
 	
 	public void setGravity(int gravity) {
@@ -104,6 +110,8 @@ public class StringValue implements IScreenItem {
 		textView.setTextSize(textSize);
 		textView.setText(value);
 		
+		defaultTextColor = textView.getTextColors().getDefaultColor();
+		
 		if (textColor != null) {
 			textView.setTextColor(textColor.intValue());
 		}
@@ -140,5 +148,13 @@ public class StringValue implements IScreenItem {
 	
 	public void setTextColor(Integer textColor) {
 		this.textColor = textColor;
+		
+		if (textView != null) {
+			textView.setTextColor(textColor.intValue());
+		}
+	}
+
+	public Integer getDefaultTextColor() {
+		return defaultTextColor;
 	}
 }

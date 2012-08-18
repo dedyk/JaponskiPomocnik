@@ -16,8 +16,10 @@ import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -40,7 +42,9 @@ public class KanjiSearch extends Activity {
 		
 		final Set<String> selectedRadicals = new HashSet<String>();
 		
-		final List<IScreenItem> screenItems = generateScreen(radicalList, selectedRadicals);
+		final List<StringValue> radicalStringValueList = new ArrayList<StringValue>();
+		
+		final List<IScreenItem> screenItems = generateScreen(radicalList, selectedRadicals, radicalStringValueList);
 		
 		fillMainLayout(screenItems, mainLayout);
 		
@@ -106,7 +110,7 @@ public class KanjiSearch extends Activity {
 		}
 	}
 
-	private List<IScreenItem> generateScreen(List<RadicalInfo> radicalList, final Set<String> selectedRadicals) {
+	private List<IScreenItem> generateScreen(List<RadicalInfo> radicalList, final Set<String> selectedRadicals, final List<StringValue> radicalStringValueList) {
 		
 		List<IScreenItem> result = new ArrayList<IScreenItem>();
 		
@@ -147,43 +151,84 @@ public class KanjiSearch extends Activity {
 				radicalStringValue.setNullMargins(true);
 			}
 			
-			if (currentRadicalInfo.getUse() > 0) {
-				
-				radicalStringValue.setOnClickListener(new View.OnClickListener() {
+			radicalStringValue.setOnClickListener(new View.OnClickListener() {
+
+				public void onClick(View view) {
+
+					TextView textView = (TextView)view;
 					
-					private int defaultTextColor;
+					int currentColor = textView.getTextColors().getDefaultColor();
 					
-					public void onClick(View view) {
-						
-						TextView textView = (TextView)view;
-						
-						String radical = textView.getText().toString();
-						
-						if (selectedRadicals.contains(radical) == false) {
-							
-							defaultTextColor = textView.getTextColors().getDefaultColor();
-							
-							selectedRadicals.add(radical);
-							
-							textView.setTextColor(Color.RED);
-						} else {
-							selectedRadicals.remove(radical);
-							
-							textView.setTextColor(defaultTextColor);
-						}
+					if (currentColor == Color.DKGRAY) {
+						return;
 					}
-				});
-			} else {				
-				radicalStringValue.setTextColor(Color.DKGRAY);
-			}
+
+					String radical = textView.getText().toString();
+
+					if (selectedRadicals.contains(radical) == false) {
+						selectedRadicals.add(radical);
+					} else {
+						selectedRadicals.remove(radical);
+					}
+					
+					updateRadicalState(selectedRadicals, radicalStringValueList);
+				}
+			});
 			
 			tableRow.addScreenItem(radicalStringValue);
+			
+			radicalStringValueList.add(radicalStringValue);
 			
 			lastStrokeCount = strokeCount;
 		}
 		
 		result.add(new StringValue("", 12.0f, 0));
+		
+		updateRadicalState(selectedRadicals, radicalStringValueList);
 				
 		return result;
+	}
+
+	protected void updateRadicalState(final Set<String> selectedRadicals, final List<StringValue> radicalStringValueList) {
+		final ProgressDialog progressDialog = ProgressDialog.show(this, 
+				getString(R.string.kanji_entry_searching1),
+				getString(R.string.kanji_entry_searching2));
+		
+		class FindKanjiAsyncTask extends AsyncTask<Void, Void, Set<String>> {
+			
+			@Override
+			protected Set<String> doInBackground(Void... params) {
+				
+				String[] selectedRadicalsArray = new String[selectedRadicals.size()];
+				
+				selectedRadicals.toArray(selectedRadicalsArray);
+				
+				DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+				
+				return dictionaryManager.findAllAvailableRadicals(selectedRadicalsArray);
+			}
+			
+		    @Override
+		    protected void onPostExecute(Set<String> allAvailableRadicals) {
+		        super.onPostExecute(allAvailableRadicals);
+		        
+		        for (StringValue currentRadicalStringValue : radicalStringValueList) {
+					
+		        	String currentRadicalStringValueValue = currentRadicalStringValue.getValue();
+		        	
+		        	if (selectedRadicals.contains(currentRadicalStringValueValue) == true) {
+		        		currentRadicalStringValue.setTextColor(Color.RED);
+		        	} else if (allAvailableRadicals.contains(currentRadicalStringValueValue) == true) {
+		        		currentRadicalStringValue.setTextColor(currentRadicalStringValue.getDefaultTextColor());
+		        	} else {
+		        		currentRadicalStringValue.setTextColor(Color.DKGRAY);
+		        	}
+				}
+		        
+		        progressDialog.dismiss();
+		    }
+		}
+		
+		new FindKanjiAsyncTask().execute();
 	}
 }

@@ -477,7 +477,7 @@ public class DictionaryManager {
 				throw new RuntimeException("currentRadicalInfo == null");
 			}
 			
-			currentRadicalInfo.incrementUse();			
+			//currentRadicalInfo.incrementUse();			
 		}
 	}
 
@@ -585,6 +585,26 @@ public class DictionaryManager {
 			}
 		});
 		
+		return result;
+	}
+
+	public Set<String> findAllAvailableRadicals(String[] radicals) {
+		
+		Set<String> result = new HashSet<String>();
+		
+		Iterator<String> kanjiEntriesMapKeySetIterator = kanjiEntriesMap.keySet().iterator();
+		
+		while(kanjiEntriesMapKeySetIterator.hasNext()) {
+			
+			String currentKanji = kanjiEntriesMapKeySetIterator.next();
+			
+			KanjiEntry currentKanjiKanjiEntry = kanjiEntriesMap.get(currentKanji);
+			
+			if (hasAllRadicals(currentKanjiKanjiEntry, radicals) == true) {				
+				result.addAll(currentKanjiKanjiEntry.getKanjiDic2Entry().getRadicals());
+			}
+		}
+				
 		return result;
 	}
 	

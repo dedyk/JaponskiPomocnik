@@ -94,13 +94,13 @@ public class KanjiSearchResult extends Activity {
 					
 					currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
 					currentKanjiEntryFullText.append(kanjiDic2Entry.getRadicals().toString());
-													
-					int idxStart = 0;
 					
 					final String fontBegin = "<font color='red'>";
 					final String fontEnd = "</font>";
 					
 					for (String currentRadical : selectedRadicals) {
+						
+						int idxStart = 0;
 						
 						while(true) {
 							
