@@ -7,6 +7,8 @@ public class RadicalInfo {
 	private String radical;
 	
 	private int strokeCount;
+	
+	private int use = 0;
 
 	public int getId() {
 		return id;
@@ -30,5 +32,13 @@ public class RadicalInfo {
 
 	public void setStrokeCount(int strokeCount) {
 		this.strokeCount = strokeCount;
-	}	
+	}
+
+	public int getUse() {
+		return use;
+	}
+	
+	public void incrementUse() {
+		use++;
+	}
 }

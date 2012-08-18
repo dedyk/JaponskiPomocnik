@@ -390,6 +390,15 @@ public class DictionaryManager {
 	}
 	
 	private void readKanjiDictionaryFile(InputStream kanjiInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
+				
+		Map<String, RadicalInfo> radicalListMapCache = new HashMap<String, RadicalInfo>();
+		
+		for (RadicalInfo currentRadicalInfo : radicalList) {
+			
+			String radical = currentRadicalInfo.getRadical();
+			
+			radicalListMapCache.put(radical, currentRadicalInfo);
+		}
 		
 		kanjiEntriesMap = new HashMap<String, KanjiEntry>();
 		
@@ -434,7 +443,10 @@ public class DictionaryManager {
 				kanjiDic2Entry.setStrokeCount(strokeCount);
 				kanjiDic2Entry.setRadicals(radicals);
 				kanjiDic2Entry.setKunReading(kunReading);
-				kanjiDic2Entry.setOnReading(onReading);			
+				kanjiDic2Entry.setOnReading(onReading);
+				
+				// update radical info
+				updateRadicalInfoUse(radicalListMapCache, radicals);
 			}
 			
 			String polishTranslateListString = csvReader.get(6);
@@ -455,6 +467,20 @@ public class DictionaryManager {
 		csvReader.close();
 	}
 	
+	private void updateRadicalInfoUse(Map<String, RadicalInfo> radicalListMapCache, List<String> radicals) {
+		
+		for (String currentRadical : radicals) {
+			
+			RadicalInfo currentRadicalInfo = radicalListMapCache.get(currentRadical);
+			
+			if (currentRadicalInfo == null) {
+				throw new RuntimeException("currentRadicalInfo == null");
+			}
+			
+			currentRadicalInfo.incrementUse();			
+		}
+	}
+
 	public List<KanjiEntry> findKnownKanji(String text) {
 		
 		List<KanjiEntry> result = new ArrayList<KanjiEntry>();

@@ -30,6 +30,8 @@ public class StringValue implements IScreenItem {
 	
 	private OnTouchListener onTouchListener;
 	
+	private Integer textColor;
+
 	public StringValue(String value, float textSize, int level) {
 		this.value = value;
 		this.textSize = textSize;
@@ -102,6 +104,10 @@ public class StringValue implements IScreenItem {
 		textView.setTextSize(textSize);
 		textView.setText(value);
 		
+		if (textColor != null) {
+			textView.setTextColor(textColor.intValue());
+		}
+		
 		textView.setOnClickListener(onClickListener);
 		textView.setOnTouchListener(onTouchListener);
 		
@@ -130,5 +136,9 @@ public class StringValue implements IScreenItem {
 
 	public void setOnTouchListener(OnTouchListener onTouchListener) {
 		this.onTouchListener = onTouchListener;
+	}
+	
+	public void setTextColor(Integer textColor) {
+		this.textColor = textColor;
 	}
 }

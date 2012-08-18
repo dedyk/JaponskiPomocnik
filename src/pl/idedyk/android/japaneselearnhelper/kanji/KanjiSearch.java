@@ -147,30 +147,35 @@ public class KanjiSearch extends Activity {
 				radicalStringValue.setNullMargins(true);
 			}
 			
-			radicalStringValue.setOnClickListener(new View.OnClickListener() {
+			if (currentRadicalInfo.getUse() > 0) {
 				
-				private int defaultTextColor;
-				
-				public void onClick(View view) {
+				radicalStringValue.setOnClickListener(new View.OnClickListener() {
 					
-					TextView textView = (TextView)view;
+					private int defaultTextColor;
 					
-					String radical = textView.getText().toString();
-					
-					if (selectedRadicals.contains(radical) == false) {
+					public void onClick(View view) {
 						
-						defaultTextColor = textView.getTextColors().getDefaultColor();
+						TextView textView = (TextView)view;
 						
-						selectedRadicals.add(radical);
+						String radical = textView.getText().toString();
 						
-						textView.setTextColor(Color.RED);
-					} else {
-						selectedRadicals.remove(radical);
-						
-						textView.setTextColor(defaultTextColor);
+						if (selectedRadicals.contains(radical) == false) {
+							
+							defaultTextColor = textView.getTextColors().getDefaultColor();
+							
+							selectedRadicals.add(radical);
+							
+							textView.setTextColor(Color.RED);
+						} else {
+							selectedRadicals.remove(radical);
+							
+							textView.setTextColor(defaultTextColor);
+						}
 					}
-				}
-			});
+				});
+			} else {				
+				radicalStringValue.setTextColor(Color.DKGRAY);
+			}
 			
 			tableRow.addScreenItem(radicalStringValue);
 			
