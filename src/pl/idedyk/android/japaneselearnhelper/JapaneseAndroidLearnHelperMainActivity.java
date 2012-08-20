@@ -8,6 +8,7 @@ import pl.idedyk.android.japaneselearnhelper.info.InfoActivity;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.kana.KanaTestOptions;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
+import pl.idedyk.android.japaneselearnhelper.kanji.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 
 import android.app.Activity;
@@ -71,6 +72,11 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_information_kanji),
     			getString(R.string.main_menu_information_text)));    	
+
+    	mainMenuListItems.add(new MainMenuItem(
+    			"TT",
+    			"TTTTT2"));    	
+
     	
     	MainMenuListItemAdapter mainMenuListItemsAdapter = new MainMenuListItemAdapter(this, R.layout.main_menu_simplerow, mainMenuListItems);
     	
@@ -124,6 +130,10 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
 					
 					startActivity(intent);
+				} else if (position == 6) { // test
+					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+					
+					startActivity(intent);					
 				}
 			}
 		});
