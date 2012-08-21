@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sod_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/kanji_details_sod_button_group"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_marginBottom="4dip"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="2dip"
+        android:layout_marginTop="4dip"
+        android:orientation="horizontal"
+        android:visibility="visible" >
+
+        <Button
+            android:id="@+id/kanji_details_sod_draw_button"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/kanji_details_sod_draw" />
+
+        <Button
+            android:id="@+id/kanji_details_sod_animate_button"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/kanji_details_sod_draw_anim" />
+
+        <Button
+            android:id="@+id/kanji_details_sod_clear_button"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/kanji_details_sod_draw_clear" />
+    </LinearLayout>
+
+    <pl.idedyk.android.japaneselearnhelper.kanji.sod.StrokeOrderView
+        android:id="@+id/sod_draw_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="100" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:layout_weight="1"
+        android:text="@string/kanji_details_sod_info" />
+
+</LinearLayout>

@@ -29,7 +29,6 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
-import pl.idedyk.android.japaneselearnhelper.utils.XorInputStream;
 
 public class DictionaryManager {
 	
@@ -66,28 +65,26 @@ public class DictionaryManager {
 	}
 	
 	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets) {
-		
-		final int k = 23;		
-		
+				
 		try {
 			// init
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
 			
-			InputStream fileWordInputStream = new GZIPInputStream(new XorInputStream(assets.open(FILE_WORD), k));
+			InputStream fileWordInputStream = new GZIPInputStream(assets.open(FILE_WORD));
 			
 			int wordFileSize = getWordSize(fileWordInputStream);
 			
 			loadWithProgress.setMaxValue(wordFileSize);
 			
 			// wczytywanie slow
-			fileWordInputStream = new GZIPInputStream(new XorInputStream(assets.open(FILE_WORD), k));
+			fileWordInputStream = new GZIPInputStream(assets.open(FILE_WORD));
 			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_words));
 			
 			readDictionaryFile(fileWordInputStream, loadWithProgress);
 			
 			// wczytywanie informacji o znakach podstawowych
-			InputStream radicalInputStream = new GZIPInputStream(new XorInputStream(assets.open(RADICAL_WORD), k));
+			InputStream radicalInputStream = new GZIPInputStream(assets.open(RADICAL_WORD));
 			
 			int radicalFileSize = getWordSize(radicalInputStream);
 			
@@ -96,12 +93,12 @@ public class DictionaryManager {
 			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_radical));
 			
-			radicalInputStream = new GZIPInputStream(new XorInputStream(assets.open(RADICAL_WORD), k));
+			radicalInputStream = new GZIPInputStream(assets.open(RADICAL_WORD));
 			
 			readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);			
 			
 			// wczytywanie kanji
-			InputStream kanjiInputStream = new GZIPInputStream(new XorInputStream(assets.open(KANJI_WORD), k));
+			InputStream kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
 			
 			int kanjiFileSize = getWordSize(kanjiInputStream);
 			
@@ -110,7 +107,7 @@ public class DictionaryManager {
 			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji));
 			
-			kanjiInputStream = new GZIPInputStream(new XorInputStream(assets.open(KANJI_WORD), k));
+			kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
 			
 			readKanjiDictionaryFile(kanjiInputStream, loadWithProgress);			
 			
@@ -449,13 +446,16 @@ public class DictionaryManager {
 				updateRadicalInfoUse(radicalListMapCache, radicals);
 			}
 			
-			String polishTranslateListString = csvReader.get(6);
-			String infoString = csvReader.get(7);
+			String strokePathString = csvReader.get(6);
+			
+			String polishTranslateListString = csvReader.get(7);
+			String infoString = csvReader.get(8);
 			
 			KanjiEntry entry = new KanjiEntry();
 			
 			entry.setId(id);
 			entry.setKanji(kanjiString);
+			entry.setStrokePaths(parseStringIntoList(strokePathString, false));
 			entry.setPolishTranslates(parseStringIntoList(polishTranslateListString, false));
 			entry.setInfo(infoString);
 						

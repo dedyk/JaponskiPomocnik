@@ -77,7 +77,15 @@ public class KanjiDetails extends Activity {
 		// Kanji		
 		report.add(new TitleItem(getString(R.string.kanji_details_kanji_label), 0));
 		
-		report.add(new StringValue(kanjiEntry.getKanji(), 35.0f, 0));
+		StringValue kanjiStringValue = new StringValue(kanjiEntry.getKanji(), 35.0f, 0);
+		
+		report.add(kanjiStringValue);
+		
+		List<String> strokePaths = kanjiEntry.getStrokePaths();
+		
+		if (strokePaths != null && strokePaths.size() > 0) {
+			report.add(new StringValue(getString(R.string.kanji_details_kanji_info), 12.0f, 0));	
+		}
 		
 		// Stroke count
 		report.add(new TitleItem(getString(R.string.kanji_details_stroke_count_label), 0));

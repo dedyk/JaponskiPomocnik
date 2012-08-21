@@ -3,7 +3,6 @@ package pl.idedyk.android.japaneselearnhelper.kanji.sod;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 
@@ -17,7 +16,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class SodActivity extends Activity implements OnClickListener {
 
@@ -146,7 +144,7 @@ public class SodActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.sod);
+        setContentView(R.layout.kanji_details_sod);
 
         findViews();
 
@@ -251,21 +249,21 @@ public class SodActivity extends Activity implements OnClickListener {
     }
 
     private void findViews() {
-        drawButton = (Button) findViewById(R.id.draw_sod_button);
-        clearButton = (Button) findViewById(R.id.clear_sod_button);
-        animateButton = (Button) findViewById(R.id.animate_button);
+        drawButton = (Button) findViewById(R.id.kanji_details_sod_draw_button);
+        clearButton = (Button) findViewById(R.id.kanji_details_sod_clear_button);
+        animateButton = (Button) findViewById(R.id.kanji_details_sod_animate_button);
         strokeOrderView = (StrokeOrderView) findViewById(R.id.sod_draw_view);
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.draw_sod_button:
+        case R.id.kanji_details_sod_draw_button:
             drawSod();
             break;
-        case R.id.animate_button:
+        case R.id.kanji_details_sod_animate_button:
             animate();
             break;
-        case R.id.clear_sod_button:
+        case R.id.kanji_details_sod_clear_button:
             strokeOrderView.clear();
             strokeOrderView.invalidate();
             break;
