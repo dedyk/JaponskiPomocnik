@@ -34,7 +34,7 @@
         <activity android:name=".kanji.KanjiDetails" android:label="@string/kanji_details_label"></activity>
         <activity android:name=".kanji.KanjiSearch" android:label="@string/kanji_search_label"></activity>
         <activity android:name=".kanji.KanjiSearchResult" android:label="@string/kanji_entry_search_result_view_label"></activity>
-        <activity android:name=".kanji.sod.SodActivity"></activity>
+        <activity android:name=".kanji.sod.SodActivity" android:label="@string/kanji_details_sod_label"></activity>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
+import pl.idedyk.android.japaneselearnhelper.kanji.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
@@ -81,10 +82,22 @@ public class KanjiDetails extends Activity {
 		
 		report.add(kanjiStringValue);
 		
-		List<String> strokePaths = kanjiEntry.getStrokePaths();
+		final List<String> strokePaths = kanjiEntry.getStrokePaths();
 		
 		if (strokePaths != null && strokePaths.size() > 0) {
-			report.add(new StringValue(getString(R.string.kanji_details_kanji_info), 12.0f, 0));	
+			report.add(new StringValue(getString(R.string.kanji_details_kanji_info), 12.0f, 0));
+			
+			kanjiStringValue.setOnClickListener(new OnClickListener() {
+				
+				public void onClick(View view) {
+
+					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+					
+					intent.putStringArrayListExtra("strokePaths", (ArrayList<String>)strokePaths);
+					
+					startActivity(intent);
+				}
+			});
 		}
 		
 		// Stroke count

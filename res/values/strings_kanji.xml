@@ -32,4 +32,5 @@
     <string name="kanji_details_sod_draw_anim">Pisz znak</string>
     <string name="kanji_details_sod_draw_clear">Wyczyść</string>
     <string name="kanji_details_sod_info">Powyższy fragment kodu został pobrany i dostosowany z aplikacji WWWJDIC for Android autorstwa Nikolay Elenkov udostępnionego na licencji Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0</string>
+    <string name="kanji_details_sod_label">Pisanie znaku kanji</string>
 </resources>
