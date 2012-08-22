@@ -359,6 +359,14 @@ public class DictionaryManager {
 			}
 		}
 		
+		String info = dictionaryEntry.getInfo();
+		
+		if (info != null) {
+			if (info.toLowerCase().contains(wordLowerCase) == true) {
+				return true;
+			}			
+		}
+		
 		return false;
 	}
 	

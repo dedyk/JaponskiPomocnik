@@ -99,7 +99,7 @@ public class WordDictionary extends Activity {
 							
 							for (DictionaryEntry currentFoundWord : foundWord.result) {
 								
-								String currentFoundWordFullText = currentFoundWord.getFullText(false);
+								String currentFoundWordFullText = currentFoundWord.getFullText(true);
 								
 								StringBuffer currentFoundWordFullTexStringBuffer = new StringBuffer(currentFoundWordFullText);								
 								StringBuffer currentFoundWordFullTextLowerCase = new StringBuffer(currentFoundWordFullText.toLowerCase());
