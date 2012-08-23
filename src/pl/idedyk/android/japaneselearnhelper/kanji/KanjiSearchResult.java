@@ -12,6 +12,8 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -146,9 +148,21 @@ public class KanjiSearchResult extends Activity {
 				String mailSubject = getString(R.string.kanji_search_result_report_problem_email_subject);
 				
 				String mailBody = getString(R.string.kanji_search_result_report_problem_email_body,
-						searchValueTextView.getText(), searchListText.toString());				
+						searchValueTextView.getText(), searchListText.toString());
+				
+		        String versionName = "";
+		        int versionCode = 0;
+		        
+		        try {
+		        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+		        	
+		            versionName = packageInfo.versionName;
+		            versionCode = packageInfo.versionCode;
+
+		        } catch (NameNotFoundException e) {        	
+		        }
 								
-				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
 				
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}

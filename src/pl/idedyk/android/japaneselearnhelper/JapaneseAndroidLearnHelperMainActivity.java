@@ -12,6 +12,8 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -115,9 +117,21 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					
 					String mailSubject = getString(R.string.main_menu_email_subject);
 					
-					String mailBody = getString(R.string.main_menu_email_body);				
-									
-					Intent reportSuggestionIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody); 
+					String mailBody = getString(R.string.main_menu_email_body);
+					
+			        String versionName = "";
+			        int versionCode = 0;
+			        
+			        try {
+			        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+			        	
+			            versionName = packageInfo.versionName;
+			            versionCode = packageInfo.versionCode;
+
+			        } catch (NameNotFoundException e) {        	
+			        }
+					
+					Intent reportSuggestionIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody, versionName, versionCode); 
 					
 					startActivity(Intent.createChooser(reportSuggestionIntent, chooseEmailClientTitle));
 				} else if (position == 5) { // info

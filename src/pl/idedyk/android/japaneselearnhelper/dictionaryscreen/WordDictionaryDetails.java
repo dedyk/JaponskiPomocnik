@@ -20,6 +20,8 @@ import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -96,8 +98,20 @@ public class WordDictionaryDetails extends Activity {
 				
 				String mailBody = getString(R.string.word_dictionary_details_report_problem_email_body,
 						detailsSb.toString());				
-								
-				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString()); 
+				
+		        String versionName = "";
+		        int versionCode = 0;
+		        
+		        try {
+		        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+		        	
+		            versionName = packageInfo.versionName;
+		            versionCode = packageInfo.versionCode;
+
+		        } catch (NameNotFoundException e) {        	
+		        }
+				
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
 				
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
