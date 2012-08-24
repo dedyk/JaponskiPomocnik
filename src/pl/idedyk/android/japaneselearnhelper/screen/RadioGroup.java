@@ -1,25 +1,35 @@
 package pl.idedyk.android.japaneselearnhelper.screen;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.RadioButton;
 
-public class RadioGroup extends android.widget.RadioGroup {
+public class RadioGroup implements IScreenItem {
+
+	private android.widget.RadioGroup radioGroup = null;
 	
 	public RadioGroup(Context context) {
-		super(context);
 		
-		setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		radioGroup = new android.widget.RadioGroup(context);
+		
+		radioGroup.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 	}	
 	
 	public void addRadioButton(Context context, String radioButtonText, int radioButtonId, boolean defaultSelected) {
 		
 		RadioButton radioButton = generateRadioButton(context, radioButtonId, radioButtonText);
 		
-		addView(radioButton);
+		radioGroup.addView(radioButton);
 		
 		if (defaultSelected == true) {
-			check(radioButtonId);
+			radioGroup.check(radioButtonId);
 		}
+	}
+	
+	public void generate(Context context, Resources resources, ViewGroup layout) {		
+		layout.addView(radioGroup);
 	}
 	
 	private RadioButton generateRadioButton(Context context, int radioButtonId, String radioButtonText) {
@@ -33,16 +43,20 @@ public class RadioGroup extends android.widget.RadioGroup {
 		
 		return radioButton;
 	}
-		
+	
+	public int getCheckedRadioButtonId() {
+		return radioGroup.getCheckedRadioButtonId();
+	}
+	
 	public String toString() {
 		
 		StringBuffer sb = new StringBuffer(" *** \n\n");
 		
-		int childCount = getChildCount();
+		int childCount = radioGroup.getChildCount();
 		
 		for (int idx = 0; idx < childCount; ++idx) {
 			
-			RadioButton currentRadioButton = (RadioButton)getChildAt(idx);
+			RadioButton currentRadioButton = (RadioButton)radioGroup.getChildAt(idx);
 			
 			sb.append(currentRadioButton.getText().toString() + " - " + currentRadioButton.isChecked() + "\n");
 		}

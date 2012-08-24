@@ -3,27 +3,29 @@ package pl.idedyk.android.japaneselearnhelper.screen;
 import pl.idedyk.android.japaneselearnhelper.R;
 import android.content.Context;
 import android.content.res.Resources;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 
-public class TitleItem extends TextView {
-		
+public class TitleItem implements IScreenItem {
+	
+	private TextView textView;
+	
 	private String title;
 	
-	public TitleItem(Context context) {
-		super(context);
-		
-		throw new RuntimeException("Please do not use");
-	}
+	private int level;
 	
-	public TitleItem(Context context, Resources resources, String title, int level) {
-		super(context);
-		
+	public TitleItem(String title, int level) {
 		this.title = title;
+		this.level = level;
+	}
+
+	public void generate(Context context, Resources resources, ViewGroup layout) {
+		textView = new TextView(context);
 		
-		setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-		setBackgroundColor(resources.getColor(R.color.word_dictionary_details_title_background_color));
-		setTextSize(16.0f);
+		textView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		textView.setBackgroundColor(resources.getColor(R.color.word_dictionary_details_title_background_color));
+		textView.setTextSize(16.0f);
 		
 		StringBuffer titleSb = new StringBuffer();
 		
@@ -32,7 +34,9 @@ public class TitleItem extends TextView {
 		}
 		titleSb.append(title);
 		
-		setText(titleSb);		
+		textView.setText(titleSb);	
+		
+		layout.addView(textView);
 	}
 	
 	public String toString() {
@@ -40,10 +44,13 @@ public class TitleItem extends TextView {
 	}
 	
 	public int getTopPositionOnScreen() {
+		if (textView == null) {
+			throw new RuntimeException("getTopPositionOnScreen");
+		}
 		
 		int[] location = new int[2];
 		
-		getLocationOnScreen(location);
+		textView.getLocationOnScreen(location);
 		
 		return location[1];
 	}

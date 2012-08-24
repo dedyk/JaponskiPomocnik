@@ -1,29 +1,35 @@
 package pl.idedyk.android.japaneselearnhelper.screen;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 
-public class CheckBox extends android.widget.CheckBox {
+public class CheckBox implements IScreenItem {
 	
-	public CheckBox(Context context) {
-		super(context);
-		
-		throw new RuntimeException("Please do not use");
-	}
+	private android.widget.CheckBox checkBox;
 	
 	public CheckBox(Context context, String checkBoxText, boolean defaultSelected, int id) {
 		
-		super(context);
+		checkBox = new android.widget.CheckBox(context);
 		
-		setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		checkBox.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		
-		setId(id);
-		setText(checkBoxText);
-		setTextSize(16.0f);
-		setChecked(defaultSelected);		
+		checkBox.setId(id);
+		checkBox.setText(checkBoxText);
+		checkBox.setTextSize(16.0f);
+		checkBox.setChecked(defaultSelected);		
 	}
-		
+	
+	public boolean isChecked() {
+		return checkBox.isChecked();
+	}
+
+	public void generate(Context context, Resources resources, ViewGroup layout) {
+		layout.addView(checkBox);
+	}
+	
 	public String toString() {
-		return getText() + " - " + isChecked();
+		return checkBox.getText() + " - " + checkBox.isChecked();
 	}
 }
