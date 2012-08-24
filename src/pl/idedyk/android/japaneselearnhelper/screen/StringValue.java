@@ -10,15 +10,9 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class StringValue implements IScreenItem {
-	
-	private TextView textView;
-	
-	private CharSequence value;
-	
+public class StringValue extends TextView {
+		
 	private float textSize;
-	
-	private Integer gravity;
 	
 	private int level;
 	
@@ -26,38 +20,69 @@ public class StringValue implements IScreenItem {
 	
 	private Integer layoutWeight;
 	
-	private OnClickListener onClickListener;
-	
-	private OnTouchListener onTouchListener;
-	
-	private Integer textColor;
-	
 	private Integer defaultTextColor;
-
-	public StringValue(String value, float textSize, int level) {
-		this.value = value;
-		this.textSize = textSize;
-		this.level = level;
-	}
-
-	public StringValue(Spanned value, float textSize, int level) {
-		this.value = value;
-		this.textSize = textSize;
-		this.level = level;
-	}
 	
-	public void setValue(CharSequence value) {
-		this.value = value;
+	public StringValue(Context context) {
+		super(context);
 		
-		if (textView != null) {
-			textView.setText(this.value);
-		}
+		throw new RuntimeException("Please do not use");
+	}
+
+	public StringValue(Context context, ViewGroup layout, String text, float textSize, int level) {
+		super(context);
+		
+		setText(text);
+		setTextSize(textSize);
+		
+		setLayout(layout);
+		
+		this.level = level;
+	}
+
+	public StringValue(Context context, ViewGroup layout, Spanned text, float textSize, int level) {
+		super(context);
+		
+		setText(text);
+		setTextSize(textSize);
+		
+		setLayout(layout);
+		
+		this.level = level;
 	}
 	
-	public String getValue() {
-		return this.value.toString();
+	private void setLayout(ViewGroup layout) {
+		
+		if (layout instanceof android.widget.TableRow) {
+			android.widget.TableRow.LayoutParams layoutParam = new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.WRAP_CONTENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT);
+			
+			if (nullMargins == true) {
+				layoutParam.setMargins(0, 0, 0, 0);
+			} else {
+				layoutParam.setMargins(20 + level * 20, 5, 0, 0);
+			}
+
+			if (layoutWeight != null) {
+				layoutParam.weight = layoutWeight;
+			}
+			
+			setLayoutParams(layoutParam);
+		} else if (layout instanceof LinearLayout) {
+			LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			
+			if (nullMargins == false) {
+				layoutParam.setMargins(20 + level * 20, 5, 0, 0);
+			}
+			
+			if (layoutWeight != null) {
+				layoutParam.weight = layoutWeight;
+			}
+			
+			setLayoutParams(layoutParam);
+		} else {
+			throw new RuntimeException();
+		}		
 	}
-	
+		
 	public void setGravity(int gravity) {
 		this.gravity = gravity;
 	}
@@ -73,87 +98,28 @@ public class StringValue implements IScreenItem {
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		textView = new TextView(context);
 		
-		if (layout instanceof android.widget.TableRow) {
-			android.widget.TableRow.LayoutParams layoutParam = new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.WRAP_CONTENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT);
-			
-			if (nullMargins == true) {
-				layoutParam.setMargins(0, 0, 0, 0);
-			} else {
-				layoutParam.setMargins(20 + level * 20, 5, 0, 0);
-			}
-
-			if (layoutWeight != null) {
-				layoutParam.weight = layoutWeight;
-			}
-			
-			textView.setLayoutParams(layoutParam);
-		} else if (layout instanceof LinearLayout) {
-			LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-			
-			if (nullMargins == false) {
-				layoutParam.setMargins(20 + level * 20, 5, 0, 0);
-			}
-			
-			if (layoutWeight != null) {
-				layoutParam.weight = layoutWeight;
-			}
-			
-			textView.setLayoutParams(layoutParam);
-		} else {
-			throw new RuntimeException();
-		}
-		
-		if (gravity != null) {
-			textView.setGravity(gravity);
-		}
 		
 		textView.setTextSize(textSize);
 		textView.setText(value);
 		
-		defaultTextColor = textView.getTextColors().getDefaultColor();
-		
-		if (textColor != null) {
-			textView.setTextColor(textColor.intValue());
-		}
-		
-		textView.setOnClickListener(onClickListener);
-		textView.setOnTouchListener(onTouchListener);
+		defaultTextColor = textView.getTextColors().getDefaultColor();		
 		
 		layout.addView(textView);			
 	}
 	
 	public String toString() {
-		return value.toString();
+		return getText().toString();
 	}
 	
 	public int getBottomPositionOnScreen() {
-		if (textView == null) {
-			throw new RuntimeException("getBottomPositionOnScreen");
-		}
 		
 		int[] location = new int[2];
 		
-		textView.getLocationOnScreen(location);
+		getLocationOnScreen(location);
 		
-		return location[1] + textView.getHeight();
+		return location[1] + getHeight();
 	}
 	
-	public void setOnClickListener(OnClickListener onClickListener) {
-		this.onClickListener = onClickListener;		
-	}
-
-	public void setOnTouchListener(OnTouchListener onTouchListener) {
-		this.onTouchListener = onTouchListener;
-	}
-	
-	public void setTextColor(Integer textColor) {
-		this.textColor = textColor;
-		
-		if (textView != null) {
-			textView.setTextColor(textColor.intValue());
-		}
-	}
-
 	public Integer getDefaultTextColor() {
 		return defaultTextColor;
 	}
