@@ -6,10 +6,13 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
+import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteConnector;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.AsyncTask;
@@ -41,8 +44,20 @@ public class Splash extends Activity {
         final Resources resources = getResources();
         final AssetManager assets = getAssets();
         
+        int versionCode = 0;
+        
+        try {
+        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        	
+            versionCode = packageInfo.versionCode;
+
+        } catch (NameNotFoundException e) {        	
+        }
+        
+        SQLiteConnector sqliteConnector = new SQLiteConnector(this, versionCode);
+        
         // create dictionary manager
-        final DictionaryManager dictionaryManager = new DictionaryManager();
+        final DictionaryManager dictionaryManager = new DictionaryManager(sqliteConnector);
         
     	class ProgressInfo {
     		Integer progressBarMaxValue;

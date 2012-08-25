@@ -21,22 +21,15 @@ import com.csvreader.CsvReader;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
-import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
-import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
 
 public class DictionaryManager {
 	
 	private static int GROUP_SIZE = 10;
-	
-	private static int MAX_LIST_SIZE = 5;
-	
-	private static int MAX_SEARCH_RESULT = 50;
 	
 	private static final String FILE_WORD = "word.csv";
 	
@@ -55,68 +48,77 @@ public class DictionaryManager {
 		return instance;
 	}
 	
-	private List<DictionaryEntry> wordDictionaryEntries = null;
+	private SQLiteConnector sqliteConnector;
 	
 	private Map<String, KanjiEntry> kanjiEntriesMap = null;
 	
 	private List<RadicalInfo> radicalList = null;
 	
-	public DictionaryManager() {
+	public DictionaryManager(SQLiteConnector sqliteConnector) {
+		this.sqliteConnector = sqliteConnector;
 	}
 	
 	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets) {
 				
-		try {
+		try {			
 			// init
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
 			
-			InputStream fileWordInputStream = new GZIPInputStream(assets.open(FILE_WORD));
+			sqliteConnector.open();
 			
-			int wordFileSize = getWordSize(fileWordInputStream);
+			boolean needInsertData = sqliteConnector.isNeedInsertData();
 			
-			loadWithProgress.setMaxValue(wordFileSize);
-			
-			// wczytywanie slow
-			fileWordInputStream = new GZIPInputStream(assets.open(FILE_WORD));
-			
-			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_words));
-			
-			readDictionaryFile(fileWordInputStream, loadWithProgress);
+			if (needInsertData == true) {
+
+				InputStream fileWordInputStream = new GZIPInputStream(assets.open(FILE_WORD));
+
+				int wordFileSize = getWordSize(fileWordInputStream);
+
+				loadWithProgress.setMaxValue(wordFileSize);
+
+				// wczytywanie slow
+				fileWordInputStream = new GZIPInputStream(assets.open(FILE_WORD));
+
+				loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_words));
+
+				readDictionaryFile(fileWordInputStream, loadWithProgress);
+			}
 			
 			// wczytywanie informacji o znakach podstawowych
 			InputStream radicalInputStream = new GZIPInputStream(assets.open(RADICAL_WORD));
-			
+
 			int radicalFileSize = getWordSize(radicalInputStream);
-			
+
 			loadWithProgress.setCurrentPos(0);
 			loadWithProgress.setMaxValue(radicalFileSize);
-			
+
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_radical));
-			
+
 			radicalInputStream = new GZIPInputStream(assets.open(RADICAL_WORD));
-			
+
 			readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);			
-			
+
 			// wczytywanie kanji
 			InputStream kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
-			
+
 			int kanjiFileSize = getWordSize(kanjiInputStream);
-			
+
 			loadWithProgress.setCurrentPos(0);
 			loadWithProgress.setMaxValue(kanjiFileSize);
-			
+
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji));
-			
+
 			kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
-			
+
 			readKanjiDictionaryFile(kanjiInputStream, loadWithProgress);			
-			
+
 			// obliczanie form (tutaj)
-//			loadWithProgress.setCurrentPos(0);
-//			loadWithProgress.setMaxValue(wordDictionaryEntries.size());
-//			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_count_word_forms));
-//			
-//			countForm(loadWithProgress);
+			// loadWithProgress.setCurrentPos(0);
+			// loadWithProgress.setMaxValue(wordDictionaryEntries.size());
+			// loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_count_word_forms));
+			//
+			// countForm(loadWithProgress);
+			
 			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 			
@@ -146,8 +148,6 @@ public class DictionaryManager {
 	
 	private void readDictionaryFile(InputStream dictionaryInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
 		
-		wordDictionaryEntries = new ArrayList<DictionaryEntry>();
-		
 		CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
 		
 		int currentPos = 1;
@@ -162,83 +162,45 @@ public class DictionaryManager {
 			String dictionaryEntryTypeString = csvReader.get(2);
 			String prefixKanaString = csvReader.get(4);
 			String kanjiString = csvReader.get(5);
-			
-			if (kanjiString.equals("") == true || kanjiString.equals("-") == true) {
-				kanjiString = null;
-			}
-			
+						
 			String kanaListString = csvReader.get(6);
 			String prefixRomajiString = csvReader.get(7);
-
-			if (prefixRomajiString.equals("") == true || prefixRomajiString.equals("-") == true) {
-				prefixRomajiString = null;
-			}
 			
 			String romajiListString = csvReader.get(8);
 			String translateListString = csvReader.get(9);
 			String infoString = csvReader.get(10);
-			
-			DictionaryEntryType dictionaryEntryType = DictionaryEntryType.valueOf(dictionaryEntryTypeString);
-			
-			List<String> romajiList = parseStringIntoList(romajiListString, true);
-			List<String> kanaList = parseStringIntoList(kanaListString, true);
-			
-			if (romajiList.size() != kanaList.size()) {
-				throw new DictionaryException("Parse parseStringIntoList size exception");
-			}
-			
-			DictionaryEntry entry = new DictionaryEntry();
-			
-			entry.setId(Integer.parseInt(idString));
-			entry.setDictionaryEntryType(dictionaryEntryType);
-			entry.setPrefixKana(prefixKanaString);
-			entry.setKanji(kanjiString);
-			entry.setPrefixRomaji(prefixRomajiString);
-			entry.setRomajiList(romajiList);
-			entry.setKanaList(kanaList);
-			entry.setTranslates(parseStringIntoList(translateListString, true));
-			
-			entry.setInfo(infoString);
 						
-			wordDictionaryEntries.add(entry);
+			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, 
+					prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
+					romajiListString, translateListString, infoString);
+			
+			sqliteConnector.insertDictionaryEntry(entry);
 		}
 		
 		csvReader.close();
 	}
-	
-	private List<String> parseStringIntoList(String text, boolean limitSize) {
 		
-		List<String> result = new ArrayList<String>();
+	public int getWordGroupsNo() {
 		
-		String[] splitedText = text.split("\n");
+		int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
 		
-		for (String currentSplitedText : splitedText) {			
-			result.add(currentSplitedText);
-		}
+		int result = dictionaryEntriesSize / GROUP_SIZE;
 		
-		if (limitSize == true && result.size() > MAX_LIST_SIZE) {
-			throw new RuntimeException("parseStringIntoList max list size");
-		}
-		
-		return result;		
-	}
-	
-	public int getWordGroupsNo() {		
-		int result = wordDictionaryEntries.size() / GROUP_SIZE;
-		
-		if (wordDictionaryEntries.size() % GROUP_SIZE > 0) {
+		if (dictionaryEntriesSize % GROUP_SIZE > 0) {
 			result++;
 		}
 		
 		return result;
 	}
 
-	public List<DictionaryEntry> getWordsGroup(int groupNo) {
+	public List<DictionaryEntry> getWordsGroup(int groupNo) throws DictionaryException {
+		
+		int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
 		
 		List<DictionaryEntry> result = new ArrayList<DictionaryEntry>();
 		
-		for (int idx = groupNo * GROUP_SIZE; idx < (groupNo + 1) * GROUP_SIZE && idx < wordDictionaryEntries.size(); ++idx) {
-			DictionaryEntry currentDictionaryEntry = wordDictionaryEntries.get(idx);
+		for (int idx = groupNo * GROUP_SIZE; idx < (groupNo + 1) * GROUP_SIZE && idx < dictionaryEntriesSize; ++idx) {
+			DictionaryEntry currentDictionaryEntry = sqliteConnector.getNthDictionaryEntry(idx);
 			
 			result.add(currentDictionaryEntry);
 		}
@@ -247,22 +209,13 @@ public class DictionaryManager {
 	}
 	
 	public FindWordResult findWord(String word) {
-		
-		FindWordResult findWordResult = new FindWordResult();
-		
-		findWordResult.result = new ArrayList<DictionaryEntry>();
-		
-		for (DictionaryEntry currentWordDictionaryEntry : wordDictionaryEntries) {
-			
-			if (matchWord(currentWordDictionaryEntry, word) == true) {
-				findWordResult.result.add(currentWordDictionaryEntry);
-			}
-			
-			if (findWordResult.result.size() >= MAX_SEARCH_RESULT) {
-				findWordResult.moreElemetsExists = true;
 				
-				break;
-			}
+		FindWordResult findWordResult = null;
+		
+		try {
+			findWordResult = sqliteConnector.findDictionaryEntries(word);
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
 		}
 		
 		final Map<String, KanaEntry> kanaCache = KanaHelper.getKanaCache();
@@ -370,6 +323,7 @@ public class DictionaryManager {
 		return false;
 	}
 	
+	/*
 	@SuppressWarnings("unused")
 	private void countForm(ILoadWithProgress loadWithProgress) {
 		
@@ -393,6 +347,7 @@ public class DictionaryManager {
 			counter++;
 		}
 	}
+	*/
 	
 	private void readKanjiDictionaryFile(InputStream kanjiInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
 				
@@ -436,13 +391,13 @@ public class DictionaryManager {
 				int strokeCount = Integer.parseInt(strokeCountString);
 			
 				String radicalsString = csvReader.get(3);
-				List<String> radicals = parseStringIntoList(radicalsString, false);
+				List<String> radicals = Utils.parseStringIntoList(radicalsString, false);
 			
 				String onReadingString = csvReader.get(4);
-				List<String> onReading = parseStringIntoList(onReadingString, false);
+				List<String> onReading = Utils.parseStringIntoList(onReadingString, false);
 			
 				String kunReadingString = csvReader.get(5);
-				List<String> kunReading = parseStringIntoList(kunReadingString, false);
+				List<String> kunReading = Utils.parseStringIntoList(kunReadingString, false);
 				
 				kanjiDic2Entry.setKanji(kanjiString);
 				kanjiDic2Entry.setStrokeCount(strokeCount);
@@ -463,8 +418,8 @@ public class DictionaryManager {
 			
 			entry.setId(id);
 			entry.setKanji(kanjiString);
-			entry.setStrokePaths(parseStringIntoList(strokePathString, false));
-			entry.setPolishTranslates(parseStringIntoList(polishTranslateListString, false));
+			entry.setStrokePaths(Utils.parseStringIntoList(strokePathString, false));
+			entry.setPolishTranslates(Utils.parseStringIntoList(polishTranslateListString, false));
 			entry.setInfo(infoString);
 						
 			entry.setKanjiDic2Entry(kanjiDic2Entry);
@@ -547,13 +502,6 @@ public class DictionaryManager {
 	
 	public List<RadicalInfo> getRadicalList() {
 		return radicalList;
-	}
-
-	public static class FindWordResult {
-		
-		public List<DictionaryEntry> result;
-		
-		public boolean moreElemetsExists = false;		
 	}
 
 	public List<KanjiEntry> findKnownKanjiFromRadicals(String[] radicals) {
