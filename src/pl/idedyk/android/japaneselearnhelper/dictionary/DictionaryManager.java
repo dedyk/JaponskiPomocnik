@@ -62,6 +62,9 @@ public class DictionaryManager {
 			sqliteConnector.open();
 			
 			boolean needInsertData = sqliteConnector.isNeedInsertData();
+
+			// wczytywanie slow
+			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_words));
 			
 			if (needInsertData == true) {
 
@@ -71,12 +74,11 @@ public class DictionaryManager {
 
 				loadWithProgress.setMaxValue(wordFileSize);
 
-				// wczytywanie slow
 				fileWordInputStream = new GZIPInputStream(assets.open(FILE_WORD));
 
-				loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_words));
-
 				readDictionaryFile(fileWordInputStream, loadWithProgress);
+			} else {
+				fakeProgress(loadWithProgress);
 			}
 			
 			// wczytywanie informacji o znakach podstawowych
@@ -92,9 +94,12 @@ public class DictionaryManager {
 			radicalInputStream = new GZIPInputStream(assets.open(RADICAL_WORD));
 
 			readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);			
+
+			// wczytywanie kanji
+			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji));
 			
 			if (needInsertData == true) {
-				// wczytywanie kanji
+
 				InputStream kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
 
 				int kanjiFileSize = getWordSize(kanjiInputStream);
@@ -102,11 +107,11 @@ public class DictionaryManager {
 				loadWithProgress.setCurrentPos(0);
 				loadWithProgress.setMaxValue(kanjiFileSize);
 
-				loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji));
-
 				kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
 
 				readKanjiDictionaryFile(kanjiInputStream, loadWithProgress);
+			} else {
+				fakeProgress(loadWithProgress);
 			}
 
 			// obliczanie form (tutaj)
@@ -568,5 +573,25 @@ public class DictionaryManager {
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	private void fakeProgress(ILoadWithProgress loadWithProgress) {
+		
+		int max = 50;
+		
+		loadWithProgress.setMaxValue(max);
+		
+		for (int pos = 0; pos <= max; ++pos) {
+			loadWithProgress.setCurrentPos(pos);
+			
+			try {
+				Thread.sleep(5);
+			} catch (InterruptedException e) {
+			}
+		}
+	}
+	
+	public void close() {
+		sqliteConnector.close();
 	}
 }

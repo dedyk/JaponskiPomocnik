@@ -40,6 +40,13 @@ public class SQLiteConnector {
 		sqliteDatabase = null;
 	}
 	
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize();
+		
+		close();
+	}
+
 	public boolean isNeedInsertData() {
 		return sqliteHelper.isNeedInsertData();
 	}
