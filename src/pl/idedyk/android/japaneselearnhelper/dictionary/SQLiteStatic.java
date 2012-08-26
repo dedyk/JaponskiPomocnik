@@ -28,7 +28,19 @@ public class SQLiteStatic {
 	public static final String kanjiEntriesTable_kunReading = "kunReading";
 	public static final String kanjiEntriesTable_strokePaths = "strokePaths";
 	public static final String kanjiEntriesTable_polishTranslates = "polishTranslates";
-	public static final String kanjiEntriesTable_info = "info";	
+	public static final String kanjiEntriesTable_info = "info";
+	
+	public static final String[] kanjiEntriesTableAllColumns = new String [] {
+			SQLiteStatic.kanjiEntriesTable_id,
+			SQLiteStatic.kanjiEntriesTable_kanji,
+			SQLiteStatic.kanjiEntriesTable_strokeCount,
+			SQLiteStatic.kanjiEntriesTable_radicals,
+			SQLiteStatic.kanjiEntriesTable_onReading,
+			SQLiteStatic.kanjiEntriesTable_kunReading,
+			SQLiteStatic.kanjiEntriesTable_strokePaths,
+			SQLiteStatic.kanjiEntriesTable_polishTranslates,
+			SQLiteStatic.kanjiEntriesTable_info
+	};
 	
 	public static final String dictionaryEntriesTableCreate = 
 			"create table " + dictionaryEntriesTableName + "(" +

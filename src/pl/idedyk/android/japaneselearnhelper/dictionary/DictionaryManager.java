@@ -537,21 +537,14 @@ public class DictionaryManager {
 
 	public List<KanjiEntry> findKnownKanjiFromRadicals(String[] radicals) {
 		
-		List<KanjiEntry> result = new ArrayList<KanjiEntry>();
+		List<KanjiEntry> result = null;
 		
-		Iterator<String> kanjiEntriesMapKeySetIterator = kanjiEntriesMap.keySet().iterator();
-		
-		while(kanjiEntriesMapKeySetIterator.hasNext()) {
-			
-			String currentKanji = kanjiEntriesMapKeySetIterator.next();
-			
-			KanjiEntry currentKanjiKanjiEntry = kanjiEntriesMap.get(currentKanji);
-			
-			if (hasAllRadicals(currentKanjiKanjiEntry, radicals) == true) {				
-				result.add(currentKanjiKanjiEntry);
-			}
+		try {
+			result = sqliteConnector.findKanjiFromRadicals(radicals);
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
 		}
-		
+				
 		Collections.sort(result, new Comparator<KanjiEntry>() {
 
 			public int compare(KanjiEntry lhs, KanjiEntry rhs) {
