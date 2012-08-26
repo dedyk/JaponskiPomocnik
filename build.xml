@@ -97,9 +97,6 @@
 	<xmlproperty file="AndroidManifest.xml" prefix="manifest" collapseAttributes="true"/>
 
 	<copy file="${out.final.file}" tofile="release/release_${manifest.manifest.android:versionCode}_${manifest.manifest.android:versionName}/${ant.project.name}_release_${manifest.manifest.android:versionCode}_${manifest.manifest.android:versionName}.apk" />
-	<copy todir="release/release_${manifest.manifest.android:versionCode}_${manifest.manifest.android:versionName}/proguard" >
-	    <fileset dir="bin/proguard" />
-	</copy>
 
 	<echo>${manifest.manifest.android:versionCode}</echo>
 	<echo>${manifest.manifest.android:versionName}</echo>
