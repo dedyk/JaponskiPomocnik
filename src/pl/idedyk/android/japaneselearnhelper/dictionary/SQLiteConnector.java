@@ -1,7 +1,9 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
@@ -313,6 +315,78 @@ public class SQLiteConnector {
 						polishTranslateListString, infoString);	
 				
 				result.add(kanjiEntry);
+				
+				cursor.moveToNext();
+			}
+		
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+		
+		return result;
+	}
+
+	public Set<String> findAllAvailableRadicals(String[] radicals) throws DictionaryException {
+		
+		KanjiEntry kanjiEntry = null;
+				
+		Cursor cursor = null;
+		
+		StringBuffer selectionArgs = new StringBuffer();
+		
+		for (int radicalsIdx = 0; radicalsIdx < radicals.length; ++radicalsIdx) {
+			selectionArgs.append(SQLiteStatic.kanjiEntriesTable_radicals).append(" like ?");
+			
+			if (radicalsIdx != radicals.length - 1) {
+				selectionArgs.append(" and ");	
+			}
+		}
+		
+		String[] radicalsWithPercent = new String[radicals.length];
+		
+		for (int radicalsIdx = 0; radicalsIdx < radicals.length; ++radicalsIdx) {
+			radicalsWithPercent[radicalsIdx] = "%" + radicals[radicalsIdx] + "%";
+		}
+		
+		Set<String> result = new HashSet<String>();
+		
+		try {
+			cursor = sqliteDatabase.query(SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTableAllColumns, 
+					selectionArgs.toString(),
+					radicalsWithPercent, null, null, null);
+			
+		    cursor.moveToFirst();
+		    
+		    while (!cursor.isAfterLast()) {
+				
+				String idString = cursor.getString(0);
+
+				String kanjiString = cursor.getString(1);
+
+				String strokeCountString = cursor.getString(2);
+
+				String radicalsString = cursor.getString(3);
+
+				String onReadingString = cursor.getString(4);
+
+				String kunReadingString = cursor.getString(5);
+
+				String strokePathString = cursor.getString(6);
+
+				String polishTranslateListString = cursor.getString(7);
+				String infoString = cursor.getString(8);
+
+				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
+						radicalsString, onReadingString, kunReadingString, strokePathString, 
+						polishTranslateListString, infoString);	
+				
+				KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
+				
+				if (kanjiDic2Entry != null) {
+					result.addAll(kanjiDic2Entry.getRadicals());
+				}
 				
 				cursor.moveToNext();
 			}

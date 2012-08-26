@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,7 +20,6 @@ import com.csvreader.CsvReader;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
@@ -49,9 +46,7 @@ public class DictionaryManager {
 	}
 	
 	private SQLiteConnector sqliteConnector;
-	
-	private Map<String, KanjiEntry> kanjiEntriesMap = null;
-	
+		
 	private List<RadicalInfo> radicalList = null;
 	
 	public DictionaryManager(SQLiteConnector sqliteConnector) {
@@ -97,20 +92,22 @@ public class DictionaryManager {
 			radicalInputStream = new GZIPInputStream(assets.open(RADICAL_WORD));
 
 			readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);			
+			
+			if (needInsertData == true) {
+				// wczytywanie kanji
+				InputStream kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
 
-			// wczytywanie kanji
-			InputStream kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
+				int kanjiFileSize = getWordSize(kanjiInputStream);
 
-			int kanjiFileSize = getWordSize(kanjiInputStream);
+				loadWithProgress.setCurrentPos(0);
+				loadWithProgress.setMaxValue(kanjiFileSize);
 
-			loadWithProgress.setCurrentPos(0);
-			loadWithProgress.setMaxValue(kanjiFileSize);
+				loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji));
 
-			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji));
+				kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
 
-			kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
-
-			readKanjiDictionaryFile(kanjiInputStream, loadWithProgress);			
+				readKanjiDictionaryFile(kanjiInputStream, loadWithProgress);
+			}
 
 			// obliczanie form (tutaj)
 			// loadWithProgress.setCurrentPos(0);
@@ -384,8 +381,6 @@ public class DictionaryManager {
 			radicalListMapCache.put(radical, currentRadicalInfo);
 		}
 		
-		kanjiEntriesMap = new HashMap<String, KanjiEntry>();
-		
 		CsvReader csvReader = new CsvReader(new InputStreamReader(kanjiInputStream), ',');
 		
 		int currentPos = 1;
@@ -443,8 +438,6 @@ public class DictionaryManager {
 					
 					sqliteConnector.beginTransaction();
 				}
-
-				kanjiEntriesMap.put(kanjiString, entry);
 			}
 			
 			sqliteConnector.commitTransaction();
@@ -569,46 +562,11 @@ public class DictionaryManager {
 	}
 
 	public Set<String> findAllAvailableRadicals(String[] radicals) {
-		
-		Set<String> result = new HashSet<String>();
-		
-		Iterator<String> kanjiEntriesMapKeySetIterator = kanjiEntriesMap.keySet().iterator();
-		
-		while(kanjiEntriesMapKeySetIterator.hasNext()) {
-			
-			String currentKanji = kanjiEntriesMapKeySetIterator.next();
-			
-			KanjiEntry currentKanjiKanjiEntry = kanjiEntriesMap.get(currentKanji);
-			
-			if (hasAllRadicals(currentKanjiKanjiEntry, radicals) == true) {				
-				result.addAll(currentKanjiKanjiEntry.getKanjiDic2Entry().getRadicals());
-			}
-		}
 				
-		return result;
-	}
-	
-	private boolean hasAllRadicals(KanjiEntry kanjiEntry, String[] radicals) {
-		
-		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
-		
-		if (kanjiDic2Entry == null) {
-			return false;
+		try {
+			return sqliteConnector.findAllAvailableRadicals(radicals);
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
 		}
-		
-		List<String> kanjiEntryRadicals = kanjiDic2Entry.getRadicals();
-		
-		Set<String> kanjiEntryRadicalsSet = new HashSet<String>(kanjiEntryRadicals);
-		
-		for (String currentRadical : radicals) {
-			
-			boolean containsResult = kanjiEntryRadicalsSet.contains(currentRadical);
-			
-			if (containsResult == false) {				
-				return false;
-			}
-		}
-		
-		return true;
 	}
 }
