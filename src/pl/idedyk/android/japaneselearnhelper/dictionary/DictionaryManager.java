@@ -478,7 +478,12 @@ public class DictionaryManager {
 			
 			String currentChar = String.valueOf(text.charAt(idx));
 			
-			KanjiEntry kanjiEntry = kanjiEntriesMap.get(currentChar);
+			KanjiEntry kanjiEntry = null;
+			try {
+				kanjiEntry = sqliteConnector.getKanjiEntry(currentChar);
+			} catch (DictionaryException e) {
+				throw new RuntimeException(e);
+			}
 			
 			if (kanjiEntry != null) {
 				result.add(kanjiEntry);

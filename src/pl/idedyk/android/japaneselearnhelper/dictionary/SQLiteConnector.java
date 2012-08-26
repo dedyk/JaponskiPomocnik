@@ -213,4 +213,59 @@ public class SQLiteConnector {
 		
 		sqliteDatabase.insertOrThrow(SQLiteStatic.kanjiEntriesTableName, null, values);
 	}
+	
+	public KanjiEntry getKanjiEntry(String kanji) throws DictionaryException {
+		
+		KanjiEntry kanjiEntry = null;
+		
+		String[] columns = new String [] {
+				SQLiteStatic.kanjiEntriesTable_id,
+				SQLiteStatic.kanjiEntriesTable_kanji,
+				SQLiteStatic.kanjiEntriesTable_strokeCount,
+				SQLiteStatic.kanjiEntriesTable_radicals,
+				SQLiteStatic.kanjiEntriesTable_onReading,
+				SQLiteStatic.kanjiEntriesTable_kunReading,
+				SQLiteStatic.kanjiEntriesTable_strokePaths,
+				SQLiteStatic.kanjiEntriesTable_polishTranslates,
+				SQLiteStatic.kanjiEntriesTable_info
+		};
+		
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.query(SQLiteStatic.kanjiEntriesTableName, columns, SQLiteStatic.kanjiEntriesTable_kanji + " = ?" ,
+					new String[] { kanji }, null, null, null);
+			
+			if (cursor.moveToFirst() == true) {
+				
+				String idString = cursor.getString(0);
+
+				String kanjiString = cursor.getString(1);
+
+				String strokeCountString = cursor.getString(2);
+
+				String radicalsString = cursor.getString(3);
+
+				String onReadingString = cursor.getString(4);
+
+				String kunReadingString = cursor.getString(5);
+
+				String strokePathString = cursor.getString(6);
+
+				String polishTranslateListString = cursor.getString(7);
+				String infoString = cursor.getString(8);
+
+				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
+						radicalsString, onReadingString, kunReadingString, strokePathString, 
+						polishTranslateListString, infoString);				
+			}
+		
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+		
+		return kanjiEntry;
+	}
 }
