@@ -78,67 +78,33 @@ public class SQLiteConnector {
 	
 	public int getDictionaryEntriesSize() {
 		
-		Cursor cursor = sqliteDatabase.rawQuery(SQLiteStatic.dictionaryEntriesTableCreateCount, null);
+		Cursor cursor = null;
 		
-		cursor.moveToFirst();
-		
-		int result = cursor.getInt(0);
-		
-		cursor.close();
-		
-		return result;
+		try {
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.dictionaryEntriesTableCreateCount, null);
+			
+			cursor.moveToFirst();
+			
+			int result = cursor.getInt(0);
+			
+			return result;			
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
 	}
 	
 	public DictionaryEntry getNthDictionaryEntry(int nth) throws DictionaryException {
 		
-		Cursor cursor = sqliteDatabase.rawQuery(
-				SQLiteStatic.dictionaryEntriesTableNthElement, new String[] { String.valueOf(nth - 1) });
+		Cursor cursor = null;
 		
-		cursor.moveToFirst();
-		
-		String idString = cursor.getString(0);
-		String dictionaryEntryTypeString = cursor.getString(1);
-		String prefixKanaString = cursor.getString(2);
-		String kanjiString = cursor.getString(3);
-					
-		String kanaListString = cursor.getString(4);
-		String prefixRomajiString = cursor.getString(5);
-		
-		String romajiListString = cursor.getString(6);
-		String translateListString = cursor.getString(7);
-		String infoString = cursor.getString(8);
-					
-		DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, 
-				prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
-				romajiListString, translateListString, infoString);
-
-		cursor.close();
-		
-		return entry;
-	}
-	
-	public FindWordResult findDictionaryEntries(String word) throws DictionaryException {
-		
-		FindWordResult findWordResult = new FindWordResult();
-		
-		findWordResult.result = new ArrayList<DictionaryEntry>();
-		
-		String wordWithPercent = "%" + word + "%"; 
-		
-		String wordLowerCase = word.toLowerCase();
-		
-		String wordLowerCaseWithPercent = "%" + wordLowerCase + "%";
-		
-		Cursor cursor = sqliteDatabase.rawQuery(
-				SQLiteStatic.dictionaryEntriesTableSelectElements, new String[] { 
-						wordWithPercent, wordWithPercent, wordLowerCaseWithPercent,
-						wordLowerCaseWithPercent, wordLowerCaseWithPercent
-				});
-		
-	    cursor.moveToFirst();
-	    
-	    while (!cursor.isAfterLast()) {
-	    	
+		try {
+			cursor = sqliteDatabase.rawQuery(
+					SQLiteStatic.dictionaryEntriesTableNthElement, new String[] { String.valueOf(nth - 1) });
+			
+			cursor.moveToFirst();
+			
 			String idString = cursor.getString(0);
 			String dictionaryEntryTypeString = cursor.getString(1);
 			String prefixKanaString = cursor.getString(2);
@@ -155,12 +121,61 @@ public class SQLiteConnector {
 					prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
 					romajiListString, translateListString, infoString);
 			
-			findWordResult.result.add(entry);
+			return entry;
+		} finally {
+			cursor.close();
+		}
+	}
+	
+	public FindWordResult findDictionaryEntries(String word) throws DictionaryException {
+		
+		FindWordResult findWordResult = new FindWordResult();
+		
+		findWordResult.result = new ArrayList<DictionaryEntry>();
+		
+		String wordWithPercent = "%" + word + "%"; 
+		
+		String wordLowerCase = word.toLowerCase();
+		
+		String wordLowerCaseWithPercent = "%" + wordLowerCase + "%";
+		
+		Cursor cursor = null;
+		try {
+			cursor = sqliteDatabase.rawQuery(
+					SQLiteStatic.dictionaryEntriesTableSelectElements, new String[] { 
+							wordWithPercent, wordWithPercent, wordLowerCaseWithPercent,
+							wordLowerCaseWithPercent, wordLowerCaseWithPercent
+					});
 			
-			cursor.moveToNext();
-	    }
-
-	    cursor.close();
+		    cursor.moveToFirst();
+		    
+		    while (!cursor.isAfterLast()) {
+		    	
+				String idString = cursor.getString(0);
+				String dictionaryEntryTypeString = cursor.getString(1);
+				String prefixKanaString = cursor.getString(2);
+				String kanjiString = cursor.getString(3);
+							
+				String kanaListString = cursor.getString(4);
+				String prefixRomajiString = cursor.getString(5);
+				
+				String romajiListString = cursor.getString(6);
+				String translateListString = cursor.getString(7);
+				String infoString = cursor.getString(8);
+							
+				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, 
+						prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
+						romajiListString, translateListString, infoString);
+				
+				findWordResult.result.add(entry);
+				
+				cursor.moveToNext();
+		    }
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
 	    
 		if (findWordResult.result.size() >= SQLiteStatic.MAX_SEARCH_RESULT) {
 			findWordResult.moreElemetsExists = true;

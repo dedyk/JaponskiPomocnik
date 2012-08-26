@@ -152,6 +152,8 @@ public class DictionaryManager {
 		
 		int currentPos = 1;
 		
+		int transactionCounter = 0;
+		
 		sqliteConnector.beginTransaction();
 		
 		try {
@@ -178,6 +180,20 @@ public class DictionaryManager {
 						romajiListString, translateListString, infoString);
 				
 				sqliteConnector.insertDictionaryEntry(entry);
+				
+				transactionCounter++;
+				
+				if (transactionCounter >= 1000) {
+					transactionCounter = 0;
+					
+					try {
+						sqliteConnector.commitTransaction();
+					} finally {
+						sqliteConnector.endTransaction();
+					}
+					
+					sqliteConnector.beginTransaction();
+				}
 			}
 			
 			sqliteConnector.commitTransaction();
