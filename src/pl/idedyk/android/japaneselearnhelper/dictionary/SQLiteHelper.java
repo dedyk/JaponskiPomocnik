@@ -16,6 +16,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		
 		db.execSQL(SQLiteStatic.dictionaryEntriesTableCreate);
+		db.execSQL(SQLiteStatic.kanjiEntriesTableCreate);
 		
 		needInsertData = true;
 	}
@@ -24,6 +25,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 				
 	    db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.dictionaryEntriesTableName);
+	    db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.kanjiEntriesTableName);
 	    
 	    onCreate(db);
 	}

@@ -5,6 +5,8 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 
 public class Utils {
@@ -82,6 +84,56 @@ public class Utils {
 		entry.setTranslates(parseStringIntoList(translateListString, true));
 		
 		entry.setInfo(infoString);
+		
+		return entry;
+	}
+	
+	public static KanjiEntry parseKanjiEntry(String idString,
+			String kanjiString,
+			String strokeCountString,
+			String radicalsString,
+			String onReadingString,
+			String kunReadingString,
+			String strokePathString,
+			String polishTranslateListString,
+			String infoString) throws DictionaryException {
+		
+		int id = Integer.parseInt(idString);
+		
+		if (kanjiString.equals("") == true) {
+			throw new DictionaryException("Empty kanji!");
+		}
+		
+		KanjiDic2Entry kanjiDic2Entry = null;
+		
+		if (strokeCountString.equals("") == false) {
+			
+			kanjiDic2Entry = new KanjiDic2Entry();
+			
+			int strokeCount = Integer.parseInt(strokeCountString);
+			
+			List<String> radicals = parseStringIntoList(radicalsString, false);
+		
+			List<String> onReading = parseStringIntoList(onReadingString, false);
+		
+			List<String> kunReading = parseStringIntoList(kunReadingString, false);
+			
+			kanjiDic2Entry.setKanji(kanjiString);
+			kanjiDic2Entry.setStrokeCount(strokeCount);
+			kanjiDic2Entry.setRadicals(radicals);
+			kanjiDic2Entry.setKunReading(kunReading);
+			kanjiDic2Entry.setOnReading(onReading);
+		}
+				
+		KanjiEntry entry = new KanjiEntry();
+		
+		entry.setId(id);
+		entry.setKanji(kanjiString);
+		entry.setStrokePaths(parseStringIntoList(strokePathString, false));
+		entry.setPolishTranslates(parseStringIntoList(polishTranslateListString, false));
+		entry.setInfo(infoString);
+					
+		entry.setKanjiDic2Entry(kanjiDic2Entry);
 		
 		return entry;
 	}

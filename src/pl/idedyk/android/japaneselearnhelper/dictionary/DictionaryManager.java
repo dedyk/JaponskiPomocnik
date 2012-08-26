@@ -390,65 +390,67 @@ public class DictionaryManager {
 		
 		int currentPos = 1;
 		
-		while(csvReader.readRecord()) {
-			
-			currentPos++;
-			
-			loadWithProgress.setCurrentPos(currentPos);
-			
-			int id = Integer.parseInt(csvReader.get(0));
-			
-			String kanjiString = csvReader.get(1);
-			
-			if (kanjiString.equals("") == true) {
-				throw new DictionaryException("Empty kanji!");
-			}
-			
-			String strokeCountString = csvReader.get(2);
-			
-			KanjiDic2Entry kanjiDic2Entry = null;
-			
-			if (strokeCountString.equals("") == false) {
-				
-				kanjiDic2Entry = new KanjiDic2Entry();
-				
-				int strokeCount = Integer.parseInt(strokeCountString);
-			
+		int transactionCounter = 0;
+		
+		sqliteConnector.beginTransaction();
+		
+		try {
+			while(csvReader.readRecord()) {
+
+				currentPos++;
+
+				loadWithProgress.setCurrentPos(currentPos);
+
+				String idString = csvReader.get(0);
+
+				String kanjiString = csvReader.get(1);
+
+				String strokeCountString = csvReader.get(2);
+
 				String radicalsString = csvReader.get(3);
-				List<String> radicals = Utils.parseStringIntoList(radicalsString, false);
-			
+
 				String onReadingString = csvReader.get(4);
-				List<String> onReading = Utils.parseStringIntoList(onReadingString, false);
-			
+
 				String kunReadingString = csvReader.get(5);
-				List<String> kunReading = Utils.parseStringIntoList(kunReadingString, false);
-				
-				kanjiDic2Entry.setKanji(kanjiString);
-				kanjiDic2Entry.setStrokeCount(strokeCount);
-				kanjiDic2Entry.setRadicals(radicals);
-				kanjiDic2Entry.setKunReading(kunReading);
-				kanjiDic2Entry.setOnReading(onReading);
-				
+
+				String strokePathString = csvReader.get(6);
+
+				String polishTranslateListString = csvReader.get(7);
+				String infoString = csvReader.get(8);
+
+				KanjiEntry entry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
+						radicalsString, onReadingString, kunReadingString, strokePathString, 
+						polishTranslateListString, infoString);
+
 				// update radical info
-				updateRadicalInfoUse(radicalListMapCache, radicals);
+				if (entry.getKanjiDic2Entry() != null) {
+					updateRadicalInfoUse(radicalListMapCache, entry.getKanjiDic2Entry().getRadicals());	
+				}
+				
+				// insert
+				sqliteConnector.insertKanjiEntry(entry);
+				
+				transactionCounter++;
+				
+				if (transactionCounter >= 1000) {
+					transactionCounter = 0;
+					
+					try {
+						sqliteConnector.commitTransaction();
+					} finally {
+						sqliteConnector.endTransaction();
+					}
+					
+					sqliteConnector.beginTransaction();
+				}
+
+				kanjiEntriesMap.put(kanjiString, entry);
 			}
 			
-			String strokePathString = csvReader.get(6);
+			sqliteConnector.commitTransaction();
 			
-			String polishTranslateListString = csvReader.get(7);
-			String infoString = csvReader.get(8);
-			
-			KanjiEntry entry = new KanjiEntry();
-			
-			entry.setId(id);
-			entry.setKanji(kanjiString);
-			entry.setStrokePaths(Utils.parseStringIntoList(strokePathString, false));
-			entry.setPolishTranslates(Utils.parseStringIntoList(polishTranslateListString, false));
-			entry.setInfo(infoString);
-						
-			entry.setKanjiDic2Entry(kanjiDic2Entry);
-			
-			kanjiEntriesMap.put(kanjiString, entry);
+		} finally {
+			sqliteConnector.endTransaction();
 		}
 		
 		csvReader.close();

@@ -18,6 +18,18 @@ public class SQLiteStatic {
 	public static final String dictionaryEntriesTable_translates = "translates";
 	public static final String dictionaryEntriesTable_info = "info";
 	
+	public static final String kanjiEntriesTableName = "KanjiEntries";
+	
+	public static final String kanjiEntriesTable_id = "id";
+	public static final String kanjiEntriesTable_kanji = "kanji";
+	public static final String kanjiEntriesTable_strokeCount = "strokeCount";
+	public static final String kanjiEntriesTable_radicals = "radicals";
+	public static final String kanjiEntriesTable_onReading = "onReading";
+	public static final String kanjiEntriesTable_kunReading = "kunReading";
+	public static final String kanjiEntriesTable_strokePaths = "strokePaths";
+	public static final String kanjiEntriesTable_polishTranslates = "polishTranslates";
+	public static final String kanjiEntriesTable_info = "info";	
+	
 	public static final String dictionaryEntriesTableCreate = 
 			"create table " + dictionaryEntriesTableName + "(" +
 			dictionaryEntriesTable_id + " integer primary key, " +
@@ -29,6 +41,18 @@ public class SQLiteStatic {
 			dictionaryEntriesTable_romajiList + " text not null, " +
 			dictionaryEntriesTable_translates + " text not null, " +
 			dictionaryEntriesTable_info + " text not null);";
+	
+	public static final String kanjiEntriesTableCreate =
+			"create table " + kanjiEntriesTableName + "(" +
+			kanjiEntriesTable_id + " integer primary key, " +
+			kanjiEntriesTable_kanji + " text unique not null, " +
+			kanjiEntriesTable_strokeCount + " text not null, " +
+			kanjiEntriesTable_radicals + " text not null, " +
+			kanjiEntriesTable_onReading + " text not null, " +
+			kanjiEntriesTable_kunReading + " text not null, " +
+			kanjiEntriesTable_strokePaths + " text not null, " +
+			kanjiEntriesTable_polishTranslates + " text not null, " +
+			kanjiEntriesTable_info + " text not null);";
 	
 	public static final String dictionaryEntriesTableCreateCount = 
 			"select count(*) from " + dictionaryEntriesTableName;

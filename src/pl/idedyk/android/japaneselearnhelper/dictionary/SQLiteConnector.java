@@ -3,6 +3,8 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 import java.util.ArrayList;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import android.content.ContentValues;
 import android.content.Context;
@@ -182,5 +184,33 @@ public class SQLiteConnector {
 		}
 		
 		return findWordResult;
+	}
+		
+	public void insertKanjiEntry(KanjiEntry kanjiEntry) {
+				
+		ContentValues values = new ContentValues();
+		
+		values.put(SQLiteStatic.kanjiEntriesTable_id, kanjiEntry.getId());
+		values.put(SQLiteStatic.kanjiEntriesTable_kanji, kanjiEntry.getKanji());
+		
+		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
+		
+		if (kanjiDic2Entry != null) {
+			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, kanjiDic2Entry.getStrokeCount());
+			values.put(SQLiteStatic.kanjiEntriesTable_radicals, Utils.convertListToString(kanjiDic2Entry.getRadicals()));
+			values.put(SQLiteStatic.kanjiEntriesTable_onReading, Utils.convertListToString(kanjiDic2Entry.getOnReading()));
+			values.put(SQLiteStatic.kanjiEntriesTable_kunReading, Utils.convertListToString(kanjiDic2Entry.getKunReading()));
+		} else {
+			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, "");
+			values.put(SQLiteStatic.kanjiEntriesTable_radicals, "");
+			values.put(SQLiteStatic.kanjiEntriesTable_onReading, "");
+			values.put(SQLiteStatic.kanjiEntriesTable_kunReading, "");			
+		}
+		
+		values.put(SQLiteStatic.kanjiEntriesTable_strokePaths, Utils.convertListToString(kanjiEntry.getStrokePaths()));
+		values.put(SQLiteStatic.kanjiEntriesTable_polishTranslates, Utils.convertListToString(kanjiEntry.getPolishTranslates()));
+		values.put(SQLiteStatic.kanjiEntriesTable_info, emptyIfNull(kanjiEntry.getInfo()));
+		
+		sqliteDatabase.insertOrThrow(SQLiteStatic.kanjiEntriesTableName, null, values);
 	}
 }
