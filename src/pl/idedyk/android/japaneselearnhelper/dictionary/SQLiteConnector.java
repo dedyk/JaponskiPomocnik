@@ -39,18 +39,30 @@ public class SQLiteConnector {
 		return sqliteHelper.isNeedInsertData();
 	}
 	
+	public void beginTransaction() {
+		sqliteDatabase.beginTransaction();
+	}
+	
+	public void commitTransaction() {
+		sqliteDatabase.setTransactionSuccessful();
+	}
+	
+	public void endTransaction() {
+		sqliteDatabase.endTransaction();
+	}
+	
 	public void insertDictionaryEntry(DictionaryEntry dictionaryEntry) {
 		
 		ContentValues values = new ContentValues();
 		
 		values.put(SQLiteStatic.dictionaryEntriesTable_id, dictionaryEntry.getId());		
-		values.put(SQLiteStatic.dictionaryEntriesTable_dictionaryEntryType, emptyIfNull(dictionaryEntry.getDictionaryEntryType().toString()));
+		values.put(SQLiteStatic.dictionaryEntriesTable_dictionaryEntryType, dictionaryEntry.getDictionaryEntryType().toString());
 		values.put(SQLiteStatic.dictionaryEntriesTable_prefixKana, emptyIfNull(dictionaryEntry.getPrefixKana()));
 		values.put(SQLiteStatic.dictionaryEntriesTable_kanji, emptyIfNull(dictionaryEntry.getKanji()));
-		values.put(SQLiteStatic.dictionaryEntriesTable_kanaList, emptyIfNull(Utils.convertListToString(dictionaryEntry.getKanaList())));
+		values.put(SQLiteStatic.dictionaryEntriesTable_kanaList, Utils.convertListToString(dictionaryEntry.getKanaList()));
 		values.put(SQLiteStatic.dictionaryEntriesTable_prefixRomaji, emptyIfNull(dictionaryEntry.getPrefixRomaji()));
-		values.put(SQLiteStatic.dictionaryEntriesTable_romajiList, emptyIfNull(Utils.convertListToString(dictionaryEntry.getRomajiList())));
-		values.put(SQLiteStatic.dictionaryEntriesTable_translates, emptyIfNull(Utils.convertListToString(dictionaryEntry.getTranslates())));
+		values.put(SQLiteStatic.dictionaryEntriesTable_romajiList, Utils.convertListToString(dictionaryEntry.getRomajiList()));
+		values.put(SQLiteStatic.dictionaryEntriesTable_translates, Utils.convertListToString(dictionaryEntry.getTranslates()));
 		values.put(SQLiteStatic.dictionaryEntriesTable_info, emptyIfNull(dictionaryEntry.getInfo()));		
 		
 		sqliteDatabase.insertOrThrow(SQLiteStatic.dictionaryEntriesTableName, null, values);

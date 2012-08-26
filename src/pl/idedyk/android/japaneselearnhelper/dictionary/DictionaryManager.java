@@ -152,29 +152,37 @@ public class DictionaryManager {
 		
 		int currentPos = 1;
 		
-		while(csvReader.readRecord()) {
+		sqliteConnector.beginTransaction();
+		
+		try {
+			while(csvReader.readRecord()) {
+				
+				currentPos++;
+				
+				loadWithProgress.setCurrentPos(currentPos);
+				
+				String idString = csvReader.get(0);
+				String dictionaryEntryTypeString = csvReader.get(2);
+				String prefixKanaString = csvReader.get(4);
+				String kanjiString = csvReader.get(5);
+							
+				String kanaListString = csvReader.get(6);
+				String prefixRomajiString = csvReader.get(7);
+				
+				String romajiListString = csvReader.get(8);
+				String translateListString = csvReader.get(9);
+				String infoString = csvReader.get(10);
+							
+				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, 
+						prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
+						romajiListString, translateListString, infoString);
+				
+				sqliteConnector.insertDictionaryEntry(entry);
+			}
 			
-			currentPos++;
-			
-			loadWithProgress.setCurrentPos(currentPos);
-			
-			String idString = csvReader.get(0);
-			String dictionaryEntryTypeString = csvReader.get(2);
-			String prefixKanaString = csvReader.get(4);
-			String kanjiString = csvReader.get(5);
-						
-			String kanaListString = csvReader.get(6);
-			String prefixRomajiString = csvReader.get(7);
-			
-			String romajiListString = csvReader.get(8);
-			String translateListString = csvReader.get(9);
-			String infoString = csvReader.get(10);
-						
-			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, 
-					prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
-					romajiListString, translateListString, infoString);
-			
-			sqliteConnector.insertDictionaryEntry(entry);
+			sqliteConnector.commitTransaction();
+		} finally {
+			sqliteConnector.endTransaction();
 		}
 		
 		csvReader.close();

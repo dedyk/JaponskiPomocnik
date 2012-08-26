@@ -63,5 +63,5 @@ public class SQLiteStatic {
 			dictionaryEntriesTable_kanaList + " like ? or" +
 			" lower(" + dictionaryEntriesTable_romajiList + ") like ? or" +
 			" lower(" + dictionaryEntriesTable_translates + ") like ? or" +
-			" lower(" + dictionaryEntriesTable_info + ") like ? limit " + MAX_SEARCH_RESULT;					
+			" lower(" + dictionaryEntriesTable_info + ") like ? limit " + (MAX_SEARCH_RESULT - 1);					
 }
