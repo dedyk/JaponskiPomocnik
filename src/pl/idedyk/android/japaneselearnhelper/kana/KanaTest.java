@@ -129,15 +129,15 @@ public class KanaTest extends Activity {
 		RangeTest rangeTest = kanaTestContext.getRangeTest();
 		
 		if (rangeTest == RangeTest.HIRAGANA) {
-			allKanaEntries = KanaHelper.getAllHiraganaKanaEntries();
+			allKanaEntries = KanaHelper.getInstance().getAllHiraganaKanaEntries();
 			
 		} else if (rangeTest == RangeTest.KATAKANA) {
-			allKanaEntries = KanaHelper.getAllKatakanaKanaEntries();
+			allKanaEntries = KanaHelper.getInstance().getAllKatakanaKanaEntries();
 			
 		} else if (rangeTest == RangeTest.HIRAGANA_KATAKANA) {
 			
-			List<KanaEntry> allHiraganaEntries = KanaHelper.getAllHiraganaKanaEntries();
-			List<KanaEntry> allKatakanaEntries = KanaHelper.getAllKatakanaKanaEntries();
+			List<KanaEntry> allHiraganaEntries = KanaHelper.getInstance().getAllHiraganaKanaEntries();
+			List<KanaEntry> allKatakanaEntries = KanaHelper.getInstance().getAllKatakanaKanaEntries();
 			
 			allKanaEntries = new ArrayList<KanaEntry>();
 			

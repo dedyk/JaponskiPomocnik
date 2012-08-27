@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class KanaEntry implements Serializable {
 	
@@ -13,6 +14,8 @@ public class KanaEntry implements Serializable {
 	private KanaType kanaType;
 	
 	private KanaGroup kanaGroup;
+	
+	private List<List<String>> strokePaths;
 
 	public KanaEntry(String kanaJapanese, String kana, KanaType kanaType, KanaGroup kanaGroup) {
 		this.kanaJapanese = kanaJapanese;
@@ -37,6 +40,19 @@ public class KanaEntry implements Serializable {
 		return kanaGroup;
 	}
 	
+	public List<List<String>> getStrokePaths() {
+		return strokePaths;
+	}
+
+	public void setStrokePaths(List<List<String>> strokePaths) {
+		
+		if (this.strokePaths != null) {
+			throw new RuntimeException("this.strokePaths != null");
+		}
+		
+		this.strokePaths = strokePaths;
+	}
+
 	public static enum KanaType {
 		HIRAGANA,
 		

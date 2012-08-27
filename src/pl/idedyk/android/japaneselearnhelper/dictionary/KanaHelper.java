@@ -12,7 +12,37 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryExce
 
 public class KanaHelper {
 	
-	public static String createKanaString(KanaWord kanaWord) {
+	private static KanaHelper instance;
+	
+	public static KanaHelper getInstance() {
+		
+		if (instance == null) {
+			throw new RuntimeException("No kana helper");
+		}
+		
+		return instance;
+	}
+	
+	private List<KanaEntry> hiraganaEntries = null;
+	
+	private List<KanaEntry> katakanaEntries = null;
+	
+	KanaHelper(Map<String, List<List<String>>> kanaAndStrokePaths) {
+		
+		if (instance != null) {
+			throw new RuntimeException("instance != null");
+		}
+		
+		getAllHiraganaKanaEntries();
+		setHiraganaStrokePaths(kanaAndStrokePaths);
+		
+		getAllKatakanaKanaEntries();
+		setKatakanaStrokePaths(kanaAndStrokePaths);
+		
+		instance = this;
+	}
+	
+	public String createKanaString(KanaWord kanaWord) {
 		
 		StringBuffer sb = new StringBuffer();
 		
@@ -23,7 +53,7 @@ public class KanaHelper {
 		return sb.toString();
 	}
 	
-	public static String createRomajiString(KanaWord kanaWord) {
+	public String createRomajiString(KanaWord kanaWord) {
 
 		StringBuffer sb = new StringBuffer();
 
@@ -69,9 +99,13 @@ public class KanaHelper {
 		return sb.toString();
 	}
 	
-	public static List<KanaEntry> getAllHiraganaKanaEntries() {
+	public List<KanaEntry> getAllHiraganaKanaEntries() {
 		
-		List<KanaEntry> hiraganaEntries = new ArrayList<KanaEntry>();
+		if (hiraganaEntries != null) {
+			return hiraganaEntries;
+		}
+		
+		hiraganaEntries = new ArrayList<KanaEntry>();
 		
 		hiraganaEntries.add(new KanaEntry("あ", "a", KanaType.HIRAGANA, KanaGroup.GOJUUON));
 		hiraganaEntries.add(new KanaEntry("い", "i", KanaType.HIRAGANA, KanaGroup.GOJUUON));
@@ -209,9 +243,29 @@ public class KanaHelper {
 		return hiraganaEntries;		
 	}
 	
-	public static List<KanaEntry> getAllKatakanaKanaEntries() {
+	private void setHiraganaStrokePaths(Map<String, List<List<String>>> kanaAndStrokePaths) {
+
+		for (KanaEntry currentKanaEntry : hiraganaEntries) {
+
+			String kanaJapanese = currentKanaEntry.getKanaJapanese();
+			
+			List<List<String>> strokePaths = kanaAndStrokePaths.get(kanaJapanese);
+			
+			if (strokePaths == null) {
+				throw new RuntimeException("strokePaths == null");
+			}
+			
+			currentKanaEntry.setStrokePaths(strokePaths);
+		}
+	}
+	
+	public List<KanaEntry> getAllKatakanaKanaEntries() {
 		
-		List<KanaEntry> katakanaEntries = new ArrayList<KanaEntry>();
+		if (katakanaEntries != null) {
+			return katakanaEntries;
+		}
+		
+		katakanaEntries = new ArrayList<KanaEntry>();
 		
 		katakanaEntries.add(new KanaEntry("ア", "a", KanaType.KATAKANA, KanaGroup.GOJUUON));
 		katakanaEntries.add(new KanaEntry("イ", "i", KanaType.KATAKANA, KanaGroup.GOJUUON));
@@ -366,7 +420,23 @@ public class KanaHelper {
 		return katakanaEntries;
 	}
 	
-	public static Map<String, KanaEntry> getKanaCache() {
+	private void setKatakanaStrokePaths(Map<String, List<List<String>>> kanaAndStrokePaths) {
+
+		for (KanaEntry currentKanaEntry : katakanaEntries) {
+
+			String kanaJapanese = currentKanaEntry.getKanaJapanese();
+			
+			List<List<String>> strokePaths = kanaAndStrokePaths.get(kanaJapanese);
+			
+			if (strokePaths == null) {
+				throw new RuntimeException("strokePaths == null");
+			}
+			
+			currentKanaEntry.setStrokePaths(strokePaths);
+		}
+	}
+	
+	public Map<String, KanaEntry> getKanaCache() {
 		
 		List<KanaEntry> hiraganaEntries = getAllHiraganaKanaEntries();
 		List<KanaEntry> allKatakanaKanaEntries = getAllKatakanaKanaEntries();
@@ -384,7 +454,7 @@ public class KanaHelper {
 		return kanaCache;
 	}
 	
-	public static KanaWord convertRomajiIntoHiraganaWord(Map<String, KanaEntry> hiraganaCache, String word) throws DictionaryException {
+	public KanaWord convertRomajiIntoHiraganaWord(Map<String, KanaEntry> hiraganaCache, String word) throws DictionaryException {
 		
 		word = word.toLowerCase();
 		
@@ -765,7 +835,7 @@ public class KanaHelper {
 		return result;	
 	}
 
-	public static KanaWord convertRomajiIntoKatakanaWord(Map<String, KanaEntry> kitakanaCache, String word) throws DictionaryException {
+	public KanaWord convertRomajiIntoKatakanaWord(Map<String, KanaEntry> kitakanaCache, String word) throws DictionaryException {
 		
 		word = word.toLowerCase();
 		
@@ -1191,7 +1261,7 @@ public class KanaHelper {
 		}
 	}
 	
-	public static KanaWord convertKanaStringIntoKanaWord(String kana, Map<String, KanaEntry> kanaCache) {
+	public KanaWord convertKanaStringIntoKanaWord(String kana, Map<String, KanaEntry> kanaCache) {
 
 		List<KanaEntry> kanaResultEntries = new ArrayList<KanaEntry>();
 

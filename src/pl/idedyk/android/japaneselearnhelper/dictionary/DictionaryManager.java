@@ -27,11 +27,13 @@ public class DictionaryManager {
 	
 	private static int GROUP_SIZE = 10;
 	
-	private static final String FILE_WORD = "word.csv";
+	private static final String WORD_FILE = "word.csv";
 	
-	private static final String KANJI_WORD = "kanji.csv";
+	private static final String KANJI_FILE = "kanji.csv";
 	
-	private static final String RADICAL_WORD = "radical.csv";
+	private static final String RADICAL_FILE = "radical.csv";
+	
+	private static final String KANA_FILE = "kana.csv";
 
 	private static DictionaryManager instance;
 	
@@ -67,21 +69,34 @@ public class DictionaryManager {
 			
 			if (needInsertData == true) {
 
-				InputStream fileWordInputStream = assets.open(FILE_WORD);
+				InputStream fileWordInputStream = assets.open(WORD_FILE);
 
 				int wordFileSize = getWordSize(fileWordInputStream);
 
 				loadWithProgress.setMaxValue(wordFileSize);
 
-				fileWordInputStream = assets.open(FILE_WORD);
+				fileWordInputStream = assets.open(WORD_FILE);
 
 				readDictionaryFile(fileWordInputStream, loadWithProgress);
 			} else {
 				fakeProgress(loadWithProgress);
 			}
 			
+			// wczytanie informacji o pisaniu znakow kana
+			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kana));
+							
+			InputStream kanaFileInputStream = assets.open(KANA_FILE);
+
+			int kanaFileSize = getWordSize(kanaFileInputStream);
+			
+			loadWithProgress.setMaxValue(kanaFileSize);
+
+			kanaFileInputStream = assets.open(KANA_FILE);
+			
+			readKanaFile(kanaFileInputStream, loadWithProgress);
+			
 			// wczytywanie informacji o znakach podstawowych
-			InputStream radicalInputStream = assets.open(RADICAL_WORD);
+			InputStream radicalInputStream = assets.open(RADICAL_FILE);
 
 			int radicalFileSize = getWordSize(radicalInputStream);
 
@@ -90,7 +105,7 @@ public class DictionaryManager {
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_radical));
 
-			radicalInputStream = assets.open(RADICAL_WORD);
+			radicalInputStream = assets.open(RADICAL_FILE);
 
 			readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);			
 
@@ -99,14 +114,14 @@ public class DictionaryManager {
 			
 			if (needInsertData == true) {
 
-				InputStream kanjiInputStream = assets.open(KANJI_WORD);
+				InputStream kanjiInputStream = assets.open(KANJI_FILE);
 
 				int kanjiFileSize = getWordSize(kanjiInputStream);
 
 				loadWithProgress.setCurrentPos(0);
 				loadWithProgress.setMaxValue(kanjiFileSize);
 
-				kanjiInputStream = assets.open(KANJI_WORD);
+				kanjiInputStream = assets.open(KANJI_FILE);
 
 				readKanjiDictionaryFile(kanjiInputStream, loadWithProgress);
 			} else {
@@ -243,7 +258,7 @@ public class DictionaryManager {
 			throw new RuntimeException(e);
 		}
 		
-		final Map<String, KanaEntry> kanaCache = KanaHelper.getKanaCache();
+		final Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
 		
 		Collections.sort(findWordResult.result, new Comparator<DictionaryEntry>() {
 
@@ -282,8 +297,8 @@ public class DictionaryManager {
 				} else if (lhsString == null && rhsString != null) {
 					return 1;
 				} else {
-					String lhsRomaji = KanaHelper.createRomajiString(KanaHelper.convertKanaStringIntoKanaWord(lhsString, kanaCache));
-					String rhsRomaji = KanaHelper.createRomajiString(KanaHelper.convertKanaStringIntoKanaWord(rhsString, kanaCache));
+					String lhsRomaji = KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(lhsString, kanaCache));
+					String rhsRomaji = KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(rhsString, kanaCache));
 					
 					return lhsRomaji.compareToIgnoreCase(rhsRomaji);
 				}
@@ -592,5 +607,43 @@ public class DictionaryManager {
 	
 	public void close() {
 		sqliteConnector.close();
+	}
+	
+	private void readKanaFile(InputStream kanaFileInputStream, ILoadWithProgress loadWithProgress) throws IOException {
+		
+		CsvReader csvReader = new CsvReader(new InputStreamReader(kanaFileInputStream), ',');
+		
+		int currentPos = 1;
+		
+		Map<String, List<List<String>>> kanaAndStrokePaths = new HashMap<String, List<List<String>>>();
+		
+		while(csvReader.readRecord()) {			
+			
+			currentPos++;
+			
+			loadWithProgress.setCurrentPos(currentPos);
+			
+			//int id = Integer.parseInt(csvReader.get(0));
+			
+			String kana = csvReader.get(1);
+			
+			String strokePath1String = csvReader.get(2);
+			
+			String strokePath2String = csvReader.get(3);
+			
+			List<List<String>> strokePaths = new ArrayList<List<String>>();
+			
+			strokePaths.add(Utils.parseStringIntoList(strokePath1String, false));
+			
+			if (strokePath2String == null || strokePath2String.equals("") == false) {
+				strokePaths.add(Utils.parseStringIntoList(strokePath2String, false));
+			}
+			
+			kanaAndStrokePaths.put(kana, strokePaths);
+		}
+		
+		new KanaHelper(kanaAndStrokePaths);
+		
+		csvReader.close();		
 	}
 }
