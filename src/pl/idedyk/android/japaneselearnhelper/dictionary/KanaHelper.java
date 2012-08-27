@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -239,7 +240,9 @@ public class KanaHelper {
 		hiraganaEntries.add(new KanaEntry("ぴょ", "pyo", KanaType.HIRAGANA, KanaGroup.YOUON));
 		
 		hiraganaEntries.add(new KanaEntry("っ", "ttsu", KanaType.HIRAGANA, KanaGroup.SOKUON));
-				
+		
+		hiraganaEntries = Collections.unmodifiableList(hiraganaEntries);
+		
 		return hiraganaEntries;		
 	}
 	
@@ -416,6 +419,8 @@ public class KanaHelper {
 		
 		katakanaEntries.add(new KanaEntry("ッ", "ttsu", KanaType.KATAKANA, KanaGroup.SOKUON));
 		katakanaEntries.add(new KanaEntry("ー", "ttsu2", KanaType.KATAKANA, KanaGroup.SOKUON));
+		
+		katakanaEntries = Collections.unmodifiableList(katakanaEntries);
 		
 		return katakanaEntries;
 	}
