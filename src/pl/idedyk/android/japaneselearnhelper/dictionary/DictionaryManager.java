@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.zip.GZIPInputStream;
 
 import android.content.res.AssetManager;
 import android.content.res.Resources;
@@ -68,13 +67,13 @@ public class DictionaryManager {
 			
 			if (needInsertData == true) {
 
-				InputStream fileWordInputStream = new GZIPInputStream(assets.open(FILE_WORD));
+				InputStream fileWordInputStream = assets.open(FILE_WORD);
 
 				int wordFileSize = getWordSize(fileWordInputStream);
 
 				loadWithProgress.setMaxValue(wordFileSize);
 
-				fileWordInputStream = new GZIPInputStream(assets.open(FILE_WORD));
+				fileWordInputStream = assets.open(FILE_WORD);
 
 				readDictionaryFile(fileWordInputStream, loadWithProgress);
 			} else {
@@ -82,7 +81,7 @@ public class DictionaryManager {
 			}
 			
 			// wczytywanie informacji o znakach podstawowych
-			InputStream radicalInputStream = new GZIPInputStream(assets.open(RADICAL_WORD));
+			InputStream radicalInputStream = assets.open(RADICAL_WORD);
 
 			int radicalFileSize = getWordSize(radicalInputStream);
 
@@ -91,7 +90,7 @@ public class DictionaryManager {
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_radical));
 
-			radicalInputStream = new GZIPInputStream(assets.open(RADICAL_WORD));
+			radicalInputStream = assets.open(RADICAL_WORD);
 
 			readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);			
 
@@ -100,14 +99,14 @@ public class DictionaryManager {
 			
 			if (needInsertData == true) {
 
-				InputStream kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
+				InputStream kanjiInputStream = assets.open(KANJI_WORD);
 
 				int kanjiFileSize = getWordSize(kanjiInputStream);
 
 				loadWithProgress.setCurrentPos(0);
 				loadWithProgress.setMaxValue(kanjiFileSize);
 
-				kanjiInputStream = new GZIPInputStream(assets.open(KANJI_WORD));
+				kanjiInputStream = assets.open(KANJI_WORD);
 
 				readKanjiDictionaryFile(kanjiInputStream, loadWithProgress);
 			} else {
