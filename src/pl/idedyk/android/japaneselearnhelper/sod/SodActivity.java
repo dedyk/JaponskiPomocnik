@@ -9,7 +9,6 @@ import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import android.app.Activity;
 import android.graphics.Matrix;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -143,9 +142,13 @@ public class SodActivity extends Activity implements OnClickListener {
         
         List<List<String>> strokePaths = strokePathsInfo.getStrokePaths();
         
+        float moveX = 0.0f;
+        
         for (int charStrokePathsIdx = 0; charStrokePathsIdx < strokePaths.size(); ++charStrokePathsIdx) {
         	
         	List<String> currentCharStrokePaths = strokePaths.get(charStrokePathsIdx);
+        	
+        	float currentCharMaxX = 0.0f;
         	
             for (int i = 0; i < currentCharStrokePaths.size(); i++) {
                 String line = currentCharStrokePaths.get(i);
@@ -155,15 +158,16 @@ public class SodActivity extends Activity implements OnClickListener {
                     
                     // move
                     Matrix matrix = new Matrix();
-                    
-                    // FIXME !!!!!!!!!!
-                    matrix.setTranslate(charStrokePathsIdx * KANJIVG_SIZE, 0);
-                    
+                    matrix.setTranslate(moveX, 0);
                     strokePath.transformMoveTo(matrix);
+                    
+                    currentCharMaxX = Math.max(currentCharMaxX, strokePath.getMaxX());                    
                     
                     result.add(strokePath);
                 }
-            }	
+            }
+            
+            moveX += currentCharMaxX;
 		}
 
         return result;
