@@ -9,6 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import android.app.Activity;
 import android.graphics.Matrix;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -178,10 +179,6 @@ public class SodActivity extends Activity implements OnClickListener {
         	maxX = Math.max(strokePath.getMaxX(), maxX);
         	maxY = Math.max(strokePath.getMaxY(), maxY);
 		}
-        
-        // FIXME !!!!!!!!!!
-        //StrokedCharacter result = new StrokedCharacter(strokes, KANJIVG_SIZE * strokePathsInfo.getStrokePaths().size(),
-        //        KANJIVG_SIZE);
 
         StrokedCharacter result = new StrokedCharacter(strokes, maxX, maxY);
         

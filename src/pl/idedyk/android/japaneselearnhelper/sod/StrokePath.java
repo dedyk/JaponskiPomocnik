@@ -14,6 +14,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.Path.FillType;
@@ -40,9 +41,6 @@ public class StrokePath {
 
     private List<Path> segments;
     private int currentSegment;
-    
-    private float maxX = 0.0f;
-    private float maxY = 0.0f;
 
     public StrokePath(PointF moveTo) {
         this.moveTo = moveTo;
@@ -173,6 +171,7 @@ public class StrokePath {
                 lastP2 = c.getP2();
             }
         }
+                
         return path;
     }
 
@@ -318,24 +317,13 @@ public class StrokePath {
             }
 
             if (x != null && y != null) {
-            	
-            	float lastX = x;
-            	float lastY = y;
-            	
-            	if (result != null) {
-                	result.maxX = Math.max(result.maxX, lastX);
-                	result.maxY = Math.max(result.maxY, lastY);
-            	}
-            	            	
+            	            	            	
                 PointF p = new PointF(x, y);
                 x = null;
                 y = null;
 
                 if (isInMoveTo) {
                     result = new StrokePath(p);
-                    
-                	result.maxX = Math.max(result.maxX, lastX);
-                    result.maxY = Math.max(result.maxY, lastY);
                 } else {
                     if (p1 == null) {
                         p1 = p;
@@ -494,10 +482,23 @@ public class StrokePath {
     }
 
 	public float getMaxX() {
-		return maxX;
+		
+		Path curvesToPath = curvesToPath();
+		
+		RectF bounds = new RectF();
+		
+		curvesToPath.computeBounds(bounds, true);
+		
+		return bounds.right;
 	}
 
 	public float getMaxY() {
-		return maxY;
+		Path curvesToPath = curvesToPath();
+		
+		RectF bounds = new RectF();
+		
+		curvesToPath.computeBounds(bounds, true);
+		
+		return bounds.bottom;
 	}
 }
