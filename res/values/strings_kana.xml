@@ -7,6 +7,7 @@
     <string name="kana_katakana_additional_label">Katakana (dodatkowe)</string>
     <string name="kana_report_problem_email_subject">Japoński pomocnik - tablica hiragana i katakana: Problem</string>
     <string name="kana_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kana_info">Naciśnij na znak, aby uzyskać animację pisania znaku</string>
     <string name="kana_test_options_label">Opcje testu</string>
     <string name="kana_test_label">Test</string>
     <string name="kana_test_range">Zakres testu</string>

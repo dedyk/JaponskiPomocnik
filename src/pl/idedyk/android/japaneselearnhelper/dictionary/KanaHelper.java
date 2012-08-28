@@ -30,10 +30,6 @@ public class KanaHelper {
 	
 	KanaHelper(Map<String, List<List<String>>> kanaAndStrokePaths) {
 		
-		if (instance != null) {
-			throw new RuntimeException("instance != null");
-		}
-		
 		getAllHiraganaKanaEntries();
 		setHiraganaStrokePaths(kanaAndStrokePaths);
 		

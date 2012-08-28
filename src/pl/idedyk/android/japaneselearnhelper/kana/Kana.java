@@ -11,6 +11,7 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
+import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -85,6 +86,7 @@ public class Kana extends Activity {
 	private void generateHiraganaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
 		
 		screenItems.add(new TitleItem(getString(R.string.kana_hiragana_label), 0));
+		screenItems.add(new StringValue(getString(R.string.kana_info), 12.0f, 0));
 		
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow a_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 		
@@ -360,6 +362,7 @@ public class Kana extends Activity {
 	private void generateKatakanaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
 		
 		screenItems.add(new TitleItem(getString(R.string.kana_katakana_label), 0));
+		screenItems.add(new StringValue(getString(R.string.kana_info), 12.0f, 0));
 		
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow a_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 		
@@ -635,6 +638,7 @@ public class Kana extends Activity {
 	private void generateKatakanaAdditionalTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
 		
 		screenItems.add(new TitleItem(getString(R.string.kana_katakana_additional_label), 0));
+		screenItems.add(new StringValue(getString(R.string.kana_info), 12.0f, 0));
 
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow u_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
@@ -720,7 +724,7 @@ public class Kana extends Activity {
 		StringValue stringValue = null;
 		
 		if (kana != null) {
-			KanaEntry kanaEntry = kanaCache.get(kana);
+			final KanaEntry kanaEntry = kanaCache.get(kana);
 			
 			if (kanaEntry == null) {
 				throw new RuntimeException();
@@ -728,7 +732,30 @@ public class Kana extends Activity {
 			
 			Spanned spanned = Html.fromHtml("<b>" + kanaEntry.getKana() + "</b><br/>" + kanaEntry.getKanaJapanese() + "<br/>");
 			
-			stringValue = new StringValue(spanned, 20, 0);			
+			stringValue = new StringValue(spanned, 20, 0);	
+			
+			stringValue.setOnClickListener(new OnClickListener() {
+				
+				public void onClick(View v) {
+					
+					List<List<String>> allStrokePaths = kanaEntry.getStrokePaths();
+					
+					List<String> strokePaths = new ArrayList<String>();
+					
+					// FIXME !!!!
+					
+					for (List<String> currentStrokePaths : allStrokePaths) {
+						strokePaths.addAll(currentStrokePaths);
+					}
+					
+					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+					
+					intent.putStringArrayListExtra("strokePaths", (ArrayList<String>)strokePaths);
+					
+					startActivity(intent);					
+				}
+			});
+			
 		} else {
 			stringValue = new StringValue("", 20, 0);
 		}
