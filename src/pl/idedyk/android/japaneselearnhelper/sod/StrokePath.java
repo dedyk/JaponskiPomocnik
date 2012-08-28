@@ -118,7 +118,7 @@ public class StrokePath {
         canvas.drawPath(strokePath, strokePaint);
     }
 
-    private void transformMoveTo(Matrix matrix) {
+    public void transformMoveTo(Matrix matrix) {
         float[] cs = new float[2];
         cs[0] = moveTo.x;
         cs[1] = moveTo.y;
@@ -252,7 +252,7 @@ public class StrokePath {
         return new PointF((float) (2.0 * currentPoint.x - p.x),
                 (float) (2.0 * currentPoint.y - p.y));
     }
-
+    
     public static StrokePath parsePath(String path) {
         Log.d(TAG, "parsing " + path);
 

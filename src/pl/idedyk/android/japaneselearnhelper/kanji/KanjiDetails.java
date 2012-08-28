@@ -12,6 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
+import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -105,9 +106,16 @@ public class KanjiDetails extends Activity {
 				
 				public void onClick(View view) {
 
-					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+					StrokePathInfo strokePathInfo = new StrokePathInfo();
 					
-					intent.putStringArrayListExtra("strokePaths", (ArrayList<String>)strokePaths);
+					List<List<String>> strokePathsList = new ArrayList<List<String>>();
+					strokePathsList.add(strokePaths);
+					strokePathInfo.setStrokePaths(strokePathsList);
+
+					
+					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+										
+					intent.putExtra("strokePathsInfo", strokePathInfo);
 					
 					startActivity(intent);
 				}

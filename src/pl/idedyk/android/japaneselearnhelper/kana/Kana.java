@@ -12,6 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
+import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -740,17 +741,12 @@ public class Kana extends Activity {
 					
 					List<List<String>> allStrokePaths = kanaEntry.getStrokePaths();
 					
-					List<String> strokePaths = new ArrayList<String>();
-					
-					// FIXME !!!!
-					
-					for (List<String> currentStrokePaths : allStrokePaths) {
-						strokePaths.addAll(currentStrokePaths);
-					}
-					
+					StrokePathInfo strokePathInfo = new StrokePathInfo();
+					strokePathInfo.setStrokePaths(allStrokePaths);
+
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 					
-					intent.putStringArrayListExtra("strokePaths", (ArrayList<String>)strokePaths);
+					intent.putExtra("strokePathsInfo", strokePathInfo);
 					
 					startActivity(intent);					
 				}

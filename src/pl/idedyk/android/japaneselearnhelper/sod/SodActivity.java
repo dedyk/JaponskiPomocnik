@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 
 import android.app.Activity;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,7 +23,7 @@ public class SodActivity extends Activity implements OnClickListener {
     private Button clearButton;
     private Button animateButton;
     
-    private ArrayList<String> strokePaths;
+    private StrokePathInfo strokePathsInfo;
 
     private StrokeOrderView strokeOrderView;
 
@@ -39,7 +41,7 @@ public class SodActivity extends Activity implements OnClickListener {
         clearButton.setOnClickListener(this);
         animateButton.setOnClickListener(this);
         
-        strokePaths = getIntent().getStringArrayListExtra("strokePaths");
+        strokePathsInfo = (StrokePathInfo)getIntent().getSerializableExtra("strokePathsInfo");
         
         character = parseWsReply();
         
@@ -74,7 +76,7 @@ public class SodActivity extends Activity implements OnClickListener {
         super.onRestoreInstanceState(savedInstanceState);
 
         if (savedInstanceState != null) {
-        	strokePaths = savedInstanceState.getStringArrayList(SAVE_STATE_STROKE_PATHS);
+        	strokePathsInfo = (StrokePathInfo)savedInstanceState.getSerializable(SAVE_STATE_STROKE_PATHS);
         	
             character = parseWsReply();
             
@@ -89,7 +91,7 @@ public class SodActivity extends Activity implements OnClickListener {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putStringArrayList(SAVE_STATE_STROKE_PATHS, strokePaths);
+        outState.putSerializable(SAVE_STATE_STROKE_PATHS, strokePathsInfo);
     }
 
     void drawSod(StrokedCharacter character) {
@@ -138,15 +140,30 @@ public class SodActivity extends Activity implements OnClickListener {
 
         List<StrokePath> result = new ArrayList<StrokePath>();
         
-        for (int i = 0; i < strokePaths.size(); i++) {
-            String line = strokePaths.get(i);
-            
-            if (line != null && !"".equals(line)) {
-                StrokePath strokePath = StrokePath.parsePath(line.trim());
+        List<List<String>> strokePaths = strokePathsInfo.getStrokePaths();
+        
+        for (int charStrokePathsIdx = 0; charStrokePathsIdx < strokePaths.size(); ++charStrokePathsIdx) {
+        	
+        	List<String> currentCharStrokePaths = strokePaths.get(charStrokePathsIdx);
+        	
+            for (int i = 0; i < currentCharStrokePaths.size(); i++) {
+                String line = currentCharStrokePaths.get(i);
                 
-                result.add(strokePath);
-            }
-        }
+                if (line != null && !"".equals(line)) {
+                    StrokePath strokePath = StrokePath.parsePath(line.trim());
+                    
+                    // move
+                    Matrix matrix = new Matrix();
+                    
+                    // FIXME !!!!!!!!!!
+                    matrix.setTranslate(charStrokePathsIdx * KANJIVG_SIZE, 0);
+                    
+                    strokePath.transformMoveTo(matrix);
+                    
+                    result.add(strokePath);
+                }
+            }	
+		}
 
         return result;
     }
@@ -154,7 +171,8 @@ public class SodActivity extends Activity implements OnClickListener {
     private StrokedCharacter parseWsReply() {
         List<StrokePath> strokes = parseWsReplyStrokes();
         
-        StrokedCharacter result = new StrokedCharacter(strokes, KANJIVG_SIZE,
+        // FIXME !!!!!!!!!!
+        StrokedCharacter result = new StrokedCharacter(strokes, KANJIVG_SIZE * strokePathsInfo.getStrokePaths().size(),
                 KANJIVG_SIZE);
 
         return result;
