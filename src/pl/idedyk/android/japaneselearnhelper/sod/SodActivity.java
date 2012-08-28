@@ -171,10 +171,20 @@ public class SodActivity extends Activity implements OnClickListener {
     private StrokedCharacter parseWsReply() {
         List<StrokePath> strokes = parseWsReplyStrokes();
         
+        float maxX = 0.0f;
+        float maxY = 0.0f;
+        
+        for (StrokePath strokePath : strokes) {
+        	maxX = Math.max(strokePath.getMaxX(), maxX);
+        	maxY = Math.max(strokePath.getMaxY(), maxY);
+		}
+        
         // FIXME !!!!!!!!!!
-        StrokedCharacter result = new StrokedCharacter(strokes, KANJIVG_SIZE * strokePathsInfo.getStrokePaths().size(),
-                KANJIVG_SIZE);
+        //StrokedCharacter result = new StrokedCharacter(strokes, KANJIVG_SIZE * strokePathsInfo.getStrokePaths().size(),
+        //        KANJIVG_SIZE);
 
+        StrokedCharacter result = new StrokedCharacter(strokes, maxX, maxY);
+        
         return result;
     }
 }
