@@ -335,6 +335,13 @@ public class StrokePath {
 
                     if (!smooth) {
                         if (p1 != null && p2 != null && p3 != null) {
+                        	
+                        	if (relative == false) {
+                        		p1 = new PointF(p1.x + offsetX, p1.y);
+                        		p2 = new PointF(p2.x + offsetX, p2.y);
+                        		p3 = new PointF(p3.x + offsetX, p3.y);
+                        	}
+                        	
                             result.addCurve(new Curve(p1, p2, p3, relative,
                                     smooth));
                             p1 = null;
@@ -343,6 +350,12 @@ public class StrokePath {
                         }
                     } else {
                         if (p1 != null && p2 != null) {
+                        	
+                        	if (relative == false) {
+                        		p1 = new PointF(p1.x + offsetX, p1.y);
+                        		p2 = new PointF(p2.x + offsetX, p2.y);
+                        	}
+                        	
                             result.addCurve(new Curve(null, p1, p2, relative,
                                     smooth));
                             p1 = null;
@@ -394,7 +407,7 @@ public class StrokePath {
                         String path = parser.getAttributeValue(null, "path");
                         Log.d(TAG, "parsing " + path);
                         if (path != null && !"".equals(path)) {
-                            StrokePath strokePath = StrokePath.parsePath(path);
+                            StrokePath strokePath = StrokePath.parsePath(path, 0.0f);
                             if (strokePaths != null) {
                                 strokePaths.add(strokePath);
                             }
