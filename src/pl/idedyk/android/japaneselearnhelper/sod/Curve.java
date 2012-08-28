@@ -1,7 +1,7 @@
 /**
  * 
  */
-package pl.idedyk.android.japaneselearnhelper.kanji.sod;
+package pl.idedyk.android.japaneselearnhelper.sod;
 
 import android.graphics.PointF;
 

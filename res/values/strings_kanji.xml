@@ -28,9 +28,4 @@
     <string name="kanji_search_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem na liście wyszukiwania elementów podsawowych kanji</string>
     <string name="kanji_search_result_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\nWpisana fraza: %1$s\n\n--\nAktualna zawartość listy:\n\n%2$s\n</string>
     <string name="kanji_details_kanji_info">Naciśnij na znak, aby uzyskać animację pisania znaku</string>
-    <string name="kanji_details_sod_draw">Wyświetl znak</string>
-    <string name="kanji_details_sod_draw_anim">Pisz znak</string>
-    <string name="kanji_details_sod_draw_clear">Wyczyść</string>
-    <string name="kanji_details_sod_info">Powyższy fragment kodu został pobrany i dostosowany z aplikacji WWWJDIC for Android autorstwa Nikolay Elenkov udostępnionego na licencji Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0</string>
-    <string name="kanji_details_sod_label">Pisanie znaku kanji</string>
 </resources>

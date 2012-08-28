@@ -1,4 +1,4 @@
-package pl.idedyk.android.japaneselearnhelper.kanji.sod;
+package pl.idedyk.android.japaneselearnhelper.sod;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package pl.idedyk.android.japaneselearnhelper.kanji.sod;
+package pl.idedyk.android.japaneselearnhelper.sod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class SodActivity extends Activity implements OnClickListener {
 	
-	private static final String SAVE_STATE_STROKE_PATHS = "pl.idedyk.android.japaneselearnhelper.kanji.sod.SAVE_STATE_STROKE_PATHS";
+	private static final String SAVE_STATE_STROKE_PATHS = "pl.idedyk.android.japaneselearnhelper.sod.SAVE_STATE_STROKE_PATHS";
 	
     private static final float KANJIVG_SIZE = 109f;
 
@@ -31,7 +31,7 @@ public class SodActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.kanji_details_sod);
+        setContentView(R.layout.sod);
 
         findViews();
 
@@ -111,21 +111,21 @@ public class SodActivity extends Activity implements OnClickListener {
     }
 
     private void findViews() {
-        drawButton = (Button) findViewById(R.id.kanji_details_sod_draw_button);
-        clearButton = (Button) findViewById(R.id.kanji_details_sod_clear_button);
-        animateButton = (Button) findViewById(R.id.kanji_details_sod_animate_button);
+        drawButton = (Button) findViewById(R.id.sod_draw_button);
+        clearButton = (Button) findViewById(R.id.sod_clear_button);
+        animateButton = (Button) findViewById(R.id.sod_animate_button);
         strokeOrderView = (StrokeOrderView) findViewById(R.id.sod_draw_view);
     }
 
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.kanji_details_sod_draw_button:
+        case R.id.sod_draw_button:
             drawSod(character);
             break;
-        case R.id.kanji_details_sod_animate_button:
+        case R.id.sod_animate_button:
             animate(character);
             break;
-        case R.id.kanji_details_sod_clear_button:
+        case R.id.sod_clear_button:
             strokeOrderView.clear();
             strokeOrderView.invalidate();
             break;

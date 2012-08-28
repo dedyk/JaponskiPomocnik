@@ -8,7 +8,7 @@
 
     <application
         android:icon="@drawable/japan"
-        android:label="@string/app_name" android:name="JapaneseAndroidLearnHelperApplication">
+        android:label="@string/app_name" android:name=".JapaneseAndroidLearnHelperApplication">
         <activity android:name=".splash.Splash">
 
             <intent-filter>
@@ -34,7 +34,7 @@
         <activity android:name=".kanji.KanjiDetails" android:label="@string/kanji_details_label"></activity>
         <activity android:name=".kanji.KanjiSearch" android:label="@string/kanji_search_label"></activity>
         <activity android:name=".kanji.KanjiSearchResult" android:label="@string/kanji_entry_search_result_view_label"></activity>
-        <activity android:name=".kanji.sod.SodActivity" android:label="@string/kanji_details_sod_label"></activity>
+        <activity android:name=".sod.SodActivity" android:label="@string/sod_label"></activity>
     </application>
 
 </manifest>

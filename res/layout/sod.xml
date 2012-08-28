@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/kanji_details_sod_button_group"
+        android:id="@+id/sod_button_group"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="left|center_vertical"
@@ -18,28 +18,28 @@
         android:visibility="visible" >
 
         <Button
-            android:id="@+id/kanji_details_sod_draw_button"
+            android:id="@+id/sod_draw_button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="@string/kanji_details_sod_draw" />
+            android:text="@string/sod_draw" />
 
         <Button
-            android:id="@+id/kanji_details_sod_animate_button"
+            android:id="@+id/sod_animate_button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="@string/kanji_details_sod_draw_anim" />
+            android:text="@string/sod_draw_anim" />
 
         <Button
-            android:id="@+id/kanji_details_sod_clear_button"
+            android:id="@+id/sod_clear_button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="@string/kanji_details_sod_draw_clear" />
+            android:text="@string/sod_draw_clear" />
     </LinearLayout>
 
-    <pl.idedyk.android.japaneselearnhelper.kanji.sod.StrokeOrderView
+    <pl.idedyk.android.japaneselearnhelper.sod.StrokeOrderView
         android:id="@+id/sod_draw_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -52,6 +52,6 @@
         android:autoLink="web"
         android:linksClickable="true"
         android:layout_weight="1"
-        android:text="@string/kanji_details_sod_info" />
+        android:text="@string/sod_info" />
 
 </LinearLayout>
