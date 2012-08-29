@@ -106,8 +106,14 @@ public class StrokeOrderView extends View {
             }
             return;
         }
+        
+        float segmentLength = SEGMENT_LENGTH - 2 * character.getCharNumber();
 
-        character.segmentStrokes(scale, dx, dy, SEGMENT_LENGTH);
+        if (segmentLength < 5.0f) {
+        	segmentLength = 5.0f;
+        }
+        
+        character.segmentStrokes(scale, dx, dy, segmentLength);
 
         boolean advance = false;
         long time = (System.currentTimeMillis() - lastTick);
@@ -153,7 +159,7 @@ public class StrokeOrderView extends View {
         return annotateStrokes;
     }
 
-    public void setAnnotateStrokes(boolean annotateStrokes) {
+    public void setAnnotateStrokes(boolean annotateStrokes) {    	
         this.annotateStrokes = annotateStrokes;
     }
 
@@ -189,5 +195,4 @@ public class StrokeOrderView extends View {
         }
         invalidate();
     }
-
 }

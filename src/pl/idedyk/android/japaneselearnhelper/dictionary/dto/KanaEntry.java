@@ -69,6 +69,8 @@ public class KanaEntry implements Serializable {
 		
 		YOUON,
 		
-		SOKUON;
+		SOKUON,
+		
+		OTHER;
 	}
 }

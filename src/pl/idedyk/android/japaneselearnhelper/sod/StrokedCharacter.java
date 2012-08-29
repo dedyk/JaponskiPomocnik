@@ -19,6 +19,8 @@ public class StrokedCharacter {
     private boolean segemented;
 
     private boolean needsPaddding;
+    
+    private int charNumber = 0;
 
     public StrokedCharacter() {
         this.strokes = new ArrayList<StrokePath>();
@@ -151,4 +153,11 @@ public class StrokedCharacter {
         this.needsPaddding = needsPaddding;
     }
 
+	public void setCharNumber(int charNumber) {
+		this.charNumber = charNumber;
+	}
+
+	public int getCharNumber() {
+		return charNumber;
+	}
 }

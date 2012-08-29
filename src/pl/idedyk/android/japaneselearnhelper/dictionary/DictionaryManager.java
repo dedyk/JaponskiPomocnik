@@ -134,7 +134,19 @@ public class DictionaryManager {
 			// loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_count_word_forms));
 			//
 			// countForm(loadWithProgress);
-			
+			//
+			//
+			// int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
+			// 
+			// for (int dictionaryEntriesSizeIdx = 0; dictionaryEntriesSizeIdx < dictionaryEntriesSize; ++dictionaryEntriesSizeIdx) {
+			//	DictionaryEntry nthDictionaryEntry = sqliteConnector.getNthDictionaryEntry(dictionaryEntriesSizeIdx);
+			//	
+			//	getStrokePathsForWord(nthDictionaryEntry.getKanji());
+			//	
+			//	for (String currentKanaList : nthDictionaryEntry.getKanaList()) {
+			//		getStrokePathsForWord(currentKanaList);
+			//	}
+			// }
 			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 			
@@ -645,5 +657,40 @@ public class DictionaryManager {
 		new KanaHelper(kanaAndStrokePaths);
 		
 		csvReader.close();		
+	}
+	
+	public List<List<String>> getStrokePathsForWord(String word) {
+		
+		List<List<String>> result = new ArrayList<List<String>>();
+		
+		if (word == null) {
+			return result;
+		}
+		
+		Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
+		
+		for (int idx = 0; idx < word.length(); ++idx) {
+			
+			String currentChar = String.valueOf(word.charAt(idx));
+			
+			KanjiEntry kanjiEntry = null;
+			try {
+				kanjiEntry = sqliteConnector.getKanjiEntry(currentChar);
+			} catch (DictionaryException e) {
+				throw new RuntimeException(e);
+			}
+			
+			if (kanjiEntry != null) {
+				result.add(kanjiEntry.getStrokePaths());
+			} else {
+				KanaEntry kanaEntry = kanaCache.get(currentChar);
+				
+				if (kanaEntry != null) {
+					result.addAll(kanaEntry.getStrokePaths());
+				}
+			}
+		}
+		
+		return result;
 	}
 }

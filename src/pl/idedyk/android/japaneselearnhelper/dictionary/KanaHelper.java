@@ -28,6 +28,8 @@ public class KanaHelper {
 	
 	private List<KanaEntry> katakanaEntries = null;
 	
+	private List<KanaEntry> additionalEntries = null;
+	
 	KanaHelper(Map<String, List<List<String>>> kanaAndStrokePaths) {
 		
 		getAllHiraganaKanaEntries();
@@ -35,6 +37,9 @@ public class KanaHelper {
 		
 		getAllKatakanaKanaEntries();
 		setKatakanaStrokePaths(kanaAndStrokePaths);
+		
+		getAllAdditionalKanaEntries();
+		setAdditionalStrokePaths(kanaAndStrokePaths);
 		
 		instance = this;
 	}
@@ -420,7 +425,7 @@ public class KanaHelper {
 		
 		return katakanaEntries;
 	}
-	
+		
 	private void setKatakanaStrokePaths(Map<String, List<List<String>>> kanaAndStrokePaths) {
 
 		for (KanaEntry currentKanaEntry : katakanaEntries) {
@@ -437,18 +442,64 @@ public class KanaHelper {
 		}
 	}
 	
+	public List<KanaEntry> getAllAdditionalKanaEntries() {
+		
+		if (additionalEntries != null) {
+			return additionalEntries;
+		}
+		
+		additionalEntries = new ArrayList<KanaEntry>();
+		
+		additionalEntries.add(new KanaEntry("ゃ", "ya", KanaType.HIRAGANA, KanaGroup.OTHER));
+		additionalEntries.add(new KanaEntry("ゅ", "yu", KanaType.HIRAGANA, KanaGroup.OTHER));
+		additionalEntries.add(new KanaEntry("ょ", "yo", KanaType.HIRAGANA, KanaGroup.OTHER));
+		
+		additionalEntries.add(new KanaEntry("ァ", "a", KanaType.KATAKANA, KanaGroup.OTHER));
+		additionalEntries.add(new KanaEntry("ィ", "i", KanaType.KATAKANA, KanaGroup.OTHER));
+		additionalEntries.add(new KanaEntry("ェ", "e", KanaType.KATAKANA, KanaGroup.OTHER));
+		
+		additionalEntries.add(new KanaEntry("ャ", "ya", KanaType.KATAKANA, KanaGroup.OTHER));
+		additionalEntries.add(new KanaEntry("ュ", "yu", KanaType.KATAKANA, KanaGroup.OTHER));
+		additionalEntries.add(new KanaEntry("ョ", "yo", KanaType.KATAKANA, KanaGroup.OTHER));
+		
+		additionalEntries = Collections.unmodifiableList(additionalEntries);
+		
+		return additionalEntries;
+	}
+	
+	private void setAdditionalStrokePaths(Map<String, List<List<String>>> kanaAndStrokePaths) {
+
+		for (KanaEntry currentKanaEntry : additionalEntries) {
+
+			String kanaJapanese = currentKanaEntry.getKanaJapanese();
+			
+			List<List<String>> strokePaths = kanaAndStrokePaths.get(kanaJapanese);
+			
+			if (strokePaths == null) {
+				throw new RuntimeException("strokePaths == null");
+			}
+			
+			currentKanaEntry.setStrokePaths(strokePaths);
+		}
+	}
+	
 	public Map<String, KanaEntry> getKanaCache() {
 		
-		List<KanaEntry> hiraganaEntries = getAllHiraganaKanaEntries();
+		List<KanaEntry> allHiraganaEntries = getAllHiraganaKanaEntries();
 		List<KanaEntry> allKatakanaKanaEntries = getAllKatakanaKanaEntries();
+		List<KanaEntry> allAdditionalEntries = getAllAdditionalKanaEntries();
 		
 		Map<String, KanaEntry> kanaCache = new HashMap<String, KanaEntry>();
 
-		for (KanaEntry kanaEntry : hiraganaEntries) {
+		for (KanaEntry kanaEntry : allHiraganaEntries) {
 			kanaCache.put(kanaEntry.getKanaJapanese(), kanaEntry);
 		}
 
 		for (KanaEntry kanaEntry : allKatakanaKanaEntries) {
+			kanaCache.put(kanaEntry.getKanaJapanese(), kanaEntry);
+		}
+
+		for (KanaEntry kanaEntry : allAdditionalEntries) {
 			kanaCache.put(kanaEntry.getKanaJapanese(), kanaEntry);
 		}
 		

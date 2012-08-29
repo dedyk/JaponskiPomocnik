@@ -26,6 +26,8 @@ public class SodActivity extends Activity implements OnClickListener {
 	private StrokeOrderView strokeOrderView;
 
 	private StrokedCharacter character;
+	
+	private boolean annotateStrokes;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,9 @@ public class SodActivity extends Activity implements OnClickListener {
 		animateButton.setOnClickListener(this);
 
 		strokePathsInfo = (StrokePathInfo)getIntent().getSerializableExtra("strokePathsInfo");
-
+		
+		annotateStrokes = getIntent().getBooleanExtra("annotateStrokes", true);
+		
 		character = parseWsReply();
 
 		drawSod(character);
@@ -79,6 +83,7 @@ public class SodActivity extends Activity implements OnClickListener {
 			character = parseWsReply();
 
 			if (character != null) {
+				strokeOrderView.setAnnotateStrokes(annotateStrokes);
 				strokeOrderView.setCharacter(character);
 				strokeOrderView.invalidate();
 			}
@@ -95,18 +100,18 @@ public class SodActivity extends Activity implements OnClickListener {
 	void drawSod(StrokedCharacter character) {
 		this.character = character;
 
+		strokeOrderView.setAnnotateStrokes(annotateStrokes);
 		strokeOrderView.setCharacter(character);
-		strokeOrderView.setAnnotateStrokes(true);
 		strokeOrderView.invalidate();
 	}
 
 	void animate(StrokedCharacter character) {
 		this.character = character;
 
-		int animationDelay = 50;
+		int animationDelay = 50 + (15 * strokePathsInfo.getStrokePaths().size());
+		strokeOrderView.setAnnotateStrokes(annotateStrokes);
 		strokeOrderView.setAnimationDelayMillis(animationDelay);
 		strokeOrderView.setCharacter(character);
-		strokeOrderView.setAnnotateStrokes(true);
 		strokeOrderView.startAnimation();
 	}
 

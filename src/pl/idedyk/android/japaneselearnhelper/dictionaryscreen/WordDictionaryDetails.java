@@ -18,6 +18,8 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
+import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
+import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -132,7 +134,10 @@ public class WordDictionaryDetails extends Activity {
 		// Kanji		
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_kanji_label), 0));
 		
-		StringBuffer kanjiSb = new StringBuffer();
+		
+		final StringBuffer kanjiSb = new StringBuffer();
+		
+		boolean addKanjiWrite = false;
 		
 		if (dictionaryEntry.isKanjiExists() == true) {
 			if (prefixKana != null) {
@@ -140,21 +145,50 @@ public class WordDictionaryDetails extends Activity {
 			}
 			
 			kanjiSb.append(dictionaryEntry.getKanji());
+			
+			addKanjiWrite = true;
 		} else {
 			kanjiSb.append("-");
+			
+			addKanjiWrite = false;
 		}
 		
-		report.add(new StringValue(kanjiSb.toString(), 35.0f, 0));
+		StringValue kanjiStringValue = new StringValue(kanjiSb.toString(), 35.0f, 0);
+		
+		if (addKanjiWrite == true) {
+			report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+			
+			kanjiStringValue.setOnClickListener(new OnClickListener() {
+				
+				public void onClick(View v) {
+					List<List<String>> strokePathsForWord = DictionaryManager.getInstance().getStrokePathsForWord(kanjiSb.toString());
+					
+					StrokePathInfo strokePathInfo = new StrokePathInfo();
+					
+					strokePathInfo.setStrokePaths(strokePathsForWord);
+					
+					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+										
+					intent.putExtra("strokePathsInfo", strokePathInfo);
+					intent.putExtra("annotateStrokes", false);
+					
+					startActivity(intent);
+				}
+			});			
+		}
+				
+		report.add(kanjiStringValue);
 		
 		// Reading
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
+		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 		
 		List<String> kanaList = dictionaryEntry.getKanaList();
 		List<String> romajiList = dictionaryEntry.getRomajiList();
 		
 		for (int idx = 0; idx < kanaList.size(); ++idx) {
 			
-			StringBuffer sb = new StringBuffer();
+			final StringBuffer sb = new StringBuffer();
 			
 			if (prefixKana != null) {
 				sb.append("(").append(prefixKana).append(") ");
@@ -167,8 +201,28 @@ public class WordDictionaryDetails extends Activity {
 			}
 			
 			sb.append(romajiList.get(idx));
-						
-			report.add(new StringValue(sb.toString(), 20.0f, 0));
+			
+			StringValue readingStringValue = new StringValue(sb.toString(), 20.0f, 0);
+			
+			readingStringValue.setOnClickListener(new OnClickListener() {
+				
+				public void onClick(View v) {
+					List<List<String>> strokePathsForWord = DictionaryManager.getInstance().getStrokePathsForWord(sb.toString());
+					
+					StrokePathInfo strokePathInfo = new StrokePathInfo();
+					
+					strokePathInfo.setStrokePaths(strokePathsForWord);
+					
+					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+										
+					intent.putExtra("strokePathsInfo", strokePathInfo);
+					intent.putExtra("annotateStrokes", false);
+					
+					startActivity(intent);					
+				}
+			});
+			
+			report.add(readingStringValue);
 		}
 		
 		// Translate
@@ -230,13 +284,13 @@ public class WordDictionaryDetails extends Activity {
 					}
 				};
 				
-				StringValue kanjiStringValue = new StringValue(kanjiEntry.getKanji(), 16.0f, 1);
+				StringValue knownKanjiStringValue = new StringValue(kanjiEntry.getKanji(), 16.0f, 1);
 				StringValue polishTranslateStringValue = new StringValue(kanjiEntry.getPolishTranslates().toString(), 16.0f, 1);
 				
-				kanjiStringValue.setOnClickListener(kanjiOnClickListener);
+				knownKanjiStringValue.setOnClickListener(kanjiOnClickListener);
 				polishTranslateStringValue.setOnClickListener(kanjiOnClickListener);
 											
-				report.add(kanjiStringValue);
+				report.add(knownKanjiStringValue);
 				report.add(polishTranslateStringValue);
 				
 				if (knownKanjiIdx != knownKanji.size() - 1) {
