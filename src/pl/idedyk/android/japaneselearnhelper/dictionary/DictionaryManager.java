@@ -22,6 +22,8 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
+import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
 
 public class DictionaryManager {
 	
@@ -129,24 +131,14 @@ public class DictionaryManager {
 			}
 
 			// obliczanie form (tutaj)
-			// loadWithProgress.setCurrentPos(0);
-			// loadWithProgress.setMaxValue(wordDictionaryEntries.size());
-			// loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_count_word_forms));
-			//
-			// countForm(loadWithProgress);
-			//
-			//
-			// int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
-			// 
-			// for (int dictionaryEntriesSizeIdx = 0; dictionaryEntriesSizeIdx < dictionaryEntriesSize; ++dictionaryEntriesSizeIdx) {
-			//	DictionaryEntry nthDictionaryEntry = sqliteConnector.getNthDictionaryEntry(dictionaryEntriesSizeIdx);
-			//	
-			//	getStrokePathsForWord(nthDictionaryEntry.getKanji());
-			//	
-			//	for (String currentKanaList : nthDictionaryEntry.getKanaList()) {
-			//		getStrokePathsForWord(currentKanaList);
-			//	}
-			// }
+//			int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
+//			
+//			loadWithProgress.setCurrentPos(0);
+//			loadWithProgress.setMaxValue(dictionaryEntriesSize);
+//			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_count_word_forms));
+//			
+//			countForm(loadWithProgress);
+
 			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 			
@@ -375,31 +367,38 @@ public class DictionaryManager {
 		return false;
 	}
 	
-	/*
 	@SuppressWarnings("unused")
-	private void countForm(ILoadWithProgress loadWithProgress) {
+	private void countForm(ILoadWithProgress loadWithProgress) throws DictionaryException {
 		
-		final Map<String, KanaEntry> kanaCache = KanaHelper.getKanaCache();
+		final Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
 		
 		int counter = 1;
 		
-		for (DictionaryEntry currentDictionaryEntry : wordDictionaryEntries) {
+		int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
+
+		for (int dictionaryEntriesSizeIdx = 0; dictionaryEntriesSizeIdx < dictionaryEntriesSize; ++dictionaryEntriesSizeIdx) {
+			loadWithProgress.setCurrentPos(counter);
 			
-			GrammaConjugaterManager.getGrammaConjufateResult(currentDictionaryEntry);
-			ExampleManager.getExamples(currentDictionaryEntry);
+			DictionaryEntry nthDictionaryEntry = sqliteConnector.getNthDictionaryEntry(dictionaryEntriesSizeIdx);
+
+			GrammaConjugaterManager.getGrammaConjufateResult(nthDictionaryEntry);
+			ExampleManager.getExamples(nthDictionaryEntry);
 			
-			List<String> kanaList = currentDictionaryEntry.getKanaList();
+			List<String> kanaList = nthDictionaryEntry.getKanaList();
 			
 			for (String currentKana : kanaList) {
-				KanaHelper.createRomajiString(KanaHelper.convertKanaStringIntoKanaWord(currentKana, kanaCache));
+				KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(currentKana, kanaCache));
 			}
-			
-			loadWithProgress.setCurrentPos(counter);
+						
+			getStrokePathsForWord(nthDictionaryEntry.getKanji());
+
+			for (String currentKanaList : nthDictionaryEntry.getKanaList()) {
+				getStrokePathsForWord(currentKanaList);
+			}
 			
 			counter++;
 		}
 	}
-	*/
 	
 	private void readKanjiDictionaryFile(InputStream kanjiInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
 				
