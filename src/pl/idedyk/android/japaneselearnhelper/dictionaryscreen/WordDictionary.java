@@ -27,6 +27,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class WordDictionary extends Activity {
@@ -194,6 +195,31 @@ public class WordDictionary extends Activity {
 				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
 				
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			}
+		});
+		
+		final ScrollView searchOptionsScrollView = (ScrollView)findViewById(R.id.word_dictionary_search_options_scrollview);
+		
+		final Button searchOptionsButton = (Button)findViewById(R.id.word_dictionary_search_options_button);
+		
+		searchOptionsButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				int searchOptionsButtonVisibility = searchOptionsScrollView.getVisibility();
+				
+				if (searchOptionsButtonVisibility == View.GONE) {
+					searchOptionsScrollView.setVisibility(View.VISIBLE);
+					
+					searchOptionsButton.setText(getString(R.string.word_dictionary_search_options_button_hide));
+				} else {
+					searchOptionsScrollView.setVisibility(View.GONE);
+					
+					searchOptionsButton.setText(getString(R.string.word_dictionary_search_options_button));
+				}
+				
+				
+				
 			}
 		});
 		
