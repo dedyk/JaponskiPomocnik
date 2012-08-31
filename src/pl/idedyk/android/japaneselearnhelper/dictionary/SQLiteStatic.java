@@ -93,11 +93,23 @@ public class SQLiteStatic {
 			dictionaryEntriesTable_romajiList + ", " +
 			dictionaryEntriesTable_translates + ", " +
 			dictionaryEntriesTable_info + " " +
-			"from " + dictionaryEntriesTableName + " " +
-			" where " + 
-			dictionaryEntriesTable_kanji + " like ? or " +
-			dictionaryEntriesTable_kanaList + " like ? or" +
-			" lower(" + dictionaryEntriesTable_romajiList + ") like ? or" +
-			" lower(" + dictionaryEntriesTable_translates + ") like ? or" +
-			" lower(" + dictionaryEntriesTable_info + ") like ? limit " + (MAX_SEARCH_RESULT - 1);					
+			"from " + dictionaryEntriesTableName + " ";
+	
+	public static final String dictionaryEntriesTableSelectElements_kanji =
+			dictionaryEntriesTable_kanji + " like ? ";
+	
+	public static final String dictionaryEntriesTableSelectElements_kana =
+			dictionaryEntriesTable_kanaList + " like ? ";
+
+	public static final String dictionaryEntriesTableSelectElements_romaji =
+			" lower(" + dictionaryEntriesTable_romajiList + ") like ? ";
+
+	public static final String dictionaryEntriesTableSelectElements_translate =
+			" lower(" + dictionaryEntriesTable_translates + ") like ? ";
+
+	public static final String dictionaryEntriesTableSelectElements_info =
+			" lower(" + dictionaryEntriesTable_info + ") like ? ";
+	
+	public static final String dictionaryEntriesTableSelectElements_limit = 
+			" limit " + (MAX_SEARCH_RESULT - 1);
 }

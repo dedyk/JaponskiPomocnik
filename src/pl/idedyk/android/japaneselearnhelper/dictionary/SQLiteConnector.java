@@ -139,25 +139,103 @@ public class SQLiteConnector {
 		}
 	}
 	
-	public FindWordResult findDictionaryEntries(String word) throws DictionaryException {
+	public FindWordResult findDictionaryEntries(FindWordRequest findWordRequest) throws DictionaryException {
 		
 		FindWordResult findWordResult = new FindWordResult();
 		
 		findWordResult.result = new ArrayList<DictionaryEntry>();
 		
-		String wordWithPercent = "%" + word + "%"; 
+		String wordWithPercent = "%" + findWordRequest.word + "%"; 
 		
-		String wordLowerCase = word.toLowerCase();
+		String wordLowerCaseWithPercent = "%" + findWordRequest.word.toLowerCase() + "%";
 		
-		String wordLowerCaseWithPercent = "%" + wordLowerCase + "%";
+		StringBuffer sql = new StringBuffer(SQLiteStatic.dictionaryEntriesTableSelectElements);
+		List<String> arguments = new ArrayList<String>();
+		
+		boolean addedWhere = false;
+		
+		if (findWordRequest.searchKanji == true) {
+			
+			if (addedWhere == false) {
+				sql.append(" where ");
+				
+				addedWhere = true;
+			}
+			
+			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_kanji);
+			
+			arguments.add(wordWithPercent);
+		}
+		
+		if (findWordRequest.searchKana == true) {
+			
+			if (addedWhere == false) {
+				sql.append(" where ");
+				
+				addedWhere = true;
+			} else {
+				sql.append(" or ");
+			}
+			
+			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_kana);
+			
+			arguments.add(wordWithPercent);
+		}
+		
+		if (findWordRequest.searchRomaji == true) {
+			
+			if (addedWhere == false) {
+				sql.append(" where ");
+				
+				addedWhere = true;
+			} else {
+				sql.append(" or ");
+			}
+			
+			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_romaji);
+			
+			arguments.add(wordLowerCaseWithPercent);
+		}
+
+		if (findWordRequest.searchTranslate == true) {
+			
+			if (addedWhere == false) {
+				sql.append(" where ");
+				
+				addedWhere = true;
+			} else {
+				sql.append(" or ");
+			}
+			
+			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_translate);
+			
+			arguments.add(wordLowerCaseWithPercent);
+		}
+		
+		if (findWordRequest.searchInfo == true) {
+			
+			if (addedWhere == false) {
+				sql.append(" where ");
+				
+				addedWhere = true;
+			} else {
+				sql.append(" or ");
+			}
+			
+			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_info);
+			
+			arguments.add(wordLowerCaseWithPercent);
+		}
+		
+		sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_limit);
+
+		String[] argumentsStringArray = new String[arguments.size()];
+		
+		arguments.toArray(argumentsStringArray);
 		
 		Cursor cursor = null;
 		try {
-			cursor = sqliteDatabase.rawQuery(
-					SQLiteStatic.dictionaryEntriesTableSelectElements, new String[] { 
-							wordWithPercent, wordWithPercent, wordLowerCaseWithPercent,
-							wordLowerCaseWithPercent, wordLowerCaseWithPercent
-					});
+			cursor = sqliteDatabase.rawQuery(sql.toString(), argumentsStringArray);
 			
 		    cursor.moveToFirst();
 		    

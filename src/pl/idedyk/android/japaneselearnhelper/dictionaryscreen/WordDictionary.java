@@ -5,6 +5,7 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -14,7 +15,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,10 +25,12 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class WordDictionary extends Activity {
 
@@ -38,8 +40,6 @@ public class WordDictionary extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.word_dictionary);
-		
-		final DictionaryManager dictionaryManager = DictionaryManager.getInstance();
 		
 		final TextView wordDictionarySearchElementsNoTextView = (TextView)findViewById(R.id.word_dictionary_elements_no);
 		
@@ -65,86 +65,35 @@ public class WordDictionary extends Activity {
 				
 			}
 		});
-				
-		EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);
 		
-		final Resources resources = getResources();
+		final EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);		
+		
+		final CheckBox searchOptionsKanjiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kanji_checkbox);
+		final CheckBox searchOptionsKanaCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kana_checkbox);
+		final CheckBox searchOptionsRomajiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_romaji_checkbox);
+		final CheckBox searchOptionsTranslateCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_translate_checkbox);
+		final CheckBox searchOptionsInfoCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_info_checkbox);
+		
+		OnClickListener searchOptionsOnClick = new OnClickListener() {			
+			public void onClick(View view) {
+				performSearch(searchValueEditText.getText().toString(), searchResultList, searchResultArrayAdapter, searchOptionsKanjiCheckbox, 
+						searchOptionsKanaCheckbox, searchOptionsRomajiCheckbox, searchOptionsTranslateCheckbox, 
+						searchOptionsInfoCheckbox, wordDictionarySearchElementsNoTextView);
+			}
+		};
+		
+		searchOptionsKanjiCheckbox.setOnClickListener(searchOptionsOnClick);
+		searchOptionsKanaCheckbox.setOnClickListener(searchOptionsOnClick);
+		searchOptionsRomajiCheckbox.setOnClickListener(searchOptionsOnClick);
+		searchOptionsTranslateCheckbox.setOnClickListener(searchOptionsOnClick);
+		searchOptionsInfoCheckbox.setOnClickListener(searchOptionsOnClick);		
 		
 		searchValueEditText.addTextChangedListener(new TextWatcher() {
 			
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				
-				searchResultList.clear();
-								
-				final String findWord = s.toString();
-				
-				if (findWord != null && findWord.length() > 0) {
-					
-					final ProgressDialog progressDialog = ProgressDialog.show(WordDictionary.this, 
-							getString(R.string.word_dictionary_searching1),
-							getString(R.string.word_dictionary_searching2));
-					
-					class FindWordAsyncTask extends AsyncTask<Void, Void, FindWordResult> {
-						
-						@Override
-						protected FindWordResult doInBackground(Void... params) {							
-							return dictionaryManager.findWord(findWord);
-						}
-						
-					    @Override
-					    protected void onPostExecute(FindWordResult foundWord) {
-					        super.onPostExecute(foundWord);
-					        
-							wordDictionarySearchElementsNoTextView.setText(resources.getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
-									(foundWord.moreElemetsExists == true ? "+" : "" )));
-
-							String findWordLowerCase = findWord.toLowerCase();
-							
-							for (DictionaryEntry currentFoundWord : foundWord.result) {
-								
-								String currentFoundWordFullText = currentFoundWord.getFullText(true);
-								
-								StringBuffer currentFoundWordFullTexStringBuffer = new StringBuffer(currentFoundWordFullText);								
-								StringBuffer currentFoundWordFullTextLowerCase = new StringBuffer(currentFoundWordFullText.toLowerCase());
-																
-								int idxStart = 0;
-								
-								final String fontBegin = "<font color='red'>";
-								final String fontEnd = "</font>";
-								
-								while(true) {
-									
-									int idx1 = currentFoundWordFullTextLowerCase.indexOf(findWordLowerCase, idxStart);
-									
-									if (idx1 == -1) {
-										break;
-									}
-									
-									currentFoundWordFullTexStringBuffer.insert(idx1, fontBegin);
-									currentFoundWordFullTextLowerCase.insert(idx1, fontBegin);
-									
-									currentFoundWordFullTexStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
-									currentFoundWordFullTextLowerCase.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
-
-									idxStart = idx1 + findWordLowerCase.length() + fontBegin.length() + fontEnd.length();
-								}
-																
-								searchResultList.add(new WordDictionaryListItem(currentFoundWord, Html.fromHtml(currentFoundWordFullTexStringBuffer.toString().replaceAll("\n", "<br/>"))));								
-							}
-
-							searchResultArrayAdapter.notifyDataSetChanged();
-					        
-					        progressDialog.dismiss();
-					    }
-					}
-					
-					new FindWordAsyncTask().execute();
-					
-				} else {					
-					searchResultArrayAdapter.notifyDataSetChanged();
-					
-					wordDictionarySearchElementsNoTextView.setText(resources.getString(R.string.word_dictionary_elements_no, 0));
-				}
+				performSearch(s.toString(), searchResultList, searchResultArrayAdapter, searchOptionsKanjiCheckbox, 
+						searchOptionsKanaCheckbox, searchOptionsRomajiCheckbox, searchOptionsTranslateCheckbox, 
+						searchOptionsInfoCheckbox, wordDictionarySearchElementsNoTextView);
 			}
 			
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -154,7 +103,7 @@ public class WordDictionary extends Activity {
 			}
 		});
 				
-		wordDictionarySearchElementsNoTextView.setText(resources.getString(R.string.word_dictionary_elements_no, 0));
+		wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, 0));
 		
 		Button reportProblemButton = (Button)findViewById(R.id.word_dictionary_report_problem_button);
 		
@@ -231,5 +180,114 @@ public class WordDictionary extends Activity {
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
+	}
+	
+	private void performSearch(final String findWord, final List<WordDictionaryListItem> searchResultList,
+			final WordDictionaryListItemAdapter searchResultArrayAdapter,
+			final CheckBox searchOptionsKanjiCheckbox,
+			final CheckBox searchOptionsKanaCheckbox,
+			final CheckBox searchOptionsRomajiCheckbox,
+			final CheckBox searchOptionsTranslateCheckbox,
+			final CheckBox searchOptionsInfoCheckbox,
+			final TextView wordDictionarySearchElementsNoTextView) {
+		
+		searchResultList.clear();
+						
+		final FindWordRequest findWordRequest = new FindWordRequest();
+		
+		findWordRequest.word = findWord;
+		
+		findWordRequest.searchKanji = searchOptionsKanjiCheckbox.isChecked();
+		findWordRequest.searchKana = searchOptionsKanaCheckbox.isChecked();
+		findWordRequest.searchRomaji = searchOptionsRomajiCheckbox.isChecked();
+		findWordRequest.searchTranslate = searchOptionsTranslateCheckbox.isChecked();
+		findWordRequest.searchInfo = searchOptionsInfoCheckbox.isChecked();
+		
+		boolean searchOptionsChoose = true;
+		
+		if (findWordRequest.searchKanji == false &&
+				findWordRequest.searchKana == false &&
+				findWordRequest.searchRomaji == false &&
+				findWordRequest.searchTranslate == false &&
+				findWordRequest.searchInfo == false) {
+			
+			Toast toast = Toast.makeText(WordDictionary.this, getString(R.string.word_dictionary_no_search_options_info), Toast.LENGTH_SHORT);
+								
+			toast.show();
+			
+			searchOptionsChoose = false;
+		}
+		
+		if (findWord != null && findWord.length() > 0 && searchOptionsChoose == true) {
+			
+			
+			final ProgressDialog progressDialog = ProgressDialog.show(WordDictionary.this, 
+					getString(R.string.word_dictionary_searching1),
+					getString(R.string.word_dictionary_searching2));
+			
+			class FindWordAsyncTask extends AsyncTask<Void, Void, FindWordResult> {
+				
+				@Override
+				protected FindWordResult doInBackground(Void... params) {
+					
+					final DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+					
+					return dictionaryManager.findWord(findWordRequest);
+				}
+				
+			    @Override
+			    protected void onPostExecute(FindWordResult foundWord) {
+			        super.onPostExecute(foundWord);
+			        
+					wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
+							(foundWord.moreElemetsExists == true ? "+" : "" )));
+
+					String findWordLowerCase = findWord.toLowerCase();
+					
+					for (DictionaryEntry currentFoundWord : foundWord.result) {
+						
+						String currentFoundWordFullText = currentFoundWord.getFullText(true);
+						
+						StringBuffer currentFoundWordFullTexStringBuffer = new StringBuffer(currentFoundWordFullText);								
+						StringBuffer currentFoundWordFullTextLowerCase = new StringBuffer(currentFoundWordFullText.toLowerCase());
+														
+						int idxStart = 0;
+						
+						final String fontBegin = "<font color='red'>";
+						final String fontEnd = "</font>";
+						
+						while(true) {
+							
+							int idx1 = currentFoundWordFullTextLowerCase.indexOf(findWordLowerCase, idxStart);
+							
+							if (idx1 == -1) {
+								break;
+							}
+							
+							currentFoundWordFullTexStringBuffer.insert(idx1, fontBegin);
+							currentFoundWordFullTextLowerCase.insert(idx1, fontBegin);
+							
+							currentFoundWordFullTexStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
+							currentFoundWordFullTextLowerCase.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
+
+							idxStart = idx1 + findWordLowerCase.length() + fontBegin.length() + fontEnd.length();
+						}
+														
+						searchResultList.add(new WordDictionaryListItem(currentFoundWord, Html.fromHtml(currentFoundWordFullTexStringBuffer.toString().replaceAll("\n", "<br/>"))));								
+					}
+
+					searchResultArrayAdapter.notifyDataSetChanged();
+			        
+			        progressDialog.dismiss();
+			    }
+			}
+			
+			new FindWordAsyncTask().execute();
+			
+		} else {					
+			searchResultArrayAdapter.notifyDataSetChanged();
+			
+			wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, 0));
+		}		
 	}
 }

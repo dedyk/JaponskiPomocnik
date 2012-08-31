@@ -252,12 +252,12 @@ public class DictionaryManager {
 		return result;
 	}
 	
-	public FindWordResult findWord(String word) {
+	public FindWordResult findWord(FindWordRequest findWordRequest) {
 				
 		FindWordResult findWordResult = null;
 		
 		try {
-			findWordResult = sqliteConnector.findDictionaryEntries(word);
+			findWordResult = sqliteConnector.findDictionaryEntries(findWordRequest);
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
 		}
