@@ -111,5 +111,5 @@ public class SQLiteStatic {
 			" lower(" + dictionaryEntriesTable_info + ") like ? ";
 	
 	public static final String dictionaryEntriesTableSelectElements_limit = 
-			" limit " + (MAX_SEARCH_RESULT - 1);
+			" limit " + MAX_SEARCH_RESULT;
 }

@@ -269,6 +269,8 @@ public class SQLiteConnector {
 	    
 		if (findWordResult.result.size() >= SQLiteStatic.MAX_SEARCH_RESULT) {
 			findWordResult.moreElemetsExists = true;
+			
+			findWordResult.result.remove(findWordResult.result.size() - 1);
 		}
 		
 		return findWordResult;
