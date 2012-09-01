@@ -138,43 +138,7 @@ public class DictionaryEntry implements Serializable {
 			return false;
 		}
 	}
-	
-	public String getFullText(boolean withInfo) {
 		
-		StringBuffer sb = new StringBuffer();
-		
-		String tempPrefixKana = prefixKana != null && prefixKana.equals("") == false ? prefixKana : null;
-		String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
-				
-		if (isKanjiExists() == true) {
-			
-			if (tempPrefixKana != null) {
-				sb.append("(").append(tempPrefixKana).append(") ");
-			}
-			
-			sb.append(kanji).append(" ");
-		}
-		
-		if (kanaList != null && kanaList.size() > 0) {
-			sb.append(toString(kanaList, tempPrefixKana)).append(" - ");
-		}
-
-		if (romajiList != null && romajiList.size() > 0) {
-			sb.append(toString(romajiList, tempPrefixRomaji));
-		}
-
-		if (translates != null && translates.size() > 0) {
-			sb.append("\n\n");
-			sb.append(toString(translates, null));
-		}
-		
-		if (withInfo == true && info != null && info.equals("") == false) {
-			sb.append(" - ").append(info);
-		}
-		
-		return sb.toString();
-	}
-	
 	public int getId() {
 		return id;
 	}
@@ -189,29 +153,6 @@ public class DictionaryEntry implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	private String toString(List<String> listString, String prefix) {
-		
-		StringBuffer sb = new StringBuffer();
-		
-		sb.append("[");
-		
-		for (int idx = 0; idx < listString.size(); ++idx) {
-			if (prefix != null) {
-				sb.append("(").append(prefix).append(") ");
-			}
-			
-			sb.append(listString.get(idx));
-			
-			if (idx != listString.size() - 1) {
-				sb.append(", ");
-			}
-		}
-		
-		sb.append("]");
-		
-		return sb.toString();
 	}
 
 	public String getPrefixRomaji() {

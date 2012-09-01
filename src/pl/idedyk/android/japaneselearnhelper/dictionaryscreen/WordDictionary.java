@@ -220,7 +220,6 @@ public class WordDictionary extends Activity {
 		
 		if (findWord != null && findWord.length() > 0 && searchOptionsChoose == true) {
 			
-			
 			final ProgressDialog progressDialog = ProgressDialog.show(WordDictionary.this, 
 					getString(R.string.word_dictionary_searching1),
 					getString(R.string.word_dictionary_searching2));
@@ -241,45 +240,121 @@ public class WordDictionary extends Activity {
 			        
 					wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
 							(foundWord.moreElemetsExists == true ? "+" : "" )));
-
-					String findWordLowerCase = findWord.toLowerCase();
 					
 					for (DictionaryEntry currentFoundWord : foundWord.result) {
 						
-						String currentFoundWordFullText = currentFoundWord.getFullText(true);
-						
-						StringBuffer currentFoundWordFullTexStringBuffer = new StringBuffer(currentFoundWordFullText);								
-						StringBuffer currentFoundWordFullTextLowerCase = new StringBuffer(currentFoundWordFullText.toLowerCase());
-														
-						int idxStart = 0;
-						
-						final String fontBegin = "<font color='red'>";
-						final String fontEnd = "</font>";
-						
-						while(true) {
-							
-							int idx1 = currentFoundWordFullTextLowerCase.indexOf(findWordLowerCase, idxStart);
-							
-							if (idx1 == -1) {
-								break;
-							}
-							
-							currentFoundWordFullTexStringBuffer.insert(idx1, fontBegin);
-							currentFoundWordFullTextLowerCase.insert(idx1, fontBegin);
-							
-							currentFoundWordFullTexStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
-							currentFoundWordFullTextLowerCase.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
-
-							idxStart = idx1 + findWordLowerCase.length() + fontBegin.length() + fontEnd.length();
-						}
-														
-						searchResultList.add(new WordDictionaryListItem(currentFoundWord, Html.fromHtml(currentFoundWordFullTexStringBuffer.toString().replaceAll("\n", "<br/>"))));								
+						String currentFoundWordFullTextWithMark = getWordFullTextWithMark(currentFoundWord, findWord, findWordRequest);
+																				
+						searchResultList.add(new WordDictionaryListItem(currentFoundWord, Html.fromHtml(currentFoundWordFullTextWithMark.replaceAll("\n", "<br/>"))));								
 					}
 
 					searchResultArrayAdapter.notifyDataSetChanged();
 			        
 			        progressDialog.dismiss();
 			    }
+			    
+			    private String getWordFullTextWithMark(DictionaryEntry dictionaryEntry, String findWord, FindWordRequest findWordRequest) {
+
+			    	String kanji = dictionaryEntry.getKanji();
+			    	String prefixKana = dictionaryEntry.getPrefixKana();
+			    	List<String> kanaList = dictionaryEntry.getKanaList();
+			    	String prefixRomaji = dictionaryEntry.getPrefixRomaji();
+			    	List<String> romajiList = dictionaryEntry.getRomajiList();
+			    	List<String> translates = dictionaryEntry.getTranslates();
+			    	String info = dictionaryEntry.getInfo();
+			    	
+			    	StringBuffer result = new StringBuffer();
+			    	
+			    	String tempPrefixKana = prefixKana != null && prefixKana.equals("") == false ? prefixKana : null;
+			    	String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
+
+			    	if (dictionaryEntry.isKanjiExists() == true) {
+
+			    		if (tempPrefixKana != null) {
+			    			result.append("(").append(getStringWithMark(tempPrefixKana, findWord, false)).append(") ");
+			    		}
+
+			    		result.append(getStringWithMark(kanji, findWord, findWordRequest.searchKanji)).append(" ");
+			    	}
+
+			    	if (kanaList != null && kanaList.size() > 0) {
+			    		result.append(getStringWithMark(toString(kanaList, tempPrefixKana), findWord, findWordRequest.searchKana)).append(" - ");
+			    	}
+
+			    	if (romajiList != null && romajiList.size() > 0) {
+			    		result.append(getStringWithMark(toString(romajiList, tempPrefixRomaji), findWord, findWordRequest.searchRomaji));
+			    	}
+
+			    	if (translates != null && translates.size() > 0) {
+			    		result.append("\n\n");
+			    		result.append(getStringWithMark(toString(translates, null), findWord, findWordRequest.searchTranslate));
+			    	}
+
+			    	if (info != null && info.equals("") == false) {
+			    		result.append(" - ").append(getStringWithMark(info, findWord, findWordRequest.searchInfo));
+			    	}
+
+			    	return result.toString();
+			    }
+			    
+			    private String getStringWithMark(String text, String findWord, boolean mark) {
+			    	
+			    	if (mark == false) {
+			    		return text;
+			    	}
+			    	
+			    	String findWordLowerCase = findWord.toLowerCase();
+			    	
+					StringBuffer texStringBuffer = new StringBuffer(text);								
+					StringBuffer textLowerCaseStringBuffer = new StringBuffer(text.toLowerCase());
+													
+					int idxStart = 0;
+					
+					final String fontBegin = "<font color='red'>";
+					final String fontEnd = "</font>";
+					
+					while(true) {
+						
+						int idx1 = textLowerCaseStringBuffer.indexOf(findWordLowerCase, idxStart);
+						
+						if (idx1 == -1) {
+							break;
+						}
+						
+						texStringBuffer.insert(idx1, fontBegin);
+						textLowerCaseStringBuffer.insert(idx1, fontBegin);
+						
+						texStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
+						textLowerCaseStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
+
+						idxStart = idx1 + findWordLowerCase.length() + fontBegin.length() + fontEnd.length();
+					}
+					
+					return texStringBuffer.toString();
+			    }
+			    
+				private String toString(List<String> listString, String prefix) {
+					
+					StringBuffer sb = new StringBuffer();
+					
+					sb.append("[");
+					
+					for (int idx = 0; idx < listString.size(); ++idx) {
+						if (prefix != null) {
+							sb.append("(").append(prefix).append(") ");
+						}
+						
+						sb.append(listString.get(idx));
+						
+						if (idx != listString.size() - 1) {
+							sb.append(", ");
+						}
+					}
+					
+					sb.append("]");
+					
+					return sb.toString();
+				}
 			}
 			
 			new FindWordAsyncTask().execute();
