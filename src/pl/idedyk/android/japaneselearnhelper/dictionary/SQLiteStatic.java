@@ -30,6 +30,22 @@ public class SQLiteStatic {
 	public static final String kanjiEntriesTable_polishTranslates = "polishTranslates";
 	public static final String kanjiEntriesTable_info = "info";
 	
+	public static final String grammaFormConjugateGroupTypeEntriesTableName = "GrammaFormConjugateGroupTypeEntries";
+	
+	public static final String grammaFormConjugateGroupTypeEntriesTable_id = "id";
+	public static final String grammaFormConjugateGroupTypeEntriesTable_dictionaryEntryId = "dictionaryEntryId";
+	public static final String grammaFormConjugateGroupTypeEntriesTable_grammaFormConjugateGroupType = "grammaFormConjugateGroupType";	
+	
+	public static final String grammaFormConjugateResultEntriesTableName = "GrammaFormConjugateResultEntries";
+	
+	public static final String grammaFormConjugateResultEntriesTable_id = "id";
+	public static final String grammaFormConjugateResultEntriesTable_grammaFormConjugateGroupTypeEntriesId = "grammaFormConjugateGroupTypeEntriesId";
+	public static final String grammaFormConjugateResultEntriesTable_grammaFormConjugateResultEntriesParentId = "grammaFormConjugateResultEntriesParentId";
+	public static final String grammaFormConjugateResultEntriesTable_resultType = "resultTypes";
+	public static final String grammaFormConjugateResultEntriesTable_kanji = "kanji";
+	public static final String grammaFormConjugateResultEntriesTable_kanaList = "kanaList";
+	public static final String grammaFormConjugateResultEntriesTable_romajiList = "romajiList";	
+	
 	public static final String[] kanjiEntriesTableAllColumns = new String [] {
 			SQLiteStatic.kanjiEntriesTable_id,
 			SQLiteStatic.kanjiEntriesTable_kanji,
@@ -65,6 +81,22 @@ public class SQLiteStatic {
 			kanjiEntriesTable_strokePaths + " text not null, " +
 			kanjiEntriesTable_polishTranslates + " text not null, " +
 			kanjiEntriesTable_info + " text not null);";
+	
+	public static final String grammaFormConjugateGroupTypeEntriesTableCreate =
+			"create table " + grammaFormConjugateGroupTypeEntriesTableName + "(" +
+			grammaFormConjugateGroupTypeEntriesTable_id + " integer primary key, " +
+			grammaFormConjugateGroupTypeEntriesTable_dictionaryEntryId + " integer not null, " +
+			grammaFormConjugateGroupTypeEntriesTable_grammaFormConjugateGroupType + " text not null);";
+	
+	public static final String grammaFormConjugateResultEntriesTableNameCreate =
+			"create table " + grammaFormConjugateResultEntriesTableName + "(" +
+			grammaFormConjugateResultEntriesTable_id + " integer primary key, " +
+			grammaFormConjugateResultEntriesTable_grammaFormConjugateGroupTypeEntriesId + " integer not null, " +
+			grammaFormConjugateResultEntriesTable_grammaFormConjugateResultEntriesParentId + " integer null, " +
+			grammaFormConjugateResultEntriesTable_resultType + " text not null, " +
+			grammaFormConjugateResultEntriesTable_kanji + " text null, " +
+			grammaFormConjugateResultEntriesTable_kanaList + " text not null, " +
+			grammaFormConjugateResultEntriesTable_romajiList + " text not null);";
 	
 	public static final String dictionaryEntriesTableCreateCount = 
 			"select count(*) from " + dictionaryEntriesTableName;

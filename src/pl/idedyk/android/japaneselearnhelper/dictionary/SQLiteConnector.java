@@ -9,6 +9,8 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -485,5 +487,47 @@ public class SQLiteConnector {
 		}
 		
 		return result;
+	}
+	
+	public void insertGrammaFormConjugateGroupTypeElements(DictionaryEntry dictionaryEntry, GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements) {
+		
+		ContentValues values = new ContentValues();
+
+		values.put(SQLiteStatic.grammaFormConjugateGroupTypeEntriesTable_dictionaryEntryId, dictionaryEntry.getId());
+		values.put(SQLiteStatic.grammaFormConjugateGroupTypeEntriesTable_grammaFormConjugateGroupType, grammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().toString());
+
+		long grammaFormConjugateGroupTypeElementsId = sqliteDatabase.insertOrThrow(SQLiteStatic.grammaFormConjugateGroupTypeEntriesTableName, null, values);
+		
+		List<GrammaFormConjugateResult> grammaFormConjugateResults = grammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults();
+		
+		for (GrammaFormConjugateResult currentGrammaFormConjugateResults : grammaFormConjugateResults) {
+			
+			insertGrammaFormConjugateResult(grammaFormConjugateGroupTypeElementsId, null, currentGrammaFormConjugateResults);
+			
+			
+		}
+	}
+		
+	private long insertGrammaFormConjugateResult(long grammaFormConjugateGroupTypeElementsId, Long grammaFormConjugateResultEntriesParentId, 
+			GrammaFormConjugateResult grammaFormConjugateResult) {
+		
+		ContentValues values = new ContentValues();
+		
+		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_grammaFormConjugateGroupTypeEntriesId, grammaFormConjugateGroupTypeElementsId);
+		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_grammaFormConjugateResultEntriesParentId, grammaFormConjugateResultEntriesParentId);
+		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_resultType, grammaFormConjugateResult.getResultType().toString());
+		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_kanji, grammaFormConjugateResult.getKanji());
+		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_kanaList, Utils.convertListToString(grammaFormConjugateResult.getKanaList()));
+		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_romajiList, Utils.convertListToString(grammaFormConjugateResult.getRomajiList()));
+		
+		long grammaFormConjugateResultEntriesId = sqliteDatabase.insertOrThrow(SQLiteStatic.grammaFormConjugateResultEntriesTableName, null, values);
+		
+		GrammaFormConjugateResult alternative = grammaFormConjugateResult.getAlternative();
+		
+		if (alternative != null) {
+			insertGrammaFormConjugateResult(grammaFormConjugateGroupTypeElementsId, grammaFormConjugateResultEntriesId, alternative);
+		}
+		
+		return 0;
 	}
 }

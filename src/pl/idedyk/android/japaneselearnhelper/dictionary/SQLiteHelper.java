@@ -17,6 +17,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 		
 		db.execSQL(SQLiteStatic.dictionaryEntriesTableCreate);
 		db.execSQL(SQLiteStatic.kanjiEntriesTableCreate);
+		db.execSQL(SQLiteStatic.grammaFormConjugateGroupTypeEntriesTableCreate);
+		db.execSQL(SQLiteStatic.grammaFormConjugateResultEntriesTableNameCreate);
 		
 		needInsertData = true;
 	}
@@ -26,6 +28,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 				
 	    db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.dictionaryEntriesTableName);
 	    db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.kanjiEntriesTableName);
+	    db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.grammaFormConjugateGroupTypeEntriesTableName);
+	    db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.grammaFormConjugateResultEntriesTableName);
 	    
 	    onCreate(db);
 	}
