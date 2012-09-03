@@ -44,7 +44,22 @@ public class SQLiteStatic {
 	public static final String grammaFormConjugateResultEntriesTable_resultType = "resultTypes";
 	public static final String grammaFormConjugateResultEntriesTable_kanji = "kanji";
 	public static final String grammaFormConjugateResultEntriesTable_kanaList = "kanaList";
-	public static final String grammaFormConjugateResultEntriesTable_romajiList = "romajiList";	
+	public static final String grammaFormConjugateResultEntriesTable_romajiList = "romajiList";
+	
+	public static final String exampleGroupTypeEntriesTableName = "ExampleGroupTypeEntries";
+	
+	public static final String exampleGroupTypeEntriesTable_id = "id";
+	public static final String exampleGroupTypeEntriesTable_dictionaryEntryId = "dictionaryEntryId";
+	public static final String exampleGroupTypeEntriesTable_exampleGroupType = "exampleGroupType";
+	
+	public static final String exampleResultEntriesTableName = "ExampleResultEntries";
+	
+	public static final String exampleResultEntriesTable_id = "id";
+	public static final String exampleResultEntriesTable_exampleGroupTypeEntriesId = "exampleGroupTypeEntriesId";
+	public static final String exampleResultEntriesTable_exampleResultEntriesParentId = "exampleResultEntriesParentId";
+	public static final String exampleResultEntriesTable_kanji = "kanji";
+	public static final String exampleResultEntriesTable_kanaList = "kanaList";
+	public static final String exampleResultEntriesTable_romajiList = "romajiList";
 	
 	public static final String[] kanjiEntriesTableAllColumns = new String [] {
 			SQLiteStatic.kanjiEntriesTable_id,
@@ -97,6 +112,21 @@ public class SQLiteStatic {
 			grammaFormConjugateResultEntriesTable_kanji + " text null, " +
 			grammaFormConjugateResultEntriesTable_kanaList + " text not null, " +
 			grammaFormConjugateResultEntriesTable_romajiList + " text not null);";
+	
+	public static final String exampleGroupTypeEntriesTableCreate =
+			"create table " + exampleGroupTypeEntriesTableName + "(" +
+			exampleGroupTypeEntriesTable_id + " integer primary key, " +
+			exampleGroupTypeEntriesTable_dictionaryEntryId + " integer not null, " +
+			exampleGroupTypeEntriesTable_exampleGroupType + " text not null);";
+	
+	public static final String exampleResultEntriesTableCreate =
+			"create table " + exampleResultEntriesTableName + "(" +
+			exampleResultEntriesTable_id + " integer primary key, " +
+			exampleResultEntriesTable_exampleGroupTypeEntriesId + " integer not null, " +
+			exampleResultEntriesTable_exampleResultEntriesParentId + " integer null, " +
+			exampleResultEntriesTable_kanji + " text null, " +
+			exampleResultEntriesTable_kanaList + " text not null, " +
+			exampleResultEntriesTable_romajiList + " text not null);";
 	
 	public static final String dictionaryEntriesTableCreateCount = 
 			"select count(*) from " + dictionaryEntriesTableName;

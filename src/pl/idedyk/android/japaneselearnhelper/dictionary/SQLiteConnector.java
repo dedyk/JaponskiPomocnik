@@ -9,6 +9,8 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
+import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import android.content.ContentValues;
@@ -517,12 +519,10 @@ public class SQLiteConnector {
 		for (GrammaFormConjugateResult currentGrammaFormConjugateResults : grammaFormConjugateResults) {
 			
 			insertGrammaFormConjugateResult(grammaFormConjugateGroupTypeElementsId, null, currentGrammaFormConjugateResults);
-			
-			
 		}
 	}
-		
-	private long insertGrammaFormConjugateResult(long grammaFormConjugateGroupTypeElementsId, Long grammaFormConjugateResultEntriesParentId, 
+	
+	private void insertGrammaFormConjugateResult(long grammaFormConjugateGroupTypeElementsId, Long grammaFormConjugateResultEntriesParentId, 
 			GrammaFormConjugateResult grammaFormConjugateResult) {
 		
 		ContentValues values = new ContentValues();
@@ -541,7 +541,42 @@ public class SQLiteConnector {
 		if (alternative != null) {
 			insertGrammaFormConjugateResult(grammaFormConjugateGroupTypeElementsId, grammaFormConjugateResultEntriesId, alternative);
 		}
+	}
+	
+	public void insertExampleGroupTypeElements(DictionaryEntry dictionaryEntry, ExampleGroupTypeElements exampleGroupTypeElements) {
 		
-		return 0;
+		ContentValues values = new ContentValues();
+
+		values.put(SQLiteStatic.exampleGroupTypeEntriesTable_dictionaryEntryId, dictionaryEntry.getId());
+		values.put(SQLiteStatic.exampleGroupTypeEntriesTable_exampleGroupType, exampleGroupTypeElements.getExampleGroupType().toString());
+
+		long exampleGroupTypeEntriesId = sqliteDatabase.insertOrThrow(SQLiteStatic.exampleGroupTypeEntriesTableName, null, values);
+		
+		List<ExampleResult> exampleResults = exampleGroupTypeElements.getExampleResults();
+		
+		for (ExampleResult currentExampleResult : exampleResults) {
+			
+			insertExampleResult(exampleGroupTypeEntriesId, null, currentExampleResult);
+		}
+	}
+	
+	private void insertExampleResult(long exampleGroupTypeEntriesId, Long exampleResultEntriesParentId, 
+			ExampleResult exampleResult) {
+		
+		ContentValues values = new ContentValues();
+		
+		values.put(SQLiteStatic.exampleResultEntriesTable_exampleGroupTypeEntriesId, exampleGroupTypeEntriesId);
+		values.put(SQLiteStatic.exampleResultEntriesTable_exampleResultEntriesParentId, exampleResultEntriesParentId);
+		values.put(SQLiteStatic.exampleResultEntriesTable_kanji, exampleResult.getKanji());
+		values.put(SQLiteStatic.exampleResultEntriesTable_kanaList, Utils.convertListToString(exampleResult.getKanaList()));
+		values.put(SQLiteStatic.exampleResultEntriesTable_romajiList, Utils.convertListToString(exampleResult.getRomajiList()));
+		
+		long exampleResultEntriesId = sqliteDatabase.insertOrThrow(SQLiteStatic.exampleResultEntriesTableName, null, values);
+		
+		ExampleResult alternative = exampleResult.getAlternative();
+		
+		if (alternative != null) {
+			insertExampleResult(exampleGroupTypeEntriesId, exampleResultEntriesId, alternative);
+		}
 	}
 }

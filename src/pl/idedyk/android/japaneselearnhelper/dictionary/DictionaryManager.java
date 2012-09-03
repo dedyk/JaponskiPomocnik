@@ -22,6 +22,8 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
+import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 
@@ -397,7 +399,13 @@ public class DictionaryManager {
 					}					
 				}
 				
-				// ExampleManager.getExamples(nthDictionaryEntry); // FIXME
+				List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(nthDictionaryEntry);
+				
+				if (examples != null) {
+					for (ExampleGroupTypeElements exampleGroupTypeElements : examples) {
+						sqliteConnector.insertExampleGroupTypeElements(nthDictionaryEntry, exampleGroupTypeElements);
+					}
+				}
 				
 				List<String> kanaList = nthDictionaryEntry.getKanaList();
 				
