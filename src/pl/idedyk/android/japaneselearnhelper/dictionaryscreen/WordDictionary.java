@@ -28,6 +28,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,11 +75,15 @@ public class WordDictionary extends Activity {
 		final CheckBox searchOptionsTranslateCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_translate_checkbox);
 		final CheckBox searchOptionsInfoCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_info_checkbox);
 		
+		final RadioButton searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_any_place_radiobutton);
+		final RadioButton searchOptionsStartWithPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_startwith_radiobutton);
+		
 		OnClickListener searchOptionsOnClick = new OnClickListener() {			
 			public void onClick(View view) {
 				performSearch(searchValueEditText.getText().toString(), searchResultList, searchResultArrayAdapter, searchOptionsKanjiCheckbox, 
 						searchOptionsKanaCheckbox, searchOptionsRomajiCheckbox, searchOptionsTranslateCheckbox, 
-						searchOptionsInfoCheckbox, wordDictionarySearchElementsNoTextView);
+						searchOptionsInfoCheckbox, searchOptionsAnyPlaceRadioButton, searchOptionsStartWithPlaceRadioButton, 
+						wordDictionarySearchElementsNoTextView);
 			}
 		};
 		
@@ -86,14 +91,18 @@ public class WordDictionary extends Activity {
 		searchOptionsKanaCheckbox.setOnClickListener(searchOptionsOnClick);
 		searchOptionsRomajiCheckbox.setOnClickListener(searchOptionsOnClick);
 		searchOptionsTranslateCheckbox.setOnClickListener(searchOptionsOnClick);
-		searchOptionsInfoCheckbox.setOnClickListener(searchOptionsOnClick);		
+		searchOptionsInfoCheckbox.setOnClickListener(searchOptionsOnClick);	
+		
+		searchOptionsAnyPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
+		searchOptionsStartWithPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		
 		searchValueEditText.addTextChangedListener(new TextWatcher() {
 			
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				performSearch(s.toString(), searchResultList, searchResultArrayAdapter, searchOptionsKanjiCheckbox, 
 						searchOptionsKanaCheckbox, searchOptionsRomajiCheckbox, searchOptionsTranslateCheckbox, 
-						searchOptionsInfoCheckbox, wordDictionarySearchElementsNoTextView);
+						searchOptionsInfoCheckbox, searchOptionsAnyPlaceRadioButton, searchOptionsStartWithPlaceRadioButton,
+						wordDictionarySearchElementsNoTextView);
 			}
 			
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -189,6 +198,8 @@ public class WordDictionary extends Activity {
 			final CheckBox searchOptionsRomajiCheckbox,
 			final CheckBox searchOptionsTranslateCheckbox,
 			final CheckBox searchOptionsInfoCheckbox,
+			final RadioButton searchAnyPlaceRadioButton,
+			final RadioButton searchStartWithRadioButton,
 			final TextView wordDictionarySearchElementsNoTextView) {
 		
 		searchResultList.clear();
@@ -202,6 +213,12 @@ public class WordDictionary extends Activity {
 		findWordRequest.searchRomaji = searchOptionsRomajiCheckbox.isChecked();
 		findWordRequest.searchTranslate = searchOptionsTranslateCheckbox.isChecked();
 		findWordRequest.searchInfo = searchOptionsInfoCheckbox.isChecked();
+		
+		if (searchAnyPlaceRadioButton.isChecked() == true) {
+			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;
+		} else if (searchStartWithRadioButton.isChecked() == true) {
+			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.START_WITH;
+		}
 		
 		boolean searchOptionsChoose = true;
 		

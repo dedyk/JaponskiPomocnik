@@ -24,7 +24,7 @@ public class TitleItem implements IScreenItem {
 		textView = new TextView(context);
 		
 		textView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-		textView.setBackgroundColor(resources.getColor(R.color.word_dictionary_details_title_background_color));
+		textView.setBackgroundColor(resources.getColor(R.color.title_background));
 		textView.setTextSize(16.0f);
 		
 		StringBuffer titleSb = new StringBuffer();
