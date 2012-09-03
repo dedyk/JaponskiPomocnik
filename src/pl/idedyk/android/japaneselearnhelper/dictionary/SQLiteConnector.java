@@ -147,9 +147,23 @@ public class SQLiteConnector {
 		
 		findWordResult.result = new ArrayList<DictionaryEntry>();
 		
-		String wordWithPercent = "%" + findWordRequest.word + "%"; 
+		String wordWithPercent = null; 
+		String wordLowerCaseWithPercent = null;
 		
-		String wordLowerCaseWithPercent = "%" + findWordRequest.word.toLowerCase() + "%";
+		if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
+			
+			wordWithPercent = "%" + findWordRequest.word + "%"; 
+			wordLowerCaseWithPercent = "%" + findWordRequest.word.toLowerCase() + "%";
+			
+		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.START_WITH) {
+			
+			wordWithPercent = findWordRequest.word + "%"; 
+			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase() + "%";
+			
+		} else {
+			throw new RuntimeException();
+		}
+		
 		
 		StringBuffer sql = new StringBuffer(SQLiteStatic.dictionaryEntriesTableSelectElements);
 		List<String> arguments = new ArrayList<String>();

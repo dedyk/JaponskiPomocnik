@@ -13,4 +13,12 @@ public class FindWordRequest {
 	public boolean searchTranslate = true;
 	
 	public boolean searchInfo = true;
+	
+	public WordPlaceSearch wordPlaceSearch = WordPlaceSearch.ANY_PLACE;
+	
+	public static enum WordPlaceSearch {
+		ANY_PLACE,
+		
+		START_WITH;
+	}
 }
