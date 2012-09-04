@@ -24,6 +24,6 @@
     <string name="word_dictionary_search_options_search_any_place_radiobutton">W dowolnym miejscu w słowie</string>
     <string name="word_dictionary_search_options_search_startwith_radiobutton">Od pierwszego znaku w słowie</string>
     <string name="word_dictionary_search_options_search_gramma_examples">Odmianach i przykładach</string>
-    <string name="word_dictionary_search_options_search_gramma_examples_warning">Uwaga: Pierwsze użycie tej funkcji może być czasochłonne</string>
-    <string name="word_dictionary_search_count_form">Przeliczanie forma gramatycznych i przykładów.\n\nProszę czekać</string>
+    <string name="word_dictionary_search_options_search_gramma_examples_warning">Uwaga: Pierwsze użycie tej funkcji może być lekko czasochłonne</string>
+    <string name="word_dictionary_search_count_form">Inicjalne przeliczanie form gramatycznych i przykładów.\n\nProszę czekać</string>
 </resources>

@@ -22,7 +22,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -345,6 +344,8 @@ public class WordDictionary extends Activity {
 		findWordRequest.searchRomaji = searchOptionsRomajiCheckbox.isChecked();
 		findWordRequest.searchTranslate = searchOptionsTranslateCheckbox.isChecked();
 		findWordRequest.searchInfo = searchOptionsInfoCheckbox.isChecked();
+		
+		findWordRequest.searchGrammaFormAndExamples = searchOptionsGrammaExampleSearchCheckbox.isChecked();
 		
 		if (searchAnyPlaceRadioButton.isChecked() == true) {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;

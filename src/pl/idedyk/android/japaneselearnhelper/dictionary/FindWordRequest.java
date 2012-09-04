@@ -14,6 +14,8 @@ public class FindWordRequest {
 	
 	public boolean searchInfo = true;
 	
+	public boolean searchGrammaFormAndExamples = false;
+	
 	public WordPlaceSearch wordPlaceSearch = WordPlaceSearch.ANY_PLACE;
 	
 	public static enum WordPlaceSearch {

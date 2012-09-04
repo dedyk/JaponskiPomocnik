@@ -268,9 +268,12 @@ public class DictionaryManager {
 		
 		try {
 			findWordResult = sqliteConnector.findDictionaryEntries(findWordRequest);
+			
+			sqliteConnector.findDictionaryEntriesInGrammaFormAndExamples(findWordRequest, findWordResult);
+			
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
-		}
+		}		
 		
 		final Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
 		

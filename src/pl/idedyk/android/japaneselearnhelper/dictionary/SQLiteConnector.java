@@ -18,6 +18,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class SQLiteConnector {
 	
@@ -590,5 +591,53 @@ public class SQLiteConnector {
 				cursor.close();
 			}
 		}
+	}
+	
+	public void findDictionaryEntriesInGrammaFormAndExamples(FindWordRequest findWordRequest, FindWordResult findWordResult) throws DictionaryException {
+		
+		/*
+		if (findWordRequest.searchGrammaFormAndExamples == false) {
+			return;
+		}
+		
+		if (findWordResult.moreElemetsExists == true) {
+			return;
+		}
+		
+		int limit = SQLiteStatic.MAX_SEARCH_RESULT - findWordResult.result.size();
+		*/
+		
+		// FIXME
+		
+		// test
+		
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.rawQuery("select de.kanji from DictionaryEntries de where " +
+					"de.id in (select grammaFormGroup.dictionaryEntryId from GrammaFormConjugateGroupTypeEntries grammaFormGroup, GrammaFormConjugateResultEntries grammaFormResult " +
+					"where grammaFormGroup.id = grammaFormResult.grammaFormConjugateGroupTypeEntriesId and " +
+					"grammaFormResult.kanji = '食べた') " +
+					"limit 50;", null);
+			
+			cursor.moveToFirst();
+			
+			while (!cursor.isAfterLast()) {
+				
+				String stringText = cursor.getString(0);
+				
+				Log.d("AAAA", "BBBB: " + stringText);
+
+				cursor.moveToNext();
+			}
+			
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+
+		
+		
 	}
 }
