@@ -36,7 +36,7 @@
         android:id="@+id/word_dictionary_search_options_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-		android:visibility="gone" >
+ 		android:visibility="gone" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -125,6 +125,21 @@
                 android:text="@string/word_dictionary_search_options_info_checkbox"
                 android:textSize="12dp" />
 
+             <CheckBox
+                android:id="@+id/word_dictionary_search_options_search_gramma_examples_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/word_dictionary_search_options_search_gramma_examples"
+                android:textSize="12dp" />
+
+             <TextView
+                 android:id="@+id/word_dictionary_search_options_search_gramma_examples_warning_textview"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/word_dictionary_search_options_search_gramma_examples_warning"
+                 android:textSize="10dp" />
+            
             <View
                 android:layout_width="fill_parent"
                 android:layout_height="1dp"

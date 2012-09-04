@@ -70,6 +70,7 @@ public class DictionaryManager {
 
 			// wczytywanie slow
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_words));
+			loadWithProgress.setCurrentPos(0);
 			
 			if (needInsertData == true) {
 
@@ -88,7 +89,8 @@ public class DictionaryManager {
 			
 			// wczytanie informacji o pisaniu znakow kana
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kana));
-							
+			loadWithProgress.setCurrentPos(0);
+			
 			InputStream kanaFileInputStream = assets.open(KANA_FILE);
 
 			int kanaFileSize = getWordSize(kanaFileInputStream);
@@ -100,14 +102,14 @@ public class DictionaryManager {
 			readKanaFile(kanaFileInputStream, loadWithProgress);
 			
 			// wczytywanie informacji o znakach podstawowych
+			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_radical));
+			loadWithProgress.setCurrentPos(0);
+			
 			InputStream radicalInputStream = assets.open(RADICAL_FILE);
-
+			
 			int radicalFileSize = getWordSize(radicalInputStream);
 
-			loadWithProgress.setCurrentPos(0);
-			loadWithProgress.setMaxValue(radicalFileSize);
-
-			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_radical));
+			loadWithProgress.setMaxValue(radicalFileSize);			
 
 			radicalInputStream = assets.open(RADICAL_FILE);
 
@@ -115,6 +117,7 @@ public class DictionaryManager {
 
 			// wczytywanie kanji
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji));
+			loadWithProgress.setCurrentPos(0);
 			
 			if (needInsertData == true) {
 
@@ -122,7 +125,6 @@ public class DictionaryManager {
 
 				int kanjiFileSize = getWordSize(kanjiInputStream);
 
-				loadWithProgress.setCurrentPos(0);
 				loadWithProgress.setMaxValue(kanjiFileSize);
 
 				kanjiInputStream = assets.open(KANJI_FILE);
@@ -133,17 +135,20 @@ public class DictionaryManager {
 			}
 
 			// obliczanie form (tutaj)
+			/*
 			if (needInsertData == true) {
+				loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_count_word_forms));
+				loadWithProgress.setCurrentPos(0);
+				
 				int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
 			
-				loadWithProgress.setCurrentPos(0);
 				loadWithProgress.setMaxValue(dictionaryEntriesSize);
-				loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_count_word_forms));
-			
+				
 				countForm(loadWithProgress);
 			} else {
 				fakeProgress(loadWithProgress);
 			}
+			*/
 			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 			
@@ -372,7 +377,7 @@ public class DictionaryManager {
 		return false;
 	}
 	
-	private void countForm(ILoadWithProgress loadWithProgress) throws DictionaryException {
+	public void countForm(ILoadWithProgress loadWithProgress) throws DictionaryException {
 		
 		final Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
 		
@@ -381,6 +386,9 @@ public class DictionaryManager {
 		int transactionCounter = 0;
 		
 		int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
+		
+		loadWithProgress.setCurrentPos(0);
+		loadWithProgress.setMaxValue(dictionaryEntriesSize);
 
 		sqliteConnector.beginTransaction();
 		
@@ -725,5 +733,9 @@ public class DictionaryManager {
 		}
 		
 		return result;
+	}
+	
+	public int getGrammaFormAndExamplesEntriesSize() {
+		return sqliteConnector.getGrammaFormAndExamplesEntriesSize();
 	}
 }

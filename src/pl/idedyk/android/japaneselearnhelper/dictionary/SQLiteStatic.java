@@ -127,10 +127,7 @@ public class SQLiteStatic {
 			exampleResultEntriesTable_kanji + " text null, " +
 			exampleResultEntriesTable_kanaList + " text not null, " +
 			exampleResultEntriesTable_romajiList + " text not null);";
-	
-	public static final String dictionaryEntriesTableCreateCount = 
-			"select count(*) from " + dictionaryEntriesTableName;
-	
+		
 	public static final String dictionaryEntriesTableNthElement = 
 			"select " + 
 			dictionaryEntriesTable_id + ", " +
@@ -174,4 +171,8 @@ public class SQLiteStatic {
 	
 	public static final String dictionaryEntriesTableSelectElements_limit = 
 			" limit " + MAX_SEARCH_RESULT;
+	
+	public static final String countTableSql = 
+			"select count(*) from ";
+
 }

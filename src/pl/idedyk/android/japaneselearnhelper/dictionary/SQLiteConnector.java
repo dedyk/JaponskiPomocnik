@@ -94,21 +94,7 @@ public class SQLiteConnector {
 	
 	public int getDictionaryEntriesSize() {
 		
-		Cursor cursor = null;
-		
-		try {
-			cursor = sqliteDatabase.rawQuery(SQLiteStatic.dictionaryEntriesTableCreateCount, null);
-			
-			cursor.moveToFirst();
-			
-			int result = cursor.getInt(0);
-			
-			return result;			
-		} finally {
-			if (cursor != null) {
-				cursor.close();
-			}
-		}
+		return countTableSize(SQLiteStatic.dictionaryEntriesTableName);		
 	}
 	
 	public DictionaryEntry getNthDictionaryEntry(int nth) throws DictionaryException {
@@ -577,6 +563,32 @@ public class SQLiteConnector {
 		
 		if (alternative != null) {
 			insertExampleResult(exampleGroupTypeEntriesId, exampleResultEntriesId, alternative);
+		}
+	}
+	
+	public int getGrammaFormAndExamplesEntriesSize() {
+		
+		return countTableSize(SQLiteStatic.grammaFormConjugateGroupTypeEntriesTableName) +
+				countTableSize(SQLiteStatic.grammaFormConjugateResultEntriesTableName) + 
+				countTableSize(SQLiteStatic.exampleGroupTypeEntriesTableName) +
+				countTableSize(SQLiteStatic.exampleResultEntriesTableName);
+	}
+	
+	private int countTableSize(String tableName) {
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.countTableSql + tableName, null);
+			
+			cursor.moveToFirst();
+			
+			int result = cursor.getInt(0);
+			
+			return result;			
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
 		}
 	}
 }
