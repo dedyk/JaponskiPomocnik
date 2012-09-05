@@ -41,7 +41,7 @@ public class SQLiteStatic {
 	public static final String grammaFormConjugateResultEntriesTable_id = "id";
 	public static final String grammaFormConjugateResultEntriesTable_grammaFormConjugateGroupTypeEntriesId = "grammaFormConjugateGroupTypeEntriesId";
 	public static final String grammaFormConjugateResultEntriesTable_grammaFormConjugateResultEntriesParentId = "grammaFormConjugateResultEntriesParentId";
-	public static final String grammaFormConjugateResultEntriesTable_resultType = "resultTypes";
+	public static final String grammaFormConjugateResultEntriesTable_resultType = "resultType";
 	public static final String grammaFormConjugateResultEntriesTable_kanji = "kanji";
 	public static final String grammaFormConjugateResultEntriesTable_kanaList = "kanaList";
 	public static final String grammaFormConjugateResultEntriesTable_romajiList = "romajiList";
@@ -174,5 +174,52 @@ public class SQLiteStatic {
 	
 	public static final String countTableSql = 
 			"select count(*) from ";
+	
+	public static final String grammaFormSelectElements = 
+			"select 'GrammaForm', " + 
+			"grammaFormGroup." + grammaFormConjugateGroupTypeEntriesTable_dictionaryEntryId + ", " +
+			"grammaFormResult." + grammaFormConjugateResultEntriesTable_resultType + ", " +
+			"grammaFormResult." + grammaFormConjugateResultEntriesTable_kanji + ", " +
+			"grammaFormResult." + grammaFormConjugateResultEntriesTable_kanaList + ", " +
+			"grammaFormResult." + grammaFormConjugateResultEntriesTable_romajiList + " " +
+			" from " + 
+			grammaFormConjugateGroupTypeEntriesTableName + " grammaFormGroup, " +
+			grammaFormConjugateResultEntriesTableName + " grammaFormResult " +
+			"where grammaFormGroup." + grammaFormConjugateGroupTypeEntriesTable_id + " " +
+					" = grammaFormResult." + grammaFormConjugateResultEntriesTable_grammaFormConjugateGroupTypeEntriesId + " ";
+	
+	public static final String grammaFormSelectElements_kanji =
+			grammaFormConjugateResultEntriesTable_kanji + " like ? ";
+	
+	public static final String grammaFormSelectElements_kana =
+			grammaFormConjugateResultEntriesTable_kanaList + " like ? ";
+
+	public static final String grammaFormSelectElements_romaji =
+			" lower(" + grammaFormConjugateResultEntriesTable_romajiList + ") like ? ";
+	
+	public static final String exampleResultSelectElements =
+			"select 'ExampleResult', " + 
+			"exampleGroupType." + exampleGroupTypeEntriesTable_dictionaryEntryId + ", " +
+			"exampleGroupType." + exampleGroupTypeEntriesTable_exampleGroupType + ", " +
+			"exampleResult." + exampleResultEntriesTable_kanji + ", " +
+			"exampleResult." + exampleResultEntriesTable_kanaList + ", " +
+			"exampleResult." + exampleResultEntriesTable_romajiList + " " +
+			" from " +
+			exampleGroupTypeEntriesTableName + " exampleGroupType, " +
+			exampleResultEntriesTableName + " exampleResult " +
+			"where exampleGroupType." + exampleGroupTypeEntriesTable_id + " " + 
+				" = exampleResult." + exampleResultEntriesTable_exampleGroupTypeEntriesId + " ";
+
+	public static final String exampleResultSelectElements_kanji =
+			exampleResultEntriesTable_kanji + " like ? ";
+	
+	public static final String exampleResultSelectElements_kana =
+			exampleResultEntriesTable_kanaList + " like ? ";
+
+	public static final String exampleResultSelectElements_romaji =
+			" lower(" + exampleResultEntriesTable_romajiList + ") like ? ";
+	
+	public static final String grammaFormExampleSelectElements_limit = 
+			" limit ";
 
 }

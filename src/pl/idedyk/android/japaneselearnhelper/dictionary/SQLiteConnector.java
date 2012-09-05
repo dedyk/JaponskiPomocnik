@@ -152,8 +152,7 @@ public class SQLiteConnector {
 		} else {
 			throw new RuntimeException();
 		}
-		
-		
+				
 		StringBuffer sql = new StringBuffer(SQLiteStatic.dictionaryEntriesTableSelectElements);
 		List<String> arguments = new ArrayList<String>();
 		
@@ -595,7 +594,6 @@ public class SQLiteConnector {
 	
 	public void findDictionaryEntriesInGrammaFormAndExamples(FindWordRequest findWordRequest, FindWordResult findWordResult) throws DictionaryException {
 		
-		/*
 		if (findWordRequest.searchGrammaFormAndExamples == false) {
 			return;
 		}
@@ -605,37 +603,150 @@ public class SQLiteConnector {
 		}
 		
 		int limit = SQLiteStatic.MAX_SEARCH_RESULT - findWordResult.result.size();
-		*/
 		
-		// FIXME
+		String wordWithPercent = null; 
+		String wordLowerCaseWithPercent = null;
 		
-		// test
+		if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
+			
+			wordWithPercent = "%" + findWordRequest.word + "%"; 
+			wordLowerCaseWithPercent = "%" + findWordRequest.word.toLowerCase() + "%";
+			
+		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.START_WITH) {
+			
+			wordWithPercent = findWordRequest.word + "%"; 
+			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase() + "%";
+			
+		} else {
+			throw new RuntimeException();
+		}
 		
-		/*
-select 'GrammaForm', grammaFormGroup.dictionaryEntryId, grammaFormResult.resultTypes, grammaFormResult.kanji, grammaFormResult.kanaList, grammaFormResult.romajiList from GrammaFormConjugateGroupTypeEntries grammaFormGroup, GrammaFormConjugateResultEntries grammaFormResult
-where grammaFormGroup.id = grammaFormResult.grammaFormConjugateGroupTypeEntriesId and 
-grammaFormResult.kanji = '食べた'
-union
-select 'ExampleResult', exampleGroupType.dictionaryEntryId, exampleGroupType.exampleGroupType, exampleResult.kanji, exampleResult.kanaList, exampleResult.romajiList from ExampleGroupTypeEntries exampleGroupType, ExampleResultEntries exampleResult
-where exampleGroupType.id = exampleResult.exampleGroupTypeEntriesId and
-exampleResult.kanji like '食べて%'
+		List<String> arguments = new ArrayList<String>();
+		
+		StringBuffer sql = new StringBuffer(SQLiteStatic.grammaFormSelectElements);
 
-		 */
+		boolean addedAnd = false;
+		
+		if (findWordRequest.searchKanji == true) {
+			
+			if (addedAnd == false) {
+				sql.append(" and ( ");
+				
+				addedAnd = true;
+			}
+			
+			sql.append(SQLiteStatic.grammaFormSelectElements_kanji);
+			
+			arguments.add(wordWithPercent);
+		}
+		
+		if (findWordRequest.searchKana == true) {
+			
+			if (addedAnd == false) {
+				sql.append(" and ( ");
+				
+				addedAnd = true;
+			} else {
+				sql.append(" or ");
+			}
+			
+			sql.append(SQLiteStatic.grammaFormSelectElements_kana);
+			
+			arguments.add(wordWithPercent);
+		}
+		
+		if (findWordRequest.searchRomaji == true) {
+			
+			if (addedAnd == false) {
+				sql.append(" and ( ");
+				
+				addedAnd = true;
+			} else {
+				sql.append(" or ");
+			}
+			
+			sql.append(SQLiteStatic.grammaFormSelectElements_romaji);
+			
+			arguments.add(wordLowerCaseWithPercent);
+		}
+		
+		if (addedAnd == true) {
+			sql.append(" ) ");
+		} else {
+			return;
+		}
+		
+		sql.append(" union ");
+		
+		sql.append(SQLiteStatic.exampleResultSelectElements);
+
+		addedAnd = false;
+		
+		if (findWordRequest.searchKanji == true) {
+			
+			if (addedAnd == false) {
+				sql.append(" and ( ");
+				
+				addedAnd = true;
+			}
+			
+			sql.append(SQLiteStatic.exampleResultSelectElements_kanji);
+			
+			arguments.add(wordWithPercent);
+		}
+		
+		if (findWordRequest.searchKana == true) {
+			
+			if (addedAnd == false) {
+				sql.append(" and ( ");
+				
+				addedAnd = true;
+			} else {
+				sql.append(" or ");
+			}
+			
+			sql.append(SQLiteStatic.exampleResultSelectElements_kana);
+			
+			arguments.add(wordWithPercent);
+		}
+		
+		if (findWordRequest.searchRomaji == true) {
+			
+			if (addedAnd == false) {
+				sql.append(" and ( ");
+				
+				addedAnd = true;
+			} else {
+				sql.append(" or ");
+			}
+			
+			sql.append(SQLiteStatic.exampleResultSelectElements_romaji);
+			
+			arguments.add(wordLowerCaseWithPercent);
+		}
+		
+		if (addedAnd == true) {
+			sql.append(" ) ");
+		} else {
+			return;
+		}
+		
+		sql.append(SQLiteStatic.grammaFormExampleSelectElements_limit).append(" " + limit);
 		
 		Cursor cursor = null;
 		
+		String[] argumentsStringArray = new String[arguments.size()];
+		
+		arguments.toArray(argumentsStringArray);
+		
 		try {
-			cursor = sqliteDatabase.rawQuery("select de.kanji from DictionaryEntries de where " +
-					"de.id in (select grammaFormGroup.dictionaryEntryId from GrammaFormConjugateGroupTypeEntries grammaFormGroup, GrammaFormConjugateResultEntries grammaFormResult " +
-					"where grammaFormGroup.id = grammaFormResult.grammaFormConjugateGroupTypeEntriesId and " +
-					"grammaFormResult.kanji = '食べた') " +
-					"limit 50;", null);
+			cursor = sqliteDatabase.rawQuery(sql.toString(), argumentsStringArray);
 			
 			cursor.moveToFirst();
 			
 			while (!cursor.isAfterLast()) {
 				
-				String stringText = cursor.getString(0);
+				String stringText = cursor.getString(3);
 				
 				Log.d("AAAA", "BBBB: " + stringText);
 
