@@ -56,4 +56,12 @@ public class ExampleResult implements Serializable {
 	public void setCanAddPrefix(boolean canAddPrefix) {
 		this.canAddPrefix = canAddPrefix;
 	}
+	
+	public boolean isKanjiExists() {
+		if (kanji != null && kanji.equals("-") == false) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

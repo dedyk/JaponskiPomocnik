@@ -10,6 +10,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
@@ -806,6 +807,20 @@ public class SQLiteConnector {
 					
 				} else if (grammaFormOrExample.equals("ExampleResult") == true) {
 					
+					ExampleResult exampleResult = new ExampleResult();
+					
+					exampleResult.setCanAddPrefix(false);
+					exampleResult.setKanji(kanjiString);
+					exampleResult.setKanaList(Utils.parseStringIntoList(kanaListString, false));
+					exampleResult.setRomajiList(Utils.parseStringIntoList(romajiListString , false));
+
+					DictionaryEntry relatedDictionaryEntryById = getDictionaryEntryById(dictionaryEntryId);
+					
+					if (relatedDictionaryEntryById == null) {
+						throw new RuntimeException("relatedDictionaryEntryById == null");
+					}
+					
+					findWordResult.result.add(new ResultItem(exampleResult, ExampleGroupType.valueOf(resultTypeString), relatedDictionaryEntryById));
 				
 				} else {
 					throw new RuntimeException("grammaFormOrExampe");
@@ -818,6 +833,12 @@ public class SQLiteConnector {
 			if (cursor != null) {
 				cursor.close();
 			}
+		}
+		
+		if (findWordResult.result.size() >= SQLiteStatic.MAX_SEARCH_RESULT) {
+			findWordResult.moreElemetsExists = true;
+			
+			findWordResult.result.remove(findWordResult.result.size() - 1);
 		}
 	}
 }
