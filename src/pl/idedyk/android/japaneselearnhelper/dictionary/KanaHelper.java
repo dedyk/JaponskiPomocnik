@@ -1313,7 +1313,7 @@ public class KanaHelper {
 		}
 	}
 	
-	public KanaWord convertKanaStringIntoKanaWord(String kana, Map<String, KanaEntry> kanaCache) {
+	public KanaWord convertKanaStringIntoKanaWord(String kana, Map<String, KanaEntry> kanaCache, boolean ignoreUnknownChars) {
 
 		List<KanaEntry> kanaResultEntries = new ArrayList<KanaEntry>();
 
@@ -1350,7 +1350,11 @@ public class KanaHelper {
 
 					continue;
 				} else {
-					throw new RuntimeException(kana);
+					if (ignoreUnknownChars == false) {
+						throw new RuntimeException(kana);
+					}
+					
+					pos += 1;
 				}
 			}
 		}

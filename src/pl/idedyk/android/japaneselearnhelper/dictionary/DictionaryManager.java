@@ -315,8 +315,8 @@ public class DictionaryManager {
 				} else if (lhsString == null && rhsString != null) {
 					return 1;
 				} else {
-					String lhsRomaji = KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(lhsString, kanaCache));
-					String rhsRomaji = KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(rhsString, kanaCache));
+					String lhsRomaji = KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(lhsString, kanaCache, true));
+					String rhsRomaji = KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(rhsString, kanaCache, true));
 					
 					return lhsRomaji.compareToIgnoreCase(rhsRomaji);
 				}
@@ -383,8 +383,6 @@ public class DictionaryManager {
 	
 	public void countForm(ILoadWithProgress loadWithProgress) throws DictionaryException {
 		
-		final Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
-		
 		int counter = 1;
 		
 		int transactionCounter = 0;
@@ -418,13 +416,7 @@ public class DictionaryManager {
 						sqliteConnector.insertExampleGroupTypeElements(nthDictionaryEntry, exampleGroupTypeElements);
 					}
 				}
-				
-				List<String> kanaList = nthDictionaryEntry.getKanaList();
-				
-				for (String currentKana : kanaList) {
-					KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(currentKana, kanaCache));
-				}
-											
+															
 				counter++;
 				
 				transactionCounter++;
