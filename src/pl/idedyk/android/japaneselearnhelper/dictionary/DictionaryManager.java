@@ -17,6 +17,7 @@ import android.content.res.Resources;
 import com.csvreader.CsvReader;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
@@ -277,9 +278,9 @@ public class DictionaryManager {
 		
 		final Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
 		
-		Collections.sort(findWordResult.result, new Comparator<DictionaryEntry>() {
+		Collections.sort(findWordResult.result, new Comparator<ResultItem>() {
 
-			public int compare(DictionaryEntry lhs, DictionaryEntry rhs) {
+			public int compare(ResultItem lhs, ResultItem rhs) {
 				
 				List<String> lhsKanaList = lhs.getKanaList();
 				List<String> rhsKanaList = rhs.getKanaList();

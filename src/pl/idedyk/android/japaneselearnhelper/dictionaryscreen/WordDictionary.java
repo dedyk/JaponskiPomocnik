@@ -7,8 +7,8 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
@@ -391,7 +391,7 @@ public class WordDictionary extends Activity {
 					wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
 							(foundWord.moreElemetsExists == true ? "+" : "" )));
 					
-					for (DictionaryEntry currentFoundWord : foundWord.result) {
+					for (ResultItem currentFoundWord : foundWord.result) {
 						
 						String currentFoundWordFullTextWithMark = getWordFullTextWithMark(currentFoundWord, findWord, findWordRequest);
 																				
@@ -403,22 +403,22 @@ public class WordDictionary extends Activity {
 			        progressDialog.dismiss();
 			    }
 			    
-			    private String getWordFullTextWithMark(DictionaryEntry dictionaryEntry, String findWord, FindWordRequest findWordRequest) {
+			    private String getWordFullTextWithMark(ResultItem resultItem, String findWord, FindWordRequest findWordRequest) {
 
-			    	String kanji = dictionaryEntry.getKanji();
-			    	String prefixKana = dictionaryEntry.getPrefixKana();
-			    	List<String> kanaList = dictionaryEntry.getKanaList();
-			    	String prefixRomaji = dictionaryEntry.getPrefixRomaji();
-			    	List<String> romajiList = dictionaryEntry.getRomajiList();
-			    	List<String> translates = dictionaryEntry.getTranslates();
-			    	String info = dictionaryEntry.getInfo();
+			    	String kanji = resultItem.getKanji();
+			    	String prefixKana = resultItem.getPrefixKana();
+			    	List<String> kanaList = resultItem.getKanaList();
+			    	String prefixRomaji = resultItem.getPrefixRomaji();
+			    	List<String> romajiList = resultItem.getRomajiList();
+			    	List<String> translates = resultItem.getTranslates();
+			    	String info = resultItem.getInfo();
 			    	
 			    	StringBuffer result = new StringBuffer();
 			    	
 			    	String tempPrefixKana = prefixKana != null && prefixKana.equals("") == false ? prefixKana : null;
 			    	String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
 
-			    	if (dictionaryEntry.isKanjiExists() == true) {
+			    	if (resultItem.isKanjiExists() == true) {
 
 			    		if (tempPrefixKana != null) {
 			    			result.append("(").append(getStringWithMark(tempPrefixKana, findWord, false)).append(") ");

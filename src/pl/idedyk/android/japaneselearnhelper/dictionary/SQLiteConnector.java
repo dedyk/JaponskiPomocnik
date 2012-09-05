@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
@@ -18,7 +19,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 public class SQLiteConnector {
 	
@@ -134,7 +134,7 @@ public class SQLiteConnector {
 		
 		FindWordResult findWordResult = new FindWordResult();
 		
-		findWordResult.result = new ArrayList<DictionaryEntry>();
+		findWordResult.result = new ArrayList<ResultItem>();
 		
 		String wordWithPercent = null; 
 		String wordLowerCaseWithPercent = null;
@@ -261,7 +261,7 @@ public class SQLiteConnector {
 						prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
 						romajiListString, translateListString, infoString);
 				
-				findWordResult.result.add(entry);
+				findWordResult.result.add(new ResultItem(entry));
 				
 				cursor.moveToNext();
 		    }
@@ -746,9 +746,16 @@ public class SQLiteConnector {
 			
 			while (!cursor.isAfterLast()) {
 				
-				String stringText = cursor.getString(3);
+				String grammaFormOrExampe = cursor.getString(0);
+				String dictionaryEntryId = cursor.getString(1);
+				String resultType = cursor.getString(2);
 				
-				Log.d("AAAA", "BBBB: " + stringText);
+				String kanjiString = cursor.getString(3);
+				String kanaListString = cursor.getString(4);				
+				String romajiListString = cursor.getString(5);
+				
+				
+				
 
 				cursor.moveToNext();
 			}
