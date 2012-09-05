@@ -611,6 +611,17 @@ public class SQLiteConnector {
 		
 		// test
 		
+		/*
+select 'GrammaForm', grammaFormGroup.dictionaryEntryId, grammaFormResult.resultTypes, grammaFormResult.kanji, grammaFormResult.kanaList, grammaFormResult.romajiList from GrammaFormConjugateGroupTypeEntries grammaFormGroup, GrammaFormConjugateResultEntries grammaFormResult
+where grammaFormGroup.id = grammaFormResult.grammaFormConjugateGroupTypeEntriesId and 
+grammaFormResult.kanji = '食べた'
+union
+select 'ExampleResult', exampleGroupType.dictionaryEntryId, exampleGroupType.exampleGroupType, exampleResult.kanji, exampleResult.kanaList, exampleResult.romajiList from ExampleGroupTypeEntries exampleGroupType, ExampleResultEntries exampleResult
+where exampleGroupType.id = exampleResult.exampleGroupTypeEntriesId and
+exampleResult.kanji like '食べて%'
+
+		 */
+		
 		Cursor cursor = null;
 		
 		try {
