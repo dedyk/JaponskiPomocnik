@@ -2,7 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 public class SQLiteStatic {
 	
-	public static int MAX_SEARCH_RESULT = 101;
+	public static int MAX_SEARCH_RESULT = 51;
 
 	public static final String databaseName = "JapaneseAndroidLearnHelperDb";
 	

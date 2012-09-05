@@ -433,6 +433,8 @@ public class DictionaryManager {
 					sqliteConnector.beginTransaction();
 				}
 			}
+			
+			sqliteConnector.commitTransaction();
 		} finally {
 			sqliteConnector.endTransaction();
 		}

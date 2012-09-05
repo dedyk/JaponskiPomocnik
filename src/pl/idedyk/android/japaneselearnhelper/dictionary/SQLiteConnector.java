@@ -138,7 +138,7 @@ public class SQLiteConnector {
 		
 		try {
 			cursor = sqliteDatabase.rawQuery(
-					SQLiteStatic.dictionaryEntriesTableNthElement, new String[] { String.valueOf(nth - 1) });
+					SQLiteStatic.dictionaryEntriesTableNthElement, new String[] { String.valueOf(nth) });
 			
 			cursor.moveToFirst();
 			
