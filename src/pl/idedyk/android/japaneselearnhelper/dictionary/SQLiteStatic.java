@@ -2,7 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 public class SQLiteStatic {
 	
-	public static int MAX_SEARCH_RESULT = 51;
+	public static int MAX_SEARCH_RESULT = 101;
 
 	public static final String databaseName = "JapaneseAndroidLearnHelperDb";
 	
@@ -127,6 +127,19 @@ public class SQLiteStatic {
 			exampleResultEntriesTable_kanji + " text null, " +
 			exampleResultEntriesTable_kanaList + " text not null, " +
 			exampleResultEntriesTable_romajiList + " text not null);";
+	
+	public static final String dictionaryEntriesTableIdElement = 
+			"select " + 
+			dictionaryEntriesTable_id + ", " +
+			dictionaryEntriesTable_dictionaryEntryType + ", " +
+			dictionaryEntriesTable_prefixKana + ", " +
+			dictionaryEntriesTable_kanji + ", " +
+			dictionaryEntriesTable_kanaList + ", " +
+			dictionaryEntriesTable_prefixRomaji + ", " +
+			dictionaryEntriesTable_romajiList + ", " +
+			dictionaryEntriesTable_translates + ", " +
+			dictionaryEntriesTable_info + " " +
+			"from " + dictionaryEntriesTableName + " where " + dictionaryEntriesTable_id + " = ?";
 		
 	public static final String dictionaryEntriesTableNthElement = 
 			"select " + 

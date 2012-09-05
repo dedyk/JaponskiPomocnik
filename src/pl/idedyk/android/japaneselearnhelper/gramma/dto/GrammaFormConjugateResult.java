@@ -56,4 +56,12 @@ public class GrammaFormConjugateResult implements Serializable {
 	public void setAlternative(GrammaFormConjugateResult alternative) {
 		this.alternative = alternative;
 	}
+	
+	public boolean isKanjiExists() {
+		if (kanji != null && kanji.equals("-") == false) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

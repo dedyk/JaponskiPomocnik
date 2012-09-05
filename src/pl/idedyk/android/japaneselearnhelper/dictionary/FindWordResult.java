@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 
 public class FindWordResult {
 	
@@ -14,10 +15,19 @@ public class FindWordResult {
 		
 		private DictionaryEntry dictionaryEntry;
 		
+		private GrammaFormConjugateResult grammaFormConjugateResult;
+		
+		private DictionaryEntry relatedDictionaryEntryById;
+		
 		public ResultItem(DictionaryEntry dictionaryEntry) {
 			this.dictionaryEntry = dictionaryEntry;
 		}
 		
+		public ResultItem(GrammaFormConjugateResult grammaFormConjugateResult, DictionaryEntry relatedDictionaryEntryById) {
+			this.grammaFormConjugateResult = grammaFormConjugateResult;
+			this.relatedDictionaryEntryById = relatedDictionaryEntryById;
+		}
+
 		public DictionaryEntry getDictionaryEntry() {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry;
@@ -30,6 +40,8 @@ public class FindWordResult {
 			
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.isKanjiExists();
+			} else if (grammaFormConjugateResult != null) {
+				return grammaFormConjugateResult.isKanjiExists();
 			}
 			
 			throw new RuntimeException("isKanjiExists");
@@ -38,6 +50,8 @@ public class FindWordResult {
 		public String getKanji() {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.getKanji();
+			} else if (grammaFormConjugateResult != null) {
+				return grammaFormConjugateResult.getKanji();
 			}
 			
 			throw new RuntimeException("getKanji");
@@ -46,6 +60,8 @@ public class FindWordResult {
 		public String getPrefixKana() {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.getPrefixKana();
+			} else if (grammaFormConjugateResult != null) {
+				return null;
 			}
 			
 			throw new RuntimeException("getPrefixKana");
@@ -54,6 +70,8 @@ public class FindWordResult {
 		public List<String> getKanaList() {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.getKanaList();
+			} else if (grammaFormConjugateResult != null) {
+				return grammaFormConjugateResult.getKanaList();
 			}
 			
 			throw new RuntimeException("getKanaList");
@@ -62,6 +80,8 @@ public class FindWordResult {
 		public String getPrefixRomaji() {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.getPrefixRomaji();
+			} else if (grammaFormConjugateResult != null) {
+				return null;
 			}
 			
 			throw new RuntimeException("getPrefixRomaji");
@@ -70,6 +90,8 @@ public class FindWordResult {
 		public List<String> getRomajiList() {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.getRomajiList();
+			} else if (grammaFormConjugateResult != null) {
+				return grammaFormConjugateResult.getRomajiList();
 			}
 			
 			throw new RuntimeException("getRomajiList");
@@ -78,6 +100,8 @@ public class FindWordResult {
 		public List<String> getTranslates() {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.getTranslates();
+			} else if (grammaFormConjugateResult != null) {
+				return relatedDictionaryEntryById.getTranslates();
 			}
 			
 			throw new RuntimeException("getTranslates");
@@ -86,15 +110,22 @@ public class FindWordResult {
 		public String getInfo() {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.getInfo();
+			} else if (grammaFormConjugateResult != null) {
+				
+				String relatedDictionaryEntryByIdInfo = relatedDictionaryEntryById.getInfo();
+				
+				String result = "";
+				
+				if (relatedDictionaryEntryByIdInfo != null && relatedDictionaryEntryByIdInfo.equals("") == false) {
+					result = relatedDictionaryEntryByIdInfo + ", ";
+				}
+				
+				result = result + grammaFormConjugateResult.getResultType().getName();
+				
+				return result;
 			}
 			
 			throw new RuntimeException("getInfo");
 		}
-		
-		
-		
-		
-		
-		
 	}
 }

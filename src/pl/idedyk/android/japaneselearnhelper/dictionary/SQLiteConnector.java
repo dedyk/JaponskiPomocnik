@@ -14,6 +14,7 @@ import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElement
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -96,6 +97,38 @@ public class SQLiteConnector {
 	public int getDictionaryEntriesSize() {
 		
 		return countTableSize(SQLiteStatic.dictionaryEntriesTableName);		
+	}
+	
+	public DictionaryEntry getDictionaryEntryById(String id) throws DictionaryException {
+		
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.rawQuery(
+					SQLiteStatic.dictionaryEntriesTableIdElement, new String[] { String.valueOf(id) });
+			
+			cursor.moveToFirst();
+			
+			String idString = cursor.getString(0);
+			String dictionaryEntryTypeString = cursor.getString(1);
+			String prefixKanaString = cursor.getString(2);
+			String kanjiString = cursor.getString(3);
+						
+			String kanaListString = cursor.getString(4);
+			String prefixRomajiString = cursor.getString(5);
+			
+			String romajiListString = cursor.getString(6);
+			String translateListString = cursor.getString(7);
+			String infoString = cursor.getString(8);
+						
+			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, 
+					prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
+					romajiListString, translateListString, infoString);
+			
+			return entry;
+		} finally {
+			cursor.close();
+		}
 	}
 	
 	public DictionaryEntry getNthDictionaryEntry(int nth) throws DictionaryException {
@@ -746,17 +779,38 @@ public class SQLiteConnector {
 			
 			while (!cursor.isAfterLast()) {
 				
-				String grammaFormOrExampe = cursor.getString(0);
+				String grammaFormOrExample = cursor.getString(0);
 				String dictionaryEntryId = cursor.getString(1);
-				String resultType = cursor.getString(2);
+				String resultTypeString = cursor.getString(2);
 				
 				String kanjiString = cursor.getString(3);
 				String kanaListString = cursor.getString(4);				
 				String romajiListString = cursor.getString(5);
 				
+				if (grammaFormOrExample.equals("GrammaForm") == true) {
+					
+					GrammaFormConjugateResult grammaFormConjugateResult = new GrammaFormConjugateResult();
+					
+					grammaFormConjugateResult.setKanji(kanjiString);
+					grammaFormConjugateResult.setResultType(GrammaFormConjugateResultType.valueOf(resultTypeString));
+					grammaFormConjugateResult.setKanaList(Utils.parseStringIntoList(kanaListString, false));
+					grammaFormConjugateResult.setRomajiList(Utils.parseStringIntoList(romajiListString , false));
+					
+					DictionaryEntry relatedDictionaryEntryById = getDictionaryEntryById(dictionaryEntryId);
+					
+					if (relatedDictionaryEntryById == null) {
+						throw new RuntimeException("relatedDictionaryEntryById == null");
+					}
+					
+					findWordResult.result.add(new ResultItem(grammaFormConjugateResult, relatedDictionaryEntryById));
+					
+				} else if (grammaFormOrExample.equals("ExampleResult") == true) {
+					
 				
+				} else {
+					throw new RuntimeException("grammaFormOrExampe");
+				}
 				
-
 				cursor.moveToNext();
 			}
 			
@@ -765,8 +819,5 @@ public class SQLiteConnector {
 				cursor.close();
 			}
 		}
-
-		
-		
 	}
 }
