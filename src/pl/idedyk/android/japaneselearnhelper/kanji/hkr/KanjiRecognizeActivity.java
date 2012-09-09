@@ -12,6 +12,7 @@ import android.graphics.PointF;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class KanjiRecognizeActivity extends Activity {
 
@@ -61,7 +62,18 @@ public class KanjiRecognizeActivity extends Activity {
 
 		recognizeButton.setOnClickListener(new View.OnClickListener() {
 
-			public void onClick(View v) {
+			public void onClick(View v) {				
+				
+				List<Stroke> strokes = drawView.getStrokes();
+				
+				if (strokes.size() == 0) {
+					
+					Toast toast = Toast.makeText(KanjiRecognizeActivity.this, getString(R.string.kanji_recognize_please_draw), Toast.LENGTH_SHORT);
+					
+					toast.show();
+					
+					return;
+				}
 				
 				ZinniaManager zinniaManager = DictionaryManager.getInstance().getZinniaManager();
 				
@@ -72,8 +84,6 @@ public class KanjiRecognizeActivity extends Activity {
 				zinniaCharacter.clear();
 				zinniaCharacter.setHeight(drawView.getHeight());
 				zinniaCharacter.setWidth(drawView.getWidth());
-				
-				List<Stroke> strokes = drawView.getStrokes();
 				
 				for (int idx = 0; idx < strokes.size(); ++idx) {
 					
@@ -86,9 +96,21 @@ public class KanjiRecognizeActivity extends Activity {
 					}
 				}
 				
-				List<RecognizerResultItem> recognizeResult = zinniaCharacter.recognize();
+				List<RecognizerResultItem> recognizeResult = zinniaCharacter.recognize(20);
 				
 				zinniaCharacter.destroy();
+				
+				// FIXME !!!!!
+				StringBuffer sb = new StringBuffer();
+				
+				for (RecognizerResultItem recognizerResultItem : recognizeResult) {
+					sb.append(recognizerResultItem.getKanji() + " " + recognizerResultItem.getScore()).append("\n");
+				}
+				
+				Toast toast = Toast.makeText(KanjiRecognizeActivity.this, sb, Toast.LENGTH_LONG);
+				
+				toast.show();
+
 				
 				
 			}

@@ -89,11 +89,11 @@ public class ZinniaManager {
 			zinnia.zinnia_character_add(character, strokeNo, x, y);
 		}
 		
-		public List<RecognizerResultItem> recognize() {
+		public List<RecognizerResultItem> recognize(int limit) {
 			
 			List<RecognizerResultItem> result = new ArrayList<RecognizerResultItem>();
 			
-			long recognizerResult = zinnia.zinnia_recognizer_classify(zinniaHandler, character, 20);
+			long recognizerResult = zinnia.zinnia_recognizer_classify(zinniaHandler, character, limit);
 
 			if (recognizerResult != 0) {
 				for (int i = 0; i < zinnia.zinnia_result_size(recognizerResult); ++i) {	
