@@ -13,6 +13,9 @@
     
     <string name="main_menu_kanji_text">Wyszukiwarka znaków kanji</string>
     <string name="main_menu_kanji_kanji">漢字</string>
+
+    <string name="main_menu_kanji_recognizer_text">Rozpoznawanie znaków kanji</string>
+    <string name="main_menu_kanji_recognizer_kanji">漢字</string>
     
     <string name="main_menu_word_test_text">Test ze słówek</string>
     <string name="main_menu_word_test_kanji">X</string>

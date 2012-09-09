@@ -9,7 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.info.InfoActivity;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.kana.KanaTestOptions;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
-import pl.idedyk.android.japaneselearnhelper.kanji.hkr.RecognizeKanjiActivity;
+import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 
 import android.app.Activity;
@@ -69,16 +69,16 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     			getString(R.string.main_menu_kanji_text)));
     	
     	mainMenuListItems.add(new MainMenuItem(
+    			getString(R.string.main_menu_kanji_recognizer_kanji),
+    			getString(R.string.main_menu_kanji_recognizer_text)));
+    	
+    	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_suggestion_kanji),
     			getString(R.string.main_menu_suggestion_text)));
     	
     	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_information_kanji),
     			getString(R.string.main_menu_information_text)));
-
-    	mainMenuListItems.add(new MainMenuItem(
-    			"TT",
-    			"KK"));
     	
     	MainMenuListItemAdapter mainMenuListItemsAdapter = new MainMenuListItemAdapter(this, R.layout.main_menu_simplerow, mainMenuListItems);
     	
@@ -118,7 +118,14 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					
 					startActivity(intent);
 				} 
-				else if (position == 4) { // suggestion
+				
+				else if (position == 4) { // kanji recognizer
+					
+					Intent intent = new Intent(getApplicationContext(), KanjiRecognizeActivity.class);
+					
+					startActivity(intent);					
+					
+				} else if (position == 5) { // suggestion
 					String chooseEmailClientTitle = getString(R.string.choose_email_client);
 					
 					String mailSubject = getString(R.string.main_menu_email_subject);
@@ -140,13 +147,9 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent reportSuggestionIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody, versionName, versionCode); 
 					
 					startActivity(Intent.createChooser(reportSuggestionIntent, chooseEmailClientTitle));
-				} else if (position == 5) { // info
+				} else if (position == 6) { // info
 					Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
 					
-					startActivity(intent);
-				} else if (position == 6) { // test !!!!!!!!!
-					Intent intent = new Intent(getApplicationContext(), RecognizeKanjiActivity.class);
-				
 					startActivity(intent);
 				}
 			}

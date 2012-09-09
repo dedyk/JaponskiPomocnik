@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.kanji.hkr;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -83,7 +84,8 @@ public class KanjiDrawView extends View {
         strokePaint.setColor(color);
     }
 
-    @Override
+    @SuppressLint("DrawAllocation")
+	@Override
     protected void onDraw(Canvas canvas) {
         Rect r = new Rect();
         getDrawingRect(r);
