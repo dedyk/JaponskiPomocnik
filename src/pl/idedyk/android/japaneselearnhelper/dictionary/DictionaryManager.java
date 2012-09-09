@@ -1,5 +1,8 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -36,6 +39,8 @@ public class DictionaryManager {
 	
 	private static final String KANJI_FILE = "kanji.csv";
 	
+	private static final String KANJI_RECOGNIZE_MODEL_DB_FILE = "kanji_recognizer.model.db";
+	
 	private static final String RADICAL_FILE = "radical.csv";
 	
 	private static final String KANA_FILE = "kana.csv";
@@ -55,11 +60,13 @@ public class DictionaryManager {
 		
 	private List<RadicalInfo> radicalList = null;
 	
+	File kanjiRecognizeModelDbFile = null;
+	
 	public DictionaryManager(SQLiteConnector sqliteConnector) {
 		this.sqliteConnector = sqliteConnector;
 	}
 	
-	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets) {
+	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName) {
 				
 		try {			
 			// init
@@ -135,21 +142,22 @@ public class DictionaryManager {
 				fakeProgress(loadWithProgress);
 			}
 
-			// obliczanie form (tutaj)
-			/*
-			if (needInsertData == true) {
-				loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_count_word_forms));
-				loadWithProgress.setCurrentPos(0);
-				
-				int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
+			// kopiowanie kanji recognize model do data			
+			kanjiRecognizeModelDbFile = new File("/data/data/" + packageName + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE);
 			
-				loadWithProgress.setMaxValue(dictionaryEntriesSize);
+			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji_recognize));
+			loadWithProgress.setCurrentPos(0);
+			loadWithProgress.setMaxValue(1);
+			
+			if (needInsertData == true) {
 				
-				countForm(loadWithProgress);
+				InputStream kanjiRecognizeModelInputStream = assets.open(KANJI_RECOGNIZE_MODEL_DB_FILE);
+				
+				copyKanjiRecognizeModelToData(kanjiRecognizeModelInputStream, loadWithProgress);
+
 			} else {
 				fakeProgress(loadWithProgress);
-			}
-			*/
+			}			
 			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 			
@@ -735,5 +743,23 @@ public class DictionaryManager {
 	
 	public int getGrammaFormAndExamplesEntriesSize() {
 		return sqliteConnector.getGrammaFormAndExamplesEntriesSize();
+	}
+	
+	private void copyKanjiRecognizeModelToData(InputStream kanjiRecognizeModelInputStream, ILoadWithProgress loadWithProgress) throws IOException {
+		
+		BufferedOutputStream kanjiRecognizerModelDbOutputStream = null;
+
+		kanjiRecognizerModelDbOutputStream = new BufferedOutputStream(new FileOutputStream(kanjiRecognizeModelDbFile));
+
+		byte[] buffer = new byte[8096];
+		
+		int read;  
+		
+		while ((read = kanjiRecognizeModelInputStream.read(buffer)) != -1) {  
+			kanjiRecognizerModelDbOutputStream.write(buffer, 0, read);  
+		}  
+
+		kanjiRecognizeModelInputStream.close();
+		kanjiRecognizerModelDbOutputStream.close();		
 	}
 }

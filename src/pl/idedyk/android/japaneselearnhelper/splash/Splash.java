@@ -101,7 +101,7 @@ public class Splash extends Activity {
 								
 				LoadWithProgress loadWithProgress = new LoadWithProgress();
 				
-				dictionaryManager.init(loadWithProgress, resources, assets);
+				dictionaryManager.init(loadWithProgress, resources, assets, getPackageName());
 				
 				return null;
 			}
