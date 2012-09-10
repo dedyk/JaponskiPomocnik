@@ -10,6 +10,8 @@ import java.util.List;
 
 import org.xdump.android.zinnia.Zinnia;
 
+import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizerResultItem;
+
 public class ZinniaManager {
 	
 	private File kanjiRecognizeModelDbFile = null;
@@ -37,7 +39,9 @@ public class ZinniaManager {
 		}  
 
 		kanjiRecognizeModelInputStream.close();
-		kanjiRecognizerModelDbOutputStream.close();		
+		kanjiRecognizerModelDbOutputStream.close();
+		
+		loadWithProgress.setCurrentPos(1);
 	}
 
 	public File getKanjiRecognizeModelDbFile() {
@@ -89,15 +93,15 @@ public class ZinniaManager {
 			zinnia.zinnia_character_add(character, strokeNo, x, y);
 		}
 		
-		public List<RecognizerResultItem> recognize(int limit) {
+		public List<KanjiRecognizerResultItem> recognize(int limit) {
 			
-			List<RecognizerResultItem> result = new ArrayList<RecognizerResultItem>();
+			List<KanjiRecognizerResultItem> result = new ArrayList<KanjiRecognizerResultItem>();
 			
 			long recognizerResult = zinnia.zinnia_recognizer_classify(zinniaHandler, character, limit);
 
 			if (recognizerResult != 0) {
 				for (int i = 0; i < zinnia.zinnia_result_size(recognizerResult); ++i) {	
-					result.add(new RecognizerResultItem(zinnia.zinnia_result_value(recognizerResult, i), zinnia.zinnia_result_score(recognizerResult, i)));
+					result.add(new KanjiRecognizerResultItem(zinnia.zinnia_result_value(recognizerResult, i), zinnia.zinnia_result_score(recognizerResult, i)));
 				}
 				
 				zinnia.zinnia_result_destroy(recognizerResult);
@@ -109,25 +113,5 @@ public class ZinniaManager {
 		public void destroy() {
 			zinnia.zinnia_character_destroy(character);
 		}
-	}
-	
-	public class RecognizerResultItem {
-		
-		private String kanji;
-		
-		private float score;
-		
-		private RecognizerResultItem(String kanji, float score) {
-			this.kanji = kanji;
-			this.score = score;
-		}
-
-		public String getKanji() {
-			return kanji;
-		}
-
-		public float getScore() {
-			return score;
-		}		
 	}
 }

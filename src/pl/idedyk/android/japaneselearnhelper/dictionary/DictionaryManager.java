@@ -146,16 +146,10 @@ public class DictionaryManager {
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji_recognize));
 			loadWithProgress.setCurrentPos(0);
 			loadWithProgress.setMaxValue(1);
-			
-			if (needInsertData == true) {
-				
-				InputStream kanjiRecognizeModelInputStream = assets.open(KANJI_RECOGNIZE_MODEL_DB_FILE);
-				
-				zinniaManager.copyKanjiRecognizeModelToData(kanjiRecognizeModelInputStream, loadWithProgress);
 
-			} else {
-				fakeProgress(loadWithProgress);
-			}			
+			InputStream kanjiRecognizeModelInputStream = assets.open(KANJI_RECOGNIZE_MODEL_DB_FILE);
+			
+			zinniaManager.copyKanjiRecognizeModelToData(kanjiRecognizeModelInputStream, loadWithProgress);			
 			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 			
@@ -560,6 +554,19 @@ public class DictionaryManager {
 		}
 		
 		return result;
+	}
+	
+	public KanjiEntry findKanji(String kanji) {
+		
+		KanjiEntry kanjiEntry = null;
+		
+		try {
+			kanjiEntry = sqliteConnector.getKanjiEntry(kanji);
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
+		}
+
+		return kanjiEntry;		
 	}
 	
 	private void readRadicalEntriesFromCsv(InputStream radicalInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {

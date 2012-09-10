@@ -1,14 +1,18 @@
 package pl.idedyk.android.japaneselearnhelper.kanji.hkr;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager.Character;
-import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager.RecognizerResultItem;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.PointF;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -64,7 +68,7 @@ public class KanjiRecognizeActivity extends Activity {
 
 			public void onClick(View v) {				
 				
-				List<Stroke> strokes = drawView.getStrokes();
+				final List<Stroke> strokes = drawView.getStrokes();
 				
 				if (strokes.size() == 0) {
 					
@@ -75,44 +79,77 @@ public class KanjiRecognizeActivity extends Activity {
 					return;
 				}
 				
-				ZinniaManager zinniaManager = DictionaryManager.getInstance().getZinniaManager();
+				final ProgressDialog progressDialog = ProgressDialog.show(KanjiRecognizeActivity.this, 
+						getString(R.string.kanji_recognize_recoginize1),
+						getString(R.string.kanji_recognize_recoginize2));
 				
-				zinniaManager.open();
-				
-				Character zinniaCharacter = zinniaManager.createNewCharacter();
+				class RecognizeAsyncTask extends AsyncTask<Void, Void, List<KanjiEntry>> {
 
-				zinniaCharacter.clear();
-				zinniaCharacter.setHeight(drawView.getHeight());
-				zinniaCharacter.setWidth(drawView.getWidth());
-				
-				for (int idx = 0; idx < strokes.size(); ++idx) {
-					
-					Stroke currentStroke = strokes.get(idx);
-					
-					List<PointF> currentStrokePoints = currentStroke.getPoints();
-					
-					for (PointF currentStrokeCurrentPoint : currentStrokePoints) {
-						zinniaCharacter.add(idx, (int)currentStrokeCurrentPoint.x, (int)currentStrokeCurrentPoint.y);
+					@Override
+					protected List<KanjiEntry> doInBackground(Void... arg0) {
+						
+						DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+						
+						ZinniaManager zinniaManager = dictionaryManager.getZinniaManager();
+						
+						zinniaManager.open();
+						
+						Character zinniaCharacter = zinniaManager.createNewCharacter();
+
+						zinniaCharacter.clear();
+						zinniaCharacter.setHeight(drawView.getHeight());
+						zinniaCharacter.setWidth(drawView.getWidth());
+						
+						for (int idx = 0; idx < strokes.size(); ++idx) {
+							
+							Stroke currentStroke = strokes.get(idx);
+							
+							List<PointF> currentStrokePoints = currentStroke.getPoints();
+							
+							for (PointF currentStrokeCurrentPoint : currentStrokePoints) {
+								zinniaCharacter.add(idx, (int)currentStrokeCurrentPoint.x, (int)currentStrokeCurrentPoint.y);
+							}
+						}
+						
+						List<KanjiRecognizerResultItem> recognizeResult = zinniaCharacter.recognize(50);
+						
+						zinniaCharacter.destroy();
+						
+						List<KanjiEntry> kanjiEntries = new ArrayList<KanjiEntry>();
+						
+						for (KanjiRecognizerResultItem currentRecognizeResult : recognizeResult) {
+							
+							KanjiEntry kanjiEntry = dictionaryManager.findKanji(currentRecognizeResult.getKanji());
+							
+							if (kanjiEntry == null) {
+								throw new RuntimeException("kanjiEntry == null");
+							}
+							
+							kanjiEntries.add(kanjiEntry);							
+						}						
+
+						return kanjiEntries;
 					}
-				}
-				
-				List<RecognizerResultItem> recognizeResult = zinniaCharacter.recognize(20);
-				
-				zinniaCharacter.destroy();
-				
-				// FIXME !!!!!
-				StringBuffer sb = new StringBuffer();
-				
-				for (RecognizerResultItem recognizerResultItem : recognizeResult) {
-					sb.append(recognizerResultItem.getKanji() + " " + recognizerResultItem.getScore()).append("\n");
-				}
-				
-				Toast toast = Toast.makeText(KanjiRecognizeActivity.this, sb, Toast.LENGTH_LONG);
-				
-				toast.show();
+					
+				    @Override
+				    protected void onPostExecute(List<KanjiEntry> kanjiEntries) {
+				        super.onPostExecute(kanjiEntries);
 
+				        progressDialog.dismiss();
+				        
+						Intent intent = new Intent(getApplicationContext(), KanjiRecognizerResult.class);
+						
+						KanjiEntry[] kanjiEntriesAsArray = new KanjiEntry[kanjiEntries.size()];
+						
+						kanjiEntries.toArray(kanjiEntriesAsArray);
+						
+						intent.putExtra("kanjiRecognizeResult", kanjiEntriesAsArray);
+						
+						startActivity(intent);
+				    }
+				}
 				
-				
+				new RecognizeAsyncTask().execute();
 			}
 		});
 	}

@@ -32,6 +32,10 @@
     <string name="kanji_recognize_recognize">Rozpoznaj</string>
     <string name="kanji_recognize_undo">Cofnij</string>
     <string name="kanji_recognize_clear">Wyczyść</string>
-    <string name="kanji_recognize_info">Powyższy fragment kodu został pobrany i dostosowany z aplikacji WWWJDIC for Android autorstwa Nikolay Elenkov udostępnionego na licencji Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0</string>
+    <string name="kanji_recognize_info">Uwaga: Do prawidłowego działania powyższej funkcji wymagane jest prawidłowe pisanie znaków kanji, tj. liczba kresek, kolejność i etc.\n\nPowyższy fragment kodu został pobrany i dostosowany z aplikacji WWWJDIC for Android autorstwa Nikolay Elenkov udostępnionego na licencji Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0</string>
     <string name="kanji_recognize_please_draw">Proszę narysować znak</string>
+    <string name="kanji_recognize_recoginize1">Rozpoznawanie</string>
+    <string name="kanji_recognize_recoginize2">Proszę czekać</string>
+    <string name="kanji_recognize_result_report_problem">Widzisz błąd, brakuje szukanego znaku, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kanji_recognize_result_label">Wynik rozpoznawania znaków kanji</string>    
 </resources>
