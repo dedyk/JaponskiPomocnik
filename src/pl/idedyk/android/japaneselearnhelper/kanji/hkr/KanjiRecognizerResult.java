@@ -9,14 +9,19 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItemAdapter;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
 public class KanjiRecognizerResult extends Activity {
 	
@@ -26,7 +31,8 @@ public class KanjiRecognizerResult extends Activity {
 
 		setContentView(R.layout.kanji_recognizer_result);
 		
-		Object[] kanjiRecognizeResult = (Object[])getIntent().getSerializableExtra("kanjiRecognizeResult");
+		final Object[] kanjiRecognizeResult = (Object[])getIntent().getSerializableExtra("kanjiRecognizeResult");
+		final String kanjiRecognizeResultStrokes = getIntent().getStringExtra("kanjiRecognizeResultStrokes");
 		
 		final ListView kanjiRecognizerResultListView = (ListView)findViewById(R.id.kanji_recognizer_result_list);
 		
@@ -54,6 +60,10 @@ public class KanjiRecognizerResult extends Activity {
 		
 		kanjiRecognizerResultListView.setAdapter(searchResultArrayAdapter);
 		
+		TextView kanjiRecognizerResultElementsNo = (TextView)findViewById(R.id.kanji_recognizer_result_elements_no);
+		
+		kanjiRecognizerResultElementsNo.setText(getString(R.string.kanji_recognizer_result_elements_no, searchResultList.size()));
+		
 		kanjiRecognizerResultListView.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -67,6 +77,43 @@ public class KanjiRecognizerResult extends Activity {
 				startActivity(intent);
 				
 			}
-		});		
+		});
+		
+		Button reportProblemButton = (Button)findViewById(R.id.kanji_recognizer_result_report_problem_button);
+		
+		reportProblemButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View view) {
+								
+				StringBuffer searchListText = new StringBuffer();
+				
+				for (int searchResultArrayAdapterIdx = 0; searchResultArrayAdapterIdx < searchResultArrayAdapter.size(); ++searchResultArrayAdapterIdx) {
+					searchListText.append(searchResultArrayAdapter.getItem(searchResultArrayAdapterIdx).getText().toString()).append("\n--\n");
+				}
+				
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+				
+				String mailSubject = getString(R.string.kanji_recognizer_result_report_problem_email_subject);
+				
+				String mailBody = getString(R.string.kanji_recognizer_result_report_problem_email_body,
+						searchListText.toString(), kanjiRecognizeResultStrokes);
+				
+		        String versionName = "";
+		        int versionCode = 0;
+		        
+		        try {
+		        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+		        	
+		            versionName = packageInfo.versionName;
+		            versionCode = packageInfo.versionCode;
+
+		        } catch (NameNotFoundException e) {        	
+		        }
+								
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+				
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			}
+		});
 	}
 }

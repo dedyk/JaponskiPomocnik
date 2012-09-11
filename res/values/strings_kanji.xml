@@ -28,14 +28,17 @@
     <string name="kanji_search_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem na liście wyszukiwania elementów podsawowych kanji</string>
     <string name="kanji_search_result_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\nWpisana fraza: %1$s\n\n--\nAktualna zawartość listy:\n\n%2$s\n</string>
     <string name="kanji_details_kanji_info">Naciśnij na znak, aby uzyskać animację pisania znaku</string>
-    <string name="kanji_recognize_label">Rozpoznawanie znaków kanji</string>
-    <string name="kanji_recognize_recognize">Rozpoznaj</string>
-    <string name="kanji_recognize_undo">Cofnij</string>
-    <string name="kanji_recognize_clear">Wyczyść</string>
-    <string name="kanji_recognize_info">Uwaga: Do prawidłowego działania powyższej funkcji wymagane jest prawidłowe pisanie znaków kanji, tj. liczba kresek, kolejność i etc.\n\nPowyższy fragment kodu został pobrany i dostosowany z aplikacji WWWJDIC for Android autorstwa Nikolay Elenkov udostępnionego na licencji Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0</string>
-    <string name="kanji_recognize_please_draw">Proszę narysować znak</string>
-    <string name="kanji_recognize_recoginize1">Rozpoznawanie</string>
-    <string name="kanji_recognize_recoginize2">Proszę czekać</string>
-    <string name="kanji_recognize_result_report_problem">Widzisz błąd, brakuje szukanego znaku, coś można zrobić lepiej, zgłoś problem</string>
-    <string name="kanji_recognize_result_label">Wynik rozpoznawania znaków kanji</string>    
+    <string name="kanji_recognizer_label">Rozpoznawanie znaków kanji</string>
+    <string name="kanji_recognizer_recognize">Rozpoznaj</string>
+    <string name="kanji_recognizer_undo">Cofnij</string>
+    <string name="kanji_recognizer_clear">Wyczyść</string>
+    <string name="kanji_recognizer_info">Uwaga: Do prawidłowego działania powyższej funkcji wymagane jest prawidłowe pisanie znaków kanji, tj. liczba kresek, kolejność oraz kierunek.\n\nPowyższy fragment kodu został pobrany i dostosowany z aplikacji WWWJDIC for Android autorstwa Nikolay Elenkov udostępnionego na licencji Apache License 2.0 - http://www.apache.org/licenses/LICENSE-2.0</string>
+    <string name="kanji_recognizer_please_draw">Proszę narysować znak</string>
+    <string name="kanji_recognizer_recoginize1">Rozpoznawanie</string>
+    <string name="kanji_recognizer_recoginize2">Proszę czekać</string>
+    <string name="kanji_recognizer_result_report_problem">Widzisz błąd, brakuje szukanego znaku, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kanji_recognizer_result_label">Wynik rozpoznawania znaków kanji</string>
+    <string name="kanji_recognizer_result_elements_no">Liczba elementów: %1$s</string>
+    <string name="kanji_recognizer_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem w rozpoznawaniu znaków kanji</string>
+    <string name="kanji_recognizer_result_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n---\n%2$s\n</string>
 </resources>

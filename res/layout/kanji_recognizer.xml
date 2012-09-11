@@ -23,7 +23,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@android:drawable/btn_default_small"
-            android:text="@string/kanji_recognize_recognize" />
+            android:text="@string/kanji_recognizer_recognize" />
 
         <Button
             android:id="@+id/kanji_recognizer_undo_button"
@@ -31,7 +31,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@android:drawable/btn_default_small"
-            android:text="@string/kanji_recognize_undo" />
+            android:text="@string/kanji_recognizer_undo" />
 
         <Button
             android:id="@+id/kanji_recognizer_clear_button"
@@ -39,7 +39,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@android:drawable/btn_default_small"
-            android:text="@string/kanji_recognize_clear" />
+            android:text="@string/kanji_recognizer_clear" />
     </LinearLayout>
 
     <pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiDrawView
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:linksClickable="true"
-            android:text="@string/kanji_recognize_info" />
+            android:text="@string/kanji_recognizer_info" />
     </ScrollView>
 
 </LinearLayout>

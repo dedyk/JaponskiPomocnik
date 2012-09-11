@@ -72,7 +72,7 @@ public class KanjiRecognizeActivity extends Activity {
 				
 				if (strokes.size() == 0) {
 					
-					Toast toast = Toast.makeText(KanjiRecognizeActivity.this, getString(R.string.kanji_recognize_please_draw), Toast.LENGTH_SHORT);
+					Toast toast = Toast.makeText(KanjiRecognizeActivity.this, getString(R.string.kanji_recognizer_please_draw), Toast.LENGTH_SHORT);
 					
 					toast.show();
 					
@@ -80,8 +80,10 @@ public class KanjiRecognizeActivity extends Activity {
 				}
 				
 				final ProgressDialog progressDialog = ProgressDialog.show(KanjiRecognizeActivity.this, 
-						getString(R.string.kanji_recognize_recoginize1),
-						getString(R.string.kanji_recognize_recoginize2));
+						getString(R.string.kanji_recognizer_recoginize1),
+						getString(R.string.kanji_recognizer_recoginize2));
+				
+				final StringBuffer strokesStringBuffer = new StringBuffer();
 				
 				class RecognizeAsyncTask extends AsyncTask<Void, Void, List<KanjiEntry>> {
 
@@ -95,12 +97,17 @@ public class KanjiRecognizeActivity extends Activity {
 						zinniaManager.open();
 						
 						Character zinniaCharacter = zinniaManager.createNewCharacter();
-
+						
+						strokesStringBuffer.append("Height: " + drawView.getHeight()).append("\n");
+						strokesStringBuffer.append("Width: " + drawView.getWidth()).append("\n\n");
+						
 						zinniaCharacter.clear();
 						zinniaCharacter.setHeight(drawView.getHeight());
 						zinniaCharacter.setWidth(drawView.getWidth());
 						
 						for (int idx = 0; idx < strokes.size(); ++idx) {
+							
+							strokesStringBuffer.append(String.valueOf((idx + 1))).append(":");
 							
 							Stroke currentStroke = strokes.get(idx);
 							
@@ -108,7 +115,11 @@ public class KanjiRecognizeActivity extends Activity {
 							
 							for (PointF currentStrokeCurrentPoint : currentStrokePoints) {
 								zinniaCharacter.add(idx, (int)currentStrokeCurrentPoint.x, (int)currentStrokeCurrentPoint.y);
+								
+								strokesStringBuffer.append(currentStrokeCurrentPoint.x).append(" ").append(currentStrokeCurrentPoint.y).append(";");
 							}
+							
+							strokesStringBuffer.append("\n\n");
 						}
 						
 						List<KanjiRecognizerResultItem> recognizeResult = zinniaCharacter.recognize(50);
@@ -144,6 +155,7 @@ public class KanjiRecognizeActivity extends Activity {
 						kanjiEntries.toArray(kanjiEntriesAsArray);
 						
 						intent.putExtra("kanjiRecognizeResult", kanjiEntriesAsArray);
+						intent.putExtra("kanjiRecognizeResultStrokes", strokesStringBuffer.toString());
 						
 						startActivity(intent);
 				    }
