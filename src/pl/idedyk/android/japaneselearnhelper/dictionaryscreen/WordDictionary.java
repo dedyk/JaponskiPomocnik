@@ -57,6 +57,8 @@ public class WordDictionary extends Activity {
 	private RadioButton searchOptionsStartWithPlaceRadioButton;
 	
 	private TextView wordDictionarySearchElementsNoTextView;
+	
+	private CheckBox[] searchDictionaryEntryListCheckBox;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -193,9 +195,6 @@ public class WordDictionary extends Activity {
 					
 					searchOptionsButton.setText(getString(R.string.word_dictionary_search_options_button));
 				}
-				
-				
-				
 			}
 		});
 		
@@ -203,23 +202,28 @@ public class WordDictionary extends Activity {
 		
 		List<DictionaryEntryType> addableDictionaryEntryList = DictionaryEntryType.getAddableDictionaryEntryList();
 		
-		CheckBox[] addableDictionaryEntryListCheckBox = new CheckBox[addableDictionaryEntryList.size() + 1];
+		searchDictionaryEntryListCheckBox = new CheckBox[addableDictionaryEntryList.size() + 1];
 		
 		for (int addableDictionaryEntryListIdx = 0; addableDictionaryEntryListIdx < addableDictionaryEntryList.size(); ++addableDictionaryEntryListIdx) {
 			
-			addableDictionaryEntryListCheckBox[addableDictionaryEntryListIdx] = 
-					createCheckBox(addableDictionaryEntryList.get(addableDictionaryEntryListIdx).getName());
+			searchDictionaryEntryListCheckBox[addableDictionaryEntryListIdx] = 
+					createCheckBox(addableDictionaryEntryList.get(addableDictionaryEntryListIdx).getName(), true);
 			
-			addableDictionaryEntryListCheckBox[addableDictionaryEntryListIdx].setTag(addableDictionaryEntryList.get(addableDictionaryEntryListIdx));
+			searchDictionaryEntryListCheckBox[addableDictionaryEntryListIdx].setTag(
+					addableDictionaryEntryList.get(addableDictionaryEntryListIdx));
 			
-			searchOptionsLinearLayout.addView(addableDictionaryEntryListCheckBox[addableDictionaryEntryListIdx], 
+			searchDictionaryEntryListCheckBox[addableDictionaryEntryListIdx].setOnClickListener(searchOptionsOnClick);
+			
+			searchOptionsLinearLayout.addView(searchDictionaryEntryListCheckBox[addableDictionaryEntryListIdx], 
 					searchOptionsLinearLayout.getChildCount() - 1);
 		}		
 		
-		addableDictionaryEntryListCheckBox[addableDictionaryEntryListCheckBox.length - 1] = 
-				createCheckBox(getString(R.string.word_dictionary_search_options_search_word_entry_type_other));
+		searchDictionaryEntryListCheckBox[searchDictionaryEntryListCheckBox.length - 1] = 
+				createCheckBox(getString(R.string.word_dictionary_search_options_search_word_entry_type_other), true);
 		
-		searchOptionsLinearLayout.addView(addableDictionaryEntryListCheckBox[addableDictionaryEntryListCheckBox.length - 1], 
+		searchDictionaryEntryListCheckBox[searchDictionaryEntryListCheckBox.length - 1].setOnClickListener(searchOptionsOnClick);
+		
+		searchOptionsLinearLayout.addView(searchDictionaryEntryListCheckBox[searchDictionaryEntryListCheckBox.length - 1], 
 				searchOptionsLinearLayout.getChildCount() - 1);
 		
 		// search from other activity
@@ -228,13 +232,13 @@ public class WordDictionary extends Activity {
 		searchValueEditText.setText(inputFindWord);
 	}
 	
-	private CheckBox createCheckBox(String text) {
+	private CheckBox createCheckBox(String text, boolean checked) {
 		
 		CheckBox newCheckBox = new CheckBox(this);
 		
 		newCheckBox.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		
-		newCheckBox.setChecked(false);
+		newCheckBox.setChecked(checked);
 		
 		newCheckBox.setTextSize(12.0f);
 		newCheckBox.setText(text);
@@ -374,9 +378,37 @@ public class WordDictionary extends Activity {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.START_WITH;
 		}
 		
-		boolean searchOptionsChoose = true;
+		boolean performSearch = true;
 		
-		if (findWordRequest.searchKanji == false &&
+		if (searchDictionaryEntryListCheckBox != null) {
+			
+			List<DictionaryEntryType> searchDictionaryEntryList = new ArrayList<DictionaryEntryType>();
+			
+			for (CheckBox currentDictionaryEntryListCheckBox : searchDictionaryEntryListCheckBox) {
+				
+				if (currentDictionaryEntryListCheckBox.isChecked() == true) {
+					DictionaryEntryType currentDictionaryEntryForCheckBox = (DictionaryEntryType)currentDictionaryEntryListCheckBox.getTag();
+					
+					if (currentDictionaryEntryForCheckBox != null) {
+						searchDictionaryEntryList.add(currentDictionaryEntryForCheckBox);
+					} else {
+						searchDictionaryEntryList.addAll(DictionaryEntryType.getOtherDictionaryEntryList());
+					}
+				}
+			}
+			
+			if (searchDictionaryEntryList.size() == 0) {
+				Toast toast = Toast.makeText(WordDictionary.this, getString(R.string.word_dictionary_search_options_search_word_no_entries), Toast.LENGTH_SHORT);
+				
+				toast.show();
+				
+				performSearch = false;
+			}
+			
+			findWordRequest.dictionaryEntryList = searchDictionaryEntryList;
+		}		
+		
+		if (performSearch == true && findWordRequest.searchKanji == false &&
 				findWordRequest.searchKana == false &&
 				findWordRequest.searchRomaji == false &&
 				findWordRequest.searchTranslate == false &&
@@ -386,10 +418,10 @@ public class WordDictionary extends Activity {
 								
 			toast.show();
 			
-			searchOptionsChoose = false;
+			performSearch = false;
 		}
 		
-		if (findWord != null && findWord.length() > 0 && searchOptionsChoose == true) {
+		if (findWord != null && findWord.length() > 0 && performSearch == true) {
 			
 			final ProgressDialog progressDialog = ProgressDialog.show(WordDictionary.this, 
 					getString(R.string.word_dictionary_searching1),

@@ -1,5 +1,9 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
+import java.util.List;
+
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+
 public class FindWordRequest {
 	
 	public String word;
@@ -17,6 +21,8 @@ public class FindWordRequest {
 	public boolean searchGrammaFormAndExamples = false;
 	
 	public WordPlaceSearch wordPlaceSearch = WordPlaceSearch.ANY_PLACE;
+	
+	public List<DictionaryEntryType> dictionaryEntryList = null;
 	
 	public static enum WordPlaceSearch {
 		ANY_PLACE,
