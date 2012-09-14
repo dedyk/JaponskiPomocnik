@@ -6,6 +6,7 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
@@ -246,7 +247,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 		
 		// Word type
-		boolean addableDictionaryEntryTypeInfo = dictionaryEntry.isAddableDictionaryEntryTypeInfo();
+		boolean addableDictionaryEntryTypeInfo = DictionaryEntryType.isAddableDictionaryEntryTypeInfo(dictionaryEntry.getDictionaryEntryType());
 		
 		if (addableDictionaryEntryTypeInfo == true) {
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));

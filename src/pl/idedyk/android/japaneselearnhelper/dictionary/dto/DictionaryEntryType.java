@@ -1,5 +1,8 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum DictionaryEntryType {
 	
 	WORD_GREETING("Zwrot grzecznościowy"),
@@ -61,4 +64,26 @@ public enum DictionaryEntryType {
 	public String getName() {
 		return name;
 	}
+	
+	// static
+	
+	private static List<DictionaryEntryType> addableDictionaryEntryList;
+	
+	static {
+		addableDictionaryEntryList = new ArrayList<DictionaryEntryType>();
+		
+		addableDictionaryEntryList.add(WORD_GREETING);
+		addableDictionaryEntryList.add(WORD_NOUN);
+		addableDictionaryEntryList.add(WORD_ADJECTIVE_I);
+		addableDictionaryEntryList.add(WORD_ADJECTIVE_NA);
+		addableDictionaryEntryList.add(WORD_VERB_U);
+		addableDictionaryEntryList.add(WORD_VERB_RU);
+		addableDictionaryEntryList.add(WORD_VERB_IRREGULAR);
+	}
+	
+	public static boolean isAddableDictionaryEntryTypeInfo(DictionaryEntryType dictionaryEntryType) {
+		return addableDictionaryEntryList.contains(dictionaryEntryType);
+	}
+	
+	
 }

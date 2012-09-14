@@ -56,7 +56,7 @@ public class DictionaryEntry implements Serializable {
 			result.append(info);
 		}
 		
-		if (isAddableDictionaryEntryTypeInfo() == true) {
+		if (DictionaryEntryType.isAddableDictionaryEntryTypeInfo(dictionaryEntryType) == true) {
 			if (result.length() > 0) {
 				result.append(", ");
 			}
@@ -69,21 +69,6 @@ public class DictionaryEntry implements Serializable {
 		} else {
 			return null;
 		}	
-	}
-	
-	public boolean isAddableDictionaryEntryTypeInfo() {
-		if (	dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU || 
-				dictionaryEntryType == DictionaryEntryType.WORD_VERB_U ||
-				dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR ||
-				dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_I ||
-				dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_NA ||
-				dictionaryEntryType == DictionaryEntryType.WORD_NOUN ||
-				dictionaryEntryType == DictionaryEntryType.WORD_GREETING) {
-			
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	public List<String> getRomajiList() {
