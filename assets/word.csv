@@ -1538,7 +1538,10 @@ jasny kolor","np. materiał, np. pastelowy",
 1399,WORD,WORD_VERB_U,HIRAGANA,,見下ろす,みおろす,,mi orosu,patrzeć w dół,,
 1400,WORD,WORD_EXPRESSION,HIRAGANA,,そびえ立つ,そびえたつ,,sobie tatsu,górować nad czymś,,
 1401,WORD,WORD_NOUN,HIRAGANA,,青空,あおぞら,,aozora,niebieskie niebo,,
-1402,WORD,WORD_NOUN,HIRAGANA,,霞み,かすみ,,kasumi,mgła,,
+1402,WORD,WORD_NOUN,HIRAGANA,,霞み,かすみ,,kasumi,"mgła
+zamglenie
+zamazany
+zamglony (np. obraz)",,
 1403,WORD,WORD_NOUN,HIRAGANA,,前髪,まえがみ,,maegami,grzywka,,
 1404,WORD,WORD_EXPRESSION,HIRAGANA,,-,まま,,mama,"stan taki, jaki jest",~ no,
 1405,WORD,WORD_EXPRESSION,HIRAGANA,,今のまま,いまのまま,,ima no mama,"stan taki, jaki jest dzisiaj",,
@@ -1935,3 +1938,4 @@ duch",,
 2217,WORD,WORD_ADJECTIVE_I,HIRAGANA,,危ない,あぶない,,abunai,"niebezpieczny
 ryzykowny",,
 2218,WORD,WORD_EXPRESSION,HIRAGANA,,危ない,あぶない,,abunai,uważaj!,,
+2219,WORD,WORD_NOUN,HIRAGANA,,霧,きり,,kiri,mgła,,
