@@ -5,13 +5,13 @@ import java.util.List;
 
 public enum DictionaryEntryType {
 	
-	WORD_GREETING("Zwrot grzecznościowy"),
+	WORD_GREETING("zwrot grzecznościowy"),
 		
-	WORD_NUMBER("Liczba"),
+	WORD_NUMBER("liczba"),
 	
-	WORD_TIME("Godzina"),
+	WORD_TIME("godzina"),
 	
-	WORD_AGE("Wiek"),
+	WORD_AGE("wiek"),
 	
 	WORD_NOUN("rzeczownik"),
 	
@@ -29,31 +29,31 @@ public enum DictionaryEntryType {
 	
 	WORD_KANJI_READING("kanji czytanie"),
 	
-	WORD_EXPRESSION("Wyrażenia"),
+	WORD_EXPRESSION("wyrażenia"),
 	
-	WORD_THAT_POINT("Wskazywanie punktu"),
+	WORD_THAT_POINT("wskazywanie punktu"),
 	
-	WORD_ASK("Słówka pytające"),
+	WORD_ASK("słówka pytające"),
 	
-	WORD_ADVERB("Przysłówek"),
+	WORD_ADVERB("przysłówek"),
 	
-	WORD_DAY_NUMBER("Numer dnia"),
+	WORD_DAY_NUMBER("numer dnia"),
 	
-	WORD_DAY_WEEK("Dzień tygodnia"),
+	WORD_DAY_WEEK("dzień tygodnia"),
 	
-	WORD_MONTH("Miesiąc"),
+	WORD_MONTH("miesiąc"),
 	
-	WORD_LOCATION("Lokalizacja"),
+	WORD_LOCATION("lokalizacja"),
 	
-	WORD_PEOPLE_NUMBER("Liczenie ludzi"),
+	WORD_PEOPLE_NUMBER("liczenie ludzi"),
 	
-	WORD_COUNT_DAY_NUMBER("Liczenie dni"),
+	WORD_COUNT_DAY_NUMBER("liczenie dni"),
 	
-	WORD_COUNTERS("Klasyfikatory"),
+	WORD_COUNTERS("klasyfikatory"),
 	
-	WORD_PRONOUN("Zaimki"),
+	WORD_PRONOUN("zaimki"),
 	
-	UNKNOWN("unknown");
+	UNKNOWN("nieznany");
 	
 	private String name;
 	
@@ -84,6 +84,24 @@ public enum DictionaryEntryType {
 	public static boolean isAddableDictionaryEntryTypeInfo(DictionaryEntryType dictionaryEntryType) {
 		return addableDictionaryEntryList.contains(dictionaryEntryType);
 	}
+
+	public static List<DictionaryEntryType> getAddableDictionaryEntryList() {
+		return addableDictionaryEntryList;
+	}
 	
-	
+	public static List<DictionaryEntryType> getOtherDictionaryEntryList() {
+		
+		List<DictionaryEntryType> otherDictionaryEntryList = new ArrayList<DictionaryEntryType>();
+		
+		DictionaryEntryType[] allValues = values();
+		
+		for (DictionaryEntryType currentValues : allValues) {
+			
+			if (addableDictionaryEntryList.contains(currentValues) == false) {
+				otherDictionaryEntryList.add(currentValues);
+			}
+		}
+		
+		return otherDictionaryEntryList;
+	}
 }

@@ -9,6 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
@@ -24,11 +25,13 @@ import android.text.Html;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
@@ -36,6 +39,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class WordDictionary extends Activity {
+	
+	private ListView searchResultListView;
+	
+	private WordDictionaryListItemAdapter searchResultArrayAdapter;
+	
+	private List<WordDictionaryListItem> searchResultList;
+	
+	private CheckBox searchOptionsKanjiCheckbox;
+	private CheckBox searchOptionsKanaCheckbox;
+	private CheckBox searchOptionsRomajiCheckbox;
+	private CheckBox searchOptionsTranslateCheckbox;
+	private CheckBox searchOptionsInfoCheckbox;
+	private CheckBox searchOptionsGrammaExampleSearchCheckbox;
+	
+	private RadioButton searchOptionsAnyPlaceRadioButton;
+	private RadioButton searchOptionsStartWithPlaceRadioButton;
+	
+	private TextView wordDictionarySearchElementsNoTextView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,13 +65,12 @@ public class WordDictionary extends Activity {
 		
 		setContentView(R.layout.word_dictionary);
 		
-		final TextView wordDictionarySearchElementsNoTextView = (TextView)findViewById(R.id.word_dictionary_elements_no);
+		wordDictionarySearchElementsNoTextView = (TextView)findViewById(R.id.word_dictionary_elements_no);
 		
-		ListView searchResultListView = (ListView)findViewById(R.id.word_dictionary_search_result_list);
+		searchResultListView = (ListView)findViewById(R.id.word_dictionary_search_result_list);
 		
-		final List<WordDictionaryListItem> searchResultList = new ArrayList<WordDictionaryListItem>();
-		final WordDictionaryListItemAdapter searchResultArrayAdapter = new WordDictionaryListItemAdapter(this, 
-				R.layout.word_dictionary_simplerow, searchResultList);
+		searchResultList = new ArrayList<WordDictionaryListItem>();
+		searchResultArrayAdapter = new WordDictionaryListItemAdapter(this, R.layout.word_dictionary_simplerow, searchResultList);
 		
 		searchResultListView.setAdapter(searchResultArrayAdapter);
 		
@@ -71,23 +91,19 @@ public class WordDictionary extends Activity {
 		
 		final EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);		
 		
-		final CheckBox searchOptionsKanjiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kanji_checkbox);
-		final CheckBox searchOptionsKanaCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kana_checkbox);
-		final CheckBox searchOptionsRomajiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_romaji_checkbox);
-		final CheckBox searchOptionsTranslateCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_translate_checkbox);
-		final CheckBox searchOptionsInfoCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_info_checkbox);
-		final CheckBox searchOptionsGrammaExampleSearchCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_gramma_examples_checkbox);
+		searchOptionsKanjiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kanji_checkbox);
+		searchOptionsKanaCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kana_checkbox);
+		searchOptionsRomajiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_romaji_checkbox);
+		searchOptionsTranslateCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_translate_checkbox);
+		searchOptionsInfoCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_info_checkbox);
+		searchOptionsGrammaExampleSearchCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_gramma_examples_checkbox);
 		
-		final RadioButton searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_any_place_radiobutton);
-		final RadioButton searchOptionsStartWithPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_startwith_radiobutton);
+		searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_any_place_radiobutton);
+		searchOptionsStartWithPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_startwith_radiobutton);
 		
 		OnClickListener searchOptionsOnClick = new OnClickListener() {			
 			public void onClick(View view) {
-				performSearch(searchValueEditText.getText().toString(), searchResultList, searchResultArrayAdapter, searchOptionsKanjiCheckbox, 
-						searchOptionsKanaCheckbox, searchOptionsRomajiCheckbox, searchOptionsTranslateCheckbox, 
-						searchOptionsInfoCheckbox, searchOptionsGrammaExampleSearchCheckbox, 
-						searchOptionsAnyPlaceRadioButton, searchOptionsStartWithPlaceRadioButton, 
-						wordDictionarySearchElementsNoTextView);
+				performSearch(searchValueEditText.getText().toString());
 			}
 		};
 		
@@ -104,11 +120,7 @@ public class WordDictionary extends Activity {
 		searchValueEditText.addTextChangedListener(new TextWatcher() {
 			
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				performSearch(s.toString(), searchResultList, searchResultArrayAdapter, searchOptionsKanjiCheckbox, 
-						searchOptionsKanaCheckbox, searchOptionsRomajiCheckbox, searchOptionsTranslateCheckbox, 
-						searchOptionsInfoCheckbox, searchOptionsGrammaExampleSearchCheckbox,
-						searchOptionsAnyPlaceRadioButton, searchOptionsStartWithPlaceRadioButton,
-						wordDictionarySearchElementsNoTextView);
+				performSearch(s.toString());
 			}
 			
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -187,9 +199,47 @@ public class WordDictionary extends Activity {
 			}
 		});
 		
+		LinearLayout searchOptionsLinearLayout = (LinearLayout)findViewById(R.id.word_dictionary_search_options_scrollview_linearlayout);
+		
+		List<DictionaryEntryType> addableDictionaryEntryList = DictionaryEntryType.getAddableDictionaryEntryList();
+		
+		CheckBox[] addableDictionaryEntryListCheckBox = new CheckBox[addableDictionaryEntryList.size() + 1];
+		
+		for (int addableDictionaryEntryListIdx = 0; addableDictionaryEntryListIdx < addableDictionaryEntryList.size(); ++addableDictionaryEntryListIdx) {
+			
+			addableDictionaryEntryListCheckBox[addableDictionaryEntryListIdx] = 
+					createCheckBox(addableDictionaryEntryList.get(addableDictionaryEntryListIdx).getName());
+			
+			addableDictionaryEntryListCheckBox[addableDictionaryEntryListIdx].setTag(addableDictionaryEntryList.get(addableDictionaryEntryListIdx));
+			
+			searchOptionsLinearLayout.addView(addableDictionaryEntryListCheckBox[addableDictionaryEntryListIdx], 
+					searchOptionsLinearLayout.getChildCount() - 1);
+		}		
+		
+		addableDictionaryEntryListCheckBox[addableDictionaryEntryListCheckBox.length - 1] = 
+				createCheckBox(getString(R.string.word_dictionary_search_options_search_word_entry_type_other));
+		
+		searchOptionsLinearLayout.addView(addableDictionaryEntryListCheckBox[addableDictionaryEntryListCheckBox.length - 1], 
+				searchOptionsLinearLayout.getChildCount() - 1);
+		
+		// search from other activity
 		String inputFindWord = (String)getIntent().getSerializableExtra("find");
 		
 		searchValueEditText.setText(inputFindWord);
+	}
+	
+	private CheckBox createCheckBox(String text) {
+		
+		CheckBox newCheckBox = new CheckBox(this);
+		
+		newCheckBox.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		
+		newCheckBox.setChecked(false);
+		
+		newCheckBox.setTextSize(12.0f);
+		newCheckBox.setText(text);
+
+		return newCheckBox;
 	}
 	
 	@Override
@@ -197,17 +247,7 @@ public class WordDictionary extends Activity {
 		super.onConfigurationChanged(newConfig);
 	}
 	
-	private void performSearch(final String findWord, final List<WordDictionaryListItem> searchResultList,
-			final WordDictionaryListItemAdapter searchResultArrayAdapter,
-			final CheckBox searchOptionsKanjiCheckbox,
-			final CheckBox searchOptionsKanaCheckbox,
-			final CheckBox searchOptionsRomajiCheckbox,
-			final CheckBox searchOptionsTranslateCheckbox,
-			final CheckBox searchOptionsInfoCheckbox,
-			final CheckBox searchOptionsGrammaExampleSearchCheckbox,
-			final RadioButton searchAnyPlaceRadioButton,
-			final RadioButton searchStartWithRadioButton,
-			final TextView wordDictionarySearchElementsNoTextView) {
+	private void performSearch(final String findWord) {
 		
 		// sprawdzic, czy nalezy przliczyc wszystkie formy i je zapisac do bazy danych
 		if (searchOptionsGrammaExampleSearchCheckbox.isChecked() == true) {
@@ -295,10 +335,7 @@ public class WordDictionary extends Activity {
 				    	
 				    	progressDialog.dismiss();				    	
 				    	
-				    	performRealSearch(findWord, searchResultList, searchResultArrayAdapter, searchOptionsKanjiCheckbox, 
-				    			searchOptionsKanaCheckbox, searchOptionsRomajiCheckbox, searchOptionsTranslateCheckbox, 
-				    			searchOptionsInfoCheckbox, searchOptionsGrammaExampleSearchCheckbox, searchAnyPlaceRadioButton, 
-				    			searchStartWithRadioButton, wordDictionarySearchElementsNoTextView);
+				    	performRealSearch(findWord);
 				    }
 		        }
 		        
@@ -308,30 +345,14 @@ public class WordDictionary extends Activity {
 		        
 			} else {
 				
-				performRealSearch(findWord, searchResultList, searchResultArrayAdapter, searchOptionsKanjiCheckbox, 
-						searchOptionsKanaCheckbox, searchOptionsRomajiCheckbox, searchOptionsTranslateCheckbox, 
-						searchOptionsInfoCheckbox, searchOptionsGrammaExampleSearchCheckbox, searchAnyPlaceRadioButton, 
-						searchStartWithRadioButton, wordDictionarySearchElementsNoTextView);
+				performRealSearch(findWord);
 			}
 		} else {
-			performRealSearch(findWord, searchResultList, searchResultArrayAdapter, searchOptionsKanjiCheckbox, 
-					searchOptionsKanaCheckbox, searchOptionsRomajiCheckbox, searchOptionsTranslateCheckbox, 
-					searchOptionsInfoCheckbox, searchOptionsGrammaExampleSearchCheckbox, searchAnyPlaceRadioButton, 
-					searchStartWithRadioButton, wordDictionarySearchElementsNoTextView);			
+			performRealSearch(findWord);			
 		}		
 	}
 	
-	private void performRealSearch(final String findWord, final List<WordDictionaryListItem> searchResultList,
-			final WordDictionaryListItemAdapter searchResultArrayAdapter,
-			final CheckBox searchOptionsKanjiCheckbox,
-			final CheckBox searchOptionsKanaCheckbox,
-			final CheckBox searchOptionsRomajiCheckbox,
-			final CheckBox searchOptionsTranslateCheckbox,
-			final CheckBox searchOptionsInfoCheckbox,
-			final CheckBox searchOptionsGrammaExampleSearchCheckbox,
-			final RadioButton searchAnyPlaceRadioButton,
-			final RadioButton searchStartWithRadioButton,
-			final TextView wordDictionarySearchElementsNoTextView) {
+	private void performRealSearch(final String findWord) {
 		
 		searchResultList.clear();
 						
@@ -347,9 +368,9 @@ public class WordDictionary extends Activity {
 		
 		findWordRequest.searchGrammaFormAndExamples = searchOptionsGrammaExampleSearchCheckbox.isChecked();
 		
-		if (searchAnyPlaceRadioButton.isChecked() == true) {
+		if (searchOptionsAnyPlaceRadioButton.isChecked() == true) {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;
-		} else if (searchStartWithRadioButton.isChecked() == true) {
+		} else if (searchOptionsStartWithPlaceRadioButton.isChecked() == true) {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.START_WITH;
 		}
 		
