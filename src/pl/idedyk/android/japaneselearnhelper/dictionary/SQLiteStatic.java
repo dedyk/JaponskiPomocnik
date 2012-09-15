@@ -185,6 +185,9 @@ public class SQLiteStatic {
 	public static final String dictionaryEntriesTableSelectElements_limit = 
 			" limit " + MAX_SEARCH_RESULT;
 	
+	public static final String dictionaryEntriesTableSelectElements_dictionaryEntryType =
+			dictionaryEntriesTable_dictionaryEntryType + " = ? ";
+	
 	public static final String countTableSql = 
 			"select count(*) from ";
 	

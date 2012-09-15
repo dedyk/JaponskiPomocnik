@@ -7,6 +7,7 @@ import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
@@ -21,6 +22,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class SQLiteConnector {
 	
@@ -195,7 +197,7 @@ public class SQLiteConnector {
 		if (findWordRequest.searchKanji == true) {
 			
 			if (addedWhere == false) {
-				sql.append(" where ");
+				sql.append(" where ( ");
 				
 				addedWhere = true;
 			}
@@ -208,7 +210,7 @@ public class SQLiteConnector {
 		if (findWordRequest.searchKana == true) {
 			
 			if (addedWhere == false) {
-				sql.append(" where ");
+				sql.append(" where ( ");
 				
 				addedWhere = true;
 			} else {
@@ -223,7 +225,7 @@ public class SQLiteConnector {
 		if (findWordRequest.searchRomaji == true) {
 			
 			if (addedWhere == false) {
-				sql.append(" where ");
+				sql.append(" where ( ");
 				
 				addedWhere = true;
 			} else {
@@ -238,7 +240,7 @@ public class SQLiteConnector {
 		if (findWordRequest.searchTranslate == true) {
 			
 			if (addedWhere == false) {
-				sql.append(" where ");
+				sql.append(" where ( ");
 				
 				addedWhere = true;
 			} else {
@@ -253,7 +255,7 @@ public class SQLiteConnector {
 		if (findWordRequest.searchInfo == true) {
 			
 			if (addedWhere == false) {
-				sql.append(" where ");
+				sql.append(" where ( ");
 				
 				addedWhere = true;
 			} else {
@@ -265,6 +267,42 @@ public class SQLiteConnector {
 			arguments.add(wordLowerCaseWithPercent);
 		}
 		
+		if (addedWhere == true) {
+			sql.append(" )");
+		}
+		
+		List<DictionaryEntryType> findWordRequestDictionaryEntryList = findWordRequest.dictionaryEntryList;
+		
+		if (findWordRequestDictionaryEntryList != null && findWordRequestDictionaryEntryList.size() != 0 &&
+				findWordRequestDictionaryEntryList.size() != DictionaryEntryType.values().length) {
+			
+			if (addedWhere == false) {
+				sql.append(" where ");
+				
+				addedWhere = true;
+			} else {
+				sql.append(" and ");
+			}
+			
+			sql.append(" ( ");
+			
+			for (int findWordRequestDictionaryEntryListIdx = 0; findWordRequestDictionaryEntryListIdx < findWordRequestDictionaryEntryList.size();
+					findWordRequestDictionaryEntryListIdx++) {
+				
+				if (findWordRequestDictionaryEntryListIdx != 0) {
+					sql.append(" or ");
+				}
+				
+				DictionaryEntryType currentFindWordRequestDictionaryEntry = findWordRequestDictionaryEntryList.get(findWordRequestDictionaryEntryListIdx);
+				
+				sql.append(" ").append(SQLiteStatic.dictionaryEntriesTableSelectElements_dictionaryEntryType).append(" ");
+				
+				arguments.add(currentFindWordRequestDictionaryEntry.toString());
+			}
+			
+			sql.append(" ) ");			
+		}
+		
 		sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_limit);
 
 		String[] argumentsStringArray = new String[arguments.size()];
@@ -272,7 +310,7 @@ public class SQLiteConnector {
 		arguments.toArray(argumentsStringArray);
 		
 		Cursor cursor = null;
-		try {
+		try {			
 			cursor = sqliteDatabase.rawQuery(sql.toString(), argumentsStringArray);
 			
 		    cursor.moveToFirst();
