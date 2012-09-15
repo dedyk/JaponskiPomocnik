@@ -7,20 +7,6 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 
 public class JapaneseAndroidLearnHelperKanaTestContext {
 
-	private RangeTest rangeTest;
-	
-	private TestMode1 testMode1;
-	
-	private TestMode2 testMode2;
-	
-	private Boolean untilSuccess;
-	
-	private Boolean gojuuon;
-	
-	private Boolean dakutenHandakuten;
-	
-	private Boolean youon;
-	
 	// from test
 	private List<KanaEntry> allKanaEntries;
 	
@@ -51,38 +37,6 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 		incorrectAnswers = 0;
 	}
 	
-	public RangeTest getRangeTest() {
-		return rangeTest;
-	}
-
-	public TestMode1 getTestMode1() {
-		return testMode1;
-	}
-
-	public TestMode2 getTestMode2() {
-		return testMode2;
-	}
-
-	public void setRangeTest(RangeTest rangeTest) {
-		this.rangeTest = rangeTest;
-	}
-
-	public void setTestMode1(TestMode1 testMode1) {
-		this.testMode1 = testMode1;
-	}
-
-	public void setTestMode2(TestMode2 testMode2) {
-		this.testMode2 = testMode2;
-	}
-
-	public Boolean getUntilSuccess() {
-		return untilSuccess;
-	}
-
-	public void setUntilSuccess(Boolean untilSuccess) {
-		this.untilSuccess = untilSuccess;
-	}
-
 	public List<KanaEntry> getAllKanaEntries() {
 		return allKanaEntries;
 	}
@@ -148,30 +102,6 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 		return incorrectAnswers;
 	}
 	
-	public Boolean getGojuuon() {
-		return gojuuon;
-	}
-
-	public Boolean getDakutenHandakuten() {
-		return dakutenHandakuten;
-	}
-
-	public Boolean getYouon() {
-		return youon;
-	}
-
-	public void setGojuuon(Boolean gojuuon) {
-		this.gojuuon = gojuuon;
-	}
-
-	public void setDakutenHandakuten(Boolean dakutenHandakuten) {
-		this.dakutenHandakuten = dakutenHandakuten;
-	}
-
-	public void setYouon(Boolean youon) {
-		this.youon = youon;
-	}
-
 	public static enum RangeTest {
 		HIRAGANA,
 		

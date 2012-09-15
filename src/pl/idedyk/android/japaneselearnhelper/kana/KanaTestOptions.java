@@ -5,6 +5,8 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanaTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.RangeTest;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode2;
@@ -50,13 +52,15 @@ public class KanaTestOptions extends Activity {
 		
 		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 		
+		final KanaTestConfig kanaTestConfig = ConfigManager.getInstance().getKanaTestConfig();
+		
 		final List<IScreenItem> result = new ArrayList<IScreenItem>();
 		
 		result.add(new TitleItem(getString(R.string.kana_test_mode2), 0));
 		
 		final RadioGroup testMode2RadioGroup = new RadioGroup(this);
 		
-		TestMode2 testMode2 = kanaTestContext.getTestMode2();
+		TestMode2 testMode2 = kanaTestConfig.getTestMode2();
 		
 		testMode2RadioGroup.addRadioButton(this, getString(R.string.kana_test_mode2_kana_to_romaji), R.id.kana_test_mode2_kana_to_romaji_id, (testMode2 == null ? true : (testMode2 == TestMode2.KANA_TO_ROMAJI ? true : false)));
 		
@@ -69,7 +73,7 @@ public class KanaTestOptions extends Activity {
 		
 		final RadioGroup rangeTestRadioGroup = new RadioGroup(this);
 		
-		RangeTest rangeTest = kanaTestContext.getRangeTest();
+		RangeTest rangeTest = kanaTestConfig.getRangeTest();
 		
 		rangeTestRadioGroup.addRadioButton(this, getString(R.string.kana_test_range_hiragana), R.id.kana_test_range_hiragana_id, (rangeTest == RangeTest.HIRAGANA ? true : false));
 		rangeTestRadioGroup.addRadioButton(this, getString(R.string.kana_test_range_katakana), R.id.kana_test_range_katakana_id, (rangeTest == RangeTest.KATAKANA ? true : false));
@@ -92,24 +96,24 @@ public class KanaTestOptions extends Activity {
 		
 		result.add(new TitleItem(getString(R.string.kana_test_char_range), 0));
 		
-		Boolean gojuuon = kanaTestContext.getGojuuon();
+		Boolean gojuuon = kanaTestConfig.getGojuuon();
 		
 		final CheckBox gojuuonCheckBox = new CheckBox(this, getString(R.string.kana_test_char_range_gojuuon), (gojuuon == null ? true : gojuuon.booleanValue()), R.id.kana_test_char_range_gojuuon);
 		result.add(gojuuonCheckBox);
 		
-		Boolean dakutenHandakuten = kanaTestContext.getDakutenHandakuten();
+		Boolean dakutenHandakuten = kanaTestConfig.getDakutenHandakuten();
 		
 		final CheckBox dakutenHandakutenCheckBox = new CheckBox(this, getString(R.string.kana_test_char_range_dakuten_handakuten), (dakutenHandakuten == null ? true : dakutenHandakuten.booleanValue()), R.id.kana_test_char_range_dakuten_handakuten);
 		result.add(dakutenHandakutenCheckBox);
 		
-		Boolean youon = kanaTestContext.getYouon();
+		Boolean youon = kanaTestConfig.getYouon();
 		
 		final CheckBox youonCheckBox = new CheckBox(this, getString(R.string.kana_test_char_range_youon), (youon == null ? true : youon.booleanValue()), R.id.kana_test_char_range_youon);
 		result.add(youonCheckBox);
 				
 		result.add(new TitleItem(getString(R.string.kana_test_other), 0));
 		
-		Boolean untilSuccess = kanaTestContext.getUntilSuccess();
+		Boolean untilSuccess = kanaTestConfig.getUntilSuccess();
 		
 		final CheckBox untilSuccessCheckBox = new CheckBox(this, getString(R.string.kana_test_until_success), (untilSuccess == null ? true : untilSuccess.booleanValue()), R.id.kana_test_until_success_id);
 		
@@ -127,11 +131,11 @@ public class KanaTestOptions extends Activity {
 				int rangeTestRadioGroupCheckedRadioButtonId = rangeTestRadioGroup.getCheckedRadioButtonId();
 				
 				if (rangeTestRadioGroupCheckedRadioButtonId == R.id.kana_test_range_hiragana_id) {
-					kanaTestContext.setRangeTest(JapaneseAndroidLearnHelperKanaTestContext.RangeTest.HIRAGANA);
+					kanaTestConfig.setRangeTest(JapaneseAndroidLearnHelperKanaTestContext.RangeTest.HIRAGANA);
 				} else if (rangeTestRadioGroupCheckedRadioButtonId == R.id.kana_test_range_katakana_id) {
-					kanaTestContext.setRangeTest(JapaneseAndroidLearnHelperKanaTestContext.RangeTest.KATAKANA);
+					kanaTestConfig.setRangeTest(JapaneseAndroidLearnHelperKanaTestContext.RangeTest.KATAKANA);
 				} else if (rangeTestRadioGroupCheckedRadioButtonId == R.id.kana_test_range_hiragana_katakana_id) {
-					kanaTestContext.setRangeTest(JapaneseAndroidLearnHelperKanaTestContext.RangeTest.HIRAGANA_KATAKANA);
+					kanaTestConfig.setRangeTest(JapaneseAndroidLearnHelperKanaTestContext.RangeTest.HIRAGANA_KATAKANA);
 				} else {
 					throw new RuntimeException("rangeTestRadioGroupCheckedRadioButtonId");
 				}
@@ -148,23 +152,23 @@ public class KanaTestOptions extends Activity {
 				}
 				*/
 				
-				kanaTestContext.setTestMode1(JapaneseAndroidLearnHelperKanaTestContext.TestMode1.CHOOSE);
+				kanaTestConfig.setTestMode1(JapaneseAndroidLearnHelperKanaTestContext.TestMode1.CHOOSE);
 				
 				int testMode2RadioGroupCheckedRadioButtonId = testMode2RadioGroup.getCheckedRadioButtonId();
 				
 				if (testMode2RadioGroupCheckedRadioButtonId == R.id.kana_test_mode2_kana_to_romaji_id) {
-					kanaTestContext.setTestMode2(JapaneseAndroidLearnHelperKanaTestContext.TestMode2.KANA_TO_ROMAJI);
+					kanaTestConfig.setTestMode2(JapaneseAndroidLearnHelperKanaTestContext.TestMode2.KANA_TO_ROMAJI);
 				} else if (testMode2RadioGroupCheckedRadioButtonId == R.id.kana_test_mode2_romaji_to_kana_id) {
-					kanaTestContext.setTestMode2(JapaneseAndroidLearnHelperKanaTestContext.TestMode2.ROMAJI_TO_KANA);
+					kanaTestConfig.setTestMode2(JapaneseAndroidLearnHelperKanaTestContext.TestMode2.ROMAJI_TO_KANA);
 				} else {
 					throw new RuntimeException("testMode2RadioGroupCheckedRadioButtonId");
 				}
 				
-				kanaTestContext.setUntilSuccess(untilSuccessCheckBox.isChecked());
+				kanaTestConfig.setUntilSuccess(untilSuccessCheckBox.isChecked());
 				
-				kanaTestContext.setGojuuon(gojuuonCheckBox.isChecked());
-				kanaTestContext.setDakutenHandakuten(dakutenHandakutenCheckBox.isChecked());
-				kanaTestContext.setYouon(youonCheckBox.isChecked());
+				kanaTestConfig.setGojuuon(gojuuonCheckBox.isChecked());
+				kanaTestConfig.setDakutenHandakuten(dakutenHandakutenCheckBox.isChecked());
+				kanaTestConfig.setYouon(youonCheckBox.isChecked());
 				
 				kanaTestContext.setInitialized(false);
 				

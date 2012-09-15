@@ -3,14 +3,17 @@ package pl.idedyk.android.japaneselearnhelper.splash;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperMainActivity;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteConnector;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
@@ -53,6 +56,11 @@ public class Splash extends Activity {
 
         } catch (NameNotFoundException e) {        	
         }
+
+        // init config manager
+        SharedPreferences preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
+        
+        new ConfigManager(preferences);
         
         SQLiteConnector sqliteConnector = new SQLiteConnector(this, versionCode);
         
