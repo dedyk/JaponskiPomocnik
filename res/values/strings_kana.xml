@@ -46,4 +46,5 @@
     <string name="kana_test_char_range_gojuuon">Gojuuon (あ/ア - ん/ン)</string>
     <string name="kana_test_char_range_dakuten_handakuten">Dakuten + Handakuten (が/ガ - ぽ/ポ)</string>
     <string name="kana_test_char_range_youon">Youon (きゃ/キャ - ぴょ/ピョ)</string>
+    <string name="kana_test_char_no_range">Proszę wybrać zakres znaków</string>
 </resources>

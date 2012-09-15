@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class KanaTestOptions extends Activity {
 	
@@ -165,6 +166,16 @@ public class KanaTestOptions extends Activity {
 				}
 				
 				kanaTestConfig.setUntilSuccess(untilSuccessCheckBox.isChecked());
+				
+				if (gojuuonCheckBox.isChecked() == false && dakutenHandakutenCheckBox.isChecked() == false && 
+						youonCheckBox.isChecked() == false) {
+					
+					Toast toast = Toast.makeText(KanaTestOptions.this, getString(R.string.kana_test_char_no_range), Toast.LENGTH_SHORT);
+					
+					toast.show();
+					
+					return;
+				}
 				
 				kanaTestConfig.setGojuuon(gojuuonCheckBox.isChecked());
 				kanaTestConfig.setDakutenHandakuten(dakutenHandakutenCheckBox.isChecked());
