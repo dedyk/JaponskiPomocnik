@@ -1,8 +1,13 @@
 package pl.idedyk.android.japaneselearnhelper.config;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.RangeTest;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode1;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode2;
+import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestMode;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
@@ -29,6 +34,10 @@ public class ConfigManager {
 	
 	public KanaTestConfig getKanaTestConfig() {
 		return new KanaTestConfig();
+	}
+	
+	public KanjiTestConfig getKanjiTestConfig() {
+		return new KanjiTestConfig();
 	}
 	
 	public class KanaTestConfig {
@@ -145,5 +154,65 @@ public class ConfigManager {
 			
 			editor.commit();
 		}		
+	}
+	
+	public class KanjiTestConfig {
+		
+		private final String kanjiTestConfigPrefix = "kanjiTestConfig_";
+		
+		private final String kanjiTestModePostfix = "kanjiTestMode";
+		
+		private final String kanjiTestChosenKanjiPostfix = "chosenKanji";
+
+		public KanjiTestMode getKanjiTestMode() {
+			
+			String kanjiTestMode = preferences.getString(kanjiTestConfigPrefix + kanjiTestModePostfix, KanjiTestMode.DRAW_KANJI_FROM_MEANING.toString());
+			
+			return KanjiTestMode.valueOf(kanjiTestMode);
+		}
+		
+		public void setKanjiTestMode(KanjiTestMode kanjiTestMode) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(kanjiTestConfigPrefix + kanjiTestModePostfix, kanjiTestMode.toString());
+			
+			editor.commit();
+		}
+		
+		public Set<String> getChosenKanji() {
+			
+			Set<String> result = new HashSet<String>();
+			
+			String chosenKanjiString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenKanjiPostfix, "");
+			
+			String[] chosenKanjiSplited = chosenKanjiString.split(",");
+			
+			for (String currentChosenKanji : chosenKanjiSplited) {
+				result.add(currentChosenKanji);
+			}
+			
+			return result;
+		}
+		
+		public void setChosenKanji(List<String> chosenKanjiList) {
+			
+			StringBuffer chosenKanjiStringBuffer = new StringBuffer();
+			
+			for (int idx = 0; idx < chosenKanjiList.size(); ++idx) {
+				
+				if (idx != 0) {
+					chosenKanjiStringBuffer.append(",");
+				}
+				
+				chosenKanjiStringBuffer.append(chosenKanjiList.get(idx));
+			}
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(kanjiTestConfigPrefix + kanjiTestChosenKanjiPostfix, chosenKanjiStringBuffer.toString());
+			
+			editor.commit();
+		}
 	}
 }

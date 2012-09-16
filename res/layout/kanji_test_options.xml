@@ -67,7 +67,7 @@
         android:background="@android:color/darker_gray" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/kanji_test_options_start_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/kanji_test_options_start_test" />
