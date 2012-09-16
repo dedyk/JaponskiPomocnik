@@ -41,4 +41,6 @@
     <string name="kanji_recognizer_result_elements_no">Liczba elementów: %1$s</string>
     <string name="kanji_recognizer_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem w rozpoznawaniu znaków kanji</string>
     <string name="kanji_recognizer_result_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n---\n%2$s\n</string>
+    <string name="kanji_test_options_label">Opcje testu</string>
+    <string name="kanji_test_options_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
 </resources>
