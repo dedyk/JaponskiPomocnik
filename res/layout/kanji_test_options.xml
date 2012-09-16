@@ -4,26 +4,73 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ScrollView
-        android:id="@+id/kanji_test_options_main_layout_scroll"
+    <LinearLayout
+        android:id="@+id/kanji_test_options_main_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-        <LinearLayout
-            android:id="@+id/kanji_test_options_main_layout"
+        <TextView
+            android:id="@+id/kanji_test_options_test_mode"
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:orientation="vertical" >
-        </LinearLayout>
-    </ScrollView>
+            android:layout_height="wrap_content"
+            android:background="@color/title_background"
+            android:text="@string/kanji_test_options_test_mode" />
+
+        <RadioGroup
+            android:id="@+id/kanji_test_options_test_mode_radiogroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/kanji_test_options_test_mode_draw_kanji_from_meaning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/kanji_test_options_test_mode_draw_kanji_from_meaning"
+                android:textSize="12dp" />
+
+            <RadioButton
+                android:id="@+id/kanji_test_options_test_mode_draw_kanji_in_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kanji_test_options_test_mode_draw_kanji_in_word"
+                android:textSize="12dp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/kanji_test_options_choose_kanji"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/title_background"
+            android:text="@string/kanji_test_options_choose_kanji" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/kanji_test_options_choose_kanji_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </ListView>
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/kanji_test_options_start_test" />
 
     <View
         android:layout_width="fill_parent"

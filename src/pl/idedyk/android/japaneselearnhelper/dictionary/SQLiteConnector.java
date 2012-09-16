@@ -379,6 +379,57 @@ public class SQLiteConnector {
 		sqliteDatabase.insertOrThrow(SQLiteStatic.kanjiEntriesTableName, null, values);
 	}
 	
+	public List<KanjiEntry> getAllKanjis() throws DictionaryException {
+		
+		KanjiEntry kanjiEntry = null;
+		
+		Cursor cursor = null;
+				
+		List<KanjiEntry> result = new ArrayList<KanjiEntry>();
+		
+		try {
+			cursor = sqliteDatabase.query(SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTableAllColumns, null,
+					null, null, null, null);
+			
+		    cursor.moveToFirst();
+		    
+		    while (!cursor.isAfterLast()) {
+				
+				String idString = cursor.getString(0);
+
+				String kanjiString = cursor.getString(1);
+
+				String strokeCountString = cursor.getString(2);
+
+				String radicalsString = cursor.getString(3);
+
+				String onReadingString = cursor.getString(4);
+
+				String kunReadingString = cursor.getString(5);
+
+				String strokePathString = cursor.getString(6);
+
+				String polishTranslateListString = cursor.getString(7);
+				String infoString = cursor.getString(8);
+
+				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
+						radicalsString, onReadingString, kunReadingString, strokePathString, 
+						polishTranslateListString, infoString);	
+				
+				result.add(kanjiEntry);
+				
+				cursor.moveToNext();
+			}
+		
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+		
+		return result;
+	}
+	
 	public KanjiEntry getKanjiEntry(String kanji) throws DictionaryException {
 		
 		KanjiEntry kanjiEntry = null;

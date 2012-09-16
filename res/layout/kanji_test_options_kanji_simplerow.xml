@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+    <CheckBox
+        android:id="@+id/kanji_test_options_kanji_simplerow_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6sp"
+        android:focusable="false"
+        android:padding="10dp" >
+    </CheckBox>
+
+    <TextView
+        android:id="@+id/kanji_test_options_kanji_simplerow_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="16sp" >
+    </TextView>
+
+</LinearLayout>

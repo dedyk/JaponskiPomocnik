@@ -43,4 +43,9 @@
     <string name="kanji_recognizer_result_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n---\n%2$s\n</string>
     <string name="kanji_test_options_label">Opcje testu</string>
     <string name="kanji_test_options_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kanji_test_options_test_mode">Tryb testu</string>
+    <string name="kanji_test_options_test_mode_draw_kanji_from_meaning">Rysowanie znaków kanji mając tylko znaczenie znaku</string>
+    <string name="kanji_test_options_test_mode_draw_kanji_in_word">Rysowanie znaków kanji uzupełniając puste miejsce w słowie</string>
+    <string name="kanji_test_options_choose_kanji">Proszę wybrać znaki kanji użyte podczas testu</string>
+    <string name="kanji_test_options_start_test">Rozpocznij test</string>
 </resources>

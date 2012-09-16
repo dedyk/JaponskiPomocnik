@@ -569,6 +569,14 @@ public class DictionaryManager {
 		return kanjiEntry;		
 	}
 	
+	public List<KanjiEntry> getAllKanjis() {
+		try {
+			return sqliteConnector.getAllKanjis();
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	private void readRadicalEntriesFromCsv(InputStream radicalInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
 		
 		radicalList = new ArrayList<RadicalInfo>();
