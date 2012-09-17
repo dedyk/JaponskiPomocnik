@@ -44,8 +44,10 @@
     <string name="kanji_test_options_label">Opcje testu</string>
     <string name="kanji_test_options_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
     <string name="kanji_test_options_test_mode">Tryb testu</string>
-    <string name="kanji_test_options_test_mode_draw_kanji_from_meaning">Rysowanie znaków kanji mając tylko znaczenie znaku</string>
+    <string name="kanji_test_options_test_mode_draw_kanji_from_meaning">Rysowanie kanji posługując się znaczeniem znaku</string>
     <string name="kanji_test_options_test_mode_draw_kanji_in_word">Rysowanie znaków kanji uzupełniając puste miejsce w słowie</string>
     <string name="kanji_test_options_choose_kanji">Proszę wybrać znaki kanji użyte podczas testu</string>
     <string name="kanji_test_options_start_test">Rozpocznij test</string>
+    <string name="kanji_test_options_other_options">Inne opcje</string>
+    <string name="kanji_test_options_until_success">"Powtarzaj aż do sukcesu"</string>
 </resources>

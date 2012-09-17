@@ -163,6 +163,8 @@ public class ConfigManager {
 		private final String kanjiTestModePostfix = "kanjiTestMode";
 		
 		private final String kanjiTestChosenKanjiPostfix = "chosenKanji";
+		
+		private final String kanjiTestUntilSuccessPostfix = "untilSuccess";
 
 		public KanjiTestMode getKanjiTestMode() {
 			
@@ -211,6 +213,19 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putString(kanjiTestConfigPrefix + kanjiTestChosenKanjiPostfix, chosenKanjiStringBuffer.toString());
+			
+			editor.commit();
+		}
+		
+		public Boolean getUntilSuccess() {
+			return preferences.getBoolean(kanjiTestConfigPrefix + kanjiTestUntilSuccessPostfix, true);
+		}
+
+		public void setUntilSuccess(boolean untilSuccess) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(kanjiTestConfigPrefix + kanjiTestUntilSuccessPostfix, untilSuccess);
 			
 			editor.commit();
 		}

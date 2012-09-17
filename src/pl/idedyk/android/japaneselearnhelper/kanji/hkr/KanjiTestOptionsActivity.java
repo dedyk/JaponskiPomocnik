@@ -15,6 +15,7 @@ import android.text.Html;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.RadioButton;
 
@@ -41,6 +42,10 @@ public class KanjiTestOptionsActivity extends Activity {
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode");
 		}
+		
+		final CheckBox untilSuccessCheckBox = (CheckBox)findViewById(R.id.kanji_test_options_until_success);
+		
+		untilSuccessCheckBox.setChecked(kanjiTestConfig.getUntilSuccess());
 		
 		// create menu list
 		ListView kanjiChooseList = (ListView)findViewById(R.id.kanji_test_options_choose_kanji_list);
@@ -84,6 +89,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				} else {
 					throw new RuntimeException("KanjiTestMode kanjiTestMode");
 				}
+				
+				kanjiTestConfig.setUntilSuccess(untilSuccessCheckBox.isChecked());
 				
 				List<String> chosenKanjiList = new ArrayList<String>();
 				
