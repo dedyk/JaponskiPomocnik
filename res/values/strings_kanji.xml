@@ -52,4 +52,6 @@
     <string name="kanji_test_options_until_success">"Powtarzaj aż do sukcesu"</string>
     <string name="kanji_test_options_report_problem_email_subject">Japoński pomocnik - opcje testu kanji: Problem</string>
     <string name="kanji_test_options_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kanji_test_options_prepare1">Przygotowywanie testu</string>
+    <string name="kanji_test_options_prepare2">Proszę czekać</string>
 </resources>

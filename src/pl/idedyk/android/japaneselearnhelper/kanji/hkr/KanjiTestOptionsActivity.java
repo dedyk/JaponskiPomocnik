@@ -4,18 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiTestConfig;
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -24,6 +32,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class KanjiTestOptionsActivity extends Activity {
 
@@ -104,16 +113,101 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				kanjiTestConfig.setUntilSuccess(untilSuccessCheckBox.isChecked());
 
+				final List<KanjiEntry> kanjiEntryList = new ArrayList<KanjiEntry>();
+				
 				List<String> chosenKanjiList = new ArrayList<String>();
 
 				for (KanjiTestOptionsChooseKanjiArrayAdapter.KanjiChooseListItem currentKanjiChooseListItem : kanjiChooseListItems) {
-
+					
 					if (currentKanjiChooseListItem.isChecked() == true) {
+						
 						chosenKanjiList.add(currentKanjiChooseListItem.getKanjiEntry().getKanji());
+						
+						kanjiEntryList.add(currentKanjiChooseListItem.getKanjiEntry());
 					}
 				}
 
 				kanjiTestConfig.setChosenKanji(chosenKanjiList);
+				
+				if (chosenKanjiList.size() == 0) {
+					
+					Toast toast = Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_choose_kanji), Toast.LENGTH_SHORT);
+					
+					toast.show();
+					
+					return;
+				}
+				
+				// prepare test
+				final ProgressDialog progressDialog = ProgressDialog.show(KanjiTestOptionsActivity.this, 
+						getString(R.string.kanji_test_options_prepare1),
+						getString(R.string.kanji_test_options_prepare2));
+				
+				class PrepareAsyncTask extends AsyncTask<Void, Void, Void> {
+
+					@Override
+					protected Void doInBackground(Void... arg) {
+						
+						// get kanji test context
+						JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanjiTestContext();
+						
+						// reset test
+						kanjiTestContext.resetTest();
+						
+						// set kanji entry list in context
+						kanjiTestContext.setKanjiEntryList(kanjiEntryList);
+						
+						if (kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+							
+							FindWordRequest findWordRequest = new FindWordRequest();
+							
+							findWordRequest.searchKanji = true;
+							findWordRequest.searchKana = false;
+							findWordRequest.searchRomaji = false;
+							findWordRequest.searchTranslate = false;
+							findWordRequest.searchInfo = false;
+							findWordRequest.searchGrammaFormAndExamples = false;
+							findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;
+							findWordRequest.dictionaryEntryList = null;
+							
+							List<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanjiList = 
+								new ArrayList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>();
+							
+							for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
+								
+								findWordRequest.word = currentKanjiEntry.getKanji();
+								
+								// find word with this kanji
+								FindWordResult findWordResult = DictionaryManager.getInstance().findWord(findWordRequest);
+								
+								List<ResultItem> findWordResultResult = findWordResult.result;
+								
+								for (ResultItem currentFindWordResultResult : findWordResultResult) {
+									
+									JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = 
+											new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
+									
+									
+									Log.d("AAAA", "BBBB: " + currentDictionaryEntryWithRemovedKanji.getKanjiWithRemovedKanji());
+									
+								}	
+							}
+							
+							kanjiTestContext.setDictionaryEntryWithRemovedKanji(dictionaryEntryWithRemovedKanjiList);
+						}
+						
+						return null;
+					}
+					
+				    @Override
+				    protected void onPostExecute(Void arg) {
+				        super.onPostExecute(arg);
+				        
+				        progressDialog.dismiss();				        
+				    }
+				}
+				
+				new PrepareAsyncTask().execute();				
 			}
 		});
 
