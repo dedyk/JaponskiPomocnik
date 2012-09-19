@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.kanji.hkr;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -23,7 +24,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -154,6 +154,8 @@ public class KanjiTestOptionsActivity extends Activity {
 						// reset test
 						kanjiTestContext.resetTest();
 						
+						Collections.shuffle(kanjiEntryList);
+						
 						// set kanji entry list in context
 						kanjiTestContext.setKanjiEntryList(kanjiEntryList);
 						
@@ -187,11 +189,11 @@ public class KanjiTestOptionsActivity extends Activity {
 									JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = 
 											new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
 									
-									
-									Log.d("AAAA", "BBBB: " + currentDictionaryEntryWithRemovedKanji.getKanjiWithRemovedKanji());
-									
+									dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
 								}	
 							}
+							
+							Collections.shuffle(dictionaryEntryWithRemovedKanjiList);
 							
 							kanjiTestContext.setDictionaryEntryWithRemovedKanji(dictionaryEntryWithRemovedKanjiList);
 						}
@@ -203,7 +205,13 @@ public class KanjiTestOptionsActivity extends Activity {
 				    protected void onPostExecute(Void arg) {
 				        super.onPostExecute(arg);
 				        
-				        progressDialog.dismiss();				        
+				        progressDialog.dismiss();
+				        
+				        Intent intent = new Intent(getApplicationContext(), KanjiTest.class);
+
+						startActivity(intent);
+				        
+				        finish();
 				    }
 				}
 				

@@ -11,12 +11,15 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 	
 	private List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji;
 	
+	private int currentPos = 0;
+	
 	// methods
 	
 	public void resetTest() {
 		kanjiEntryList = null;
 		dictionaryEntryWithRemovedKanji = null;
 		
+		currentPos = 0;
 	}
 
 	public List<KanjiEntry> getKanjiEntryList() {
@@ -33,6 +36,14 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 
 	public void setDictionaryEntryWithRemovedKanji(List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji) {
 		this.dictionaryEntryWithRemovedKanji = dictionaryEntryWithRemovedKanji;
+	}
+
+	public int getCurrentPos() {
+		return currentPos;
+	}
+
+	public void setCurrentPos(int currentPos) {
+		this.currentPos = currentPos;
 	}
 
 	public static class DictionaryEntryWithRemovedKanji {

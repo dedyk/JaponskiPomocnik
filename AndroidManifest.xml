@@ -38,6 +38,7 @@
         <activity android:name=".kanji.hkr.KanjiRecognizeActivity" android:label="@string/kanji_recognizer_label"></activity>
         <activity android:name=".kanji.hkr.KanjiRecognizerResult" android:label="@string/kanji_recognizer_result_label"></activity>
         <activity android:name=".kanji.hkr.KanjiTestOptionsActivity" android:label="@string/kanji_test_options_label"></activity>
+        <activity android:name=".kanji.hkr.KanjiTest" android:label="@string/kanji_test_label"></activity>
     </application>
 
 </manifest>
