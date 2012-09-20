@@ -58,8 +58,9 @@
     <string name="kanji_test_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
     <string name="kanji_test_info_meaning">Proszę narysować znak dla znaczenia: %1$s</string>
     <string name="kanji_test_info_kanji_in_word">Proszę narysować znak w pustym miejscu:</string>
-    <string name="kanji_test_recognizer_recognize">Rozpoznaj</string>
+    <string name="kanji_test_recognizer_check">Sprawdź</string>
     <string name="kanji_test_recognizer_undo">Cofnij</string>
     <string name="kanji_test_recognizer_clear">Wyczyść</string>
-    
+    <string name="kanji_test_recognizer_please_draw">Proszę narysować znak</string>
+    <string name="kanji_test_recognizer_correct_answer">Prawidłowa odpowiedź</string>
 </resources>

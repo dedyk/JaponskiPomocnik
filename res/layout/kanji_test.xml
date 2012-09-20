@@ -36,12 +36,12 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/kanji_test_recognize_button"
+            android:id="@+id/kanji_test_recognizer_check_button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@android:drawable/btn_default_small"
-            android:text="@string/kanji_test_recognizer_recognize" />
+            android:text="@string/kanji_test_recognizer_check" />
 
         <Button
             android:id="@+id/kanji_test_recognizer_undo_button"
