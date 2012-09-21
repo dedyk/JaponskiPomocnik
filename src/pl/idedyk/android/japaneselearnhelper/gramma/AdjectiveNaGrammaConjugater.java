@@ -82,6 +82,21 @@ public class AdjectiveNaGrammaConjugater {
 
 		final String postfixKana = "じゃありません";
 		final String postfixRomaji = " ja arimasen";
+		
+		GrammaFormConjugateResult grammaFormConjugateResult = makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_NA_FORMAL_PRESENT_NEGATIVE,
+				postfixKana, postfixRomaji);
+		
+		// alternative
+		grammaFormConjugateResult.setAlternative(makeFormalPresentNegativeForm3(dictionaryEntry));
+
+		return grammaFormConjugateResult;
+	}
+
+	private static GrammaFormConjugateResult makeFormalPresentNegativeForm3(DictionaryEntry dictionaryEntry) {
+		// czas terazniejszy, przeczenie, forma formalna (prosta), -ja arimasen
+
+		final String postfixKana = "じゃないです";
+		final String postfixRomaji = " ja nai desu";
 
 		return makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_NA_FORMAL_PRESENT_NEGATIVE,
 				postfixKana, postfixRomaji);
@@ -117,6 +132,21 @@ public class AdjectiveNaGrammaConjugater {
 		
 		final String postfixKana = "じゃありませんでした";
 		final String postfixRomaji = " ja arimasen deshita";
+
+		GrammaFormConjugateResult grammaFormConjugateResult = makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_NA_FORMAL_PAST_NEGATIVE,
+				postfixKana, postfixRomaji);
+		
+		// alternative
+		grammaFormConjugateResult.setAlternative(makeFormalPastNegativeForm3(dictionaryEntry));
+		
+		return grammaFormConjugateResult;
+	}
+
+	private static GrammaFormConjugateResult makeFormalPastNegativeForm3(DictionaryEntry dictionaryEntry) {
+		// czas przesly, przeczenie, forma formalna, -ja arimasen deshita
+		
+		final String postfixKana = "じゃなかったです";
+		final String postfixRomaji = " ja nakatta desu";
 
 		return makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_NA_FORMAL_PAST_NEGATIVE,
 				postfixKana, postfixRomaji);
