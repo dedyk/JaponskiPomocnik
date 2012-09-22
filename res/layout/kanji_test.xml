@@ -20,12 +20,6 @@
             android:id="@+id/kanji_test_info_textview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-        <TextView
-            android:id="@+id/kanji_test_info_correct_textview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
     </LinearLayout>
 
     <View
@@ -64,56 +58,13 @@
             android:layout_weight="1"
             android:background="@android:drawable/btn_default_small"
             android:text="@string/kanji_test_recognizer_clear" />
-
-        <Button
-            android:id="@+id/kanji_test_sod_draw_button"
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:text="@string/kanji_test_sod_draw"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/kanji_test_sod_animate_button"
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:text="@string/kanji_test_sod_draw_anim"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/kanji_test_sod_clear_button"
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:text="@string/kanji_test_sod_draw_clear"
-            android:visibility="visible" />
     </LinearLayout>
 
-    <!--  
     <pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiDrawView
         android:id="@+id/kanji_test_recognizer_draw_view"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="100" />
-
-    <pl.idedyk.android.japaneselearnhelper.sod.StrokeOrderView
-        android:id="@+id/kanji_test_sod_draw_view"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="100"
-        android:visibility="gone" />
--->
-
-    <pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiDrawView
-        android:id="@+id/kanji_test_recognizer_draw_view"
-        android:layout_width="fill_parent"
-        android:layout_height="100dip" />
-
-    <pl.idedyk.android.japaneselearnhelper.sod.StrokeOrderView
-        android:id="@+id/kanji_test_sod_draw_view"
-        android:layout_width="fill_parent"
-        android:layout_height="100dp" />
 
     <TextView
         android:id="@+id/kanji_test_state"

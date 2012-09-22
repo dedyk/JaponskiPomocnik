@@ -59,17 +59,13 @@
     <string name="kanji_test_label">Test ze znaków kanji</string>
     <string name="kanji_test_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
     <string name="kanji_test_info_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>
-    <string name="kanji_test_info_correct_meaning">Prawidłowa odpowiedź dla znaczenia %1$s to %2$s</string>
     <string name="kanji_test_info_kanji_in_word">Proszę dokładnie narysować znak w pustym miejscu:</string>
-    <string name="kanji_test_info_correct_kanji_in_word">Prawidłowa odpowiedź to:</string>
+    <string name="kanji_test_correct_answer">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n%1$s</string>
+    <string name="kanji_test_incorrect_ok">OK</string>
     <string name="kanji_test_recognizer_check">Sprawdź</string>
     <string name="kanji_test_recognizer_undo">Cofnij</string>
     <string name="kanji_test_recognizer_clear">Wyczyść</string>
     <string name="kanji_test_recognizer_please_draw">Proszę narysować znak</string>
     <string name="kanji_test_recognizer_correct_answer">Prawidłowa odpowiedź</string>
-    <string name="kanji_test_state">Pozycja: %1$d z %2$d</string>
-    <string name="kanji_test_sod_draw">Wyświetl znak</string>
-    <string name="kanji_test_sod_draw_anim">Pisz znak</string>
-    <string name="kanji_test_sod_draw_clear">Wyczyść</string>
-    
+    <string name="kanji_test_state">Pozycja: %1$d z %2$d</string>    
 </resources>
