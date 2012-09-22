@@ -23,9 +23,10 @@ import android.widget.Toast;
 
 public class KanjiTest extends Activity {
 	
-	//private LinearLayout kanjiInfoLinearLayout;
 	private TextView kanjiInfoTextView;
-	
+
+	private TextView kanjiInfoCorrectTextView;
+
 	private KanjiDrawView drawView;
 	
 	private TextView kanjiTestState;
@@ -44,9 +45,9 @@ public class KanjiTest extends Activity {
 		
 		kanjiTestConfig = ConfigManager.getInstance().getKanjiTestConfig();
 		
-		//kanjiInfoLinearLayout = (LinearLayout)findViewById(R.id.kanji_test_info_linearlayout);
 		kanjiInfoTextView = (TextView)findViewById(R.id.kanji_test_info_textview);
-		
+		kanjiInfoCorrectTextView = (TextView)findViewById(R.id.kanji_test_info_correct_textview);
+
 		drawView = (KanjiDrawView) findViewById(R.id.kanji_test_recognizer_draw_view);
 		
 		kanjiTestState = (TextView) findViewById(R.id.kanji_test_state);
@@ -147,14 +148,14 @@ public class KanjiTest extends Activity {
 					toast.show();
 					
 					kanjiTestContext.setCurrentPos(kanjiTestContext.getCurrentPos() + 1);
+					
 					setScreen();
 				} else { // incorrect
 					
-					
-					
+					setErrorScreen();
 				}
 			}
-		});		
+		});
 		
 		setScreen();
 	}
@@ -179,6 +180,14 @@ public class KanjiTest extends Activity {
 		drawView.clear();
 	}
 	
+	private void setErrorScreen() {
+		kanjiInfoTextView.setVisibility(View.GONE);
+		
+		kanjiInfoCorrectTextView.setVisibility(View.VISIBLE);
+
+		
+	}
+	
 	private void setInfoValue(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
 			KanjiTestConfig kanjiTestConfig) {
 		
@@ -201,10 +210,14 @@ public class KanjiTest extends Activity {
 			
 			if (info != null && info.equals("") == false) {
 				kanjiInfoSb.append(" - ").append(info);
-			}				
+			}
+			
+			StringBuffer kanjiInfoCorrectSb = new StringBuffer();
+			
+			kanjiInfoCorrectSb.append("<b><big>").append(currentTestKanjiEntry.getKanji()).append("</big></b>");
 			
 			kanjiInfoTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_meaning, kanjiInfoSb.toString())), TextView.BufferType.SPANNABLE);
-			
+			kanjiInfoCorrectTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_correct_meaning, kanjiInfoSb.toString(), kanjiInfoCorrectSb.toString())), TextView.BufferType.SPANNABLE);			
 			
 		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
 			
@@ -213,23 +226,33 @@ public class KanjiTest extends Activity {
 			String kanjiWithRemovedKanji = currentDictionaryEntryWithRemovedKanji.getKanjiWithRemovedKanji();
 			DictionaryEntry dictionaryEntry = currentDictionaryEntryWithRemovedKanji.getDictionaryEntry();
 			
+			String kanji = dictionaryEntry.getKanji();
 			List<String> kanaList = dictionaryEntry.getKanaList();
 			List<String> translates = dictionaryEntry.getTranslates();
 			String info = dictionaryEntry.getInfo();
 			
 			StringBuffer kanjiInfoSb = new StringBuffer();
+			StringBuffer kanjiInfoCorrectSb = new StringBuffer();
 			
 			kanjiInfoSb.append(getString(R.string.kanji_test_info_kanji_in_word)).append("<br/><br/>");
+			kanjiInfoCorrectSb.append(getString(R.string.kanji_test_info_correct_kanji_in_word)).append("<br/><br/>");
 			
 			kanjiInfoSb.append("<b><big>").append(kanjiWithRemovedKanji).append("</big></b>");
+			kanjiInfoCorrectSb.append("<b><big>").append(kanji).append("</big></b>");
+			
 			kanjiInfoSb.append(" ").append(kanaList).append(" - ");
+			kanjiInfoCorrectSb.append(" ").append(kanaList).append(" - ");
+			
 			kanjiInfoSb.append(translates);
+			kanjiInfoCorrectSb.append(translates);
 			
 			if (info != null && info.equals("") == false) {
 				kanjiInfoSb.append(" - ").append(info);
+				kanjiInfoCorrectSb.append(" - ").append(info);
 			}					
 			
 			kanjiInfoTextView.setText(Html.fromHtml(kanjiInfoSb.toString()), TextView.BufferType.SPANNABLE);
+			kanjiInfoCorrectTextView.setText(Html.fromHtml(kanjiInfoCorrectSb.toString()), TextView.BufferType.SPANNABLE);
 			
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode");			

@@ -13,13 +13,19 @@
         android:layout_marginLeft="2dip"
         android:layout_marginRight="2dip"
         android:layout_marginTop="4dip"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:visibility="visible" >
 
         <TextView
             android:id="@+id/kanji_test_info_textview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/kanji_test_info_correct_textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
     </LinearLayout>
 
     <View
@@ -30,7 +36,7 @@
         android:background="@android:color/darker_gray" />
 
     <LinearLayout
-        android:id="@+id/kanji_recognizer_lineaylayout"
+        android:id="@+id/kanji_test_recognizer_lineaylayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >

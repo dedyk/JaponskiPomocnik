@@ -59,7 +59,9 @@
     <string name="kanji_test_label">Test ze znaków kanji</string>
     <string name="kanji_test_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
     <string name="kanji_test_info_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>
+    <string name="kanji_test_info_correct_meaning">Prawidłowa odpowiedź dla znaczenia %1$s to %2$s</string>
     <string name="kanji_test_info_kanji_in_word">Proszę dokładnie narysować znak w pustym miejscu:</string>
+    <string name="kanji_test_info_correct_kanji_in_word">Prawidłowa odpowiedź to:</string>
     <string name="kanji_test_recognizer_check">Sprawdź</string>
     <string name="kanji_test_recognizer_undo">Cofnij</string>
     <string name="kanji_test_recognizer_clear">Wyczyść</string>
