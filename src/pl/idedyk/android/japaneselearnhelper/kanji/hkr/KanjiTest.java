@@ -12,9 +12,10 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.android.japaneselearnhelper.sod.SodStrokeParser;
 import pl.idedyk.android.japaneselearnhelper.sod.StrokeOrderView;
-import pl.idedyk.android.japaneselearnhelper.sod.StrokePath;
 import pl.idedyk.android.japaneselearnhelper.sod.StrokedCharacter;
+import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import android.app.Activity;
 import android.graphics.PointF;
 import android.os.Bundle;
@@ -179,7 +180,7 @@ public class KanjiTest extends Activity {
 		sodDrawButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				//drawSod(character);
+				drawSod();
 			}
 		});
 		
@@ -194,7 +195,7 @@ public class KanjiTest extends Activity {
 		sodAnimateButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				//animate(character);				
+				animate();				
 			}
 		});
 		
@@ -222,14 +223,14 @@ public class KanjiTest extends Activity {
 	}
 	
 	private void setErrorScreen() {
-		kanjiInfoTextView.setVisibility(View.GONE);
+/*		kanjiInfoTextView.setVisibility(View.GONE);
 		
 		testUndoButton.setVisibility(View.GONE);
 		testClearButton.setVisibility(View.GONE);
 		testCheckButton.setVisibility(View.GONE);
 		
 		drawView.setVisibility(View.GONE);
-		
+*/		
 		kanjiInfoCorrectTextView.setVisibility(View.VISIBLE);
 		strokeOrderView.setVisibility(View.VISIBLE);
 		
@@ -411,5 +412,43 @@ public class KanjiTest extends Activity {
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
 		}
+	}
+	
+	void drawSod() {
+		
+		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
+		
+		String correctKanji = getCurrentTestPosCorrectKanji(kanjiTestContext, kanjiTestMode);
+		
+		List<List<String>> strokePathsForWord = DictionaryManager.getInstance().getStrokePathsForWord(correctKanji);
+		
+		StrokePathInfo strokePathInfo = new StrokePathInfo();		
+		strokePathInfo.setStrokePaths(strokePathsForWord);
+
+		StrokedCharacter character = SodStrokeParser.parseWsReply(strokePathInfo);
+
+		strokeOrderView.setAnnotateStrokes(true);
+		strokeOrderView.setCharacter(character);
+		strokeOrderView.invalidate();
+	}
+
+	void animate() {
+		
+		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
+		
+		String correctKanji = getCurrentTestPosCorrectKanji(kanjiTestContext, kanjiTestMode);
+		
+		List<List<String>> strokePathsForWord = DictionaryManager.getInstance().getStrokePathsForWord(correctKanji);
+		
+		StrokePathInfo strokePathInfo = new StrokePathInfo();		
+		strokePathInfo.setStrokePaths(strokePathsForWord);
+
+		StrokedCharacter character = SodStrokeParser.parseWsReply(strokePathInfo);
+
+		int animationDelay = 50 + (15 * strokePathInfo.getStrokePaths().size());
+		strokeOrderView.setAnnotateStrokes(true);
+		strokeOrderView.setAnimationDelayMillis(animationDelay);
+		strokeOrderView.setCharacter(character);
+		strokeOrderView.startAnimation();
 	}
 }
