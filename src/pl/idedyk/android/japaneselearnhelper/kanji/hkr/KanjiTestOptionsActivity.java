@@ -68,37 +68,9 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		final TextView chooseKanjiTextView = (TextView)findViewById(R.id.kanji_test_options_choose_kanji);
 
-		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
-
-		List<KanjiEntry> allKanjis = DictionaryManager.getInstance().getAllKanjis();
-
-		final CheckBox[] kanjiCheckBox = new CheckBox[allKanjis.size()];
-
-		Set<String> chosenKanji = kanjiTestConfig.getChosenKanji();
+		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
 		
-		for (int allKanjisIdx = 0; allKanjisIdx < allKanjis.size(); ++allKanjisIdx) {
-
-			KanjiEntry currentKanjiEntry = allKanjis.get(allKanjisIdx);
-
-			kanjiCheckBox[allKanjisIdx] = new CheckBox(this);
-			
-			kanjiCheckBox[allKanjisIdx].setChecked(chosenKanji.contains(currentKanjiEntry.getKanji()));
-
-			kanjiCheckBox[allKanjisIdx].setLayoutParams(new LinearLayout.LayoutParams(
-					LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-
-			kanjiCheckBox[allKanjisIdx].setTextSize(12);
-
-			StringBuffer currentKanjiEntryText = new StringBuffer();
-
-			currentKanjiEntryText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
-
-			kanjiCheckBox[allKanjisIdx].setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
-
-			kanjiCheckBox[allKanjisIdx].setTag(currentKanjiEntry);
-
-			mainLayout.addView(kanjiCheckBox[allKanjisIdx]);			
-		}
+		final List<CheckBox> kanjiCheckBoxList = new ArrayList<CheckBox>();
 
 		Button startTestButton = (Button)findViewById(R.id.kanji_test_options_start_test);
 
@@ -120,7 +92,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				List<String> chosenKanjiList = new ArrayList<String>();
 
-				for (CheckBox currentCheckBox : kanjiCheckBox) {
+				for (CheckBox currentCheckBox : kanjiCheckBoxList) {
 
 					if (currentCheckBox.isChecked() == true) {
 
@@ -242,7 +214,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				detailsSb.append("***" + chooseKanjiTextView.getText() + "***\n\n");
 
-				for (CheckBox currentCheckBox : kanjiCheckBox) {
+				for (CheckBox currentCheckBox : kanjiCheckBoxList) {
 
 					KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
 
@@ -273,5 +245,56 @@ public class KanjiTestOptionsActivity extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		
+		// loading kanji
+		
+		final ProgressDialog progressDialog = ProgressDialog.show(this, 
+				getString(R.string.kanji_test_options_loading),
+				getString(R.string.kanji_test_options_loading2));
+
+		class PrepareAsyncTask extends AsyncTask<Void, Void, List<KanjiEntry>> {
+
+			@Override
+			protected List<KanjiEntry> doInBackground(Void... arg) {
+		
+				return DictionaryManager.getInstance().getAllKanjis();
+			}
+
+			@Override
+			protected void onPostExecute(List<KanjiEntry> allKanjis) {
+				
+				Set<String> chosenKanji = kanjiTestConfig.getChosenKanji();
+				
+				for (int allKanjisIdx = 0; allKanjisIdx < allKanjis.size(); ++allKanjisIdx) {
+
+					KanjiEntry currentKanjiEntry = allKanjis.get(allKanjisIdx);
+					
+					CheckBox currentKanjiCheckBox = new CheckBox(KanjiTestOptionsActivity.this);
+					
+					currentKanjiCheckBox.setChecked(chosenKanji.contains(currentKanjiEntry.getKanji()));
+
+					currentKanjiCheckBox.setLayoutParams(new LinearLayout.LayoutParams(
+							LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+					currentKanjiCheckBox.setTextSize(12);
+
+					StringBuffer currentKanjiEntryText = new StringBuffer();
+
+					currentKanjiEntryText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
+
+					currentKanjiCheckBox.setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
+
+					currentKanjiCheckBox.setTag(currentKanjiEntry);
+					
+					kanjiCheckBoxList.add(currentKanjiCheckBox);
+
+					mainLayout.addView(currentKanjiCheckBox);			
+				}
+				
+				progressDialog.dismiss();
+			}
+		}
+
+		new PrepareAsyncTask().execute();
 	}
 }
