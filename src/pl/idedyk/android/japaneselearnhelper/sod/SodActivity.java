@@ -1,13 +1,9 @@
 package pl.idedyk.android.japaneselearnhelper.sod;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 
 import android.app.Activity;
-import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -45,7 +41,7 @@ public class SodActivity extends Activity implements OnClickListener {
 		
 		annotateStrokes = getIntent().getBooleanExtra("annotateStrokes", true);
 		
-		character = parseWsReply();
+		character = SodStrokeParser.parseWsReply(strokePathsInfo);
 
 		drawSod(character);
 	}
@@ -80,7 +76,7 @@ public class SodActivity extends Activity implements OnClickListener {
 		if (savedInstanceState != null) {
 			strokePathsInfo = (StrokePathInfo)savedInstanceState.getSerializable(SAVE_STATE_STROKE_PATHS);
 
-			character = parseWsReply();
+			character = SodStrokeParser.parseWsReply(strokePathsInfo);
 
 			if (character != null) {
 				strokeOrderView.setAnnotateStrokes(annotateStrokes);
@@ -137,66 +133,5 @@ public class SodActivity extends Activity implements OnClickListener {
 		default:
 			// do nothing
 		}
-	}
-
-	private List<StrokePath> parseWsReplyStrokes() {
-
-		List<StrokePath> result = new ArrayList<StrokePath>();
-
-		List<List<String>> strokePaths = strokePathsInfo.getStrokePaths();
-
-		float moveX = 0.0f;
-
-		for (int charStrokePathsIdx = 0; charStrokePathsIdx < strokePaths.size(); ++charStrokePathsIdx) {
-
-			List<String> currentCharStrokePaths = strokePaths.get(charStrokePathsIdx);
-
-			float currentCharMaxX = 0.0f;
-
-			List<StrokePath> charSmallResult = new ArrayList<StrokePath>();
-
-			for (int i = 0; i < currentCharStrokePaths.size(); i++) {
-				String line = currentCharStrokePaths.get(i);
-
-				if (line != null && !"".equals(line)) {
-					StrokePath strokePath = StrokePath.parsePath(line.trim());
-
-					currentCharMaxX = Math.max(currentCharMaxX, strokePath.getMaxX());                    
-
-					charSmallResult.add(strokePath);
-				}
-			}
-			
-			for (StrokePath currentCharSmallResult : charSmallResult) {
-				// move
-				Matrix matrix = new Matrix();
-				matrix.setTranslate(moveX, 0);
-				currentCharSmallResult.transformMoveTo(matrix);
-				
-				currentCharSmallResult.transformNonRelativeCurves(moveX);
-			}
-			
-			result.addAll(charSmallResult);
-
-			moveX += currentCharMaxX;
-		}
-
-		return result;
-	}
-
-	private StrokedCharacter parseWsReply() {
-		List<StrokePath> strokes = parseWsReplyStrokes();
-
-		float maxX = 0.0f;
-		float maxY = 0.0f;
-
-		for (StrokePath strokePath : strokes) {
-			maxX = Math.max(strokePath.getMaxX(), maxX);
-			maxY = Math.max(strokePath.getMaxY(), maxY);
-		}
-
-		StrokedCharacter result = new StrokedCharacter(strokes, maxX, maxY);
-
-		return result;
 	}
 }

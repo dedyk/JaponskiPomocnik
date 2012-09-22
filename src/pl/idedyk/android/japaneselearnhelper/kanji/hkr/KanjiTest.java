@@ -12,6 +12,9 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.android.japaneselearnhelper.sod.StrokeOrderView;
+import pl.idedyk.android.japaneselearnhelper.sod.StrokePath;
+import pl.idedyk.android.japaneselearnhelper.sod.StrokedCharacter;
 import android.app.Activity;
 import android.graphics.PointF;
 import android.os.Bundle;
@@ -26,8 +29,18 @@ public class KanjiTest extends Activity {
 	private TextView kanjiInfoTextView;
 
 	private TextView kanjiInfoCorrectTextView;
+	
+	private Button testUndoButton;
+	private Button testClearButton;
+	private Button testCheckButton;
+	
+	private Button sodDrawButton;
+	private Button sodClearButton;
+	private Button sodAnimateButton;
 
 	private KanjiDrawView drawView;
+	
+	private StrokeOrderView strokeOrderView;
 	
 	private TextView kanjiTestState;
 	
@@ -50,29 +63,33 @@ public class KanjiTest extends Activity {
 
 		drawView = (KanjiDrawView) findViewById(R.id.kanji_test_recognizer_draw_view);
 		
+		strokeOrderView = (StrokeOrderView) findViewById(R.id.kanji_test_sod_draw_view);
+		
 		kanjiTestState = (TextView) findViewById(R.id.kanji_test_state);
 
-		Button undoButton = (Button) findViewById(R.id.kanji_test_recognizer_undo_button);
-
-		undoButton.setOnClickListener(new View.OnClickListener() {
+		testUndoButton = (Button) findViewById(R.id.kanji_test_recognizer_undo_button);
+		testClearButton = (Button) findViewById(R.id.kanji_test_recognizer_clear_button);
+		testCheckButton = (Button) findViewById(R.id.kanji_test_recognizer_check_button);
+		
+		sodDrawButton = (Button) findViewById(R.id.kanji_test_sod_draw_button);
+		sodClearButton = (Button) findViewById(R.id.kanji_test_sod_clear_button);
+		sodAnimateButton = (Button) findViewById(R.id.kanji_test_sod_animate_button);
+		
+		testUndoButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
 				drawView.removeLastStroke();
 			}
 		});
 
-		Button clearButton = (Button) findViewById(R.id.kanji_test_recognizer_clear_button);
-
-		clearButton.setOnClickListener(new View.OnClickListener() {
+		testClearButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
 				drawView.clear();
 			}
 		});
 		
-		Button checkButton = (Button) findViewById(R.id.kanji_test_recognizer_check_button);
-		
-		checkButton.setOnClickListener(new View.OnClickListener() {
+		testCheckButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
 				
@@ -152,14 +169,38 @@ public class KanjiTest extends Activity {
 					setScreen();
 				} else { // incorrect
 					
+					// powtarzaj az do sukcesu
+					
 					setErrorScreen();
 				}
 			}
 		});
 		
+		sodDrawButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				//drawSod(character);
+			}
+		});
+		
+		sodClearButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				strokeOrderView.clear();
+				strokeOrderView.invalidate();
+			}
+		});
+		
+		sodAnimateButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				//animate(character);				
+			}
+		});
+		
 		setScreen();
 	}
-	
+		
 	private void setScreen() {
 				
 		// if finish
@@ -183,9 +224,19 @@ public class KanjiTest extends Activity {
 	private void setErrorScreen() {
 		kanjiInfoTextView.setVisibility(View.GONE);
 		
-		kanjiInfoCorrectTextView.setVisibility(View.VISIBLE);
-
+		testUndoButton.setVisibility(View.GONE);
+		testClearButton.setVisibility(View.GONE);
+		testCheckButton.setVisibility(View.GONE);
 		
+		drawView.setVisibility(View.GONE);
+		
+		kanjiInfoCorrectTextView.setVisibility(View.VISIBLE);
+		strokeOrderView.setVisibility(View.VISIBLE);
+		
+		sodDrawButton.setVisibility(View.VISIBLE);
+		sodClearButton.setVisibility(View.VISIBLE);
+		sodAnimateButton.setVisibility(View.VISIBLE);
+
 	}
 	
 	private void setInfoValue(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,

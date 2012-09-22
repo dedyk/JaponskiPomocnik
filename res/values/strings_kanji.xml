@@ -68,4 +68,8 @@
     <string name="kanji_test_recognizer_please_draw">Proszę narysować znak</string>
     <string name="kanji_test_recognizer_correct_answer">Prawidłowa odpowiedź</string>
     <string name="kanji_test_state">Pozycja: %1$d z %2$d</string>
+    <string name="kanji_test_sod_draw">Wyświetl znak</string>
+    <string name="kanji_test_sod_draw_anim">Pisz znak</string>
+    <string name="kanji_test_sod_draw_clear">Wyczyść</string>
+    
 </resources>

@@ -64,6 +64,30 @@
             android:layout_weight="1"
             android:background="@android:drawable/btn_default_small"
             android:text="@string/kanji_test_recognizer_clear" />
+
+        <Button
+            android:id="@+id/kanji_test_sod_draw_button"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/kanji_test_sod_draw"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/kanji_test_sod_animate_button"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/kanji_test_sod_draw_anim"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/kanji_test_sod_clear_button"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="@string/kanji_test_sod_draw_clear"
+            android:visibility="gone" />
     </LinearLayout>
 
     <pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiDrawView
@@ -71,6 +95,13 @@
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="100" />
+
+    <pl.idedyk.android.japaneselearnhelper.sod.StrokeOrderView
+        android:id="@+id/kanji_test_sod_draw_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="100"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/kanji_test_state"
