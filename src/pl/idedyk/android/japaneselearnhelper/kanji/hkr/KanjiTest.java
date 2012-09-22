@@ -124,7 +124,7 @@ public class KanjiTest extends Activity {
 				
 				zinniaCharacter.destroy();
 				
-				KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
+				final KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 				
 				String correctKanji = getCurrentTestPosCorrectKanji(kanjiTestContext, kanjiTestMode);
 				int correctKanjiStrokeNo = getCurrentTestPosCorrectStrokeNo(kanjiTestContext, kanjiTestMode);
@@ -164,6 +164,13 @@ public class KanjiTest extends Activity {
 					alertDialog.setButton(getString(R.string.kanji_test_incorrect_ok), new DialogInterface.OnClickListener() {
 
 						public void onClick(DialogInterface dialog, int which) {
+							
+							Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
+							
+							if (untilSuccess == true) {
+								addCurrentPosKanjiTestEntry(kanjiTestContext, kanjiTestMode);
+							}
+							
 							kanjiTestContext.setCurrentPos(kanjiTestContext.getCurrentPos() + 1);
 							
 							setScreen();
@@ -358,5 +365,25 @@ public class KanjiTest extends Activity {
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
 		}
+	}
+	
+	private void addCurrentPosKanjiTestEntry(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
+			KanjiTestMode kanjiTestMode) {		
+		
+		int testCurrentPos = kanjiTestContext.getCurrentPos();
+		
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+			
+			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
+			
+			kanjiEntryList.add(kanjiEntryList.get(testCurrentPos));	
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+			
+			List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
+			
+			dictionaryEntryWithRemovedKanji.add(dictionaryEntryWithRemovedKanji.get(testCurrentPos));
+		} else {
+			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+		}		
 	}
 }
