@@ -28,6 +28,8 @@ public class KanjiTest extends Activity {
 	
 	private KanjiDrawView drawView;
 	
+	private TextView kanjiTestState;
+	
 	private JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext;
 	
 	private KanjiTestConfig kanjiTestConfig;
@@ -46,6 +48,8 @@ public class KanjiTest extends Activity {
 		kanjiInfoTextView = (TextView)findViewById(R.id.kanji_test_info_textview);
 		
 		drawView = (KanjiDrawView) findViewById(R.id.kanji_test_recognizer_draw_view);
+		
+		kanjiTestState = (TextView) findViewById(R.id.kanji_test_state);
 
 		Button undoButton = (Button) findViewById(R.id.kanji_test_recognizer_undo_button);
 
@@ -182,6 +186,8 @@ public class KanjiTest extends Activity {
 		
 		Object currentTestPosObject = getCurrentTestPosObject(kanjiTestContext, kanjiTestMode);
 		
+		kanjiTestState.setText(getString(R.string.kanji_test_state, kanjiTestContext.getCurrentPos() + 1, getMaxTestPos(kanjiTestContext, kanjiTestMode)));
+		
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
 			
 			KanjiEntry currentTestKanjiEntry = (KanjiEntry)currentTestPosObject;
@@ -245,6 +251,20 @@ public class KanjiTest extends Activity {
 			List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
 			
 			return dictionaryEntryWithRemovedKanji.get(testCurrentPos);			
+		} else {
+			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+		}		
+	}
+	
+	private int getMaxTestPos(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
+			KanjiTestMode kanjiTestMode) {
+				
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+			
+			return kanjiTestContext.getKanjiEntryList().size();			
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+			
+			return kanjiTestContext.getDictionaryEntryWithRemovedKanji().size();
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
 		}		

@@ -66,11 +66,18 @@
         android:layout_height="0dip"
         android:layout_weight="100" />
 
+    <TextView
+        android:id="@+id/kanji_test_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="@string/kanji_test_state" />
+
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="5dp"
         android:background="@android:color/darker_gray" />
 
     <LinearLayout
