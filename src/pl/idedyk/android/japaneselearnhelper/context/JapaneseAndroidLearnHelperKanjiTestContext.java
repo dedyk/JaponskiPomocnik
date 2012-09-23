@@ -1,9 +1,11 @@
 package pl.idedyk.android.japaneselearnhelper.context;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizerResultItem;
 
 public class JapaneseAndroidLearnHelperKanjiTestContext {
 
@@ -13,11 +15,14 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 	
 	private int currentPos = 0;
 	
+	private List<TestAnswer> testAnswers;
+	
 	// methods
 	
 	public void resetTest() {
 		kanjiEntryList = null;
 		dictionaryEntryWithRemovedKanji = null;
+		testAnswers = new ArrayList<TestAnswer>();
 		
 		currentPos = 0;
 	}
@@ -46,6 +51,10 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 		this.currentPos = currentPos;
 	}
 
+	public List<TestAnswer> getTestAnswers() {
+		return testAnswers;
+	}
+
 	public static class DictionaryEntryWithRemovedKanji {
 		
 		private DictionaryEntry dictionaryEntry;
@@ -67,6 +76,79 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 		
 		public String getKanjiWithRemovedKanji() {
 			return dictionaryEntry.getKanji().replaceAll(removedKanji, "_");
+		}
+	}
+	
+	public static class TestAnswer {
+		
+		private String kanji;
+		
+		private int kanjiStrokeNo;
+
+		private int width;
+		
+		private int height;
+		
+		private String drawStrokesStrings;
+		
+		private List<KanjiRecognizerResultItem> recognizeResult;
+		
+		private boolean correctAnswer;
+
+		public String getKanji() {
+			return kanji;
+		}
+
+		public int getHeight() {
+			return height;
+		}
+
+		public int getWidth() {
+			return width;
+		}
+
+		public String getDrawStrokesStrings() {
+			return drawStrokesStrings;
+		}
+
+		public List<KanjiRecognizerResultItem> getRecognizeResult() {
+			return recognizeResult;
+		}
+
+		public void setKanji(String kanji) {
+			this.kanji = kanji;
+		}
+
+		public void setHeight(int height) {
+			this.height = height;
+		}
+
+		public void setWidth(int width) {
+			this.width = width;
+		}
+
+		public void setDrawStrokesStrings(String drawStrokesStrings) {
+			this.drawStrokesStrings = drawStrokesStrings;
+		}
+
+		public void setRecognizeResult(List<KanjiRecognizerResultItem> recognizeResult) {
+			this.recognizeResult = recognizeResult;
+		}
+
+		public boolean isCorrectAnswer() {
+			return correctAnswer;
+		}
+
+		public void setCorrectAnswer(boolean correctAnswer) {
+			this.correctAnswer = correctAnswer;
+		}
+
+		public int getKanjiStrokeNo() {
+			return kanjiStrokeNo;
+		}
+
+		public void setKanjiStrokeNo(int kanjiStrokeNo) {
+			this.kanjiStrokeNo = kanjiStrokeNo;
 		}
 	}
 }

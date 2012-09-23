@@ -98,12 +98,12 @@ public class KanjiRecognizeActivity extends Activity {
 						
 						Character zinniaCharacter = zinniaManager.createNewCharacter();
 						
-						strokesStringBuffer.append("Height: " + drawView.getHeight()).append("\n");
 						strokesStringBuffer.append("Width: " + drawView.getWidth()).append("\n\n");
+						strokesStringBuffer.append("Height: " + drawView.getHeight()).append("\n");
 						
 						zinniaCharacter.clear();
-						zinniaCharacter.setHeight(drawView.getHeight());
 						zinniaCharacter.setWidth(drawView.getWidth());
+						zinniaCharacter.setHeight(drawView.getHeight());
 						
 						for (int idx = 0; idx < strokes.size(); ++idx) {
 							

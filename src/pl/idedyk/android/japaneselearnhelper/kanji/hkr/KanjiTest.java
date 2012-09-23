@@ -9,6 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji;
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext.TestAnswer;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
@@ -102,17 +103,21 @@ public class KanjiTest extends Activity {
 				zinniaManager.open();
 				
 				pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager.Character zinniaCharacter = zinniaManager.createNewCharacter();
+
+				TestAnswer currentTestAnswer = new TestAnswer();
 				
-				//strokesStringBuffer.append("Height: " + drawView.getHeight()).append("\n");
-				//strokesStringBuffer.append("Width: " + drawView.getWidth()).append("\n\n");
+				currentTestAnswer.setWidth(drawView.getWidth());
+				currentTestAnswer.setHeight(drawView.getHeight());
 				
 				zinniaCharacter.clear();
-				zinniaCharacter.setHeight(drawView.getHeight());
 				zinniaCharacter.setWidth(drawView.getWidth());
+				zinniaCharacter.setHeight(drawView.getHeight());
+				
+				final StringBuffer strokesStringBuffer = new StringBuffer();
 				
 				for (int idx = 0; idx < strokes.size(); ++idx) {
 					
-					//strokesStringBuffer.append(String.valueOf((idx + 1))).append(":");
+					strokesStringBuffer.append(String.valueOf((idx + 1))).append(":");
 					
 					Stroke currentStroke = strokes.get(idx);
 					
@@ -121,22 +126,31 @@ public class KanjiTest extends Activity {
 					for (PointF currentStrokeCurrentPoint : currentStrokePoints) {
 						zinniaCharacter.add(idx, (int)currentStrokeCurrentPoint.x, (int)currentStrokeCurrentPoint.y);
 						
-						//strokesStringBuffer.append(currentStrokeCurrentPoint.x).append(" ").append(currentStrokeCurrentPoint.y).append(";");
+						strokesStringBuffer.append(currentStrokeCurrentPoint.x).append(" ").append(currentStrokeCurrentPoint.y).append(";");
 					}
 					
-					// strokesStringBuffer.append("\n\n");
+					strokesStringBuffer.append("\n\n");
 				}
 				
-				List<KanjiRecognizerResultItem> recognizeResult = zinniaCharacter.recognize(50);
+				currentTestAnswer.setDrawStrokesStrings(strokesStringBuffer.toString());
+				
+				final int maxRecognizeResult = 5;
+				
+				List<KanjiRecognizerResultItem> recognizeResult = zinniaCharacter.recognize(maxRecognizeResult);
 				
 				zinniaCharacter.destroy();
+				
+				currentTestAnswer.setRecognizeResult(recognizeResult);
 				
 				final String correctKanji = getCurrentTestPosCorrectKanji();
 				int correctKanjiStrokeNo = getCurrentTestPosCorrectStrokeNo();
 				
+				currentTestAnswer.setKanji(correctKanji);
+				currentTestAnswer.setKanjiStrokeNo(correctKanjiStrokeNo);
+				
 				boolean correctAnswer = false;
 				
-				for (int recognizeResultIdx = 0; recognizeResultIdx < recognizeResult.size() && recognizeResultIdx < 5; ++recognizeResultIdx) {
+				for (int recognizeResultIdx = 0; recognizeResultIdx < recognizeResult.size() && recognizeResultIdx < maxRecognizeResult; ++recognizeResultIdx) {
 					
 					KanjiRecognizerResultItem currentKanjiRecognizerResultItem = recognizeResult.get(recognizeResultIdx);
 					
@@ -146,6 +160,10 @@ public class KanjiTest extends Activity {
 						correctAnswer = true;
 					}
 				}
+				
+				currentTestAnswer.setCorrectAnswer(correctAnswer);
+				
+				kanjiTestContext.getTestAnswers().add(currentTestAnswer);
 				
 				if (correctAnswer == true) { // correct
 					
