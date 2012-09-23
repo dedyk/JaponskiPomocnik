@@ -111,7 +111,6 @@ public class KanjiDetails extends Activity {
 					List<List<String>> strokePathsList = new ArrayList<List<String>>();
 					strokePathsList.add(strokePaths);
 					strokePathInfo.setStrokePaths(strokePathsList);
-
 					
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 										

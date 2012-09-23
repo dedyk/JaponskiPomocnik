@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.kanji.hkr;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -12,9 +13,12 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
+import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.text.Html;
@@ -126,7 +130,7 @@ public class KanjiTest extends Activity {
 				
 				final KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 				
-				String correctKanji = getCurrentTestPosCorrectKanji(kanjiTestContext, kanjiTestMode);
+				final String correctKanji = getCurrentTestPosCorrectKanji(kanjiTestContext, kanjiTestMode);
 				int correctKanjiStrokeNo = getCurrentTestPosCorrectStrokeNo(kanjiTestContext, kanjiTestMode);
 				
 				boolean correctAnswer = false;
@@ -160,7 +164,7 @@ public class KanjiTest extends Activity {
 					alertDialog.setMessage(getString(R.string.kanji_test_correct_answer, correctKanji));
 					
 					alertDialog.setCancelable(false);
-					
+										
 					alertDialog.setButton(getString(R.string.kanji_test_incorrect_ok), new DialogInterface.OnClickListener() {
 
 						public void onClick(DialogInterface dialog, int which) {
@@ -174,6 +178,34 @@ public class KanjiTest extends Activity {
 							kanjiTestContext.setCurrentPos(kanjiTestContext.getCurrentPos() + 1);
 							
 							setScreen();
+						}
+					});
+					
+					alertDialog.setButton2(getString(R.string.kanji_test_incorrect_show_sod), new DialogInterface.OnClickListener() {
+
+						public void onClick(DialogInterface dialog, int which) {
+							
+							StrokePathInfo strokePathInfo = new StrokePathInfo();
+														
+							List<List<String>> strokePathsList = new ArrayList<List<String>>();
+							strokePathsList.add(DictionaryManager.getInstance().findKnownKanji(correctKanji).get(0).getStrokePaths());
+							strokePathInfo.setStrokePaths(strokePathsList);
+							
+							Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+												
+							intent.putExtra("strokePathsInfo", strokePathInfo);
+							
+							startActivity(intent);
+							
+							Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
+							
+							if (untilSuccess == true) {
+								addCurrentPosKanjiTestEntry(kanjiTestContext, kanjiTestMode);
+							}
+							
+							kanjiTestContext.setCurrentPos(kanjiTestContext.getCurrentPos() + 1);
+							
+							setScreen();							
 						}
 					});
 					

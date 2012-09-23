@@ -62,6 +62,7 @@
     <string name="kanji_test_info_kanji_in_word">Proszę dokładnie narysować znak w pustym miejscu:</string>
     <string name="kanji_test_correct_answer">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n%1$s</string>
     <string name="kanji_test_incorrect_ok">OK</string>
+    <string name="kanji_test_incorrect_show_sod">Pokaż prawidłowe pisanie znaku</string>
     <string name="kanji_test_recognizer_check">Sprawdź</string>
     <string name="kanji_test_recognizer_undo">Cofnij</string>
     <string name="kanji_test_recognizer_clear">Wyczyść</string>
