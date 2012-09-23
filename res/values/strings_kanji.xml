@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="kanji_details_label">Szczegóły znaku kanji</string>
     <string name="kanji_details_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
     <string name="kanji_details_report_problem_email_subject">Japoński pomocnik - słowniczek: Problem w szczegółach znaku kanji</string>
@@ -68,7 +69,7 @@
     <string name="kanji_test_recognizer_clear">Wyczyść</string>
     <string name="kanji_test_recognizer_please_draw">Proszę narysować znak</string>
     <string name="kanji_test_recognizer_correct_answer">Prawidłowa odpowiedź</string>
-    <string name="kanji_test_state">Pozycja: %1$d z %2$d</string>    
+    <string name="kanji_test_state">Pozycja: %1$d z %2$d</string>
     <string name="kanji_test_report_problem_email_subject">Japoński pomocnik - test kanji: Problem</string>
     <string name="kanji_test_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kanji_test_report_problem_email_body_kanji">Wybrane kanji:</string>
@@ -86,4 +87,9 @@
     <string name="kanji_test_report_problem_email_body_user_strokeNo">Liczba kresek użytkownika:</string>
     <string name="kanji_test_report_problem_email_body_user_draw">Rysowanie:</string>
     <string name="kanji_test_report_problem_email_body_recognize_result">Wynik rozpoznawania:</string>
+    <string name="kanji_test_summary_label">Wynik testu</string>
+    <string name="kanji_test_result">Rezultat</string>
+    <string name="kanji_test_answers_no">Liczba odpowiedzi</string>
+    <string name="kanji_test_correct_answers_no">Liczba odpowiedzi prawidłowych</string>
+    <string name="kanji_test_incorrect_answers_no">Liczba odpowiedzi nieprawidłowych</string>
 </resources>

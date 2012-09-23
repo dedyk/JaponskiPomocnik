@@ -174,10 +174,12 @@ public class KanjiTest extends Activity {
 					
 					kanjiTestContext.setCurrentPos(kanjiTestContext.getCurrentPos() + 1);
 					
+					kanjiTestContext.incrementCorrectAnswers();
+					
 					setScreen();
 				} else { // incorrect
 					
-					// FIXME powtarzaj az do sukcesu
+					kanjiTestContext.incrementIncorrectAnswers();
 					
 					AlertDialog alertDialog = new AlertDialog.Builder(KanjiTest.this).create();
 					
@@ -347,7 +349,9 @@ public class KanjiTest extends Activity {
 		// if finish
 		if (isFinish() == true) {
 			
-			// FIXME !!!
+			Intent intent = new Intent(getApplicationContext(), KanjiTestSummary.class);
+						
+			startActivity(intent);
 			
 			finish();
 			

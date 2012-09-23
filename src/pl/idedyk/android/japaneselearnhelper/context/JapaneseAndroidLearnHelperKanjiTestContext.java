@@ -17,14 +17,23 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 	
 	private List<TestAnswer> testAnswers;
 	
+	private int correctAnswers = 0;
+	
+	private int incorrectAnswers = 0;
+
+	
 	// methods
 	
 	public void resetTest() {
 		kanjiEntryList = null;
 		dictionaryEntryWithRemovedKanji = null;
-		testAnswers = new ArrayList<TestAnswer>();
 		
 		currentPos = 0;
+		
+		testAnswers = new ArrayList<TestAnswer>();
+		
+		correctAnswers = 0;
+		incorrectAnswers = 0;
 	}
 
 	public List<KanjiEntry> getKanjiEntryList() {
@@ -53,6 +62,22 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 
 	public List<TestAnswer> getTestAnswers() {
 		return testAnswers;
+	}
+	
+	public void incrementCorrectAnswers() {
+		correctAnswers++;
+	}
+	
+	public void incrementIncorrectAnswers() {
+		incorrectAnswers++;
+	}
+
+	public int getCorrectAnswers() {
+		return correctAnswers;
+	}
+
+	public int getIncorrectAnswers() {
+		return incorrectAnswers;
 	}
 
 	public static class DictionaryEntryWithRemovedKanji {
