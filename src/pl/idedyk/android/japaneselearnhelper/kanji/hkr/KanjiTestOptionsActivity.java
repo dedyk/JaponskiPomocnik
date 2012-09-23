@@ -17,7 +17,9 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultIte
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -69,7 +71,7 @@ public class KanjiTestOptionsActivity extends Activity {
 		final TextView chooseKanjiTextView = (TextView)findViewById(R.id.kanji_test_options_choose_kanji);
 
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
-		
+
 		final List<CheckBox> kanjiCheckBoxListWithoutDetails = new ArrayList<CheckBox>();
 
 		Button startTestButton = (Button)findViewById(R.id.kanji_test_options_start_test);
@@ -97,7 +99,7 @@ public class KanjiTestOptionsActivity extends Activity {
 					if (currentCheckBox.isChecked() == true) {
 
 						KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
-						
+
 						// get kanji with details
 						currentCheckBoxKanjiEntry = DictionaryManager.getInstance().findKanji(currentCheckBoxKanjiEntry.getKanji());
 
@@ -186,11 +188,26 @@ public class KanjiTestOptionsActivity extends Activity {
 
 						progressDialog.dismiss();
 
-						Intent intent = new Intent(getApplicationContext(), KanjiTest.class);
+						AlertDialog alertDialog = new AlertDialog.Builder(KanjiTestOptionsActivity.this).create();
 
-						startActivity(intent);
+						alertDialog.setCancelable(false);
 
-						finish();
+						alertDialog.setTitle(getString(R.string.kanji_test_options_info_title));
+						alertDialog.setMessage(getString(R.string.kanji_test_options_info_message));
+
+						alertDialog.setButton(getString(R.string.kanji_test_options_info_ok), new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog, int which) {
+
+								Intent intent = new Intent(getApplicationContext(), KanjiTest.class);
+
+								startActivity(intent);
+
+								finish();
+							}
+						});
+
+						alertDialog.show();
 					}
 				}
 
@@ -248,9 +265,9 @@ public class KanjiTestOptionsActivity extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
-		
+
 		// loading kanji
-		
+
 		final ProgressDialog progressDialog = ProgressDialog.show(this, 
 				getString(R.string.kanji_test_options_loading),
 				getString(R.string.kanji_test_options_loading2));
@@ -259,21 +276,21 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			@Override
 			protected List<KanjiEntry> doInBackground(Void... arg) {
-		
+
 				return DictionaryManager.getInstance().getAllKanjis(false);
 			}
 
 			@Override
 			protected void onPostExecute(List<KanjiEntry> allKanjis) {
-				
+
 				Set<String> chosenKanji = kanjiTestConfig.getChosenKanji();
-				
+
 				for (int allKanjisIdx = 0; allKanjisIdx < allKanjis.size(); ++allKanjisIdx) {
 
 					KanjiEntry currentKanjiEntry = allKanjis.get(allKanjisIdx);
-					
+
 					CheckBox currentKanjiCheckBox = new CheckBox(KanjiTestOptionsActivity.this);
-					
+
 					currentKanjiCheckBox.setChecked(chosenKanji.contains(currentKanjiEntry.getKanji()));
 
 					currentKanjiCheckBox.setLayoutParams(new LinearLayout.LayoutParams(
@@ -288,12 +305,12 @@ public class KanjiTestOptionsActivity extends Activity {
 					currentKanjiCheckBox.setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
 
 					currentKanjiCheckBox.setTag(currentKanjiEntry);
-					
+
 					kanjiCheckBoxListWithoutDetails.add(currentKanjiCheckBox);
 
 					mainLayout.addView(currentKanjiCheckBox);			
 				}
-				
+
 				progressDialog.dismiss();
 			}
 		}

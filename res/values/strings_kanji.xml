@@ -57,6 +57,9 @@
     <string name="kanji_test_options_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kanji_test_options_prepare1">Przygotowywanie testu</string>
     <string name="kanji_test_options_prepare2">Proszę czekać</string>
+    <string name="kanji_test_options_info_title">Informacja</string>
+    <string name="kanji_test_options_info_message">Test ze znaków kanji w swoim działaniu opiera się na mechanizmie rozpoznawania znaków kanji. Mechanizm ten wykorzystuje specjalne algorytmy, które z pewnym prawdopodobieństwem identyfikują wpisany przez użytkownika znak.\n\nDo prawidłowego działania konieczne jest prawidłowe wpisywanie znaku kanji, tj. liczba kresek, kolejność, kierunek oraz ogólny wygląd znaku. Czasami jednak pomimo zachowania tych zasad, mechanizm może zwrócić nieoczekiwany wynik.\n\nProszę o tym pamiętać w trakcie korzystania z testu.\n\n</string>
+    <string name="kanji_test_options_info_ok">OK</string>
     <string name="kanji_test_label">Test ze znaków kanji</string>
     <string name="kanji_test_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
     <string name="kanji_test_info_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>
