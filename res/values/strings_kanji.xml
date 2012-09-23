@@ -75,5 +75,15 @@
     <string name="kanji_test_report_problem_email_body_kanjiTestMode">Typ testu:</string>
     <string name="kanji_test_report_problem_email_body_untilSuccess">Powtarzaj aż do sukcesu:</string>
     <string name="kanji_test_report_problem_email_body_kanji2">Znaki kanji biorące udział w teście:</string>
-    <string name="kanji_test_report_problem_email_body_currentPos">Aktualna pozycja testu:</string>    
+    <string name="kanji_test_report_problem_email_body_currentPos">Aktualna pozycja testu:</string>
+    <string name="kanji_test_report_problem_email_body_answers">Odpowiedzi:</string>
+    <string name="kanji_test_report_problem_email_body_position">Pozycja:</string>
+    <string name="kanji_test_report_problem_email_body_kanji3">Kanji:</string>
+    <string name="kanji_test_report_problem_email_body_correct_strokeNo">Prawidłowa liczba kresek:</string>
+    <string name="kanji_test_report_problem_email_body_width">Szerokość ekranu:</string>
+    <string name="kanji_test_report_problem_email_body_height">Wysokość ekranu:</string>
+    <string name="kanji_test_report_problem_email_body_correct_answer">Prawidłowa odpowiedź:</string>
+    <string name="kanji_test_report_problem_email_body_user_strokeNo">Liczba kresek użytkownika:</string>
+    <string name="kanji_test_report_problem_email_body_user_draw">Rysowanie:</string>
+    <string name="kanji_test_report_problem_email_body_recognize_result">Wynik rozpoznawania:</string>
 </resources>

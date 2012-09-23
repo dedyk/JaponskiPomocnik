@@ -146,7 +146,8 @@ public class KanjiTest extends Activity {
 				int correctKanjiStrokeNo = getCurrentTestPosCorrectStrokeNo();
 				
 				currentTestAnswer.setKanji(correctKanji);
-				currentTestAnswer.setKanjiStrokeNo(correctKanjiStrokeNo);
+				currentTestAnswer.setKanjiCorrectStrokeNo(correctKanjiStrokeNo);
+				currentTestAnswer.setKanjiUserStrokeNo(strokes.size());
 				
 				boolean correctAnswer = false;
 				
@@ -277,6 +278,41 @@ public class KanjiTest extends Activity {
 				
 				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji2)).append(" ").append(kanjiInTestList).append("\n\n");
 				
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_answers)).append("\n\n----------\n\n");
+				
+				List<TestAnswer> testAnswers = kanjiTestContext.getTestAnswers();
+				
+				for (int testAnswersIdx = 0; testAnswersIdx < testAnswers.size(); ++testAnswersIdx) {
+					
+					TestAnswer currentTestAnswer = testAnswers.get(testAnswersIdx);
+										
+					detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_position)).append(" ").append((testAnswersIdx + 1)).append("\n\n");
+					
+					detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji3)).append(" ").append(currentTestAnswer.getKanji()).append("\n\n");
+					
+					detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_correct_strokeNo)).append(" ").append(currentTestAnswer.getKanjiCorrectStrokeNo()).append("\n\n");
+					
+					detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_width)).append(" ").append(currentTestAnswer.getWidth()).append("\n\n");
+					
+					detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_height)).append(" ").append(currentTestAnswer.getHeight()).append("\n\n");
+					
+					detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_correct_answer)).append(" ").append(currentTestAnswer.isCorrectAnswer()).append("\n\n");
+					
+					detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_user_strokeNo)).append(" ").append(currentTestAnswer.getKanjiUserStrokeNo()).append("\n\n");
+					
+					detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_user_draw)).append("\n\n").append(						
+							currentTestAnswer.getDrawStrokesStrings()).append("\n");
+					
+					List<KanjiRecognizerResultItem> recognizeResult = currentTestAnswer.getRecognizeResult();
+					
+					detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_recognize_result)).append("\n\n");
+					
+					for (KanjiRecognizerResultItem currentRecognizerResultItem : recognizeResult) {
+						detailsSb.append(currentRecognizerResultItem.getKanji() + " - " + currentRecognizerResultItem.getScore()).append("\n");
+					}
+					
+					detailsSb.append("\n----------\n\n");
+				}
 				
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
 

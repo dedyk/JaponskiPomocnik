@@ -83,11 +83,13 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 		
 		private String kanji;
 		
-		private int kanjiStrokeNo;
+		private int kanjiCorrectStrokeNo;
 
 		private int width;
 		
 		private int height;
+		
+		private int kanjiUserStrokeNo;
 		
 		private String drawStrokesStrings;
 		
@@ -143,12 +145,20 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 			this.correctAnswer = correctAnswer;
 		}
 
-		public int getKanjiStrokeNo() {
-			return kanjiStrokeNo;
+		public int getKanjiCorrectStrokeNo() {
+			return kanjiCorrectStrokeNo;
 		}
 
-		public void setKanjiStrokeNo(int kanjiStrokeNo) {
-			this.kanjiStrokeNo = kanjiStrokeNo;
+		public int getKanjiUserStrokeNo() {
+			return kanjiUserStrokeNo;
+		}
+
+		public void setKanjiCorrectStrokeNo(int kanjiCorrectStrokeNo) {
+			this.kanjiCorrectStrokeNo = kanjiCorrectStrokeNo;
+		}
+
+		public void setKanjiUserStrokeNo(int kanjiUserStrokeNo) {
+			this.kanjiUserStrokeNo = kanjiUserStrokeNo;
 		}
 	}
 }
