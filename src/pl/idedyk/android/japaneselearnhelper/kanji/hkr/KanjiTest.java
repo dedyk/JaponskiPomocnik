@@ -223,17 +223,41 @@ public class KanjiTest extends Activity {
 
 				StringBuffer detailsSb = new StringBuffer();
 				
-				kanjiTestContext.getKanjiEntryList();
-				kanjiTestContext.getDictionaryEntryWithRemovedKanji();
-				kanjiTestContext.getCurrentPos();
+				KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
+				
+				int testCurrentPos = kanjiTestContext.getCurrentPos();
 								
 				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji)).append(" ").append(kanjiTestConfig.getChosenKanjiAsList()).append("\n\n");
 				
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanjiTestMode)).append(" ").append(kanjiTestConfig.getKanjiTestMode()).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanjiTestMode)).append(" ").append(kanjiTestMode).append("\n\n");
 				
 				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_untilSuccess)).append(" ").append(kanjiTestConfig.getUntilSuccess()).append("\n\n");
 				
-				//todo
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_currentPos)).append(" ").append((testCurrentPos + 1)).append("\n\n");
+				
+				List<String> kanjiInTestList = new ArrayList<String>();
+				
+				if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+					
+					List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
+					
+					for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
+						kanjiInTestList.add(currentKanjiEntry.getKanji());
+					}					
+						
+				} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+					
+					List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
+					
+					for (DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji : dictionaryEntryWithRemovedKanji) {
+						kanjiInTestList.add(currentDictionaryEntryWithRemovedKanji.getDictionaryEntry().getKanji());
+					}
+					
+				} else {
+					throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+				}
+				
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji2)).append(" ").append(kanjiInTestList).append("\n\n");
 				
 				
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
