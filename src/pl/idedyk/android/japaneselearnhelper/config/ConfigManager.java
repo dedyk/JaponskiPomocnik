@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.config;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -185,6 +186,21 @@ public class ConfigManager {
 		public Set<String> getChosenKanji() {
 			
 			Set<String> result = new HashSet<String>();
+			
+			String chosenKanjiString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenKanjiPostfix, "");
+			
+			String[] chosenKanjiSplited = chosenKanjiString.split(",");
+			
+			for (String currentChosenKanji : chosenKanjiSplited) {
+				result.add(currentChosenKanji);
+			}
+			
+			return result;
+		}
+
+		public List<String> getChosenKanjiAsList() {
+			
+			List<String> result = new ArrayList<String>();
 			
 			String chosenKanjiString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenKanjiPostfix, "");
 			

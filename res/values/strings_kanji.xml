@@ -69,4 +69,9 @@
     <string name="kanji_test_recognizer_please_draw">Proszę narysować znak</string>
     <string name="kanji_test_recognizer_correct_answer">Prawidłowa odpowiedź</string>
     <string name="kanji_test_state">Pozycja: %1$d z %2$d</string>    
+    <string name="kanji_test_report_problem_email_subject">Japoński pomocnik - test kanji: Problem</string>
+    <string name="kanji_test_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kanji_test_report_problem_email_body_kanji">Kanji:</string>
+    <string name="kanji_test_report_problem_email_body_kanjiTestMode">Typ testu:</string>
+    <string name="kanji_test_report_problem_email_body_untilSuccess">Powtarzaj aż do sukcesu:</string>    
 </resources>

@@ -13,12 +13,15 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.text.Html;
@@ -128,10 +131,8 @@ public class KanjiTest extends Activity {
 				
 				zinniaCharacter.destroy();
 				
-				final KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
-				
-				final String correctKanji = getCurrentTestPosCorrectKanji(kanjiTestContext, kanjiTestMode);
-				int correctKanjiStrokeNo = getCurrentTestPosCorrectStrokeNo(kanjiTestContext, kanjiTestMode);
+				final String correctKanji = getCurrentTestPosCorrectKanji();
+				int correctKanjiStrokeNo = getCurrentTestPosCorrectStrokeNo();
 				
 				boolean correctAnswer = false;
 				
@@ -172,7 +173,7 @@ public class KanjiTest extends Activity {
 							Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
 							
 							if (untilSuccess == true) {
-								addCurrentPosKanjiTestEntry(kanjiTestContext, kanjiTestMode);
+								addCurrentPosKanjiTestEntry();
 							}
 							
 							kanjiTestContext.setCurrentPos(kanjiTestContext.getCurrentPos() + 1);
@@ -200,7 +201,7 @@ public class KanjiTest extends Activity {
 							Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
 							
 							if (untilSuccess == true) {
-								addCurrentPosKanjiTestEntry(kanjiTestContext, kanjiTestMode);
+								addCurrentPosKanjiTestEntry();
 							}
 							
 							kanjiTestContext.setCurrentPos(kanjiTestContext.getCurrentPos() + 1);
@@ -213,6 +214,52 @@ public class KanjiTest extends Activity {
 				}
 			}
 		});
+		
+		Button reportProblemButton = (Button)findViewById(R.id.kanji_test_report_problem_button);
+		
+		reportProblemButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View view) {
+
+				StringBuffer detailsSb = new StringBuffer();
+				
+				kanjiTestContext.getKanjiEntryList();
+				kanjiTestContext.getDictionaryEntryWithRemovedKanji();
+				kanjiTestContext.getCurrentPos();
+								
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji)).append(" ").append(kanjiTestConfig.getChosenKanjiAsList()).append("\n\n");
+				
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanjiTestMode)).append(" ").append(kanjiTestConfig.getKanjiTestMode()).append("\n\n");
+				
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_untilSuccess)).append(" ").append(kanjiTestConfig.getUntilSuccess()).append("\n\n");
+				
+				//todo
+				
+				
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+
+				String mailSubject = getString(R.string.kanji_test_report_problem_email_subject);
+
+				String mailBody = getString(R.string.kanji_test_report_problem_email_body,
+						detailsSb.toString());
+
+				String versionName = "";
+				int versionCode = 0;
+
+				try {
+					PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+					versionName = packageInfo.versionName;
+					versionCode = packageInfo.versionCode;
+
+				} catch (NameNotFoundException e) {        	
+				}
+
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));				
+			}
+		});
 				
 		setScreen();
 	}
@@ -220,7 +267,7 @@ public class KanjiTest extends Activity {
 	private void setScreen() {
 				
 		// if finish
-		if (isFinish(kanjiTestContext, kanjiTestConfig.getKanjiTestMode()) == true) {
+		if (isFinish() == true) {
 			
 			// FIXME !!!
 			
@@ -229,22 +276,20 @@ public class KanjiTest extends Activity {
 			return;
 		}
 		
-		
 		// set info value
-		setInfoValue(kanjiTestContext, kanjiTestConfig);
+		setInfoValue();
 		
 		// draw view clear
 		drawView.clear();
 	}
 		
-	private void setInfoValue(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
-			KanjiTestConfig kanjiTestConfig) {
+	private void setInfoValue() {
 		
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 		
-		Object currentTestPosObject = getCurrentTestPosObject(kanjiTestContext, kanjiTestMode);
+		Object currentTestPosObject = getCurrentTestPosObject();
 		
-		kanjiTestState.setText(getString(R.string.kanji_test_state, kanjiTestContext.getCurrentPos() + 1, getMaxTestPos(kanjiTestContext, kanjiTestMode)));
+		kanjiTestState.setText(getString(R.string.kanji_test_state, kanjiTestContext.getCurrentPos() + 1, getMaxTestPos()));
 		
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
 			
@@ -296,10 +341,11 @@ public class KanjiTest extends Activity {
 		}
 	}
 	
-	private Object getCurrentTestPosObject(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
-			KanjiTestMode kanjiTestMode) {
+	private Object getCurrentTestPosObject() {
 		
 		int testCurrentPos = kanjiTestContext.getCurrentPos();
+		
+		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 		
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
 			
@@ -316,8 +362,9 @@ public class KanjiTest extends Activity {
 		}		
 	}
 	
-	private int getMaxTestPos(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
-			KanjiTestMode kanjiTestMode) {
+	private int getMaxTestPos() {
+		
+		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 				
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
 			
@@ -330,8 +377,9 @@ public class KanjiTest extends Activity {
 		}		
 	}
 	
-	private String getCurrentTestPosCorrectKanji(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
-			KanjiTestMode kanjiTestMode) {
+	private String getCurrentTestPosCorrectKanji() {
+		
+		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 		
 		int testCurrentPos = kanjiTestContext.getCurrentPos();
 		
@@ -350,8 +398,9 @@ public class KanjiTest extends Activity {
 		}		
 	}
 
-	private int getCurrentTestPosCorrectStrokeNo(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
-			KanjiTestMode kanjiTestMode) {
+	private int getCurrentTestPosCorrectStrokeNo() {
+		
+		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 		
 		int testCurrentPos = kanjiTestContext.getCurrentPos();
 		
@@ -370,8 +419,9 @@ public class KanjiTest extends Activity {
 		}		
 	}
 	
-	private boolean isFinish(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
-			KanjiTestMode kanjiTestMode) {
+	private boolean isFinish() {
+		
+		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 		
 		int testCurrentPos = kanjiTestContext.getCurrentPos();
 		
@@ -399,8 +449,9 @@ public class KanjiTest extends Activity {
 		}
 	}
 	
-	private void addCurrentPosKanjiTestEntry(JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext,
-			KanjiTestMode kanjiTestMode) {		
+	private void addCurrentPosKanjiTestEntry() {
+		
+		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 		
 		int testCurrentPos = kanjiTestContext.getCurrentPos();
 		
