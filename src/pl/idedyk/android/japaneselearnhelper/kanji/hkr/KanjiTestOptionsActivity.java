@@ -70,7 +70,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
 		
-		final List<CheckBox> kanjiCheckBoxList = new ArrayList<CheckBox>();
+		final List<CheckBox> kanjiCheckBoxListWithoutDetails = new ArrayList<CheckBox>();
 
 		Button startTestButton = (Button)findViewById(R.id.kanji_test_options_start_test);
 
@@ -92,11 +92,14 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				List<String> chosenKanjiList = new ArrayList<String>();
 
-				for (CheckBox currentCheckBox : kanjiCheckBoxList) {
+				for (CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
 
 					if (currentCheckBox.isChecked() == true) {
 
 						KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
+						
+						// get kanji with details
+						currentCheckBoxKanjiEntry = DictionaryManager.getInstance().findKanji(currentCheckBoxKanjiEntry.getKanji());
 
 						chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
 						kanjiEntryList.add(currentCheckBoxKanjiEntry);						
@@ -214,7 +217,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				detailsSb.append("***" + chooseKanjiTextView.getText() + "***\n\n");
 
-				for (CheckBox currentCheckBox : kanjiCheckBoxList) {
+				for (CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
 
 					KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
 
@@ -257,7 +260,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			@Override
 			protected List<KanjiEntry> doInBackground(Void... arg) {
 		
-				return DictionaryManager.getInstance().getAllKanjis();
+				return DictionaryManager.getInstance().getAllKanjis(false);
 			}
 
 			@Override
@@ -286,7 +289,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					currentKanjiCheckBox.setTag(currentKanjiEntry);
 					
-					kanjiCheckBoxList.add(currentKanjiCheckBox);
+					kanjiCheckBoxListWithoutDetails.add(currentKanjiCheckBox);
 
 					mainLayout.addView(currentKanjiCheckBox);			
 				}

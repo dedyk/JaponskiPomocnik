@@ -92,7 +92,7 @@ public class KanjiTest extends Activity {
 					return;
 				}
 				
-				DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+				final DictionaryManager dictionaryManager = DictionaryManager.getInstance();
 				
 				ZinniaManager zinniaManager = dictionaryManager.getZinniaManager();
 				
@@ -188,7 +188,7 @@ public class KanjiTest extends Activity {
 							StrokePathInfo strokePathInfo = new StrokePathInfo();
 														
 							List<List<String>> strokePathsList = new ArrayList<List<String>>();
-							strokePathsList.add(DictionaryManager.getInstance().findKnownKanji(correctKanji).get(0).getStrokePaths());
+							strokePathsList.add(dictionaryManager.findKanji(correctKanji).getStrokePaths());
 							strokePathInfo.setStrokePaths(strokePathsList);
 							
 							Intent intent = new Intent(getApplicationContext(), SodActivity.class);

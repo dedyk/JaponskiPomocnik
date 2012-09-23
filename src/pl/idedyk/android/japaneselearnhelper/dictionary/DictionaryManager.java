@@ -569,9 +569,9 @@ public class DictionaryManager {
 		return kanjiEntry;		
 	}
 	
-	public List<KanjiEntry> getAllKanjis() {
+	public List<KanjiEntry> getAllKanjis(boolean withDetails) {
 		try {
-			return sqliteConnector.getAllKanjis();
+			return sqliteConnector.getAllKanjis(withDetails);
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
 		}

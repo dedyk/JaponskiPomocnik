@@ -15,6 +15,10 @@ public class Utils {
 	
 	public static List<String> parseStringIntoList(String text, boolean limitSize) {
 		
+		if (text == null) {
+			return null;
+		}
+		
 		List<String> result = new ArrayList<String>();
 		
 		String[] splitedText = text.split("\n");
@@ -106,7 +110,7 @@ public class Utils {
 		
 		KanjiDic2Entry kanjiDic2Entry = null;
 		
-		if (strokeCountString.equals("") == false) {
+		if (strokeCountString != null && strokeCountString.equals("") == false) {
 			
 			kanjiDic2Entry = new KanjiDic2Entry();
 			

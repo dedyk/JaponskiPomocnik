@@ -379,7 +379,7 @@ public class SQLiteConnector {
 		sqliteDatabase.insertOrThrow(SQLiteStatic.kanjiEntriesTableName, null, values);
 	}
 	
-	public List<KanjiEntry> getAllKanjis() throws DictionaryException {
+	public List<KanjiEntry> getAllKanjis(boolean withDetails) throws DictionaryException {
 		
 		KanjiEntry kanjiEntry = null;
 		
@@ -398,16 +398,24 @@ public class SQLiteConnector {
 				String idString = cursor.getString(0);
 
 				String kanjiString = cursor.getString(1);
+				
+				String strokeCountString = null;
+				String radicalsString = null;
+				String onReadingString = null;
+				String kunReadingString = null;
+				String strokePathString = null;
+				
+				if (withDetails == true) {
+					strokeCountString = cursor.getString(2);
 
-				String strokeCountString = cursor.getString(2);
+					radicalsString = cursor.getString(3);
 
-				String radicalsString = cursor.getString(3);
+					onReadingString = cursor.getString(4);
 
-				String onReadingString = cursor.getString(4);
+					kunReadingString = cursor.getString(5);
 
-				String kunReadingString = cursor.getString(5);
-
-				String strokePathString = cursor.getString(6);
+					strokePathString = cursor.getString(6);
+				}
 
 				String polishTranslateListString = cursor.getString(7);
 				String infoString = cursor.getString(8);
