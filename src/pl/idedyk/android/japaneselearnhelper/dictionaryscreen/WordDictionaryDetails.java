@@ -562,7 +562,7 @@ public class WordDictionaryDetails extends Activity {
 		sm.append("========+=================~?III777777===+=========~==+~~=~==I:::::::::::::::::::::::::=8?=IO$Z$$$$$$$$$O===+==============$7777777III?I====:\n");
 		sm.append("=============+++=+==+=====DIIII7777$8=======~===~=+~===~~~~:$::::::::::::::::::::::$:::::::::$$$$$$$$$$8Z+==+===+=========77777777IIII$+===:");
 		
-		StringValue smStringValue = new StringValue(sm.toString(), 2.0f, 0);
+		StringValue smStringValue = new StringValue(sm.toString(), 2.8f, 0);
 		
 		smStringValue.setTypeface(Typeface.MONOSPACE);
 		smStringValue.setTextColor(Color.BLACK);
