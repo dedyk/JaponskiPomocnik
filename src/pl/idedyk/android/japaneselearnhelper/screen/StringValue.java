@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.screen;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.text.Spanned;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
@@ -33,6 +34,10 @@ public class StringValue implements IScreenItem {
 	private Integer textColor;
 	
 	private Integer defaultTextColor;
+	
+	private Typeface typeface;
+	
+	private Integer backgroundColor;
 
 	public StringValue(String value, float textSize, int level) {
 		this.value = value;
@@ -68,6 +73,14 @@ public class StringValue implements IScreenItem {
 	
 	public void setNullMargins(boolean nullMargins) {
 		this.nullMargins = nullMargins;
+	}
+	
+	public void setTypeface(Typeface typeface) {
+		this.typeface = typeface;
+	}
+	
+	public void setBackgroundColor(Integer backgroundColor) {
+		this.backgroundColor = backgroundColor;
 	}
 
 	public void generate(Context context, Resources resources, ViewGroup layout) {
@@ -114,6 +127,14 @@ public class StringValue implements IScreenItem {
 		
 		if (textColor != null) {
 			textView.setTextColor(textColor.intValue());
+		}
+		
+		if (typeface != null) {
+			textView.setTypeface(typeface);
+		}
+		
+		if (backgroundColor != null) {
+			textView.setBackgroundColor(backgroundColor);
 		}
 		
 		textView.setOnClickListener(onClickListener);
