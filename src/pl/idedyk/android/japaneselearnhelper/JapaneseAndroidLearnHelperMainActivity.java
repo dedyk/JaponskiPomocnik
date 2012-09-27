@@ -3,7 +3,6 @@ package pl.idedyk.android.japaneselearnhelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
 import pl.idedyk.android.japaneselearnhelper.info.InfoActivity;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
@@ -165,12 +164,5 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				}
 			}
 		});
-	}
-
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-
-		DictionaryManager.getInstance().close();
 	}
 }

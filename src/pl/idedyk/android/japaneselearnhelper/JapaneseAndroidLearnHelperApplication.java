@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper;
 
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import android.app.Application;
 import android.content.res.Configuration;
 
@@ -34,6 +35,8 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	@Override
 	public void onTerminate() {
 		super.onTerminate();
+		
+		DictionaryManager.getInstance().close();
 	}
 	
 	public void setContext(JapaneseAndroidLearnHelperContext context) {
