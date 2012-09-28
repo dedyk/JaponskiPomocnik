@@ -4,4 +4,5 @@
     <string name="splash_message_box_title">Informacja</string>
     <string name="splash_message_box_info">Autor powyższego programu dopełnia wszelkich starań, aby zawarte w aplikacji informacje były rzetelne i zgodne z prawdą.\n\nJednakże autor nie ponosi żadnej odpowiedzialności za aktualność, poprawność, kompletność i jakość prezentowanych informacji.\n\nJeśli widzisz błąd, koniecznie zgłoś go.\n</string>
     <string name="splash_ok">OK</string>
+    <string name="splash_dialogbox_skip">Nie pokazuj tego komunikatu ponownie</string>
 </resources>

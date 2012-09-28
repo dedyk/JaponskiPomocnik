@@ -760,5 +760,12 @@ public class DictionaryManager {
 
 	public ZinniaManager getZinniaManager() {
 		return zinniaManager;
-	}	
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize();
+				
+		clone();
+	}
 }

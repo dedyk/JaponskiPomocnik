@@ -40,6 +40,10 @@ public class ConfigManager {
 	public KanjiTestConfig getKanjiTestConfig() {
 		return new KanjiTestConfig();
 	}
+
+	public SplashConfig getSplashConfig() {
+		return new SplashConfig();
+	}
 	
 	public class KanaTestConfig {
 		
@@ -245,5 +249,25 @@ public class ConfigManager {
 			
 			editor.commit();
 		}
+	}
+	
+	public class SplashConfig {
+		
+		private final String splashConfigPrefix = "splashConfig_";
+		
+		private final String dialogBoxSkipPostfix = "rangeTest";
+		
+		public Boolean getDialogBoxSkip() {
+			return preferences.getBoolean(splashConfigPrefix + dialogBoxSkipPostfix, false);
+		}
+
+		public void setDialogBoxSkip(boolean dialogBoxSkip) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(splashConfigPrefix + dialogBoxSkipPostfix, dialogBoxSkip);
+			
+			editor.commit();
+		}		
 	}
 }

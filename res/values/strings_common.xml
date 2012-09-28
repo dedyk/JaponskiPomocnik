@@ -32,7 +32,7 @@
     <string name="main_menu_email_subject">Japoński pomocnik - sugestia</string>
     <string name="main_menu_email_body">Treść sugestii:\n\n</string>
     
-    <string name="report_problem">Zgłoś problem</string>
+    <string name="report_problem">Zgłoś sugestię</string>
     
     <string name="choose_email_client">Wybierz klienta poczty:</string>
 </resources>

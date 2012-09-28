@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="kana_label">Kana</string>
-    <string name="kana_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kana_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś sugestię</string>
     <string name="kana_hiragana_label">Hiragana</string>
     <string name="kana_katakana_label">Katakana</string>
     <string name="kana_katakana_additional_label">Katakana (dodatkowe)</string>
-    <string name="kana_report_problem_email_subject">Japoński pomocnik - tablica hiragana i katakana: Problem</string>
-    <string name="kana_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kana_report_problem_email_subject">Japoński pomocnik - tablica hiragana i katakana: Sugestia</string>
+    <string name="kana_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kana_info">Naciśnij na znak, aby uzyskać animację pisania znaku</string>
     <string name="kana_test_options_label">Opcje testu</string>
     <string name="kana_test_label">Test</string>
@@ -23,11 +23,11 @@
     <string name="kana_test_mode2_romaji_to_kana_info">Uwaga: Do prawidłowego działania potrzebna jest japońska klawiatura. Japońska klawiatura nie może być również typu qwerty, gdyż test nie ma wtedy sensu.</string>
     <string name="kana_test_other">Inne opcje</string>
     <string name="kana_test_until_success">"Powtarzaj aż do sukcesu"</string>
-    <string name="kana_test_options_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
-    <string name="kana_test_options_report_problem_email_subject">Japoński pomocnik - opcje testu hiragana i katakana: Problem</string>
-    <string name="kana_test_options_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kana_test_options_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś sugestię</string>
+    <string name="kana_test_options_report_problem_email_subject">Japoński pomocnik - opcje testu hiragana i katakana: Sugestia</string>
+    <string name="kana_test_options_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kana_test_options_startTest">Start</string>
-    <string name="kana_test_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś problem</string>
+    <string name="kana_test_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś sugestię</string>
     <string name="kana_test_char">Znak</string>
     <string name="kana_test_choose">Proszę wybrać prawidłową odpowiedź</string>
     <string name="kana_test_input">Proszę wpisać prawidłową odpowiedź</string>
@@ -40,8 +40,8 @@
     <string name="kana_test_answers_no">Liczba odpowiedzi</string>
     <string name="kana_test_correct_answers_no">Liczba odpowiedzi prawidłowych</string>
     <string name="kana_test_incorrect_answers_no">Liczba odpowiedzi nieprawidłowych</string>
-    <string name="kana_test_report_problem_email_subject">Japoński pomocnik - test hiragana i katakana: Problem</string>
-    <string name="kana_test_report_problem_email_body">Treść problemu:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kana_test_report_problem_email_subject">Japoński pomocnik - test hiragana i katakana: Sugestia</string>
+    <string name="kana_test_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kana_test_char_range">Zakres znaków</string>
     <string name="kana_test_char_range_gojuuon">Gojuuon (あ/ア - ん/ン)</string>
     <string name="kana_test_char_range_dakuten_handakuten">Dakuten + Handakuten (が/ガ - ぽ/ポ)</string>

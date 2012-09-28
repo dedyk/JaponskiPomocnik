@@ -4,6 +4,7 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperMainActivity;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.SplashConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
@@ -20,8 +21,11 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -136,27 +140,50 @@ public class Splash extends Activity {
 			@Override
 			protected void onPostExecute(Void result) {
 				
-				AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
+				final SplashConfig splashConfig = ConfigManager.getInstance().getSplashConfig();
 				
-				alertDialog.setCancelable(false);
+				Boolean dialogBoxSkipResult = splashConfig.getDialogBoxSkip();
 				
-				alertDialog.setTitle(getString(R.string.splash_message_box_title));
-				alertDialog.setMessage(getString(R.string.splash_message_box_info));
-				
-				alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
+				if (dialogBoxSkipResult == null || dialogBoxSkipResult.booleanValue() == false) {
+					
+					AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
+					
+					LayoutInflater layoutInflater = LayoutInflater.from(Splash.this);
+					
+					View alertDialogView = layoutInflater.inflate(R.layout.splash_dialogbox, null);
+					
+					final CheckBox skipCheckBox = (CheckBox)alertDialogView.findViewById(R.id.splash_dialogbox_skipCheckBox);
+					
+					alertDialog.setView(alertDialogView);
+					
+					alertDialog.setCancelable(false);
+					
+					alertDialog.setTitle(getString(R.string.splash_message_box_title));
+					alertDialog.setMessage(getString(R.string.splash_message_box_info));
+					
+					alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
 
-					public void onClick(DialogInterface dialog, int which) {
-													
-						Intent intent = new Intent(getApplicationContext(), JapaneseAndroidLearnHelperMainActivity.class);
-						
-						startActivity(intent);
-				        
-				        
-						finish();
-					}
-				});
-				
-				alertDialog.show();			
+						public void onClick(DialogInterface dialog, int which) {
+							
+							splashConfig.setDialogBoxSkip(skipCheckBox.isChecked());
+							
+							Intent intent = new Intent(getApplicationContext(), JapaneseAndroidLearnHelperMainActivity.class);
+							
+							startActivity(intent);
+					        
+							finish();
+						}
+					});
+					
+					alertDialog.show();
+				} else {
+
+					Intent intent = new Intent(getApplicationContext(), JapaneseAndroidLearnHelperMainActivity.class);
+					
+					startActivity(intent);
+			        
+					finish();
+				}
 			}
         }
         
