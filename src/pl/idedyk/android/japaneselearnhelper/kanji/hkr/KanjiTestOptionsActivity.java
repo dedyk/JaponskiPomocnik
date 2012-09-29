@@ -277,7 +277,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			@Override
 			protected List<KanjiEntry> doInBackground(Void... arg) {
 
-				return DictionaryManager.getInstance().getAllKanjis(false);
+				return DictionaryManager.getInstance().getAllKanjis(false, false);
 			}
 
 			@Override

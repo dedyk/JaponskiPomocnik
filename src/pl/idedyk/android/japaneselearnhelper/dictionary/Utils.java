@@ -100,7 +100,8 @@ public class Utils {
 			String kunReadingString,
 			String strokePathString,
 			String polishTranslateListString,
-			String infoString) throws DictionaryException {
+			String infoString,
+			String generatedString) throws DictionaryException {
 		
 		int id = Integer.parseInt(idString);
 		
@@ -136,6 +137,8 @@ public class Utils {
 		entry.setStrokePaths(parseStringIntoList(strokePathString, false));
 		entry.setPolishTranslates(parseStringIntoList(polishTranslateListString, false));
 		entry.setInfo(infoString);
+		
+		entry.setGenerated(Boolean.parseBoolean(generatedString));
 					
 		entry.setKanjiDic2Entry(kanjiDic2Entry);
 		

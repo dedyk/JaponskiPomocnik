@@ -255,7 +255,7 @@ public class ConfigManager {
 		
 		private final String splashConfigPrefix = "splashConfig_";
 		
-		private final String dialogBoxSkipPostfix = "rangeTest";
+		private final String dialogBoxSkipPostfix = "dialogBoxSkip";
 		
 		public Boolean getDialogBoxSkip() {
 			return preferences.getBoolean(splashConfigPrefix + dialogBoxSkipPostfix, false);

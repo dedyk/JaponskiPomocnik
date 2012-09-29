@@ -18,6 +18,8 @@ public class KanjiEntry implements Serializable {
 	private KanjiDic2Entry kanjiDic2Entry;
 	
 	private List<String> strokePaths;
+	
+	private boolean generated;
 
 	public int getId() {
 		return id;
@@ -65,5 +67,13 @@ public class KanjiEntry implements Serializable {
 
 	public void setStrokePaths(List<String> strokePaths) {
 		this.strokePaths = strokePaths;
+	}
+
+	public boolean isGenerated() {
+		return generated;
+	}
+
+	public void setGenerated(boolean generated) {
+		this.generated = generated;
 	}
 }

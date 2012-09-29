@@ -29,6 +29,7 @@ public class SQLiteStatic {
 	public static final String kanjiEntriesTable_strokePaths = "strokePaths";
 	public static final String kanjiEntriesTable_polishTranslates = "polishTranslates";
 	public static final String kanjiEntriesTable_info = "info";
+	public static final String kanjiEntriesTable_generated = "generated";
 	
 	public static final String grammaFormConjugateGroupTypeEntriesTableName = "GrammaFormConjugateGroupTypeEntries";
 	
@@ -70,7 +71,8 @@ public class SQLiteStatic {
 			SQLiteStatic.kanjiEntriesTable_kunReading,
 			SQLiteStatic.kanjiEntriesTable_strokePaths,
 			SQLiteStatic.kanjiEntriesTable_polishTranslates,
-			SQLiteStatic.kanjiEntriesTable_info
+			SQLiteStatic.kanjiEntriesTable_info,
+			SQLiteStatic.kanjiEntriesTable_generated
 	};
 	
 	public static final String dictionaryEntriesTableCreate = 
@@ -95,7 +97,8 @@ public class SQLiteStatic {
 			kanjiEntriesTable_kunReading + " text not null, " +
 			kanjiEntriesTable_strokePaths + " text not null, " +
 			kanjiEntriesTable_polishTranslates + " text not null, " +
-			kanjiEntriesTable_info + " text not null);";
+			kanjiEntriesTable_info + " text not null, " +
+			kanjiEntriesTable_generated + " text not null);";
 	
 	public static final String grammaFormConjugateGroupTypeEntriesTableCreate =
 			"create table " + grammaFormConjugateGroupTypeEntriesTableName + "(" +

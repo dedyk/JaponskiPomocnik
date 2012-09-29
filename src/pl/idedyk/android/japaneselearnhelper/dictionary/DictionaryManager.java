@@ -482,10 +482,12 @@ public class DictionaryManager {
 
 				String polishTranslateListString = csvReader.get(7);
 				String infoString = csvReader.get(8);
+				
+				String generatedString = csvReader.get(9);
 
 				KanjiEntry entry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
 						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString);
+						polishTranslateListString, infoString, generatedString);
 
 				// update radical info
 				if (entry.getKanjiDic2Entry() != null) {
@@ -569,9 +571,9 @@ public class DictionaryManager {
 		return kanjiEntry;		
 	}
 	
-	public List<KanjiEntry> getAllKanjis(boolean withDetails) {
+	public List<KanjiEntry> getAllKanjis(boolean withDetails, boolean addGenerated) {
 		try {
-			return sqliteConnector.getAllKanjis(withDetails);
+			return sqliteConnector.getAllKanjis(withDetails, addGenerated);
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
 		}
@@ -766,6 +768,6 @@ public class DictionaryManager {
 	protected void finalize() throws Throwable {
 		super.finalize();
 				
-		clone();
+		close();
 	}
 }
