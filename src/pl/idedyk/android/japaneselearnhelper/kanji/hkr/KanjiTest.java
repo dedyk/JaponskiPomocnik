@@ -13,6 +13,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
@@ -388,9 +389,40 @@ public class KanjiTest extends Activity {
 				kanjiInfoSb.append(" - ").append(info);
 			}
 			
-			StringBuffer kanjiInfoCorrectSb = new StringBuffer();
+			KanjiDic2Entry kanjiDic2Entry = currentTestKanjiEntry.getKanjiDic2Entry();
 			
-			kanjiInfoCorrectSb.append("<b><big>").append(currentTestKanjiEntry.getKanji()).append("</big></b>");
+			if (kanjiDic2Entry != null) {
+				
+				boolean addedSpace = false;
+				
+				List<String> kunReading = kanjiDic2Entry.getKunReading();
+				
+				if (kunReading != null && kunReading.size() > 0) {
+					
+					if (addedSpace == false) {
+						kanjiInfoSb.append("<br/><br/>");
+						
+						addedSpace = true;
+					}
+					
+					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_kunyomi)).append("</b>: ").append(kunReading.toString()).append("</small>");				
+				}
+				
+				List<String> onReading = kanjiDic2Entry.getOnReading();
+				
+				if (onReading != null && onReading.size() > 0) {
+					
+					if (addedSpace == false) {
+						kanjiInfoSb.append("<br/><br/>");
+						
+						addedSpace = true;
+					} else {
+						kanjiInfoSb.append("<br/>");
+					}
+					
+					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_onyomi)).append("</b>: ").append(onReading.toString()).append("</small>");		
+				}				
+			}
 			
 			kanjiInfoTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_meaning, kanjiInfoSb.toString())), TextView.BufferType.SPANNABLE);		
 			
