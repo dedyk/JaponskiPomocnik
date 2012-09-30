@@ -23,6 +23,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -59,6 +62,66 @@ public class WordDictionary extends Activity {
 	private TextView wordDictionarySearchElementsNoTextView;
 	
 	private CheckBox[] searchDictionaryEntryListCheckBox;
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		MenuInflater inflater = getMenuInflater();
+		
+		inflater.inflate(R.menu.common_menu, menu);
+		
+		return true;
+	}
+	
+	
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		
+		// report problem
+		if (item.getItemId() == R.id.report_problem_menu_item) {
+			
+			EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);
+			ListView searchResultListView = (ListView)findViewById(R.id.word_dictionary_search_result_list);
+			
+			WordDictionaryListItemAdapter searchResultListViewAdapter = (WordDictionaryListItemAdapter)searchResultListView.getAdapter();				
+			
+			StringBuffer searchListText = new StringBuffer();
+			
+			for (int searchResultListViewAdapterIdx = 0; searchResultListViewAdapterIdx < searchResultListViewAdapter.size(); ++searchResultListViewAdapterIdx) {
+				searchListText.append(searchResultListViewAdapter.getItem(searchResultListViewAdapterIdx).getText().toString()).append("\n--\n");
+			}
+			
+			String chooseEmailClientTitle = getString(R.string.choose_email_client);
+			
+			String mailSubject = getString(R.string.word_dictionary_search_report_problem_email_subject);
+			
+			String mailBody = getString(R.string.word_dictionary_search_report_problem_email_body,
+					searchValueEditText.getText(), searchListText.toString());
+			
+	        String versionName = "";
+	        int versionCode = 0;
+	        
+	        try {
+	        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+	        	
+	            versionName = packageInfo.versionName;
+	            versionCode = packageInfo.versionCode;
+
+	        } catch (NameNotFoundException e) {        	
+	        }
+							
+			Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+			
+			startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			
+			return true;
+		}
+		
+		return false;
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -133,48 +196,6 @@ public class WordDictionary extends Activity {
 		});
 				
 		wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, 0));
-		
-		Button reportProblemButton = (Button)findViewById(R.id.word_dictionary_report_problem_button);
-		
-		reportProblemButton.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View view) {
-				
-				EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);
-				ListView searchResultListView = (ListView)findViewById(R.id.word_dictionary_search_result_list);
-				
-				WordDictionaryListItemAdapter searchResultListViewAdapter = (WordDictionaryListItemAdapter)searchResultListView.getAdapter();				
-				
-				StringBuffer searchListText = new StringBuffer();
-				
-				for (int searchResultListViewAdapterIdx = 0; searchResultListViewAdapterIdx < searchResultListViewAdapter.size(); ++searchResultListViewAdapterIdx) {
-					searchListText.append(searchResultListViewAdapter.getItem(searchResultListViewAdapterIdx).getText().toString()).append("\n--\n");
-				}
-				
-				String chooseEmailClientTitle = getString(R.string.choose_email_client);
-				
-				String mailSubject = getString(R.string.word_dictionary_search_report_problem_email_subject);
-				
-				String mailBody = getString(R.string.word_dictionary_search_report_problem_email_body,
-						searchValueEditText.getText(), searchListText.toString());
-				
-		        String versionName = "";
-		        int versionCode = 0;
-		        
-		        try {
-		        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-		        	
-		            versionName = packageInfo.versionName;
-		            versionCode = packageInfo.versionCode;
-
-		        } catch (NameNotFoundException e) {        	
-		        }
-								
-				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
-				
-				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
-			}
-		});
 		
 		final ScrollView searchOptionsScrollView = (ScrollView)findViewById(R.id.word_dictionary_search_options_scrollview);
 		
