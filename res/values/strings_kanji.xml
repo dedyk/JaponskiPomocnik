@@ -75,6 +75,7 @@
     <string name="kanji_test_recognizer_please_draw">Proszę narysować znak</string>
     <string name="kanji_test_recognizer_correct_answer">Prawidłowa odpowiedź</string>
     <string name="kanji_test_state">Pozycja: %1$d z %2$d</string>
+    <string name="kanji_test_report_problem_info">Uwaga. Opcja \'Zgłoś sugestię\' znajduje się teraz w menu podręcznym.</string>
     <string name="kanji_test_report_problem_email_subject">Japoński pomocnik - test kanji: Sugestia</string>
     <string name="kanji_test_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kanji_test_report_problem_email_body_kanji">Wybrane kanji:</string>
