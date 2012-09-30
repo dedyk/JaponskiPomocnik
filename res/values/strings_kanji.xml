@@ -2,7 +2,7 @@
 <resources>
 
     <string name="kanji_details_label">Szczegóły znaku kanji</string>
-    <string name="kanji_details_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś sugestię</string>
+    <string name="kanji_details_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_details_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w szczegółach znaku kanji</string>
     <string name="kanji_details_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kanji_details_kanji_label">Kanji</string>
@@ -14,14 +14,14 @@
     <string name="kanji_details_on_reading">Odczyty on\'yomi (sino-japońskie)</string>
     <string name="kanji_details_find_kanji_in_words">Szukaj wystąpień znaku w słowniku</string>
     <string name="kanji_search_label">Wyszukiwarka znaków kanji</string>
-    <string name="kanji_search_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś sugestię</string>
+    <string name="kanji_search_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_search_title">Proszę zaznaczyć elementy podstawowe</string>
     <string name="kanji_search_kanji">Szukaj kanji</string>
     <string name="kanji_search_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu elementów podstawowych kanji</string>
     <string name="kanji_search_report_problem_email_body">Treść sugestia:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kanji_entry_search_label">Wybrane elementy podstawowe</string>
     <string name="kanji_entry_elements_no">Liczba elementów: %1$s</string>
-    <string name="kanji_entry_search_report_problem">Widzisz błąd, brakuje szukanego znaku, coś można zrobić lepiej, zgłoś sugestię</string>
+    <string name="kanji_entry_search_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_entry_search_result_view_label">Znalezione kanji</string>
     <string name="kanji_entry_search_button_empty_radicals">Proszę zaznaczyć co najmniej jeden element podstawowy</string>
     <string name="kanji_entry_searching1">Szukanie</string>
@@ -37,7 +37,7 @@
     <string name="kanji_recognizer_please_draw">Proszę narysować znak</string>
     <string name="kanji_recognizer_recoginize1">Rozpoznawanie</string>
     <string name="kanji_recognizer_recoginize2">Proszę czekać</string>
-    <string name="kanji_recognizer_result_report_problem">Widzisz błąd, brakuje szukanego znaku, coś można zrobić lepiej, zgłoś sugestię</string>
+    <string name="kanji_recognizer_result_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_recognizer_result_label">Wynik rozpoznawania znaków kanji</string>
     <string name="kanji_recognizer_result_elements_no">Liczba elementów: %1$s</string>
     <string name="kanji_recognizer_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w rozpoznawaniu znaków kanji</string>
@@ -45,7 +45,7 @@
     <string name="kanji_test_options_label">Opcje testu</string>
     <string name="kanji_test_options_loading">Wczytywanie znaków kanji</string>
     <string name="kanji_test_options_loading2">Proszę czekać</string>
-    <string name="kanji_test_options_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś sugestię</string>
+    <string name="kanji_test_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_test_options_test_mode">Tryb testu</string>
     <string name="kanji_test_options_test_mode_draw_kanji_from_meaning">Rysowanie kanji posługując się znaczeniem znaku</string>
     <string name="kanji_test_options_test_mode_draw_kanji_in_word">Rysowanie znaków kanji uzupełniając puste miejsce w słowie</string>
@@ -61,7 +61,7 @@
     <string name="kanji_test_options_info_message">Test ze znaków kanji w swoim działaniu opiera się na mechanizmie rozpoznawania znaków kanji. Mechanizm ten wykorzystuje specjalne algorytmy, które z pewnym prawdopodobieństwem identyfikują wpisany przez użytkownika znak.\n\nDo prawidłowego działania konieczne jest prawidłowe wpisywanie znaku kanji, tj. liczba kresek, kolejność, kierunek oraz ogólny wygląd znaku. Czasami jednak pomimo zachowania tych zasad, mechanizm może zwrócić nieoczekiwany wynik.\n\nProszę o tym pamiętać w trakcie korzystania z testu.\n\n</string>
     <string name="kanji_test_options_info_ok">OK</string>
     <string name="kanji_test_label">Test ze znaków kanji</string>
-    <string name="kanji_test_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś sugestię</string>
+    <string name="kanji_test_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_test_info_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>
     <string name="kanji_test_info_kanji_in_word">Proszę dokładnie narysować znak w pustym miejscu:</string>
     <string name="kanji_test_correct_answer">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n%1$s</string>

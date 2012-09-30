@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="word_dictionary_details_label">Szczegóły wpisu</string>
-    <string name="word_dictionary_details_report_problem">Widzisz błąd, coś można zrobić lepiej, zgłoś sugestię</string>
+    <string name="word_dictionary_details_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="word_dictionary_details_kanji_label">Kanji</string>
     <string name="word_dictionary_details_reading_label">Czytanie</string>
     <string name="word_dictionary_details_translate_label">Tłumaczenie</string>
