@@ -20,6 +20,8 @@ public class KanjiEntry implements Serializable {
 	private List<String> strokePaths;
 	
 	private boolean generated;
+	
+	private List<String> groups;
 
 	public int getId() {
 		return id;
@@ -75,5 +77,13 @@ public class KanjiEntry implements Serializable {
 
 	public void setGenerated(boolean generated) {
 		this.generated = generated;
+	}
+
+	public List<String> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(List<String> groups) {
+		this.groups = groups;
 	}
 }

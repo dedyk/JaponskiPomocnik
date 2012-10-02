@@ -376,6 +376,7 @@ public class SQLiteConnector {
 		values.put(SQLiteStatic.kanjiEntriesTable_polishTranslates, Utils.convertListToString(kanjiEntry.getPolishTranslates()));
 		values.put(SQLiteStatic.kanjiEntriesTable_info, emptyIfNull(kanjiEntry.getInfo()));
 		values.put(SQLiteStatic.kanjiEntriesTable_generated, String.valueOf(kanjiEntry.isGenerated()));
+		values.put(SQLiteStatic.kanjiEntriesTable_groups, Utils.convertListToString(kanjiEntry.getGroups()));
 		
 		sqliteDatabase.insertOrThrow(SQLiteStatic.kanjiEntriesTableName, null, values);
 	}
@@ -428,10 +429,12 @@ public class SQLiteConnector {
 				String infoString = cursor.getString(8);
 				
 				String generated = cursor.getString(9);
+				
+				String groups = cursor.getString(10);
 
 				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
 						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated);	
+						polishTranslateListString, infoString, generated, groups);	
 				
 				result.add(kanjiEntry);
 				
@@ -477,10 +480,12 @@ public class SQLiteConnector {
 				String infoString = cursor.getString(8);
 				
 				String generated = cursor.getString(9);
+				
+				String groups = cursor.getString(10);
 
 				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
 						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated);				
+						polishTranslateListString, infoString, generated, groups);				
 			}
 		
 		} finally {
@@ -543,10 +548,12 @@ public class SQLiteConnector {
 				String infoString = cursor.getString(8);
 				
 				String generated = cursor.getString(9);
+				
+				String groups = cursor.getString(10);
 
 				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
 						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated);	
+						polishTranslateListString, infoString, generated, groups);	
 				
 				result.add(kanjiEntry);
 				
@@ -613,10 +620,12 @@ public class SQLiteConnector {
 				String infoString = cursor.getString(8);
 				
 				String generated = cursor.getString(9);
+				
+				String groups = cursor.getString(10);
 
 				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
 						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated);	
+						polishTranslateListString, infoString, generated, groups);	
 				
 				KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
 				

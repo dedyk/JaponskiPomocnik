@@ -101,7 +101,8 @@ public class Utils {
 			String strokePathString,
 			String polishTranslateListString,
 			String infoString,
-			String generatedString) throws DictionaryException {
+			String generatedString,
+			String groupString) throws DictionaryException {
 		
 		int id = Integer.parseInt(idString);
 		
@@ -139,6 +140,8 @@ public class Utils {
 		entry.setInfo(infoString);
 		
 		entry.setGenerated(Boolean.parseBoolean(generatedString));
+		
+		entry.setGroups(parseStringIntoList(groupString, false));
 					
 		entry.setKanjiDic2Entry(kanjiDic2Entry);
 		

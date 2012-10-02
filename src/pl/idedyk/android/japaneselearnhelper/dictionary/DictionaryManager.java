@@ -484,10 +484,12 @@ public class DictionaryManager {
 				String infoString = csvReader.get(8);
 				
 				String generatedString = csvReader.get(9);
+				
+				String groupString = csvReader.get(10);
 
 				KanjiEntry entry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
 						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generatedString);
+						polishTranslateListString, infoString, generatedString, groupString);
 
 				// update radical info
 				if (entry.getKanjiDic2Entry() != null) {
