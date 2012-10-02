@@ -1,9 +1,14 @@
 package pl.idedyk.android.japaneselearnhelper.kanji.hkr;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
@@ -26,6 +31,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -73,7 +79,9 @@ public class KanjiTestOptionsActivity extends Activity {
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
 
 		final List<CheckBox> kanjiCheckBoxListWithoutDetails = new ArrayList<CheckBox>();
-
+		
+		final Map<String, Set<String>> groups = new TreeMap<String, Set<String>>();
+		
 		Button startTestButton = (Button)findViewById(R.id.kanji_test_options_start_test);
 
 		startTestButton.setOnClickListener(new View.OnClickListener() {
@@ -308,13 +316,86 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					kanjiCheckBoxListWithoutDetails.add(currentKanjiCheckBox);
 
-					mainLayout.addView(currentKanjiCheckBox);			
+					mainLayout.addView(currentKanjiCheckBox);
+					
+					List<String> currentKanjiEntryGroups = currentKanjiEntry.getGroups();
+					
+					if (currentKanjiEntryGroups != null && currentKanjiEntryGroups.size() > 0) {
+						
+						for (String currentcurrentKanjiEntryGroup : currentKanjiEntryGroups) {
+							
+							Set<String> groupSet = groups.get(currentcurrentKanjiEntryGroup);
+							
+							if (groupSet == null) {
+								groupSet = new HashSet<String>();
+							}
+							
+							groupSet.add(currentKanjiEntry.getKanji());
+							
+							groups.put(currentcurrentKanjiEntryGroup, groupSet);
+						}
+					}
 				}
+				
+				String[] groupsKeysArray = new String[groups.size()]; 
+				
+				groups.keySet().toArray(groupsKeysArray);
+				
+				sortGroupsKeysArray(groupsKeysArray);
+				
+				Log.d("AAA", "BBB: " + Arrays.toString(groupsKeysArray));
 
 				progressDialog.dismiss();
 			}
 		}
 
 		new PrepareAsyncTask().execute();
+	}
+	
+	private void sortGroupsKeysArray(String[] groupsKeysArray) {
+		
+		Arrays.sort(groupsKeysArray, new Comparator<String>() {
+
+			public int compare(String lhs, String rhs) {
+				
+				int lhsPartIdx = lhs.indexOf("-");
+				int rhsPartIdx = rhs.indexOf("-");
+				
+				if (lhsPartIdx == -1 || rhsPartIdx == -1) {
+					return lhs.compareTo(rhs);
+				}
+				
+				String lhsPart1 = lhs.substring(0, lhsPartIdx);
+				String rhsPart1 = rhs.substring(0, rhsPartIdx);
+				
+				int lhsRhsPart1CompareResult = lhsPart1.compareTo(rhsPart1);
+				
+				if (lhsRhsPart1CompareResult != 0) {
+					return lhsRhsPart1CompareResult;
+				}
+				
+				String lhsPart2 = lhs.substring(lhsPartIdx + 1);
+				String rhsPart2 = rhs.substring(rhsPartIdx + 1);
+				
+				Integer lhsPart2Int = null;
+				
+				try {
+					lhsPart2Int = Integer.parseInt(lhsPart2);
+				} catch (NumberFormatException e) {
+					return lhsPart2.compareTo(rhsPart2);	
+				}
+
+				Integer rhsPart2Int = null;
+				
+				try {
+					rhsPart2Int = Integer.parseInt(rhsPart2);
+				} catch (NumberFormatException e) {
+					return lhsPart2.compareTo(rhsPart2);	
+				}
+				
+				return lhsPart2Int.compareTo(rhsPart2Int);
+			}
+		});
+		
 	}
 }
