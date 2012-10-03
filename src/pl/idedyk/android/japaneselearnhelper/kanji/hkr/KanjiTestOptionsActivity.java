@@ -72,6 +72,8 @@ public class KanjiTestOptionsActivity extends Activity {
 		final CheckBox untilSuccessCheckBox = (CheckBox)findViewById(R.id.kanji_test_options_until_success);
 
 		untilSuccessCheckBox.setChecked(kanjiTestConfig.getUntilSuccess());
+		
+		final TextView chooseKanjiGroupTextView = (TextView)findViewById(R.id.kanji_test_options_choose_kanji_group);
 
 		final TextView chooseKanjiTextView = (TextView)findViewById(R.id.kanji_test_options_choose_kanji);
 
@@ -250,7 +252,16 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
 
-				detailsSb.append("***" + chooseKanjiTextView.getText() + "***\n\n");
+				detailsSb.append("***" + chooseKanjiGroupTextView.getText() + "***\n\n"); // tutaj
+		
+				for (CheckBox currentKanjiGroupList : kanjiGroupList) {
+
+					String currentKanjiGroupListText = currentKanjiGroupList.getText().toString();
+
+					detailsSb.append(currentKanjiGroupList.isChecked() + " - " + currentKanjiGroupListText).append("\n");
+				}			
+				
+				detailsSb.append("\n***" + chooseKanjiTextView.getText() + "***\n\n");
 
 				for (CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
 
