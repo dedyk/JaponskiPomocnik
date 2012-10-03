@@ -31,7 +31,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -57,7 +56,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		final RadioButton testModeDrawKanjiFromMeaningRadioButton = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_draw_kanji_from_meaning);
 		final RadioButton testModeDrawKanjiFromInWord = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_draw_kanji_in_word);
-
+		
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
@@ -80,8 +79,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		final List<CheckBox> kanjiCheckBoxListWithoutDetails = new ArrayList<CheckBox>();
 		
-		final Map<String, Set<String>> groups = new TreeMap<String, Set<String>>();
-		
+		final List<CheckBox> kanjiGroupList = new ArrayList<CheckBox>();
+			
 		Button startTestButton = (Button)findViewById(R.id.kanji_test_options_start_test);
 
 		startTestButton.setOnClickListener(new View.OnClickListener() {
@@ -117,10 +116,21 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				kanjiTestConfig.setChosenKanji(chosenKanjiList);
+				
+				List<String> chosenKanjiGroupList = new ArrayList<String>();
+				
+				for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
+					
+					if (currentKanjiGroupListCheckBox.isChecked() == true) {						
+						chosenKanjiGroupList.add(currentKanjiGroupListCheckBox.getText().toString());	
+					}
+				}
+				
+				kanjiTestConfig.setChosenKanjiGroup(chosenKanjiGroupList);				
 
 				if (chosenKanjiList.size() == 0) {
 
-					Toast toast = Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_choose_kanji), Toast.LENGTH_SHORT);
+					Toast toast = Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_choose_kanji_info), Toast.LENGTH_SHORT);
 
 					toast.show();
 
@@ -293,6 +303,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				Set<String> chosenKanji = kanjiTestConfig.getChosenKanji();
 
+				Map<String, Set<String>> kanjiGroups = new TreeMap<String, Set<String>>();
+				
 				for (int allKanjisIdx = 0; allKanjisIdx < allKanjis.size(); ++allKanjisIdx) {
 
 					KanjiEntry currentKanjiEntry = allKanjis.get(allKanjisIdx);
@@ -313,18 +325,26 @@ public class KanjiTestOptionsActivity extends Activity {
 					currentKanjiCheckBox.setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
 
 					currentKanjiCheckBox.setTag(currentKanjiEntry);
+					
+					currentKanjiCheckBox.setOnClickListener(new OnClickListener() {
+						
+						public void onClick(View v) {
+							
+							for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
+								currentKanjiGroupListCheckBox.setChecked(false);
+							}
+						}
+					});
 
 					kanjiCheckBoxListWithoutDetails.add(currentKanjiCheckBox);
 
-					mainLayout.addView(currentKanjiCheckBox);
-					
 					List<String> currentKanjiEntryGroups = currentKanjiEntry.getGroups();
 					
 					if (currentKanjiEntryGroups != null && currentKanjiEntryGroups.size() > 0) {
 						
 						for (String currentcurrentKanjiEntryGroup : currentKanjiEntryGroups) {
 							
-							Set<String> groupSet = groups.get(currentcurrentKanjiEntryGroup);
+							Set<String> groupSet = kanjiGroups.get(currentcurrentKanjiEntryGroup);
 							
 							if (groupSet == null) {
 								groupSet = new HashSet<String>();
@@ -332,18 +352,73 @@ public class KanjiTestOptionsActivity extends Activity {
 							
 							groupSet.add(currentKanjiEntry.getKanji());
 							
-							groups.put(currentcurrentKanjiEntryGroup, groupSet);
+							kanjiGroups.put(currentcurrentKanjiEntryGroup, groupSet);
 						}
 					}
 				}
 				
-				String[] groupsKeysArray = new String[groups.size()]; 
+				String[] kanjiGroupsKeysArray = new String[kanjiGroups.size()]; 
 				
-				groups.keySet().toArray(groupsKeysArray);
+				kanjiGroups.keySet().toArray(kanjiGroupsKeysArray);
 				
-				sortGroupsKeysArray(groupsKeysArray);
+				sortGroupsKeysArray(kanjiGroupsKeysArray);
 				
-				Log.d("AAA", "BBB: " + Arrays.toString(groupsKeysArray));
+				// add to main layout
+				
+				Set<String> chosenKanjiGroup = kanjiTestConfig.getChosenKanjiGroup();
+				
+				for (String currentKanjiGroup : kanjiGroupsKeysArray) {
+					
+					CheckBox currentKanjiGroupCheckBox = new CheckBox(KanjiTestOptionsActivity.this);
+					
+					currentKanjiGroupCheckBox.setLayoutParams(new LinearLayout.LayoutParams(
+							LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+					currentKanjiGroupCheckBox.setTextSize(12);
+
+					currentKanjiGroupCheckBox.setText(currentKanjiGroup);
+					
+					currentKanjiGroupCheckBox.setChecked(chosenKanjiGroup.contains(currentKanjiGroup));
+					
+					currentKanjiGroupCheckBox.setTag(kanjiGroups.get(currentKanjiGroup));
+					
+					kanjiGroupList.add(currentKanjiGroupCheckBox);
+					
+					mainLayout.addView(currentKanjiGroupCheckBox, mainLayout.getChildCount() - 1);
+					
+					currentKanjiGroupCheckBox.setOnClickListener(new OnClickListener() {
+						
+						public void onClick(View v) {
+							
+							Set<String> allKanjisInGroup = new HashSet<String>();
+							
+							for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
+								
+								if (currentKanjiGroupListCheckBox.isChecked() == false) {
+									continue;
+								}
+								
+								@SuppressWarnings("unchecked")
+								Set<String> currentKanjiGroupListCheckBoxTag = (Set<String>)currentKanjiGroupListCheckBox.getTag();
+								
+								allKanjisInGroup.addAll(currentKanjiGroupListCheckBoxTag);
+							}
+							
+							for (CheckBox currentKanjiCheckBox : kanjiCheckBoxListWithoutDetails) {
+								
+								KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentKanjiCheckBox.getTag();
+								
+								String currentCheckBoxKanjiEntryKanji = currentCheckBoxKanjiEntry.getKanji();
+								
+								currentKanjiCheckBox.setChecked(allKanjisInGroup.contains(currentCheckBoxKanjiEntryKanji));								
+							}
+						}
+					});
+				}
+				
+				for (CheckBox currentKanjiCheckBox : kanjiCheckBoxListWithoutDetails) {
+					mainLayout.addView(currentKanjiCheckBox);
+				}
 
 				progressDialog.dismiss();
 			}

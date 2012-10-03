@@ -169,6 +169,8 @@ public class ConfigManager {
 		
 		private final String kanjiTestChosenKanjiPostfix = "chosenKanji";
 		
+		private final String kanjiTestChosenKanjiGroupPostfix = "chosenKanjiGroup";
+		
 		private final String kanjiTestUntilSuccessPostfix = "untilSuccess";
 
 		public KanjiTestMode getKanjiTestMode() {
@@ -217,6 +219,21 @@ public class ConfigManager {
 			return result;
 		}
 		
+		public Set<String> getChosenKanjiGroup() {
+			
+			Set<String> result = new HashSet<String>();
+			
+			String chosenKanjiGroupString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenKanjiGroupPostfix, "");
+			
+			String[] chosenKanjiGroupSplited = chosenKanjiGroupString.split(",");
+			
+			for (String currentChosenKanjiGroup : chosenKanjiGroupSplited) {
+				result.add(currentChosenKanjiGroup);
+			}
+			
+			return result;
+		}
+		
 		public void setChosenKanji(List<String> chosenKanjiList) {
 			
 			StringBuffer chosenKanjiStringBuffer = new StringBuffer();
@@ -233,6 +250,26 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putString(kanjiTestConfigPrefix + kanjiTestChosenKanjiPostfix, chosenKanjiStringBuffer.toString());
+			
+			editor.commit();
+		}
+
+		public void setChosenKanjiGroup(List<String> chosenKanjiGroupList) {
+			
+			StringBuffer chosenKanjiGroupStringBuffer = new StringBuffer();
+			
+			for (int idx = 0; idx < chosenKanjiGroupList.size(); ++idx) {
+				
+				if (idx != 0) {
+					chosenKanjiGroupStringBuffer.append(",");
+				}
+				
+				chosenKanjiGroupStringBuffer.append(chosenKanjiGroupList.get(idx));
+			}
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(kanjiTestConfigPrefix + kanjiTestChosenKanjiGroupPostfix, chosenKanjiGroupStringBuffer.toString());
 			
 			editor.commit();
 		}
