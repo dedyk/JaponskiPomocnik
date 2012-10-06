@@ -39,6 +39,9 @@ public class VerbExampler {
 		// nai de kudasai
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAI_DE_KUDASAI, makeNaiDeKudasai(dictionaryEntry));
 		
+		// mada te imasen
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_MADA_TE_IMASEN, makeMadaTeImasen(dictionaryEntry));
+		
 		// tsumori desu
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TSUMORI_DESU, makeTsumoriDesu(dictionaryEntry));
 		
@@ -150,6 +153,17 @@ public class VerbExampler {
 		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
 		
 		return ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeMadaTeImasen(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "まだ%sいません";
+		final String templateKana = "まだ%sいません";
+		final String templateRomaji = "mada %s imasen";
+
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		
+		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, false);
 	}
 	
 	private static ExampleResult makeTsumoriDesu(DictionaryEntry dictionaryEntry) {

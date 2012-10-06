@@ -68,6 +68,8 @@ public enum ExampleGroupType {
 	
 	VERB_NAI_DE_KUDASAI("Zakaz 2"),
 	
+	VERB_MADA_TE_IMASEN("\"Jeszcze nie\""),
+	
 	VERB_TSUMORI_DESU("Zamiar"),
 	
 	VERB_KOTO_GA_ARU("Mieć doświadczenie"),
