@@ -53,7 +53,17 @@ public enum GrammaFormConjugateResultType {
 	
 	VERB_MASHOU("Forma mashou", false),
 	
-	VERB_POTENTIAL("Forma potencjalna", false),
+	VERB_POTENTIAL_INFORMAL_PRESENT("Twierdzenie, czas teraźniejszy", true),
+	VERB_POTENTIAL_INFORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy", true),
+	VERB_POTENTIAL_INFORMAL_PAST("Twierdzenie, czas przeszły", true),
+	VERB_POTENTIAL_INFORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły", true),
+
+	VERB_POTENTIAL_FORMAL_PRESENT("Twierdzenie, czas teraźniejszy", true),
+	VERB_POTENTIAL_FORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy", true),
+	VERB_POTENTIAL_FORMAL_PAST("Twierdzenie, czas przeszły", true),
+	VERB_POTENTIAL_FORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły", true),
+	
+	VERB_POTENTIAL_TE("Forma te", false),
 	
 	VERB_VOLITIONAL("Forma wolicjonalna", false);
 	

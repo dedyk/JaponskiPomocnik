@@ -211,13 +211,38 @@ public class VerbGrammaConjugater {
 		result.add(teForm);
 		
 		// forma potecjalna
-		GrammaFormConjugateGroupTypeElements potentialForm = new GrammaFormConjugateGroupTypeElements();
+		GrammaFormConjugateGroupTypeElements potentialInformalForm = new GrammaFormConjugateGroupTypeElements();
+		potentialInformalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_INFORMAL);
 		
-		potentialForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL);
+		GrammaFormConjugateResult potentialFormInformalPresentForm = makePotentialFormInformalPresentForm(dictionaryEntry);
 		
-		potentialForm.getGrammaFormConjugateResults().add(makePotentialForm(dictionaryEntry));
+		// prosta
+		potentialInformalForm.getGrammaFormConjugateResults().add(potentialFormInformalPresentForm);
+		potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPresentNegativeForm(potentialFormInformalPresentForm));
+		potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPastForm(potentialFormInformalPresentForm));
+		potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPastNegativeForm(potentialFormInformalPresentForm));
 		
-		result.add(potentialForm);
+		result.add(potentialInformalForm);
+		
+		GrammaFormConjugateGroupTypeElements potentialFormalForm = new GrammaFormConjugateGroupTypeElements();
+		potentialFormalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_FORMAL);
+		
+		// formalna
+		potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentForm(potentialFormInformalPresentForm));
+		potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentNegativeForm(potentialFormInformalPresentForm));
+		potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastForm(potentialFormInformalPresentForm));
+		potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastNegativeForm(potentialFormInformalPresentForm));
+		
+		result.add(potentialFormalForm);
+		
+		// forma te
+		GrammaFormConjugateGroupTypeElements potentialTeForm = new GrammaFormConjugateGroupTypeElements();
+		
+		potentialTeForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_TE);
+		
+		potentialTeForm.getGrammaFormConjugateResults().add(makePotentialTeForm(potentialFormInformalPresentForm));
+		
+		result.add(potentialTeForm);
 		
 		// forma wolicjonalna
 		GrammaFormConjugateGroupTypeElements volitionalForm = new GrammaFormConjugateGroupTypeElements();
@@ -952,7 +977,7 @@ public class VerbGrammaConjugater {
 		return mashouForm;
 	}
 	
-	private static GrammaFormConjugateResult makePotentialForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makePotentialFormInformalPresentForm(DictionaryEntry dictionaryEntry) {
 		
 		final String ruPostfixKana = "られる";
 		final String ruPostfixRomaji = "rareru";
@@ -977,6 +1002,195 @@ public class VerbGrammaConjugater {
 		return potentialForm;
 	}
 	
+	private static GrammaFormConjugateResult makePotentialFormInformalPresentNegativeForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry potentialFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult potentialFormInformalPresentNegativeForm = makeInformalPresentNegativeForm(potentialFormInformalPresentFormAsDictionaryEntry);
+		
+		// replace result type
+		potentialFormInformalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_INFORMAL_PRESENT_NEGATIVE);
+		
+		GrammaFormConjugateResult alternative = potentialFormInformalPresentForm.getAlternative();
+		
+		if (alternative != null) {
+			
+			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
+			
+			GrammaFormConjugateResult alternativeInformalPresentNegativeForm = makeInformalPresentNegativeForm(alternativeAsDictionaryEntry);
+			
+			alternativeInformalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_INFORMAL_PRESENT_NEGATIVE);
+			
+			potentialFormInformalPresentNegativeForm.setAlternative(alternativeInformalPresentNegativeForm);
+		}
+		
+		return potentialFormInformalPresentNegativeForm;
+	}
+	
+	private static GrammaFormConjugateResult makePotentialFormInformalPastForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry potentialFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult potentialFormInformalPastForm = makeInformalPastForm(potentialFormInformalPresentFormAsDictionaryEntry);
+		
+		// replace result type
+		potentialFormInformalPastForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_INFORMAL_PAST);
+		
+		GrammaFormConjugateResult alternative = potentialFormInformalPresentForm.getAlternative();
+		
+		if (alternative != null) {
+			
+			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
+			
+			GrammaFormConjugateResult alternativeInformalPastForm = makeInformalPastForm(alternativeAsDictionaryEntry);
+			
+			alternativeInformalPastForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_INFORMAL_PAST);
+			
+			potentialFormInformalPastForm.setAlternative(alternativeInformalPastForm);
+		}
+		
+		return potentialFormInformalPastForm;
+	}
+	
+	private static GrammaFormConjugateResult makePotentialFormInformalPastNegativeForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry potentialFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult potentialFormInformalPastNegativeForm = makeInformalPastNegativeForm(potentialFormInformalPresentFormAsDictionaryEntry);
+		
+		// replace result type
+		potentialFormInformalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_INFORMAL_PAST_NEGATIVE);
+		
+		GrammaFormConjugateResult alternative = potentialFormInformalPresentForm.getAlternative();
+		
+		if (alternative != null) {
+			
+			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
+			
+			GrammaFormConjugateResult alternativeInformalPastNegativeForm = makeInformalPastNegativeForm(alternativeAsDictionaryEntry);
+			
+			alternativeInformalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_INFORMAL_PAST_NEGATIVE);
+			
+			potentialFormInformalPastNegativeForm.setAlternative(alternativeInformalPastNegativeForm);
+		}
+		
+		return potentialFormInformalPastNegativeForm;
+	}
+	
+	private static GrammaFormConjugateResult makePotentialFormFormalPresentForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry potentialFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult potentialFormFormalPresentForm = makeFormalPresentForm(potentialFormInformalPresentFormAsDictionaryEntry);
+		
+		// replace result type
+		potentialFormFormalPresentForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT);
+		
+		GrammaFormConjugateResult alternative = potentialFormInformalPresentForm.getAlternative();
+		
+		if (alternative != null) {
+			
+			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
+			
+			GrammaFormConjugateResult alternativeFormalPresentForm = makeFormalPresentForm(alternativeAsDictionaryEntry);
+			
+			alternativeFormalPresentForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT);
+			
+			potentialFormFormalPresentForm.setAlternative(alternativeFormalPresentForm);
+		}
+		
+		return potentialFormFormalPresentForm;
+	}
+
+	private static GrammaFormConjugateResult makePotentialFormFormalPresentNegativeForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry potentialFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult potentialFormFormalPresentNegativeForm = makeFormalPresentNegativeForm(potentialFormInformalPresentNegativeFormAsDictionaryEntry);
+		
+		// replace result type
+		potentialFormFormalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT_NEGATIVE);
+		
+		GrammaFormConjugateResult alternative = potentialFormInformalPresentForm.getAlternative();
+		
+		if (alternative != null) {
+			
+			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
+			
+			GrammaFormConjugateResult alternativeFormalPresentNegativeForm = makeFormalPresentNegativeForm(alternativeAsDictionaryEntry);
+			
+			alternativeFormalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT_NEGATIVE);
+			
+			potentialFormFormalPresentNegativeForm.setAlternative(alternativeFormalPresentNegativeForm);
+		}
+		
+		return potentialFormFormalPresentNegativeForm;
+	}
+
+	private static GrammaFormConjugateResult makePotentialFormFormalPastForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry potentialFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult potentialFormFormalPastForm = makeFormalPastForm(potentialFormInformalPresentNegativeFormAsDictionaryEntry);
+		
+		// replace result type
+		potentialFormFormalPastForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST);
+		
+		GrammaFormConjugateResult alternative = potentialFormInformalPresentForm.getAlternative();
+		
+		if (alternative != null) {
+			
+			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
+			
+			GrammaFormConjugateResult alternativeFormalPastForm = makeFormalPastForm(alternativeAsDictionaryEntry);
+			
+			alternativeFormalPastForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST);
+			
+			potentialFormFormalPastForm.setAlternative(alternativeFormalPastForm);
+		}
+		
+		return potentialFormFormalPastForm;
+	}
+
+	private static GrammaFormConjugateResult makePotentialFormFormalPastNegativeForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry potentialFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult potentialFormFormalPastNegativeForm = makeFormalPastNegativeForm(potentialFormInformalPresentNegativeFormAsDictionaryEntry);
+		
+		// replace result type
+		potentialFormFormalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST_NEGATIVE);
+		
+		GrammaFormConjugateResult alternative = potentialFormInformalPresentForm.getAlternative();
+		
+		if (alternative != null) {
+			
+			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
+			
+			GrammaFormConjugateResult alternativeFormalPastNegativeForm = makeFormalPastNegativeForm(alternativeAsDictionaryEntry);
+			
+			alternativeFormalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST_NEGATIVE);
+			
+			potentialFormFormalPastNegativeForm.setAlternative(alternativeFormalPastNegativeForm);
+		}
+		
+		return potentialFormFormalPastNegativeForm;
+	}
+	
 	private static GrammaFormConjugateResult makePotentialForm(DictionaryEntry dictionaryEntry, String ruPostfixKana, String ruPostfixRomaji) {
 		
 		// make common
@@ -984,7 +1198,7 @@ public class VerbGrammaConjugater {
 		
 		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
 		
-		result.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL);
+		result.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_INFORMAL_PRESENT);
 		
 		String kanji = dictionaryEntry.getKanji();
 		
@@ -1013,6 +1227,33 @@ public class VerbGrammaConjugater {
 		result.setRomajiList(romajiListResult);
 		
 		return result;
+	}
+	
+	private static GrammaFormConjugateResult makePotentialTeForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry potentialFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult potentialTeForm = makeTeForm(potentialFormInformalPresentFormAsDictionaryEntry);
+		
+		// replace result type
+		potentialTeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_TE);
+		
+		GrammaFormConjugateResult alternative = potentialFormInformalPresentForm.getAlternative();
+		
+		if (alternative != null) {
+			
+			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
+			
+			GrammaFormConjugateResult alternativeTeForm = makeTeForm(alternativeAsDictionaryEntry);
+			
+			alternativeTeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_TE);
+			
+			potentialTeForm.setAlternative(alternativeTeForm);
+		}
+		
+		return potentialTeForm;
 	}
 
 	private static String makePotentialFormForKanjiOrKana(String kana, DictionaryEntryType dictionaryEntryType, String ruPostfixKana) {
@@ -1198,5 +1439,17 @@ public class VerbGrammaConjugater {
 		}
 		
 		throw new RuntimeException("makeVolitionalFormForRomaji 3");
+	}
+	
+	private static DictionaryEntry convertGrammaFormConjugateResultToDictionaryEntry(GrammaFormConjugateResult grammaFormConjugateResult, DictionaryEntryType dictionaryEntryType) {
+		
+		DictionaryEntry dictionaryEntry = new DictionaryEntry();
+		
+		dictionaryEntry.setDictionaryEntryType(dictionaryEntryType);
+		dictionaryEntry.setKanji(grammaFormConjugateResult.getKanji());
+		dictionaryEntry.setKanaList(grammaFormConjugateResult.getKanaList());
+		dictionaryEntry.setRomajiList(grammaFormConjugateResult.getRomajiList());
+		
+		return dictionaryEntry;		
 	}
 }
