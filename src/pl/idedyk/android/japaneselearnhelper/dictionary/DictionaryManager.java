@@ -421,7 +421,7 @@ public class DictionaryManager {
 				
 				transactionCounter++;
 				
-				if (transactionCounter >= 500) {
+				if (transactionCounter >= 400) {
 					transactionCounter = 0;
 					
 					try {
