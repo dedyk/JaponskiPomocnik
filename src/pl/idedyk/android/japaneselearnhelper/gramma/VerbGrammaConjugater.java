@@ -455,6 +455,9 @@ public class VerbGrammaConjugater {
 		// create result
 		GrammaFormConjugateResult result = new GrammaFormConjugateResult();
 
+		result.setPrefixKana(dictionaryEntry.getPrefixKana());
+		result.setPrefixRomaji(dictionaryEntry.getPrefixRomaji());
+
 		return result;
 	}
 
@@ -1200,6 +1203,12 @@ public class VerbGrammaConjugater {
 		
 		result.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_INFORMAL_PRESENT);
 		
+		String prefixKana = dictionaryEntry.getPrefixKana();
+		
+		if (prefixKana != null && prefixKana.equals("を") == true) {
+			result.setPrefixKana("が");
+		}
+		
 		String kanji = dictionaryEntry.getKanji();
 		
 		if (kanji != null) {
@@ -1215,6 +1224,12 @@ public class VerbGrammaConjugater {
 		}
 		
 		result.setKanaList(kanaListResult);
+		
+		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
+		
+		if (prefixRomaji != null && prefixRomaji.equals("o") == true) {
+			result.setPrefixRomaji("ga");
+		}
 		
 		List<String> romajiList = dictionaryEntry.getRomajiList();
 		
@@ -1446,8 +1461,10 @@ public class VerbGrammaConjugater {
 		DictionaryEntry dictionaryEntry = new DictionaryEntry();
 		
 		dictionaryEntry.setDictionaryEntryType(dictionaryEntryType);
+		dictionaryEntry.setPrefixKana(grammaFormConjugateResult.getPrefixKana());
 		dictionaryEntry.setKanji(grammaFormConjugateResult.getKanji());
 		dictionaryEntry.setKanaList(grammaFormConjugateResult.getKanaList());
+		dictionaryEntry.setPrefixRomaji(grammaFormConjugateResult.getPrefixRomaji());
 		dictionaryEntry.setRomajiList(grammaFormConjugateResult.getRomajiList());
 		
 		return dictionaryEntry;		

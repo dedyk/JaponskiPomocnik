@@ -237,6 +237,9 @@ public class AdjectiveNaGrammaConjugater {
 		// create result
 		GrammaFormConjugateResult result = new GrammaFormConjugateResult();
 
+		result.setPrefixKana(dictionaryEntry.getPrefixKana());
+		result.setPrefixRomaji(dictionaryEntry.getPrefixRomaji());
+
 		return result;
 	}
 

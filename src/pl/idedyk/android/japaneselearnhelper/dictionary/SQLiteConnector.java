@@ -670,8 +670,10 @@ public class SQLiteConnector {
 		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_grammaFormConjugateGroupTypeEntriesId, grammaFormConjugateGroupTypeElementsId);
 		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_grammaFormConjugateResultEntriesParentId, grammaFormConjugateResultEntriesParentId);
 		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_resultType, grammaFormConjugateResult.getResultType().toString());
+		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_prefixKana, grammaFormConjugateResult.getPrefixKana());
 		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_kanji, grammaFormConjugateResult.getKanji());
 		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_kanaList, Utils.convertListToString(grammaFormConjugateResult.getKanaList()));
+		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_prefixRomaji, grammaFormConjugateResult.getPrefixRomaji());
 		values.put(SQLiteStatic.grammaFormConjugateResultEntriesTable_romajiList, Utils.convertListToString(grammaFormConjugateResult.getRomajiList()));
 		
 		long grammaFormConjugateResultEntriesId = sqliteDatabase.insertOrThrow(SQLiteStatic.grammaFormConjugateResultEntriesTableName, null, values);
@@ -904,17 +906,21 @@ public class SQLiteConnector {
 				String dictionaryEntryId = cursor.getString(1);
 				String resultTypeString = cursor.getString(2);
 				
-				String kanjiString = cursor.getString(3);
-				String kanaListString = cursor.getString(4);				
-				String romajiListString = cursor.getString(5);
+				String prefixKana = cursor.getString(3);
+				String kanjiString = cursor.getString(4);
+				String kanaListString = cursor.getString(5);				
+				String prefixRomaji = cursor.getString(6);
+				String romajiListString = cursor.getString(7);
 				
 				if (grammaFormOrExample.equals("GrammaForm") == true) {
 					
 					GrammaFormConjugateResult grammaFormConjugateResult = new GrammaFormConjugateResult();
 					
+					grammaFormConjugateResult.setPrefixKana(prefixKana);
 					grammaFormConjugateResult.setKanji(kanjiString);
 					grammaFormConjugateResult.setResultType(GrammaFormConjugateResultType.valueOf(resultTypeString));
 					grammaFormConjugateResult.setKanaList(Utils.parseStringIntoList(kanaListString, false));
+					grammaFormConjugateResult.setPrefixRomaji(prefixRomaji);
 					grammaFormConjugateResult.setRomajiList(Utils.parseStringIntoList(romajiListString , false));
 					
 					DictionaryEntry relatedDictionaryEntryById = getDictionaryEntryById(dictionaryEntryId);

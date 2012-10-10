@@ -80,7 +80,7 @@ public class FindWordResult {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.getPrefixKana();
 			} else if (grammaFormConjugateResult != null) {
-				return null;
+				return grammaFormConjugateResult.getPrefixKana();
 			} else if (exampleResult != null) {
 				return null;
 			}
@@ -104,7 +104,7 @@ public class FindWordResult {
 			if (dictionaryEntry != null) {
 				return dictionaryEntry.getPrefixRomaji();
 			} else if (grammaFormConjugateResult != null) {
-				return null;
+				return grammaFormConjugateResult.getPrefixRomaji();
 			} else if (exampleResult != null) {
 				return null;
 			}

@@ -9,9 +9,13 @@ public class GrammaFormConjugateResult implements Serializable {
 
 	private GrammaFormConjugateResultType resultType;
 	
+	private String prefixKana;
+	
 	private String kanji;
 	
 	private List<String> kanaList;
+	
+	private String prefixRomaji;
 	
 	private List<String> romajiList;
 	
@@ -63,5 +67,21 @@ public class GrammaFormConjugateResult implements Serializable {
 		} else {
 			return false;
 		}
+	}
+
+	public String getPrefixKana() {
+		return prefixKana;
+	}
+
+	public String getPrefixRomaji() {
+		return prefixRomaji;
+	}
+
+	public void setPrefixKana(String prefixKana) {
+		this.prefixKana = prefixKana;
+	}
+
+	public void setPrefixRomaji(String prefixRomaji) {
+		this.prefixRomaji = prefixRomaji;
 	}
 }

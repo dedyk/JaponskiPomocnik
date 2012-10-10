@@ -327,7 +327,7 @@ public class WordDictionaryDetails extends Activity {
 						report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
 					}
 					
-					addGrammaFormConjugateResult(report, prefixKana, prefixRomaji, currentGrammaFormConjugateResult);
+					addGrammaFormConjugateResult(report, currentGrammaFormConjugateResult);
 				}
 				
 				report.add(new StringValue("", 15.0f, 1));
@@ -375,14 +375,17 @@ public class WordDictionaryDetails extends Activity {
 		}
 	}
 	
-	private void addGrammaFormConjugateResult(List<IScreenItem> report, String prefixKana, String prefixRomaji, GrammaFormConjugateResult grammaFormConjugateResult) {
+	private void addGrammaFormConjugateResult(List<IScreenItem> report, GrammaFormConjugateResult grammaFormConjugateResult) {
 		
 		String grammaFormKanji = grammaFormConjugateResult.getKanji();
+		
+		String prefixKana = grammaFormConjugateResult.getPrefixKana();
+		String prefixRomaji = grammaFormConjugateResult.getPrefixRomaji();
 		
 		StringBuffer grammaFormKanjiSb = new StringBuffer();
 		
 		if (grammaFormKanji != null) {
-			if (prefixKana != null) {
+			if (prefixKana != null && prefixKana.equals("") == false) {
 				grammaFormKanjiSb.append("(").append(prefixKana).append(") ");
 			}
 			
@@ -398,7 +401,7 @@ public class WordDictionaryDetails extends Activity {
 			
 			StringBuffer sb = new StringBuffer();
 			
-			if (prefixKana != null) {
+			if (prefixKana != null && prefixKana.equals("") == false) {
 				sb.append("(").append(prefixKana).append(") ");
 			}
 			
@@ -408,7 +411,7 @@ public class WordDictionaryDetails extends Activity {
 			
 			StringBuffer grammaFormRomajiSb = new StringBuffer();
 			
-			if (prefixRomaji != null) {
+			if (prefixRomaji != null && prefixRomaji.equals("") == false) {
 				grammaFormRomajiSb.append("(").append(prefixRomaji).append(") ");
 			}
 			
@@ -422,7 +425,7 @@ public class WordDictionaryDetails extends Activity {
 		if (alternative != null) {
 			report.add(new StringValue("", 5.0f, 1));
 			
-			addGrammaFormConjugateResult(report, prefixKana, prefixRomaji, alternative);	
+			addGrammaFormConjugateResult(report, alternative);	
 		}		
 	}
 	

@@ -44,8 +44,10 @@ public class SQLiteStatic {
 	public static final String grammaFormConjugateResultEntriesTable_grammaFormConjugateGroupTypeEntriesId = "grammaFormConjugateGroupTypeEntriesId";
 	public static final String grammaFormConjugateResultEntriesTable_grammaFormConjugateResultEntriesParentId = "grammaFormConjugateResultEntriesParentId";
 	public static final String grammaFormConjugateResultEntriesTable_resultType = "resultType";
+	public static final String grammaFormConjugateResultEntriesTable_prefixKana = "prefixKana";
 	public static final String grammaFormConjugateResultEntriesTable_kanji = "kanji";
 	public static final String grammaFormConjugateResultEntriesTable_kanaList = "kanaList";
+	public static final String grammaFormConjugateResultEntriesTable_prefixRomaji = "prefixRomaji";
 	public static final String grammaFormConjugateResultEntriesTable_romajiList = "romajiList";
 	
 	public static final String exampleGroupTypeEntriesTableName = "ExampleGroupTypeEntries";
@@ -115,8 +117,10 @@ public class SQLiteStatic {
 			grammaFormConjugateResultEntriesTable_grammaFormConjugateGroupTypeEntriesId + " integer not null, " +
 			grammaFormConjugateResultEntriesTable_grammaFormConjugateResultEntriesParentId + " integer null, " +
 			grammaFormConjugateResultEntriesTable_resultType + " text not null, " +
+			grammaFormConjugateResultEntriesTable_prefixKana + " text null, " +
 			grammaFormConjugateResultEntriesTable_kanji + " text null, " +
 			grammaFormConjugateResultEntriesTable_kanaList + " text not null, " +
+			grammaFormConjugateResultEntriesTable_prefixRomaji + " text null, " +
 			grammaFormConjugateResultEntriesTable_romajiList + " text not null);";
 	
 	public static final String exampleGroupTypeEntriesTableCreate =
@@ -201,8 +205,10 @@ public class SQLiteStatic {
 			"select 'GrammaForm', " + 
 			"grammaFormGroup." + grammaFormConjugateGroupTypeEntriesTable_dictionaryEntryId + ", " +
 			"grammaFormResult." + grammaFormConjugateResultEntriesTable_resultType + ", " +
+			"grammaFormResult." + grammaFormConjugateResultEntriesTable_prefixKana + ", " +
 			"grammaFormResult." + grammaFormConjugateResultEntriesTable_kanji + ", " +
 			"grammaFormResult." + grammaFormConjugateResultEntriesTable_kanaList + ", " +
+			"grammaFormResult." + grammaFormConjugateResultEntriesTable_prefixRomaji + ", " +
 			"grammaFormResult." + grammaFormConjugateResultEntriesTable_romajiList + " " +
 			" from " + 
 			grammaFormConjugateGroupTypeEntriesTableName + " grammaFormGroup, " +
@@ -223,8 +229,10 @@ public class SQLiteStatic {
 			"select 'ExampleResult', " + 
 			"exampleGroupType." + exampleGroupTypeEntriesTable_dictionaryEntryId + ", " +
 			"exampleGroupType." + exampleGroupTypeEntriesTable_exampleGroupType + ", " +
+			"'', " +
 			"exampleResult." + exampleResultEntriesTable_kanji + ", " +
 			"exampleResult." + exampleResultEntriesTable_kanaList + ", " +
+			"'', " +
 			"exampleResult." + exampleResultEntriesTable_romajiList + " " +
 			" from " +
 			exampleGroupTypeEntriesTableName + " exampleGroupType, " +
