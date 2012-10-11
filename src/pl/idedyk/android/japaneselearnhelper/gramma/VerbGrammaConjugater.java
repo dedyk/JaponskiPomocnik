@@ -1224,10 +1224,8 @@ public class VerbGrammaConjugater {
 		}
 		
 		result.setKanaList(kanaListResult);
-		
-		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
-		
-		if (prefixRomaji != null && prefixRomaji.equals("o") == true) {
+				
+		if (prefixKana != null && prefixKana.equals("を") == true) {
 			result.setPrefixRomaji("ga");
 		}
 		
