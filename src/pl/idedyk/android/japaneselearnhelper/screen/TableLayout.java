@@ -31,10 +31,16 @@ public class TableLayout implements IScreenItem {
 		
 	private LayoutParam layoutParam;
 
+	private Boolean shrinkAllColumns;
+	private Boolean stretchAllColumns;
+	
 	private List<TableRow> tableRows = new ArrayList<TableRow>();
 	
-	public TableLayout(LayoutParam layoutParam) {
+	public TableLayout(LayoutParam layoutParam, Boolean shrinkAllColumns, Boolean stretchAllColumns) {
 		this.layoutParam = layoutParam;
+		
+		this.shrinkAllColumns = shrinkAllColumns;
+		this.stretchAllColumns = stretchAllColumns;
 	}
 	
 	public void addTableRow(TableRow tableRow) {
@@ -47,8 +53,13 @@ public class TableLayout implements IScreenItem {
 				
 		tableLayout.setLayoutParams(layoutParam.getLayoutParam());
 		
-		tableLayout.setShrinkAllColumns(true);
-		tableLayout.setStretchAllColumns(true);
+		if (shrinkAllColumns != null) {
+			tableLayout.setShrinkAllColumns(shrinkAllColumns.booleanValue());
+		}
+		
+		if (stretchAllColumns != null) {
+			tableLayout.setStretchAllColumns(stretchAllColumns.booleanValue());
+		}
 		
 		for (TableRow currentTableRow : tableRows) {
 			currentTableRow.generate(context, resources, tableLayout);

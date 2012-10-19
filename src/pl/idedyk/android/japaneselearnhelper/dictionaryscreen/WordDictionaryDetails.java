@@ -18,6 +18,8 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
+import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
+import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
@@ -127,6 +129,31 @@ public class WordDictionaryDetails extends Activity {
 	private List<IScreenItem> generateDetails(DictionaryEntry dictionaryEntry) {
 		
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
+		
+		// test
+		
+		report.add(new TitleItem("Test !!!", 0));
+		
+		TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+		
+		TableRow tableRow1 = new TableRow();
+		
+		tableRow1.addScreenItem(new StringValue("がっ", 12.0f, 0));
+		tableRow1.addScreenItem(new StringValue("こう", 12.0f, 0));
+		
+		tableLayout.addTableRow(tableRow1);
+
+		TableRow tableRow2 = new TableRow();
+		
+		tableRow2.addScreenItem(new StringValue("学", 30.0f, 0));
+		tableRow2.addScreenItem(new StringValue("校", 30.0f, 0));
+		
+		tableLayout.addTableRow(tableRow2);
+		
+		report.add(tableLayout);
+
+		
+		// test
 		
 		String prefixKana = dictionaryEntry.getPrefixKana();
 		String prefixRomaji = dictionaryEntry.getPrefixRomaji();

@@ -143,7 +143,7 @@ public class KanjiSearch extends Activity {
 								
 				result.add(new TitleItem(String.valueOf(strokeCount), 1));
 				
-				tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent);
+				tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, null, true);
 				result.add(tableLayout);
 				
 				tableRow = new TableRow();
