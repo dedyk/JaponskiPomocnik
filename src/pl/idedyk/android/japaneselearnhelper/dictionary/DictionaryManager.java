@@ -157,9 +157,12 @@ public class DictionaryManager {
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 
-			// test
-
-			getFurigana();
+			// if emulator
+			if (new File("/data/data/" + packageName + "/emulator").exists() == true) {
+				// validate
+				//countForm(loadWithProgress);
+				getFuriganaForAll();
+			}
 
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -765,10 +768,41 @@ public class DictionaryManager {
 
 		return result;
 	}
+	
+	public List<FuriganaEntry> getFurigana(DictionaryEntry dictionaryEntry) {
+		
+		if (dictionaryEntry == null) {
+			return null;
+		}
+		
+		String kanji = dictionaryEntry.getKanji();
 
-	private void getFurigana() throws DictionaryException {
+		if (kanji == null) {
+			return null;
+		}
 
-		// test method
+		List<String> kana = dictionaryEntry.getKanaList();
+
+		List<FuriganaEntry> result = new ArrayList<FuriganaEntry>();
+		
+		for (String currentKana : kana) {
+			List<FuriganaEntry> currentFurigana = getFurigana(kanji, currentKana);
+			
+			if (currentFurigana != null) {
+				result.addAll(currentFurigana);
+			} else {
+				Log.d("FuriganaError", kanji + " - " + currentKana);
+			}
+		}
+		
+		if (result.size() == 0) {			
+			return null;
+		}
+
+		return result;
+	}
+
+	private void getFuriganaForAll() throws DictionaryException {
 
 		int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
 
@@ -776,28 +810,11 @@ public class DictionaryManager {
 
 			DictionaryEntry nthDictionaryEntry = sqliteConnector.getNthDictionaryEntry(dictionaryEntriesSizeIdx);
 
-			String kanji = nthDictionaryEntry.getKanji();
-
-			if (kanji == null) {
-				continue;
-			}
-
-			if (kanji.equals("朝ご飯") == false) {
-				//continue;
-			}
-
-			List<String> kana = nthDictionaryEntry.getKanaList();
-
-			for (String currentKana : kana) {
-
-				getFurigana(kanji, currentKana);
-
-
-			}
+			getFurigana(nthDictionaryEntry);
 		}
 	}
 
-	private FuriganaEntry getFurigana(String kanji, String kana) {
+	private List<FuriganaEntry> getFurigana(String kanji, String kana) {
 				
 		List<FuriganaEntry> furiganaEntries = new ArrayList<FuriganaEntry>();
 		
@@ -861,19 +878,13 @@ public class DictionaryManager {
 			}
 			
 			furiganaEntries = newFuriganaEntries;
-			
-			//
-			
-			//furiganaEntries = matchFuriganaEntries(furiganaEntries, )
 		}
 		
 		if (furiganaEntries.size() == 0) {
-			Log.d("AAAAA", "BBBB: " + kanji + " - " + kana + " - " + furiganaEntries);
+			return null;
 		}
 		
-		
-		
-		return null;
+		return furiganaEntries;
 	}
 	
 	private List<String> normalizeKanjiReading(KanjiEntry kanjiEntry) {
