@@ -795,7 +795,17 @@ public class DictionaryManager {
 				Log.d("FuriganaError", kanji + " - " + currentKana);
 			}
 		}
+		
+		List<FuriganaEntry> newResult = new ArrayList<FuriganaEntry>();
+		
+		for (FuriganaEntry currentFuriganaEntry : result) {
+			if (currentFuriganaEntry.matchKanaWithKanaPart() == true) {
+				newResult.add(currentFuriganaEntry);
+			}
+		}
 
+		result = newResult;
+		
 		if (result.size() == 0) {			
 			return null;
 		}

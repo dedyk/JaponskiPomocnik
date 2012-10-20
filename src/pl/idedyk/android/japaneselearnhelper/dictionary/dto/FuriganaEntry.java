@@ -91,6 +91,17 @@ public class FuriganaEntry {
 		kanjiPart.add(kanji);
 		kanaPart.add(hiragana);
 	}
+	
+	public boolean matchKanaWithKanaPart() {
+		
+		StringBuffer kanaPartJointed = new StringBuffer();
+		
+		for (String currentKanaPath : kanaPart) {
+			kanaPartJointed.append(currentKanaPath);
+		}
+		
+		return kanaPartJointed.toString().equals(kana);
+	}
 
 	@Override
 	public String toString() {
