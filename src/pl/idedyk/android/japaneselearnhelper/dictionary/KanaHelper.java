@@ -1381,4 +1381,95 @@ public class KanaHelper {
 
 		return kana.substring(startPos, startPos + 1);
 	}	
+	
+	public String convertKatakanaToHiragana(String katakanaString) {
+		
+		if (katakanaString == null) {
+			return null;
+		}
+		
+		List<KanaEntry> allHiraganaKanaEntries = getAllHiraganaKanaEntries();
+		List<KanaEntry> allKatakanaKanaEntries = getAllKatakanaKanaEntries();
+		List<KanaEntry> allAdditionalEntries = getAllAdditionalKanaEntries();
+		
+		Map<String, KanaEntry> hiraganaCache = new HashMap<String, KanaEntry>();
+		
+		for (KanaEntry kanaEntry : allHiraganaKanaEntries) {
+			hiraganaCache.put(kanaEntry.getKana(), kanaEntry);
+		}
+		
+		Map<String, KanaEntry> katakanaCache = new HashMap<String, KanaEntry>();
+
+		for (KanaEntry kanaEntry : allKatakanaKanaEntries) {
+			katakanaCache.put(kanaEntry.getKanaJapanese(), kanaEntry);
+		}
+
+		for (KanaEntry kanaEntry : allAdditionalEntries) {
+			katakanaCache.put(kanaEntry.getKanaJapanese(), kanaEntry);
+		}
+		
+		StringBuffer result = new StringBuffer();
+		
+		int pos = 0;
+		
+		while(true) {
+			if (pos >= katakanaString.length()) {
+				break;
+			}		
+			
+			String nextDoubleKatakanaChar = getNextDoubleKanaPart(katakanaString, pos);
+
+			if (nextDoubleKatakanaChar != null) {
+				
+				KanaEntry katakanaKanaEntry = katakanaCache.get(nextDoubleKatakanaChar);
+				
+				if (katakanaKanaEntry != null) {
+					
+					String romajiKatakana =  katakanaKanaEntry.getKana();
+					
+					KanaEntry hiraganaKanaEntry = hiraganaCache.get(romajiKatakana);
+					
+					if (hiraganaKanaEntry == null) {
+						return null;
+					}
+					
+					result.append(hiraganaKanaEntry.getKanaJapanese());
+					
+					pos += 2;
+					
+					continue;
+				}
+			}
+			
+			String nextSingleKanaPart = getNextSingleKanaPart(katakanaString, pos);
+			
+			if (nextSingleKanaPart != null) {
+				
+				KanaEntry katakanaKanaEntry = katakanaCache.get(nextSingleKanaPart);
+				
+				if (katakanaKanaEntry != null) {
+					
+					String romajiKatakana =  katakanaKanaEntry.getKana();
+					
+					KanaEntry hiraganaKanaEntry = hiraganaCache.get(romajiKatakana);
+					
+					if (hiraganaKanaEntry == null) {
+						return null;
+					}
+					
+					result.append(hiraganaKanaEntry.getKanaJapanese());
+					
+					pos += 1;
+					
+					continue;
+				} else {
+					return null;
+				}
+			} else {
+				return null;
+			}
+		}
+		
+		return result.toString();
+	}
 }
