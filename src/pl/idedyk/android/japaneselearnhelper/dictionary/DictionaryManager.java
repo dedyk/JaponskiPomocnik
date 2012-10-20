@@ -840,12 +840,14 @@ public class DictionaryManager {
 				
 				for (FuriganaEntry furiganaEntry : furiganaEntries) {
 					
-					boolean removeCharsFromCurrentKanaStateResult = furiganaEntry.removeCharsFromCurrentKanaState(1);
+					FuriganaEntry newFuriganaEntry = furiganaEntry.createCopy();
+					
+					boolean removeCharsFromCurrentKanaStateResult = newFuriganaEntry.removeCharsFromCurrentKanaState(1);
 					
 					if (removeCharsFromCurrentKanaStateResult == true) {
-						furiganaEntry.addHiraganaChar(currentChar);
+						newFuriganaEntry.addHiraganaChar(currentChar);
 
-						newFuriganaEntries.add(furiganaEntry);
+						newFuriganaEntries.add(newFuriganaEntry);
 					}
 				}
 				
@@ -866,12 +868,14 @@ public class DictionaryManager {
 					
 					if (currentKanaState.startsWith(currentKanjiReading) == true) { // match
 						
-						boolean removeCharsFromCurrentKanaStateResult = currentFuriganaEntry.removeCharsFromCurrentKanaState(currentKanjiReading.length());
+						FuriganaEntry newCurrentFuriganaEntry = currentFuriganaEntry.createCopy();
+						
+						boolean removeCharsFromCurrentKanaStateResult = newCurrentFuriganaEntry.removeCharsFromCurrentKanaState(currentKanjiReading.length());
 						
 						if (removeCharsFromCurrentKanaStateResult == true) {
-							currentFuriganaEntry.addReading(kanjiEntry.getKanji(), currentKanjiReading);
+							newCurrentFuriganaEntry.addReading(kanjiEntry.getKanji(), currentKanjiReading);
 							
-							newFuriganaEntries.add(currentFuriganaEntry);
+							newFuriganaEntries.add(newCurrentFuriganaEntry);
 						}
 					}
 				}

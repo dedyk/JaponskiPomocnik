@@ -15,6 +15,9 @@ public class FuriganaEntry {
 	
 	private List<String> kanaPart;
 	
+	private FuriganaEntry() {
+	}
+	
 	public FuriganaEntry(String kanji, String kana) {
 		this.kanji = kanji;
 		this.kana = kana;
@@ -23,6 +26,29 @@ public class FuriganaEntry {
 		
 		kanjiPart = new ArrayList<String>();
 		kanaPart = new ArrayList<String>();
+	}
+	
+	public FuriganaEntry createCopy() {
+		
+		FuriganaEntry newFuriganaEntry = new FuriganaEntry();
+		
+		newFuriganaEntry.kanji = kanji;
+		newFuriganaEntry.kana = kana;
+		newFuriganaEntry.currentKanaState = currentKanaState;
+		
+		newFuriganaEntry.kanjiPart = new ArrayList<String>();
+		
+		for (String currentKanjiPart : kanjiPart) {
+			newFuriganaEntry.kanjiPart.add(currentKanjiPart);
+		}
+		
+		newFuriganaEntry.kanaPart = new ArrayList<String>();
+		
+		for (String currentKanaPart : kanaPart) {
+			newFuriganaEntry.kanaPart.add(currentKanaPart);
+		}
+		
+		return newFuriganaEntry;
 	}
 
 	public String getKanji() {
