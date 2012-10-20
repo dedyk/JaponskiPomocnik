@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import android.content.res.AssetManager;
 import android.content.res.Resources;
@@ -21,6 +22,7 @@ import com.csvreader.CsvReader;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.FuriganaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
@@ -786,8 +788,6 @@ public class DictionaryManager {
 
 			List<String> kana = nthDictionaryEntry.getKanaList();
 
-			//Log.d("AAAA", "BBB: " + kanji + " - " + kana);
-
 			for (String currentKana : kana) {
 
 				getFurigana(kanji, currentKana);
@@ -797,9 +797,17 @@ public class DictionaryManager {
 		}
 	}
 
-	private void getFurigana(String kanji, String kana) {
+	private FuriganaEntry getFurigana(String kanji, String kana) {
+				
+		List<FuriganaEntry> furiganaEntries = new ArrayList<FuriganaEntry>();
+		
+		// start furigana
+		FuriganaEntry startFuriganaEntry = new FuriganaEntry(kanji, kana);
+		
+		furiganaEntries.add(startFuriganaEntry);
 
 		for (int idx = 0; idx < kanji.length(); ++idx) {
+			
 			String currentChar = String.valueOf(kanji.charAt(idx));
 
 			KanjiEntry kanjiEntry = null;
@@ -809,14 +817,63 @@ public class DictionaryManager {
 				throw new RuntimeException(e);
 			}
 			
-			if (kanjiEntry == null) {
+			if (kanjiEntry == null) { // if hiragana
+				
+				List<FuriganaEntry> newFuriganaEntries = new ArrayList<FuriganaEntry>();
+				
+				for (FuriganaEntry furiganaEntry : furiganaEntries) {
+					
+					boolean removeCharsFromCurrentKanaStateResult = furiganaEntry.removeCharsFromCurrentKanaState(1);
+					
+					if (removeCharsFromCurrentKanaStateResult == true) {
+						furiganaEntry.addHiraganaChar(currentChar);
+
+						newFuriganaEntries.add(furiganaEntry);
+					}
+				}
+				
+				furiganaEntries = newFuriganaEntries;
+				
 				continue;
 			}
 			
-			normalizeKanjiReading(kanjiEntry);
+			List<String> kanjiReading = normalizeKanjiReading(kanjiEntry);
 			
-			//Log.d("AAAAA", "BBBB: " + kanjiEntry.getKanji());
+			List<FuriganaEntry> newFuriganaEntries = new ArrayList<FuriganaEntry>();
+			
+			for (String currentKanjiReading : kanjiReading) {
+				
+				for (FuriganaEntry currentFuriganaEntry : furiganaEntries) {
+					
+					String currentKanaState = currentFuriganaEntry.getCurrentKanaState();
+					
+					if (currentKanaState.startsWith(currentKanjiReading) == true) { // match
+						
+						boolean removeCharsFromCurrentKanaStateResult = currentFuriganaEntry.removeCharsFromCurrentKanaState(currentKanjiReading.length());
+						
+						if (removeCharsFromCurrentKanaStateResult == true) {
+							currentFuriganaEntry.addReading(kanjiEntry.getKanji(), currentKanjiReading);
+							
+							newFuriganaEntries.add(currentFuriganaEntry);
+						}
+					}
+				}
+			}
+			
+			furiganaEntries = newFuriganaEntries;
+			
+			//
+			
+			//furiganaEntries = matchFuriganaEntries(furiganaEntries, )
 		}
+		
+		if (furiganaEntries.size() == 0) {
+			Log.d("AAAAA", "BBBB: " + kanji + " - " + kana + " - " + furiganaEntries);
+		}
+		
+		
+		
+		return null;
 	}
 	
 	private List<String> normalizeKanjiReading(KanjiEntry kanjiEntry) {
@@ -852,18 +909,18 @@ public class DictionaryManager {
 			for (String currentOnReading : onReading) {
 				
 				String currentClearReading = removeAdditionalPartsFromReading(currentOnReading);
-				
-				if (currentClearReading != null) {
-					result.add(currentClearReading);
-				}
-				
+								
 				String hiraganaString = kanaHelper.convertKatakanaToHiragana(currentClearReading);
 				
-				Log.d("AAAAAAA", "BBBB : " + currentOnReading + " - " + currentClearReading + " - " + hiraganaString);
+				if (hiraganaString != null) {
+					result.add(hiraganaString);
+				}
 			}
-		}				
+		}
 		
-		return result;
+		TreeSet<String> treeSet = new TreeSet<String>(result);
+		
+		return new ArrayList<String>(treeSet);
 	}
 	
 	private String removeAdditionalPartsFromReading(String reading) {
