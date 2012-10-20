@@ -200,7 +200,11 @@ public class WordDictionaryDetails extends Activity {
 				List<String> furiganaKanaParts = currentFuriganaEntry.getKanaPart();
 				
 				for (String currentFuriganaKanaParts : furiganaKanaParts) {
-					readingRow.addScreenItem(new StringValue(currentFuriganaKanaParts, 15.0f, 0));
+					StringValue currentKanaPartStringValue = new StringValue(currentFuriganaKanaParts, 15.0f, 0);
+					
+					currentKanaPartStringValue.setGravity(Gravity.CENTER);
+					
+					readingRow.addScreenItem(currentKanaPartStringValue);
 				}
 				
 				furiganaTableLayout.addTableRow(readingRow);
@@ -210,7 +214,11 @@ public class WordDictionaryDetails extends Activity {
 				List<String> furiganaKanjiParts = currentFuriganaEntry.getKanjiPart();
 				
 				for (String currentFuriganaKanjiParts : furiganaKanjiParts) {
-					kanjiRow.addScreenItem(new StringValue(currentFuriganaKanjiParts, 35.0f, 0));
+					StringValue currentKanjiPartStringValue = new StringValue(currentFuriganaKanjiParts, 35.0f, 0);
+					
+					currentKanjiPartStringValue.setGravity(Gravity.CENTER);
+					
+					kanjiRow.addScreenItem(currentKanjiPartStringValue);
 				}
 				
 				furiganaTableLayout.addTableRow(kanjiRow);

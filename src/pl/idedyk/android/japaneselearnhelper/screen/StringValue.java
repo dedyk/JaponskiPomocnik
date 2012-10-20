@@ -99,6 +99,10 @@ public class StringValue implements IScreenItem {
 				layoutParam.weight = layoutWeight;
 			}
 			
+			if (gravity != null) {
+				layoutParam.gravity = gravity;
+			}
+			
 			textView.setLayoutParams(layoutParam);
 		} else if (layout instanceof LinearLayout) {
 			LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
