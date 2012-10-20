@@ -161,7 +161,7 @@ public class DictionaryManager {
 			if (new File("/data/data/" + packageName + "/emulator").exists() == true) {
 				// validate
 				
-				countForm(loadWithProgress);
+				//countForm(loadWithProgress);
 				getFuriganaForAll();
 			}
 
