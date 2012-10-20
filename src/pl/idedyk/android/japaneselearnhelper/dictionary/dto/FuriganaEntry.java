@@ -57,7 +57,7 @@ public class FuriganaEntry {
 	}
 
 	public void addHiraganaChar(String hiraganaChar) {
-		kanjiPart.add("");
+		kanjiPart.add(hiraganaChar);
 		kanaPart.add(hiraganaChar);
 	}
 	

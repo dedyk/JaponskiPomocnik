@@ -7,6 +7,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.FuriganaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
@@ -129,32 +130,7 @@ public class WordDictionaryDetails extends Activity {
 	private List<IScreenItem> generateDetails(DictionaryEntry dictionaryEntry) {
 		
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
-		
-		// test
-		
-		report.add(new TitleItem("Test !!!", 0));
-		
-		TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
-		
-		TableRow tableRow1 = new TableRow();
-		
-		tableRow1.addScreenItem(new StringValue("がっ", 12.0f, 0));
-		tableRow1.addScreenItem(new StringValue("こう", 12.0f, 0));
-		
-		tableLayout.addTableRow(tableRow1);
-
-		TableRow tableRow2 = new TableRow();
-		
-		tableRow2.addScreenItem(new StringValue("学", 30.0f, 0));
-		tableRow2.addScreenItem(new StringValue("校", 30.0f, 0));
-		
-		tableLayout.addTableRow(tableRow2);
-		
-		report.add(tableLayout);
-
-		
-		// test
-		
+				
 		String prefixKana = dictionaryEntry.getPrefixKana();
 		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
 		
@@ -209,6 +185,40 @@ public class WordDictionaryDetails extends Activity {
 				
 		report.add(kanjiStringValue);
 		
+		// Furigana
+		List<FuriganaEntry> furiganaEntries = DictionaryManager.getInstance().getFurigana(dictionaryEntry);
+		
+		if (furiganaEntries != null && furiganaEntries.size() > 0) {
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_furigana_label), 0));
+			
+			for (FuriganaEntry currentFuriganaEntry : furiganaEntries) {
+				
+				TableLayout furiganaTableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+				
+				TableRow readingRow = new TableRow();
+				
+				List<String> furiganaKanaParts = currentFuriganaEntry.getKanaPart();
+				
+				for (String currentFuriganaKanaParts : furiganaKanaParts) {
+					readingRow.addScreenItem(new StringValue(currentFuriganaKanaParts, 15.0f, 0));
+				}
+				
+				furiganaTableLayout.addTableRow(readingRow);
+				
+				TableRow kanjiRow = new TableRow();
+				
+				List<String> furiganaKanjiParts = currentFuriganaEntry.getKanjiPart();
+				
+				for (String currentFuriganaKanjiParts : furiganaKanjiParts) {
+					kanjiRow.addScreenItem(new StringValue(currentFuriganaKanjiParts, 35.0f, 0));
+				}
+				
+				furiganaTableLayout.addTableRow(kanjiRow);
+				
+				report.add(furiganaTableLayout);
+			}
+		}
+				
 		// Reading
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
 		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
@@ -254,7 +264,7 @@ public class WordDictionaryDetails extends Activity {
 			
 			report.add(readingStringValue);
 		}
-		
+				
 		// Translate
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_translate_label), 0));
 		
