@@ -768,13 +768,13 @@ public class DictionaryManager {
 
 		return result;
 	}
-	
+
 	public List<FuriganaEntry> getFurigana(DictionaryEntry dictionaryEntry) {
-		
+
 		if (dictionaryEntry == null) {
 			return null;
 		}
-		
+
 		String kanji = dictionaryEntry.getKanji();
 
 		if (kanji == null) {
@@ -784,17 +784,17 @@ public class DictionaryManager {
 		List<String> kana = dictionaryEntry.getKanaList();
 
 		List<FuriganaEntry> result = new ArrayList<FuriganaEntry>();
-		
+
 		for (String currentKana : kana) {
 			List<FuriganaEntry> currentFurigana = getFurigana(kanji, currentKana);
-			
+
 			if (currentFurigana != null) {
 				result.addAll(currentFurigana);
 			} else {
 				Log.d("FuriganaError", kanji + " - " + currentKana);
 			}
 		}
-		
+
 		if (result.size() == 0) {			
 			return null;
 		}
@@ -815,16 +815,16 @@ public class DictionaryManager {
 	}
 
 	private List<FuriganaEntry> getFurigana(String kanji, String kana) {
-				
+
 		List<FuriganaEntry> furiganaEntries = new ArrayList<FuriganaEntry>();
-		
+
 		// start furigana
 		FuriganaEntry startFuriganaEntry = new FuriganaEntry(kanji, kana);
-		
+
 		furiganaEntries.add(startFuriganaEntry);
 
 		for (int idx = 0; idx < kanji.length(); ++idx) {
-			
+
 			String currentChar = String.valueOf(kanji.charAt(idx));
 
 			KanjiEntry kanjiEntry = null;
@@ -833,148 +833,238 @@ public class DictionaryManager {
 			} catch (DictionaryException e) {
 				throw new RuntimeException(e);
 			}
-			
+
 			if (kanjiEntry == null) { // if hiragana
-				
+
 				List<FuriganaEntry> newFuriganaEntries = new ArrayList<FuriganaEntry>();
-				
+
 				for (FuriganaEntry furiganaEntry : furiganaEntries) {
-					
+
 					FuriganaEntry newFuriganaEntry = furiganaEntry.createCopy();
-					
+
 					boolean removeCharsFromCurrentKanaStateResult = newFuriganaEntry.removeCharsFromCurrentKanaState(1);
-					
+
 					if (removeCharsFromCurrentKanaStateResult == true) {
 						newFuriganaEntry.addHiraganaChar(currentChar);
 
 						newFuriganaEntries.add(newFuriganaEntry);
 					}
 				}
-				
+
 				furiganaEntries = newFuriganaEntries;
-				
+
 				continue;
 			}
-			
+
 			List<String> kanjiReading = normalizeKanjiReading(kanjiEntry);
-			
+
 			List<FuriganaEntry> newFuriganaEntries = new ArrayList<FuriganaEntry>();
-			
+
 			for (String currentKanjiReading : kanjiReading) {
-				
+
 				for (FuriganaEntry currentFuriganaEntry : furiganaEntries) {
-					
+
 					String currentKanaState = currentFuriganaEntry.getCurrentKanaState();
-					
+
 					if (currentKanaState.startsWith(currentKanjiReading) == true) { // match
-						
+
 						FuriganaEntry newCurrentFuriganaEntry = currentFuriganaEntry.createCopy();
-						
+
 						boolean removeCharsFromCurrentKanaStateResult = newCurrentFuriganaEntry.removeCharsFromCurrentKanaState(currentKanjiReading.length());
-						
+
 						if (removeCharsFromCurrentKanaStateResult == true) {
 							newCurrentFuriganaEntry.addReading(kanjiEntry.getKanji(), currentKanjiReading);
-							
+
 							newFuriganaEntries.add(newCurrentFuriganaEntry);
 						}
 					}
 				}
 			}
-			
+
 			furiganaEntries = newFuriganaEntries;
 		}
-		
+
 		if (furiganaEntries.size() == 0) {
 			return null;
 		}
-		
+
 		return furiganaEntries;
 	}
-	
+
 	private List<String> normalizeKanjiReading(KanjiEntry kanjiEntry) {
-		
+
 		List<String> result = new ArrayList<String>();
-		
+
 		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
-		
+
 		if (kanjiDic2Entry == null) {
 			return result;
 		}
-		
+
 		List<String> kunReading = kanjiDic2Entry.getKunReading();
-		
+
 		if (kunReading != null && kunReading.size() > 0) {
-			
+
 			for (String currentKunReading : kunReading) {
-				
-				String currentClearReading = removeAdditionalPartsFromReading(currentKunReading);
-				
-				if (currentClearReading != null) {
-					result.add(currentClearReading);
+
+				List<String> readingVariantList = getReadingVariant(currentKunReading);
+
+				if (readingVariantList != null) {
+					result.addAll(readingVariantList);
 				}
 			}
 		}
-		
+
 		List<String> onReading = kanjiDic2Entry.getOnReading();
-		
+
 		KanaHelper kanaHelper = KanaHelper.getInstance();
-		
+
 		if (onReading != null && onReading.size() > 0) {
-			
+
 			for (String currentOnReading : onReading) {
-				
-				String currentClearReading = removeAdditionalPartsFromReading(currentOnReading);
-								
-				String hiraganaString = kanaHelper.convertKatakanaToHiragana(currentClearReading);
-				
-				if (hiraganaString != null) {
-					result.add(hiraganaString);
+
+				List<String> readingVariantList = getReadingVariant(currentOnReading);
+
+				List<String> readingVariantList2 = new ArrayList<String>();
+
+				if (readingVariantList != null) {
+					for (String currentReadingVariant : readingVariantList) {
+						String hiraganaString = kanaHelper.convertKatakanaToHiragana(currentReadingVariant);
+
+						if (hiraganaString != null) {
+							readingVariantList2.add(hiraganaString);
+						}
+					}
+				}
+
+				if (readingVariantList2 != null) {
+					result.addAll(readingVariantList2);
 				}
 			}
 		}
 		
-		TreeSet<String> treeSet = new TreeSet<String>(result);
+		// generate additional
 		
+		Map<String, String[]> generateAdditionalMap = new HashMap<String, String[]>();
+		
+		generateAdditionalMap.put("か", new String[] { "が" });
+		generateAdditionalMap.put("き", new String[] { "ぎ" });
+		generateAdditionalMap.put("く", new String[] { "ぐ" });
+		generateAdditionalMap.put("け", new String[] { "げ" });
+		generateAdditionalMap.put("こ", new String[] { "ご" });
+
+		generateAdditionalMap.put("さ", new String[] { "ざ" });
+		generateAdditionalMap.put("し", new String[] { "じ" });
+		generateAdditionalMap.put("す", new String[] { "ず" });
+		generateAdditionalMap.put("せ", new String[] { "ぜ" });
+		generateAdditionalMap.put("そ", new String[] { "ぞ" });
+
+		generateAdditionalMap.put("た", new String[] { "だ" });
+		generateAdditionalMap.put("ち", new String[] { "ぢ" });
+		generateAdditionalMap.put("つ", new String[] { "づ" });
+		generateAdditionalMap.put("て", new String[] { "で" });
+		generateAdditionalMap.put("と", new String[] { "ど" });
+
+		generateAdditionalMap.put("は", new String[] { "ば", "ぱ" });
+		generateAdditionalMap.put("ひ", new String[] { "び", "ぴ" });
+		generateAdditionalMap.put("ふ", new String[] { "ぶ", "ぷ" });
+		generateAdditionalMap.put("へ", new String[] { "べ", "ぺ" });
+		generateAdditionalMap.put("ほ", new String[] { "ぼ", "ぽ" });
+		
+		List<String> newResult = new ArrayList<String>();
+		
+		for (String currentResult : result) {
+			
+			if (currentResult.length() == 0) {
+				continue;
+			}
+			
+			String currentResultFirstCgar = String.valueOf(currentResult.charAt(0));
+			
+			String[] additionalValues = generateAdditionalMap.get(currentResultFirstCgar);
+			
+			if (additionalValues == null) {
+				newResult.add(currentResult);
+			} else {
+				newResult.add(currentResult);
+				
+				for (String currentAdditionalValue : additionalValues) {
+					newResult.add(currentAdditionalValue + currentResult.substring(1));
+				}
+			}
+		}
+
+		TreeSet<String> treeSet = new TreeSet<String>(newResult);
+
 		return new ArrayList<String>(treeSet);
 	}
-	
-	private String removeAdditionalPartsFromReading(String reading) {
-		
+
+	private List<String> getReadingVariant(String reading) {
+
 		if (reading == null) {
 			return null;
 		}
-		
-		reading = reading.trim();
-		
-		if (reading.length() == 0) {
-			return null;
+
+		boolean nextStep = true;
+
+		List<String> result = new ArrayList<String>();
+
+		{
+			String reading1 = reading.trim();
+
+			if (reading1.length() == 0) {
+				nextStep = false;
+			}
+
+			if (nextStep == true) {
+
+				int dotIdx = reading1.indexOf(".");
+
+				if (dotIdx != -1) {
+					reading1 = reading1.substring(0, dotIdx);
+				}
+
+				reading1 = reading1.trim();
+
+				if (reading1.startsWith("-") == true) {
+					reading1 = reading1.substring(1);
+				}
+
+				reading1 = reading1.trim();
+
+				if (reading1.endsWith("-") == true) {
+					reading1 = reading1.substring(0, reading1.length() - 1);
+				}
+
+				reading1 = reading1.trim();
+
+				if (reading1.length() == 0) {
+					nextStep = false;
+				}
+
+				if (nextStep == true) {
+					result.add(reading1);
+				}
+			}
+		}
+
+		{
+			String reading2 = reading.trim();
+
+			reading2 = reading2.replaceAll("\\.", "");
+
+			reading2 = reading2.trim();
+
+			if (reading2.startsWith("-") == true) {
+				reading2 = reading2.substring(1);
+			}
+
+			reading2 = reading2.trim();
+
+			result.add(reading2);
 		}
 		
-		int dotIdx = reading.indexOf(".");
-		
-		if (dotIdx != -1) {
-			reading = reading.substring(0, dotIdx);
-		}
-		
-		reading = reading.trim();
-		
-		if (reading.startsWith("-") == true) {
-			reading = reading.substring(1);
-		}
-		
-		reading = reading.trim();
-		
-		if (reading.endsWith("-") == true) {
-			reading = reading.substring(0, reading.length() - 1);
-		}
-		
-		reading = reading.trim();
-		
-		if (reading.length() == 0) {
-			return null;
-		}
-		
-		return reading;
+		return result;
 	}
 
 	public int getGrammaFormAndExamplesEntriesSize() {
