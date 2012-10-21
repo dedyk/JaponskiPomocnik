@@ -189,52 +189,59 @@ public class WordDictionaryDetails extends Activity {
 				
 				TableLayout furiganaTableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
 				
-				TableRow readingRow = new TableRow();
+				final int maxPartsInLine = 7;
 				
 				List<String> furiganaKanaParts = currentFuriganaEntry.getKanaPart();
-				
-				StringValue spacer = new StringValue("", 15.0f, 0);
-				spacer.setGravity(Gravity.CENTER);
-				spacer.setNullMargins(true);
-				
-				readingRow.addScreenItem(spacer);
-				
-				for (String currentFuriganaKanaParts : furiganaKanaParts) {
-					StringValue currentKanaPartStringValue = new StringValue(currentFuriganaKanaParts, 15.0f, 0);
-					
-					currentKanaPartStringValue.setGravity(Gravity.CENTER);
-					currentKanaPartStringValue.setNullMargins(true);
-					
-					currentKanaPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
-					
-					readingRow.addScreenItem(currentKanaPartStringValue);
-				}
-				
-				furiganaTableLayout.addTableRow(readingRow);
-				
-				TableRow kanjiRow = new TableRow();
-				
 				List<String> furiganaKanjiParts = currentFuriganaEntry.getKanjiPart();
 				
-				StringValue spacer2 = new StringValue("  ", 25.0f, 0);
-				spacer2.setGravity(Gravity.CENTER);
-				spacer2.setNullMargins(true);
+				int maxParts = furiganaKanaParts.size() / maxPartsInLine + (furiganaKanaParts.size() % maxPartsInLine > 0 ? 1 : 0);
 				
-				kanjiRow.addScreenItem(spacer2);
-				
-				for (String currentFuriganaKanjiParts : furiganaKanjiParts) {
-					StringValue currentKanjiPartStringValue = new StringValue(currentFuriganaKanjiParts, 35.0f, 0);
+				for (int currentPart = 0; currentPart < maxParts; ++currentPart) {
 					
-					currentKanjiPartStringValue.setGravity(Gravity.CENTER);
-					currentKanjiPartStringValue.setNullMargins(true);
+					TableRow readingRow = new TableRow();
 					
-					currentKanjiPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
+					StringValue spacer = new StringValue("", 15.0f, 0);
+					spacer.setGravity(Gravity.CENTER);
+					spacer.setNullMargins(true);
 					
-					kanjiRow.addScreenItem(currentKanjiPartStringValue);
+					readingRow.addScreenItem(spacer);
+					
+					for (int furiganaKanaPartsIdx = currentPart * maxPartsInLine; furiganaKanaPartsIdx < furiganaKanaParts.size() && furiganaKanaPartsIdx < (currentPart + 1) * maxPartsInLine; ++furiganaKanaPartsIdx) {
+						
+						StringValue currentKanaPartStringValue = new StringValue(furiganaKanaParts.get(furiganaKanaPartsIdx), 15.0f, 0);
+						
+						currentKanaPartStringValue.setGravity(Gravity.CENTER);
+						currentKanaPartStringValue.setNullMargins(true);
+						
+						currentKanaPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
+						
+						readingRow.addScreenItem(currentKanaPartStringValue);
+					}
+					
+					furiganaTableLayout.addTableRow(readingRow);
+					
+					TableRow kanjiRow = new TableRow();
+					
+					StringValue spacer2 = new StringValue("  ", 25.0f, 0);
+					spacer2.setGravity(Gravity.CENTER);
+					spacer2.setNullMargins(true);
+					
+					kanjiRow.addScreenItem(spacer2);
+					
+					for (int furiganaKanjiPartsIdx = currentPart * maxPartsInLine; furiganaKanjiPartsIdx < furiganaKanjiParts.size() && furiganaKanjiPartsIdx < (currentPart + 1) * maxPartsInLine; ++furiganaKanjiPartsIdx) {
+						StringValue currentKanjiPartStringValue = new StringValue(furiganaKanjiParts.get(furiganaKanjiPartsIdx), 35.0f, 0);
+						
+						currentKanjiPartStringValue.setGravity(Gravity.CENTER);
+						currentKanjiPartStringValue.setNullMargins(true);
+						
+						currentKanjiPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
+						
+						kanjiRow.addScreenItem(currentKanjiPartStringValue);
+					}
+					
+					furiganaTableLayout.addTableRow(kanjiRow);
 				}
-				
-				furiganaTableLayout.addTableRow(kanjiRow);
-				
+								
 				report.add(furiganaTableLayout);
 			}
 		} else {
