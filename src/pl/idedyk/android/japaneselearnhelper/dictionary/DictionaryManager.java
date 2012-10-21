@@ -158,12 +158,14 @@ public class DictionaryManager {
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 
 			// if emulator
+			/*
 			if (new File("/data/data/" + packageName + "/emulator").exists() == true) {
 				// validate
 				
-				//countForm(loadWithProgress);
-				getFuriganaForAll();
+				// countForm(loadWithProgress);
+				// getFuriganaForAll();
 			}
+			*/
 
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -812,7 +814,8 @@ public class DictionaryManager {
 
 		return result;
 	}
-
+	
+	/*
 	private void getFuriganaForAll() throws DictionaryException {
 
 		int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
@@ -824,6 +827,7 @@ public class DictionaryManager {
 			getFurigana(nthDictionaryEntry);
 		}
 	}
+	*/
 
 	private List<FuriganaEntry> getFurigana(String kanji, String kana) {
 
@@ -896,7 +900,12 @@ public class DictionaryManager {
 		}
 
 		if (furiganaEntries.size() == 0) {
-			return null;
+			
+			FuriganaEntry furiganaEntry = new FuriganaEntry(kanji, kana);
+			
+			furiganaEntry.addReading(kanji, kana);
+			
+			furiganaEntries.add(furiganaEntry);
 		}
 
 		return furiganaEntries;

@@ -143,7 +143,7 @@ public class StringValue implements IScreenItem {
 		
 		textView.setOnClickListener(onClickListener);
 		textView.setOnTouchListener(onTouchListener);
-		
+				
 		layout.addView(textView);			
 	}
 	

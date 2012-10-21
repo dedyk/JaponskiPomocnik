@@ -159,37 +159,31 @@ public class WordDictionaryDetails extends Activity {
 			addKanjiWrite = false;
 		}
 		
-		StringValue kanjiStringValue = new StringValue(kanjiSb.toString(), 35.0f, 0);
-		
-		if (addKanjiWrite == true) {
-			report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+		// kanji draw on click listener
+		OnClickListener kanjiDrawOnClickListener = new OnClickListener() {
 			
-			kanjiStringValue.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				List<List<String>> strokePathsForWord = DictionaryManager.getInstance().getStrokePathsForWord(kanjiSb.toString());
 				
-				public void onClick(View v) {
-					List<List<String>> strokePathsForWord = DictionaryManager.getInstance().getStrokePathsForWord(kanjiSb.toString());
-					
-					StrokePathInfo strokePathInfo = new StrokePathInfo();
-					
-					strokePathInfo.setStrokePaths(strokePathsForWord);
-					
-					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
-										
-					intent.putExtra("strokePathsInfo", strokePathInfo);
-					intent.putExtra("annotateStrokes", false);
-					
-					startActivity(intent);
-				}
-			});			
-		}
+				StrokePathInfo strokePathInfo = new StrokePathInfo();
 				
-		report.add(kanjiStringValue);
+				strokePathInfo.setStrokePaths(strokePathsForWord);
+				
+				Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+									
+				intent.putExtra("strokePathsInfo", strokePathInfo);
+				intent.putExtra("annotateStrokes", false);
+				
+				startActivity(intent);
+			}
+		};		
 		
-		// Furigana
+		// check furigana
 		List<FuriganaEntry> furiganaEntries = DictionaryManager.getInstance().getFurigana(dictionaryEntry);
 		
-		if (furiganaEntries != null && furiganaEntries.size() > 0) {
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_furigana_label), 0));
+		if (furiganaEntries != null && furiganaEntries.size() > 0 && addKanjiWrite == true) {
+			
+			report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 			
 			for (FuriganaEntry currentFuriganaEntry : furiganaEntries) {
 				
@@ -199,10 +193,19 @@ public class WordDictionaryDetails extends Activity {
 				
 				List<String> furiganaKanaParts = currentFuriganaEntry.getKanaPart();
 				
+				StringValue spacer = new StringValue("", 15.0f, 0);
+				spacer.setGravity(Gravity.CENTER);
+				spacer.setNullMargins(true);
+				
+				readingRow.addScreenItem(spacer);
+				
 				for (String currentFuriganaKanaParts : furiganaKanaParts) {
 					StringValue currentKanaPartStringValue = new StringValue(currentFuriganaKanaParts, 15.0f, 0);
 					
 					currentKanaPartStringValue.setGravity(Gravity.CENTER);
+					currentKanaPartStringValue.setNullMargins(true);
+					
+					currentKanaPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
 					
 					readingRow.addScreenItem(currentKanaPartStringValue);
 				}
@@ -213,10 +216,19 @@ public class WordDictionaryDetails extends Activity {
 				
 				List<String> furiganaKanjiParts = currentFuriganaEntry.getKanjiPart();
 				
+				StringValue spacer2 = new StringValue("  ", 25.0f, 0);
+				spacer2.setGravity(Gravity.CENTER);
+				spacer2.setNullMargins(true);
+				
+				kanjiRow.addScreenItem(spacer2);
+				
 				for (String currentFuriganaKanjiParts : furiganaKanjiParts) {
 					StringValue currentKanjiPartStringValue = new StringValue(currentFuriganaKanjiParts, 35.0f, 0);
 					
 					currentKanjiPartStringValue.setGravity(Gravity.CENTER);
+					currentKanjiPartStringValue.setNullMargins(true);
+					
+					currentKanjiPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
 					
 					kanjiRow.addScreenItem(currentKanjiPartStringValue);
 				}
@@ -225,7 +237,17 @@ public class WordDictionaryDetails extends Activity {
 				
 				report.add(furiganaTableLayout);
 			}
-		}
+		} else {
+			StringValue kanjiStringValue = new StringValue(kanjiSb.toString(), 35.0f, 0);
+			
+			if (addKanjiWrite == true) {
+				report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+				
+				kanjiStringValue.setOnClickListener(kanjiDrawOnClickListener);			
+			}
+			
+			report.add(kanjiStringValue);
+		}	
 				
 		// Reading
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
