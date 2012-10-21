@@ -259,7 +259,7 @@ public class KanaTest extends Activity {
 		
 		result.add(new TitleItem(getString(R.string.kana_test_char), 0));
 		
-		charTest = new StringValue("", 90.0f, 0);
+		charTest = new StringValue("", 55.0f, 0);
 		charTest.setGravity(Gravity.CENTER);
 		charTest.setNullMargins(true);
 		
