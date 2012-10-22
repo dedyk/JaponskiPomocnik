@@ -86,6 +86,8 @@ public enum ExampleGroupType {
 	
 	VERB_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
+	VERB_TARA("Jeśli (tryb warunkowy)"),
+	
 	VERB_TARA_DOU_DESU_KA("Rada lub zalecenie", "Uwaga: Nie używane w zaproszeniach"),
 	
 	VERB_TE_OKU("Przygotować się");

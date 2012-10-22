@@ -74,6 +74,9 @@ public class VerbExampler {
 
 		// kamoshi remasen
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
+
+		// tara
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA, makeTaraExample(dictionaryEntry));
 		
 		// tara dou desu ka
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA_DOU_DESU_KA, makeTaraDouDesuKaExample(dictionaryEntry));
@@ -373,6 +376,17 @@ public class VerbExampler {
 		final String templateRomaji = "%s kamoshi remasen";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeTaraExample(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+
+		final String templateKanji = "%sら";
+		final String templateKana = "%sら";
+		final String templateRomaji = "%sra";
+		
+		return ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
 	}
 	
 	private static ExampleResult makeTaraDouDesuKaExample(DictionaryEntry dictionaryEntry) {
