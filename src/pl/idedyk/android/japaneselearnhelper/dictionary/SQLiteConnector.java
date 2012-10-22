@@ -709,8 +709,10 @@ public class SQLiteConnector {
 		
 		values.put(SQLiteStatic.exampleResultEntriesTable_exampleGroupTypeEntriesId, exampleGroupTypeEntriesId);
 		values.put(SQLiteStatic.exampleResultEntriesTable_exampleResultEntriesParentId, exampleResultEntriesParentId);
+		values.put(SQLiteStatic.exampleResultEntriesTable_prefixKana, exampleResult.getPrefixKana());
 		values.put(SQLiteStatic.exampleResultEntriesTable_kanji, exampleResult.getKanji());
 		values.put(SQLiteStatic.exampleResultEntriesTable_kanaList, Utils.convertListToString(exampleResult.getKanaList()));
+		values.put(SQLiteStatic.exampleResultEntriesTable_prefixRomaji, exampleResult.getPrefixRomaji());
 		values.put(SQLiteStatic.exampleResultEntriesTable_romajiList, Utils.convertListToString(exampleResult.getRomajiList()));
 		
 		long exampleResultEntriesId = sqliteDatabase.insertOrThrow(SQLiteStatic.exampleResultEntriesTableName, null, values);
@@ -935,9 +937,10 @@ public class SQLiteConnector {
 					
 					ExampleResult exampleResult = new ExampleResult();
 					
-					exampleResult.setCanAddPrefix(false);
+					exampleResult.setPrefixKana(prefixKana);
 					exampleResult.setKanji(kanjiString);
 					exampleResult.setKanaList(Utils.parseStringIntoList(kanaListString, false));
+					exampleResult.setPrefixRomaji(prefixRomaji);
 					exampleResult.setRomajiList(Utils.parseStringIntoList(romajiListString , false));
 
 					DictionaryEntry relatedDictionaryEntryById = getDictionaryEntryById(dictionaryEntryId);

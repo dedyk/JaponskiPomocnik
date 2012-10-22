@@ -82,7 +82,7 @@ public class FindWordResult {
 			} else if (grammaFormConjugateResult != null) {
 				return grammaFormConjugateResult.getPrefixKana();
 			} else if (exampleResult != null) {
-				return null;
+				return exampleResult.getPrefixKana();
 			}
 			
 			throw new RuntimeException("getPrefixKana");
@@ -106,7 +106,7 @@ public class FindWordResult {
 			} else if (grammaFormConjugateResult != null) {
 				return grammaFormConjugateResult.getPrefixRomaji();
 			} else if (exampleResult != null) {
-				return null;
+				return exampleResult.getPrefixRomaji();
 			}
 			
 			throw new RuntimeException("getPrefixRomaji");

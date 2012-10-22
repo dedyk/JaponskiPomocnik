@@ -127,7 +127,7 @@ public class NounExampler {
 		final String templateKana = "わたし [は/が] [odbiorca] に%sをあげる";
 		final String templateRomaji = "watashi [wa/ga] [odbiorca] ni %s o ageru";
 		
-		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, false);
 	}
 	
 	private static ExampleResult makeKureruExample(DictionaryEntry dictionaryEntry) {
@@ -136,7 +136,7 @@ public class NounExampler {
 		final String templateKana = "[dający] [は/が] [odbiorca] に%sをくれる";
 		final String templateRomaji = "[dający] [wa/ga] [odbiorca] ni %s o kureru";
 		
-		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, false);
 	}
 	
 	private static ExampleResult makeMorauExample(DictionaryEntry dictionaryEntry) {
@@ -145,6 +145,6 @@ public class NounExampler {
 		final String templateKana = "[odbiorca] [は/が] [dający] [に/から] %sをもらう";
 		final String templateRomaji = "[odbiorca] [wa/ga] [dający] [ni/kara] %s o morau";
 		
-		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, false);
 	}
 }

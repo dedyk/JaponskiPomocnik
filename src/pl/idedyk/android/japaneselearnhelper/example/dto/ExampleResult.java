@@ -7,16 +7,18 @@ public class ExampleResult implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private String prefixKana;
+	
 	private String kanji;
 	
 	private List<String> kanaList;
 	
+	private String prefixRomaji;
+	
 	private List<String> romajiList;
-	
-	private boolean canAddPrefix = true;
-	
+		
 	private ExampleResult alternative;
-
+	
 	public String getKanji() {
 		return kanji;
 	}
@@ -48,15 +50,23 @@ public class ExampleResult implements Serializable {
 	public void setAlternative(ExampleResult alternative) {
 		this.alternative = alternative;
 	}
-
-	public boolean isCanAddPrefix() {
-		return canAddPrefix;
-	}
-
-	public void setCanAddPrefix(boolean canAddPrefix) {
-		this.canAddPrefix = canAddPrefix;
-	}
 	
+	public String getPrefixKana() {
+		return prefixKana;
+	}
+
+	public String getPrefixRomaji() {
+		return prefixRomaji;
+	}
+
+	public void setPrefixKana(String prefixKana) {
+		this.prefixKana = prefixKana;
+	}
+
+	public void setPrefixRomaji(String prefixRomaji) {
+		this.prefixRomaji = prefixRomaji;
+	}
+
 	public boolean isKanjiExists() {
 		if (kanji != null && kanji.equals("-") == false) {
 			return true;

@@ -61,8 +61,10 @@ public class SQLiteStatic {
 	public static final String exampleResultEntriesTable_id = "id";
 	public static final String exampleResultEntriesTable_exampleGroupTypeEntriesId = "exampleGroupTypeEntriesId";
 	public static final String exampleResultEntriesTable_exampleResultEntriesParentId = "exampleResultEntriesParentId";
+	public static final String exampleResultEntriesTable_prefixKana = "prefixKana";
 	public static final String exampleResultEntriesTable_kanji = "kanji";
 	public static final String exampleResultEntriesTable_kanaList = "kanaList";
+	public static final String exampleResultEntriesTable_prefixRomaji = "prefixRomaji";
 	public static final String exampleResultEntriesTable_romajiList = "romajiList";
 	
 	public static final String[] kanjiEntriesTableAllColumns = new String [] {
@@ -134,8 +136,10 @@ public class SQLiteStatic {
 			exampleResultEntriesTable_id + " integer primary key, " +
 			exampleResultEntriesTable_exampleGroupTypeEntriesId + " integer not null, " +
 			exampleResultEntriesTable_exampleResultEntriesParentId + " integer null, " +
+			exampleResultEntriesTable_prefixKana + " text null, " +
 			exampleResultEntriesTable_kanji + " text null, " +
 			exampleResultEntriesTable_kanaList + " text not null, " +
+			exampleResultEntriesTable_prefixRomaji + " text null, " +
 			exampleResultEntriesTable_romajiList + " text not null);";
 	
 	public static final String dictionaryEntriesTableIdElement = 
@@ -229,10 +233,10 @@ public class SQLiteStatic {
 			"select 'ExampleResult', " + 
 			"exampleGroupType." + exampleGroupTypeEntriesTable_dictionaryEntryId + ", " +
 			"exampleGroupType." + exampleGroupTypeEntriesTable_exampleGroupType + ", " +
-			"'', " +
+			"exampleResult." + exampleResultEntriesTable_prefixKana + ", " +
 			"exampleResult." + exampleResultEntriesTable_kanji + ", " +
 			"exampleResult." + exampleResultEntriesTable_kanaList + ", " +
-			"'', " +
+			"exampleResult." + exampleResultEntriesTable_prefixRomaji + ", " +
 			"exampleResult." + exampleResultEntriesTable_romajiList + " " +
 			" from " +
 			exampleGroupTypeEntriesTableName + " exampleGroupType, " +

@@ -432,7 +432,7 @@ public class WordDictionaryDetails extends Activity {
 				List<ExampleResult> exampleResults = currentExampleGroupTypeElements.getExampleResults();
 				
 				for (ExampleResult currentExampleResult : exampleResults) {					
-					addExampleResult(report, prefixKana, prefixRomaji, currentExampleResult);
+					addExampleResult(report, currentExampleResult);
 				}
 				
 				report.add(new StringValue("", 15.0f, 1));
@@ -503,14 +503,18 @@ public class WordDictionaryDetails extends Activity {
 		}		
 	}
 	
-	private void addExampleResult(List<IScreenItem> report, String prefixKana, String prefixRomaji, ExampleResult exampleResult) {
+	private void addExampleResult(List<IScreenItem> report, ExampleResult exampleResult) {
 		
 		String exampleKanji = exampleResult.getKanji();
+		
+		String prefixKana = exampleResult.getPrefixKana();
+		
+		String prefixRomaji = exampleResult.getPrefixRomaji();
 		
 		StringBuffer exampleKanjiSb = new StringBuffer();
 		
 		if (exampleKanji != null) {
-			if (prefixKana != null && exampleResult.isCanAddPrefix() == true) {
+			if (prefixKana != null && prefixKana.equals("") == false) {
 				exampleKanjiSb.append("(").append(prefixKana).append(") ");
 			}
 			
@@ -526,7 +530,7 @@ public class WordDictionaryDetails extends Activity {
 			
 			StringBuffer sb = new StringBuffer();
 			
-			if (prefixKana != null && exampleResult.isCanAddPrefix() == true) {
+			if (prefixKana != null && prefixKana.equals("") == false) {
 				sb.append("(").append(prefixKana).append(") ");
 			}
 			
@@ -536,7 +540,7 @@ public class WordDictionaryDetails extends Activity {
 			
 			StringBuffer exampleRomajiSb = new StringBuffer();
 
-			if (prefixRomaji != null && exampleResult.isCanAddPrefix() == true) {
+			if (prefixRomaji != null && prefixRomaji.equals("") == false) {
 				exampleRomajiSb.append("(").append(prefixRomaji).append(") ");
 			}
 			
@@ -550,7 +554,7 @@ public class WordDictionaryDetails extends Activity {
 		if (alternative != null) {
 			report.add(new StringValue("", 5.0f, 1));
 			
-			addExampleResult(report, prefixKana, prefixRomaji, alternative);	
+			addExampleResult(report, alternative);	
 		}		
 	}
 	

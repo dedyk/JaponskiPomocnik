@@ -219,6 +219,16 @@ public class VerbExampler {
 		
 		GrammaFormConjugateResult stemForm = VerbGrammaConjugater.makeStemForm(dictionaryEntry);
 		
+		String prefixKana = stemForm.getPrefixKana();
+		
+		if (prefixKana != null && prefixKana.equals("を") == true) {
+			stemForm.setPrefixKana("が");
+		}
+
+		if (prefixKana != null && prefixKana.equals("を") == true) {
+			stemForm.setPrefixRomaji("ga");
+		}
+		
 		final String templateKanji = "%sたいです";
 		final String templateKana = "%sたいです";
 		final String templateRomaji = "%stai desu";
@@ -303,8 +313,9 @@ public class VerbExampler {
 		List<String> romajiList = informalPastForm.getRomajiList();
 
 		ExampleResult result = new ExampleResult();
-		
-		result.setCanAddPrefix(true);
+				
+		result.setPrefixKana(dictionaryEntry.getPrefixKana());
+		result.setPrefixRomaji(dictionaryEntry.getPrefixRomaji());
 		
 		if (kanji != null) {		
 			result.setKanji(removeLastChar(kanji) + postfixKana);
