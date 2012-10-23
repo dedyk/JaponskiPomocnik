@@ -41,9 +41,9 @@ public enum ExampleGroupType {
 	
 	NOUN_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
-	NOUN_AGERU("Dać (od siebie)"),
+	NOUN_AGERU("Dać (od siebie, ktoś komuś)"),
 	
-	NOUN_KURERU("Dać (od kogoś)"),
+	NOUN_KURERU("Dać (mnie)"),
 	
 	NOUN_MORAU("Otrzymać"),
 	

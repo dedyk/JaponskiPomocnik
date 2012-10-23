@@ -232,6 +232,38 @@ public class VerbExampler {
 			stemForm.setPrefixRomaji("ga");
 		}
 		
+		String kanji = stemForm.getKanji();
+		
+		if (kanji != null) { 
+			stemForm.setKanji(kanji.replaceAll("を", "が"));
+		}
+		
+		List<String> kanaList = stemForm.getKanaList();
+		
+		if (kanaList != null) {
+			
+			List<String> newKanaList = new ArrayList<String>();
+			
+			for (String currentKana : kanaList) {
+				newKanaList.add(currentKana.replaceAll("を", "が"));
+			}
+			
+			stemForm.setKanaList(newKanaList);
+		}
+		
+		List<String> romajiList = stemForm.getRomajiList();
+		
+		if (romajiList != null) {
+			
+			List<String> newRomajiList = new ArrayList<String>();
+			
+			for (String currentRomaji : romajiList) {
+				newRomajiList.add(currentRomaji.replaceAll(" o ", " ga "));
+			}
+			
+			stemForm.setRomajiList(newRomajiList);
+		}
+		
 		final String templateKanji = "%sたいです";
 		final String templateKana = "%sたいです";
 		final String templateRomaji = "%stai desu";

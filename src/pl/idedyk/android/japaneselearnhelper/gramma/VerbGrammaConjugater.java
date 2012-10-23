@@ -1211,15 +1211,20 @@ public class VerbGrammaConjugater {
 		
 		String kanji = dictionaryEntry.getKanji();
 		
-		if (kanji != null) {
+		if (kanji != null) { 
+			kanji = kanji.replaceAll("を", "が");
+			
 			result.setKanji(makePotentialFormForKanjiOrKana(kanji, dictionaryEntryType, ruPostfixKana));
 		}
 		
 		List<String> kanaList = dictionaryEntry.getKanaList();
-		
+			
 		List<String> kanaListResult = new ArrayList<String>();
 		
 		for (String currentKanaList : kanaList) {
+			
+			currentKanaList = currentKanaList.replaceAll("を", "が");
+			
 			kanaListResult.add(makePotentialFormForKanjiOrKana(currentKanaList, dictionaryEntryType, ruPostfixKana));
 		}
 		
@@ -1234,6 +1239,8 @@ public class VerbGrammaConjugater {
 		List<String> romajiListResult = new ArrayList<String>();
 		
 		for (String currentRomajiList : romajiList) {
+			currentRomajiList = currentRomajiList.replaceAll(" o ", " ga ");
+			
 			romajiListResult.add(makePotentialFormForRomaji(currentRomajiList, dictionaryEntryType, ruPostfixRomaji));
 		}
 		

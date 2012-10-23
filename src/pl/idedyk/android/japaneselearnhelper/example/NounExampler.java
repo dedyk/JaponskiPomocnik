@@ -132,9 +132,9 @@ public class NounExampler {
 	
 	private static ExampleResult makeKureruExample(DictionaryEntry dictionaryEntry) {
 		
-		final String templateKanji = "[dający] [は/が] [odbiorca] に%sをくれる";
-		final String templateKana = "[dający] [は/が] [odbiorca] に%sをくれる";
-		final String templateRomaji = "[dający] [wa/ga] [odbiorca] ni %s o kureru";
+		final String templateKanji = "[dający] [は/が] %sをくれる";
+		final String templateKana = "[dający] [は/が] %sをくれる";
+		final String templateRomaji = "[dający] [wa/ga] %s o kureru";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, false);
 	}
