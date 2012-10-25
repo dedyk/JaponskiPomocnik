@@ -1364,7 +1364,7 @@ takiego rodzaju",blisko mówcy,
 8",wolumeny,
 1244,WORD,WORD_COUNTERS,HIRAGANA,,九冊,きゅうさつ,,kyuusatsu,"dziewięć
 9",wolumeny,
-1245,WORD,WORD_COUNTERS,HIRAGANA,,十冊,じゅうさつ,,juusatsu,"dziesięć
+1245,WORD,WORD_COUNTERS,HIRAGANA,,十冊,じゅっさつ,,jussatsu,"dziesięć
 10",wolumeny,
 1246,WORD,WORD_COUNTERS,HIRAGANA,,何冊,なんさつ,,nansatsu,jak wiele,wolumeny,
 1247,WORD,WORD_COUNTERS,HIRAGANA,,一匹,いっぴき,,ippiki,"jeden
@@ -1385,7 +1385,7 @@ takiego rodzaju",blisko mówcy,
 8",małe zwierzęta,
 1255,WORD,WORD_COUNTERS,HIRAGANA,,九匹,きゅうひき,,kyuuhiki,"dziewięć
 9",małe zwierzęta,
-1256,WORD,WORD_COUNTERS,HIRAGANA,,十匹,じゅうぴき,,juupiki,"dziesięć
+1256,WORD,WORD_COUNTERS,HIRAGANA,,十匹,じゅっぴき,,juppiki,"dziesięć
 10",małe zwierzęta,
 1257,WORD,WORD_COUNTERS,HIRAGANA,,何匹,なんびき,,nanbiki,jak wiele,małe zwierzęta,
 1258,WORD,WORD_COUNTERS,HIRAGANA,,一本,いっぽん,,ippon,"jeden
@@ -1406,7 +1406,7 @@ takiego rodzaju",blisko mówcy,
 8",długie przedmioty,
 1266,WORD,WORD_COUNTERS,HIRAGANA,,九本,きゅうほん,,kyuuhon,"dziewięć
 9",długie przedmioty,
-1267,WORD,WORD_COUNTERS,HIRAGANA,,十本,じゅうぽん,,juupon,"dziesięć
+1267,WORD,WORD_COUNTERS,HIRAGANA,,十本,じゅっぽん,,juppon,"dziesięć
 10",długie przedmioty,
 1268,WORD,WORD_COUNTERS,HIRAGANA,,何本,なんぼん,,nanbon,jak wiele,długie przedmioty,
 1269,WORD,WORD_COUNTERS,HIRAGANA,,一台,いちだい,,ichidai,"jeden
