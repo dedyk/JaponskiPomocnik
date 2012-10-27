@@ -32,6 +32,9 @@ public class CountersHelper {
 		// nichi - dzień miesiąca
 		result.add(createNichiCounter(resources));
 		
+		// nin - ludzi
+		result.add(createNinCounter(resources));
+		
 		// ko - małe przedmioty
 		result.add(createKoCounter(resources));
 		
@@ -90,7 +93,7 @@ public class CountersHelper {
 		
 		counterEntry.getEntries().add(null);
 		
-		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_ji_whichTime), "何時", "なんじ", "nanji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_ji_which_time), "何時", "なんじ", "nanji"));
 		
 		return counterEntry;
 	}
@@ -113,7 +116,7 @@ public class CountersHelper {
 		
 		counterEntry.getEntries().add(null);
 		
-		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_fun_whichMinute), "何分", "なんぷん", "nanpun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_fun_which_minute), "何分", "なんぷん", "nanpun"));
 				
 		return counterEntry;
 	}
@@ -181,6 +184,29 @@ public class CountersHelper {
 		counterEntry.getEntries().add(null);
 		
 		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_nichi_which), "何日", "なんにち", "nannichi"));
+		
+		return counterEntry;
+	}
+	
+	private CounterEntry createNinCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("人", "にん", "nin", resources.getString(R.string.counter_nin_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一人", "ひとり", "hitori"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二人", "ふたり", "futari"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三人", "さんにん", "sannin"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四人", "よにん", "yonin"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五人", "ごにん", "gonin"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六人", "ろくにん", "rokunin"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七人", "しちにん", "shichinin"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七人", "ななにん", "nananin"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八人", "はちにん", "hachinin"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九人", "きゅうにん", "kyuunin"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十人", "じゅうにん", "juunin"));
+		
+		counterEntry.getEntries().add(null);
+		
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_nin_how_many), "何人", "なんにん", "nan'nin"));
 		
 		return counterEntry;
 	}
