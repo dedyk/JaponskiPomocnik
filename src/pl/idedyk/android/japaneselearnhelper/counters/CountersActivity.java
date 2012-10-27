@@ -48,7 +48,7 @@ public class CountersActivity extends Activity {
 			StringBuffer title = new StringBuffer();
 			
 			title.append(description);
-			title.append(": ");
+			title.append(":  ");
 			
 			if (kanji != null) {
 				title.append(kanji);

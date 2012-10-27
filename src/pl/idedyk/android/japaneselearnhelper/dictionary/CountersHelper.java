@@ -26,6 +26,15 @@ public class CountersHelper {
 		// hiki - małe zwierzęta
 		result.add(createHikiCounter(resources));
 		
+		// hon - długie przedmioty
+		result.add(createHonCounter(resources));
+		
+		// dai - urządzenia
+		result.add(createDaiCounter(resources));
+		
+		// mai - płaskie przedmioty
+		result.add(createMaiCounter(resources));
+		
 		return result;
 	}
 	
@@ -106,6 +115,90 @@ public class CountersHelper {
 		counterEntry.getEntries().add(new CounterEntry.Entry("jak wiele", "何匹", "なんびき", "nanbiki"));
 		
 		String[] examplesArray = resources.getStringArray(R.array.counter_hiki_examples);
+		
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+		
+		return counterEntry;
+	}
+	
+	private CounterEntry createHonCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("本	", "ほん", "hon", resources.getString(R.string.counter_hon_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一本", "いっぽん", "ippon"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二本", "にほん", "nihon"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三本", "さんぼん", "sanbon"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四本", "よんほん", "yonhon"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五本", "ごほん", "gohon"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六本", "ろっぽん", "roppon"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七本", "ななほん", "nanahon"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八本", "はっぽん", "happon"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九本", "きゅうほん", "kyuuhon"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十本", "じゅっぽん", "juppon"));
+		
+		counterEntry.getEntries().add(null);
+				
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何本", "なんぼん", "nanbon"));
+		
+		String[] examplesArray = resources.getStringArray(R.array.counter_hon_examples);
+		
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+		
+		return counterEntry;
+	}
+	
+	private CounterEntry createDaiCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("台", "だい", "dai", resources.getString(R.string.counter_dai_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一台", "いちだい", "ichidai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二台", "にだい", "nidai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三台", "さんだい", "sandai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四台", "よんだい", "yondai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五台", "ごだい", "godai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六台", "ろくだい", "rokudai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七台", "ななだい", "nanadai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八台", "はちだい", "hachidai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九台", "きゅうだい", "kyuudai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十台", "じゅうだい", "juudai"));
+		
+		counterEntry.getEntries().add(null);
+		
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何台", "なんだい", "nandai"));
+		
+		String[] examplesArray = resources.getStringArray(R.array.counter_dai_examples);
+		
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+		
+		return counterEntry;
+	}
+	
+	private CounterEntry createMaiCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("枚", "まい", "mai", resources.getString(R.string.counter_mai_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一枚", "いちまい", "ichimai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二枚", "にまい", "nimai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三枚", "さんまい", "sanmai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四枚", "よんまい", "yonmai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五枚", "ごまい", "gomai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六枚", "ろくまい", "rokumai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七枚", "ななまい", "nanamai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八枚", "はちまい", "hachimai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九枚", "きゅうまい", "kyuumai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十枚", "じゅうまい", "juumai"));
+		
+		counterEntry.getEntries().add(null);
+		
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何枚", "なんまい", "nanmai"));
+		
+		String[] examplesArray = resources.getStringArray(R.array.counter_mai_examples);
 		
 		for (String currentExample : examplesArray) {
 			counterEntry.getExampleUse().add(currentExample);

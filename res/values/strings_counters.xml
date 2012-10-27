@@ -29,5 +29,32 @@
     	<item>psy</item>
     	<item>węże</item>
     </string-array>
-    
+
+    <string name="counter_hon_description">długie przedmioty</string>
+    <string-array name="counter_hon_examples">
+    	<item>ołówki</item>
+    	<item>parasolki</item>
+    	<item>taśmy</item>
+    	<item>butelki</item>
+    	<item>pociągi</item>
+    	<item>kable</item>
+    	<item>sznutki</item>
+    	<item>włosy</item>
+    </string-array>
+
+    <string name="counter_dai_description">urządzenia</string>
+    <string-array name="counter_dai_examples">
+    	<item>komputery</item>
+    	<item>TV</item>
+    	<item>samochody</item>
+    	<item>rowery</item>
+    </string-array>
+
+    <string name="counter_mai_description">płaskie przedmioty</string>
+    <string-array name="counter_mai_examples">
+    	<item>kartki</item>
+    	<item>CD</item>
+    	<item>koszulki</item>
+    </string-array>
+
 </resources>
