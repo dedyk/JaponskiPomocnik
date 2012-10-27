@@ -26,6 +26,12 @@ public class CountersHelper {
 		// fun - minuty
 		result.add(createFunCounter(resources));
 		
+		// sai - lata
+		result.add(createSaiCounter(resources));
+		
+		// nichi - dzień miesiąca
+		result.add(createNichiCounter(resources));
+		
 		// ko - małe przedmioty
 		result.add(createKoCounter(resources));
 		
@@ -107,8 +113,75 @@ public class CountersHelper {
 		
 		counterEntry.getEntries().add(null);
 		
-		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_fun_whichTime), "何分", "なんぷん", "nanpun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_fun_whichMinute), "何分", "なんぷん", "nanpun"));
 				
+		return counterEntry;
+	}
+	
+	private CounterEntry createSaiCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("歳", "さい", "sai", resources.getString(R.string.counter_sai_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一歳", "いっさい", "issai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二歳", "にさい", "nisai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三歳", "さんさい", "sansai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四歳", "よんさい", "yonsai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五歳", "ごさい", "gosai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六歳", "ろくさい", "rokusai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七歳", "ななさい", "nanasai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八歳", "はっさい", "hassai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九歳", "きゅうさい", "kyuusai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十歳", "じゅっさい", "jussai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("11", "十一歳", "じゅういっさい", "juuissai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("20", "二十歳", "はたち", "hatachi"));
+		
+		counterEntry.getEntries().add(null);
+		
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_sai_howOld), "何歳", "なんさい", "nansai"));
+		
+		return counterEntry;
+	}
+	
+	private CounterEntry createNichiCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("日", "にち", "nichi", resources.getString(R.string.counter_nichi_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一日", "ついたち", "tsuitachi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二日", "ふつか", "futsuka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三日", "みっか", "mikka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四日", "よっか", "yokka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五日", "いつか", "itsuka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六日", "むいか", "muika"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七日", "なのか", "nanoka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八日", "ようか", "youka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九日", "ここのか", "kokonoka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十日", "とおか", "tooka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("11", "十一日", "じゅういちにち", "juuichinichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("12", "十二日", "じゅうににち", "juuninichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("13", "十三日", "じゅうさんにち", "juusannichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("14", "十四日", "じゅうよっか", "juuyokka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("15", "十五日", "じゅうごにち", "juugonichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("16", "十六日", "じゅうろくにち", "juurokunichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("17", "十七日", "じゅうしちにち", "juushichinichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("18", "十八日", "じゅうはちにち", "juuhachinichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("19", "十九日", "じゅうくにち", "juukunichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("20", "二十日", "はつか", "hatsuka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("21", "二十一日", "にじゅういちにち", "nijuuichinichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("22", "二十二日", "にじゅうににち", "nijuuninichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("23", "二十三日", "にじゅうさんにち", "nijuusannichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("24", "二十四日", "にじゅうよっか", "nijuuyokka"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("25", "二十五日", "にじゅうごにち", "nijuugonichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("26", "二十六日", "にじゅうろくにち", "nijuurokunichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("27", "二十七日", "にじゅうしちにち", "nijuushichinichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("28", "二十八日", "にじゅうはちにち", "nijuuhachinichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("29", "二十九日", "にじゅうくにち", "nijuukunichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("30", "三十日", "さんじゅうにち", "sanjuunichi"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("31", "三十一日", "さんじゅういちにち", "sanjuuichinichi"));
+		
+		counterEntry.getEntries().add(null);
+		
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_nichi_which), "何日", "なんにち", "nannichi"));
+		
 		return counterEntry;
 	}
 	
