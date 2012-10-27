@@ -22,6 +22,9 @@ public class CountersHelper {
 		
 		// ji - godziny
 		result.add(createJiCounter(resources));
+
+		// fun - minuty
+		result.add(createFunCounter(resources));
 		
 		// ko - małe przedmioty
 		result.add(createKoCounter(resources));
@@ -83,6 +86,29 @@ public class CountersHelper {
 		
 		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_ji_whichTime), "何時", "なんじ", "nanji"));
 		
+		return counterEntry;
+	}
+	
+	private CounterEntry createFunCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("分", "ふん", "fun", resources.getString(R.string.counter_fun_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一分", "いっぷん", "ippun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二分", "にふん", "nifun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三分", "さんぷん", "sanpun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四分", "よんぷん", "yonpun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五分", "ごふん", "gofun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六分", "ろっぷん", "roppun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七分", "ななふん", "nanafun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八分", "はっぷん", "happun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八分", "はちふん", "hachifun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九分", "きゅうふん", "kyuufun"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十分", "じゅっぷん", "juppun"));
+		
+		counterEntry.getEntries().add(null);
+		
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_fun_whichTime), "何分", "なんぷん", "nanpun"));
+				
 		return counterEntry;
 	}
 	

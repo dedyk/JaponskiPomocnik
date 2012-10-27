@@ -16,6 +16,9 @@
     
     <string name="counter_ji_description">godziny</string>
     <string name="counter_ji_whichTime">która</string>
+
+    <string name="counter_fun_description">minuty</string>
+    <string name="counter_fun_whichTime">która</string>
     
     <string name="counter_ko_description">małe przedmioty</string>
     <string-array name="counter_ko_examples">
