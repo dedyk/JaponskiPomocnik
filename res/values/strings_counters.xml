@@ -4,7 +4,7 @@
     <string name="counters_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="counters_title">Klasyfikatory</string>
     
-    <string name="counters_examples">Przykłady użycia</string>
+    <string name="counters_examples">Przykłady</string>
     
     <string name="counters_how_many">jak wiele</string>
     
@@ -22,4 +22,12 @@
     	<item>magazyny</item>
     	<item>słowniki</item>
     </string-array>
+
+    <string name="counter_hiki_description">małe zwierzęta</string>
+    <string-array name="counter_hiki_examples">
+    	<item>koty</item>
+    	<item>psy</item>
+    	<item>węże</item>
+    </string-array>
+    
 </resources>

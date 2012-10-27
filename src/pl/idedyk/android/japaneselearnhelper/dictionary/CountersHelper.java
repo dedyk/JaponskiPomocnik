@@ -15,12 +15,16 @@ public class CountersHelper {
 		List<CounterEntry> result = new ArrayList<CounterEntry>();
 		
 		// =ZŁĄCZ.TEKSTY(G1, E1, H1,A1,I1,B1, J1, D1,K1)
+		// counterEntry.getEntries().add(new CounterEntry.Entry("	", "	", "	", "	"));
 		
 		// ko - małe przedmioty
 		result.add(createKoCounter(resources));
 		
 		// satsu - wolumeny
 		result.add(createSatsuCounter(resources));
+		
+		// hiki - małe zwierzęta
+		result.add(createHikiCounter(resources));
 		
 		return result;
 	}
@@ -81,4 +85,32 @@ public class CountersHelper {
 		
 		return counterEntry;
 	}	
+	
+	private CounterEntry createHikiCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("匹", "ひき", "hiki", resources.getString(R.string.counter_hiki_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一匹", "いっぴき", "ippiki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二匹", "にひき", "nihiki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三匹", "さんびき", "sanbiki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四匹", "よんひき", "yonhiki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五匹", "ごひき", "gohiki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六匹", "ろっぴき", "roppiki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七匹", "ななひき", "nanahiki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八匹", "はっぴき", "happiki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九匹", "きゅうひき", "kyuuhiki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十匹", "じゅっぴき", "juppiki"));
+		
+		counterEntry.getEntries().add(null);
+		
+		counterEntry.getEntries().add(new CounterEntry.Entry("jak wiele", "何匹", "なんびき", "nanbiki"));
+		
+		String[] examplesArray = resources.getStringArray(R.array.counter_hiki_examples);
+		
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+		
+		return counterEntry;
+	}
 }
