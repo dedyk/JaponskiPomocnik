@@ -54,6 +54,18 @@ public class TitleItem implements IScreenItem {
 		
 		return location[1];
 	}
+	
+	public int getY() {
+		
+		if (textView != null) {
+			return textView.getTop();
+		}
+		
+		throw new RuntimeException("textview is null");
+	}
 
+	public String getTitle() {
+		return title;
+	}
 }
 

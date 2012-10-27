@@ -14,7 +14,10 @@ import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 public class CountersActivity extends Activity {
 
@@ -24,9 +27,12 @@ public class CountersActivity extends Activity {
 		
 		setContentView(R.layout.counters);
 		
-		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.counters_main_layout);
+		final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.counters_main_layout_scroll);
+		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.counters_main_layout);
 		
-		List<IScreenItem> report = new ArrayList<IScreenItem>();
+		final List<IScreenItem> report = new ArrayList<IScreenItem>();
+		
+		final List<TitleItem> titleList = new ArrayList<TitleItem>();
 		
 		// get all counters
 		CountersHelper countersHelper = new CountersHelper();
@@ -62,7 +68,10 @@ public class CountersActivity extends Activity {
 			title.append(romaji);
 			title.append(")");
 			
-			report.add(new TitleItem(title.toString(), 1));
+			TitleItem currentTitle = new TitleItem(title.toString(), 1);
+			
+			titleList.add(currentTitle);
+			report.add(currentTitle);
 			
 			TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, null, true);
 			
@@ -112,8 +121,43 @@ public class CountersActivity extends Activity {
 			report.add(new StringValue("", 12.0f, 2));
 		}
 		
+		// add index
+		int indexPos = 0;
+		
+		report.add(indexPos, new TitleItem(getString(R.string.counters_index), 0));
+		indexPos++;
+		
+		report.add(indexPos, new StringValue(getString(R.string.counters_index_go), 12.0f, 1));
+		indexPos++;
+		
+		report.add(indexPos, new StringValue("", 6.0f, 2));
+		indexPos++;
+		
+		for (final TitleItem currentTitle : titleList) {
+			StringValue titleStringValue = new StringValue(currentTitle.getTitle(), 15.0f, 2);
+			
+			titleStringValue.setOnClickListener(new OnClickListener() {
+				
+				public void onClick(View v) {
+					scrollMainLayout.scrollTo(0, currentTitle.getY() - 10);					
+				}
+			});
+			
+			report.add(indexPos, titleStringValue);
+			
+			indexPos++;
+		}
+		
+		report.add(indexPos, new StringValue("", 12.0f, 2));
+		
 		// fill mail layout
 		fillMainLayout(report, mainLayout);
+		
+		// test
+		//Button reportProblemButton = (Button)findViewById(R.id.counters_report_problem_button);
+		
+
+		
 	}
 
 	private void fillMainLayout(List<IScreenItem> generatedDetails, LinearLayout mainLayout) {

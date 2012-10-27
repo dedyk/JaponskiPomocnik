@@ -2,6 +2,10 @@
 <resources>
     <string name="counters_label">Klasyfikatory</string>
     <string name="counters_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    
+    <string name="counters_index">Indeks</string>
+    <string name="counters_index_go">Naciśnij na pozycję, aby przejść do klasyfikatora</string>
+    
     <string name="counters_title">Klasyfikatory</string>
     
     <string name="counters_examples">Przykłady</string>

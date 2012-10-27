@@ -125,7 +125,7 @@ public class CountersHelper {
 	
 	private CounterEntry createHonCounter(Resources resources) {
 		
-		CounterEntry counterEntry = new CounterEntry("本	", "ほん", "hon", resources.getString(R.string.counter_hon_description));
+		CounterEntry counterEntry = new CounterEntry("本", "ほん", "hon", resources.getString(R.string.counter_hon_description));
 
 		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一本", "いっぽん", "ippon"));
 		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二本", "にほん", "nihon"));
