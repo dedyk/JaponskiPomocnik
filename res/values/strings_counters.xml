@@ -15,6 +15,11 @@
         <item >gumki</item>
         <item >mały sprzęt</item>
     </string-array>
-    
-    
+
+    <string name="counter_satsu_description">wolumeny</string>
+    <string-array name="counter_satsu_examples">
+    	<item>książki</item>
+    	<item>magazyny</item>
+    	<item>słowniki</item>
+    </string-array>
 </resources>

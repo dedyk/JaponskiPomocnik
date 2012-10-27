@@ -108,6 +108,8 @@ public class CountersActivity extends Activity {
 					report.add(new StringValue(currentExample, 15.0f, 2));
 				}
 			}
+			
+			report.add(new StringValue("", 15.0f, 2));
 		}
 		
 		// fill mail layout
