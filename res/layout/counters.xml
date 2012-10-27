@@ -11,13 +11,12 @@
         android:layout_height="0dip"
         android:layout_weight="1" >
 
-        <TableLayout
+        <LinearLayout
             android:id="@+id/counters_main_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:shrinkColumns="*"
-            android:stretchColumns="*" >
-        </TableLayout>
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:orientation="vertical" >
+        </LinearLayout>
     </ScrollView>
 
     <View

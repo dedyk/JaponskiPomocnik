@@ -2,5 +2,19 @@
 <resources>
     <string name="counters_label">Klasyfikatory</string>
     <string name="counters_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="counters_title">Klasyfikatory</string>
+    
+    <string name="counters_examples">Przykłady użycia</string>
+    
+    <string name="counters_how_many">jak wiele</string>
+    
+    <string name="counter_ko_description">małe przedmioty</string>
+    <string-array name="counter_ko_examples">
+        <item >cukierki</item>
+        <item >pomidory</item>
+        <item >gumki</item>
+        <item >mały sprzęt</item>
+    </string-array>
+    
     
 </resources>
