@@ -17,6 +17,9 @@ public class CountersHelper {
 		// =ZŁĄCZ.TEKSTY(G1, E1, H1,A1,I1,B1, J1, D1,K1)
 		// counterEntry.getEntries().add(new CounterEntry.Entry("	", "	", "	", "	"));
 		
+		// tsu - klasyfikator ogólny
+		result.add(createTsuCounter(resources));
+		
 		// ko - małe przedmioty
 		result.add(createKoCounter(resources));
 		
@@ -36,6 +39,24 @@ public class CountersHelper {
 		result.add(createMaiCounter(resources));
 		
 		return result;
+	}
+	
+	private CounterEntry createTsuCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("つ", "つ", "tsu", resources.getString(R.string.counter_tsu_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一つ", "ひとつ", "hitotsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二つ", "ふたつ", "futatsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三つ", "みっつ", "mittsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四つ", "よっつ", "yottsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五つ", "いつつ", "itsutsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六つ", "むっつ", "muttsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七つ", "ななつ", "nanatsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八つ", "やっつ", "yattsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九つ", "ここのつ", "kokonotsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十", "とお", "too"));
+		
+		return counterEntry;
 	}
 	
 	private CounterEntry createKoCounter(Resources resources) {

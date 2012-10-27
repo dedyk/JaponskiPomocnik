@@ -12,6 +12,8 @@
     
     <string name="counters_how_many">jak wiele</string>
     
+    <string name="counter_tsu_description">klasyfikator ogólny</string>
+    
     <string name="counter_ko_description">małe przedmioty</string>
     <string-array name="counter_ko_examples">
         <item >cukierki</item>
