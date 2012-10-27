@@ -82,10 +82,10 @@ public class CountersActivity extends Activity {
 				TableRow tableRow = new TableRow();
 				
 				if (currentCounterEntriesCurrentEntry != null) {
-					StringValue entryKey = new StringValue(currentCounterEntriesCurrentEntry.getKey(), 15.0f, 2);
-					StringValue entryKanji = new StringValue(currentCounterEntriesCurrentEntry.getKanji(), 15.0f, 2);
-					StringValue entryKana = new StringValue(currentCounterEntriesCurrentEntry.getKana(), 15.0f, 2);
-					StringValue entryRomaji = new StringValue(currentCounterEntriesCurrentEntry.getRomaji(), 15.0f, 2);
+					StringValue entryKey = new StringValue(currentCounterEntriesCurrentEntry.getKey(), 15.0f, 1);
+					StringValue entryKanji = new StringValue(currentCounterEntriesCurrentEntry.getKanji(), 15.0f, 1);
+					StringValue entryKana = new StringValue(currentCounterEntriesCurrentEntry.getKana(), 15.0f, 1);
+					StringValue entryRomaji = new StringValue(currentCounterEntriesCurrentEntry.getRomaji(), 15.0f, 1);
 
 					entryKey.setNullMargins(false);
 					entryKanji.setNullMargins(true);

@@ -20,6 +20,9 @@ public class CountersHelper {
 		// tsu - klasyfikator ogólny
 		result.add(createTsuCounter(resources));
 		
+		// ji - godziny
+		result.add(createJiCounter(resources));
+		
 		// ko - małe przedmioty
 		result.add(createKoCounter(resources));
 		
@@ -55,6 +58,30 @@ public class CountersHelper {
 		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八つ", "やっつ", "yattsu"));
 		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九つ", "ここのつ", "kokonotsu"));
 		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十", "とお", "too"));
+		
+		return counterEntry;
+	}
+	
+	private CounterEntry createJiCounter(Resources resources) {
+		
+		CounterEntry counterEntry = new CounterEntry("時", "じ", "ji", resources.getString(R.string.counter_ji_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一時", "いちじ", "ichiji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二時", "にじ", "niji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三時", "さんじ", "sanji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四時", "よじ", "yoji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五時", "ごじ", "goji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六時", "ろくじ", "rokuji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七時", "しちじ", "shichiji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八時", "はちじ", "hachiji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九時", "くじ", "kuji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十時", "じゅうじ", "juuji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("11", "十一時", "じゅういちじ", "juuichiji"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("12", "十二時", "じゅうにじ", "juuniji"));
+		
+		counterEntry.getEntries().add(null);
+		
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counter_ji_whichTime), "何時", "なんじ", "nanji"));
 		
 		return counterEntry;
 	}
