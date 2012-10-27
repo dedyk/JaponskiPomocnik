@@ -148,7 +148,11 @@ public class StringValue implements IScreenItem {
 	}
 	
 	public String toString() {
-		return value.toString();
+		if (value != null) {
+			return value.toString();
+		} else {
+			return null;
+		}
 	}
 	
 	public int getBottomPositionOnScreen() {

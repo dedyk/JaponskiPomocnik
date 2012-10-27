@@ -229,7 +229,7 @@ public class CountersHelper {
 		counterEntry.getEntries().add(null);
 		
 		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何個", "なんこ", "nanko"));
-		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counters_how_many), null, "いくつ", "ikutsu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "", "いくつ", "ikutsu"));
 		
 		String[] examplesArray = resources.getStringArray(R.array.counter_ko_examples);
 		

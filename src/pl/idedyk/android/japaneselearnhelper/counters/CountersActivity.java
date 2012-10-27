@@ -7,15 +7,20 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.CountersHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.CounterEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.CounterEntry.Entry;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -153,11 +158,43 @@ public class CountersActivity extends Activity {
 		// fill mail layout
 		fillMainLayout(report, mainLayout);
 		
-		// test
-		//Button reportProblemButton = (Button)findViewById(R.id.counters_report_problem_button);
+		// report problem
+		Button reportProblemButton = (Button)findViewById(R.id.counters_report_problem_button);
 		
+		reportProblemButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				StringBuffer reportSb = new StringBuffer();
+				
+				for (IScreenItem currentReportScreenItem : report) {
+					reportSb.append(currentReportScreenItem.toString()).append("\n\n");
+				}
+				
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+				
+				String mailSubject = getString(R.string.counters_report_problem_email_subject);
+				
+				String mailBody = getString(R.string.counters_report_problem_email_body,
+						reportSb.toString());				
+				
+		        String versionName = "";
+		        int versionCode = 0;
+		        
+		        try {
+		        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+		        	
+		            versionName = packageInfo.versionName;
+		            versionCode = packageInfo.versionCode;
 
-		
+		        } catch (NameNotFoundException e) {        	
+		        }
+				
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+				
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			}
+		});		
 	}
 
 	private void fillMainLayout(List<IScreenItem> generatedDetails, LinearLayout mainLayout) {
