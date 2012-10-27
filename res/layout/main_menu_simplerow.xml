@@ -6,16 +6,16 @@
 
     <TextView
         android:id="@+id/main_menu_simplerow_kanjitext"
-        android:layout_width="60dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:textSize="25dp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/main_menu_simplerow_rowtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textSize="17dp" />
+        android:textSize="15dp" />
 
 </LinearLayout>

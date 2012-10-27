@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="counters_label">Klasyfikatory</string>
+    <string name="counters_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    
+</resources>
