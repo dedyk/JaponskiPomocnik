@@ -55,7 +55,6 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				getString(R.string.main_menu_counters_kanji),
 				getString(R.string.main_menu_counters_text)));    	
 
-		
 		mainMenuListItems.add(new MainMenuItem(
 				getString(R.string.main_menu_dictionary_kanji),
 				getString(R.string.main_menu_dictionary_text)));

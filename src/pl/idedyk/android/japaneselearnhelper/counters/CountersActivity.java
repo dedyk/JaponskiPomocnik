@@ -143,8 +143,13 @@ public class CountersActivity extends Activity {
 			
 			titleStringValue.setOnClickListener(new OnClickListener() {
 				
-				public void onClick(View v) {
-					scrollMainLayout.scrollTo(0, currentTitle.getY() - 10);					
+				public void onClick(View v) {					
+					Intent intent = new Intent(getApplicationContext(), CountersActivity.class);
+
+					intent.putExtra("counterPos", currentTitle.getY());
+					
+					startActivity(intent);
+					
 				}
 			});
 			
@@ -194,7 +199,18 @@ public class CountersActivity extends Activity {
 				
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
-		});		
+		});	
+		
+		final int counterPos = getIntent().getIntExtra("counterPos", -1);
+		
+		if (counterPos != -1) {	
+			scrollMainLayout.post(new Runnable() {
+				
+				public void run() {
+					scrollMainLayout.scrollTo(0, counterPos - 10);
+				}
+			});
+		}
 	}
 
 	private void fillMainLayout(List<IScreenItem> generatedDetails, LinearLayout mainLayout) {
