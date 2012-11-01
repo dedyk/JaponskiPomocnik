@@ -1,10 +1,13 @@
 package pl.idedyk.android.japaneselearnhelper.sod;
 
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -24,6 +27,22 @@ public class SodActivity extends Activity implements OnClickListener {
 	private StrokedCharacter character;
 	
 	private boolean annotateStrokes;
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+
+		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

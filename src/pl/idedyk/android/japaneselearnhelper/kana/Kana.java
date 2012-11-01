@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.KanaHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
@@ -21,12 +22,30 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TableLayout;
 
 public class Kana extends Activity {
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+
+		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {	

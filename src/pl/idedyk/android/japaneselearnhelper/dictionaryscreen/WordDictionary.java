@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
@@ -23,6 +24,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -59,6 +62,22 @@ public class WordDictionary extends Activity {
 	private TextView wordDictionarySearchElementsNoTextView;
 	
 	private CheckBox[] searchDictionaryEntryListCheckBox;
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+
+		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

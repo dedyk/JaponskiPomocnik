@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiTestConfig;
@@ -28,7 +29,6 @@ import android.graphics.PointF;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -51,14 +51,15 @@ public class KanjiTest extends Activity {
 
 	private KanjiTestConfig kanjiTestConfig;
 
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-
-		MenuInflater inflater = getMenuInflater();
-
-		inflater.inflate(R.menu.common_menu, menu);
-
+		
+		menu.add(Menu.NONE, R.id.report_problem_menu_item, Menu.NONE, R.string.report_problem);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+				
 		return true;
 	}
 
@@ -167,9 +168,9 @@ public class KanjiTest extends Activity {
 			startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 
 			return true;
+		} else {
+			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 		}
-		
-		return false;
 	}
 
 	@Override

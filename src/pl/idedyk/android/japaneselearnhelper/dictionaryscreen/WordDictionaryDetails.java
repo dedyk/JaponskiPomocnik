@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
@@ -32,6 +33,8 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -72,6 +75,22 @@ public class WordDictionaryDetails extends Activity {
 	@Override
 	protected void onStop() {
 		super.onStop();
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+
+		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 	}
 	
 	@Override

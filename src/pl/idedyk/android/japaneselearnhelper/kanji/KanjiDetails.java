@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
@@ -18,12 +19,30 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class KanjiDetails extends Activity {
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+
+		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {	

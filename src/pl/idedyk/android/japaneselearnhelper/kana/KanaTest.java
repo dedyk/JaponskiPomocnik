@@ -11,6 +11,7 @@ import java.util.Random;
 import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanaTestConfig;
@@ -36,6 +37,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
@@ -55,6 +58,22 @@ public class KanaTest extends Activity {
 	private TitleItem answerTitleItem;
 	
 	//private EditText inputAnswerEditText;
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+
+		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {	
