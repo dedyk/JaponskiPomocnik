@@ -14,12 +14,12 @@ import android.view.MenuItem;
 public class MenuShorterHelper {
 
 	public static void onCreateOptionsMenu(Menu menu) {
-		menu.add(Menu.NONE, R.id.main_menu_kana_text_menu_item, Menu.NONE, R.string.main_menu_kana_text);
-		menu.add(Menu.NONE, R.id.main_menu_counters_text_menu_item, Menu.NONE, R.string.main_menu_counters_text);
+		menu.add(Menu.NONE, R.id.main_menu_kana_text_menu_item, Menu.NONE, R.string.main_menu_kana_text_short);
+		menu.add(Menu.NONE, R.id.main_menu_counters_text_menu_item, Menu.NONE, R.string.main_menu_counters_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_dictionary_text_menu_item, Menu.NONE, R.string.main_menu_dictionary_text);
-		menu.add(Menu.NONE, R.id.main_menu_kanji_text_menu_item, Menu.NONE, R.string.main_menu_kanji_text);
-		menu.add(Menu.NONE, R.id.main_menu_kanji_recognizer_text_menu_item, Menu.NONE, R.string.main_menu_kanji_recognizer_text);		
-	}	
+		menu.add(Menu.NONE, R.id.main_menu_kanji_text_menu_item, Menu.NONE, R.string.main_menu_kanji_text_short);
+		menu.add(Menu.NONE, R.id.main_menu_kanji_recognizer_text_menu_item, Menu.NONE, R.string.main_menu_kanji_recognizer_text_short);		
+	}
 	
 	public static boolean onOptionsItemSelected(MenuItem item, Context applicationContext, Activity activity) {
 		

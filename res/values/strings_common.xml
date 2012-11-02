@@ -3,21 +3,25 @@
     <string name="app_name">Japoński pomocnik</string>
     
     <string name="main_menu_kana_text">Tablica hiragana i katakana</string>
+    <string name="main_menu_kana_text_short">Kana</string>
     <string name="main_menu_kana_kanji">あ</string>
 
     <string name="main_menu_kana_test_text">Test z hiragana i katakana</string>
     <string name="main_menu_kana_test_kanji">ア</string>
 
     <string name="main_menu_counters_text">Tablica klasyfikatorów</string>
+    <string name="main_menu_counters_text_short">Klasyfikatory</string>
     <string name="main_menu_counters_kanji">助数詞</string>
     
     <string name="main_menu_dictionary_text">Słowniczek</string>
     <string name="main_menu_dictionary_kanji">辞書</string>
     
     <string name="main_menu_kanji_text">Wyszukiwarka znaków kanji</string>
+    <string name="main_menu_kanji_text_short">Wyszukiwanie kanji</string>
     <string name="main_menu_kanji_kanji">漢字</string>
 
     <string name="main_menu_kanji_recognizer_text">Rozpoznawanie znaków kanji</string>
+    <string name="main_menu_kanji_recognizer_text_short">Rozpoznawanie kanji</string>
     <string name="main_menu_kanji_recognizer_kanji">漢字</string>
     
     <string name="main_menu_word_test_text">Test ze słówek</string>
