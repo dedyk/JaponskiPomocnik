@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
@@ -19,6 +20,7 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
+import pl.idedyk.android.japaneselearnhelper.screen.Image;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
@@ -26,12 +28,16 @@ import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,7 +46,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class WordDictionaryDetails extends Activity {
+public class WordDictionaryDetails extends Activity implements OnInitListener {
+	
+	private TextToSpeech textToSpeech = null;
 
 	@Override
 	public void onBackPressed() {
@@ -49,6 +57,12 @@ public class WordDictionaryDetails extends Activity {
 
 	@Override
 	protected void onDestroy() {
+		
+		if (textToSpeech != null) {
+			textToSpeech.stop();
+			textToSpeech.shutdown();
+		}
+		
 		super.onDestroy();
 	}
 
@@ -144,6 +158,24 @@ public class WordDictionaryDetails extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		
+		textToSpeech = new TextToSpeech(this, this);
+	}
+	
+	public void onInit(int status) {
+		
+		if (status == TextToSpeech.SUCCESS) {
+			
+			int result = textToSpeech.setLanguage(Locale.JAPANESE);
+			
+			if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+				textToSpeech = null;
+			} else {
+				// success
+			}
+		} else {
+			textToSpeech = null;
+		}
 	}
 
 	private List<IScreenItem> generateDetails(DictionaryEntry dictionaryEntry) {
@@ -203,7 +235,7 @@ public class WordDictionaryDetails extends Activity {
 		if (furiganaEntries != null && furiganaEntries.size() > 0 && addKanjiWrite == true) {
 			
 			report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
-			
+						
 			for (FuriganaEntry currentFuriganaEntry : furiganaEntries) {
 				
 				TableLayout furiganaTableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
@@ -262,17 +294,31 @@ public class WordDictionaryDetails extends Activity {
 				}
 								
 				report.add(furiganaTableLayout);
+				
+				Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
+				
+				speakImage.setOnClickListener(new TTSJapaneseSpeak(null, dictionaryEntry.getKanji()));
+				
+				report.add(speakImage);
 			}
 		} else {
 			StringValue kanjiStringValue = new StringValue(kanjiSb.toString(), 35.0f, 0);
 			
 			if (addKanjiWrite == true) {
 				report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
-				
+								
 				kanjiStringValue.setOnClickListener(kanjiDrawOnClickListener);			
 			}
 			
 			report.add(kanjiStringValue);
+			
+			if (addKanjiWrite == true) {
+				Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
+				
+				speakImage.setOnClickListener(new TTSJapaneseSpeak(dictionaryEntry.getPrefixKana(), dictionaryEntry.getKanji()));
+				
+				report.add(speakImage);
+			}
 		}	
 				
 		// Reading
@@ -297,7 +343,7 @@ public class WordDictionaryDetails extends Activity {
 			}
 			
 			sb.append(romajiList.get(idx));
-			
+						
 			StringValue readingStringValue = new StringValue(sb.toString(), 20.0f, 0);
 			
 			readingStringValue.setOnClickListener(new OnClickListener() {
@@ -317,8 +363,13 @@ public class WordDictionaryDetails extends Activity {
 					startActivity(intent);					
 				}
 			});
+					
+			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
 			
+			speakImage.setOnClickListener(new TTSJapaneseSpeak(prefixKana, kanaList.get(idx)));
+
 			report.add(readingStringValue);
+			report.add(speakImage);
 		}
 				
 		// Translate
@@ -476,7 +527,7 @@ public class WordDictionaryDetails extends Activity {
 		String prefixRomaji = grammaFormConjugateResult.getPrefixRomaji();
 		
 		StringBuffer grammaFormKanjiSb = new StringBuffer();
-		
+						
 		if (grammaFormKanji != null) {
 			if (prefixKana != null && prefixKana.equals("") == false) {
 				grammaFormKanjiSb.append("(").append(prefixKana).append(") ");
@@ -501,7 +552,7 @@ public class WordDictionaryDetails extends Activity {
 			sb.append(grammaFormKanaList.get(idx));
 						
 			report.add(new StringValue(sb.toString(), 15.0f, 2));
-			
+						
 			StringBuffer grammaFormRomajiSb = new StringBuffer();
 			
 			if (prefixRomaji != null && prefixRomaji.equals("") == false) {
@@ -511,6 +562,12 @@ public class WordDictionaryDetails extends Activity {
 			grammaFormRomajiSb.append(grammaFormRomajiList.get(idx));
 			
 			report.add(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
+			
+			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 2);
+			
+			speakImage.setOnClickListener(new TTSJapaneseSpeak(prefixKana, grammaFormKanaList.get(idx)));
+			
+			report.add(speakImage);
 		}
 		
 		GrammaFormConjugateResult alternative = grammaFormConjugateResult.getAlternative();
@@ -556,7 +613,7 @@ public class WordDictionaryDetails extends Activity {
 			sb.append(exampleKanaList.get(idx));
 						
 			report.add(new StringValue(sb.toString(), 15.0f, 2));
-			
+						
 			StringBuffer exampleRomajiSb = new StringBuffer();
 
 			if (prefixRomaji != null && prefixRomaji.equals("") == false) {
@@ -566,6 +623,12 @@ public class WordDictionaryDetails extends Activity {
 			exampleRomajiSb.append(exampleRomajiList.get(idx));
 			
 			report.add(new StringValue(exampleRomajiSb.toString(), 15.0f, 2));
+			
+			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 2);
+			
+			speakImage.setOnClickListener(new TTSJapaneseSpeak(prefixKana, exampleKanaList.get(idx)));
+			
+			report.add(speakImage);
 		}
 		
 		ExampleResult alternative = exampleResult.getAlternative();
@@ -601,5 +664,48 @@ public class WordDictionaryDetails extends Activity {
 		smStringValue.setGravity(Gravity.CENTER);
 		
 		return smStringValue;
+	}
+	
+	private class TTSJapaneseSpeak implements OnClickListener {
+
+		private String prefix;
+		
+		private String kanjiKana;
+		
+		public TTSJapaneseSpeak(String prefix, String kanjiKana) {
+			this.prefix = prefix;
+			this.kanjiKana = kanjiKana;
+		}
+		
+		public void onClick(View v) {
+			
+			StringBuffer text = new StringBuffer();
+			
+			if (prefix != null) {
+				text.append(prefix);
+			}
+			
+			if (kanjiKana != null) {
+				text.append(kanjiKana);
+			}			
+			
+			if (textToSpeech != null) {
+				textToSpeech.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null);
+			} else {
+				AlertDialog alertDialog = new AlertDialog.Builder(WordDictionaryDetails.this).create();
+				
+				alertDialog.setMessage(getString(R.string.word_dictionary_details_tts_error));
+				alertDialog.setCancelable(false);
+				
+				alertDialog.setButton(getString(R.string.word_dictionary_details_tts_error_ok), new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog, int which) {
+						// noop
+					}
+				});
+				
+				alertDialog.show();
+			}
+		}
 	}
 }

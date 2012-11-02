@@ -97,7 +97,7 @@ public class CountersActivity extends Activity {
 			titleList.add(currentTitle);
 			report.add(currentTitle);
 			
-			TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, null, true);
+			TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, true);
 			
 			List<Entry> currentCounterEntries = currentCounter.getEntries();
 			

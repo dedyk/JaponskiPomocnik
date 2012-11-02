@@ -23,7 +23,7 @@ public class TableRow implements IScreenItem {
 		
 		if (screenItems.size() > 0) {
 			android.widget.TableRow tableRow = new android.widget.TableRow(context);
-			
+						
 			for (IScreenItem currentScreenItem : screenItems) {
 				currentScreenItem.generate(context, resources, tableRow);
 			}
