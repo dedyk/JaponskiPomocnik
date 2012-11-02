@@ -332,7 +332,7 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			if (addKanjiWrite == true) {
 				Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
 				
-				speakImage.setOnClickListener(new TTSJapaneseSpeak(dictionaryEntry.getPrefixKana(), dictionaryEntry.getKanji()));
+				speakImage.setOnClickListener(new TTSJapaneseSpeak(null, dictionaryEntry.getKanji()));
 				
 				report.add(speakImage);
 			}
@@ -383,7 +383,7 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 					
 			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
 			
-			speakImage.setOnClickListener(new TTSJapaneseSpeak(prefixKana, kanaList.get(idx)));
+			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanaList.get(idx)));
 
 			report.add(readingStringValue);
 			report.add(speakImage);
@@ -582,7 +582,7 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			
 			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 2);
 			
-			speakImage.setOnClickListener(new TTSJapaneseSpeak(prefixKana, grammaFormKanaList.get(idx)));
+			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, grammaFormKanaList.get(idx)));
 			
 			report.add(speakImage);
 		}
@@ -643,7 +643,7 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			
 			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 2);
 			
-			speakImage.setOnClickListener(new TTSJapaneseSpeak(prefixKana, exampleKanaList.get(idx)));
+			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, exampleKanaList.get(idx)));
 			
 			report.add(speakImage);
 		}
@@ -704,8 +704,8 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			
 			if (kanjiKana != null) {
 				text.append(kanjiKana);
-			}			
-			
+			}
+						
 			if (textToSpeech != null) {
 				textToSpeech.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null);
 			} else {
