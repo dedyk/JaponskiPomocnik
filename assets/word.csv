@@ -2171,3 +2171,14 @@ dobrze poszło",,
 2239,WORD,UNKNOWN,HIRAGANA,,日中,にっちゅう,,nicchuu,"za dnia
 w czasie dnia",,
 2240,WORD,WORD_NOUN,KATAKANA,,-,ベッド,,beddo,łóżko,,
+2241,WORD,WORD_NOUN,HIRAGANA,,馬鹿,ばか,,baka,"głupek
+idiota",,
+2242,WORD,WORD_VERB_U,HIRAGANA,,恥ずかしがる,はずかしがる,,hazukashigaru,"być nieśmiały
+być wstydliwy",,
+2243,WORD,WORD_EXPRESSION,HIRAGANA,,恥ずかしがりの,はずかしがりの,,hazukashigari no,nieśmiały,,
+2244,WORD,WORD_EXPRESSION,HIRAGANA,,恥ずかしがりの人,はずかしがりのひと,,hazukashigari no hito,nieśmiały człowiek,,
+2245,WORD,WORD_ADJECTIVE_I,HIRAGANA,,恥ずかしい,はずかしい,,hazukashii,"nieśmiały
+bojaźliwy",,
+2246,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,内気,うちき,,uchiki,"nieśmiałość
+skromność
+bojaźliwość",,
