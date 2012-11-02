@@ -159,6 +159,11 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			}
 		});
 		
+		if (textToSpeech != null) {
+			textToSpeech.stop();
+			textToSpeech.shutdown();
+		}
+		
 		textToSpeech = new TextToSpeech(this, this);
 	}
 	
@@ -169,11 +174,23 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			int result = textToSpeech.setLanguage(Locale.JAPANESE);
 			
 			if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+				
+				if (textToSpeech != null) {
+					textToSpeech.stop();
+					textToSpeech.shutdown();
+				}
+				
 				textToSpeech = null;
 			} else {
 				// success
 			}
 		} else {
+			
+			if (textToSpeech != null) {
+				textToSpeech.stop();
+				textToSpeech.shutdown();
+			}
+			
 			textToSpeech = null;
 		}
 	}
