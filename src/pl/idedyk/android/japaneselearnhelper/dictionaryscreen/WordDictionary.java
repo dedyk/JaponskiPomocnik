@@ -49,6 +49,8 @@ public class WordDictionary extends Activity {
 	
 	private List<WordDictionaryListItem> searchResultList;
 	
+	private CheckBox seachOptionsEachChangeCheckBox;
+	
 	private CheckBox searchOptionsKanjiCheckbox;
 	private CheckBox searchOptionsKanaCheckbox;
 	private CheckBox searchOptionsRomajiCheckbox;
@@ -112,6 +114,31 @@ public class WordDictionary extends Activity {
 		
 		final EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);		
 		
+		final Button searchButton = (Button)findViewById(R.id.word_dictionary_search_search_button);
+		
+		searchButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				performSearch(searchValueEditText.getText().toString());
+			}
+		});
+		
+		seachOptionsEachChangeCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_each_change_checkbox);
+		
+		seachOptionsEachChangeCheckBox.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				
+				if (searchButton.getVisibility() == View.GONE) {
+					searchButton.setVisibility(View.VISIBLE);
+				} else {
+					searchButton.setVisibility(View.GONE);
+					
+					performSearch(searchValueEditText.getText().toString());
+				}
+			}
+		});
+		
 		searchOptionsKanjiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kanji_checkbox);
 		searchOptionsKanaCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kana_checkbox);
 		searchOptionsRomajiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_romaji_checkbox);
@@ -124,7 +151,10 @@ public class WordDictionary extends Activity {
 		
 		OnClickListener searchOptionsOnClick = new OnClickListener() {			
 			public void onClick(View view) {
-				performSearch(searchValueEditText.getText().toString());
+				
+				if (seachOptionsEachChangeCheckBox.isChecked() == true) {
+					performSearch(searchValueEditText.getText().toString());
+				}
 			}
 		};
 		
@@ -141,7 +171,10 @@ public class WordDictionary extends Activity {
 		searchValueEditText.addTextChangedListener(new TextWatcher() {
 			
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				performSearch(s.toString());
+				
+				if (seachOptionsEachChangeCheckBox.isChecked() == true) {
+					performSearch(s.toString());
+				}
 			}
 			
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {

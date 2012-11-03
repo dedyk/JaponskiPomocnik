@@ -12,6 +12,7 @@
     <string name="word_dictionary_known_kanji_info">Klikając na dany znak uzyska się szczegóły</string>
     <string name="word_dictionary_word_anim">Naciśnij na słowo, aby uzyskać animację pisania</string>
     <string name="word_dictionary_search_options_button">Opcje</string>
+    <string name="word_dictionary_search_search_button">Szukaj</string>
     <string name="word_dictionary_search_options_button_hide">Schowaj</string>
     <string name="word_dictionary_search_options_search_in_label">Szukaj w:</string>
     <string name="word_dictionary_search_options_kanji_checkbox">kanji</string>
@@ -20,6 +21,8 @@
     <string name="word_dictionary_search_options_translate_checkbox">tłumaczenie</string>
     <string name="word_dictionary_search_options_info_checkbox">informacje dodatkowe</string>
     <string name="word_dictionary_no_search_options_info">Nie wybrano miejsc szukania słów</string>
+    <string name="word_dictionary_search_options_search_mode_label">Sposób wyszukiwania</string>
+    <string name="word_dictionary_search_options_search_each_change">Szukaj z każdą zmianą frazy</string>
     <string name="word_dictionary_search_options_search_place_label">Szukaj ciągu:</string>
     <string name="word_dictionary_search_options_search_any_place_radiobutton">w dowolnym miejscu w słowie</string>
     <string name="word_dictionary_search_options_search_startwith_radiobutton">od pierwszego znaku w słowie</string>
