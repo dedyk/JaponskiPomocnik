@@ -92,7 +92,7 @@ public class FuriganaEntry {
 		kanaPart.add(hiragana);
 	}
 	
-	public boolean matchKanaWithKanaPart() {
+	public String getKanaPartJoined() {
 		
 		StringBuffer kanaPartJointed = new StringBuffer();
 		
@@ -100,7 +100,12 @@ public class FuriganaEntry {
 			kanaPartJointed.append(currentKanaPath);
 		}
 		
-		return kanaPartJointed.toString().equals(kana);
+		return kanaPartJointed.toString();
+	}
+	
+	public boolean matchKanaWithKanaPart() {
+		
+		return getKanaPartJoined().toString().equals(kana);
 	}
 
 	@Override

@@ -246,6 +246,8 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			}
 		};		
 		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+		
 		// check furigana
 		List<FuriganaEntry> furiganaEntries = DictionaryManager.getInstance().getFurigana(dictionaryEntry);
 		
@@ -314,7 +316,7 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 				
 				Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
 				
-				speakImage.setOnClickListener(new TTSJapaneseSpeak(null, dictionaryEntry.getKanji()));
+				speakImage.setOnClickListener(new TTSJapaneseSpeak(null, currentFuriganaEntry.getKanaPartJoined()));
 				
 				report.add(speakImage);
 			}
@@ -332,7 +334,11 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			if (addKanjiWrite == true) {
 				Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
 				
-				speakImage.setOnClickListener(new TTSJapaneseSpeak(null, dictionaryEntry.getKanji()));
+				if (kanaList != null && kanaList.size() > 0) {
+					speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanaList.get(0)));
+				} else {
+					speakImage.setOnClickListener(new TTSJapaneseSpeak(null, dictionaryEntry.getKanji()));	
+				}
 				
 				report.add(speakImage);
 			}
@@ -342,7 +348,7 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
 		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 		
-		List<String> kanaList = dictionaryEntry.getKanaList();
+		
 		List<String> romajiList = dictionaryEntry.getRomajiList();
 		
 		for (int idx = 0; idx < kanaList.size(); ++idx) {
