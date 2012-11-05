@@ -1453,7 +1453,8 @@ takiego rodzaju",blisko mówcy,
 1290,WORD,WORD_COUNTERS,HIRAGANA,,何枚,なんまい,,nanmai,jak wiele,płaskie przedmioty,
 1301,WORD,WORD_NOUN,HIRAGANA,,悩み,なやみ,,nayami,zmartwienie,,
 1302,WORD,WORD_NOUN,KATAKANA,,-,アドバイス,,adobaisu,rada,,
-1303,WORD,UNKNOWN,HIRAGANA,,年上,としうえ,,toshiue,stać się starszy,,
+1303,WORD,UNKNOWN,HIRAGANA,,年上,としうえ,,toshi ue,"starszy wiekiem
+senior",,
 1304,WORD,WORD_NOUN,HIRAGANA,,時代,じだい,,jidai,"wiek
 era",,
 1305,WORD,WORD_NOUN,HIRAGANA,,先輩,せんぱい,,senpai,starszy (wiekiem lub stażem) członek grupy,,
@@ -1463,7 +1464,8 @@ era",,
 1310,WORD,WORD_NOUN,HIRAGANA,,父親,ちちおや,,chichioya,ojciec,formalnie,
 1311,WORD,UNKNOWN,HIRAGANA,,急に,きゅうに,,kyuuni,nagle,,
 1312,WORD,UNKNOWN,HIRAGANA,,出張,しゅっちょう,,shucchou,wyjazd biznesowy,,
-1314,WORD,UNKNOWN,HIRAGANA,,場合,ばあい,,baai,powód,,
+1314,WORD,UNKNOWN,HIRAGANA,,場合,ばあい,,baai,"powód
+sprawa",,
 1315,WORD,WORD_NOUN,HIRAGANA,,絵,え,,e,"obraz
 rysunek",,
 1316,WORD,WORD_NOUN,HIRAGANA,,映画館,えいがかん,,eigakan,kino,,
@@ -2194,3 +2196,18 @@ system",,
 2253,WORD,WORD_NOUN,HIRAGANA,,劇,げき,,geki,"sztuka teatralna
 dramat
 przedstawienie",,
+2254,WORD,WORD_NOUN,KATAKANA,,-,ピクニック,,pikunikku,piknik,,
+2255,WORD,WORD_NOUN,HIRAGANA,,兎,うさぎ,,usagi,królik,,
+2256,WORD,WORD_NOUN,HIRAGANA,,お客さん,おきゃくさん,,okyakusan,"gość
+klient",,
+2257,WORD,WORD_NOUN,KATAKANA,,-,ラウンドアバウト,,raundo abauto,rondo,,
+2258,WORD,WORD_NOUN,KATAKANA,,-,カメラマン,,kamera man,"kamerzysta
+operator kamery",,
+2259,WORD,WORD_NOUN,HIRAGANA,,狐,きつね,,kitsune,lis,,
+2260,WORD,WORD_NOUN,HIRAGANA,,砂糖,さとう,,satou,cukier,,
+2261,WORD,WORD_NOUN,HIRAGANA,,人参,にんじん,,ninjin,"marchewka
+żeń-szeń",,
+2262,WORD,WORD_NOUN,HIRAGANA,,島,しま,,shima,wyspa,,
+2263,WORD,UNKNOWN,HIRAGANA,,年下,としした,,toshi shita,młodszy wiekiem,,
+2264,WORD,WORD_NOUN,HIRAGANA,お,墓,はか,o,haka,"grób
+grobowiec",,
