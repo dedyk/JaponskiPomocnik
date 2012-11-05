@@ -45,6 +45,10 @@ public class ConfigManager {
 		return new SplashConfig();
 	}
 	
+	public WordDictionarySearchConfig getWordDictionarySearchConfig() {
+		return new WordDictionarySearchConfig();
+	}
+	
 	public class KanaTestConfig {
 		
 		private final String kanaTestConfigPrefix = "kanaTestConfig_";
@@ -306,5 +310,25 @@ public class ConfigManager {
 			
 			editor.commit();
 		}		
+	}
+	
+	public class WordDictionarySearchConfig {
+		
+		private final String wordDictionarySearchConfigPrefix = "wordDictionarySearchConfig_";
+		
+		private final String eachChangeSearchPostfix = "eachChangeSearchPostfix";
+		
+		public Boolean getEachChangeSearch() {
+			return preferences.getBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, true);
+		}
+		
+		public void setEachChangeSearch(boolean eachChangeSearch) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, eachChangeSearch);
+			
+			editor.commit();			
+		}
 	}
 }
