@@ -81,6 +81,12 @@ public class VerbExampler {
 		// tara dou desu ka
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA_DOU_DESU_KA, makeTaraDouDesuKaExample(dictionaryEntry));
 
+		// ou to omou
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_OU_TO_OMOU, makeOuToOmou(dictionaryEntry));
+
+		// ou to omotte iru
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_OU_TO_OMOTTE_IRU, makeOuToOmotteIru(dictionaryEntry));
+		
 		// te oku
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_OKU, makeTeOkuExample(dictionaryEntry));
 		
@@ -419,6 +425,28 @@ public class VerbExampler {
 		final String templateRomaji = "%sra";
 		
 		return ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeOuToOmou(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult volitionalForm = VerbGrammaConjugater.makeVolitionalForm(dictionaryEntry);
+		
+		final String templateKanji = "%sと思う";
+		final String templateKana = "%sとおもう";
+		final String templateRomaji = "%s to omou";
+		
+		return ExampleHelper.makeSimpleTemplateExample(volitionalForm, templateKanji, templateKana, templateRomaji, true);		
+	}
+
+	private static ExampleResult makeOuToOmotteIru(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult volitionalForm = VerbGrammaConjugater.makeVolitionalForm(dictionaryEntry);
+		
+		final String templateKanji = "%sと思っている";
+		final String templateKana = "%sとおもっている";
+		final String templateRomaji = "%s to omotte iru";
+		
+		return ExampleHelper.makeSimpleTemplateExample(volitionalForm, templateKanji, templateKana, templateRomaji, true);		
 	}
 	
 	private static ExampleResult makeTaraDouDesuKaExample(DictionaryEntry dictionaryEntry) {

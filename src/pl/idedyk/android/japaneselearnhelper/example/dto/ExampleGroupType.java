@@ -2,6 +2,10 @@ package pl.idedyk.android.japaneselearnhelper.example.dto;
 
 public enum ExampleGroupType {
 	
+	ADJECTIVE_I_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
+	
+	ADJECTIVE_I_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
+	
 	ADJECTIVE_I_NARU("Stawać się"),
 	
 	ADJECTIVE_I_N_DESU("Forma wyjaśniająca"),
@@ -13,6 +17,10 @@ public enum ExampleGroupType {
 	ADJECTIVE_I_SOU_DESU("\"Wygląda na\""),
 	
 	ADJECTIVE_I_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
+	
+	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
+	
+	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
 	
 	ADJECTIVE_NA_NARU("Stawać się"),
 	
@@ -89,6 +97,10 @@ public enum ExampleGroupType {
 	VERB_TARA("Jeśli (tryb warunkowy)"),
 	
 	VERB_TARA_DOU_DESU_KA("Rada lub zalecenie", "Uwaga: Nie używane w zaproszeniach"),
+	
+	VERB_OU_TO_OMOU("Wola (decyzja podjęta w momencie mówienia)"),
+	
+	VERB_OU_TO_OMOTTE_IRU("Wola (decyzja podjęta wcześniej)"),
 	
 	VERB_TE_OKU("Przygotować się");
 	

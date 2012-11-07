@@ -16,6 +16,12 @@ public class AdjectiveIExampler {
 
 		List<ExampleGroupTypeElements> result = new ArrayList<ExampleGroupTypeElements>();
 		
+		// motto
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_II_GRADATION, makeMotto(dictionaryEntry));
+
+		// mottomo
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_III_GRADATION, makeMottomo(dictionaryEntry));
+		
 		// ku naru
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_NARU, makeAdjectiveINaru(dictionaryEntry));
 		
@@ -36,7 +42,33 @@ public class AdjectiveIExampler {
 		
 		return result;
 	}
+	
+	private static ExampleResult makeMotto(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "もっと%s";
+		final String templateKana = "もっと%s";
+		final String templateRomaji = "motto %s";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
 
+	private static ExampleResult makeMottomo(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji1 = "最も%s";
+		final String templateKana1 = "もっとも%s";
+		final String templateRomaji1 = "mottomo %s";
+		
+		ExampleResult mottomoExample = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		final String templateKanji2 = "一番%s";
+		final String templateKana2 = "いちばん%s";
+		final String templateRomaji2 = "ichiban %s";
+		
+		mottomoExample.setAlternative(ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return mottomoExample;
+	}
+	
 	private static ExampleResult makeAdjectiveINaru(DictionaryEntry dictionaryEntry) {
 		
 		GrammaFormConjugateResult virtualForm = AdjectiveIGrammaConjugater.makeVirtualForm(dictionaryEntry);

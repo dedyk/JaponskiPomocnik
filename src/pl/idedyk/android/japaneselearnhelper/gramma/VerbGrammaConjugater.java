@@ -1349,7 +1349,7 @@ public class VerbGrammaConjugater {
 		throw new RuntimeException("makePotentialFormForRomaji 3");
 	}
 	
-	private static GrammaFormConjugateResult makeVolitionalForm(DictionaryEntry dictionaryEntry) {
+	public static GrammaFormConjugateResult makeVolitionalForm(DictionaryEntry dictionaryEntry) {
 				
 		// make common
 		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
