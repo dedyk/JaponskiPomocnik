@@ -865,7 +865,7 @@ otrzymać","coś, osoba ni rzecz",
 770,WORD,WORD_VERB_RU,HIRAGANA,,覚える,おぼえる,,oboeru,zapamiętać,,
 771,WORD,WORD_VERB_RU,HIRAGANA,に,出る,でる,ni,deru,pojawić się,,
 772,WORD,WORD_VERB_RU,HIRAGANA,を,出る,でる,o,deru,wychodzić,,
-773,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,運動する,うんどうする,,undou suru,ćwiczenia,fizyczne,
+773,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,運動する,うんどうする,,undou suru,ćwiczyć,fizyczne,
 774,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,散歩する,さんぽする,,sanpo suru,spacerować,,
 776,WORD,UNKNOWN,HIRAGANA,,是非,ぜひ,,zehi,koniecznie,,
 777,WORD,UNKNOWN,HIRAGANA,,-,ところで,,tokorode,przy okazji,,
@@ -2237,3 +2237,45 @@ uprowadzenie",,
 2278,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,誘拐する,ゆうかいする,,yuukai suru,"porywać
 uprowadzać",,
 2279,WORD,WORD_VERB_RU,HIRAGANA,,振られる,ふられる,,furareru,zostać porzucony,"np. przez dziewczynę, chłopaka",
+2280,WORD,UNKNOWN,HIRAGANA,,失業,しつぎょう,,shitsugyou,bezrobocie,,
+2281,WORD,WORD_ADJECTIVE_I,HIRAGANA,,軽い,かるい,,karui,lekki,nieciężki,
+2282,WORD,WORD_ADJECTIVE_I,HIRAGANA,,醜い,みにくい,,minikui,"brzydki
+okropny
+wstrętny",,
+2283,WORD,WORD_ADJECTIVE_I,HIRAGANA,,深い,ふかい,,fukai,głęboki,,
+2284,WORD,WORD_ADJECTIVE_I,HIRAGANA,,柔らかい,やわらかい,,yawarakai,"miękki
+łagodny
+delikatny",,
+2285,WORD,WORD_ADJECTIVE_I,HIRAGANA,,浅い,あさい,,asai,płytki,,
+2286,WORD,WORD_ADJECTIVE_I,HIRAGANA,,弱い,よわい,,yowai,"słaby
+niezdolny",,
+2287,WORD,WORD_ADJECTIVE_I,HIRAGANA,,鈍い,にぶい,,nibui,tępy,,
+2288,WORD,WORD_NOUN,HIRAGANA,,葬式,そうしき,,soushiki,pogrzeb,,
+2289,WORD,WORD_NOUN,HIRAGANA,,着陸,ちゃくりく,,chakuriku,lądowanie,,
+2290,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,着陸する,ちゃくりくする,,chakuriku suru,lądować,,
+2291,WORD,WORD_NOUN,HIRAGANA,,離陸,りりく,,ririku,"start
+wylot",samolotu,
+2292,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,離陸する,りりくする,,ririku suru,"startowanie
+wylot",samolotu,
+2293,WORD,WORD_NOUN,HIRAGANA,,広場,ひろば,,hiroba,plac,,
+2294,WORD,WORD_NOUN,HIRAGANA,,墓地,ぼち,,bochi,cmentarz,,
+2295,WORD,WORD_NOUN,HIRAGANA,,教会,きょうかい,,kyoukai,kościół,,
+2296,WORD,WORD_NOUN,HIRAGANA,,橋,はし,,hashi,most,,
+2297,WORD,WORD_NOUN,KATAKANA,,-,ケチャップ,,kechappu,"ketchup
+keczup",,
+2298,WORD,WORD_NOUN,HIRAGANA,,-,こしょう,,koshou,pieprz,,
+2299,WORD,WORD_NOUN,HIRAGANA,,塩,しお,,shio,sól,,
+2300,WORD,WORD_NOUN,KATAKANA,,-,マスタード,,masutaado,musztarda,,
+2301,WORD,WORD_NOUN,KATAKANA,,-,マヨネーズ,,mayoneezu,majonez,,
+2302,WORD,WORD_NOUN,KATAKANA,,-,バター,,bataa,masło,,
+2303,WORD,WORD_NOUN,KATAKANA,,-,チーズ,,chiizu,ser,,
+2304,WORD,WORD_NOUN,HIRAGANA,,-,なし,,nashi,"grusza
+gruszka",,
+2305,WORD,WORD_NOUN,HIRAGANA,,胡桃,くるみ,,kurumi,orzech,,
+2306,WORD,WORD_NOUN,HIRAGANA,,苺,いちご,,ichigo,truskawki,,
+2307,WORD,WORD_NOUN,HIRAGANA,,葡萄,ぶどう,,budou,winogrono,,
+2308,WORD,WORD_NOUN,HIRAGANA,,李,すもも,,sumomo,śliwka,,
+2309,WORD,WORD_NOUN,HIRAGANA,,俳句,はいく,,haiku,haiku,japońska forma literacka,
+2310,WORD,WORD_NOUN,KATAKANA,,-,ストーブ,,sutoobu,"ogrzewanie
+kuchenka",,
+2311,WORD,WORD_NOUN,HIRAGANA,,運動,うんどう,,undou,ćwiczenia,fizyczne,

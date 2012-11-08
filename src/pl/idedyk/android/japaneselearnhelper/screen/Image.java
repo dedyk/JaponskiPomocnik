@@ -80,4 +80,9 @@ public class Image implements IScreenItem {
 
 		layout.addView(imageView);
 	}
+
+	@Override
+	public String toString() {
+		return "";
+	}
 }
