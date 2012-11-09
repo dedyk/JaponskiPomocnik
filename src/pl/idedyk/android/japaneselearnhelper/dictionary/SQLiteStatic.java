@@ -100,7 +100,11 @@ public class SQLiteStatic {
 	public static final String listEntriesTableCreateAllIndex = 
 			"create index " + listEntriesTableName + "AllIdx on " +
 			listEntriesTableName + "(" + listEntriesTable_type + ", " + listEntriesTable_subType + ", " + listEntriesTable_key + ")";
-	
+
+	public static final String listEntriesTableCreateTypeKeyIndex = 
+			"create index " + listEntriesTableName + "TypeKeyIdx on " +
+			listEntriesTableName + "(" + listEntriesTable_type + ", " + listEntriesTable_key + ")";
+
 	/*
 	public static final String listEntriesTableCreateTypeIndex = 
 			"create index " + listEntriesTableName + listEntriesTable_type.substring(0, 1).toUpperCase() + listEntriesTable_type.substring(1) + "Idx on " +
@@ -181,9 +185,8 @@ public class SQLiteStatic {
 			exampleResultEntriesTable_romajiList + " text not null);";
 	
 	public static final String listEntriesTableSelectValues =
-			"select " + listEntriesTable_value + " from " + listEntriesTableName + " " + 
+			"select " + listEntriesTable_subType + ", " + listEntriesTable_value + " from " + listEntriesTableName + " " + 
 			"where " + listEntriesTable_type + " = ? and " +
-			listEntriesTable_subType + " = ? and " + 
 			listEntriesTable_key + " = ?";
 	
 	public static final String dictionaryEntriesTableIdElement = 

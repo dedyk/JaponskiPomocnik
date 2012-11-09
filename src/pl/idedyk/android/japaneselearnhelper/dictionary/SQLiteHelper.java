@@ -17,6 +17,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 		
 		db.execSQL(SQLiteStatic.listEntriesTableCreate);
 		db.execSQL(SQLiteStatic.listEntriesTableCreateAllIndex);
+		db.execSQL(SQLiteStatic.listEntriesTableCreateTypeKeyIndex);
 		// db.execSQL(SQLiteStatic.listEntriesTableCreateTypeIndex);
 		// db.execSQL(SQLiteStatic.listEntriesTableCreateSubTypeIndex);
 		// db.execSQL(SQLiteStatic.listEntriesTableCreateKeyIndex);
