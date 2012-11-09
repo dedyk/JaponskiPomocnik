@@ -6,6 +6,14 @@ public class SQLiteStatic {
 
 	public static final String databaseName = "JapaneseAndroidLearnHelperDb";
 	
+	public static final String listEntriesTableName = "ListEntries";
+	
+	public static final String listEntriesTable_id = "id";
+	public static final String listEntriesTable_type = "type";
+	public static final String listEntriesTable_subType = "subType";
+	public static final String listEntriesTable_key = "key";
+	public static final String listEntriesTable_value = "value";
+	
 	public static final String dictionaryEntriesTableName = "DictionaryEntries";
 	
 	public static final String dictionaryEntriesTable_id = "id";
@@ -80,6 +88,36 @@ public class SQLiteStatic {
 			SQLiteStatic.kanjiEntriesTable_generated,
 			SQLiteStatic.kanjiEntriesTable_groups
 	};
+	
+	public static final String listEntriesTableCreate =
+			"create table " + listEntriesTableName + "(" +
+			listEntriesTable_id + " integer primary key autoincrement, " +
+			listEntriesTable_type + " text not null, " +
+			listEntriesTable_subType + " text not null, " +
+			listEntriesTable_key + " text not null, " +
+			listEntriesTable_value + " text not null);";
+
+	public static final String listEntriesTableCreateAllIndex = 
+			"create index " + listEntriesTableName + "AllIdx on " +
+			listEntriesTableName + "(" + listEntriesTable_type + ", " + listEntriesTable_subType + ", " + listEntriesTable_key + ")";
+	
+	/*
+	public static final String listEntriesTableCreateTypeIndex = 
+			"create index " + listEntriesTableName + listEntriesTable_type.substring(0, 1).toUpperCase() + listEntriesTable_type.substring(1) + "Idx on " +
+			listEntriesTableName + "(" + listEntriesTable_type + ")";
+
+	public static final String listEntriesTableCreateSubTypeIndex = 
+			"create index " + listEntriesTableName + listEntriesTable_subType.substring(0, 1).toUpperCase() + listEntriesTable_subType.substring(1) + "Idx on " +
+			listEntriesTableName + "(" + listEntriesTable_subType + ")";
+	
+	public static final String listEntriesTableCreateKeyIndex = 
+			"create index " + listEntriesTableName + listEntriesTable_key.substring(0, 1).toUpperCase() + listEntriesTable_key.substring(1) + "Idx on " +
+			listEntriesTableName + "(" + listEntriesTable_key + ")";
+
+	public static final String listEntriesTableCreateValueIndex = 
+			"create index " + listEntriesTableName + listEntriesTable_value.substring(0, 1).toUpperCase() + listEntriesTable_value.substring(1) + "Idx on " +
+			listEntriesTableName + "(" + listEntriesTable_value + ")";
+	*/
 	
 	public static final String dictionaryEntriesTableCreate = 
 			"create table " + dictionaryEntriesTableName + "(" +

@@ -15,6 +15,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		
+		db.execSQL(SQLiteStatic.listEntriesTableCreate);
+		db.execSQL(SQLiteStatic.listEntriesTableCreateAllIndex);
+		// db.execSQL(SQLiteStatic.listEntriesTableCreateTypeIndex);
+		// db.execSQL(SQLiteStatic.listEntriesTableCreateSubTypeIndex);
+		// db.execSQL(SQLiteStatic.listEntriesTableCreateKeyIndex);
+		// db.execSQL(SQLiteStatic.listEntriesTableCreateValueIndex);
 		db.execSQL(SQLiteStatic.dictionaryEntriesTableCreate);
 		db.execSQL(SQLiteStatic.kanjiEntriesTableCreate);
 		db.execSQL(SQLiteStatic.grammaFormConjugateGroupTypeEntriesTableCreate);

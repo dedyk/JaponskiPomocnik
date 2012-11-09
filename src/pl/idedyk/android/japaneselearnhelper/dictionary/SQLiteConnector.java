@@ -86,6 +86,33 @@ public class SQLiteConnector {
 		values.put(SQLiteStatic.dictionaryEntriesTable_info, emptyIfNull(dictionaryEntry.getInfo()));		
 		
 		sqliteDatabase.insertOrThrow(SQLiteStatic.dictionaryEntriesTableName, null, values);
+		
+		insertListEntry(dictionaryEntry.getKanaList(), SQLiteStatic.dictionaryEntriesTableName, 
+				SQLiteStatic.dictionaryEntriesTable_kanaList, String.valueOf(dictionaryEntry.getId()));
+
+		insertListEntry(dictionaryEntry.getRomajiList(), SQLiteStatic.dictionaryEntriesTableName, 
+				SQLiteStatic.dictionaryEntriesTable_romajiList, String.valueOf(dictionaryEntry.getId()));
+		
+		insertListEntry(dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName, 
+				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
+	}
+	
+	private void insertListEntry(List<String> list, String type, String subType, String key) {
+		
+		if (list == null || list.size() == 0) {
+			return;
+		}
+		
+		for (String currentListValue : list) {
+			ContentValues values = new ContentValues();
+			
+			values.put(SQLiteStatic.listEntriesTable_type, type);
+			values.put(SQLiteStatic.listEntriesTable_subType, subType);
+			values.put(SQLiteStatic.listEntriesTable_key, key);
+			values.put(SQLiteStatic.listEntriesTable_value, currentListValue);
+			
+			sqliteDatabase.insertOrThrow(SQLiteStatic.listEntriesTableName, null, values);
+		}
 	}
 	
 	private String emptyIfNull(String text) {
