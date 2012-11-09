@@ -53,10 +53,10 @@ public class Utils {
 			String dictionaryEntryTypeString,
 			String prefixKanaString,
 			String kanjiString,
-			String kanaListString,
+			Object kanaListObject,
 			String prefixRomajiString,
-			String romajiListString,
-			String translateListString,
+			Object romajiListObject,
+			Object translateListObject,
 			String infoString) throws DictionaryException {
 				
 		if (kanjiString.equals("") == true || kanjiString.equals("-") == true) {
@@ -67,14 +67,7 @@ public class Utils {
 			prefixRomajiString = null;
 		}
 				
-		DictionaryEntryType dictionaryEntryType = DictionaryEntryType.valueOf(dictionaryEntryTypeString);
-		
-		List<String> romajiList = parseStringIntoList(romajiListString, true);
-		List<String> kanaList = parseStringIntoList(kanaListString, true);
-		
-		if (romajiList.size() != kanaList.size()) {
-			throw new DictionaryException("Parse parseStringIntoList size exception");
-		}
+		DictionaryEntryType dictionaryEntryType = DictionaryEntryType.valueOf(dictionaryEntryTypeString);	
 		
 		DictionaryEntry entry = new DictionaryEntry();
 		
@@ -83,13 +76,40 @@ public class Utils {
 		entry.setPrefixKana(prefixKanaString);
 		entry.setKanji(kanjiString);
 		entry.setPrefixRomaji(prefixRomajiString);
-		entry.setRomajiList(romajiList);
-		entry.setKanaList(kanaList);
-		entry.setTranslates(parseStringIntoList(translateListString, true));
+		
+		if (romajiListObject instanceof String) {
+			entry.setRomajiList(parseStringIntoList((String)romajiListObject, true));
+		} else {
+			entry.setRomajiList(convertToListString(romajiListObject));
+		}
+				
+		if (kanaListObject instanceof String) {
+			entry.setKanaList(parseStringIntoList((String)kanaListObject, true));
+		} else {
+			entry.setKanaList(convertToListString(kanaListObject));			
+		}
+		
+		if (translateListObject instanceof String) {
+			entry.setTranslates(parseStringIntoList((String)translateListObject, true));
+		} else {
+			entry.setTranslates(convertToListString(translateListObject));
+		}
 		
 		entry.setInfo(infoString);
 		
 		return entry;
+	}
+	
+	private static List<String> convertToListString(Object object) {
+		List<?> listObject = (List<?>)object; 
+		
+		List<String> result = new ArrayList<String>();
+		
+		for (Object currentListObject : listObject) {
+			result.add((String)currentListObject);
+		}
+
+		return result;
 	}
 	
 	public static KanjiEntry parseKanjiEntry(String idString,
