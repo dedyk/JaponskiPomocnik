@@ -34,7 +34,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-				
+		
+		db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.listEntriesTableName);
 	    db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.dictionaryEntriesTableName);
 	    db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.kanjiEntriesTableName);
 	    db.execSQL("DROP TABLE IF EXISTS " + SQLiteStatic.grammaFormConjugateGroupTypeEntriesTableName);
