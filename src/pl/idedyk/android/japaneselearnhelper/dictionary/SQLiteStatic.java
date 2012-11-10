@@ -6,6 +6,14 @@ public class SQLiteStatic {
 
 	public static final String databaseName = "JapaneseAndroidLearnHelperDb";
 	
+	public static final String listEntriesTableName = "ListEntries";
+	
+	public static final String listEntriesTable_id = "id";
+	public static final String listEntriesTable_type = "type";
+	public static final String listEntriesTable_subType = "subType";
+	public static final String listEntriesTable_key = "key";
+	public static final String listEntriesTable_value = "value";
+	
 	public static final String dictionaryEntriesTableName = "DictionaryEntries";
 	
 	public static final String dictionaryEntriesTable_id = "id";
@@ -81,16 +89,50 @@ public class SQLiteStatic {
 			SQLiteStatic.kanjiEntriesTable_groups
 	};
 	
+	public static final String listEntriesTableCreate =
+			"create table " + listEntriesTableName + "(" +
+			listEntriesTable_id + " integer primary key autoincrement, " +
+			listEntriesTable_type + " text not null, " +
+			listEntriesTable_subType + " text not null, " +
+			listEntriesTable_key + " text not null, " +
+			listEntriesTable_value + " text not null);";
+
+	public static final String listEntriesTableCreateAllIndex = 
+			"create index " + listEntriesTableName + "AllIdx on " +
+			listEntriesTableName + "(" + listEntriesTable_type + ", " + listEntriesTable_subType + ", " + listEntriesTable_key + ")";
+
+	public static final String listEntriesTableCreateTypeKeyIndex = 
+			"create index " + listEntriesTableName + "TypeKeyIdx on " +
+			listEntriesTableName + "(" + listEntriesTable_type + ", " + listEntriesTable_key + ")";
+
+	/*
+	public static final String listEntriesTableCreateTypeIndex = 
+			"create index " + listEntriesTableName + listEntriesTable_type.substring(0, 1).toUpperCase() + listEntriesTable_type.substring(1) + "Idx on " +
+			listEntriesTableName + "(" + listEntriesTable_type + ")";
+
+	public static final String listEntriesTableCreateSubTypeIndex = 
+			"create index " + listEntriesTableName + listEntriesTable_subType.substring(0, 1).toUpperCase() + listEntriesTable_subType.substring(1) + "Idx on " +
+			listEntriesTableName + "(" + listEntriesTable_subType + ")";
+	
+	public static final String listEntriesTableCreateKeyIndex = 
+			"create index " + listEntriesTableName + listEntriesTable_key.substring(0, 1).toUpperCase() + listEntriesTable_key.substring(1) + "Idx on " +
+			listEntriesTableName + "(" + listEntriesTable_key + ")";
+
+	public static final String listEntriesTableCreateValueIndex = 
+			"create index " + listEntriesTableName + listEntriesTable_value.substring(0, 1).toUpperCase() + listEntriesTable_value.substring(1) + "Idx on " +
+			listEntriesTableName + "(" + listEntriesTable_value + ")";
+	*/
+	
 	public static final String dictionaryEntriesTableCreate = 
 			"create table " + dictionaryEntriesTableName + "(" +
 			dictionaryEntriesTable_id + " integer primary key, " +
 			dictionaryEntriesTable_dictionaryEntryType + " text not null, " +
 			dictionaryEntriesTable_prefixKana + " text not null, " +
 			dictionaryEntriesTable_kanji + " text not null, " +
-			dictionaryEntriesTable_kanaList + " text not null, " +
+			//dictionaryEntriesTable_kanaList + " text not null, " +
 			dictionaryEntriesTable_prefixRomaji + " text not null, " +
-			dictionaryEntriesTable_romajiList + " text not null, " +
-			dictionaryEntriesTable_translates + " text not null, " +
+			//dictionaryEntriesTable_romajiList + " text not null, " +
+			//dictionaryEntriesTable_translates + " text not null, " +
 			dictionaryEntriesTable_info + " text not null);";
 	
 	public static final String kanjiEntriesTableCreate =
@@ -142,16 +184,21 @@ public class SQLiteStatic {
 			exampleResultEntriesTable_prefixRomaji + " text null, " +
 			exampleResultEntriesTable_romajiList + " text not null);";
 	
+	public static final String listEntriesTableSelectValues =
+			"select " + listEntriesTable_subType + ", " + listEntriesTable_value + " from " + listEntriesTableName + " " + 
+			"where " + listEntriesTable_type + " = ? and " +
+			listEntriesTable_key + " = ?";
+	
 	public static final String dictionaryEntriesTableIdElement = 
 			"select " + 
 			dictionaryEntriesTable_id + ", " +
 			dictionaryEntriesTable_dictionaryEntryType + ", " +
 			dictionaryEntriesTable_prefixKana + ", " +
 			dictionaryEntriesTable_kanji + ", " +
-			dictionaryEntriesTable_kanaList + ", " +
+			//dictionaryEntriesTable_kanaList + ", " +
 			dictionaryEntriesTable_prefixRomaji + ", " +
-			dictionaryEntriesTable_romajiList + ", " +
-			dictionaryEntriesTable_translates + ", " +
+			//dictionaryEntriesTable_romajiList + ", " +
+			//dictionaryEntriesTable_translates + ", " +
 			dictionaryEntriesTable_info + " " +
 			"from " + dictionaryEntriesTableName + " where " + dictionaryEntriesTable_id + " = ?";
 		
@@ -161,10 +208,10 @@ public class SQLiteStatic {
 			dictionaryEntriesTable_dictionaryEntryType + ", " +
 			dictionaryEntriesTable_prefixKana + ", " +
 			dictionaryEntriesTable_kanji + ", " +
-			dictionaryEntriesTable_kanaList + ", " +
+			//dictionaryEntriesTable_kanaList + ", " +
 			dictionaryEntriesTable_prefixRomaji + ", " +
-			dictionaryEntriesTable_romajiList + ", " +
-			dictionaryEntriesTable_translates + ", " +
+			//dictionaryEntriesTable_romajiList + ", " +
+			//dictionaryEntriesTable_translates + ", " +
 			dictionaryEntriesTable_info + " " +
 			"from " + dictionaryEntriesTableName + " limit 1 offset ?";
 	
@@ -174,10 +221,10 @@ public class SQLiteStatic {
 			dictionaryEntriesTable_dictionaryEntryType + ", " +
 			dictionaryEntriesTable_prefixKana + ", " +
 			dictionaryEntriesTable_kanji + ", " +
-			dictionaryEntriesTable_kanaList + ", " +
+			//dictionaryEntriesTable_kanaList + ", " +
 			dictionaryEntriesTable_prefixRomaji + ", " +
-			dictionaryEntriesTable_romajiList + ", " +
-			dictionaryEntriesTable_translates + ", " +
+			//dictionaryEntriesTable_romajiList + ", " +
+			//dictionaryEntriesTable_translates + ", " +
 			dictionaryEntriesTable_info + " " +
 			"from " + dictionaryEntriesTableName + " ";
 	
@@ -185,13 +232,25 @@ public class SQLiteStatic {
 			dictionaryEntriesTable_kanji + " like ? ";
 	
 	public static final String dictionaryEntriesTableSelectElements_kana =
-			dictionaryEntriesTable_kanaList + " like ? ";
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + dictionaryEntriesTable_kanaList + "' and " +
+			listEntriesTable_value + " like ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_romaji =
-			" lower(" + dictionaryEntriesTable_romajiList + ") like ? ";
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + dictionaryEntriesTable_romajiList + "' and " +
+			" lower(" + listEntriesTable_value + ") like ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_translate =
-			" lower(" + dictionaryEntriesTable_translates + ") like ? ";
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + dictionaryEntriesTable_translates + "' and " +
+			" lower(" + listEntriesTable_value + ") like ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_info =
 			" lower(" + dictionaryEntriesTable_info + ") like ? ";
