@@ -1462,7 +1462,7 @@ era",,
 1305,WORD,WORD_NOUN,HIRAGANA,,先輩,せんぱい,,senpai,starszy (wiekiem lub stażem) członek grupy,,
 1306,WORD,UNKNOWN,HIRAGANA,,年間,ねんかん,,nenkan,przez ... lat,~,
 1308,WORD,WORD_VERB_U,HIRAGANA,,愛す,あいす,,aisu,kochać,,
-1309,WORD,WORD_EXPRESSION,HIRAGANA,,-,どうしたらいい,,doushitaraii,co powinien zrobić,,
+1309,WORD,WORD_EXPRESSION,HIRAGANA,,-,どうしたらいい,,dou shitara ii,co powinien zrobić,,
 1310,WORD,WORD_NOUN,HIRAGANA,,父親,ちちおや,,chichioya,ojciec,formalnie,
 1311,WORD,UNKNOWN,HIRAGANA,,急に,きゅうに,,kyuuni,nagle,,
 1312,WORD,UNKNOWN,HIRAGANA,,出張,しゅっちょう,,shucchou,wyjazd biznesowy,,
@@ -2326,3 +2326,24 @@ miłość","do kogoś, czegoś",
 2348,WORD,WORD_NOUN,HIRAGANA,,製菓,せいか,,seika,"cukiernia
 ciastkarnia",,
 2349,WORD,WORD_NOUN,HIRAGANA,,製菓業者,せいかぎょうしゃ,,seikagyousha,cukiernik,,
+2350,WORD,WORD_NOUN,HIRAGANA,,最初,さいしょ,,saisho,"początek
+rozpoczęcie
+pierwszy",,
+2351,WORD,UNKNOWN,HIRAGANA,,最初の,さいしょの,,saisho no,"początkowy
+pierwszy",,
+2352,WORD,UNKNOWN,HIRAGANA,,最初に,さいしょに,,saisho ni,"na początku
+najpierw
+przede wszystkim",,
+2353,WORD,WORD_NOUN,HIRAGANA,,恐怖,きょうふ,,kyoufu,"strach
+lęk",,
+2354,WORD,WORD_VERB_RU,HIRAGANA,,恐怖を感じる,きょうふをかんじる,,kyoufu o kanjiru,"odczuwać lęk
+bać się",,
+2355,WORD,WORD_NOUN,HIRAGANA,,感じ,かんじ,,kanji,"wrażenie
+odczucie",,
+2356,WORD,WORD_VERB_RU,HIRAGANA,,感じる,かんじる,,kanjiru,"czuć
+odczuwać",,
+2357,WORD,WORD_NOUN,KATAKANA,,-,マクドナルド,,makudonarudo,McDonald's,,
+2358,WORD,WORD_VERB_U,HIRAGANA,,髭を剃る,ひげをそる,,hige o soru,golić się,,
+2359,WORD,WORD_NOUN,HIRAGANA,,髭,ひげ,,hige,"zarost
+wąsy
+broda",,
