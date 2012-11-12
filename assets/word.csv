@@ -1841,7 +1841,8 @@ narzeczona",,
 1933,KANJI,UNKNOWN,HIRAGANA,,留守,るす,,rusu,nieobecny w domu,,
 1934,KANJI,WORD_NOUN,HIRAGANA,,書き留め,かきとめ,,kakitome,list polecony,,
 1936,KANJI,WORD_NOUN,HIRAGANA,,王族,おうぞく,,ouzoku,członek rodziny królewskiej,,
-1937,KANJI,WORD_NOUN,HIRAGANA,,民族,みんぞく,,minzoku,rasa,,
+1937,KANJI,WORD_NOUN,HIRAGANA,,民族,みんぞく,,minzoku,"rasa
+naród",,
 1942,KANJI,WORD_ADJECTIVE_I,HIRAGANA,,親しい,したしい,,shitashii,poufały,,
 1945,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,,大切,たいせつ,,taisetsu,ważny,,
 1948,KANJI,WORD_NOUN,HIRAGANA,,英国,えいこく,,eikoku,Anglia,,
@@ -2353,3 +2354,36 @@ jeszcze raz
 po raz drugi",,
 2361,WORD,WORD_NOUN,KATAKANA,,-,ガソリン,,gasorin,benzyna,,
 2362,WORD,WORD_NOUN,KATAKANA,,-,ガス,,gasu,gaz,,
+2363,WORD,WORD_NOUN,HIRAGANA,,獣医,じゅうい,,juui,"weterynarz
+lekarz weterynarii",,
+2364,WORD,WORD_NOUN,HIRAGANA,,水族館,すいぞくかん,,suizokukan,akwarium,,
+2365,WORD,WORD_NOUN,HIRAGANA,,海洋,かいよう,,kaiyou,ocean,,
+2366,WORD,WORD_NOUN,HIRAGANA,,海洋水族館,かいようすいぞくかん,,kaiyou suizokukan,oceanarium,,
+2367,WORD,WORD_NOUN,KATAKANA,,-,ワルシャワ,,warushawa,Warszawa,,
+2368,WORD,WORD_NOUN,KATAKANA,,-,グダニスク,,gudanisuku,Gdańsk,,
+2369,WORD,WORD_NOUN,KATAKANA,,-,ヴロツワフ,,vurotsuwafu,Wrocław,,
+2370,WORD,WORD_NOUN,KATAKANA,,-,クラクフ,,kurakufu,Kraków,,
+2371,WORD,WORD_NOUN,HIRAGANA,,博物館,はくぶつかん,,hakubutsukan,muzeum,,
+2372,WORD,WORD_NOUN,HIRAGANA,,民族博物館,みんぞくはくぶつかん,,minzoku hakubutsukan,muzeum etnograficzne,,
+2373,WORD,WORD_NOUN,KATAKANA,,-,ピエロギ,,pierogi,pierogi,,
+2374,WORD,WORD_VERB_U,HIRAGANA,,手を叩く,てをたたく,,te o tataku,klaskać,,
+2375,WORD,WORD_VERB_U,HIRAGANA,,叩く,たたく,,tataku,"uderzać
+bić
+stuknąć
+dać klapsa",,
+2376,WORD,WORD_NOUN,HIRAGANA,,態度,たいど,,taido,"postawa
+poza
+stanowisko
+zachowanie",,
+2377,WORD,WORD_VERB_U,HIRAGANA,,示す,しめす,,shimesu,"pokazywać
+wykazywać
+wskazywać",,
+2378,WORD,WORD_NOUN,HIRAGANA,,握手,あくしゅ,,akushu,uścisk ręki,,
+2379,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,握手をする,あくしゅをする,,akushu o suru,"uścisnąć rękę
+podanie sobie ręki",,
+2380,WORD,WORD_NOUN,KATAKANA,,-,ウインク,,uinku,mrugnięcie,,
+2381,WORD,WORD_VERB_IRREGULAR,KATAKANA,,-,ウインクをする,,uinku o suru,mrugać,,
+2382,WORD,WORD_NOUN,HIRAGANA,,本体,ほんたい,,hontai,korpus,urządzenia,
+2384,WORD,WORD_VERB_U,HIRAGANA,,飛ぶ,とぶ,,tobu,"latać
+lecieć
+wznieść się",,
