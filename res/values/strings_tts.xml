@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tts_japanese_error">Niestety twój telefon nie obsługuje japońskiego TTS.\n\nPoszukaj w Google Play: \"SVOX Classic Text To Speech Engine\"</string>
+	<string name="tts_japanese_error_ok">OK</string>
+	<string name="tts_google_play_go">Idź do Google Play</string>
+	<string name="tts_svox_market_url">market://details?id=com.svox.classic</string>
+</resources>
