@@ -2,7 +2,6 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
@@ -28,6 +27,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
+import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -160,7 +160,7 @@ public class WordDictionaryDetails extends Activity {
 			ttsConnector.stop();
 		}
 		
-		ttsConnector = new TtsConnector(this, Locale.JAPANESE);
+		ttsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
 	}
 
 	private List<IScreenItem> generateDetails(DictionaryEntry dictionaryEntry) {

@@ -1,6 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.tts;
 
-import java.util.Locale;
+import java.lang.reflect.Constructor;
 
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
@@ -10,19 +10,27 @@ public class TtsConnector implements OnInitListener {
 
 	private TextToSpeech textToSpeech = null;
 	
-	private Locale locale;
+	private TtsLanguage ttsLanguage;
 	
-	public TtsConnector(Context context, Locale locale) {
-		this.locale = locale;
+	public TtsConnector(Context context, TtsLanguage ttsLanguage) {
+		this.ttsLanguage = ttsLanguage;
 		
-		textToSpeech = new TextToSpeech(context, this);
+		try {
+			// android 4+
+			Constructor<TextToSpeech> constructor = TextToSpeech.class.getConstructor(Context.class, TextToSpeech.OnInitListener.class, String.class);
+			
+			textToSpeech = constructor.newInstance(context, this, ttsLanguage.getEngine());
+			
+		} catch (Throwable e) {
+			textToSpeech = new TextToSpeech(context, this);
+		}
 	}
 	
 	public void onInit(int status) {
 		
 		if (status == TextToSpeech.SUCCESS) {
 			
-			int result = textToSpeech.setLanguage(locale);
+			int result = textToSpeech.setLanguage(ttsLanguage.getLocale());
 			
 			if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
 				
