@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryhear;
 
+import pl.idedyk.android.japaneselearnhelper.R;
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -10,6 +11,6 @@ public class DictionaryHear extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
-		
+		setContentView(R.layout.dictionary_hear);
 	}
 }

@@ -16,4 +16,7 @@
     <string name="dictionary_hear_options_check_tts1">Sprawdzanie TTS</string>
     <string name="dictionary_hear_options_check_tts2">Proszę czekać</string>
     <string name="dictionary_hear_label">Słuchania słów</string>
+    <string name="dictionary_hear_start">Start</string>
+    <string name="dictionary_hear_stop">Stop</string>
+    <string name="dictionary_hear_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
 </resources>
