@@ -342,6 +342,8 @@ public class ConfigManager {
 		
 		private final String repeatNumberPostfix = "repeatNumber";
 		
+		private final String wordGroupsPostfix = "wordGroups";
+		
 		public Integer getRepeatNumber() {
 			return preferences.getInt(dictionaryHearConfigPrefix + repeatNumberPostfix, 1);
 		}
@@ -353,6 +355,53 @@ public class ConfigManager {
 			editor.putInt(dictionaryHearConfigPrefix + repeatNumberPostfix, repeatNumber);
 			
 			editor.commit();			
-		}		
+		}	
+		
+		public Set<Integer> getChosenWordGroups() {
+			
+			Set<Integer> result = new HashSet<Integer>();
+			
+			String chosenWordGroupString = preferences.getString(dictionaryHearConfigPrefix + wordGroupsPostfix, null);
+			
+			if (chosenWordGroupString == null) {
+				return result;
+			}
+			
+			String[] chosenWordGroupSplited = chosenWordGroupString.split(",");
+			
+			for (String currentChosenWordGroup : chosenWordGroupSplited) {
+				try {
+					result.add(Integer.parseInt(currentChosenWordGroup));
+				} catch (NumberFormatException e) {
+					return result;
+				}
+			}
+			
+			return result;
+		}
+		
+		public void setChosenWordGroups(List<Integer> chosenWordGroupsNumberList) {
+			
+			if (chosenWordGroupsNumberList == null) {
+				return;
+			}
+			
+			StringBuffer chosenWordGroupsNumberSb = new StringBuffer();
+			
+			for (int chosenWordGroupsNumberListIdx = 0; chosenWordGroupsNumberListIdx < chosenWordGroupsNumberList.size(); ++chosenWordGroupsNumberListIdx) {
+				
+				chosenWordGroupsNumberSb.append(chosenWordGroupsNumberList.get(chosenWordGroupsNumberListIdx));
+				
+				if (chosenWordGroupsNumberListIdx != chosenWordGroupsNumberList.size() - 1) {
+					chosenWordGroupsNumberSb.append(",");	
+				}
+			}
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(dictionaryHearConfigPrefix + wordGroupsPostfix, chosenWordGroupsNumberSb.toString());
+			
+			editor.commit();
+		}
 	}
 }

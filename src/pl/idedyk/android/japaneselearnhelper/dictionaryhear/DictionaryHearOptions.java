@@ -1,6 +1,8 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryhear;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
@@ -9,9 +11,13 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class DictionaryHearOptions extends Activity {
 
@@ -22,20 +28,23 @@ public class DictionaryHearOptions extends Activity {
 		
 		setContentView(R.layout.dictionary_hear_options);
 		
-		DictionaryHearConfig dictionaryHearConfig = ConfigManager.getInstance().getDictionaryHearConfig();
+		final DictionaryHearConfig dictionaryHearConfig = ConfigManager.getInstance().getDictionaryHearConfig();
 		
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.dictionary_hear_options_main_layout);
 		
 		// get repeat number
-		EditText repeatNumberEditText = (EditText)findViewById(R.id.dictionary_hear_options_repeat_number_edit_text);
+		final EditText repeatNumberEditText = (EditText)findViewById(R.id.dictionary_hear_options_repeat_number_edit_text);
 		
 		repeatNumberEditText.setText(String.valueOf(dictionaryHearConfig.getRepeatNumber()));
 		
 		// loading word groups
+		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 		
-		int groupSize = 20;
+		final int groupSize = 20;
 		
 		int wordGroupsNo = DictionaryManager.getInstance().getWordGroupsNo(groupSize);
+		
+		Set<Integer> chosenWordGroups = dictionaryHearConfig.getChosenWordGroups();
 
 		for (int currentGroupNo = 0; currentGroupNo < wordGroupsNo; ++currentGroupNo) {
 			
@@ -60,16 +69,88 @@ public class DictionaryHearOptions extends Activity {
 			currentWordGroupCheckBox.setText(getString(R.string.dictionary_hear_options_group_position, (currentGroupNo + 1), 
 					startPosition, endPosition));
 			
-			// FIXME !!!!!!!!!!!!!!!!!!!!!
-			//currentKanjiGroupCheckBox.setChecked(chosenKanjiGroup.contains(currentKanjiGroup));
-			
-			//currentKanjiGroupCheckBox.setTag(kanjiGroups.get(currentKanjiGroup));
-			
-			//kanjiGroupList.add(currentKanjiGroupCheckBox);
+			if (chosenWordGroups != null && chosenWordGroups.contains(Integer.valueOf(currentGroupNo))) {
+				currentWordGroupCheckBox.setChecked(true);
+			}
+						
+			wordGroupCheckBoxList.add(currentWordGroupCheckBox);
 			
 			mainLayout.addView(currentWordGroupCheckBox, mainLayout.getChildCount());
-			
-			
 		}
+		
+		// start action
+		Button startButton = (Button)findViewById(R.id.dictionary_hear_start);
+		
+		startButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				
+				String repeatNumberString = repeatNumberEditText.getText().toString();
+				
+				boolean repeatNumberError = false;
+				
+				int repeatNumber = -1;
+				
+				if (repeatNumberString == null) {
+					repeatNumberError = true;
+				} else {
+					
+					try {
+						repeatNumber = Integer.parseInt(repeatNumberString);
+					} catch (NumberFormatException e) {
+						repeatNumberError = true;
+					}
+				}
+				
+				if (repeatNumberError == false && repeatNumber <= 0) {
+					repeatNumberError = true;
+				}
+				
+				if (repeatNumberError == true) {
+					
+					Toast toast = Toast.makeText(DictionaryHearOptions.this, getString(R.string.dictionary_hear_options_repeat_number_invalid), Toast.LENGTH_SHORT);
+
+					toast.show();
+
+					return;					
+				}
+				
+				dictionaryHearConfig.setRepeatNumber(repeatNumber);
+				
+				List<DictionaryEntry> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntry>();
+				List<Integer> chosenWordGroupsNumberList = new ArrayList<Integer>();
+				
+				for (int wordGroupCheckBoxListIdx = 0; wordGroupCheckBoxListIdx < wordGroupCheckBoxList.size(); ++wordGroupCheckBoxListIdx) {
+					
+					CheckBox currentWordGroupCheckBox = wordGroupCheckBoxList.get(wordGroupCheckBoxListIdx);
+					
+					if (currentWordGroupCheckBox.isChecked() == true) {
+						
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = DictionaryManager.getInstance().getWordsGroup(groupSize, wordGroupCheckBoxListIdx);
+						
+						for (int repeatIdx = 0; repeatIdx < repeatNumber; ++repeatIdx) {
+							chosenAllDictionaryEntryList.addAll(currentWordsGroupDictionaryEntryList);
+						}
+						
+						chosenWordGroupsNumberList.add(wordGroupCheckBoxListIdx);
+					}
+				}
+				
+				if (chosenAllDictionaryEntryList.size() == 0) {
+					
+					Toast toast = Toast.makeText(DictionaryHearOptions.this, getString(R.string.dictionary_hear_options_word_group_no_chosen), Toast.LENGTH_SHORT);
+
+					toast.show();
+
+					return;
+				}
+				
+				dictionaryHearConfig.setChosenWordGroups(chosenWordGroupsNumberList);
+				
+				for (DictionaryEntry d : chosenAllDictionaryEntryList) {
+					Log.d("AAAAAAA", "BBBB: " + d.getKanaList());
+				}
+			}
+		});
 	}
 }
