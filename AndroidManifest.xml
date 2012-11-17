@@ -42,6 +42,7 @@
         <activity android:name=".kanji.hkr.KanjiTestSummary" android:label="@string/kanji_test_summary_label"></activity>
         <activity android:name=".counters.CountersActivity" android:label="@string/counters_label"></activity>
         <activity android:name=".dictionaryhear.DictionaryHearOptions" android:label="@string/dictionary_hear_options_label" android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".dictionaryhear.DictionaryHear" android:label="@string/dictionary_hear_label"></activity>
     </application>
 
 </manifest>

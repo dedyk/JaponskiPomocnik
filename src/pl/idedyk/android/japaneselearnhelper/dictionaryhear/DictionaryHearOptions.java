@@ -5,9 +5,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperDictionaryHearContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -157,6 +159,10 @@ public class DictionaryHearOptions extends Activity {
 				super.onPostExecute(ttsInitResult);
 
 				progressDialog.dismiss();
+				
+				// FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				ttsInitResult.japaneseTtsResult = true;
+				ttsInitResult.polishTtsResult = true;
 								
 				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {
 					return;
@@ -297,7 +303,18 @@ public class DictionaryHearOptions extends Activity {
 					Collections.shuffle(chosenAllDictionaryEntryList);
 				}
 				
+				JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = 
+						JapaneseAndroidLearnHelperApplication.getInstance().getContext().getDictionaryHearContext();
 				
+				dictionaryHearContext.reset();
+				
+				dictionaryHearContext.setDictionaryEntryList(chosenAllDictionaryEntryList);
+				
+				finish();
+				
+				Intent intent = new Intent(getApplicationContext(), DictionaryHear.class);
+
+				startActivity(intent);
 			}
 		});
 		

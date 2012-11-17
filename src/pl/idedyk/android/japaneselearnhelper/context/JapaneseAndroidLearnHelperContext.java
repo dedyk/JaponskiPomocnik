@@ -7,11 +7,14 @@ public class JapaneseAndroidLearnHelperContext {
 	private JapaneseAndroidLearnHelperKanaTestContext kanaTestContext;
 
 	private JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext;
+	
+	private JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext;
 
 	public JapaneseAndroidLearnHelperContext() {
 		this.wordTestContext = new JapaneseAndroidLearnHelperWordTestContext();
 		this.kanaTestContext = new JapaneseAndroidLearnHelperKanaTestContext();
 		this.kanjiTestContext = new JapaneseAndroidLearnHelperKanjiTestContext();
+		this.dictionaryHearContext = new JapaneseAndroidLearnHelperDictionaryHearContext();
 	}
 
 	public JapaneseAndroidLearnHelperWordTestContext getWordTestContext() {
@@ -24,5 +27,9 @@ public class JapaneseAndroidLearnHelperContext {
 
 	public JapaneseAndroidLearnHelperKanjiTestContext getKanjiTestContext() {
 		return kanjiTestContext;
+	}
+
+	public JapaneseAndroidLearnHelperDictionaryHearContext getDictionaryHearContext() {
+		return dictionaryHearContext;
 	}
 }
