@@ -16,6 +16,9 @@
     <string name="main_menu_dictionary_text">Słowniczek</string>
     <string name="main_menu_dictionary_kanji">辞書</string>
     
+    <string name="main_menu_dictionary_hear_text">Słuchanie słów</string>
+    <string name="main_menu_dictionary_hear_kanji">聞く</string>
+    
     <string name="main_menu_kanji_text">Wyszukiwarka znaków kanji</string>
     <string name="main_menu_kanji_text_short">Wyszukiwanie kanji</string>
     <string name="main_menu_kanji_kanji">漢字</string>

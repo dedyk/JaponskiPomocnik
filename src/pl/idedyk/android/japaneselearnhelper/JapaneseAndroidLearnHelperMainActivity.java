@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.counters.CountersActivity;
+import pl.idedyk.android.japaneselearnhelper.dictionaryhear.DictionaryHearOptions;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
 import pl.idedyk.android.japaneselearnhelper.info.InfoActivity;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
@@ -60,6 +61,12 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				getString(R.string.main_menu_dictionary_kanji),
 				getString(R.string.main_menu_dictionary_text)));
 
+		if (android.os.Build.VERSION.SDK_INT >= 14) { // if Android 4+
+			mainMenuListItems.add(new MainMenuItem(
+					getString(R.string.main_menu_dictionary_hear_kanji),
+					getString(R.string.main_menu_dictionary_hear_text)));
+		}
+		
 		/*
     	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_word_test_kanji),
@@ -129,6 +136,12 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent intent = new Intent(getApplicationContext(), WordDictionary.class);
 
 					startActivity(intent);
+					
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_dictionary_hear_text)) == true) { // dictionary hear
+
+					Intent intent = new Intent(getApplicationContext(), DictionaryHearOptions.class);
+
+					startActivity(intent);					
 					
 				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_word_test_text)) == true) { // word test selected
 					
