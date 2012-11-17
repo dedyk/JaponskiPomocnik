@@ -16,6 +16,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -33,6 +34,8 @@ public class DictionaryHear extends Activity {
 	private StringValue dictionaryEntryTableLayout$translate = null;
 	private StringValue dictionaryEntryTableLayout$additionalInfo = null;
 	private StringValue dictionaryEntryTableLayout$wordType = null;
+	
+	private StringValue stateStringValue = null;
 	
 	private Button startStopButton = null;
 
@@ -61,7 +64,7 @@ public class DictionaryHear extends Activity {
 			dictionaryEntryListIdx = dictionaryEntryList.size() - 1;
 		}
 		
-		setDictionaryEntry(dictionaryEntryList.get(dictionaryEntryListIdx));		
+		setDictionaryEntry(dictionaryEntryList.get(dictionaryEntryListIdx), dictionaryEntryListIdx, dictionaryEntryList.size());		
 		
 		// start stop action
 		startStopButton.setOnClickListener(new View.OnClickListener() {
@@ -171,6 +174,16 @@ public class DictionaryHear extends Activity {
 		
 		screenItemList.add(dictionaryEntryTableLayout);
 		
+		JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getDictionaryHearContext();
+		
+		stateStringValue = new StringValue(getString(R.string.dictionary_hear_state, 1, dictionaryHearContext.getDictionaryEntryList().size()), 12.0f, 0);
+		
+		stateStringValue.setGravity(Gravity.RIGHT);
+		stateStringValue.setNullMargins(true);
+		stateStringValue.setLayoutWidth(1);
+		
+		screenItemList.add(stateStringValue);
+		
 		return screenItemList;
 	}
 	
@@ -201,7 +214,7 @@ public class DictionaryHear extends Activity {
 		startStopButton.setText(getString(R.string.dictionary_hear_start));
 	}
 	
-	private void setDictionaryEntry(DictionaryEntry dictionaryEntry) {
+	private void setDictionaryEntry(DictionaryEntry dictionaryEntry, int currentPos, int maxPos) {
 		
 		String prefixKana = dictionaryEntry.getPrefixKana();
 		
@@ -289,16 +302,24 @@ public class DictionaryHear extends Activity {
 		} else {
 			dictionaryEntryTableLayout$wordType.setText("");
 		}
+		
+		stateStringValue.setText(getString(R.string.dictionary_hear_state, currentPos + 1, maxPos));
 	}
 	
 	class SpeakAsyncTaskStatus {
 		
 		private DictionaryEntry dictionaryEntry;
 		
+		private int currentPos;
+		private int maxPos;
+		
 		private Boolean cancel;
 
-		private SpeakAsyncTaskStatus(DictionaryEntry dictionaryEntry) {
+		private SpeakAsyncTaskStatus(DictionaryEntry dictionaryEntry, int currentPos, int maxPos) {
 			this.dictionaryEntry = dictionaryEntry;
+			
+			this.currentPos = currentPos;
+			this.maxPos = maxPos;
 		}
 
 		private SpeakAsyncTaskStatus(Boolean cancel) {
@@ -332,7 +353,7 @@ public class DictionaryHear extends Activity {
 				
 				DictionaryEntry currentDictionaryEntry = dictionaryEntryList.get(dictionaryEntryListIdx);
 				
-				publishProgress(new SpeakAsyncTaskStatus(currentDictionaryEntry));
+				publishProgress(new SpeakAsyncTaskStatus(currentDictionaryEntry, dictionaryEntryListIdx, dictionaryEntryList.size()));
 				
 				try {
 					Thread.sleep(1000);
@@ -352,7 +373,7 @@ public class DictionaryHear extends Activity {
 			DictionaryEntry dictionaryEntry = values[0].dictionaryEntry;
 			
 			if (dictionaryEntry != null) {
-				setDictionaryEntry(dictionaryEntry);
+				setDictionaryEntry(dictionaryEntry, values[0].currentPos, values[0].maxPos);
 			}
 			
 			Boolean cancel = values[0].cancel;

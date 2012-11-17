@@ -25,5 +25,5 @@
     <string name="dictionary_hear_word_translate_label">Tłumaczenie</string>
     <string name="dictionary_hear_word_additional_info_label">Informacje dodatkowe</string>
     <string name="dictionary_hear_word_part_of_speech">Część mowy</string>
-    
+    <string name="dictionary_hear_state">Pozycja: %1$d z %2$d</string>
 </resources>
