@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="dictionary_hear_options_label">Opcje słuchania słów</string>
     <string name="dictionary_hear_options_repeat">Liczba powtórek</string>
-    <string name="dictionary_hear_start">Start</string>
-    <string name="dictionary_hear_group">Proszę wybrać grupy słów</string>
+    <string name="dictionary_hear_options_start">Start</string>
+    <string name="dictionary_hear_options_group">Proszę wybrać grupy słów</string>
     <string name="dictionary_hear_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="dictionary_hear_options_group_position">Grupa nr. %1$d (pozycje: %2$d - %3$d)</string>
 </resources>

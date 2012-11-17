@@ -35,8 +35,6 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroup
 
 public class DictionaryManager {
 
-	private static int GROUP_SIZE = 10;
-
 	private static final String WORD_FILE = "word.csv";
 
 	private static final String KANJI_FILE = "kanji.csv";
@@ -249,32 +247,36 @@ public class DictionaryManager {
 		csvReader.close();
 	}
 
-	public int getWordGroupsNo() {
+	public int getWordGroupsNo(int groupSize) {
 
 		int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
 
-		int result = dictionaryEntriesSize / GROUP_SIZE;
+		int result = dictionaryEntriesSize / groupSize;
 
-		if (dictionaryEntriesSize % GROUP_SIZE > 0) {
+		if (dictionaryEntriesSize % groupSize > 0) {
 			result++;
 		}
 
 		return result;
 	}
 
-	public List<DictionaryEntry> getWordsGroup(int groupNo) throws DictionaryException {
+	public List<DictionaryEntry> getWordsGroup(int groupSize, int groupNo) {
 
-		int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
+		try {
+			int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
 
-		List<DictionaryEntry> result = new ArrayList<DictionaryEntry>();
+			List<DictionaryEntry> result = new ArrayList<DictionaryEntry>();
 
-		for (int idx = groupNo * GROUP_SIZE; idx < (groupNo + 1) * GROUP_SIZE && idx < dictionaryEntriesSize; ++idx) {
-			DictionaryEntry currentDictionaryEntry = sqliteConnector.getNthDictionaryEntry(idx);
+			for (int idx = groupNo * groupSize; idx < (groupNo + 1) * groupSize && idx < dictionaryEntriesSize; ++idx) {
+				DictionaryEntry currentDictionaryEntry = sqliteConnector.getNthDictionaryEntry(idx);
 
-			result.add(currentDictionaryEntry);
+				result.add(currentDictionaryEntry);
+			}
+
+			return result;
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
 		}
-
-		return result;
 	}
 
 	public FindWordResult findWord(FindWordRequest findWordRequest) {
