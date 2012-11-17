@@ -49,6 +49,10 @@ public class ConfigManager {
 		return new WordDictionarySearchConfig();
 	}
 	
+	public DictionaryHearConfig getDictionaryHearConfig() {
+		return new DictionaryHearConfig();
+	}
+	
 	public class KanaTestConfig {
 		
 		private final String kanaTestConfigPrefix = "kanaTestConfig_";
@@ -316,7 +320,7 @@ public class ConfigManager {
 		
 		private final String wordDictionarySearchConfigPrefix = "wordDictionarySearchConfig_";
 		
-		private final String eachChangeSearchPostfix = "eachChangeSearchPostfix";
+		private final String eachChangeSearchPostfix = "eachChangeSearch";
 		
 		public Boolean getEachChangeSearch() {
 			return preferences.getBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, true);
@@ -330,5 +334,25 @@ public class ConfigManager {
 			
 			editor.commit();			
 		}
+	}
+	
+	public class DictionaryHearConfig {
+		
+		private final String dictionaryHearConfigPrefix = "dictionaryHearConfig_";
+		
+		private final String repeatNumberPostfix = "repeatNumber";
+		
+		public Integer getRepeatNumber() {
+			return preferences.getInt(dictionaryHearConfigPrefix + repeatNumberPostfix, 1);
+		}
+		
+		public void setRepeatNumber(int repeatNumber) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putInt(dictionaryHearConfigPrefix + repeatNumberPostfix, repeatNumber);
+			
+			editor.commit();			
+		}		
 	}
 }

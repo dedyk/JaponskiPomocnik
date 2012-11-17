@@ -3,11 +3,14 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryhear;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 public class DictionaryHearOptions extends Activity {
@@ -19,7 +22,14 @@ public class DictionaryHearOptions extends Activity {
 		
 		setContentView(R.layout.dictionary_hear_options);
 		
+		DictionaryHearConfig dictionaryHearConfig = ConfigManager.getInstance().getDictionaryHearConfig();
+		
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.dictionary_hear_options_main_layout);
+		
+		// get repeat number
+		EditText repeatNumberEditText = (EditText)findViewById(R.id.dictionary_hear_options_repeat_number_edit_text);
+		
+		repeatNumberEditText.setText(String.valueOf(dictionaryHearConfig.getRepeatNumber()));
 		
 		// loading word groups
 		
@@ -40,7 +50,7 @@ public class DictionaryHearOptions extends Activity {
 			int endPosition = 0;
 			
 			if (currentGroupNo != wordGroupsNo - 1) {
-				endPosition = (currentGroupNo + 1) * groupSize + 1;
+				endPosition = (currentGroupNo + 1) * groupSize;
 			} else {
 				List<DictionaryEntry> lastWordsGroup = DictionaryManager.getInstance().getWordsGroup(groupSize, currentGroupNo);
 				
