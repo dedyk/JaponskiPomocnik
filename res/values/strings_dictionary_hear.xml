@@ -13,4 +13,6 @@
     <string name="dictionary_hear_options_random">Losowa kolejność</string>
     <string name="dictionary_hear_options_report_problem_email_subject">Japoński pomocnik - opcje słuchania słów: Sugestia</string>
     <string name="dictionary_hear_options_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="dictionary_hear_options_check_tts1">Sprawdzanie TTS</string>
+    <string name="dictionary_hear_options_check_tts2">Proszę czekać</string>
 </resources>

@@ -11,10 +11,17 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHear
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
+import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -88,9 +95,134 @@ public class DictionaryHearOptions extends Activity {
 			mainLayout.addView(currentWordGroupCheckBox, mainLayout.getChildCount());
 		}
 		
-		// start action
-		Button startButton = (Button)findViewById(R.id.dictionary_hear_start);
+		final Button startButton = (Button)findViewById(R.id.dictionary_hear_start);
 		
+		// check TTS
+		final ProgressDialog progressDialog = ProgressDialog.show(this, 
+				getString(R.string.dictionary_hear_options_check_tts1),
+				getString(R.string.dictionary_hear_options_check_tts2));
+		
+		class TtsInitResult {
+			
+			public boolean japaneseTtsResult;
+			
+			public boolean polishTtsResult;
+		}
+		
+		class PrepareAsyncTask extends AsyncTask<Void, Void, TtsInitResult> {
+
+			@Override
+			protected TtsInitResult doInBackground(Void... params) {
+				
+				TtsInitResult ttsInitResult = new TtsInitResult();
+				
+				TtsConnector japanaeseTtsConnector = new TtsConnector(DictionaryHearOptions.this, TtsLanguage.JAPANESE);
+				TtsConnector polishTtsConnector = new TtsConnector(DictionaryHearOptions.this, TtsLanguage.POLISH);
+								
+				boolean japaneseInitialized = isTtsConnectorInitialized(japanaeseTtsConnector);
+				boolean polishInitialized = isTtsConnectorInitialized(polishTtsConnector);
+				
+				ttsInitResult.japaneseTtsResult = japaneseInitialized;
+				ttsInitResult.polishTtsResult = polishInitialized;
+								
+				japanaeseTtsConnector.stop();
+				polishTtsConnector.stop();
+				
+				return ttsInitResult;
+			}
+			
+			private boolean isTtsConnectorInitialized(TtsConnector ttsConnector) {
+				
+				for (int idx = 0; idx < 10; ++idx) {
+					
+					Boolean onInitResult = ttsConnector.getOnInitResult();
+					
+					if (onInitResult == null) {
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+						}
+						
+					} else {
+						
+						return onInitResult.booleanValue();
+					}
+				}
+				
+				return false;
+			}
+			
+			@Override
+			protected void onPostExecute(TtsInitResult ttsInitResult) {
+				super.onPostExecute(ttsInitResult);
+
+				progressDialog.dismiss();
+								
+				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {
+					return;
+				}
+				
+				AlertDialog alertDialog = new AlertDialog.Builder(DictionaryHearOptions.this).create();
+				
+				String message = null;
+				
+				if (ttsInitResult.japaneseTtsResult == false && ttsInitResult.polishTtsResult == false) {
+					message = getString(R.string.tts_japanese_polish_error);
+				} else if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == false) {
+					message = getString(R.string.tts_polish_error);
+				} else if (ttsInitResult.japaneseTtsResult == false && ttsInitResult.polishTtsResult == true) {
+					message = getString(R.string.tts_japanese_error);
+				} else {
+					throw new RuntimeException();
+				}
+				
+				alertDialog.setMessage(message);
+				alertDialog.setCancelable(false);
+
+				alertDialog.setButton(getString(R.string.tts_error_ok), new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog, int which) {
+						// noop
+					}
+				});
+				
+				if (ttsInitResult.japaneseTtsResult == false) {
+					alertDialog.setButton2(getString(R.string.tts_svox_google_play_go), new DialogInterface.OnClickListener() {
+	
+						public void onClick(DialogInterface dialog, int which) {
+							
+							Uri marketUri = Uri.parse(getString(R.string.tts_svox_market_url));
+							
+							Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
+							
+							startActivity(marketIntent);
+						}
+					});
+				}
+				
+				if (ttsInitResult.polishTtsResult == false) {
+					alertDialog.setButton3(getString(R.string.tts_ivona_google_play_go), new DialogInterface.OnClickListener() {
+	
+						public void onClick(DialogInterface dialog, int which) {
+							
+							Uri marketUri = Uri.parse(getString(R.string.tts_ivona_market_url));
+							
+							Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
+							
+							startActivity(marketIntent);
+						}
+					});
+				}
+				
+				alertDialog.show();	
+				
+				startButton.setEnabled(false);
+			}
+		}
+		
+		new PrepareAsyncTask().execute();
+		
+		// start action		
 		startButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {

@@ -680,7 +680,7 @@ public class WordDictionaryDetails extends Activity {
 				text.append(kanjiKana);
 			}
 						
-			if (ttsConnector != null && ttsConnector.isInitialized() == true) {
+			if (ttsConnector != null && ttsConnector.getOnInitResult() != null && ttsConnector.getOnInitResult().booleanValue() == true) {
 				ttsConnector.speak(text.toString());
 			} else {
 				AlertDialog alertDialog = new AlertDialog.Builder(WordDictionaryDetails.this).create();
@@ -688,7 +688,7 @@ public class WordDictionaryDetails extends Activity {
 				alertDialog.setMessage(getString(R.string.tts_japanese_error));
 				alertDialog.setCancelable(false);
 				
-				alertDialog.setButton(getString(R.string.tts_japanese_error_ok), new DialogInterface.OnClickListener() {
+				alertDialog.setButton(getString(R.string.tts_error_ok), new DialogInterface.OnClickListener() {
 
 					public void onClick(DialogInterface dialog, int which) {
 						// noop

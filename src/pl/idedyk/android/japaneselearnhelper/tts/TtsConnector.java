@@ -12,6 +12,8 @@ public class TtsConnector implements OnInitListener {
 	
 	private TtsLanguage ttsLanguage;
 	
+	private Boolean onInitResult = null;
+	
 	public TtsConnector(Context context, TtsLanguage ttsLanguage) {
 		this.ttsLanguage = ttsLanguage;
 		
@@ -28,45 +30,69 @@ public class TtsConnector implements OnInitListener {
 	
 	public void onInit(int status) {
 		
+		if (textToSpeech == null) {
+			stop();
+			
+			textToSpeech = null;
+			onInitResult = Boolean.FALSE;
+			
+			return;
+		}
+		
 		if (status == TextToSpeech.SUCCESS) {
 			
 			int result = textToSpeech.setLanguage(ttsLanguage.getLocale());
 			
 			if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
 				
-				if (textToSpeech != null) {
-					textToSpeech.stop();
-					textToSpeech.shutdown();
-				}
+				stop();
 				
 				textToSpeech = null;
+				onInitResult = Boolean.FALSE;
 			} else {
 				// success
+				
+				onInitResult = Boolean.TRUE;
 			}
 		} else {
 			
-			if (textToSpeech != null) {
-				textToSpeech.stop();
-				textToSpeech.shutdown();
-			}
+			stop();
 			
 			textToSpeech = null;
+			onInitResult = Boolean.FALSE;
 		}
 	}
 	
-	public void speak(String text) {		
-		textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-	}
-	
-	public boolean isInitialized() {
+	public void speak(String text) {
 		
 		if (textToSpeech != null) {
-			return true;
-		} else {
-			return false;
+			textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 		}
 	}
 	
+	public void speakAndWait(String text) {
+		speak(text);
+		
+		if (textToSpeech != null) {
+			
+			while (textToSpeech.isSpeaking()) {
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+				}
+			}
+			
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+			}
+		}
+	}
+	
+	public Boolean getOnInitResult() {
+		return onInitResult;
+	}
+
 	public void stop() {
 		
 		if (textToSpeech != null) {
