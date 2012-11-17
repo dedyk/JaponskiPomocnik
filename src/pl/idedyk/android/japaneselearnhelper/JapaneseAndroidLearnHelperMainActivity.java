@@ -101,23 +101,34 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 		mainMenuListView.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-				if (position == 0) { // kana selected
+				
+				MainMenuItem mainMenuChosenItem = (MainMenuItem)mainMenuListView.getAdapter().getItem(position);
+				
+				String mainMenuChosenItemText = mainMenuChosenItem.getText();
+				
+				if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kana_text)) == true) { // kana selected
+					
 					Intent intent = new Intent(getApplicationContext(), Kana.class);
 
 					startActivity(intent);
-				} else if (position == 1) { // kana test selected 
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kana_test_text)) == true) { // kana test selected
+					
 					Intent intent = new Intent(getApplicationContext(), KanaTestOptions.class);
 
 					startActivity(intent);
-				} else if (position == 2) { // counter
+					
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_counters_text)) == true) { // counter
+					
 					Intent intent = new Intent(getApplicationContext(), CountersActivity.class);
 
 					startActivity(intent);
-				} else if (position == 3) { // dictionary selected
+					
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_dictionary_text)) == true) { // dictionary selected
+					
 					Intent intent = new Intent(getApplicationContext(), WordDictionary.class);
 
 					startActivity(intent);
+					
 				} 
 				/*
 				else if (position == X) { // word test selected		
@@ -126,25 +137,25 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					startActivity(intent);
 				}
 				 */
-				else if (position == 4) { // kanji search
+				else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kanji_text)) == true) { // kanji search
+					
 					Intent intent = new Intent(getApplicationContext(), KanjiSearch.class);
 
 					startActivity(intent);
-				} 
-
-				else if (position == 5) { // kanji recognizer
+					
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kanji_recognizer_text)) == true) { // kanji recognizer
 
 					Intent intent = new Intent(getApplicationContext(), KanjiRecognizeActivity.class);
 
 					startActivity(intent);					
 
-				} else if (position == 6) { // kanji test
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kanji_test_text)) == true) { // kanji test
 
 					Intent intent = new Intent(getApplicationContext(), KanjiTestOptionsActivity.class);
 
 					startActivity(intent);					
 
-				} else if (position == 7) { // suggestion
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_suggestion_text)) == true) { // suggestion
 					String chooseEmailClientTitle = getString(R.string.choose_email_client);
 
 					String mailSubject = getString(R.string.main_menu_email_subject);
@@ -166,10 +177,12 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent reportSuggestionIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody, versionName, versionCode); 
 
 					startActivity(Intent.createChooser(reportSuggestionIntent, chooseEmailClientTitle));
-				} else if (position == 8) { // info
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_information_text)) == true) { // info
+					
 					Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
 
 					startActivity(intent);
+					
 				}
 			}
 		});
