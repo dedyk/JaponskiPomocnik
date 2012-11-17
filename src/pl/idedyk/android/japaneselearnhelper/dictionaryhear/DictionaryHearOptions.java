@@ -10,7 +10,6 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
 import android.content.Intent;
