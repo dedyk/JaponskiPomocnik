@@ -10,13 +10,20 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DictionaryHearOptions extends Activity {
@@ -160,6 +167,59 @@ public class DictionaryHearOptions extends Activity {
 				}
 				
 				
+			}
+		});
+		
+		// report problem button
+		Button reportProblemButton = (Button)findViewById(R.id.dictionary_hear_options_report_problem_button);
+
+		reportProblemButton.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View view) {
+
+				StringBuffer detailsSb = new StringBuffer();
+				
+				TextView optionsRepeat = (TextView)findViewById(R.id.dictionary_hear_options_repeat);
+				TextView optionsOther = (TextView)findViewById(R.id.dictionary_hear_options_other);
+				TextView optionsGroup = (TextView)findViewById(R.id.dictionary_hear_group);
+
+				detailsSb.append("***" + optionsRepeat.getText() + "***\n\n");
+				detailsSb.append(repeatNumberEditText.getText().toString()).append("\n\n");
+
+				detailsSb.append("***" + optionsOther.getText() + "***\n\n");
+				detailsSb.append(randomCheckBox.isChecked() + " - " + randomCheckBox.getText()).append("\n\n");
+
+				detailsSb.append("***" + optionsGroup.getText() + "***\n\n");
+		
+				for (CheckBox currentWordGroupCheckBox : wordGroupCheckBoxList) {
+
+					String currentWordGroupCheckBoxText = currentWordGroupCheckBox.getText().toString();
+
+					detailsSb.append(currentWordGroupCheckBox.isChecked() + " - " + currentWordGroupCheckBoxText).append("\n");
+				}
+
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+
+				String mailSubject = getString(R.string.dictionary_hear_options_report_problem_email_subject);
+
+				String mailBody = getString(R.string.dictionary_hear_options_report_problem_email_body,
+						detailsSb.toString());
+
+				String versionName = "";
+				int versionCode = 0;
+
+				try {
+					PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+					versionName = packageInfo.versionName;
+					versionCode = packageInfo.versionCode;
+
+				} catch (NameNotFoundException e) {        	
+				}
+
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
 	}
