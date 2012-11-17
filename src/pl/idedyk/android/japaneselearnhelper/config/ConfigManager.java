@@ -344,6 +344,8 @@ public class ConfigManager {
 		
 		private final String wordGroupsPostfix = "wordGroups";
 		
+		private final String randomPostfix = "random";
+		
 		public Integer getRepeatNumber() {
 			return preferences.getInt(dictionaryHearConfigPrefix + repeatNumberPostfix, 1);
 		}
@@ -400,6 +402,19 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putString(dictionaryHearConfigPrefix + wordGroupsPostfix, chosenWordGroupsNumberSb.toString());
+			
+			editor.commit();
+		}
+		
+		public Boolean getRandom() {
+			return preferences.getBoolean(dictionaryHearConfigPrefix + randomPostfix, false);
+		}
+
+		public void setRandom(boolean random) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(dictionaryHearConfigPrefix + randomPostfix, random);
 			
 			editor.commit();
 		}

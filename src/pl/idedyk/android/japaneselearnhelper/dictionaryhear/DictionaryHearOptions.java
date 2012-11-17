@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryhear;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -11,7 +12,6 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -36,6 +36,10 @@ public class DictionaryHearOptions extends Activity {
 		final EditText repeatNumberEditText = (EditText)findViewById(R.id.dictionary_hear_options_repeat_number_edit_text);
 		
 		repeatNumberEditText.setText(String.valueOf(dictionaryHearConfig.getRepeatNumber()));
+		
+		final CheckBox randomCheckBox = (CheckBox)findViewById(R.id.dictionary_hear_options_random);
+		
+		randomCheckBox.setChecked(dictionaryHearConfig.getRandom());
 		
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
@@ -117,6 +121,10 @@ public class DictionaryHearOptions extends Activity {
 				
 				dictionaryHearConfig.setRepeatNumber(repeatNumber);
 				
+				boolean random = randomCheckBox.isChecked();
+				
+				dictionaryHearConfig.setRandom(random);
+				
 				List<DictionaryEntry> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntry>();
 				List<Integer> chosenWordGroupsNumberList = new ArrayList<Integer>();
 				
@@ -147,9 +155,11 @@ public class DictionaryHearOptions extends Activity {
 				
 				dictionaryHearConfig.setChosenWordGroups(chosenWordGroupsNumberList);
 				
-				for (DictionaryEntry d : chosenAllDictionaryEntryList) {
-					Log.d("AAAAAAA", "BBBB: " + d.getKanaList());
+				if (random == true) {
+					Collections.shuffle(chosenAllDictionaryEntryList);
 				}
+				
+				
 			}
 		});
 	}

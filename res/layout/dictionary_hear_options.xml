@@ -34,6 +34,20 @@
             </EditText>
 
             <TextView
+                android:id="@+id/dictionary_hear_options_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/dictionary_hear_options_other" />
+
+            <CheckBox
+                android:id="@+id/dictionary_hear_options_random"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dictionary_hear_options_random"
+                android:textSize="12dp" />
+
+            <TextView
                 android:id="@+id/dictionary_hear_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

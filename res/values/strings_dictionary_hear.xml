@@ -9,4 +9,6 @@
     <string name="dictionary_hear_options_group_position">Grupa nr. %1$d (pozycje: %2$d - %3$d)</string>
     <string name="dictionary_hear_options_repeat_number_invalid">Niepoprawna liczba powtórzeń</string>
     <string name="dictionary_hear_options_word_group_no_chosen">Nie wybrano grupy słów</string>
+    <string name="dictionary_hear_options_other">Inne opcje</string>
+    <string name="dictionary_hear_options_random">Losowa kolejność</string>
 </resources>
