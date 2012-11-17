@@ -12,6 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestOptionsActivity;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.test.WordTestGroup;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -63,7 +64,7 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
     	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_word_test_kanji),
     			getString(R.string.main_menu_word_test_text)));
-
+    	
     	mainMenuListItems.add(new MainMenuItem(
     			getString(R.string.main_menu_kanji_test_kanji),
     			getString(R.string.main_menu_kanji_test_text)));
@@ -129,15 +130,13 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 					startActivity(intent);
 					
-				} 
-				/*
-				else if (position == X) { // word test selected		
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_word_test_text)) == true) { // word test selected
+					
 					Intent intent = new Intent(getApplicationContext(), WordTestGroup.class);
 
 					startActivity(intent);
-				}
-				 */
-				else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kanji_text)) == true) { // kanji search
+					
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kanji_text)) == true) { // kanji search
 					
 					Intent intent = new Intent(getApplicationContext(), KanjiSearch.class);
 
