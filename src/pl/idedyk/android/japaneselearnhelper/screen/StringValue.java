@@ -175,6 +175,14 @@ public class StringValue implements IScreenItem {
 		this.onTouchListener = onTouchListener;
 	}
 	
+	public void setText(String text) {
+		this.value = text;
+		
+		if (textView != null) {
+			textView.setText(text);
+		}
+	}
+	
 	public void setTextColor(Integer textColor) {
 		this.textColor = textColor;
 		

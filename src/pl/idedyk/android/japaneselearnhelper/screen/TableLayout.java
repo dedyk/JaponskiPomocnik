@@ -46,7 +46,7 @@ public class TableLayout implements IScreenItem {
 	public void addTableRow(TableRow tableRow) {
 		tableRows.add(tableRow);
 	}
-	
+		
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		
 		android.widget.TableLayout tableLayout = new android.widget.TableLayout(context);

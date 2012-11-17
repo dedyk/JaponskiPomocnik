@@ -316,7 +316,6 @@ public class WordDictionaryDetails extends Activity {
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
 		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 		
-		
 		List<String> romajiList = dictionaryEntry.getRomajiList();
 		
 		for (int idx = 0; idx < kanaList.size(); ++idx) {

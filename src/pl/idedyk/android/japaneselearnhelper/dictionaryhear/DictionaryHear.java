@@ -1,10 +1,40 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryhear;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperDictionaryHearContext;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
+import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
+import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
+import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
+import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class DictionaryHear extends Activity {
+	
+	private SpeakAsyncTask speakAsyncTask;
+	
+	private LinearLayout mainLayout = null;
+	
+	private TableLayout dictionaryEntryTableLayout = null;
+	
+	private StringValue dictionaryEntryTableLayout$kanji = null;
+	private StringValue dictionaryEntryTableLayout$reading = null;
+	private StringValue dictionaryEntryTableLayout$translate = null;
+	private StringValue dictionaryEntryTableLayout$additionalInfo = null;
+	private StringValue dictionaryEntryTableLayout$wordType = null;
+	
+	private Button startStopButton = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -12,5 +42,334 @@ public class DictionaryHear extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.dictionary_hear);
+		
+		mainLayout = (LinearLayout)findViewById(R.id.dictionary_hear_main_layout);
+		
+		startStopButton = (Button)findViewById(R.id.dictionary_hear_start_stop_button);
+		
+		List<IScreenItem> screenItemList = generateMainLayout(mainLayout);
+		
+		fillMainLayout(screenItemList, mainLayout);
+		
+		// set current dictionary entry
+		JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getDictionaryHearContext();
+		
+		List<DictionaryEntry> dictionaryEntryList = dictionaryHearContext.getDictionaryEntryList();
+		int dictionaryEntryListIdx = dictionaryHearContext.getDictionaryEntryListIdx();
+		
+		if (dictionaryEntryListIdx >= dictionaryEntryList.size()) {
+			dictionaryEntryListIdx = dictionaryEntryList.size() - 1;
+		}
+		
+		setDictionaryEntry(dictionaryEntryList.get(dictionaryEntryListIdx));		
+		
+		// start stop action
+		startStopButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				
+				CharSequence startStopButtonText = startStopButton.getText();
+				
+				if (startStopButtonText.equals(getString(R.string.dictionary_hear_start)) == true) {
+					start();
+				} else {
+					stop();
+				}
+			}
+		});
+	}
+	
+	@Override
+	protected void onDestroy() {
+				
+		if (speakAsyncTask != null) {
+			speakAsyncTask.cancel(false);
+			
+			speakAsyncTask = null;
+		}
+		
+		super.onDestroy();
+	}
+
+	@Override
+	protected void onPause() {
+		
+		if (speakAsyncTask != null) {
+			speakAsyncTask.cancel(false);
+			
+			speakAsyncTask = null;
+		}
+		
+		super.onPause();
+	}
+
+	private void fillMainLayout(List<IScreenItem> screenItemList, LinearLayout mainLayout) {
+		
+		for (IScreenItem currentReportItem : screenItemList) {
+			currentReportItem.generate(this, getResources(), mainLayout);			
+		}
+	}
+	
+	private List<IScreenItem> generateMainLayout(LinearLayout mainLayout) {
+		
+		List<IScreenItem> screenItemList = new ArrayList<IScreenItem>();
+		
+		// Word		
+		screenItemList.add(new TitleItem(getString(R.string.dictionary_hear_word), 0));
+
+		dictionaryEntryTableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, true);
+		
+		// kanji
+		TableRow kanjiTableRow = new TableRow();
+		
+		kanjiTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_kanji_label), 15.0f, 0));
+		
+		dictionaryEntryTableLayout$kanji = new StringValue("", 25.0f, 0);
+		kanjiTableRow.addScreenItem(dictionaryEntryTableLayout$kanji);
+		
+		dictionaryEntryTableLayout.addTableRow(kanjiTableRow);
+		
+		// reading
+		TableRow readingTableRow = new TableRow();
+		
+		readingTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_reading_label), 15.0f, 0));
+		
+		dictionaryEntryTableLayout$reading = new StringValue("", 20.0f, 0);
+		readingTableRow.addScreenItem(dictionaryEntryTableLayout$reading);
+		
+		dictionaryEntryTableLayout.addTableRow(readingTableRow);
+		
+		// translate
+		TableRow translateTableRow = new TableRow();
+		
+		translateTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_translate_label), 15.0f, 0));
+		
+		dictionaryEntryTableLayout$translate = new StringValue("", 20.0f, 0);
+		translateTableRow.addScreenItem(dictionaryEntryTableLayout$translate);
+		
+		dictionaryEntryTableLayout.addTableRow(translateTableRow);
+		
+		// additional info
+		TableRow additionalInfoTableRow = new TableRow();
+		
+		additionalInfoTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_additional_info_label), 15.0f, 0));
+		
+		dictionaryEntryTableLayout$additionalInfo = new StringValue("", 20.0f, 0);
+		additionalInfoTableRow.addScreenItem(dictionaryEntryTableLayout$additionalInfo);
+		
+		dictionaryEntryTableLayout.addTableRow(additionalInfoTableRow);
+		
+		// word type
+		TableRow wordTypeTableRow = new TableRow();
+		
+		wordTypeTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_part_of_speech), 15.0f, 0));
+		
+		dictionaryEntryTableLayout$wordType = new StringValue("", 20.0f, 0);
+		wordTypeTableRow.addScreenItem(dictionaryEntryTableLayout$wordType);
+		
+		dictionaryEntryTableLayout.addTableRow(wordTypeTableRow);		
+		
+		screenItemList.add(dictionaryEntryTableLayout);
+		
+		return screenItemList;
+	}
+	
+	private void start() {
+		
+		JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getDictionaryHearContext();
+		
+		List<DictionaryEntry> dictionaryEntryList = dictionaryHearContext.getDictionaryEntryList();
+		int dictionaryEntryListIdx = dictionaryHearContext.getDictionaryEntryListIdx();
+		
+		if (dictionaryEntryListIdx >= dictionaryEntryList.size() - 1) {
+			dictionaryHearContext.setDictionaryEntryListIdx(0);
+		}			
+		
+		speakAsyncTask = new SpeakAsyncTask();
+		
+		speakAsyncTask.execute();
+	}
+	
+	private void stop() {
+		
+		if (speakAsyncTask != null) {
+			speakAsyncTask.cancel(false);
+		}
+	}
+	
+	private void stopPost() {		
+		startStopButton.setText(getString(R.string.dictionary_hear_start));
+	}
+	
+	private void setDictionaryEntry(DictionaryEntry dictionaryEntry) {
+		
+		String prefixKana = dictionaryEntry.getPrefixKana();
+		
+		if (prefixKana != null && prefixKana.length() == 0) {
+			prefixKana = null;
+		}
+		
+		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
+		
+		if (prefixRomaji != null && prefixRomaji.length() == 0) {
+			prefixRomaji = null;
+		}
+		
+		// kanji
+		final StringBuffer kanjiSb = new StringBuffer();
+				
+		if (dictionaryEntry.isKanjiExists() == true) {
+			if (prefixKana != null) {
+				kanjiSb.append("(").append(prefixKana).append(") ");
+			}
+			
+			kanjiSb.append(dictionaryEntry.getKanji());
+		} else {
+			kanjiSb.append("-");
+		}
+
+		dictionaryEntryTableLayout$kanji.setText(kanjiSb.toString());
+		
+		// reading
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+		List<String> kanaList = dictionaryEntry.getKanaList();
+		
+		StringBuffer readingSb = new StringBuffer();
+		
+		for (int idx = 0; idx < kanaList.size(); ++idx) {
+						
+			if (prefixKana != null) {
+				readingSb.append("(").append(prefixKana).append(") ");
+			}
+			
+			readingSb.append(kanaList.get(idx)).append(" - ");
+			
+			if (prefixRomaji != null) {
+				readingSb.append("(").append(prefixRomaji).append(") ");
+			}
+			
+			readingSb.append(romajiList.get(idx));
+			
+			if (idx != kanaList.size() - 1) {
+				readingSb.append("\n");
+			}
+		}
+		
+		dictionaryEntryTableLayout$reading.setText(readingSb.toString());
+			
+		// translate
+		List<String> translates = dictionaryEntry.getTranslates();
+		
+		StringBuffer translateSb = new StringBuffer();
+		
+		for (int idx = 0; idx < translates.size(); ++idx) {
+			translateSb.append(translates.get(idx));
+			
+			if (idx != translates.size() - 1) {
+				translateSb.append("\n");
+			}
+		}
+		
+		dictionaryEntryTableLayout$translate.setText(translateSb.toString());
+		
+		// additional info
+		String info = dictionaryEntry.getInfo();
+		
+		if (info != null && info.length() > 0) {
+			dictionaryEntryTableLayout$additionalInfo.setText(info);
+		} else {
+			dictionaryEntryTableLayout$additionalInfo.setText("-");
+		}
+		
+		// word type
+		boolean addableDictionaryEntryTypeInfo = DictionaryEntryType.isAddableDictionaryEntryTypeInfo(dictionaryEntry.getDictionaryEntryType());
+		
+		if (addableDictionaryEntryTypeInfo == true) {
+			dictionaryEntryTableLayout$wordType.setText(dictionaryEntry.getDictionaryEntryType().getName());
+		} else {
+			dictionaryEntryTableLayout$wordType.setText("");
+		}
+	}
+	
+	class SpeakAsyncTaskStatus {
+		
+		private DictionaryEntry dictionaryEntry;
+		
+		private Boolean cancel;
+
+		private SpeakAsyncTaskStatus(DictionaryEntry dictionaryEntry) {
+			this.dictionaryEntry = dictionaryEntry;
+		}
+
+		private SpeakAsyncTaskStatus(Boolean cancel) {
+			this.cancel = cancel;
+		}	
+	}
+	
+	class SpeakAsyncTask extends AsyncTask<Void, SpeakAsyncTaskStatus, Void> {
+		
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			
+			startStopButton.setText(getString(R.string.dictionary_hear_stop));
+		}
+		
+		@Override
+		protected Void doInBackground(Void... params) {
+			
+			JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = 
+					JapaneseAndroidLearnHelperApplication.getInstance().getContext().getDictionaryHearContext();
+			
+			List<DictionaryEntry> dictionaryEntryList = dictionaryHearContext.getDictionaryEntryList();
+			
+			for (int dictionaryEntryListIdx = dictionaryHearContext.getDictionaryEntryListIdx();
+					dictionaryEntryListIdx < dictionaryEntryList.size(); ++dictionaryEntryListIdx) {
+				
+				if (isCancelled() == true) {
+					break;
+				}
+				
+				DictionaryEntry currentDictionaryEntry = dictionaryEntryList.get(dictionaryEntryListIdx);
+				
+				publishProgress(new SpeakAsyncTaskStatus(currentDictionaryEntry));
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+				}
+				
+				dictionaryHearContext.setDictionaryEntryListIdx(dictionaryEntryListIdx);
+			}
+			
+			return null;
+		}
+
+		@Override
+		protected void onProgressUpdate(SpeakAsyncTaskStatus... values) {
+			super.onProgressUpdate(values);
+					
+			DictionaryEntry dictionaryEntry = values[0].dictionaryEntry;
+			
+			if (dictionaryEntry != null) {
+				setDictionaryEntry(dictionaryEntry);
+			}
+			
+			Boolean cancel = values[0].cancel;
+			
+			if (cancel != null) {
+				stopPost();
+			}
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			stopPost();
+		}
+
+		@Override
+		protected void onCancelled() {
+			stopPost();
+		}
 	}
 }

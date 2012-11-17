@@ -19,4 +19,11 @@
     <string name="dictionary_hear_start">Start</string>
     <string name="dictionary_hear_stop">Stop</string>
     <string name="dictionary_hear_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="dictionary_hear_word">Słowo</string>
+    <string name="dictionary_hear_word_kanji_label">Kanji</string>
+    <string name="dictionary_hear_word_reading_label">Czytanie</string>
+    <string name="dictionary_hear_word_translate_label">Tłumaczenie</string>
+    <string name="dictionary_hear_word_additional_info_label">Informacje dodatkowe</string>
+    <string name="dictionary_hear_word_part_of_speech">Część mowy</string>
+    
 </resources>
