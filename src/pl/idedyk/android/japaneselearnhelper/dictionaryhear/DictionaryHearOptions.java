@@ -83,8 +83,27 @@ public class DictionaryHearOptions extends Activity {
 		int wordGroupsNo = DictionaryManager.getInstance().getWordGroupsNo(groupSize);
 		
 		Set<Integer> chosenWordGroups = dictionaryHearConfig.getChosenWordGroups();
+		
+		final int groupGroupSize = 10;
+		
+		LinearLayout currentGroupGroupLinearLayout = createGroupGroupLinearLayout();
+		
+		int currentGroupGroupStartPos = 1;
 
 		for (int currentGroupNo = 0; currentGroupNo < wordGroupsNo; ++currentGroupNo) {
+			
+			if (currentGroupGroupLinearLayout.getChildCount() >= groupGroupSize) {
+				
+				currentGroupGroupLinearLayout.addView(createGroupGroupTitle(currentGroupGroupLinearLayout, currentGroupGroupStartPos, currentGroupGroupStartPos + groupGroupSize - 1), 0);				
+				
+				setGroupGroupObjectVisible(currentGroupGroupLinearLayout, false);
+				
+				mainLayout.addView(currentGroupGroupLinearLayout, mainLayout.getChildCount());
+				
+				currentGroupGroupLinearLayout = createGroupGroupLinearLayout();
+				
+				currentGroupGroupStartPos = currentGroupGroupStartPos + groupGroupSize;
+			}
 			
 			CheckBox currentWordGroupCheckBox = new CheckBox(this);
 			
@@ -120,8 +139,13 @@ public class DictionaryHearOptions extends Activity {
 						
 			wordGroupCheckBoxList.add(currentWordGroupCheckBox);
 			
-			mainLayout.addView(currentWordGroupCheckBox, mainLayout.getChildCount());
+			currentGroupGroupLinearLayout.addView(currentWordGroupCheckBox, currentGroupGroupLinearLayout.getChildCount());
 		}
+		
+		currentGroupGroupLinearLayout.addView(createGroupGroupTitle(currentGroupGroupLinearLayout, currentGroupGroupStartPos, currentGroupGroupStartPos + currentGroupGroupLinearLayout.getChildCount() - 1), 0);
+		setGroupGroupObjectVisible(currentGroupGroupLinearLayout, false);
+		
+		mainLayout.addView(currentGroupGroupLinearLayout, mainLayout.getChildCount());
 		
 		final Button startButton = (Button)findViewById(R.id.dictionary_hear_start);
 		
@@ -396,6 +420,82 @@ public class DictionaryHearOptions extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+	}
+	
+	private TextView createGroupGroupTitle(final LinearLayout groupGroupLinearLayout, int startPos, int endPos) {
+		
+		TextView title = new TextView(this);
+				
+		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		
+		title.setLayoutParams(layoutParam);
+		
+		title.setBackgroundColor(getResources().getColor(R.color.title_background));
+		
+		title.setText(getString(R.string.dictionary_hear_options_group_group_info, startPos, endPos));
+		
+		title.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				setGroupGroupObjectVisible(groupGroupLinearLayout, !isVisible());
+			}
+			
+			private boolean isVisible() {
+				
+				for (int idx = 0; idx < groupGroupLinearLayout.getChildCount(); ++idx) {
+					
+					View groupGroupView = groupGroupLinearLayout.getChildAt(idx);
+					
+					if (groupGroupView instanceof CheckBox == false) {
+						continue;
+					}
+					
+					int visibility = groupGroupView.getVisibility();
+					
+					if (visibility == View.VISIBLE) {
+						return true;
+					} else {
+						return false;
+					}
+				}	
+				
+				return false;
+			}
+		});
+		
+		return title;
+	}
+	
+	private LinearLayout createGroupGroupLinearLayout() {
+		
+		LinearLayout groupGroupLinearLayout = new LinearLayout(this);
+		
+		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		
+		layoutParam.setMargins(20, 0, 0, 10);
+		
+		groupGroupLinearLayout.setLayoutParams(layoutParam);
+		groupGroupLinearLayout.setOrientation(LinearLayout.VERTICAL);
+		
+		return groupGroupLinearLayout;		
+	}
+	
+	private void setGroupGroupObjectVisible(LinearLayout groupGroupLinearLayout, boolean visible) {
+		
+		for (int idx = 0; idx < groupGroupLinearLayout.getChildCount(); ++idx) {
+			
+			View groupGroupView = groupGroupLinearLayout.getChildAt(idx);
+			
+			if (groupGroupView instanceof CheckBox == false) {
+				continue;
+			}
+			
+			if (visible == true) {
+				groupGroupView.setVisibility(View.VISIBLE);
+			} else {
+				groupGroupView.setVisibility(View.GONE);
+			}
+		}
 	}
 	
 	private void setChosenGroupInfo(List<CheckBox> wordGroupCheckBoxList) {
