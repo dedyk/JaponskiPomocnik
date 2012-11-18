@@ -110,6 +110,13 @@ public class DictionaryHearOptions extends Activity {
 			if (chosenWordGroups != null && chosenWordGroups.contains(Integer.valueOf(currentGroupNo))) {
 				currentWordGroupCheckBox.setChecked(true);
 			}
+			
+			currentWordGroupCheckBox.setOnClickListener(new View.OnClickListener() {
+				
+				public void onClick(View v) {
+					setChosenGroupInfo(wordGroupCheckBoxList);
+				}
+			});
 						
 			wordGroupCheckBoxList.add(currentWordGroupCheckBox);
 			
@@ -389,5 +396,32 @@ public class DictionaryHearOptions extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+	}
+	
+	private void setChosenGroupInfo(List<CheckBox> wordGroupCheckBoxList) {
+		
+		StringBuffer chosenGroupInfo = new StringBuffer();
+		
+		boolean wasAdded = false;
+		
+		for (CheckBox currentCheckBox : wordGroupCheckBoxList) {
+			
+			if (currentCheckBox.isChecked() == true) {
+				
+				if (wasAdded == true) {
+					chosenGroupInfo.append("\n");
+				}
+				
+				wasAdded = true;
+				
+				chosenGroupInfo.append(currentCheckBox.getText());
+			}
+		}
+		
+		if (chosenGroupInfo.length() != 0) {
+			Toast toast = Toast.makeText(this, getString(R.string.dictionary_hear_options_chosen_group_info) + ": \n\n" + chosenGroupInfo, Toast.LENGTH_SHORT);
+			
+			toast.show();
+		}
 	}
 }
