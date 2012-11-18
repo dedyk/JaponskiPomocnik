@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
@@ -25,6 +26,8 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -36,6 +39,22 @@ import android.widget.Toast;
 
 public class DictionaryHearOptions extends Activity {
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		
+		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+	}
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
@@ -59,7 +78,7 @@ public class DictionaryHearOptions extends Activity {
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 		
-		final int groupSize = 20;
+		final int groupSize = 10;
 		
 		int wordGroupsNo = DictionaryManager.getInstance().getWordGroupsNo(groupSize);
 		

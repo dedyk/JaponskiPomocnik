@@ -387,7 +387,7 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue("-", 20.0f, 0));
 			}
 		}
-				
+						
 		// Word type
 		boolean addableDictionaryEntryTypeInfo = DictionaryEntryType.isAddableDictionaryEntryTypeInfo(dictionaryEntry.getDictionaryEntryType());
 		
@@ -397,6 +397,13 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));			
 		}
 		
+		// dictionary position
+		report.add(new StringValue("", 15.0f, 2));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_position), 0));
+		
+		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));	
+		
+		// known kanji
 		List<KanjiEntry> knownKanji = null;
 		
 		if (dictionaryEntry.isKanjiExists() == true) {
