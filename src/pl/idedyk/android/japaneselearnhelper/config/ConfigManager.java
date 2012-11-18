@@ -49,6 +49,10 @@ public class ConfigManager {
 		return new WordDictionarySearchConfig();
 	}
 	
+	public DictionaryHearConfig getDictionaryHearConfig() {
+		return new DictionaryHearConfig();
+	}
+	
 	public class KanaTestConfig {
 		
 		private final String kanaTestConfigPrefix = "kanaTestConfig_";
@@ -316,7 +320,7 @@ public class ConfigManager {
 		
 		private final String wordDictionarySearchConfigPrefix = "wordDictionarySearchConfig_";
 		
-		private final String eachChangeSearchPostfix = "eachChangeSearchPostfix";
+		private final String eachChangeSearchPostfix = "eachChangeSearch";
 		
 		public Boolean getEachChangeSearch() {
 			return preferences.getBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, true);
@@ -329,6 +333,90 @@ public class ConfigManager {
 			editor.putBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, eachChangeSearch);
 			
 			editor.commit();			
+		}
+	}
+	
+	public class DictionaryHearConfig {
+		
+		private final String dictionaryHearConfigPrefix = "dictionaryHearConfig_";
+		
+		private final String repeatNumberPostfix = "repeatNumber";
+		
+		private final String wordGroupsPostfix = "wordGroups";
+		
+		private final String randomPostfix = "random";
+		
+		public Integer getRepeatNumber() {
+			return preferences.getInt(dictionaryHearConfigPrefix + repeatNumberPostfix, 1);
+		}
+		
+		public void setRepeatNumber(int repeatNumber) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putInt(dictionaryHearConfigPrefix + repeatNumberPostfix, repeatNumber);
+			
+			editor.commit();			
+		}	
+		
+		public Set<Integer> getChosenWordGroups() {
+			
+			Set<Integer> result = new HashSet<Integer>();
+			
+			String chosenWordGroupString = preferences.getString(dictionaryHearConfigPrefix + wordGroupsPostfix, null);
+			
+			if (chosenWordGroupString == null) {
+				return result;
+			}
+			
+			String[] chosenWordGroupSplited = chosenWordGroupString.split(",");
+			
+			for (String currentChosenWordGroup : chosenWordGroupSplited) {
+				try {
+					result.add(Integer.parseInt(currentChosenWordGroup));
+				} catch (NumberFormatException e) {
+					return result;
+				}
+			}
+			
+			return result;
+		}
+		
+		public void setChosenWordGroups(List<Integer> chosenWordGroupsNumberList) {
+			
+			if (chosenWordGroupsNumberList == null) {
+				return;
+			}
+			
+			StringBuffer chosenWordGroupsNumberSb = new StringBuffer();
+			
+			for (int chosenWordGroupsNumberListIdx = 0; chosenWordGroupsNumberListIdx < chosenWordGroupsNumberList.size(); ++chosenWordGroupsNumberListIdx) {
+				
+				chosenWordGroupsNumberSb.append(chosenWordGroupsNumberList.get(chosenWordGroupsNumberListIdx));
+				
+				if (chosenWordGroupsNumberListIdx != chosenWordGroupsNumberList.size() - 1) {
+					chosenWordGroupsNumberSb.append(",");	
+				}
+			}
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(dictionaryHearConfigPrefix + wordGroupsPostfix, chosenWordGroupsNumberSb.toString());
+			
+			editor.commit();
+		}
+		
+		public Boolean getRandom() {
+			return preferences.getBoolean(dictionaryHearConfigPrefix + randomPostfix, false);
+		}
+
+		public void setRandom(boolean random) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(dictionaryHearConfigPrefix + randomPostfix, random);
+			
+			editor.commit();
 		}
 	}
 }

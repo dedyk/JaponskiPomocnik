@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dictionary_hear_options_label">Opcje słuchania słów</string>
+    <string name="dictionary_hear_options_repeat">Liczba powtórek</string>
+    <string name="dictionary_hear_options_start">Start</string>
+    <string name="dictionary_hear_options_group">Proszę wybrać grupy słów (naciśnij, aby rozwinąć)</string>
+    <string name="dictionary_hear_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="dictionary_hear_options_group_position">Grupa nr. %1$d (pozycje: %2$d - %3$d)</string>
+    <string name="dictionary_hear_options_repeat_number_invalid">Niepoprawna liczba powtórzeń</string>
+    <string name="dictionary_hear_options_word_group_no_chosen">Nie wybrano grupy słów</string>
+    <string name="dictionary_hear_options_other">Inne opcje</string>
+    <string name="dictionary_hear_options_random">Losowa kolejność</string>
+    <string name="dictionary_hear_options_chosen_group_info">Wybrane grupy</string>
+    <string name="dictionary_hear_options_group_group_info">Grupy od %1$d do %2$d</string>
+    <string name="dictionary_hear_options_report_problem_email_subject">Japoński pomocnik - opcje słuchania słów: Sugestia</string>
+    <string name="dictionary_hear_options_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="dictionary_hear_options_check_tts1">Sprawdzanie TTS</string>
+    <string name="dictionary_hear_options_check_tts2">Proszę czekać</string>
+    <string name="dictionary_hear_label">Słuchania słów</string>
+    <string name="dictionary_hear_start">Start</string>
+    <string name="dictionary_hear_stop">Stop</string>
+    <string name="dictionary_hear_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="dictionary_hear_word">Słowo</string>
+    <string name="dictionary_hear_word_kanji_label">Kanji</string>
+    <string name="dictionary_hear_word_reading_label">Czytanie</string>
+    <string name="dictionary_hear_word_translate_label">Tłumaczenie</string>
+    <string name="dictionary_hear_word_additional_info_label">Informacje dodatkowe</string>
+    <string name="dictionary_hear_word_part_of_speech">Część mowy</string>
+    <string name="dictionary_hear_state">Pozycja: %1$d z %2$d</string>
+    <string name="dictionary_hear_report_problem_email_subject">Japoński pomocnik - słuchanie słów: Sugestia</string>
+    <string name="dictionary_hear_report_problem_email_body">Treść sugestii:\n\n</string>
+</resources>

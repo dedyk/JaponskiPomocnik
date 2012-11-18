@@ -231,7 +231,7 @@ public class KanjiTestOptionsActivity extends Activity {
 					}
 				}
 
-				new PrepareAsyncTask().execute();				
+				new PrepareAsyncTask().execute();
 			}
 		});
 

@@ -10,7 +10,6 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperC
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperWordTestContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -45,7 +44,9 @@ public class WordTestGroup extends Activity {
 
 		final List<GroupItem> groupListItems = new ArrayList<GroupItem>();
 		
-		int wordGroupsNo = dictionaryManager.getWordGroupsNo();
+		final int groupSize = 10;
+		
+		int wordGroupsNo = dictionaryManager.getWordGroupsNo(groupSize);
 		
 		for (int idx = 0; idx < wordGroupsNo; ++idx) {
 			
@@ -72,11 +73,7 @@ public class WordTestGroup extends Activity {
 					if (currentGroupItem.isChecked() == true) {
 						wordTestContext.getLastWordsGroupChecked().add(currentGroupItem.getGroupNo());
 						
-						try {
-							wordsTest.addAll(dictionaryManager.getWordsGroup(currentGroupItem.getGroupNo()));
-						} catch (DictionaryException e) {
-							throw new RuntimeException(e);
-						}
+						wordsTest.addAll(dictionaryManager.getWordsGroup(groupSize, currentGroupItem.getGroupNo()));
 					}
 				}
 				

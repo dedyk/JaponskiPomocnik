@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tts_japanese_error">Niestety twój telefon nie obsługuje japońskiego TTS.\n\nPoszukaj w Google Play: \"SVOX Classic Text To Speech Engine\"</string>
+	<string name="tts_polish_error">Niestety twój telefon nie obsługuje polskiego TTS.\n\nPoszukaj w Google Play: \"IVONA Maja Polski beta\"</string>
+	<string name="tts_japanese_polish_error">Niestety twój telefon nie obsługuje japońskiego i polskiego TTS. \n\nPoszukaj w Google Play: \"SVOX Classic Text To Speech Engine\" oraz \"IVONA Maja Polski beta\"</string>
+	<string name="tts_error_ok">OK</string>
+	<string name="tts_google_play_go">Google Play</string>
+	<string name="tts_svox_google_play_go">SVOX</string>
+	<string name="tts_ivona_google_play_go">IVONA</string>
+	<string name="tts_svox_market_url">market://details?id=com.svox.classic</string>
+	<string name="tts_ivona_market_url">market://details?id=com.ivona.tts.voicebeta.pol.pol.maja</string>
+</resources>

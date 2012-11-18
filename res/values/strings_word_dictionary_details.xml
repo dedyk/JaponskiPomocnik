@@ -7,10 +7,9 @@
     <string name="word_dictionary_details_translate_label">Tłumaczenie</string>
     <string name="word_dictionary_details_additional_info_label">Informacje dodatkowe</string>
     <string name="word_dictionary_details_part_of_speech">Część mowy</string>
+    <string name="word_dictionary_details_dictionary_position">Numer pozycji w słowniku</string>
     <string name="word_dictionary_details_conjugater_label">Odmiany</string>
     <string name="word_dictionary_details_exampler_label">Przykłady</string>
     <string name="word_dictionary_details_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w szczegółach słowa</string>
     <string name="word_dictionary_details_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
-    <string name="word_dictionary_details_tts_error">Niestety twój telefon nie obsługuje japońskiego TTS.\n\nPoszukaj w Google Play: \"TTS Japanese\"</string>
-	<string name="word_dictionary_details_tts_error_ok">OK</string>
 </resources>

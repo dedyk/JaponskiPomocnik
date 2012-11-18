@@ -2,7 +2,6 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
@@ -27,6 +26,8 @@ import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
+import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
+import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -35,9 +36,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
-import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,10 +46,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class WordDictionaryDetails extends Activity implements OnInitListener {
-	
-	private TextToSpeech textToSpeech = null;
+public class WordDictionaryDetails extends Activity {
 
+	private TtsConnector ttsConnector;
+	
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
@@ -58,9 +58,8 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 	@Override
 	protected void onDestroy() {
 		
-		if (textToSpeech != null) {
-			textToSpeech.stop();
-			textToSpeech.shutdown();
+		if (ttsConnector != null) {
+			ttsConnector.stop();
 		}
 		
 		super.onDestroy();
@@ -159,40 +158,11 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			}
 		});
 		
-		if (textToSpeech != null) {
-			textToSpeech.stop();
-			textToSpeech.shutdown();
+		if (ttsConnector != null) {
+			ttsConnector.stop();
 		}
 		
-		textToSpeech = new TextToSpeech(this, this);
-	}
-	
-	public void onInit(int status) {
-		
-		if (status == TextToSpeech.SUCCESS) {
-			
-			int result = textToSpeech.setLanguage(Locale.JAPANESE);
-			
-			if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-				
-				if (textToSpeech != null) {
-					textToSpeech.stop();
-					textToSpeech.shutdown();
-				}
-				
-				textToSpeech = null;
-			} else {
-				// success
-			}
-		} else {
-			
-			if (textToSpeech != null) {
-				textToSpeech.stop();
-				textToSpeech.shutdown();
-			}
-			
-			textToSpeech = null;
-		}
+		ttsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
 	}
 
 	private List<IScreenItem> generateDetails(DictionaryEntry dictionaryEntry) {
@@ -348,7 +318,6 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
 		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 		
-		
 		List<String> romajiList = dictionaryEntry.getRomajiList();
 		
 		for (int idx = 0; idx < kanaList.size(); ++idx) {
@@ -418,7 +387,7 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 				report.add(new StringValue("-", 20.0f, 0));
 			}
 		}
-				
+						
 		// Word type
 		boolean addableDictionaryEntryTypeInfo = DictionaryEntryType.isAddableDictionaryEntryTypeInfo(dictionaryEntry.getDictionaryEntryType());
 		
@@ -428,6 +397,13 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));			
 		}
 		
+		// dictionary position
+		report.add(new StringValue("", 15.0f, 2));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_position), 0));
+		
+		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));	
+		
+		// known kanji
 		List<KanjiEntry> knownKanji = null;
 		
 		if (dictionaryEntry.isKanjiExists() == true) {
@@ -712,18 +688,30 @@ public class WordDictionaryDetails extends Activity implements OnInitListener {
 				text.append(kanjiKana);
 			}
 						
-			if (textToSpeech != null) {
-				textToSpeech.speak(text.toString(), TextToSpeech.QUEUE_FLUSH, null);
+			if (ttsConnector != null && ttsConnector.getOnInitResult() != null && ttsConnector.getOnInitResult().booleanValue() == true) {
+				ttsConnector.speak(text.toString());
 			} else {
 				AlertDialog alertDialog = new AlertDialog.Builder(WordDictionaryDetails.this).create();
 				
-				alertDialog.setMessage(getString(R.string.word_dictionary_details_tts_error));
+				alertDialog.setMessage(getString(R.string.tts_japanese_error));
 				alertDialog.setCancelable(false);
 				
-				alertDialog.setButton(getString(R.string.word_dictionary_details_tts_error_ok), new DialogInterface.OnClickListener() {
+				alertDialog.setButton(getString(R.string.tts_error_ok), new DialogInterface.OnClickListener() {
 
 					public void onClick(DialogInterface dialog, int which) {
 						// noop
+					}
+				});
+				
+				alertDialog.setButton2(getString(R.string.tts_google_play_go), new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog, int which) {
+						
+						Uri marketUri = Uri.parse(getString(R.string.tts_svox_market_url));
+						
+						Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
+						
+						startActivity(marketIntent);
 					}
 				});
 				
