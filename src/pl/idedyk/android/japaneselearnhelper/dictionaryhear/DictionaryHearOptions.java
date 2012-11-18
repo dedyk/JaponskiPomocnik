@@ -215,6 +215,9 @@ public class DictionaryHearOptions extends Activity {
 				// ttsInitResult.polishTtsResult = true;
 								
 				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {
+					
+					setChosenGroupInfo(wordGroupCheckBoxList);
+					
 					return;
 				}
 				
