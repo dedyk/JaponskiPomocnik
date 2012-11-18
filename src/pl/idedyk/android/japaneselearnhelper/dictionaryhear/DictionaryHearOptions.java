@@ -160,9 +160,9 @@ public class DictionaryHearOptions extends Activity {
 
 				progressDialog.dismiss();
 				
-				// FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				ttsInitResult.japaneseTtsResult = true;
-				ttsInitResult.polishTtsResult = true;
+				// FIXME: Tylko do testow
+				// ttsInitResult.japaneseTtsResult = true;
+				// ttsInitResult.polishTtsResult = true;
 								
 				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {
 					return;
