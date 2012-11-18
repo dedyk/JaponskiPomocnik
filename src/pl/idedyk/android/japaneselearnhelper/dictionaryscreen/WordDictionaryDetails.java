@@ -57,8 +57,10 @@ public class WordDictionaryDetails extends Activity {
 
 	@Override
 	protected void onDestroy() {
-				
-		ttsConnector.stop();
+		
+		if (ttsConnector != null) {
+			ttsConnector.stop();
+		}
 		
 		super.onDestroy();
 	}

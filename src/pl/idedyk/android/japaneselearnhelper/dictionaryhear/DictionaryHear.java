@@ -13,6 +13,8 @@ import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
+import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
+import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -38,6 +40,9 @@ public class DictionaryHear extends Activity {
 	private StringValue stateStringValue = null;
 	
 	private Button startStopButton = null;
+	
+	private TtsConnector japanaeseTtsConnector = null;
+	private TtsConnector polishTtsConnector = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -80,6 +85,21 @@ public class DictionaryHear extends Activity {
 				}
 			}
 		});
+		
+		if (japanaeseTtsConnector != null) {
+			japanaeseTtsConnector.stop();
+		}
+		
+		if (polishTtsConnector != null) {
+			polishTtsConnector.stop();
+		}
+		
+		// FIXME !!!!!
+		japanaeseTtsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
+		polishTtsConnector = new TtsConnector(this, TtsLanguage.POLISH);
+		
+		//japanaeseTtsConnector = new TtsConnector(this, TtsLanguage.ENGLISH);
+		//polishTtsConnector = new TtsConnector(this, TtsLanguage.ENGLISH);
 	}
 	
 	@Override
@@ -89,6 +109,14 @@ public class DictionaryHear extends Activity {
 			speakAsyncTask.cancel(false);
 			
 			speakAsyncTask = null;
+		}
+		
+		if (japanaeseTtsConnector != null) {
+			japanaeseTtsConnector.stop();
+		}
+		
+		if (polishTtsConnector != null) {
+			polishTtsConnector.stop();
 		}
 		
 		super.onDestroy();
@@ -328,7 +356,7 @@ public class DictionaryHear extends Activity {
 	}
 	
 	class SpeakAsyncTask extends AsyncTask<Void, SpeakAsyncTaskStatus, Void> {
-		
+				
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
@@ -355,12 +383,42 @@ public class DictionaryHear extends Activity {
 				
 				publishProgress(new SpeakAsyncTaskStatus(currentDictionaryEntry, dictionaryEntryListIdx, dictionaryEntryList.size()));
 				
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
+				dictionaryHearContext.setDictionaryEntryListIdx(dictionaryEntryListIdx);
+				
+				List<String> kanaList = currentDictionaryEntry.getKanaList();
+				
+				StringBuffer japaneseTextSb = new StringBuffer();
+				
+				for (int kanaListIdx = 0; kanaListIdx < kanaList.size(); ++kanaListIdx) {
+					japaneseTextSb.append(kanaList.get(kanaListIdx));
+					
+					if (kanaListIdx != kanaList.size() - 1) {
+						japaneseTextSb.append("、");
+					}
 				}
 				
-				dictionaryHearContext.setDictionaryEntryListIdx(dictionaryEntryListIdx);
+				List<String> translates = currentDictionaryEntry.getTranslates();
+				
+				StringBuffer polishTranslateSb = new StringBuffer();
+				
+				for (int idx = 0; idx < translates.size(); ++idx) {
+					polishTranslateSb.append(translates.get(idx));
+					
+					if (idx != translates.size() - 1) {
+						polishTranslateSb.append(", ");
+					} else {
+						polishTranslateSb.append(". ");
+					}
+				}
+				
+				String info = currentDictionaryEntry.getInfo();
+
+				if (info != null && info.length() > 0) {					
+					polishTranslateSb.append(info).append(", ");
+				}				
+				
+				japanaeseTtsConnector.speakAndWait(japaneseTextSb.toString());
+				polishTtsConnector.speakAndWait(polishTranslateSb.toString());
 			}
 			
 			return null;
