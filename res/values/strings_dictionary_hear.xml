@@ -26,4 +26,6 @@
     <string name="dictionary_hear_word_additional_info_label">Informacje dodatkowe</string>
     <string name="dictionary_hear_word_part_of_speech">Część mowy</string>
     <string name="dictionary_hear_state">Pozycja: %1$d z %2$d</string>
+    <string name="dictionary_hear_report_problem_email_subject">Japoński pomocnik - słuchanie słów: Sugestia</string>
+    <string name="dictionary_hear_report_problem_email_body">Treść sugestii:\n\n</string>
 </resources>

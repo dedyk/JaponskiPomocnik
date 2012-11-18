@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperDictionaryHearContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
@@ -16,10 +18,16 @@ import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -44,6 +52,24 @@ public class DictionaryHear extends Activity {
 	private TtsConnector japanaeseTtsConnector = null;
 	private TtsConnector polishTtsConnector = null;
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		
+		stop();
+
+		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+	}
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
@@ -71,6 +97,17 @@ public class DictionaryHear extends Activity {
 		
 		setDictionaryEntry(dictionaryEntryList.get(dictionaryEntryListIdx), dictionaryEntryListIdx, dictionaryEntryList.size());		
 		
+		if (japanaeseTtsConnector != null) {
+			japanaeseTtsConnector.stop();
+		}
+		
+		if (polishTtsConnector != null) {
+			polishTtsConnector.stop();
+		}
+		
+		japanaeseTtsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
+		polishTtsConnector = new TtsConnector(this, TtsLanguage.POLISH);
+		
 		// start stop action
 		startStopButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -86,20 +123,38 @@ public class DictionaryHear extends Activity {
 			}
 		});
 		
-		if (japanaeseTtsConnector != null) {
-			japanaeseTtsConnector.stop();
-		}
-		
-		if (polishTtsConnector != null) {
-			polishTtsConnector.stop();
-		}
-		
-		// FIXME !!!!!
-		japanaeseTtsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
-		polishTtsConnector = new TtsConnector(this, TtsLanguage.POLISH);
-		
-		//japanaeseTtsConnector = new TtsConnector(this, TtsLanguage.ENGLISH);
-		//polishTtsConnector = new TtsConnector(this, TtsLanguage.ENGLISH);
+		// report problem action
+		Button reportProblemButton = (Button)findViewById(R.id.dictionary_hear_report_problem_button);
+
+		reportProblemButton.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View view) {
+				
+				stop();
+
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+
+				String mailSubject = getString(R.string.dictionary_hear_report_problem_email_subject);
+
+				String mailBody = getString(R.string.dictionary_hear_report_problem_email_body);
+
+				String versionName = "";
+				int versionCode = 0;
+
+				try {
+					PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+					versionName = packageInfo.versionName;
+					versionCode = packageInfo.versionCode;
+
+				} catch (NameNotFoundException e) {        	
+				}
+
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			}
+		});		
 	}
 	
 	@Override
