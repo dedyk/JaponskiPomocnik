@@ -32,6 +32,21 @@
             </EditText>
 
             <TextView
+                android:id="@+id/dictionary_hear_options_delay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/dictionary_hear_options_delay" />
+
+            <EditText
+                android:id="@+id/dictionary_hear_options_delay_number_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" >
+            </EditText>
+
+            <TextView
                 android:id="@+id/dictionary_hear_options_other"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

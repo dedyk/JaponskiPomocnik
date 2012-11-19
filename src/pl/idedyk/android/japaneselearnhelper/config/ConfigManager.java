@@ -342,6 +342,8 @@ public class ConfigManager {
 		
 		private final String repeatNumberPostfix = "repeatNumber";
 		
+		private final String delayNumberPostfix = "delayNumber";
+		
 		private final String wordGroupsPostfix = "wordGroups";
 		
 		private final String randomPostfix = "random";
@@ -358,6 +360,19 @@ public class ConfigManager {
 			
 			editor.commit();			
 		}	
+
+		public Integer getDelayNumber() {
+			return preferences.getInt(dictionaryHearConfigPrefix + delayNumberPostfix, 3);
+		}
+		
+		public void setDelayNumber(int repeatNumber) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putInt(dictionaryHearConfigPrefix + delayNumberPostfix, repeatNumber);
+			
+			editor.commit();			
+		}
 		
 		public Set<Integer> getChosenWordGroups() {
 			

@@ -71,6 +71,10 @@ public class DictionaryHearOptions extends Activity {
 		
 		repeatNumberEditText.setText(String.valueOf(dictionaryHearConfig.getRepeatNumber()));
 		
+		final EditText delayNumberEditText = (EditText)findViewById(R.id.dictionary_hear_options_delay_number_edit_text);
+		
+		delayNumberEditText.setText(String.valueOf(dictionaryHearConfig.getDelayNumber()));
+		
 		final CheckBox randomCheckBox = (CheckBox)findViewById(R.id.dictionary_hear_options_random);
 		
 		randomCheckBox.setChecked(dictionaryHearConfig.getRandom());
@@ -213,8 +217,8 @@ public class DictionaryHearOptions extends Activity {
 				setChosenGroupInfo(wordGroupCheckBoxList);
 				
 				// INFO: Tylko do testow
-				// ttsInitResult.japaneseTtsResult = true;
-				// ttsInitResult.polishTtsResult = true;
+				//ttsInitResult.japaneseTtsResult = true;
+				//ttsInitResult.polishTtsResult = true;
 								
 				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {	
 					return;
@@ -316,6 +320,38 @@ public class DictionaryHearOptions extends Activity {
 				}
 				
 				dictionaryHearConfig.setRepeatNumber(repeatNumber);
+				
+				String delayNumberString = delayNumberEditText.getText().toString();
+				
+				boolean delayNumberError = false;
+				
+				int delayNumber = -1;
+				
+				if (delayNumberString == null) {
+					delayNumberError = true;
+				} else {
+					
+					try {
+						delayNumber = Integer.parseInt(delayNumberString);
+					} catch (NumberFormatException e) {
+						delayNumberError = true;
+					}
+				}
+				
+				if (delayNumberError == false && delayNumber <= 0) {
+					delayNumberError = true;
+				}
+				
+				if (delayNumberError == true) {
+					
+					Toast toast = Toast.makeText(DictionaryHearOptions.this, getString(R.string.dictionary_hear_options_delay_number_invalid), Toast.LENGTH_SHORT);
+
+					toast.show();
+
+					return;					
+				}
+				
+				dictionaryHearConfig.setDelayNumber(delayNumber);
 				
 				boolean random = randomCheckBox.isChecked();
 				

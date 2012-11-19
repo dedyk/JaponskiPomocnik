@@ -6,6 +6,8 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperDictionaryHearContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
@@ -413,6 +415,8 @@ public class DictionaryHear extends Activity {
 			JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = 
 					JapaneseAndroidLearnHelperApplication.getInstance().getContext().getDictionaryHearContext();
 			
+			DictionaryHearConfig dictionaryHearConfig = ConfigManager.getInstance().getDictionaryHearConfig();
+			
 			List<DictionaryEntry> dictionaryEntryList = dictionaryHearContext.getDictionaryEntryList();
 			
 			for (int dictionaryEntryListIdx = dictionaryHearContext.getDictionaryEntryListIdx();
@@ -462,6 +466,11 @@ public class DictionaryHear extends Activity {
 				
 				japanaeseTtsConnector.speakAndWait(japaneseTextSb.toString());
 				polishTtsConnector.speakAndWait(polishTranslateSb.toString());
+				
+				try {
+					Thread.sleep(dictionaryHearConfig.getDelayNumber() * 1000);
+				} catch (InterruptedException e) {
+				}
 			}
 			
 			return null;
