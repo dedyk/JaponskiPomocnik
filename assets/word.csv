@@ -1488,11 +1488,13 @@ podatki",,
 1192,WORD,WORD_NOUN,HIRAGANA,,地図,ちず,,chizu,mapa,,
 1193,WORD,WORD_NOUN,HIRAGANA,,庭,にわ,,niwa,ogród,,
 1194,WORD,WORD_NOUN,HIRAGANA,,発表,はっぴょう,,happyou,prezentacja,,
-1195,WORD,WORD_NOUN,HIRAGANA,,番組,ばんぐみ,,bangumi,program telewizyjny,,
+1195,WORD,WORD_NOUN,HIRAGANA,,番組,ばんぐみ,,bangumi,"program telewizyjny
+kanał telewizyjny",,
 1196,WORD,WORD_NOUN,KATAKANA,,-,プール,,puuru,basen,,
 1197,WORD,WORD_NOUN,KATAKANA,,-,ペット,,petto,zwierzak,,
-1198,WORD,WORD_NOUN,HIRAGANA,,予定,よてい,,yotei,"harmonogram
-rozkład",,
+1198,WORD,WORD_NOUN,HIRAGANA,,予定,よてい,,yotei,"plan
+harmonogram
+rozkład jazdy",,
 1199,WORD,WORD_NOUN,HIRAGANA,,旅館,りょかん,,ryokan,zajazd,w stylu japońskim,
 1200,WORD,WORD_NOUN,HIRAGANA,,割引券,わりびきけん,,waribikiken,bilet ulgowy,,
 1201,WORD,WORD_ADJECTIVE_I,HIRAGANA,,広い,ひろい,,hiroi,"przestronny
@@ -1517,7 +1519,7 @@ iść na randkę",narzeczeństwo,
 1217,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,予約する,よやくする,,yoyaku suru,rezerwować,,
 1218,WORD,WORD_EXPRESSION,HIRAGANA,,一日中,いちにちじゅう,,ichinichi juu,cały dzień,,
 1219,WORD,UNKNOWN,HIRAGANA,,最近,さいきん,,saikin,ostatnio,,
-1220,WORD,WORD_EXPRESSION,HIRAGANA,,目,め,,me,[tworzenie liczebników porządkowych],"np. pierwszy, drugi",
+1220,WORD,WORD_EXPRESSION,HIRAGANA,,目,め,,me,[tworzenie liczebników porządkowych],"np. pierwszy, drugi, trzeci, czwarty",
 1221,WORD,WORD_EXPRESSION,HIRAGANA,,もう一度,もういちど,,mou ichi do,jeszcze raz,,
 1222,WORD,WORD_VERB_U,HIRAGANA,,車を降りる,くるまをおりる,,kuruma o oriru,wysiadać z samochodu,,
 1223,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,準備する,じゅんびする,,junbi suru,przygotowywać,,
@@ -2467,3 +2469,19 @@ natura",,
 2001,WORD,WORD_NOUN,KATAKANA,,-,ビル,,biru,budynek biurowy,,
 2002,WORD,WORD_NOUN,HIRAGANA,,戦争,せんそう,,sensou,wojna,,
 2003,WORD,WORD_NOUN,KATAKANA,,-,ホームレス,,hoomuresu,bezdomny,,
+2004,WORD,WORD_NOUN,KATAKANA,,-,アルプス,,arupusu,Alpy,,
+2005,WORD,WORD_NOUN,HIRAGANA,,お礼,おれい,,orei,podziękowanie,,
+2006,WORD,WORD_VERB_RU,HIRAGANA,,折れる,おれる,,oreru,"łamać
+zginać się",,
+2007,WORD,WORD_NOUN,HIRAGANA,,山脈,さんみゃく,,sanmyaku,pasmo górskie,,
+2008,WORD,WORD_NOUN,HIRAGANA,,火山,かざん,,kazan,wulkan,,
+2009,WORD,WORD_NOUN,HIRAGANA,,猿,さる,,saru,małpa,,
+2010,WORD,WORD_NOUN,HIRAGANA,,枝,えだ,,eda,"gałąź
+gałązka",,
+2011,WORD,UNKNOWN,HIRAGANA,,初,はつ,,hatsu,"pierwszy
+nowy","~ rzeczownik, coś pierwszego",
+2012,WORD,WORD_NOUN,HIRAGANA,,初デート,はつデート,,hatsu deeto,pierwsza randka,,
+2013,WORD,WORD_NOUN,HIRAGANA,,初キス,はつキス,,hatsu kisu,pierwszy pocałunek,,
+2014,WORD,WORD_NOUN,HIRAGANA,,初恋,はつこい,,hatsu koi,pierwsza miłość,,
+2015,WORD,WORD_NOUN,HIRAGANA,,読み物,よみもの,,yomimono,"lektura
+materiał do czytania",,
