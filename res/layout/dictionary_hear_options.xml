@@ -52,6 +52,22 @@
                 android:background="@color/title_background"
                 android:text="@string/dictionary_hear_options_group" >
             </TextView>
+
+            <LinearLayout
+                android:id="@+id/dictionary_hear_options_chosen_group_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/dictionary_hear_options_chosen_group_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/title_background"
+                    android:text="@string/dictionary_hear_options_chosen_group_info" >
+                </TextView>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

@@ -177,18 +177,6 @@ public class DictionaryHear extends Activity {
 		super.onDestroy();
 	}
 
-	@Override
-	protected void onPause() {
-		
-		if (speakAsyncTask != null) {
-			speakAsyncTask.cancel(false);
-			
-			speakAsyncTask = null;
-		}
-		
-		super.onPause();
-	}
-
 	private void fillMainLayout(List<IScreenItem> screenItemList, LinearLayout mainLayout) {
 		
 		for (IScreenItem currentReportItem : screenItemList) {

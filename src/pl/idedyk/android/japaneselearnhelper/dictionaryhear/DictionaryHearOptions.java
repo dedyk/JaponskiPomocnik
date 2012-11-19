@@ -98,7 +98,7 @@ public class DictionaryHearOptions extends Activity {
 				
 				setGroupGroupObjectVisible(currentGroupGroupLinearLayout, false);
 				
-				mainLayout.addView(currentGroupGroupLinearLayout, mainLayout.getChildCount());
+				mainLayout.addView(currentGroupGroupLinearLayout, mainLayout.getChildCount() - 1);
 				
 				currentGroupGroupLinearLayout = createGroupGroupLinearLayout();
 				
@@ -145,7 +145,7 @@ public class DictionaryHearOptions extends Activity {
 		currentGroupGroupLinearLayout.addView(createGroupGroupTitle(currentGroupGroupLinearLayout, currentGroupGroupStartPos, currentGroupGroupStartPos + currentGroupGroupLinearLayout.getChildCount() - 1), 0);
 		setGroupGroupObjectVisible(currentGroupGroupLinearLayout, false);
 		
-		mainLayout.addView(currentGroupGroupLinearLayout, mainLayout.getChildCount());
+		mainLayout.addView(currentGroupGroupLinearLayout, mainLayout.getChildCount() - 1);
 		
 		final Button startButton = (Button)findViewById(R.id.dictionary_hear_start);
 		
@@ -210,14 +210,13 @@ public class DictionaryHearOptions extends Activity {
 
 				progressDialog.dismiss();
 				
+				setChosenGroupInfo(wordGroupCheckBoxList);
+				
 				// INFO: Tylko do testow
 				// ttsInitResult.japaneseTtsResult = true;
 				// ttsInitResult.polishTtsResult = true;
 								
-				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {
-					
-					setChosenGroupInfo(wordGroupCheckBoxList);
-					
+				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {	
 					return;
 				}
 				
@@ -521,10 +520,33 @@ public class DictionaryHearOptions extends Activity {
 			}
 		}
 		
-		if (chosenGroupInfo.length() != 0) {
-			Toast toast = Toast.makeText(this, getString(R.string.dictionary_hear_options_chosen_group_info) + ": \n\n" + chosenGroupInfo, Toast.LENGTH_SHORT);
+		LinearLayout chosenGroupInfoLayout = (LinearLayout)findViewById(R.id.dictionary_hear_options_chosen_group_info_layout);
+		
+		while (true) {
 			
-			toast.show();
+			if (chosenGroupInfoLayout.getChildCount() > 1) {
+				chosenGroupInfoLayout.removeViewAt(chosenGroupInfoLayout.getChildCount() - 1);
+			} else {
+				break;
+			}
+		}
+		
+		for (CheckBox currentCheckBox : wordGroupCheckBoxList) {
+			
+			if (currentCheckBox.isChecked() == true) {
+				
+				TextView title = new TextView(this);
+				
+				LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+				
+				layoutParam.setMargins(20, 0, 0, 10);
+				
+				title.setLayoutParams(layoutParam);
+				
+				title.setText(currentCheckBox.getText());
+				
+				chosenGroupInfoLayout.addView(title);
+			}
 		}
 	}
 }
