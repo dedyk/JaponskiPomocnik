@@ -1142,7 +1142,8 @@ faktycznie",,
 1036,WORD,WORD_NOUN,HIRAGANA,,像,ぞう,,zou,pomnik,,
 1037,WORD,WORD_NOUN,HIRAGANA,,数学,すうがく,,suugaku,matematyka,,
 1038,WORD,WORD_NOUN,HIRAGANA,,経験,けいけん,,keiken,doświadczenie,,
-1039,WORD,UNKNOWN,HIRAGANA,,特に,とくに,,tokuni,szczególnie,,
+1039,WORD,UNKNOWN,HIRAGANA,,特に,とくに,,tokuni,"szczególnie
+zwłaszcza",,
 1040,WORD,WORD_ADJECTIVE_I,HIRAGANA,,-,めずらしい,,mezurashii,rzadko,,
 1041,WORD,UNKNOWN,HIRAGANA,,-,なんでも,,nandemo,cokolwiek,,
 1042,WORD,WORD_VERB_IRREGULAR,KATAKANA,,-,ニヤニヤする,,niyaniya suru,szczerzyć się,,
@@ -1324,7 +1325,8 @@ rozkład jazdy",,
 1199,WORD,WORD_NOUN,HIRAGANA,,旅館,りょかん,,ryokan,zajazd,w stylu japońskim,
 1200,WORD,WORD_NOUN,HIRAGANA,,割引券,わりびきけん,,waribikiken,bilet ulgowy,,
 1201,WORD,WORD_ADJECTIVE_I,HIRAGANA,,広い,ひろい,,hiroi,"przestronny
-szeroki",,
+szeroki
+rozległy",,
 1202,WORD,WORD_VERB_U,HIRAGANA,,売る,うる,,uru,sprzedawać,,
 1203,WORD,WORD_VERB_U,HIRAGANA,,下ろす,おろす,,orosu,podjąć,pieniądze,
 1204,WORD,WORD_VERB_U,HIRAGANA,,描く,かく,,kaku,"rysować
@@ -1628,7 +1630,8 @@ uparty",,
 1482,KANJI,UNKNOWN,HIRAGANA,,青,あお,,ao,kolor niebieski,,
 1483,KANJI,WORD_NOUN,HIRAGANA,,青年,せいねん,,seinen,"on
 młody pan",,
-1484,KANJI,WORD_NOUN,HIRAGANA,,景色,けしき,,keshiki,sceneria,,
+1484,KANJI,WORD_NOUN,HIRAGANA,,景色,けしき,,keshiki,"sceneria
+widok",,
 1485,KANJI,WORD_NOUN,HIRAGANA,,特色,とくしょく,,tokushoku,charakterystyka,,
 1486,KANJI,WORD_NOUN,HIRAGANA,,動物,どうぶつ,,doubutsu,zwierze,,
 1487,KANJI,WORD_NOUN,HIRAGANA,,鳥,とり,,tori,ptak,,
@@ -2089,8 +2092,7 @@ niezdolny",,
 wylot",samolotu,
 1854,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,離陸する,りりくする,,ririku suru,"startowanie
 wylot",samolotu,
-1855,WORD,WORD_NOUN,HIRAGANA,,広場,ひろば,,hiroba,"kwadrat
-open space
+1855,WORD,WORD_NOUN,HIRAGANA,,広場,ひろば,,hiroba,"open space
 przestrzenne miejsce",,
 1856,WORD,WORD_NOUN,HIRAGANA,,墓地,ぼち,,bochi,cmentarz,,
 1857,WORD,WORD_NOUN,HIRAGANA,,教会,きょうかい,,kyoukai,kościół,,
@@ -2287,9 +2289,11 @@ radować się
 z przyjemnością",robić coś,
 1998,WORD,WORD_NOUN,HIRAGANA,,自然,しぜん,,shizen,"przyroda
 natura",,
-1999,WORD,WORD_NOUN,HIRAGANA,,紅葉,こうよう,,kouyou,kolory jesieni,,
+1999,WORD,WORD_NOUN,HIRAGANA,,紅葉,こうよう,,kouyou,"kolory jesieni
+pora czerwieni",,
 2000,WORD,WORD_NOUN,HIRAGANA,,竹,たけ,,take,bambus,,
-2001,WORD,WORD_NOUN,KATAKANA,,-,ビル,,biru,budynek biurowy,,
+2001,WORD,WORD_NOUN,KATAKANA,,-,ビル,,biru,"wieżowiec
+budynek biurowy",,
 2002,WORD,WORD_NOUN,HIRAGANA,,戦争,せんそう,,sensou,wojna,,
 2003,WORD,WORD_NOUN,KATAKANA,,-,ホームレス,,hoomuresu,bezdomny,,
 2004,WORD,WORD_NOUN,KATAKANA,,-,アルプス,,arupusu,Alpy,,
@@ -2319,3 +2323,17 @@ zniżać",,
 2020,WORD,WORD_NOUN,HIRAGANA,,鹿,しか,,shika,jeleń,,
 2021,WORD,WORD_NOUN,HIRAGANA,,鯨,くじら,,kujira,wieloryb,,
 2022,WORD,WORD_NOUN,HIRAGANA,,トロッコ列車,トロッコれっしゃ,,torokko ressha,mały pociąg,zwykle dla turystów,
+2023,WORD,WORD_NOUN,HIRAGANA,,最高,さいこう,,saikou,"najwyższy
+najwspanialszy
+największy
+najfajniejszy",,
+2024,WORD,WORD_NOUN,HIRAGANA,,兵士,へいし,,heishi,żołnierz,,
+2025,WORD,WORD_NOUN,HIRAGANA,,軍隊,ぐんたい,,guntai,armia,,
+2026,WORD,WORD_NOUN,HIRAGANA,,襲う,おそう,,osou,"atakować
+szturmować
+napadać",,
+2027,WORD,WORD_NOUN,HIRAGANA,,鮫,さめ,,same,rekin,,
+2028,WORD,WORD_NOUN,HIRAGANA,,水母,くらげ,,kurage,meduza,,
+2029,WORD,WORD_NOUN,HIRAGANA,,海月,くらげ,,kurage,meduza,,
+2030,WORD,WORD_NOUN,HIRAGANA,,嵐,あらし,,arashi,"burza
+sztorm",,
