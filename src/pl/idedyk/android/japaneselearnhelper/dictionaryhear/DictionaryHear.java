@@ -83,7 +83,7 @@ public class DictionaryHear extends Activity {
 		
 		startStopButton = (Button)findViewById(R.id.dictionary_hear_start_stop_button);
 		
-		List<IScreenItem> screenItemList = generateMainLayout(mainLayout);
+		final List<IScreenItem> screenItemList = generateMainLayout(mainLayout);
 		
 		fillMainLayout(screenItemList, mainLayout);
 		
@@ -120,6 +120,9 @@ public class DictionaryHear extends Activity {
 				if (startStopButtonText.equals(getString(R.string.dictionary_hear_start)) == true) {
 					start();
 				} else {
+					startStopButton.setEnabled(false);
+					startStopButton.setText(getString(R.string.dictionary_hear_please_wait));
+					
 					stop();
 				}
 			}
@@ -133,12 +136,18 @@ public class DictionaryHear extends Activity {
 			public void onClick(View view) {
 				
 				stop();
+				
+				StringBuffer additionalInfoSb = new StringBuffer();
+				
+				for (IScreenItem currentScreenItemListItem : screenItemList) {
+					additionalInfoSb.append(currentScreenItemListItem.toString()).append("\n\n");
+				}
 
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
 
 				String mailSubject = getString(R.string.dictionary_hear_report_problem_email_subject);
 
-				String mailBody = getString(R.string.dictionary_hear_report_problem_email_body);
+				String mailBody = getString(R.string.dictionary_hear_report_problem_email_body, additionalInfoSb.toString());
 
 				String versionName = "";
 				int versionCode = 0;
@@ -283,7 +292,8 @@ public class DictionaryHear extends Activity {
 		}
 	}
 	
-	private void stopPost() {		
+	private void stopPost() {
+		startStopButton.setEnabled(true);
 		startStopButton.setText(getString(R.string.dictionary_hear_start));
 	}
 	
@@ -406,6 +416,7 @@ public class DictionaryHear extends Activity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			
+			startStopButton.setEnabled(true);
 			startStopButton.setText(getString(R.string.dictionary_hear_stop));
 		}
 		

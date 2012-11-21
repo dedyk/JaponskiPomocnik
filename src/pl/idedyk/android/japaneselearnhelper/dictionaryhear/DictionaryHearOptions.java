@@ -217,8 +217,8 @@ public class DictionaryHearOptions extends Activity {
 				setChosenGroupInfo(wordGroupCheckBoxList);
 				
 				// INFO: Tylko do testow
-				//ttsInitResult.japaneseTtsResult = true;
-				//ttsInitResult.polishTtsResult = true;
+				// ttsInitResult.japaneseTtsResult = true;
+				// ttsInitResult.polishTtsResult = true;
 								
 				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {	
 					return;
