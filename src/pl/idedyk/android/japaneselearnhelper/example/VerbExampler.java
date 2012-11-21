@@ -90,6 +90,15 @@ public class VerbExampler {
 		// te oku
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_OKU, makeTeOkuExample(dictionaryEntry));
 		
+		// te ageru
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_AGERU, makeTeAgeruExample(dictionaryEntry));
+		
+		// te kureru
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_KURERU, makeTeKureruExample(dictionaryEntry));
+		
+		// te morau
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MORAU, makeTeMorauExample(dictionaryEntry));		
+		
 		return result;
 	}
 
@@ -469,5 +478,38 @@ public class VerbExampler {
 		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
 		
 		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeTeAgeruExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "私 [は/が] [odbiorca] に%sあげる";
+		final String templateKana = "わたし [は/が] [odbiorca] に%sあげる";
+		final String templateRomaji = "watashi [wa/ga] [odbiorca] ni %s ageru";
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		
+		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, false);
+	}
+	
+	private static ExampleResult makeTeKureruExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "[dający] [は/が] %sくれる";
+		final String templateKana = "[dający] [は/が] %sくれる";
+		final String templateRomaji = "[dający] [wa/ga] %s kureru";
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		
+		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, false);
+	}
+	
+	private static ExampleResult makeTeMorauExample(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "[odbiorca] [は/が] [dający] [に/から] %sもらう";
+		final String templateKana = "[odbiorca] [は/が] [dający] [に/から] %sもらう";
+		final String templateRomaji = "[odbiorca] [wa/ga] [dający] [ni/kara] %s morau";
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		
+		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, false);
 	}
 }

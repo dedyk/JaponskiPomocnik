@@ -102,7 +102,13 @@ public enum ExampleGroupType {
 	
 	VERB_OU_TO_OMOTTE_IRU("Wola (decyzja podjęta wcześniej)"),
 	
-	VERB_TE_OKU("Przygotować się");
+	VERB_TE_OKU("Przygotować się"),
+	
+	VERB_TE_AGERU("Dać czynność (od siebie, ktoś komuś)"),
+	
+	VERB_TE_KURERU("Dać czynność (mnie)"),
+	
+	VERB_TE_MORAU("Otrzymać czynność");
 	
 	private String name;
 	
