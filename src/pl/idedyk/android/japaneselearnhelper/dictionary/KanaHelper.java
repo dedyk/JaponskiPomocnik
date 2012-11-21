@@ -256,7 +256,7 @@ public class KanaHelper {
 			List<List<String>> strokePaths = kanaAndStrokePaths.get(kanaJapanese);
 			
 			if (strokePaths == null) {
-				throw new RuntimeException("strokePaths == null");
+				throw new RuntimeException("strokePaths == null: " + kanaJapanese);
 			}
 			
 			currentKanaEntry.setStrokePaths(strokePaths);
@@ -437,7 +437,7 @@ public class KanaHelper {
 			List<List<String>> strokePaths = kanaAndStrokePaths.get(kanaJapanese);
 			
 			if (strokePaths == null) {
-				throw new RuntimeException("strokePaths == null");
+				throw new RuntimeException("strokePaths == null: " + kanaJapanese);
 			}
 			
 			currentKanaEntry.setStrokePaths(strokePaths);
@@ -478,7 +478,7 @@ public class KanaHelper {
 			List<List<String>> strokePaths = kanaAndStrokePaths.get(kanaJapanese);
 			
 			if (strokePaths == null) {
-				throw new RuntimeException("strokePaths == null");
+				throw new RuntimeException("strokePaths == null: " + kanaJapanese);
 			}
 			
 			currentKanaEntry.setStrokePaths(strokePaths);
@@ -533,7 +533,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get("ttsu");
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -552,7 +552,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -570,7 +570,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -588,7 +588,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -602,7 +602,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -616,7 +616,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -630,7 +630,7 @@ public class KanaHelper {
 					KanaEntry kanaEntry = hiraganaCache.get("n");
 					
 					if (kanaEntry == null) {
-						throw new DictionaryException("Can't find kanaEntry!");
+						throw new DictionaryException("Can't find kanaEntry: " + word);
 					}
 					
 					kanaEntries.add(kanaEntry);
@@ -652,7 +652,7 @@ public class KanaHelper {
 					KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 					
 					if (kanaEntry == null) {
-						throw new DictionaryException("Can't find kanaEntry!");
+						throw new DictionaryException("Can't find kanaEntry: " + word);
 					}
 					
 					kanaEntries.add(kanaEntry);
@@ -666,7 +666,7 @@ public class KanaHelper {
 						KanaEntry kanaEntry = hiraganaCache.get("n");
 						
 						if (kanaEntry == null) {
-							throw new DictionaryException("Can't find kanaEntry!");
+							throw new DictionaryException("Can't find kanaEntry: " + word);
 						}
 						
 						kanaEntries.add(kanaEntry);
@@ -681,7 +681,7 @@ public class KanaHelper {
 					KanaEntry kanaEntry = hiraganaCache.get("n");
 					
 					if (kanaEntry == null) {
-						throw new DictionaryException("Can't find kanaEntry!");
+						throw new DictionaryException("Can't find kanaEntry: " + word);
 					}
 					
 					kanaEntries.add(kanaEntry);
@@ -701,7 +701,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -712,7 +712,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -730,7 +730,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -743,7 +743,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -761,7 +761,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -773,7 +773,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -791,7 +791,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -805,7 +805,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -819,7 +819,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -834,7 +834,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -852,7 +852,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -870,7 +870,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = hiraganaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -916,7 +916,7 @@ public class KanaHelper {
 					KanaEntry kanaEntry = kitakanaCache.get("ttsu2");
 					
 					if (kanaEntry == null) {
-						throw new DictionaryException("Can't find kanaEntry!");
+						throw new DictionaryException("Can't find kanaEntry: " + word);
 					}
 					
 					kanaEntries.add(kanaEntry);
@@ -933,7 +933,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get("ttsu");
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -952,7 +952,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -970,7 +970,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -989,7 +989,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1004,7 +1004,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1019,7 +1019,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1033,7 +1033,7 @@ public class KanaHelper {
 					KanaEntry kanaEntry = kitakanaCache.get("n");
 					
 					if (kanaEntry == null) {
-						throw new DictionaryException("Can't find kanaEntry!");
+						throw new DictionaryException("Can't find kanaEntry: " + word);
 					}
 					
 					kanaEntries.add(kanaEntry);
@@ -1055,7 +1055,7 @@ public class KanaHelper {
 					KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 					
 					if (kanaEntry == null) {
-						throw new DictionaryException("Can't find kanaEntry!");
+						throw new DictionaryException("Can't find kanaEntry: " + word);
 					}
 					
 					kanaEntries.add(kanaEntry);
@@ -1069,7 +1069,7 @@ public class KanaHelper {
 						KanaEntry kanaEntry = kitakanaCache.get("n");
 						
 						if (kanaEntry == null) {
-							throw new DictionaryException("Can't find kanaEntry!");
+							throw new DictionaryException("Can't find kanaEntry: " + word);
 						}
 						
 						kanaEntries.add(kanaEntry);
@@ -1084,7 +1084,7 @@ public class KanaHelper {
 					KanaEntry kanaEntry = kitakanaCache.get("n");
 					
 					if (kanaEntry == null) {
-						throw new DictionaryException("Can't find kanaEntry!");
+						throw new DictionaryException("Can't find kanaEntry: " + word);
 					}
 					
 					kanaEntries.add(kanaEntry);
@@ -1104,7 +1104,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1119,7 +1119,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1137,7 +1137,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1150,7 +1150,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1168,7 +1168,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1182,7 +1182,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1193,7 +1193,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1211,7 +1211,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1225,7 +1225,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1240,7 +1240,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1257,7 +1257,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1275,7 +1275,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);
@@ -1293,7 +1293,7 @@ public class KanaHelper {
 				KanaEntry kanaEntry = kitakanaCache.get(currentRestChars);
 				
 				if (kanaEntry == null) {
-					throw new DictionaryException("Can't find kanaEntry!");
+					throw new DictionaryException("Can't find kanaEntry: " + word);
 				}
 				
 				kanaEntries.add(kanaEntry);

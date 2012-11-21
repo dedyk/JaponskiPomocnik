@@ -220,7 +220,7 @@ public class SQLiteConnector {
 			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase() + "%";
 			
 		} else {
-			throw new RuntimeException();
+			throw new RuntimeException(String.valueOf(findWordRequest.wordPlaceSearch));
 		}
 				
 		StringBuffer sql = new StringBuffer(SQLiteStatic.dictionaryEntriesTableSelectElements);
@@ -851,7 +851,7 @@ public class SQLiteConnector {
 			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase() + "%";
 			
 		} else {
-			throw new RuntimeException();
+			throw new RuntimeException(String.valueOf(findWordRequest.wordPlaceSearch));
 		}
 		
 		List<String> arguments = new ArrayList<String>();
@@ -1003,7 +1003,7 @@ public class SQLiteConnector {
 					DictionaryEntry relatedDictionaryEntryById = getDictionaryEntryById(dictionaryEntryId);
 					
 					if (relatedDictionaryEntryById == null) {
-						throw new RuntimeException("relatedDictionaryEntryById == null");
+						throw new RuntimeException("relatedDictionaryEntryById == null: " + dictionaryEntryId);
 					}
 					
 					findWordResult.result.add(new ResultItem(grammaFormConjugateResult, relatedDictionaryEntryById));
@@ -1021,13 +1021,13 @@ public class SQLiteConnector {
 					DictionaryEntry relatedDictionaryEntryById = getDictionaryEntryById(dictionaryEntryId);
 					
 					if (relatedDictionaryEntryById == null) {
-						throw new RuntimeException("relatedDictionaryEntryById == null");
+						throw new RuntimeException("relatedDictionaryEntryById == null: " + dictionaryEntryId);
 					}
 					
 					findWordResult.result.add(new ResultItem(exampleResult, ExampleGroupType.valueOf(resultTypeString), relatedDictionaryEntryById));
 				
 				} else {
-					throw new RuntimeException("grammaFormOrExampe");
+					throw new RuntimeException("grammaFormOrExampe: " + grammaFormOrExample);
 				}
 				
 				cursor.moveToNext();

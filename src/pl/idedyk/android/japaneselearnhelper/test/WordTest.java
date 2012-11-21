@@ -157,7 +157,7 @@ public class WordTest extends Activity {
 			List<String> kanaList = currentWordDictionaryEntry.getFullKanaList();
 			
 			if (kanaList.size() >= 5) {
-				throw new RuntimeException("Kana list size");
+				throw new RuntimeException("Kana list size: " + kanaList);
 			}
 			
 			TextViewAndEditText[] textViewAndEditTextForWordAsArray = getTextViewAndEditTextForWordAsArray();

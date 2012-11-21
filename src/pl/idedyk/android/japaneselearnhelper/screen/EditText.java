@@ -21,7 +21,7 @@ public class EditText implements IScreenItem {
 			editText.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 			
 		} else {
-			throw new RuntimeException();
+			throw new RuntimeException(String.valueOf(layout.getClass()));
 		}
 	
 		layout.addView(editText);

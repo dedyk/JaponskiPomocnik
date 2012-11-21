@@ -217,7 +217,7 @@ public class NounGrammaConjugater {
 		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
 
 		if (dictionaryEntryType != DictionaryEntryType.WORD_NOUN) {
-			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_NOUN");
+			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_NOUN: " + dictionaryEntryType);
 		}		
 	}
 	

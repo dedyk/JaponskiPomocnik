@@ -64,7 +64,7 @@ public class KanjiTestOptionsActivity extends Activity {
 		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
 			testModeDrawKanjiFromInWord.setChecked(true);
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode");
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
 		}
 
 		final TextView otherOptionsTextView = (TextView)findViewById(R.id.kanji_test_options_other_options);

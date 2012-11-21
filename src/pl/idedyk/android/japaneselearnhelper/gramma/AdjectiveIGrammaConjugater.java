@@ -261,20 +261,20 @@ public class AdjectiveIGrammaConjugater {
 		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
 
 		if (dictionaryEntryType != DictionaryEntryType.WORD_ADJECTIVE_I) {
-			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_ADJECTIVE_I");
+			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_ADJECTIVE_I: " + dictionaryEntryType);
 		}
 
 		String kanji = dictionaryEntry.getKanji();
 
 		if (kanji != null && kanji.endsWith("い") == false) {
-			throw new RuntimeException("kanji.endsWith(い) == false");
+			throw new RuntimeException("kanji.endsWith(い) == false: " + kanji);
 		}
 
 		List<String> kanaList = dictionaryEntry.getKanaList();
 
 		for (String currentKana : kanaList) {
 			if (currentKana.endsWith("い") == false) {
-				throw new RuntimeException("currentKana.endsWith(い) == false");
+				throw new RuntimeException("currentKana.endsWith(い) == false: " + currentKana);
 			}			
 		}
 
@@ -282,7 +282,7 @@ public class AdjectiveIGrammaConjugater {
 
 		for (String currentRomaji : romajiList) {
 			if (currentRomaji.endsWith("i") == false) {
-				throw new RuntimeException("currentRomaji.endsWith(i) == false");
+				throw new RuntimeException("currentRomaji.endsWith(i) == false: " + currentRomaji);
 			}
 		}		
 	}

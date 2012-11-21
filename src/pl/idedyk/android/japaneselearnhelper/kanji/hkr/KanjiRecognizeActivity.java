@@ -152,7 +152,7 @@ public class KanjiRecognizeActivity extends Activity {
 							KanjiEntry kanjiEntry = dictionaryManager.findKanji(currentRecognizeResult.getKanji());
 							
 							if (kanjiEntry == null) {
-								throw new RuntimeException("kanjiEntry == null");
+								throw new RuntimeException("kanjiEntry == null: " + currentRecognizeResult.getKanji());
 							}
 							
 							kanjiEntries.add(kanjiEntry);							

@@ -757,7 +757,7 @@ public class Kana extends Activity {
 			final KanaEntry kanaEntry = kanaCache.get(kana);
 			
 			if (kanaEntry == null) {
-				throw new RuntimeException();
+				throw new RuntimeException(kana);
 			}
 			
 			Spanned spanned = Html.fromHtml("<b>" + kanaEntry.getKana() + "</b><br/>" + kanaEntry.getKanaJapanese() + "<br/>");

@@ -103,7 +103,7 @@ public class KanjiTest extends Activity {
 				}
 
 			} else {
-				throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+				throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 			}
 
 			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji2)).append(" ").append(kanjiInTestList).append("\n\n");
@@ -476,7 +476,7 @@ public class KanjiTest extends Activity {
 
 			kanjiInfoTextView.setText(Html.fromHtml(kanjiInfoSb.toString()), TextView.BufferType.SPANNABLE);			
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}
 	}
 
@@ -497,7 +497,7 @@ public class KanjiTest extends Activity {
 
 			return dictionaryEntryWithRemovedKanji.get(testCurrentPos);			
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}		
 	}
 
@@ -512,7 +512,7 @@ public class KanjiTest extends Activity {
 
 			return kanjiTestContext.getDictionaryEntryWithRemovedKanji().size();
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}		
 	}
 
@@ -533,7 +533,7 @@ public class KanjiTest extends Activity {
 
 			return dictionaryEntryWithRemovedKanji.get(testCurrentPos).getRemovedKanji();	
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}		
 	}
 
@@ -554,7 +554,7 @@ public class KanjiTest extends Activity {
 
 			return DictionaryManager.getInstance().findKanji(dictionaryEntryWithRemovedKanji.get(testCurrentPos).getRemovedKanji()).getStrokePaths().size();
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}		
 	}
 
@@ -584,7 +584,7 @@ public class KanjiTest extends Activity {
 			}
 
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}
 	}
 
@@ -605,7 +605,7 @@ public class KanjiTest extends Activity {
 
 			dictionaryEntryWithRemovedKanji.add(dictionaryEntryWithRemovedKanji.get(testCurrentPos));
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode");			
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}		
 	}
 }

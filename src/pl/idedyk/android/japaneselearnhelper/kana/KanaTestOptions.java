@@ -138,7 +138,7 @@ public class KanaTestOptions extends Activity {
 				} else if (rangeTestRadioGroupCheckedRadioButtonId == R.id.kana_test_range_hiragana_katakana_id) {
 					kanaTestConfig.setRangeTest(JapaneseAndroidLearnHelperKanaTestContext.RangeTest.HIRAGANA_KATAKANA);
 				} else {
-					throw new RuntimeException("rangeTestRadioGroupCheckedRadioButtonId");
+					throw new RuntimeException("rangeTestRadioGroupCheckedRadioButtonId: " + rangeTestRadioGroupCheckedRadioButtonId);
 				}
 				
 				/*
@@ -149,7 +149,7 @@ public class KanaTestOptions extends Activity {
 				} else if (testMode1RadioGroupCheckedRadioButtonId == R.id.kana_test_mode1_input_id) {
 					kanaTestContext.setTestMode1(JapaneseAndroidLearnHelperKanaTestContext.TestMode1.INPUT);
 				} else {
-					throw new RuntimeException("testMode1RadioGroupCheckedRadioButtonId");
+					throw new RuntimeException("testMode1RadioGroupCheckedRadioButtonId: " + testMode1RadioGroupCheckedRadioButtonId);
 				}
 				*/
 				
@@ -162,7 +162,7 @@ public class KanaTestOptions extends Activity {
 				} else if (testMode2RadioGroupCheckedRadioButtonId == R.id.kana_test_mode2_romaji_to_kana_id) {
 					kanaTestConfig.setTestMode2(JapaneseAndroidLearnHelperKanaTestContext.TestMode2.ROMAJI_TO_KANA);
 				} else {
-					throw new RuntimeException("testMode2RadioGroupCheckedRadioButtonId");
+					throw new RuntimeException("testMode2RadioGroupCheckedRadioButtonId: " + testMode2RadioGroupCheckedRadioButtonId);
 				}
 				
 				kanaTestConfig.setUntilSuccess(untilSuccessCheckBox.isChecked());

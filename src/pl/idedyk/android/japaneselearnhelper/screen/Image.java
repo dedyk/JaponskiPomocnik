@@ -71,7 +71,7 @@ public class Image implements IScreenItem {
 			
 			imageView.setLayoutParams(layoutParam);
 		} else {
-			throw new RuntimeException();
+			throw new RuntimeException(String.valueOf(layout.getClass()));
 		}
 		
 		imageView.setImageDrawable(image);

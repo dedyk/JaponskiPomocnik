@@ -117,7 +117,7 @@ public class StringValue implements IScreenItem {
 			
 			textView.setLayoutParams(layoutParam);
 		} else {
-			throw new RuntimeException();
+			throw new RuntimeException(String.valueOf(layout.getClass()));
 		}
 		
 		if (gravity != null) {

@@ -247,7 +247,7 @@ public class AdjectiveNaGrammaConjugater {
 		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
 
 		if (dictionaryEntryType != DictionaryEntryType.WORD_ADJECTIVE_NA) {
-			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_ADJECTIVE_NA");
+			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_ADJECTIVE_NA: " + dictionaryEntryType);
 		}		
 	}
 	

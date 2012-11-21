@@ -47,7 +47,7 @@ public class KanaEntry implements Serializable {
 	public void setStrokePaths(List<List<String>> strokePaths) {
 		
 		if (this.strokePaths != null) {
-			throw new RuntimeException("this.strokePaths != null");
+			throw new RuntimeException("this.strokePaths != null: " + strokePaths.toString());
 		}
 		
 		this.strokePaths = strokePaths;

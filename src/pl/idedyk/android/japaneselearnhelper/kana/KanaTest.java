@@ -167,7 +167,7 @@ public class KanaTest extends Activity {
 			allKanaEntries.addAll(allHiraganaEntries);
 			allKanaEntries.addAll(allKatakanaEntries);
 		} else {
-			throw new RuntimeException("allKanaEntries");
+			throw new RuntimeException("allKanaEntries: " + rangeTest);
 		}
 		
 		boolean gojuuon = kanaTestConfig.getGojuuon();
@@ -359,7 +359,7 @@ public class KanaTest extends Activity {
 			*/
 			
 		} else {
-			throw new RuntimeException("testMode1");
+			throw new RuntimeException("testMode1: " + testMode1);
 		}
 		
 		return result;
@@ -396,7 +396,7 @@ public class KanaTest extends Activity {
 			throw new RuntimeException("testMode1 == TestMode1.INPUT");
 			
 		} else {
-			throw new RuntimeException("testMode1");
+			throw new RuntimeException("testMode1: " + testMode1);
 		}
 	}
 	
@@ -444,7 +444,7 @@ public class KanaTest extends Activity {
 		} else if (testMode2 == TestMode2.ROMAJI_TO_KANA) {
 			return kanaEntry.getKanaJapanese();
 		} else {
-			throw new RuntimeException("getButtonValue");
+			throw new RuntimeException("getButtonValue: " + testMode2);
 		}
 	}
 	
@@ -546,7 +546,7 @@ public class KanaTest extends Activity {
 			kanaTestContext.setCharTestValue(currentKanaEntryToTest.getKana());
 			
 		} else {
-			throw new RuntimeException("testMode2");
+			throw new RuntimeException("testMode2: " + testMode2);
 		}
 		
 		if (testMode1 == TestMode1.CHOOSE) {
@@ -591,7 +591,7 @@ public class KanaTest extends Activity {
 			throw new RuntimeException("testMode1 == TestMode1.INPUT");
 			
 		} else {
-			throw new RuntimeException("testMode1");
+			throw new RuntimeException("testMode1: " + testMode1);
 		}		
 	}
 }

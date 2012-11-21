@@ -28,7 +28,7 @@ public class Utils {
 		}
 		
 		if (limitSize == true && result.size() > MAX_LIST_SIZE) {
-			throw new RuntimeException("parseStringIntoList max list size");
+			throw new RuntimeException("parseStringIntoList max list size: " + text);
 		}
 		
 		return result;		
@@ -127,7 +127,7 @@ public class Utils {
 		int id = Integer.parseInt(idString);
 		
 		if (kanjiString.equals("") == true) {
-			throw new DictionaryException("Empty kanji!");
+			throw new DictionaryException("Empty kanji: " + idString);
 		}
 		
 		KanjiDic2Entry kanjiDic2Entry = null;

@@ -546,7 +546,7 @@ public class DictionaryManager {
 			RadicalInfo currentRadicalInfo = radicalListMapCache.get(currentRadical);
 
 			if (currentRadicalInfo == null) {
-				throw new RuntimeException("currentRadicalInfo == null");
+				throw new RuntimeException("currentRadicalInfo == null: " + currentRadical);
 			}
 
 			//currentRadicalInfo.incrementUse();			
@@ -616,7 +616,7 @@ public class DictionaryManager {
 			String radical = csvReader.get(1);
 
 			if (radical.equals("") == true) {
-				throw new DictionaryException("Empty radical!");
+				throw new DictionaryException("Empty radical: " + radical);
 			}
 
 			String strokeCountString = csvReader.get(2);

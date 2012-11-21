@@ -359,10 +359,10 @@ public class VerbGrammaConjugater {
 				return removeChars(kanji, 2) + "し";
 				
 			} else {
-				throw new RuntimeException("getStemForKanji 1");	
+				throw new RuntimeException("getStemForKanji 1: " + kanji);	
 			}
 		} else {
-			throw new RuntimeException("getStemForKanji 2");
+			throw new RuntimeException("getStemForKanji 2: " + dictionaryEntryType);
 		}
 	}
 
@@ -383,10 +383,10 @@ public class VerbGrammaConjugater {
 				return removeChars(kana, 2) + "し";
 			
 			} else {
-				throw new RuntimeException("getStemForKanji 1");
+				throw new RuntimeException("getStemForKanji 1: " + kana);
 			}
 		} else {
-			throw new RuntimeException("getStemForKanji 2");
+			throw new RuntimeException("getStemForKanji 2: " + dictionaryEntryType);
 		}
 	}
 
@@ -415,7 +415,7 @@ public class VerbGrammaConjugater {
 				return removeChars(romaji, 1) + lastRomajiCharsMapperToIChar.get(romajiLastOneChar);
 			}
 			
-			throw new RuntimeException("getStemForRomaji 3");
+			throw new RuntimeException("getStemForRomaji 3: " + romaji);
 		
 		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
 			
@@ -424,10 +424,10 @@ public class VerbGrammaConjugater {
 			} else if (romaji.endsWith("suru") == true) {
 				return removeChars(romaji, 4) + "shi";
 			} else {
-				throw new RuntimeException("getStemForRomaji 1");
+				throw new RuntimeException("getStemForRomaji 1: " + romaji);
 			}
 		} else {
-			throw new RuntimeException("getStemForRomaji 2");
+			throw new RuntimeException("getStemForRomaji 2: " + dictionaryEntryType);
 		}
 	}
 	
@@ -468,22 +468,22 @@ public class VerbGrammaConjugater {
 				dictionaryEntryType != DictionaryEntryType.WORD_VERB_RU &&
 				dictionaryEntryType != DictionaryEntryType.WORD_VERB_IRREGULAR) {
 			
-			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_VERB_U/RU/IRREGULAR");
+			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_VERB_U/RU/IRREGULAR: " + dictionaryEntryType);
 		}
 		
 		String kanji = dictionaryEntry.getKanji();
 		
 		if (kanji != null) {
 			if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && kanji.endsWith("る") == false) {
-				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && kanji.endsWith(る) == false)");
+				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && kanji.endsWith(る) == false): " + kanji);
 			
 			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && getLastCharConvertedToI(kanji) == null) {	
-				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && getLastCharConvertedToI(kanji) == null");
+				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && getLastCharConvertedToI(kanji) == null" + kanji);
 			
 			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
 				
 				if (kanji.endsWith("来る") == false && kanji.endsWith("くる") == false && kanji.endsWith("する") == false) {
-					throw new RuntimeException("kanji.endsWith(来る) == false && kanji.endsWith(くる) == false && kanji.endsWith(する) == false");
+					throw new RuntimeException("kanji.endsWith(来る) == false && kanji.endsWith(くる) == false && kanji.endsWith(する) == false: " + kanji);
 				}				
 			}
 		}
@@ -492,15 +492,15 @@ public class VerbGrammaConjugater {
 
 		for (String currentKana : kanaList) {
 			if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && currentKana.endsWith("る") == false) {
-				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && kanji.endsWith(る) == false)");
+				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && kanji.endsWith(る) == false): " + currentKana);
 			
 			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && getLastCharConvertedToI(currentKana) == null) {
-				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && getLastCharConvertedToI(kanji) == null");
+				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && getLastCharConvertedToI(kanji) == null: " + currentKana);
 			
 			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
 				
 				if (currentKana.endsWith("する") == false && currentKana.endsWith("くる") == false) {
-					throw new RuntimeException("currentKana.endsWith(する) == false && currentKana.endsWith(くる) == false");
+					throw new RuntimeException("currentKana.endsWith(する) == false && currentKana.endsWith(くる) == false: " + currentKana);
 				}
 			}
 		}
@@ -509,19 +509,18 @@ public class VerbGrammaConjugater {
 
 		for (String currentRomaji : romajiList) {
 			if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && currentRomaji.endsWith("ru") == false) {
-				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && kanji.endsWith(ru) == false)");
+				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && kanji.endsWith(ru) == false): " + currentRomaji);
 			
 			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && currentRomaji.endsWith("u") == false) {
-				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && kanji.endsWith(u) == false)");
+				throw new RuntimeException("dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && kanji.endsWith(u) == false): " + currentRomaji);
 			
 			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
 				
 				if (currentRomaji.endsWith("suru") == false && currentRomaji.endsWith("kuru") == false) {
-					throw new RuntimeException("currentRomaji.endsWith(suru) == false && currentRomaji.endsWith(kuru) == false");
+					throw new RuntimeException("currentRomaji.endsWith(suru) == false && currentRomaji.endsWith(kuru) == false: " + currentRomaji);
 				}
 			}
 		}
-		
 	}
 	
 	private static String getLastCharConvertedToI(String word) {
@@ -608,7 +607,7 @@ public class VerbGrammaConjugater {
 			}
 			
 			if (tePostfix == null) {
-				throw new RuntimeException("tePostfix == null");
+				throw new RuntimeException("tePostfix == null: " + text);
 			}
 			
 			return removeLastChar(text) + tePostfix;
@@ -624,11 +623,11 @@ public class VerbGrammaConjugater {
 			} else if (text.endsWith("する") == true) {
 				return removeChars(text, 2) + "して";
 			} else {
-				throw new RuntimeException("makeTeFormForKanjiOrKana 1");	
+				throw new RuntimeException("makeTeFormForKanjiOrKana 1: " + text);	
 			}
 		}
 		
-		throw new RuntimeException("makeTeFormForKanjiOrKana 2");
+		throw new RuntimeException("makeTeFormForKanjiOrKana 2: " + dictionaryEntryType);
 	}
 	
 	private static String makeTeFormForRomaji(String romaji, DictionaryEntryType dictionaryEntryType) {
@@ -662,7 +661,7 @@ public class VerbGrammaConjugater {
 					return removeChars(romaji, 1) + lastRomajiCharsMapperToTeFormChar.get(romajiLastOneChar);
 				}
 				
-				throw new RuntimeException("makeTeFormForRomaji 1");
+				throw new RuntimeException("makeTeFormForRomaji 1: " + romaji);
 			} else {
 				return removeChars(romaji, 2) + "tte";
 			}
@@ -673,10 +672,10 @@ public class VerbGrammaConjugater {
 			} else if (romaji.endsWith("suru") == true) {
 				return removeChars(romaji, 4) + "shite";
 			} else {
-				throw new RuntimeException("makeTeFormForRomaji 2");
+				throw new RuntimeException("makeTeFormForRomaji 2: " + romaji);
 			}
 		} else {
-			throw new RuntimeException("makeTeFormForRomaji 3");
+			throw new RuntimeException("makeTeFormForRomaji 3: " + dictionaryEntryType);
 		}
 	}
 	
@@ -763,7 +762,7 @@ public class VerbGrammaConjugater {
 				String postfix = lastKanaCharsMapperToAChar.get(lastChar);
 				
 				if (postfix == null) {
-					throw new RuntimeException("postfix == null");
+					throw new RuntimeException("postfix == null: " + text);
 				}
 				
 				return removeLastChar(text) + postfix + "ない";
@@ -782,11 +781,11 @@ public class VerbGrammaConjugater {
 			} else if (text.endsWith("する") == true) {
 				return removeChars(text, 2) + "しない";
 			} else {
-				throw new RuntimeException("makeInformalPresentNegativeFormForKanjiOrKana 1");	
+				throw new RuntimeException("makeInformalPresentNegativeFormForKanjiOrKana 1: " + text);	
 			}
 		}
 		
-		throw new RuntimeException("makeInformalPresentNegativeFormForKanjiOrKana 2");
+		throw new RuntimeException("makeInformalPresentNegativeFormForKanjiOrKana 2: " + dictionaryEntryType);
 	}
 	
 	private static String makeInformalPresentNegativeFormForRomaji(String romaji, DictionaryEntryType dictionaryEntryType) {
@@ -822,7 +821,7 @@ public class VerbGrammaConjugater {
 					return removeChars(romaji, 1) + lastRomajiCharsMapperToAChar.get(romajiLastOneChar) + "nai";
 				}
 				
-				throw new RuntimeException("makeInformalPresentNegativeFormForRomaji 1");
+				throw new RuntimeException("makeInformalPresentNegativeFormForRomaji 1: " + romaji);
 
 			} else {				
 				return removeChars(romaji, 3) + "nai";
@@ -834,10 +833,10 @@ public class VerbGrammaConjugater {
 			} else if (romaji.endsWith("suru") == true) {
 				return removeChars(romaji, 4) + "shinai";
 			} else {
-				throw new RuntimeException("makeInformalPresentNegativeFormForRomaji 2");
+				throw new RuntimeException("makeInformalPresentNegativeFormForRomaji 2: " + romaji);
 			}
 		} else {
-			throw new RuntimeException("makeInformalPresentNegativeFormForRomaji 3");
+			throw new RuntimeException("makeInformalPresentNegativeFormForRomaji 3: " + dictionaryEntryType);
 		}
 	}
 	
@@ -897,7 +896,7 @@ public class VerbGrammaConjugater {
 		} else if (lastChars.equals("で") == true) {
 			postfix = "だ";
 		} else {
-			throw new RuntimeException("convertTeFormToTaFormKanjiOrKana 1");
+			throw new RuntimeException("convertTeFormToTaFormKanjiOrKana 1: " + text);
 		}
 		
 		return removeChars(text, 1) + postfix;
@@ -912,7 +911,7 @@ public class VerbGrammaConjugater {
 		if (lastChars.equals("e") == true) {
 			postfix = "a";
 		} else {
-			throw new RuntimeException("convertTeFormToTaFormForRomaji 1");
+			throw new RuntimeException("convertTeFormToTaFormForRomaji 1: " + text);
 		}
 		
 		return removeChars(text, 1) + postfix;
@@ -1288,7 +1287,7 @@ public class VerbGrammaConjugater {
 			String lastCharMappedToE = lastKanaCharsMapperToEChar.get(lastChar);
 			
 			if (lastCharMappedToE == null) {
-				throw new RuntimeException("lastCharMappedToE == null");
+				throw new RuntimeException("lastCharMappedToE == null: " + kana);
 			}
 			
 			return kanaWithoutLastChar + lastCharMappedToE + "る";
@@ -1303,11 +1302,11 @@ public class VerbGrammaConjugater {
 			} else if (kana.endsWith("する") == true) {
 				return removeChars(kana, 2) + "できる";
 			} else {
-				throw new RuntimeException("makePotentialFormForKanjiOrKana 1");	
+				throw new RuntimeException("makePotentialFormForKanjiOrKana 1: " + kana);	
 			}
 		}
 		
-		throw new RuntimeException("makePotentialFormForKanjiOrKana 2");
+		throw new RuntimeException("makePotentialFormForKanjiOrKana 2: " + dictionaryEntryType);
 	}
 	
 	private static String makePotentialFormForRomaji(String romaji, DictionaryEntryType dictionaryEntryType, String ruPostfixRomaji) {
@@ -1334,7 +1333,7 @@ public class VerbGrammaConjugater {
 				return removeChars(romaji, 1) + lastRomajiCharsMapperToEChar.get(romajiLastOneChar) + "ru";
 			}
 			
-			throw new RuntimeException("makePotentialFormForRomaji 1");
+			throw new RuntimeException("makePotentialFormForRomaji 1: " + romaji);
 		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
 			
 			if (romaji.endsWith("kuru") == true) {
@@ -1342,11 +1341,11 @@ public class VerbGrammaConjugater {
 			} else if (romaji.endsWith("suru") == true) {
 				return removeChars(romaji, 4) + "dekiru";
 			} else {
-				throw new RuntimeException("makePotentialFormForRomaji 2");
+				throw new RuntimeException("makePotentialFormForRomaji 2: " + romaji);
 			}
 		}
 		
-		throw new RuntimeException("makePotentialFormForRomaji 3");
+		throw new RuntimeException("makePotentialFormForRomaji 3: " + dictionaryEntryType);
 	}
 	
 	public static GrammaFormConjugateResult makeVolitionalForm(DictionaryEntry dictionaryEntry) {
@@ -1399,7 +1398,7 @@ public class VerbGrammaConjugater {
 			String lastCharMappedToYou = lastKanaCharsMapperToCharForVolitionalForm.get(lastChar);
 			
 			if (lastCharMappedToYou == null) {
-				throw new RuntimeException("lastCharMappedToYou == null");
+				throw new RuntimeException("lastCharMappedToYou == null: " + kana);
 			}
 			
 			return kanaWithoutLastChar + lastCharMappedToYou;
@@ -1415,11 +1414,11 @@ public class VerbGrammaConjugater {
 			} else if (kana.endsWith("する") == true) {
 				return removeChars(kana, 2) + "しよう";
 			} else {
-				throw new RuntimeException("makeVolitionalFormForKanjiOrKana 1");	
+				throw new RuntimeException("makeVolitionalFormForKanjiOrKana 1: " + kana);	
 			}
 		}
 		
-		throw new RuntimeException("makeVolitionalFormForKanjiOrKana 2");
+		throw new RuntimeException("makeVolitionalFormForKanjiOrKana 2: " + dictionaryEntryType);
 	}
 	
 	private static String makeVolitionalFormForRomaji(String romaji, DictionaryEntryType dictionaryEntryType) {
@@ -1446,7 +1445,7 @@ public class VerbGrammaConjugater {
 				return removeChars(romaji, 1) + lastRomajiCharsMapperToCharForVolitionalForm.get(romajiLastOneChar);
 			}
 			
-			throw new RuntimeException("makeVolitionalFormForRomaji 1");
+			throw new RuntimeException("makeVolitionalFormForRomaji 1: " + romaji);
 		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
 			
 			if (romaji.endsWith("kuru") == true) {
@@ -1454,11 +1453,11 @@ public class VerbGrammaConjugater {
 			} else if (romaji.endsWith("suru") == true) {
 				return removeChars(romaji, 4) + "shiyou";
 			} else {
-				throw new RuntimeException("makeVolitionalFormForRomaji 2");
+				throw new RuntimeException("makeVolitionalFormForRomaji 2: " + romaji);
 			}
 		}
 		
-		throw new RuntimeException("makeVolitionalFormForRomaji 3");
+		throw new RuntimeException("makeVolitionalFormForRomaji 3: " + dictionaryEntryType);
 	}
 	
 	private static DictionaryEntry convertGrammaFormConjugateResultToDictionaryEntry(GrammaFormConjugateResult grammaFormConjugateResult, DictionaryEntryType dictionaryEntryType) {
