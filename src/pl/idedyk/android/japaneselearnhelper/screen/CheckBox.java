@@ -17,7 +17,7 @@ public class CheckBox implements IScreenItem {
 		
 		checkBox.setId(id);
 		checkBox.setText(checkBoxText);
-		checkBox.setTextSize(16.0f);
+		checkBox.setTextSize(12.0f);
 		checkBox.setChecked(defaultSelected);		
 	}
 	

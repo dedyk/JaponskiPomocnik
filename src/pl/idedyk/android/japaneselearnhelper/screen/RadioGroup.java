@@ -39,7 +39,7 @@ public class RadioGroup implements IScreenItem {
 		radioButton.setId(radioButtonId);
 		radioButton.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		radioButton.setText(radioButtonText);
-		radioButton.setTextSize(16.0f);
+		radioButton.setTextSize(12.0f);
 		
 		return radioButton;
 	}
