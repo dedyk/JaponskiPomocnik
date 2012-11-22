@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
@@ -166,5 +167,44 @@ public class Utils {
 		entry.setKanjiDic2Entry(kanjiDic2Entry);
 		
 		return entry;
+	}
+	
+	public static String removePolishChars(String text) {
+		
+		text = text.replace('Ę', 'E');
+		text = text.replace('ę', 'e');
+		
+		text = text.replace('Ó', 'O');
+		text = text.replace('ó', 'o');
+		
+		text = text.replace('Ą', 'A');
+		text = text.replace('ą', 'a');
+		
+		text = text.replace('Ś', 'S');
+		text = text.replace('ś', 's');
+		
+		text = text.replace('Ł', 'L');
+		text = text.replace('ł', 'l');
+		
+		text = text.replace('Ż', 'Z');
+		text = text.replace('ż', 'z');
+		
+		text = text.replace('Ź', 'z');
+		text = text.replace('ź', 'z');
+		
+		text = text.replace('Ć', 'C');
+		text = text.replace('ć', 'c');
+		
+		text = text.replace('Ń', 'N');
+		text = text.replace('ń', 'n');
+		
+		return text;
+	}
+	
+	public static boolean containsPolishChars(String text) {
+		
+		Pattern pattern = Pattern.compile("(Ę|ę|Ó|ó|Ą|ą|Ś|ś|Ł|ł|Ż|ż|Ź|ź|Ć|ć|Ń|ń)");
+		
+		return pattern.matcher(text).find();
 	}
 }

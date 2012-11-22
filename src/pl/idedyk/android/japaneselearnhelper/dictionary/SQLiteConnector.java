@@ -97,6 +97,10 @@ public class SQLiteConnector {
 		
 		insertListEntry(dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName, 
 				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
+		
+		insertListEntryWithPolishCharsRemove(dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName, 
+				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
+
 	}
 	
 	private void insertListEntry(List<String> list, String type, String subType, String key) {
@@ -112,10 +116,35 @@ public class SQLiteConnector {
 			values.put(SQLiteStatic.listEntriesTable_subType, subType);
 			values.put(SQLiteStatic.listEntriesTable_key, key);
 			values.put(SQLiteStatic.listEntriesTable_value, currentListValue);
+			values.put(SQLiteStatic.listEntriesTable_special, false);
 			
 			sqliteDatabase.insertOrThrow(SQLiteStatic.listEntriesTableName, null, values);
 		}
 	}
+	
+	private void insertListEntryWithPolishCharsRemove(List<String> list, String type, String subType, String key) {
+		
+		if (list == null || list.size() == 0) {
+			return;
+		}
+		
+		for (String currentListValue : list) {
+			
+			if (Utils.containsPolishChars(currentListValue) == false) {
+				continue;
+			}			
+			
+			ContentValues values = new ContentValues();
+			
+			values.put(SQLiteStatic.listEntriesTable_type, type);
+			values.put(SQLiteStatic.listEntriesTable_subType, subType);
+			values.put(SQLiteStatic.listEntriesTable_key, key);
+			values.put(SQLiteStatic.listEntriesTable_value, Utils.removePolishChars(currentListValue));
+			values.put(SQLiteStatic.listEntriesTable_special, true);
+			
+			sqliteDatabase.insertOrThrow(SQLiteStatic.listEntriesTableName, null, values);
+		}
+	}	
 	
 	private String emptyIfNull(String text) {
 		if (text == null) {
@@ -396,7 +425,7 @@ public class SQLiteConnector {
 		Cursor cursor = null;
 		
 		try {
-			cursor = sqliteDatabase.rawQuery(SQLiteStatic.listEntriesTableSelectValues, new String[] { type, key }); 
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.listEntriesTableSelectValues, new String[] { type, key, "0" }); 
 			
 			cursor.moveToFirst();
 			

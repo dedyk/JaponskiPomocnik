@@ -13,6 +13,7 @@ public class SQLiteStatic {
 	public static final String listEntriesTable_subType = "subType";
 	public static final String listEntriesTable_key = "key";
 	public static final String listEntriesTable_value = "value";
+	public static final String listEntriesTable_special = "special";
 	
 	public static final String dictionaryEntriesTableName = "DictionaryEntries";
 	
@@ -95,7 +96,8 @@ public class SQLiteStatic {
 			listEntriesTable_type + " text not null, " +
 			listEntriesTable_subType + " text not null, " +
 			listEntriesTable_key + " text not null, " +
-			listEntriesTable_value + " text not null);";
+			listEntriesTable_value + " text not null, " +
+			listEntriesTable_special + " boolean not null);";
 
 	public static final String listEntriesTableCreateAllIndex = 
 			"create index " + listEntriesTableName + "AllIdx on " +
@@ -187,7 +189,7 @@ public class SQLiteStatic {
 	public static final String listEntriesTableSelectValues =
 			"select " + listEntriesTable_subType + ", " + listEntriesTable_value + " from " + listEntriesTableName + " " + 
 			"where " + listEntriesTable_type + " = ? and " +
-			listEntriesTable_key + " = ?";
+			listEntriesTable_key + " = ? and " + listEntriesTable_special + " = ? ";
 	
 	public static final String dictionaryEntriesTableIdElement = 
 			"select " + 
