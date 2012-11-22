@@ -67,5 +67,9 @@ public class TitleItem implements IScreenItem {
 	public String getTitle() {
 		return title;
 	}
+
+	public int getLevel() {
+		return level;
+	}
 }
 

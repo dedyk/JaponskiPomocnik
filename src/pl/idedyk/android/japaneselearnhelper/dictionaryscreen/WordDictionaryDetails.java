@@ -45,6 +45,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 public class WordDictionaryDetails extends Activity {
 
@@ -115,7 +116,8 @@ public class WordDictionaryDetails extends Activity {
 		
 		DictionaryEntry dictionaryEntry = (DictionaryEntry)getIntent().getSerializableExtra("item");
 				
-		LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.word_dictionary_details_main_layout);
+		final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.word_dictionary_details_main_layout_scroll);
+		final LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.word_dictionary_details_main_layout);
 		
 		final List<IScreenItem> generatedDetails = generateDetails(dictionaryEntry);
 		
@@ -158,6 +160,17 @@ public class WordDictionaryDetails extends Activity {
 			}
 		});
 		
+		final int counterPos = getIntent().getIntExtra("counterPos", -1);
+		
+		if (counterPos != -1) {	
+			detailsMainLayout.post(new Runnable() {
+				
+				public void run() {
+					scrollMainLayout.scrollTo(0, counterPos - 10);
+				}
+			});
+		}
+		
 		if (ttsConnector != null) {
 			ttsConnector.stop();
 		}
@@ -165,7 +178,7 @@ public class WordDictionaryDetails extends Activity {
 		ttsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
 	}
 
-	private List<IScreenItem> generateDetails(DictionaryEntry dictionaryEntry) {
+	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry) {
 		
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 				
@@ -449,6 +462,9 @@ public class WordDictionaryDetails extends Activity {
 
 			}
 		}
+		
+		// index
+		int indexStartPos = report.size();
 				
 		// Conjugater
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = GrammaConjugaterManager.getGrammaConjufateResult(dictionaryEntry);
@@ -505,6 +521,51 @@ public class WordDictionaryDetails extends Activity {
 				}
 				
 				report.add(new StringValue("", 15.0f, 1));
+			}
+		}
+		
+		// add index
+		if (indexStartPos < report.size()) {
+			
+			int indexStopPos = report.size();
+			
+			List<IScreenItem> indexList = new ArrayList<IScreenItem>();
+			
+			indexList.add(new StringValue("", 15.0f, 2));
+			indexList.add(new TitleItem(getString(R.string.word_dictionary_details_report_counters_index), 0));
+			indexList.add(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 1));
+
+			for (int reportIdx = indexStartPos; reportIdx < indexStopPos; ++reportIdx) {
+				
+				IScreenItem currentReportScreenItem = report.get(reportIdx);
+				
+				if (currentReportScreenItem instanceof TitleItem == false) {
+					continue;
+				}				
+				
+				final TitleItem currentReportScreenItemAsTitle = (TitleItem)currentReportScreenItem;
+				
+				StringValue titleStringValue = new StringValue(currentReportScreenItemAsTitle.getTitle(), 15.0f, currentReportScreenItemAsTitle.getLevel() + 2);
+				
+				titleStringValue.setOnClickListener(new OnClickListener() {
+					
+					public void onClick(View v) {					
+						Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+
+						intent.putExtra("counterPos", currentReportScreenItemAsTitle.getY());
+						intent.putExtra("item", dictionaryEntry);
+						
+						startActivity(intent);	
+					}
+				});
+				
+				indexList.add(titleStringValue);				
+			}
+			
+			for (int indexListIdx = 0, reportStartPos = indexStartPos; indexListIdx < indexList.size(); ++indexListIdx) {
+				report.add(reportStartPos, indexList.get(indexListIdx));
+				
+				reportStartPos++;
 			}
 		}
 		
