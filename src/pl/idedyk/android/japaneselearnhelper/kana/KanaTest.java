@@ -13,7 +13,6 @@ import java.util.Set;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanaTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.RangeTest;
@@ -145,22 +144,24 @@ public class KanaTest extends Activity {
 			return;
 		}
 		
-		KanaTestConfig kanaTestConfig = ConfigManager.getInstance().getKanaTestConfig();
+		KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanaTestConfig();
 		
 		List<KanaEntry> allKanaEntries = null;
 		
 		RangeTest rangeTest = kanaTestConfig.getRangeTest();
 		
+		KanaHelper kanaHelper = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getKanaHelper();
+		
 		if (rangeTest == RangeTest.HIRAGANA) {
-			allKanaEntries = KanaHelper.getInstance().getAllHiraganaKanaEntries();
+			allKanaEntries = kanaHelper.getAllHiraganaKanaEntries();
 			
 		} else if (rangeTest == RangeTest.KATAKANA) {
-			allKanaEntries = KanaHelper.getInstance().getAllKatakanaKanaEntries();
+			allKanaEntries = kanaHelper.getAllKatakanaKanaEntries();
 			
 		} else if (rangeTest == RangeTest.HIRAGANA_KATAKANA) {
 			
-			List<KanaEntry> allHiraganaEntries = KanaHelper.getInstance().getAllHiraganaKanaEntries();
-			List<KanaEntry> allKatakanaEntries = KanaHelper.getInstance().getAllKatakanaKanaEntries();
+			List<KanaEntry> allHiraganaEntries = kanaHelper.getAllHiraganaKanaEntries();
+			List<KanaEntry> allKatakanaEntries = kanaHelper.getAllKatakanaKanaEntries();
 			
 			allKanaEntries = new ArrayList<KanaEntry>();
 			
@@ -298,7 +299,7 @@ public class KanaTest extends Activity {
 
 		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 		
-		KanaTestConfig kanaTestConfig = ConfigManager.getInstance().getKanaTestConfig();
+		KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanaTestConfig();
 		
 		final List<IScreenItem> result = new ArrayList<IScreenItem>();
 		
@@ -370,7 +371,7 @@ public class KanaTest extends Activity {
 		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = 
 				JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 		
-		KanaTestConfig kanaTestConfig = ConfigManager.getInstance().getKanaTestConfig();
+		KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanaTestConfig();
 		
 		List<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
 		int allKanaEntriesIdx = kanaTestContext.getAllKanaEntriesIdx();
@@ -450,7 +451,7 @@ public class KanaTest extends Activity {
 	
 	private void checkUserAnswer(final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext, final boolean untilSuccess, String userAnswer) {
 		
-		KanaTestConfig kanaTestConfig = ConfigManager.getInstance().getKanaTestConfig();
+		KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanaTestConfig();
 		
 		final List<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
 		
@@ -516,7 +517,7 @@ public class KanaTest extends Activity {
 		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = 
 				JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 		
-		KanaTestConfig kanaTestConfig = ConfigManager.getInstance().getKanaTestConfig();
+		KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanaTestConfig();
 		
 		List<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
 		int allKanaEntriesIdx = kanaTestContext.getAllKanaEntriesIdx();

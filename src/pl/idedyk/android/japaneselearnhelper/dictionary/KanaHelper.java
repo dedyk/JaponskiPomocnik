@@ -13,17 +13,6 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryExce
 
 public class KanaHelper {
 	
-	private static KanaHelper instance;
-	
-	public static KanaHelper getInstance() {
-		
-		if (instance == null) {
-			throw new RuntimeException("No kana helper");
-		}
-		
-		return instance;
-	}
-	
 	private List<KanaEntry> hiraganaEntries = null;
 	
 	private List<KanaEntry> katakanaEntries = null;
@@ -40,8 +29,6 @@ public class KanaHelper {
 		
 		getAllAdditionalKanaEntries();
 		setAdditionalStrokePaths(kanaAndStrokePaths);
-		
-		instance = this;
 	}
 	
 	public String createKanaString(KanaWord kanaWord) {

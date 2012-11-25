@@ -9,28 +9,19 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode1;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode2;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestMode;
+import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 public class ConfigManager {
-
-	private static ConfigManager instance;
-	
-	public static ConfigManager getInstance() {
 		
-		if (instance == null) {
-			throw new RuntimeException("No config manager");
-		}
-		
-		return instance;
-	}
-	
 	private SharedPreferences preferences;
 	
-	public ConfigManager(SharedPreferences preferences) {
-		instance = this;
+	public ConfigManager(Activity activity) {
 		
-		this.preferences = preferences;
+        // init config manager
+        preferences = activity.getSharedPreferences("config", Context.MODE_PRIVATE);
 	}
 	
 	public KanaTestConfig getKanaTestConfig() {
@@ -323,7 +314,7 @@ public class ConfigManager {
 		private final String eachChangeSearchPostfix = "eachChangeSearch";
 		
 		public Boolean getEachChangeSearch() {
-			return preferences.getBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, true);
+			return preferences.getBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, false);
 		}
 		
 		public void setEachChangeSearch(boolean eachChangeSearch) {

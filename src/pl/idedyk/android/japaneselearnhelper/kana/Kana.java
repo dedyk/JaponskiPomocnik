@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionary.KanaHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
@@ -57,7 +57,7 @@ public class Kana extends Activity {
 		
 		final List<IScreenItem> screenItems = new ArrayList<IScreenItem>();
 		
-		Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
+		Map<String, KanaEntry> kanaCache = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getKanaHelper().getKanaCache();
 		
 		generateHiraganaTable(screenItems, kanaCache);
 		generateKatakanaTable(screenItems, kanaCache);

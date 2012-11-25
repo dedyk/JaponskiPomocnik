@@ -6,7 +6,6 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperDictionaryHearContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
@@ -426,7 +425,7 @@ public class DictionaryHear extends Activity {
 			JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = 
 					JapaneseAndroidLearnHelperApplication.getInstance().getContext().getDictionaryHearContext();
 			
-			DictionaryHearConfig dictionaryHearConfig = ConfigManager.getInstance().getDictionaryHearConfig();
+			DictionaryHearConfig dictionaryHearConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(DictionaryHear.this).getDictionaryHearConfig();
 			
 			List<DictionaryEntry> dictionaryEntryList = dictionaryHearContext.getDictionaryEntryList();
 			

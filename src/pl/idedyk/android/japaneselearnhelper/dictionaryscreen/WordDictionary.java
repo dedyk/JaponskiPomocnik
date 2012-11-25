@@ -3,9 +3,9 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
@@ -131,7 +131,7 @@ public class WordDictionary extends Activity {
 		
 		seachOptionsEachChangeCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_each_change_checkbox);
 		
-		WordDictionarySearchConfig wordDictionarySearchConfig = ConfigManager.getInstance().getWordDictionarySearchConfig();
+		WordDictionarySearchConfig wordDictionarySearchConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordDictionarySearchConfig();
 		
 		seachOptionsEachChangeCheckBox.setChecked(wordDictionarySearchConfig.getEachChangeSearch());
 		
@@ -304,7 +304,7 @@ public class WordDictionary extends Activity {
 			performSearch(searchValueEditText.getText().toString());
 		}
 		
-		WordDictionarySearchConfig wordDictionarySearchConfig = ConfigManager.getInstance().getWordDictionarySearchConfig();
+		WordDictionarySearchConfig wordDictionarySearchConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordDictionarySearchConfig();
 		
 		wordDictionarySearchConfig.setEachChangeSearch(seachOptionsEachChangeCheckBox.isChecked());
 
@@ -334,7 +334,7 @@ public class WordDictionary extends Activity {
 		// sprawdzic, czy nalezy przliczyc wszystkie formy i je zapisac do bazy danych
 		if (searchOptionsGrammaExampleSearchCheckbox.isChecked() == true) {
 			
-			final DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+			final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
 			
 			int grammaFormAndExamplesEntriesSize = dictionaryManager.getGrammaFormAndExamplesEntriesSize();
 			
@@ -510,7 +510,7 @@ public class WordDictionary extends Activity {
 				@Override
 				protected FindWordResult doInBackground(Void... params) {
 					
-					final DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
 					
 					return dictionaryManager.findWord(findWordRequest);
 				}

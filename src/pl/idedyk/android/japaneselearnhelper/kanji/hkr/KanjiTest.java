@@ -6,7 +6,6 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji;
@@ -181,7 +180,7 @@ public class KanjiTest extends Activity {
 
 		kanjiTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanjiTestContext();
 
-		kanjiTestConfig = ConfigManager.getInstance().getKanjiTestConfig();
+		kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanjiTestConfig();
 
 		kanjiInfoTextView = (TextView)findViewById(R.id.kanji_test_info_textview);
 
@@ -222,7 +221,7 @@ public class KanjiTest extends Activity {
 					return;
 				}
 
-				final DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+				final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
 
 				ZinniaManager zinniaManager = dictionaryManager.getZinniaManager();
 
@@ -552,7 +551,7 @@ public class KanjiTest extends Activity {
 
 			List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
 
-			return DictionaryManager.getInstance().findKanji(dictionaryEntryWithRemovedKanji.get(testCurrentPos).getRemovedKanji()).getStrokePaths().size();
+			return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findKanji(dictionaryEntryWithRemovedKanji.get(testCurrentPos).getRemovedKanji()).getStrokePaths().size();
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}		

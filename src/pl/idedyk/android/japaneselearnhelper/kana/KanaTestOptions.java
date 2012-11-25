@@ -5,7 +5,6 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanaTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.RangeTest;
@@ -53,7 +52,7 @@ public class KanaTestOptions extends Activity {
 		
 		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 		
-		final KanaTestConfig kanaTestConfig = ConfigManager.getInstance().getKanaTestConfig();
+		final KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanaTestConfig();
 		
 		final List<IScreenItem> result = new ArrayList<IScreenItem>();
 		

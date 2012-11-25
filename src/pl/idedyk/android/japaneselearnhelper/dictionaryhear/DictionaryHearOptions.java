@@ -8,10 +8,8 @@ import java.util.Set;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperDictionaryHearContext;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
@@ -62,7 +60,7 @@ public class DictionaryHearOptions extends Activity {
 		
 		setContentView(R.layout.dictionary_hear_options);
 		
-		final DictionaryHearConfig dictionaryHearConfig = ConfigManager.getInstance().getDictionaryHearConfig();
+		final DictionaryHearConfig dictionaryHearConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getDictionaryHearConfig();
 		
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.dictionary_hear_options_main_layout);
 		
@@ -84,7 +82,7 @@ public class DictionaryHearOptions extends Activity {
 		
 		final int groupSize = 10;
 		
-		int wordGroupsNo = DictionaryManager.getInstance().getWordGroupsNo(groupSize);
+		int wordGroupsNo = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getWordGroupsNo(groupSize);
 		
 		Set<Integer> chosenWordGroups = dictionaryHearConfig.getChosenWordGroups();
 		
@@ -122,7 +120,7 @@ public class DictionaryHearOptions extends Activity {
 			if (currentGroupNo != wordGroupsNo - 1) {
 				endPosition = (currentGroupNo + 1) * groupSize;
 			} else {
-				List<DictionaryEntry> lastWordsGroup = DictionaryManager.getInstance().getWordsGroup(groupSize, currentGroupNo);
+				List<DictionaryEntry> lastWordsGroup = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getWordsGroup(groupSize, currentGroupNo);
 				
 				endPosition = startPosition + lastWordsGroup.size();
 			}
@@ -366,7 +364,7 @@ public class DictionaryHearOptions extends Activity {
 					
 					if (currentWordGroupCheckBox.isChecked() == true) {
 						
-						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = DictionaryManager.getInstance().getWordsGroup(groupSize, wordGroupCheckBoxListIdx);
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getWordsGroup(groupSize, wordGroupCheckBoxListIdx);
 						
 						for (int repeatIdx = 0; repeatIdx < repeatNumber; ++repeatIdx) {
 							chosenAllDictionaryEntryList.addAll(currentWordsGroupDictionaryEntryList);

@@ -45,22 +45,13 @@ public class DictionaryManager {
 
 	private static final String KANA_FILE = "kana.csv";
 
-	private static DictionaryManager instance;
-
-	public static DictionaryManager getInstance() {
-
-		if (instance == null) {
-			throw new RuntimeException("No dictionary manager");
-		}
-
-		return instance;
-	}
-
 	private SQLiteConnector sqliteConnector;
 
 	private ZinniaManager zinniaManager;
 
 	private List<RadicalInfo> radicalList = null;
+	
+	private KanaHelper kanaHelper;
 
 	public DictionaryManager(SQLiteConnector sqliteConnector) {
 		this.sqliteConnector = sqliteConnector;
@@ -68,6 +59,22 @@ public class DictionaryManager {
 
 	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName) {
 
+		if (loadWithProgress == null) {
+			
+			// create fake
+			loadWithProgress = new ILoadWithProgress() {
+				
+				public void setMaxValue(int maxValue) {					
+				}
+				
+				public void setDescription(String desc) {
+				}
+				
+				public void setCurrentPos(int currentPos) {
+				}
+			};
+		}
+		
 		try {			
 			// init
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
@@ -170,8 +177,6 @@ public class DictionaryManager {
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
 		}
-
-		instance = this;
 	}
 
 	private int getWordSize(InputStream dictionaryInputStream) throws IOException {
@@ -292,7 +297,7 @@ public class DictionaryManager {
 			throw new RuntimeException(e);
 		}		
 
-		final Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
+		final Map<String, KanaEntry> kanaCache = kanaHelper.getKanaCache();
 
 		Collections.sort(findWordResult.result, new Comparator<ResultItem>() {
 
@@ -331,8 +336,8 @@ public class DictionaryManager {
 				} else if (lhsString == null && rhsString != null) {
 					return 1;
 				} else {
-					String lhsRomaji = KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(lhsString, kanaCache, true));
-					String rhsRomaji = KanaHelper.getInstance().createRomajiString(KanaHelper.getInstance().convertKanaStringIntoKanaWord(rhsString, kanaCache, true));
+					String lhsRomaji = kanaHelper.createRomajiString(kanaHelper.convertKanaStringIntoKanaWord(lhsString, kanaCache, true));
+					String rhsRomaji = kanaHelper.createRomajiString(kanaHelper.convertKanaStringIntoKanaWord(rhsString, kanaCache, true));
 
 					return lhsRomaji.compareToIgnoreCase(rhsRomaji);
 				}
@@ -734,7 +739,7 @@ public class DictionaryManager {
 			kanaAndStrokePaths.put(kana, strokePaths);
 		}
 
-		new KanaHelper(kanaAndStrokePaths);
+		kanaHelper = new KanaHelper(kanaAndStrokePaths);
 
 		csvReader.close();		
 	}
@@ -747,7 +752,7 @@ public class DictionaryManager {
 			return result;
 		}
 
-		Map<String, KanaEntry> kanaCache = KanaHelper.getInstance().getKanaCache();
+		Map<String, KanaEntry> kanaCache = kanaHelper.getKanaCache();
 
 		for (int idx = 0; idx < word.length(); ++idx) {
 
@@ -939,8 +944,6 @@ public class DictionaryManager {
 
 		List<String> onReading = kanjiDic2Entry.getOnReading();
 
-		KanaHelper kanaHelper = KanaHelper.getInstance();
-
 		if (onReading != null && onReading.size() > 0) {
 
 			for (String currentOnReading : onReading) {
@@ -1095,6 +1098,10 @@ public class DictionaryManager {
 
 	public ZinniaManager getZinniaManager() {
 		return zinniaManager;
+	}
+
+	public KanaHelper getKanaHelper() {
+		return kanaHelper;
 	}
 
 	@Override

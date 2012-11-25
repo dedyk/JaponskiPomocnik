@@ -5,16 +5,13 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperMainActiv
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.SplashConfig;
-import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteConnector;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
@@ -60,11 +57,10 @@ public class Splash extends Activity {
 
         } catch (NameNotFoundException e) {        	
         }
-
-        // init config manager
-        SharedPreferences preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
         
-        new ConfigManager(preferences);
+        ConfigManager configManager = new ConfigManager(this);
+        
+        JapaneseAndroidLearnHelperApplication.getInstance().setConfigManager(configManager);
         
         SQLiteConnector sqliteConnector = new SQLiteConnector(this, versionCode);
         
@@ -115,6 +111,8 @@ public class Splash extends Activity {
 				
 				dictionaryManager.init(loadWithProgress, resources, assets, getPackageName());
 				
+				JapaneseAndroidLearnHelperApplication.getInstance().setDictionaryManager(dictionaryManager);
+				
 				return null;
 			}
 			
@@ -140,7 +138,7 @@ public class Splash extends Activity {
 			@Override
 			protected void onPostExecute(Void result) {
 				
-				final SplashConfig splashConfig = ConfigManager.getInstance().getSplashConfig();
+				final SplashConfig splashConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(Splash.this).getSplashConfig();
 				
 				Boolean dialogBoxSkipResult = splashConfig.getDialogBoxSkip();
 				
@@ -191,10 +189,5 @@ public class Splash extends Activity {
         		new InitJapaneseAndroidLearnHelperContextAsyncTask();
         
         initJapaneseAndroidLearnHelperContextAsyncTask.execute();
-		
-        // create context
-		JapaneseAndroidLearnHelperContext context = new JapaneseAndroidLearnHelperContext();
-		
-		JapaneseAndroidLearnHelperApplication.getInstance().setContext(context);
     }
 }

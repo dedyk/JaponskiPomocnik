@@ -36,7 +36,7 @@ public class WordTestGroup extends Activity {
 
 		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
 		final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
-		final DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
 		
 		// create menu list
 

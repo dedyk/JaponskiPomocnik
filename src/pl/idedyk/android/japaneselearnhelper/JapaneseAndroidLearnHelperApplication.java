@@ -1,9 +1,16 @@
 package pl.idedyk.android.japaneselearnhelper;
 
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteConnector;
+import android.app.Activity;
 import android.app.Application;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.AssetManager;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 
 public class JapaneseAndroidLearnHelperApplication extends Application {
 	
@@ -14,6 +21,10 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	}
 	
 	private JapaneseAndroidLearnHelperContext context;
+	
+	private DictionaryManager dictionaryManager;
+	
+	private ConfigManager configManager;
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -36,14 +47,58 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	public void onTerminate() {
 		super.onTerminate();
 		
-		DictionaryManager.getInstance().close();
+		if (dictionaryManager != null) {
+			dictionaryManager.close();
+		}
 	}
 	
-	public void setContext(JapaneseAndroidLearnHelperContext context) {
-		this.context = context;
+	public JapaneseAndroidLearnHelperContext getContext() {
+		
+		if (context == null) {
+			context = new JapaneseAndroidLearnHelperContext();
+		}
+		
+		return context;
 	}
 
-	public JapaneseAndroidLearnHelperContext getContext() {
-		return context;
+	public DictionaryManager getDictionaryManager(Resources resources, AssetManager assets) {
+		
+		if (dictionaryManager == null) {
+			
+	        int versionCode = 0;
+	        
+	        try {
+	        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+	        	
+	            versionCode = packageInfo.versionCode;
+
+	        } catch (NameNotFoundException e) {        	
+	        }
+			
+			SQLiteConnector sqliteConnector = new SQLiteConnector(this, versionCode);
+			
+			dictionaryManager = new DictionaryManager(sqliteConnector);
+			
+			dictionaryManager.init(null, resources, assets, getPackageName());
+		}
+		
+		return dictionaryManager;
+	}
+
+	public void setDictionaryManager(DictionaryManager dictionaryManager) {
+		this.dictionaryManager = dictionaryManager;
+	}
+
+	public ConfigManager getConfigManager(Activity activity) {
+		
+		if (configManager == null) {
+			configManager = new ConfigManager(activity);
+		}
+		
+		return configManager;
+	}
+
+	public void setConfigManager(ConfigManager configManager) {
+		this.configManager = configManager;
 	}
 }

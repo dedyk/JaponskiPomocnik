@@ -3,9 +3,9 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.FuriganaEntry;
@@ -214,7 +214,7 @@ public class WordDictionaryDetails extends Activity {
 		OnClickListener kanjiDrawOnClickListener = new OnClickListener() {
 			
 			public void onClick(View v) {
-				List<List<String>> strokePathsForWord = DictionaryManager.getInstance().getStrokePathsForWord(kanjiSb.toString());
+				List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getStrokePathsForWord(kanjiSb.toString());
 				
 				StrokePathInfo strokePathInfo = new StrokePathInfo();
 				
@@ -232,7 +232,7 @@ public class WordDictionaryDetails extends Activity {
 		List<String> kanaList = dictionaryEntry.getKanaList();
 		
 		// check furigana
-		List<FuriganaEntry> furiganaEntries = DictionaryManager.getInstance().getFurigana(dictionaryEntry);
+		List<FuriganaEntry> furiganaEntries = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getFurigana(dictionaryEntry);
 		
 		if (furiganaEntries != null && furiganaEntries.size() > 0 && addKanjiWrite == true) {
 			
@@ -354,7 +354,7 @@ public class WordDictionaryDetails extends Activity {
 			readingStringValue.setOnClickListener(new OnClickListener() {
 				
 				public void onClick(View v) {
-					List<List<String>> strokePathsForWord = DictionaryManager.getInstance().getStrokePathsForWord(sb.toString());
+					List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getStrokePathsForWord(sb.toString());
 					
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 					
@@ -420,7 +420,7 @@ public class WordDictionaryDetails extends Activity {
 		List<KanjiEntry> knownKanji = null;
 		
 		if (dictionaryEntry.isKanjiExists() == true) {
-			knownKanji = DictionaryManager.getInstance().findKnownKanji(dictionaryEntry.getKanji());
+			knownKanji = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findKnownKanji(dictionaryEntry.getKanji());
 		}
 		
 		if (knownKanji != null && knownKanji.size() > 0) {

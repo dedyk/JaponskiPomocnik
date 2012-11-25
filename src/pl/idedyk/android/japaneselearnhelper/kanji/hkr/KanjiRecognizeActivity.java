@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.kanji.hkr;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
@@ -109,7 +110,7 @@ public class KanjiRecognizeActivity extends Activity {
 					@Override
 					protected List<KanjiEntry> doInBackground(Void... arg0) {
 						
-						DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+						DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
 						
 						ZinniaManager zinniaManager = dictionaryManager.getZinniaManager();
 						

@@ -12,10 +12,8 @@ import java.util.TreeMap;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
@@ -48,7 +46,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		super.onCreate(savedInstanceState);
 
-		final KanjiTestConfig kanjiTestConfig = ConfigManager.getInstance().getKanjiTestConfig();
+		final KanjiTestConfig kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanjiTestConfig();
 
 		setContentView(R.layout.kanji_test_options);
 
@@ -110,7 +108,7 @@ public class KanjiTestOptionsActivity extends Activity {
 						KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
 
 						// get kanji with details
-						currentCheckBoxKanjiEntry = DictionaryManager.getInstance().findKanji(currentCheckBoxKanjiEntry.getKanji());
+						currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findKanji(currentCheckBoxKanjiEntry.getKanji());
 
 						chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
 						kanjiEntryList.add(currentCheckBoxKanjiEntry);						
@@ -181,7 +179,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								findWordRequest.word = currentKanjiEntry.getKanji();
 
 								// find word with this kanji
-								FindWordResult findWordResult = DictionaryManager.getInstance().findWord(findWordRequest);
+								FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findWord(findWordRequest);
 
 								List<ResultItem> findWordResultResult = findWordResult.result;
 
@@ -306,7 +304,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			@Override
 			protected List<KanjiEntry> doInBackground(Void... arg) {
 
-				return DictionaryManager.getInstance().getAllKanjis(false, false);
+				return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getAllKanjis(false, false);
 			}
 
 			@Override

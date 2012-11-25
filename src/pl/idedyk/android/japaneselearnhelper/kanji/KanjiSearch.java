@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
@@ -57,7 +58,7 @@ public class KanjiSearch extends Activity {
 		
 		setContentView(R.layout.kanji_search);
 		
-		List<RadicalInfo> radicalList = DictionaryManager.getInstance().getRadicalList();
+		List<RadicalInfo> radicalList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getRadicalList();
 		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_main_layout);
 		
@@ -236,7 +237,7 @@ public class KanjiSearch extends Activity {
 				
 				selectedRadicals.toArray(selectedRadicalsArray);
 				
-				DictionaryManager dictionaryManager = DictionaryManager.getInstance();
+				DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
 				
 				return dictionaryManager.findAllAvailableRadicals(selectedRadicalsArray);
 			}
