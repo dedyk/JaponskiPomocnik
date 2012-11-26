@@ -92,7 +92,7 @@
             android:inputType="text"
             android:singleLine="true"
             android:visibility="gone" />
-        
+
         <TextView
             android:id="@+id/word_test_word_label5"
             android:layout_width="wrap_content"
@@ -109,7 +109,24 @@
             android:inputType="text"
             android:singleLine="true"
             android:visibility="gone" />
-        
+
+        <TextView
+            android:id="@+id/word_test_word_label6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/word_test_word_label"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/word_test_word_input6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:singleLine="true"
+            android:visibility="gone" />
+
         <TextView
             android:id="@+id/word_test_translate"
             android:layout_width="wrap_content"
@@ -153,7 +170,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:text="@string/word_test_state" />
-
     </LinearLayout>
 
 </ScrollView>

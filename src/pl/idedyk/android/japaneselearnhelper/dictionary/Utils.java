@@ -12,7 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryExce
 
 public class Utils {
 	
-	private static int MAX_LIST_SIZE = 5;
+	private static int MAX_LIST_SIZE = 6;
 	
 	public static List<String> parseStringIntoList(String text, boolean limitSize) {
 		

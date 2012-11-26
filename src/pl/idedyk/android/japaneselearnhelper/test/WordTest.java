@@ -156,7 +156,7 @@ public class WordTest extends Activity {
 			
 			List<String> kanaList = currentWordDictionaryEntry.getFullKanaList();
 			
-			if (kanaList.size() >= 5) {
+			if (kanaList.size() >= 6) {
 				throw new RuntimeException("Kana list size: " + kanaList);
 			}
 			
@@ -236,14 +236,18 @@ public class WordTest extends Activity {
 
 		TextView wordLabel5 = (TextView)findViewById(R.id.word_test_word_label5);
 		EditText wordInput5 = (EditText)findViewById(R.id.word_test_word_input5);
+
+		TextView wordLabel6 = (TextView)findViewById(R.id.word_test_word_label6);
+		EditText wordInput6 = (EditText)findViewById(R.id.word_test_word_input6);
 		
-		TextViewAndEditText[] result = new TextViewAndEditText[4];
+		TextViewAndEditText[] result = new TextViewAndEditText[6];
 		
 		result[0] = new TextViewAndEditText(wordLabel1, wordInput1);
 		result[1] = new TextViewAndEditText(wordLabel2, wordInput2);
 		result[2] = new TextViewAndEditText(wordLabel3, wordInput3);
 		result[3] = new TextViewAndEditText(wordLabel4, wordInput4);
-		result[3] = new TextViewAndEditText(wordLabel5, wordInput5);
+		result[4] = new TextViewAndEditText(wordLabel5, wordInput5);
+		result[5] = new TextViewAndEditText(wordLabel6, wordInput6);
 		
 		return result;
 	}
