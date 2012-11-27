@@ -2373,7 +2373,8 @@ pracownik stacji",kolejowej,
 2053,WORD,WORD_NOUN,HIRAGANA,,台風,たいふう,,taifuu,tajfun,,
 2054,WORD,WORD_NOUN,KATAKANA,,-,ファイル,,fairu,plik,,
 2055,WORD,WORD_NOUN,HIRAGANA,,目覚まし時計,めざましどけい,,mezamashi dokei,budzik,,
-2056,WORD,WORD_VERB_U,HIRAGANA,を,奢る,おごる,o,ogoru,poczęstować,"kogoś, osoba ni posiłek o",
+2056,WORD,WORD_VERB_U,HIRAGANA,を,奢る,おごる,o,ogoru,"poczęstować
+stawiać","kogoś/komuś, osoba ni posiłek/napój o",
 2057,WORD,WORD_VERB_U,HIRAGANA,,落ち込む,おちこむ,,ochikomu,"mieć depresję
 mieć dołek",,
 2058,WORD,WORD_VERB_U,HIRAGANA,,困る,こまる,,komaru,"mieć kłopot
@@ -2387,11 +2388,12 @@ naprawiać",,
 2064,WORD,WORD_VERB_RU,KATAKANA,,-,アイロンをかける,,airon o kakeru,prasować,,
 2065,WORD,WORD_VERB_RU,HIRAGANA,,集める,あつめる,,atsumeru,"zbierać
 gromadzić",,
-2066,WORD,WORD_VERB_RU,HIRAGANA,,乗り遅れる,のりおくれる,,nori okureru,przegapić,"np. pociąg, autobus i etc",
+2066,WORD,WORD_VERB_RU,HIRAGANA,,乗り遅れる,のりおくれる,,nori okureru,"przegapić
+spóźnić się","np. pociąg, autobus i etc",
 2067,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,朝寝坊する,あさねぼうする,,asanebou suru,zaspać,,
 2068,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,案内する,あんないする,,annai suru,odprowadzać,kogoś,
 2069,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,説明する,せつめいする,,setsumei suru,wyjaśniać,,
-2070,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,迎えに来る,むかえにくる,,mukaeni kuru,?,,
+2070,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,迎えに来る,むかえにくる,,mukaeni kuru,zabrać,kogoś,
 2071,WORD,WORD_EXPRESSION,HIRAGANA,,-,ええと,,eeto,więc,,
 2072,WORD,WORD_EXPRESSION,HIRAGANA,,今日中に,きょうじゅうに,,kyou juu ni,do końca dzisiejszego dnia,,
 2073,WORD,UNKNOWN,HIRAGANA,,この間,このあいだ,,kono aida,"pewnego dnia
@@ -2406,3 +2408,6 @@ w trakcie zajęć",,
 2079,WORD,UNKNOWN,HIRAGANA,,-,ほかの,,hokano,inny,,
 2080,WORD,WORD_NOUN,HIRAGANA,,匠,たくみ,,takumi,rzemieślnik,,
 2081,WORD,WORD_NOUN,HIRAGANA,,蜘蛛,くも,,kumo,pająk,,
+2082,WORD,WORD_NOUN,HIRAGANA,,知らない人,しらないひと,,shiranai hito,nieznajomy,,
+2083,WORD,WORD_VERB_RU,HIRAGANA,,道を教える,みちをおしえる,,michi o oshieru,"wskazać drogę
+podać drogę",,
