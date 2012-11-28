@@ -1199,7 +1199,8 @@ szklanka",,
 cv",,
 1079,WORD,WORD_ADJECTIVE_I,HIRAGANA,,欲しい,ほしい,,hoshii,chcieć,rzecz ga,
 1080,WORD,WORD_ADJECTIVE_NA,HIRAGANA,,-,けち,,kechi,skąpy,,
-1081,WORD,WORD_VERB_U,HIRAGANA,,送る,おくる,,okuru,wysyłać,,
+1081,WORD,WORD_VERB_U,HIRAGANA,,送る,おくる,,okuru,"wysyłać
+podwieźć (kogoś)",,
 1082,WORD,WORD_VERB_U,HIRAGANA,,似合う,にあう,,niau,pasować,rzecz ga,
 1083,WORD,WORD_VERB_RU,HIRAGANA,,-,あきらめる,,akirameru,poddać się,,
 1084,WORD,WORD_VERB_RU,HIRAGANA,,-,あげる,,ageru,dać,"komuś, rzecz o osoba ni",
@@ -2393,12 +2394,13 @@ spóźnić się","np. pociąg, autobus i etc",
 2067,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,朝寝坊する,あさねぼうする,,asanebou suru,zaspać,,
 2068,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,案内する,あんないする,,annai suru,odprowadzać,kogoś,
 2069,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,説明する,せつめいする,,setsumei suru,wyjaśniać,,
-2070,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,迎えに来る,むかえにくる,,mukaeni kuru,zabrać,kogoś,
+2070,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,迎えに来る,むかえにくる,,mukaeni kuru,przyjechać,po kogoś,
 2071,WORD,WORD_EXPRESSION,HIRAGANA,,-,ええと,,eeto,więc,,
 2072,WORD,WORD_EXPRESSION,HIRAGANA,,今日中に,きょうじゅうに,,kyou juu ni,do końca dzisiejszego dnia,,
 2073,WORD,UNKNOWN,HIRAGANA,,この間,このあいだ,,kono aida,"pewnego dnia
-ostatnio",,
-2074,WORD,UNKNOWN,HIRAGANA,,-,このぐらい,,kono gurai,?,,
+ostatnio
+wcześniej",,
+2074,WORD,UNKNOWN,HIRAGANA,,-,このぐらい,,kono gurai,mniej więcej tyle,,
 2075,WORD,WORD_EXPRESSION,HIRAGANA,,-,ごめん,,gomen,przepraszam,mowa potoczna,
 2076,WORD,WORD_EXPRESSION,HIRAGANA,,失礼します,しつれいします,,shitsurei shimasu,"przepraszam
 przepraszam, że przerywam",,
@@ -2411,3 +2413,20 @@ w trakcie zajęć",,
 2082,WORD,WORD_NOUN,HIRAGANA,,知らない人,しらないひと,,shiranai hito,nieznajomy,,
 2083,WORD,WORD_VERB_RU,HIRAGANA,,道を教える,みちをおしえる,,michi o oshieru,"wskazać drogę
 podać drogę",,
+2084,WORD,WORD_NOUN,HIRAGANA,,鬘,かつら,,katsura,peruka,,
+2085,WORD,WORD_NOUN,HIRAGANA,,毛抜き,けぬき,,kenuki,"pęseta
+pinceta
+szczypczyki",,
+2086,WORD,WORD_NOUN,HIRAGANA,,熊,くま,,kuma,niedźwiedź,,
+2087,WORD,WORD_NOUN,HIRAGANA,,-,くまのプーさん,,kuma no puu san,Kubuś Puchatek,,
+2088,WORD,WORD_NOUN,HIRAGANA,,相手,あいて,,aite,"towarzysz
+partner
+przeciwnik (w sporcie)",,
+2089,WORD,WORD_NOUN,HIRAGANA,,性格,せいかく,,seikaku,"charakter
+osobowość",,
+2090,WORD,WORD_VERB_U,HIRAGANA,,性格が合う,せいかくがあう,,seikaku ga au,pasować charakterem,,
+2091,WORD,WORD_NOUN,HIRAGANA,,見た目,みため,,mitame,wygląd,,
+2092,WORD,UNKNOWN,HIRAGANA,,友達であるべき,ともだちであるべき,,tomodachi de aru beki,powinien być przyjacielem,,
+2093,WORD,UNKNOWN,HIRAGANA,,掃除するべき,そうじするべき,,souji suru beki,powinien sprzątać,,
+2094,WORD,UNKNOWN,HIRAGANA,,-,べき,,beki,powinien (coś zrobić),forma prosta czasownika ~,
+2095,WORD,WORD_NOUN,HIRAGANA,,お見合い,おみあい,,omiai,spotkanie,w celu zawarcia aranżowanego małżeństwa,

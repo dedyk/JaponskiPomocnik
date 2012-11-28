@@ -39,8 +39,11 @@ public class ExampleHelper {
 		
 		String prefixKana = grammaFormConjugateResult.getPrefixKana();
 		String kanji = grammaFormConjugateResult.getKanji();
+		
 		List<String> kanaList = grammaFormConjugateResult.getKanaList();
+		
 		String prefixRomaji = grammaFormConjugateResult.getPrefixRomaji();
+		
 		List<String> romajiList = grammaFormConjugateResult.getRomajiList();
 		
 		return makeSimpleTemplateExample(prefixKana, kanji, kanaList, prefixRomaji, romajiList, templateKanji, templateKana, templateRomaji, canAddPrefix);
@@ -51,8 +54,11 @@ public class ExampleHelper {
 		
 		String prefixKana = dictionaryEntry.getPrefixKana();
 		String kanji = dictionaryEntry.getKanji();
+		
 		List<String> kanaList = dictionaryEntry.getKanaList();
+		
 		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
+		
 		List<String> romajiList = dictionaryEntry.getRomajiList();
 		
 		return makeSimpleTemplateExampleWithLastCharRemove(prefixKana, kanji, kanaList, prefixRomaji, romajiList, templateKanji, templateKana, templateRomaji, canAddPrefix);
@@ -63,8 +69,11 @@ public class ExampleHelper {
 		
 		String prefixKana = grammaFormConjugateResult.getPrefixKana();
 		String kanji = grammaFormConjugateResult.getKanji();
+		
 		List<String> kanaList = grammaFormConjugateResult.getKanaList();
+		
 		String prefixRomaji = grammaFormConjugateResult.getPrefixRomaji();
+		
 		List<String> romajiList = grammaFormConjugateResult.getRomajiList();
 		
 		return makeSimpleTemplateExampleWithLastCharRemove(prefixKana, kanji, kanaList, prefixRomaji, romajiList, templateKanji, templateKana, templateRomaji, canAddPrefix);

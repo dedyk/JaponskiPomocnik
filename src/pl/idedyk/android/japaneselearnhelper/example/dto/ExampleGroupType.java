@@ -68,7 +68,7 @@ public enum ExampleGroupType {
 	
 	VERB_TE_IRU("Trwanie czynności/stanu"),
 	
-	VERB_TE_KUDASAI("Prośba"),
+	VERB_TE_KUDASAI("Prośba I"),
 	
 	VERB_TE_MO_II("Pozwolenie"),
 	
@@ -108,7 +108,9 @@ public enum ExampleGroupType {
 	
 	VERB_TE_KURERU("Dać czynność (mnie)"),
 	
-	VERB_TE_MORAU("Otrzymać czynność");
+	VERB_TE_MORAU("Otrzymać czynność"),
+	
+	VERB_REQUEST("Prośby II (wybrane, od najbardziej grzecznej)");
 	
 	private String name;
 	

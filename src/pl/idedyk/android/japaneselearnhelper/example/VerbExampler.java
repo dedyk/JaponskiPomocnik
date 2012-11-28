@@ -99,6 +99,9 @@ public class VerbExampler {
 		// te morau
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MORAU, makeTeMorauExample(dictionaryEntry));		
 		
+		// te kudasai
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_REQUEST, makeRequest(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -511,5 +514,35 @@ public class VerbExampler {
 		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
 		
 		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, false);
+	}
+	
+	private static ExampleResult makeRequest(DictionaryEntry dictionaryEntry) {
+		
+		String[][] templates = new String[][] {
+				{ "%sいただけませんか", "%sいただけませんか", "%s itadakemasen ka" },
+				{ "%sもらえませんか", "%sもらえませんか", "%s moraemasen ka" },
+				{ "%sくれない", "%sくれない", "%s kurenai" }
+		};
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		
+		ExampleResult currentExampleResult = null;
+		ExampleResult startExampleResult = null;
+		
+		for (int idx = 0; idx < templates.length; ++idx) {
+			
+			if (idx == 0) {
+				startExampleResult = currentExampleResult = ExampleHelper.makeSimpleTemplateExample(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+			} else {
+				ExampleResult alternativeExampleResult = 
+						ExampleHelper.makeSimpleTemplateExample(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+				
+				currentExampleResult.setAlternative(alternativeExampleResult);
+				
+				currentExampleResult = alternativeExampleResult;				
+			}
+		}
+		
+		return startExampleResult;
 	}
 }
