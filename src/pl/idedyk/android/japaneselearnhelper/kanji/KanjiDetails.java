@@ -208,6 +208,17 @@ public class KanjiDetails extends Activity {
 			report.add(new StringValue("-", 20.0f, 0));
 		}
 		
+		// kanji appearance
+		List<String> groups = kanjiEntry.getGroups();
+		
+		if (groups != null && groups.size() > 0) {
+			report.add(new TitleItem(getString(R.string.kanji_details_kanji_appearance_label), 0));
+			
+			for (int idx = 0; idx < groups.size(); ++idx) {
+				report.add(new StringValue(groups.get(idx), 20.0f, 0));
+			}			
+		}		
+		
 		report.add(new StringValue("", 15.0f, 2));
 		
 		// find kanji in words

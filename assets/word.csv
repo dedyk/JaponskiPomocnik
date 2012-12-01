@@ -1342,7 +1342,8 @@ rozległy",,
 1203,WORD,WORD_VERB_U,HIRAGANA,,描く,かく,,kaku,"rysować
 malować",,
 1204,WORD,WORD_VERB_U,HIRAGANA,,探す,さがす,,sagasu,szukać,,
-1205,WORD,WORD_VERB_U,HIRAGANA,,誘う,さそう,,sasou,zapraszać,,
+1205,WORD,WORD_VERB_U,HIRAGANA,,誘う,さそう,,sasou,"zapraszać
+zaprosić",,
 1206,WORD,WORD_VERB_U,HIRAGANA,と,付き合う,つきあう,to,tsukiau,"chodzić z kimś
 iść na randkę",narzeczeństwo,
 1207,WORD,WORD_VERB_U,HIRAGANA,に,付き合う,つきあう,ni,tsukiau,dotrzymać towarzystwa,~ w celu,
@@ -1806,7 +1807,8 @@ doskonały",,
 wyśmienity
 doskonały",,
 1613,WORD,WORD_NOUN,HIRAGANA,,招き猫,まねきねこ,,maneki neko,"kot zapraszający, wabiący",figurka kota z podniesioną łapką,
-1614,WORD,WORD_VERB_U,HIRAGANA,,招く,まねく,,maneku,zapraszać,,
+1614,WORD,WORD_VERB_U,HIRAGANA,,招く,まねく,,maneku,"zapraszać
+zaprosić",,
 1615,WORD,WORD_NOUN,KATAKANA,,-,チーズバーガー,,chiizubaagaa,cheeseburger,,
 1616,WORD,WORD_NOUN,KATAKANA,,-,フライドポテト,,furaido poteto,frytki,,
 1617,WORD,WORD_NOUN,KATAKANA,,-,シェイク,,sheiku,shake,,
@@ -2530,3 +2532,6 @@ być zwróconym",,
 2150,WORD,WORD_ADJECTIVE_NA,KATAKANA,,-,パーフェクト,,paafekuto,"idealny
 doskonały
 perfekcyjny",,
+2151,WORD,WORD_NOUN,HIRAGANA,,招待,しょうたい,,shoutai,zaproszenie,,
+2152,WORD,WORD_VERB_IRREGULAR,HIRAGANA,,招待をする,しょうたいをする,,shoutai o suru,"zapraszać
+zaprosić",,
