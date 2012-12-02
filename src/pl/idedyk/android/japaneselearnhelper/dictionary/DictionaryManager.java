@@ -677,6 +677,39 @@ public class DictionaryManager {
 		return result;
 	}
 
+	public List<KanjiEntry> findKanjisFromStrokeCount(int from, int to) {
+
+		List<KanjiEntry> result = null;
+
+		try {
+			result = sqliteConnector.findKanjisFromStrokeCount(from, to);
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
+		}
+
+		Collections.sort(result, new Comparator<KanjiEntry>() {
+
+			public int compare(KanjiEntry lhs, KanjiEntry rhs) {
+
+				int lhsId = lhs.getId();
+				int rhsId = rhs.getId();
+
+				if (lhsId < rhsId) {
+					return -1;
+				} else if (lhsId > rhsId) {
+					return 1;
+				} else {
+					String lhsKanji = lhs.getKanji();
+					String rhsKanji = rhs.getKanji();
+
+					return lhsKanji.compareTo(rhsKanji);
+				}
+			}
+		});
+
+		return result;
+	}
+	
 	public Set<String> findAllAvailableRadicals(String[] radicals) {
 
 		try {

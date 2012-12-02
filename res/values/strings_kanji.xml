@@ -109,4 +109,9 @@
     <string name="kanji_search_stroke_count_from_incorrect">Niepoprawna wartość pola od: \'%1$s\'</string>
     <string name="kanji_search_stroke_count_to_incorrect">Niepoprawna wartość pola do: \'%1$s\'</string>
     <string name="kanji_search_stroke_count_from_bigger_than_to">Pole \'od\' większe od pola \'do\'</string>
+    <string name="kanji_search_stroke_count_result_limited">Ograniczono liczbę wyników. Zawęż kryteria wyszukiwania</string>
+    <string name="kanji_search_stroke_count_result_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="kanji_search_stroke_count_result_elements_no">Liczba elementów: %1$s</string>
+    <string name="kanji_search_stroke_count_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu znaków kanji</string>
+    <string name="kanji_search_stroke_count_result_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
 </resources>

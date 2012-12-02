@@ -1074,4 +1074,60 @@ public class SQLiteConnector {
 			findWordResult.result.remove(findWordResult.result.size() - 1);
 		}
 	}
+
+	public List<KanjiEntry> findKanjisFromStrokeCount(int from, int to) throws DictionaryException {
+		
+		KanjiEntry kanjiEntry = null;
+		
+		Cursor cursor = null;
+				
+		List<KanjiEntry> result = new ArrayList<KanjiEntry>();
+		
+		try {
+			cursor = sqliteDatabase.query(SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTableAllColumns, 
+					SQLiteStatic.kanjiEntriesTable_strokeCount + " >= ? and " + SQLiteStatic.kanjiEntriesTable_strokeCount + " <= ?",
+					new String[] { String.valueOf(from), String.valueOf(to) }, null, null, null, "101");
+			
+		    cursor.moveToFirst();
+		    
+		    while (!cursor.isAfterLast()) {
+				
+				String idString = cursor.getString(0);
+
+				String kanjiString = cursor.getString(1);
+
+				String strokeCountString = cursor.getString(2);
+
+				String radicalsString = cursor.getString(3);
+
+				String onReadingString = cursor.getString(4);
+
+				String kunReadingString = cursor.getString(5);
+
+				String strokePathString = cursor.getString(6);
+
+				String polishTranslateListString = cursor.getString(7);
+				String infoString = cursor.getString(8);
+				
+				String generated = cursor.getString(9);
+				
+				String groups = cursor.getString(10);
+
+				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
+						radicalsString, onReadingString, kunReadingString, strokePathString, 
+						polishTranslateListString, infoString, generated, groups);	
+				
+				result.add(kanjiEntry);
+				
+				cursor.moveToNext();
+			}
+		
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+		
+		return result;
+	}
 }

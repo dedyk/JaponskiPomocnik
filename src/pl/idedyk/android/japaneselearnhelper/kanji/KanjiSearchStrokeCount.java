@@ -3,8 +3,10 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.EditText;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
@@ -131,9 +133,26 @@ public class KanjiSearchStrokeCount extends Activity {
 					return;							
 				}
 				
+				List<KanjiEntry> foundKanjis = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+					findKanjisFromStrokeCount(fromInt, toInt);
+
+				if (foundKanjis.size() == 101) {
+					foundKanjis.remove(foundKanjis.size() - 1);
+					
+					Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_result_limited, toString), Toast.LENGTH_SHORT);
+					
+					toast.show();					
+				}
 				
-
-
+				Intent intent = new Intent(getApplicationContext(), KanjiSearchStrokeCountResult.class);
+				
+				KanjiEntry[] kanjiEntriesAsArray = new KanjiEntry[foundKanjis.size()];
+				
+				foundKanjis.toArray(kanjiEntriesAsArray);
+				
+				intent.putExtra("kanjiStrokeCountResult", kanjiEntriesAsArray);
+				
+				startActivity(intent);
 			}
 			
 			private Integer getInt(String textString, int defaultValue) {
