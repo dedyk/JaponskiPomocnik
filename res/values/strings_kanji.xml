@@ -16,10 +16,13 @@
     <string name="kanji_details_find_kanji_in_words">Szukaj wystąpień znaku w słowniku</string>
     <string name="kanji_search_label">Wyszukiwarka znaków kanji</string>
     <string name="kanji_search_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
-    <string name="kanji_search_title">Proszę zaznaczyć elementy podstawowe</string>
+    <string name="kanji_search_radical_title">Proszę zaznaczyć elementy podstawowe</string>
+    <string name="kanji_search_stroke_count_title">Proszę wpisać ilość kresek</string>
+    <string name="kanji_search_stroke_count_from">Od</string>
+    <string name="kanji_search_stroke_count_to">Do</string>
     <string name="kanji_search_kanji">Szukaj kanji</string>
     <string name="kanji_search_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu elementów podstawowych kanji</string>
-    <string name="kanji_search_report_problem_email_body">Treść sugestia:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kanji_search_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kanji_entry_search_label">Wybrane elementy podstawowe</string>
     <string name="kanji_entry_elements_no">Liczba elementów: %1$s</string>
     <string name="kanji_entry_search_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>

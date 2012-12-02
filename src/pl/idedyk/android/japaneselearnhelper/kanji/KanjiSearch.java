@@ -1,7 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,14 +25,13 @@ public class KanjiSearch extends TabActivity {
 		
 		tabHost.addTab(kanjiSearchRadicalTabSpec);
 
-		Intent tttt = new Intent().setClass(this, WordDictionary.class);
+		Intent kanjiSearchStrokeCountIntent = new Intent().setClass(this, KanjiSearchStrokeCount.class);
 		
-		TabSpec test = tabHost.newTabSpec("test")
+		TabSpec kanjiSearchStrokeCountTabSpec = tabHost.newTabSpec("KanjiSearchStrokeCount")
 				.setIndicator(getString(R.string.kanji_search_stroke_count))
-				.setContent(tttt);
+				.setContent(kanjiSearchStrokeCountIntent);
 		
-		tabHost.addTab(test);
-
+		tabHost.addTab(kanjiSearchStrokeCountTabSpec);
 		
 		tabHost.setCurrentTab(0);
 	}

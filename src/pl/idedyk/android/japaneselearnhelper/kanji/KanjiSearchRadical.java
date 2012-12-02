@@ -60,7 +60,7 @@ public class KanjiSearchRadical extends Activity {
 		
 		List<RadicalInfo> radicalList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getRadicalList();
 		
-		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_main_layout);
+		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_radical_main_layout);
 		
 		final Set<String> selectedRadicals = new HashSet<String>();
 		
@@ -70,7 +70,7 @@ public class KanjiSearchRadical extends Activity {
 		
 		fillMainLayout(screenItems, mainLayout);
 		
-		Button reportProblemButton = (Button)findViewById(R.id.kanji_search_report_problem_button);
+		Button reportProblemButton = (Button)findViewById(R.id.kanji_search_radical_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new OnClickListener() {
 			
@@ -107,7 +107,7 @@ public class KanjiSearchRadical extends Activity {
 			}
 		});
 		
-		Button searchKanjiButton = (Button)findViewById(R.id.kanji_search_kanji_button);
+		Button searchKanjiButton = (Button)findViewById(R.id.kanji_search_radical_kanji_button);
 		
 		searchKanjiButton.setOnClickListener(new OnClickListener() {
 			
@@ -148,7 +148,7 @@ public class KanjiSearchRadical extends Activity {
 		
 		List<IScreenItem> result = new ArrayList<IScreenItem>();
 		
-		result.add(new TitleItem(getString(R.string.kanji_search_title), 0));
+		result.add(new TitleItem(getString(R.string.kanji_search_radical_title), 0));
 		
 		int lastStrokeCount = -1;
 		

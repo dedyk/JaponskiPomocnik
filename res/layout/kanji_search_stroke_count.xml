@@ -6,14 +6,14 @@
     android:orientation="vertical" >
 
     <ScrollView
-        android:id="@+id/kanji_search_radical_main_layout_scroll"
+        android:id="@+id/kanji_search_stroke_count_main_layout_scroll"
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1" >
 
         <LinearLayout
-            android:id="@+id/kanji_search_radical_main_layout"
+            android:id="@+id/kanji_search_stroke_count_main_layout"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:orientation="vertical" >
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/kanji_search_radical_kanji_button"
+            android:id="@+id/kanji_search_stroke_count_kanji_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/kanji_search_kanji" />
@@ -50,13 +50,13 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/kanji_search_radical_report_problem_button"
+            android:id="@+id/kanji_search_stroke_count_report_problem_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/report_problem" />
 
         <TextView
-            android:id="@+id/kanji_search_radical_report_problem_label"
+            android:id="@+id/kanji_search_stroke_count_report_problem_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
