@@ -101,4 +101,6 @@
     <string name="kanji_test_answers_no">Liczba odpowiedzi</string>
     <string name="kanji_test_correct_answers_no">Liczba odpowiedzi prawidłowych</string>
     <string name="kanji_test_incorrect_answers_no">Liczba odpowiedzi nieprawidłowych</string>
+    <string name="kanji_search_type_radical">Elementy podstawowe</string>
+    <string name="kanji_search_stroke_count">Liczba kresek</string>
 </resources>

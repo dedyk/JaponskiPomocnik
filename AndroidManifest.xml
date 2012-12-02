@@ -33,6 +33,7 @@
         <activity android:label="@string/kana_test_summary_label" android:name=".kana.KanaTestSummary"></activity>
         <activity android:name=".kanji.KanjiDetails" android:label="@string/kanji_details_label"></activity>
         <activity android:name=".kanji.KanjiSearch" android:label="@string/kanji_search_label"></activity>
+        <activity android:name=".kanji.KanjiSearchRadical" android:label="@string/kanji_search_label"></activity>
         <activity android:name=".kanji.KanjiSearchResult" android:label="@string/kanji_entry_search_result_view_label"></activity>
         <activity android:name=".sod.SodActivity" android:label="@string/sod_label"></activity>
         <activity android:name=".kanji.hkr.KanjiRecognizeActivity" android:label="@string/kanji_recognizer_label"></activity>

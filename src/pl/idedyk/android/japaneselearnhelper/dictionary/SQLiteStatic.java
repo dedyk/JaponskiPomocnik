@@ -141,7 +141,7 @@ public class SQLiteStatic {
 			"create table " + kanjiEntriesTableName + "(" +
 			kanjiEntriesTable_id + " integer primary key, " +
 			kanjiEntriesTable_kanji + " text unique not null, " +
-			kanjiEntriesTable_strokeCount + " text not null, " +
+			kanjiEntriesTable_strokeCount + " int not null, " +
 			kanjiEntriesTable_radicals + " text not null, " +
 			kanjiEntriesTable_onReading + " text not null, " +
 			kanjiEntriesTable_kunReading + " text not null, " +
