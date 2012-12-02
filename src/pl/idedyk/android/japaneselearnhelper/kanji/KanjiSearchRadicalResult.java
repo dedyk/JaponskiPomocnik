@@ -29,7 +29,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class KanjiSearchResult extends Activity {
+public class KanjiSearchRadicalResult extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

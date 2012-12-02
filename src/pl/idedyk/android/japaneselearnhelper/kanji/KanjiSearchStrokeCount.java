@@ -21,8 +21,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class KanjiSearchStrokeCount extends Activity {
+	
+	private EditText strokeCountFromEditText;
+	private EditText strokeCountToEditText;
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -88,6 +92,63 @@ public class KanjiSearchStrokeCount extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		
+		Button searchKanjiButton = (Button)findViewById(R.id.kanji_search_stroke_count_kanji_button);
+		
+		searchKanjiButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				
+				String fromString = strokeCountFromEditText.getCurrentText();
+				
+				Integer fromInt = getInt(fromString, 0);
+				
+				if (fromInt == null) {
+					Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_from_incorrect, fromString), Toast.LENGTH_SHORT);
+					
+					toast.show();
+
+					return;		
+				}
+								
+				String toString = strokeCountToEditText.getCurrentText();
+				
+				Integer toInt = getInt(toString, 99);
+				
+				if (toInt == null) {
+					Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_to_incorrect, toString), Toast.LENGTH_SHORT);
+					
+					toast.show();
+
+					return;		
+				}
+				
+				if (fromInt.intValue() > toInt.intValue()) {
+					Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_from_bigger_than_to, toString), Toast.LENGTH_SHORT);
+					
+					toast.show();
+
+					return;							
+				}
+				
+				
+
+
+			}
+			
+			private Integer getInt(String textString, int defaultValue) {
+				
+				if (textString.equals("") == true) {
+					return defaultValue;
+				}
+								
+				try {
+					return Integer.parseInt(textString);
+				} catch (NumberFormatException e) {
+					return null;
+				}
+			}
+		});
 	}
 	
 	private void fillMainLayout(List<IScreenItem> screenItems, LinearLayout mainLayout) {
@@ -105,13 +166,13 @@ public class KanjiSearchStrokeCount extends Activity {
 		
 		result.add(new TitleItem(getString(R.string.kanji_search_stroke_count_from), 1));
 		
-		EditText strokeCountFromEditText = new EditText("1", 1, InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+		strokeCountFromEditText = new EditText("1", 1, InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 			
 		result.add(strokeCountFromEditText);
 		
 		result.add(new TitleItem(getString(R.string.kanji_search_stroke_count_to), 1));
 		
-		EditText strokeCountToEditText = new EditText("99", 1, InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+		strokeCountToEditText = new EditText("99", 1, InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 		
 		result.add(strokeCountToEditText);
 		

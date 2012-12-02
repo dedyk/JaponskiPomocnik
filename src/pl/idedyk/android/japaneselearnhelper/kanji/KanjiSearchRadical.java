@@ -128,7 +128,7 @@ public class KanjiSearchRadical extends Activity {
 				
 				Arrays.sort(selectedRadicalsArray);
 				
-				Intent intent = new Intent(getApplicationContext(), KanjiSearchResult.class);
+				Intent intent = new Intent(getApplicationContext(), KanjiSearchRadicalResult.class);
 				
 				intent.putExtra("search", selectedRadicalsArray);
 				

@@ -48,6 +48,14 @@ public class EditText implements IScreenItem {
 		layout.addView(editText);
 	}
 	
+	public String getCurrentText() {
+		if (editText == null) {
+			return "";
+		}
+		
+		return editText.getText().toString();
+	}
+	
 	public String toString() {
 		
 		String value = "";
