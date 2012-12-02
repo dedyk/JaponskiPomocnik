@@ -13,9 +13,11 @@ import pl.idedyk.android.japaneselearnhelper.screen.EditText;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -104,7 +106,7 @@ public class KanjiSearchStrokeCount extends Activity {
 				
 				String fromString = strokeCountFromEditText.getCurrentText();
 				
-				Integer fromInt = getInt(fromString, 0);
+				final Integer fromInt = getInt(fromString, 0);
 				
 				if (fromInt == null) {
 					Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_from_incorrect, fromString), Toast.LENGTH_SHORT);
@@ -116,7 +118,7 @@ public class KanjiSearchStrokeCount extends Activity {
 								
 				String toString = strokeCountToEditText.getCurrentText();
 				
-				Integer toInt = getInt(toString, 99);
+				final Integer toInt = getInt(toString, 99);
 				
 				if (toInt == null) {
 					Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_to_incorrect, toString), Toast.LENGTH_SHORT);
@@ -134,24 +136,44 @@ public class KanjiSearchStrokeCount extends Activity {
 					return;							
 				}
 				
-				FindKanjiResult foundKanjis = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
-					findKanjisFromStrokeCount(fromInt, toInt);
-
-				if (foundKanjis.isMoreElemetsExists() == true) {					
-					Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_result_limited, toString), Toast.LENGTH_SHORT);
+				final ProgressDialog progressDialog = ProgressDialog.show(KanjiSearchStrokeCount.this, 
+						getString(R.string.kanji_entry_searching1),
+						getString(R.string.kanji_entry_searching2));
+				
+				class FindKanjiAsyncTask extends AsyncTask<Void, Void, FindKanjiResult> {
 					
-					toast.show();					
+					@Override
+					protected FindKanjiResult doInBackground(Void... params) {		
+						
+						return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+								findKanjisFromStrokeCount(fromInt, toInt);
+					}
+					
+				    @Override
+				    protected void onPostExecute(FindKanjiResult foundKanjis) {
+				        super.onPostExecute(foundKanjis);
+
+				        progressDialog.dismiss();
+				        
+						if (foundKanjis.isMoreElemetsExists() == true) {					
+							Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_result_limited), Toast.LENGTH_SHORT);
+							
+							toast.show();					
+						}
+						
+						Intent intent = new Intent(getApplicationContext(), KanjiSearchStrokeCountResult.class);
+						
+						KanjiEntry[] kanjiEntriesAsArray = new KanjiEntry[foundKanjis.getResult().size()];
+						
+						foundKanjis.getResult().toArray(kanjiEntriesAsArray);
+						
+						intent.putExtra("kanjiStrokeCountResult", kanjiEntriesAsArray);
+						
+						startActivity(intent);
+				    }
 				}
 				
-				Intent intent = new Intent(getApplicationContext(), KanjiSearchStrokeCountResult.class);
-				
-				KanjiEntry[] kanjiEntriesAsArray = new KanjiEntry[foundKanjis.getResult().size()];
-				
-				foundKanjis.getResult().toArray(kanjiEntriesAsArray);
-				
-				intent.putExtra("kanjiStrokeCountResult", kanjiEntriesAsArray);
-				
-				startActivity(intent);
+				new FindKanjiAsyncTask().execute();
 			}
 			
 			private Integer getInt(String textString, int defaultValue) {
