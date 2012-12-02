@@ -677,9 +677,9 @@ public class DictionaryManager {
 		return result;
 	}
 
-	public List<KanjiEntry> findKanjisFromStrokeCount(int from, int to) {
+	public FindKanjiResult findKanjisFromStrokeCount(int from, int to) {
 
-		List<KanjiEntry> result = null;
+		FindKanjiResult result = null;
 
 		try {
 			result = sqliteConnector.findKanjisFromStrokeCount(from, to);
@@ -687,7 +687,7 @@ public class DictionaryManager {
 			throw new RuntimeException(e);
 		}
 
-		Collections.sort(result, new Comparator<KanjiEntry>() {
+		Collections.sort(result.getResult(), new Comparator<KanjiEntry>() {
 
 			public int compare(KanjiEntry lhs, KanjiEntry rhs) {
 

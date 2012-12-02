@@ -3,6 +3,8 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 public class SQLiteStatic {
 	
 	public static int MAX_SEARCH_RESULT = 51;
+	
+	public static int MAX_KANJI_STROKE_COUNT_RESULT = 201;
 
 	public static final String databaseName = "JapaneseAndroidLearnHelperDb";
 	

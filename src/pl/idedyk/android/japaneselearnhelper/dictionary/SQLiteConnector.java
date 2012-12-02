@@ -1075,18 +1075,18 @@ public class SQLiteConnector {
 		}
 	}
 
-	public List<KanjiEntry> findKanjisFromStrokeCount(int from, int to) throws DictionaryException {
+	public FindKanjiResult findKanjisFromStrokeCount(int from, int to) throws DictionaryException {
 		
 		KanjiEntry kanjiEntry = null;
 		
 		Cursor cursor = null;
 				
-		List<KanjiEntry> result = new ArrayList<KanjiEntry>();
+		List<KanjiEntry> resultList = new ArrayList<KanjiEntry>();
 		
 		try {
 			cursor = sqliteDatabase.query(SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTableAllColumns, 
 					SQLiteStatic.kanjiEntriesTable_strokeCount + " >= ? and " + SQLiteStatic.kanjiEntriesTable_strokeCount + " <= ?",
-					new String[] { String.valueOf(from), String.valueOf(to) }, null, null, null, "101");
+					new String[] { String.valueOf(from), String.valueOf(to) }, null, null, null, String.valueOf(SQLiteStatic.MAX_KANJI_STROKE_COUNT_RESULT));
 			
 		    cursor.moveToFirst();
 		    
@@ -1117,7 +1117,7 @@ public class SQLiteConnector {
 						radicalsString, onReadingString, kunReadingString, strokePathString, 
 						polishTranslateListString, infoString, generated, groups);	
 				
-				result.add(kanjiEntry);
+				resultList.add(kanjiEntry);
 				
 				cursor.moveToNext();
 			}
@@ -1128,6 +1128,16 @@ public class SQLiteConnector {
 			}
 		}
 		
-		return result;
+		FindKanjiResult findKanjiResult = new FindKanjiResult();
+		
+		if (resultList.size() == SQLiteStatic.MAX_KANJI_STROKE_COUNT_RESULT) {
+			resultList.remove(resultList.size() - 1);
+			
+			findKanjiResult.setMoreElemetsExists(true);
+		}
+
+		findKanjiResult.setResult(resultList);
+		
+		return findKanjiResult;
 	}
 }
