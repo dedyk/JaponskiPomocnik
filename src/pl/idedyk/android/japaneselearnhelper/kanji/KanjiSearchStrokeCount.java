@@ -212,7 +212,7 @@ public class KanjiSearchStrokeCount extends Activity {
 		
 		result.add(new TitleItem(getString(R.string.kanji_search_stroke_count_to), 1));
 		
-		strokeCountToEditText = new EditText("99", 1, InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+		strokeCountToEditText = new EditText("25", 1, InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
 		
 		result.add(strokeCountToEditText);
 		
