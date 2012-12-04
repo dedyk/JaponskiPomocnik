@@ -10,11 +10,11 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_N_DESU("Forma wyjaśniająca"),
 	
-	ADJECTIVE_I_SUGIRU("\"Zbyt wiele\""),
+	ADJECTIVE_I_SUGIRU("Zbyt wiele"),
 	
 	ADJECTIVE_I_DESHOU("Prawdopodobnie, ok. 60%"),
 	
-	ADJECTIVE_I_SOU_DESU("\"Wygląda na\""),
+	ADJECTIVE_I_SOU_DESU("Wygląda na"),
 	
 	ADJECTIVE_I_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
@@ -26,11 +26,11 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_NA_NA_DESU("Forma wyjaśniająca"),
 	
-	ADJECTIVE_NA_SUGIRU("\"Zbyt wiele\""),
+	ADJECTIVE_NA_SUGIRU("Zbyt wiele"),
 	
 	ADJECTIVE_NA_DESHOU("Prawdopodobnie, ok. 60%"),
 	
-	ADJECTIVE_NA_SOU_DESU("\"Wygląda na\""),
+	ADJECTIVE_NA_SOU_DESU("Wygląda na"),
 	
 	ADJECTIVE_NA_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
@@ -59,12 +59,12 @@ public enum ExampleGroupType {
 	
 	VERB_TAGATTE_IRU("Chcieć (III osoba)"),
 	
-	VERB_SUGIRU("\"Zbyt wiele\""),
+	VERB_SUGIRU("Zbyt wiele"),
 	
 	VERB_LIKE("Lubić"),
 	VERB_DISLIKE("Nie lubić"),
 	
-	VERB_STEM_NI_IKU("\"Idę, aby ...\""),
+	VERB_STEM_NI_IKU("Idę, aby ..."),
 	
 	VERB_TE_IRU("Trwanie czynności/stanu"),
 	
@@ -76,7 +76,7 @@ public enum ExampleGroupType {
 	
 	VERB_NAI_DE_KUDASAI("Zakaz 2"),
 	
-	VERB_MADA_TE_IMASEN("\"Jeszcze nie\""),
+	VERB_MADA_TE_IMASEN("Jeszcze nie"),
 	
 	VERB_TSUMORI_DESU("Zamiar"),
 	
