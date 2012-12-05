@@ -40,6 +40,12 @@ public class AdjectiveNaExampler {
 		// kamoshi remasen
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
 		
+		// to ii to others
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_TO_II_TO_OTHERS, makeToIIToOthers(dictionaryEntry));
+
+		// to ii to me
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_TO_II_TO_ME, makeToIIToMe(dictionaryEntry));
+		
 		return result;
 	}
 	
@@ -133,5 +139,47 @@ public class AdjectiveNaExampler {
 		final String templateRomaji = "%s kamoshi remasen";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeToIIToOthers(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sといいですね";
+		final String templateKana = "%sといいですね";
+		final String templateRomaji = "%s to ii desu ne";
+		
+		GrammaFormConjugateResult informalPresentForm = AdjectiveNaGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji, templateKana, templateRomaji, true);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = AdjectiveNaGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true));
+		
+		return exampleResult;
+	}
+	
+	private static ExampleResult makeToIIToMe(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji1 = "%sといいんですが";
+		final String templateKana1 = "%sといいんですが";
+		final String templateRomaji1 = "%s to ii n desu ga";
+
+		final String templateKanji2 = "%sといいんですけど";
+		final String templateKana2 = "%sといいんですけど";
+		final String templateRomaji2 = "%s to ii n desu kedo";
+		
+		GrammaFormConjugateResult informalPresentForm = AdjectiveNaGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		
+		ExampleResult exampleResult1 = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji1, templateKana1, templateRomaji1, true);
+		ExampleResult exampleResult2 = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji2, templateKana2, templateRomaji2, true);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = AdjectiveNaGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		exampleResult2.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji1, templateKana1, templateRomaji1, true));
+		exampleResult2.getAlternative().setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return exampleResult1;
 	}
 }

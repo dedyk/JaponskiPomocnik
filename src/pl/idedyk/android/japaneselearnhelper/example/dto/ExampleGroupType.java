@@ -18,6 +18,10 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
+	ADJECTIVE_I_TO_II_TO_OTHERS("Mieć nadzieję (dla innych)"),
+	
+	ADJECTIVE_I_TO_II_TO_ME("Mieć nadzieję (dla siebie)"),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -33,6 +37,10 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_SOU_DESU("Wygląda na"),
 	
 	ADJECTIVE_NA_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
+	
+	ADJECTIVE_NA_TO_II_TO_OTHERS("Mieć nadzieję (dla innych)"),
+	
+	ADJECTIVE_NA_TO_II_TO_ME("Mieć nadzieję (dla siebie)"),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -110,7 +118,11 @@ public enum ExampleGroupType {
 	
 	VERB_TE_MORAU("Otrzymać czynność"),
 	
-	VERB_REQUEST("Prośby II (wybrane, od najbardziej grzecznej)");
+	VERB_REQUEST("Prośby II (wybrane, od najbardziej grzecznej)"),
+	
+	VERB_TO_II_TO_OTHERS("Mieć nadzieję (dla innych)"),
+	
+	VERB_TO_II_TO_ME("Mieć nadzieję (dla siebie)");
 	
 	private String name;
 	

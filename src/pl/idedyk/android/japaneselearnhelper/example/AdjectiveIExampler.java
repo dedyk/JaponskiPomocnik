@@ -38,7 +38,13 @@ public class AdjectiveIExampler {
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SOU_DESU, makeSouDesuExample(dictionaryEntry));		
 		
 		// kamoshi remasen
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
+		
+		// to ii to others
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_TO_II_TO_OTHERS, makeToIIToOthers(dictionaryEntry));
+
+		// to ii to me
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_TO_II_TO_ME, makeToIIToMe(dictionaryEntry));
 		
 		return result;
 	}
@@ -156,5 +162,43 @@ public class AdjectiveIExampler {
 		final String templateRomaji = "%s kamoshi remasen";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeToIIToOthers(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sといいですね";
+		final String templateKana = "%sといいですね";
+		final String templateRomaji = "%s to ii desu ne";
+		
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = AdjectiveIGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true));
+		
+		return exampleResult;
+	}
+	
+	private static ExampleResult makeToIIToMe(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji1 = "%sといいんですが";
+		final String templateKana1 = "%sといいんですが";
+		final String templateRomaji1 = "%s to ii n desu ga";
+
+		final String templateKanji2 = "%sといいんですけど";
+		final String templateKana2 = "%sといいんですけど";
+		final String templateRomaji2 = "%s to ii n desu kedo";
+		
+		ExampleResult exampleResult1 = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		ExampleResult exampleResult2 = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, true);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = AdjectiveIGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		exampleResult2.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji1, templateKana1, templateRomaji1, true));
+		exampleResult2.getAlternative().setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return exampleResult1;
 	}
 }
