@@ -7,6 +7,8 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
+import pl.idedyk.android.japaneselearnhelper.gramma.NounGrammaConjugater;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 
 public class NounExampler {
 	public static List<ExampleGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry) {
@@ -45,6 +47,9 @@ public class NounExampler {
 		
 		// morau
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_MORAU, makeMorauExample(dictionaryEntry));
+		
+		// toki
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TOKI, makeToki(dictionaryEntry));
 		
 		return result;
 	}
@@ -146,5 +151,24 @@ public class NounExampler {
 		final String templateRomaji = "[odbiorca] [wa/ga] [dający] [ni/kara] %s o morau";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, false);
+	}
+	
+	private static ExampleResult makeToki(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji1 = "%sの時、...";
+		final String templateKana1 = "%sのとき、...";
+		final String templateRomaji1 = "%s no toki, ...";
+		
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult informalPastForm = NounGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+
+		final String templateKanji2 = "%s時、...";
+		final String templateKana2 = "%sとき、...";
+		final String templateRomaji2 = "%s toki, ...";
+		
+		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return exampleResult;
 	}
 }

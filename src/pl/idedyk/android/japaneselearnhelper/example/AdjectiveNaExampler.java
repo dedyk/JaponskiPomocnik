@@ -46,6 +46,9 @@ public class AdjectiveNaExampler {
 		// to ii to me
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_TO_II_TO_ME, makeToIIToMe(dictionaryEntry));
 		
+		// toki
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_TOKI, makeToki(dictionaryEntry));
+		
 		return result;
 	}
 	
@@ -181,5 +184,24 @@ public class AdjectiveNaExampler {
 		exampleResult2.getAlternative().setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
 		
 		return exampleResult1;
+	}
+	
+	private static ExampleResult makeToki(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji1 = "%sな時、...";
+		final String templateKana1 = "%sなとき、...";
+		final String templateRomaji1 = "%s na toki, ...";
+		
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult informalPastForm = AdjectiveNaGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+
+		final String templateKanji2 = "%s時、...";
+		final String templateKana2 = "%sとき、...";
+		final String templateRomaji2 = "%s toki, ...";
+		
+		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return exampleResult;
 	}
 }

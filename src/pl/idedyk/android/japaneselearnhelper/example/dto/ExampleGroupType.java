@@ -18,9 +18,11 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
-	ADJECTIVE_I_TO_II_TO_OTHERS("Mieć nadzieję (dla innych)"),
+	ADJECTIVE_I_TO_II_TO_OTHERS("Mieć nadzieję, że ... (mówienie o innych)"),
 	
-	ADJECTIVE_I_TO_II_TO_ME("Mieć nadzieję (dla siebie)"),
+	ADJECTIVE_I_TO_II_TO_ME("Mieć nadzieję, że ... (mówienie o sobie)"),
+	
+	ADJECTIVE_I_TOKI("Kiedy ..., to ..."),
 	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
@@ -38,9 +40,11 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_NA_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
-	ADJECTIVE_NA_TO_II_TO_OTHERS("Mieć nadzieję (dla innych)"),
+	ADJECTIVE_NA_TO_II_TO_OTHERS("Mieć nadzieję, że ... (mówienie o innych)"),
 	
-	ADJECTIVE_NA_TO_II_TO_ME("Mieć nadzieję (dla siebie)"),
+	ADJECTIVE_NA_TO_II_TO_ME("Mieć nadzieję, że ... (mówienie o sobie)"),
+	
+	ADJECTIVE_NA_TOKI("Kiedy ..., to ..."),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -62,6 +66,8 @@ public enum ExampleGroupType {
 	NOUN_KURERU("Dać (mnie)"),
 	
 	NOUN_MORAU("Otrzymać"),
+	
+	NOUN_TOKI("Kiedy ..., to ..."),
 	
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -120,9 +126,11 @@ public enum ExampleGroupType {
 	
 	VERB_REQUEST("Prośby II (wybrane, od najbardziej grzecznej)"),
 	
-	VERB_TO_II_TO_OTHERS("Mieć nadzieję (dla innych)"),
+	VERB_TO_II_TO_OTHERS("Mieć nadzieję, że ... (mówienie o innych)"),
 	
-	VERB_TO_II_TO_ME("Mieć nadzieję (dla siebie)");
+	VERB_TO_II_TO_ME("Mieć nadzieję, że ... (mówienie o sobie)"),
+	
+	VERB_TOKI("Kiedy ..., to ...");
 	
 	private String name;
 	
