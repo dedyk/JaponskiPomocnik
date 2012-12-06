@@ -111,6 +111,12 @@ public class VerbExampler {
 		// toki
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TOKI, makeToki(dictionaryEntry));
 		
+		// te arigatou
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_ARIGATOU, makeTeArigatou(dictionaryEntry));
+
+		// te sumimasen
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_SUMIMASEN, makeTeSumimasen(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -606,5 +612,62 @@ public class VerbExampler {
 		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true));
 		
 		return exampleResult;
+	}
+	
+	private static ExampleResult makeTeArigatou(DictionaryEntry dictionaryEntry) {
+		
+		String[][] templates = new String[][] {
+				{ "%sくれてありがとう", "%sくれてありがとう", "%s kurete arigatou" },
+				{ "%sありがとう", "%sありがとう", "%s arigatou" }
+		};
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		
+		ExampleResult currentExampleResult = null;
+		ExampleResult startExampleResult = null;
+		
+		for (int idx = 0; idx < templates.length; ++idx) {
+			
+			if (idx == 0) {
+				startExampleResult = currentExampleResult = ExampleHelper.makeSimpleTemplateExample(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+			} else {
+				ExampleResult alternativeExampleResult = 
+						ExampleHelper.makeSimpleTemplateExample(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+				
+				currentExampleResult.setAlternative(alternativeExampleResult);
+				
+				currentExampleResult = alternativeExampleResult;				
+			}
+		}
+		
+		return startExampleResult;
+	}
+
+	private static ExampleResult makeTeSumimasen(DictionaryEntry dictionaryEntry) {
+		
+		String[][] templates = new String[][] {
+				{ "%sすみません", "%sすみません", "%s sumimasen" }
+		};
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		
+		ExampleResult currentExampleResult = null;
+		ExampleResult startExampleResult = null;
+		
+		for (int idx = 0; idx < templates.length; ++idx) {
+			
+			if (idx == 0) {
+				startExampleResult = currentExampleResult = ExampleHelper.makeSimpleTemplateExample(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+			} else {
+				ExampleResult alternativeExampleResult = 
+						ExampleHelper.makeSimpleTemplateExample(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+				
+				currentExampleResult.setAlternative(alternativeExampleResult);
+				
+				currentExampleResult = alternativeExampleResult;				
+			}
+		}
+		
+		return startExampleResult;
 	}
 }

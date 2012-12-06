@@ -130,7 +130,11 @@ public enum ExampleGroupType {
 	
 	VERB_TO_II_TO_ME("Mieć nadzieję, że ... (mówienie o sobie)"),
 	
-	VERB_TOKI("Kiedy ..., to ...");
+	VERB_TOKI("Kiedy ..., to ..."),
+	
+	VERB_TE_ARIGATOU("Dziękuję, że zrobiłeś"),
+	
+	VERB_TE_SUMIMASEN("Przepraszam, że zrobiłem");
 	
 	private String name;
 	
