@@ -134,7 +134,11 @@ public enum ExampleGroupType {
 	
 	VERB_TE_ARIGATOU("Dziękuję, że zrobiłeś"),
 	
-	VERB_TE_SUMIMASEN("Przepraszam, że zrobiłem");
+	VERB_KUTE_ARIGATOU("Dziękuję, że nie zrobiłeś"),
+	
+	VERB_TE_SUMIMASEN("Przepraszam, że zrobiłem"),
+	
+	VERB_KUTE_SUMIMASEN("Przepraszam, że nie zrobiłem");
 	
 	private String name;
 	

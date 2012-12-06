@@ -114,8 +114,14 @@ public class VerbExampler {
 		// te arigatou
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_ARIGATOU, makeTeArigatou(dictionaryEntry));
 
+		// te kute arigatou
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_KUTE_ARIGATOU, makeKuteArigatou(dictionaryEntry));
+		
 		// te sumimasen
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_SUMIMASEN, makeTeSumimasen(dictionaryEntry));
+
+		// kute sumimasen
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_KUTE_SUMIMASEN, makeKuteSumimasen(dictionaryEntry));
 		
 		return result;
 	}
@@ -617,8 +623,8 @@ public class VerbExampler {
 	private static ExampleResult makeTeArigatou(DictionaryEntry dictionaryEntry) {
 		
 		String[][] templates = new String[][] {
-				{ "%sくれてありがとう", "%sくれてありがとう", "%s kurete arigatou" },
-				{ "%sありがとう", "%sありがとう", "%s arigatou" }
+				{ "%sくれて、ありがとう", "%sくれて、ありがとう", "%s kurete, arigatou" },
+				{ "%s、ありがとう", "%s、ありがとう", "%s, arigatou" }
 		};
 		
 		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
@@ -642,11 +648,40 @@ public class VerbExampler {
 		
 		return startExampleResult;
 	}
+	
+	private static ExampleResult makeKuteArigatou(DictionaryEntry dictionaryEntry) {
+		
+		String[][] templates = new String[][] {
+				{ "%sくてくれて、ありがとう", "%sくてくれて、ありがとう", "%skute kurete, arigatou" },
+				{ "%sくて、ありがとう", "%sくて、ありがとう", "%skute, arigatou" }				
+		};
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		ExampleResult currentExampleResult = null;
+		ExampleResult startExampleResult = null;
+		
+		for (int idx = 0; idx < templates.length; ++idx) {
+			
+			if (idx == 0) {
+				startExampleResult = currentExampleResult = ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+			} else {
+				ExampleResult alternativeExampleResult = 
+						ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+				
+				currentExampleResult.setAlternative(alternativeExampleResult);
+				
+				currentExampleResult = alternativeExampleResult;				
+			}
+		}
+		
+		return startExampleResult;
+	}
 
 	private static ExampleResult makeTeSumimasen(DictionaryEntry dictionaryEntry) {
 		
 		String[][] templates = new String[][] {
-				{ "%sすみません", "%sすみません", "%s sumimasen" }
+				{ "%s、すみません", "%s、すみません", "%s, sumimasen" }
 		};
 		
 		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
@@ -661,6 +696,34 @@ public class VerbExampler {
 			} else {
 				ExampleResult alternativeExampleResult = 
 						ExampleHelper.makeSimpleTemplateExample(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+				
+				currentExampleResult.setAlternative(alternativeExampleResult);
+				
+				currentExampleResult = alternativeExampleResult;				
+			}
+		}
+		
+		return startExampleResult;
+	}
+	
+	private static ExampleResult makeKuteSumimasen(DictionaryEntry dictionaryEntry) {
+		
+		String[][] templates = new String[][] {
+				{ "%sくて、すみません", "%sくて、すみません", "%skute, sumimasen" }				
+		};
+		
+		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		ExampleResult currentExampleResult = null;
+		ExampleResult startExampleResult = null;
+		
+		for (int idx = 0; idx < templates.length; ++idx) {
+			
+			if (idx == 0) {
+				startExampleResult = currentExampleResult = ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+			} else {
+				ExampleResult alternativeExampleResult = 
+						ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
 				
 				currentExampleResult.setAlternative(alternativeExampleResult);
 				
