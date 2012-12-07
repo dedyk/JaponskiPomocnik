@@ -410,11 +410,20 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));			
 		}
 		
-		// dictionary position
+		// dictionary groups
+		List<String> groups = dictionaryEntry.getGroups();
+		
 		report.add(new StringValue("", 15.0f, 2));
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_groups), 0));
+		
+		for (int groupsIdx = 0; groupsIdx < groups.size(); ++groupsIdx) {
+			report.add(new StringValue(String.valueOf(groups.get(groupsIdx)), 20.0f, 0));
+		}		
+		
+		// dictionary position
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_position), 0));
 		
-		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));	
+		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));
 		
 		// known kanji
 		List<KanjiEntry> knownKanji = null;

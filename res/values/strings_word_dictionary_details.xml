@@ -7,6 +7,7 @@
     <string name="word_dictionary_details_translate_label">Tłumaczenie</string>
     <string name="word_dictionary_details_additional_info_label">Informacje dodatkowe</string>
     <string name="word_dictionary_details_part_of_speech">Część mowy</string>
+    <string name="word_dictionary_details_dictionary_groups">Występowanie znaku</string>
     <string name="word_dictionary_details_dictionary_position">Numer pozycji w słowniku</string>
     <string name="word_dictionary_details_conjugater_label">Odmiany</string>
     <string name="word_dictionary_details_exampler_label">Przykłady</string>

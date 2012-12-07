@@ -480,6 +480,5 @@ public class KanjiTestOptionsActivity extends Activity {
 				return lhsPart2Int.compareTo(rhsPart2Int);
 			}
 		});
-		
 	}
 }

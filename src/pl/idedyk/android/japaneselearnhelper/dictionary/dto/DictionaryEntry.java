@@ -12,6 +12,8 @@ public class DictionaryEntry implements Serializable {
 		
 	private DictionaryEntryType dictionaryEntryType;
 	
+	private List<String> groups;
+	
 	private String prefixKana;
 	
 	private String kanji;
@@ -147,4 +149,12 @@ public class DictionaryEntry implements Serializable {
 	public void setPrefixRomaji(String prefixRomaji) {
 		this.prefixRomaji = prefixRomaji;
 	}
+
+	public List<String> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(List<String> groups) {		
+		this.groups = groups;
+	}		
 }

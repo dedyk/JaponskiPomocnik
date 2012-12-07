@@ -52,6 +52,7 @@ public class Utils {
 	public static DictionaryEntry parseDictionaryEntry(
 			String idString,
 			String dictionaryEntryTypeString,
+			Object groupsObject,
 			String prefixKanaString,
 			String kanjiString,
 			Object kanaListObject,
@@ -67,13 +68,20 @@ public class Utils {
 		if (prefixRomajiString.equals("") == true || prefixRomajiString.equals("-") == true) {
 			prefixRomajiString = null;
 		}
-				
+						
 		DictionaryEntryType dictionaryEntryType = DictionaryEntryType.valueOf(dictionaryEntryTypeString);	
 		
 		DictionaryEntry entry = new DictionaryEntry();
 		
 		entry.setId(Integer.parseInt(idString));
 		entry.setDictionaryEntryType(dictionaryEntryType);
+		
+		if (groupsObject instanceof String) {
+			entry.setGroups(GroupsHelper.sortGroups(parseStringIntoList((String)groupsObject, false)));
+		} else {
+			entry.setGroups(GroupsHelper.sortGroups(convertToListString(groupsObject)));
+		}		
+		
 		entry.setPrefixKana(prefixKanaString);
 		entry.setKanji(kanjiString);
 		entry.setPrefixRomaji(prefixRomajiString);
@@ -102,6 +110,11 @@ public class Utils {
 	}
 	
 	private static List<String> convertToListString(Object object) {
+		
+		if (object == null) {
+			return new ArrayList<String>();
+		}
+		
 		List<?> listObject = (List<?>)object; 
 		
 		List<String> result = new ArrayList<String>();

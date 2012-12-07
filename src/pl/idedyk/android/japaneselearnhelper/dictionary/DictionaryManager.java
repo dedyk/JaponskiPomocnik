@@ -213,6 +213,7 @@ public class DictionaryManager {
 
 				String idString = csvReader.get(0);
 				String dictionaryEntryTypeString = csvReader.get(2);
+				String groupsString = csvReader.get(4);
 				String prefixKanaString = csvReader.get(5);
 				String kanjiString = csvReader.get(6);
 
@@ -223,7 +224,7 @@ public class DictionaryManager {
 				String translateListString = csvReader.get(10);
 				String infoString = csvReader.get(11);
 
-				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, 
+				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsString,
 						prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
 						romajiListString, translateListString, infoString);
 
