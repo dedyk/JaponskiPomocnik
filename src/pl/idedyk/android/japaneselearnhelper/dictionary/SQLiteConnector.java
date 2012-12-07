@@ -378,6 +378,7 @@ public class SQLiteConnector {
 		arguments.toArray(argumentsStringArray);
 		
 		Cursor cursor = null;
+		
 		try {			
 			cursor = sqliteDatabase.rawQuery(sql.toString(), argumentsStringArray);
 			
@@ -1145,5 +1146,91 @@ public class SQLiteConnector {
 		findKanjiResult.setResult(resultList);
 		
 		return findKanjiResult;
+	}
+
+	public List<String> getDictionaryEntryGroupTypes() {
+		
+		List<String> result = new ArrayList<String>();
+		
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.query( true, SQLiteStatic.listEntriesTableName, new String[] { SQLiteStatic.listEntriesTable_value },  
+					SQLiteStatic.listEntriesTable_type + " = ? and " + SQLiteStatic.listEntriesTable_subType + " = ? ",
+					new String[] { SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_groups },
+					null, null, null, null);
+			
+		    cursor.moveToFirst();
+		    
+		    while (!cursor.isAfterLast()) {
+				
+				String groupName = cursor.getString(0);
+
+				result.add(groupName);
+				
+				cursor.moveToNext();
+			}
+		
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+		
+		GroupsHelper.sortGroups(result);
+		
+		return result;
+	}
+
+	public List<DictionaryEntry> getGroupDictionaryEntries(String groupName) throws DictionaryException {
+		
+		List<DictionaryEntry> result = new ArrayList<DictionaryEntry>();
+		
+		Cursor cursor = null;
+		
+		try {			
+			cursor = sqliteDatabase.rawQuery(
+					"select * from " + SQLiteStatic.dictionaryEntriesTableName + " de where " +
+					" de." + SQLiteStatic.dictionaryEntriesTable_id + " in ( " +
+					" select " + SQLiteStatic.listEntriesTable_key + " from " + SQLiteStatic.listEntriesTableName + " " + 
+					" where " + SQLiteStatic.listEntriesTable_type + " = ? and " + SQLiteStatic.listEntriesTable_subType + " = ? and " +
+					" " + SQLiteStatic.listEntriesTable_value + " = ? " +
+					")", new String[] { SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_groups, groupName });
+			
+		    cursor.moveToFirst();
+		    
+		    while (!cursor.isAfterLast()) {
+		    	
+				String idString = cursor.getString(0);
+				String dictionaryEntryTypeString = cursor.getString(1);
+				String prefixKanaString = cursor.getString(2);
+				String kanjiString = cursor.getString(3);
+				
+				Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.dictionaryEntriesTableName, idString);
+							
+				List<String> groupsList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_groups);
+				List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
+				List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
+				List<String> translateList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_translates);
+				
+				String prefixRomajiString = cursor.getString(4);
+								
+				String infoString = cursor.getString(5);
+							
+				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsList,
+						prefixKanaString, kanjiString, kanaList, prefixRomajiString,
+						romajiList, translateList, infoString);
+				
+				result.add(entry);
+				
+				cursor.moveToNext();
+		    }
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}		
+		
+		return result;
 	}
 }

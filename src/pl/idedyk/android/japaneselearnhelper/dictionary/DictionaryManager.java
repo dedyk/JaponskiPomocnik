@@ -1144,4 +1144,12 @@ public class DictionaryManager {
 
 		close();
 	}
+
+	public List<String> getDictionaryEntryGroupTypes() {
+		return sqliteConnector.getDictionaryEntryGroupTypes();
+	}
+
+	public List<DictionaryEntry> getGroupDictionaryEntries(String groupName) throws DictionaryException {
+		return sqliteConnector.getGroupDictionaryEntries(groupName);
+	}
 }
