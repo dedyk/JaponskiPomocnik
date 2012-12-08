@@ -365,9 +365,9 @@ public class ConfigManager {
 			editor.commit();			
 		}
 		
-		public Set<Integer> getChosenWordGroups() {
+		public Set<String> getChosenWordGroups() {
 			
-			Set<Integer> result = new HashSet<Integer>();
+			Set<String> result = new HashSet<String>();
 			
 			String chosenWordGroupString = preferences.getString(dictionaryHearConfigPrefix + wordGroupsPostfix, null);
 			
@@ -378,17 +378,13 @@ public class ConfigManager {
 			String[] chosenWordGroupSplited = chosenWordGroupString.split(",");
 			
 			for (String currentChosenWordGroup : chosenWordGroupSplited) {
-				try {
-					result.add(Integer.parseInt(currentChosenWordGroup));
-				} catch (NumberFormatException e) {
-					return result;
-				}
+				result.add(currentChosenWordGroup);
 			}
 			
 			return result;
 		}
 		
-		public void setChosenWordGroups(List<Integer> chosenWordGroupsNumberList) {
+		public void setChosenWordGroups(List<String> chosenWordGroupsNumberList) {
 			
 			if (chosenWordGroupsNumberList == null) {
 				return;

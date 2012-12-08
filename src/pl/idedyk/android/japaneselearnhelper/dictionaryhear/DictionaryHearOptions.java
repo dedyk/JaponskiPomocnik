@@ -80,32 +80,11 @@ public class DictionaryHearOptions extends Activity {
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 		
-		final int groupSize = 10;
+		final List<String> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getDictionaryEntryGroupTypes();
 		
-		int wordGroupsNo = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getWordGroupsNo(groupSize);
-		
-		Set<Integer> chosenWordGroups = dictionaryHearConfig.getChosenWordGroups();
-		
-		final int groupGroupSize = 10;
-		
-		LinearLayout currentGroupGroupLinearLayout = createGroupGroupLinearLayout();
-		
-		int currentGroupGroupStartPos = 1;
-
-		for (int currentGroupNo = 0; currentGroupNo < wordGroupsNo; ++currentGroupNo) {
-			
-			if (currentGroupGroupLinearLayout.getChildCount() >= groupGroupSize) {
+		Set<String> chosenWordGroups = dictionaryHearConfig.getChosenWordGroups();
 				
-				currentGroupGroupLinearLayout.addView(createGroupGroupTitle(currentGroupGroupLinearLayout, currentGroupGroupStartPos, currentGroupGroupStartPos + groupGroupSize - 1), 0);				
-				
-				setGroupGroupObjectVisible(currentGroupGroupLinearLayout, false);
-				
-				mainLayout.addView(currentGroupGroupLinearLayout, mainLayout.getChildCount() - 1);
-				
-				currentGroupGroupLinearLayout = createGroupGroupLinearLayout();
-				
-				currentGroupGroupStartPos = currentGroupGroupStartPos + groupGroupSize;
-			}
+		for (int groupsNamesIdx = 0; groupsNamesIdx < groupsNames.size(); ++groupsNamesIdx) {
 			
 			CheckBox currentWordGroupCheckBox = new CheckBox(this);
 			
@@ -114,40 +93,17 @@ public class DictionaryHearOptions extends Activity {
 
 			currentWordGroupCheckBox.setTextSize(12);
 			
-			int startPosition = currentGroupNo * groupSize + 1;
-			int endPosition = 0;
+			currentWordGroupCheckBox.setText(groupsNames.get(groupsNamesIdx));
 			
-			if (currentGroupNo != wordGroupsNo - 1) {
-				endPosition = (currentGroupNo + 1) * groupSize;
-			} else {
-				List<DictionaryEntry> lastWordsGroup = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getWordsGroup(groupSize, currentGroupNo);
-				
-				endPosition = startPosition + lastWordsGroup.size();
-			}
-			
-			currentWordGroupCheckBox.setText(getString(R.string.dictionary_hear_options_group_position, (currentGroupNo + 1), 
-					startPosition, endPosition));
-			
-			if (chosenWordGroups != null && chosenWordGroups.contains(Integer.valueOf(currentGroupNo))) {
+			if (chosenWordGroups != null && chosenWordGroups.contains(groupsNames.get(groupsNamesIdx))) {
 				currentWordGroupCheckBox.setChecked(true);
 			}
-			
-			currentWordGroupCheckBox.setOnClickListener(new View.OnClickListener() {
-				
-				public void onClick(View v) {
-					setChosenGroupInfo(wordGroupCheckBoxList);
-				}
-			});
 						
 			wordGroupCheckBoxList.add(currentWordGroupCheckBox);
 			
-			currentGroupGroupLinearLayout.addView(currentWordGroupCheckBox, currentGroupGroupLinearLayout.getChildCount());
+			mainLayout.addView(currentWordGroupCheckBox);
+
 		}
-		
-		currentGroupGroupLinearLayout.addView(createGroupGroupTitle(currentGroupGroupLinearLayout, currentGroupGroupStartPos, currentGroupGroupStartPos + currentGroupGroupLinearLayout.getChildCount() - 1), 0);
-		setGroupGroupObjectVisible(currentGroupGroupLinearLayout, false);
-		
-		mainLayout.addView(currentGroupGroupLinearLayout, mainLayout.getChildCount() - 1);
 		
 		final Button startButton = (Button)findViewById(R.id.dictionary_hear_start);
 		
@@ -211,9 +167,7 @@ public class DictionaryHearOptions extends Activity {
 				super.onPostExecute(ttsInitResult);
 
 				progressDialog.dismiss();
-				
-				setChosenGroupInfo(wordGroupCheckBoxList);
-				
+								
 				// INFO: Tylko do testow
 				// ttsInitResult.japaneseTtsResult = true;
 				// ttsInitResult.polishTtsResult = true;
@@ -336,7 +290,7 @@ public class DictionaryHearOptions extends Activity {
 					}
 				}
 				
-				if (delayNumberError == false && delayNumber <= 0) {
+				if (delayNumberError == false && delayNumber < 0) {
 					delayNumberError = true;
 				}
 				
@@ -355,8 +309,10 @@ public class DictionaryHearOptions extends Activity {
 				
 				dictionaryHearConfig.setRandom(random);
 				
+				
 				List<DictionaryEntry> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntry>();
-				List<Integer> chosenWordGroupsNumberList = new ArrayList<Integer>();
+				
+				List<String> chosenWordGroupsNumberList = new ArrayList<String>();
 				
 				for (int wordGroupCheckBoxListIdx = 0; wordGroupCheckBoxListIdx < wordGroupCheckBoxList.size(); ++wordGroupCheckBoxListIdx) {
 					
@@ -364,13 +320,14 @@ public class DictionaryHearOptions extends Activity {
 					
 					if (currentWordGroupCheckBox.isChecked() == true) {
 						
-						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getWordsGroup(groupSize, wordGroupCheckBoxListIdx);
-						
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+								getGroupDictionaryEntries(groupsNames.get(wordGroupCheckBoxListIdx));
+												
 						for (int repeatIdx = 0; repeatIdx < repeatNumber; ++repeatIdx) {
 							chosenAllDictionaryEntryList.addAll(currentWordsGroupDictionaryEntryList);
 						}
 						
-						chosenWordGroupsNumberList.add(wordGroupCheckBoxListIdx);
+						chosenWordGroupsNumberList.add(groupsNames.get(wordGroupCheckBoxListIdx));
 					}
 				}
 				
@@ -389,8 +346,7 @@ public class DictionaryHearOptions extends Activity {
 					Collections.shuffle(chosenAllDictionaryEntryList);
 				}
 				
-				JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = 
-						JapaneseAndroidLearnHelperApplication.getInstance().getContext().getDictionaryHearContext();
+				JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getDictionaryHearContext();
 				
 				dictionaryHearContext.reset();
 				
@@ -401,6 +357,7 @@ public class DictionaryHearOptions extends Activity {
 				Intent intent = new Intent(getApplicationContext(), DictionaryHear.class);
 
 				startActivity(intent);
+				
 			}
 		});
 		
@@ -456,131 +413,5 @@ public class DictionaryHearOptions extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
-	}
-	
-	private TextView createGroupGroupTitle(final LinearLayout groupGroupLinearLayout, int startPos, int endPos) {
-		
-		TextView title = new TextView(this);
-				
-		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-		
-		title.setLayoutParams(layoutParam);
-		
-		title.setBackgroundColor(getResources().getColor(R.color.title_background));
-		
-		title.setText(getString(R.string.dictionary_hear_options_group_group_info, startPos, endPos));
-		
-		title.setOnClickListener(new View.OnClickListener() {
-			
-			public void onClick(View v) {
-				setGroupGroupObjectVisible(groupGroupLinearLayout, !isVisible());
-			}
-			
-			private boolean isVisible() {
-				
-				for (int idx = 0; idx < groupGroupLinearLayout.getChildCount(); ++idx) {
-					
-					View groupGroupView = groupGroupLinearLayout.getChildAt(idx);
-					
-					if (groupGroupView instanceof CheckBox == false) {
-						continue;
-					}
-					
-					int visibility = groupGroupView.getVisibility();
-					
-					if (visibility == View.VISIBLE) {
-						return true;
-					} else {
-						return false;
-					}
-				}	
-				
-				return false;
-			}
-		});
-		
-		return title;
-	}
-	
-	private LinearLayout createGroupGroupLinearLayout() {
-		
-		LinearLayout groupGroupLinearLayout = new LinearLayout(this);
-		
-		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-		
-		layoutParam.setMargins(20, 0, 0, 10);
-		
-		groupGroupLinearLayout.setLayoutParams(layoutParam);
-		groupGroupLinearLayout.setOrientation(LinearLayout.VERTICAL);
-		
-		return groupGroupLinearLayout;		
-	}
-	
-	private void setGroupGroupObjectVisible(LinearLayout groupGroupLinearLayout, boolean visible) {
-		
-		for (int idx = 0; idx < groupGroupLinearLayout.getChildCount(); ++idx) {
-			
-			View groupGroupView = groupGroupLinearLayout.getChildAt(idx);
-			
-			if (groupGroupView instanceof CheckBox == false) {
-				continue;
-			}
-			
-			if (visible == true) {
-				groupGroupView.setVisibility(View.VISIBLE);
-			} else {
-				groupGroupView.setVisibility(View.GONE);
-			}
-		}
-	}
-	
-	private void setChosenGroupInfo(List<CheckBox> wordGroupCheckBoxList) {
-		
-		StringBuffer chosenGroupInfo = new StringBuffer();
-		
-		boolean wasAdded = false;
-		
-		for (CheckBox currentCheckBox : wordGroupCheckBoxList) {
-			
-			if (currentCheckBox.isChecked() == true) {
-				
-				if (wasAdded == true) {
-					chosenGroupInfo.append("\n");
-				}
-				
-				wasAdded = true;
-				
-				chosenGroupInfo.append(currentCheckBox.getText());
-			}
-		}
-		
-		LinearLayout chosenGroupInfoLayout = (LinearLayout)findViewById(R.id.dictionary_hear_options_chosen_group_info_layout);
-		
-		while (true) {
-			
-			if (chosenGroupInfoLayout.getChildCount() > 1) {
-				chosenGroupInfoLayout.removeViewAt(chosenGroupInfoLayout.getChildCount() - 1);
-			} else {
-				break;
-			}
-		}
-		
-		for (CheckBox currentCheckBox : wordGroupCheckBoxList) {
-			
-			if (currentCheckBox.isChecked() == true) {
-				
-				TextView title = new TextView(this);
-				
-				LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-				
-				layoutParam.setMargins(20, 0, 0, 10);
-				
-				title.setLayoutParams(layoutParam);
-				
-				title.setText(currentCheckBox.getText());
-				
-				chosenGroupInfoLayout.addView(title);
-			}
-		}
 	}
 }

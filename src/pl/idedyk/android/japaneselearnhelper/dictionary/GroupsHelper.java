@@ -59,33 +59,17 @@ public class GroupsHelper {
 		groupsPower.put("Genki 1-5", ++power);
 		groupsPower.put("Genki 1-6", ++power);
 		groupsPower.put("Genki 1-7", ++power);
-		
-		groupsPower.put("Genki 1-8", ++power);
-		groupsPower.put("Genki dodatkowe 1-8", ++power);
-		
+		groupsPower.put("Genki 1-8", ++power);		
 		groupsPower.put("Genki 1-9", ++power);
-		groupsPower.put("Genki dodatkowe 1-9", ++power);
-		
 		groupsPower.put("Genki 1-10", ++power);
-		groupsPower.put("Genki dodatkowe 1-10", ++power);
-		
 		groupsPower.put("Genki 1-11", ++power);
-		groupsPower.put("Genki dodatkowe 1-11", ++power);
-		
 		groupsPower.put("Genki 1-12", ++power);
+		
+		groupsPower.put("Genki dodatkowe 1-8", ++power);
+		groupsPower.put("Genki dodatkowe 1-9", ++power);
+		groupsPower.put("Genki dodatkowe 1-10", ++power);
+		groupsPower.put("Genki dodatkowe 1-11", ++power);
 		groupsPower.put("Genki dodatkowe 1-12", ++power);
-		
-		groupsPower.put("Genki 2-13", ++power);
-		groupsPower.put("Genki dodatkowe 2-13", ++power);
-		
-		groupsPower.put("Genki 2-14", ++power);
-		groupsPower.put("Genki dodatkowe 2-14", ++power);
-		
-		groupsPower.put("Genki 2-15", ++power);
-		groupsPower.put("Genki dodatkowe 2-15", ++power);
-		
-		groupsPower.put("Genki 2-16", ++power);
-		groupsPower.put("Genki dodatkowe 2-16", ++power);
 		
 		groupsPower.put("Genki kanji 1-3", ++power);
 		groupsPower.put("Genki kanji 1-4", ++power);
@@ -97,7 +81,17 @@ public class GroupsHelper {
 		groupsPower.put("Genki kanji 1-10", ++power);
 		groupsPower.put("Genki kanji 1-11", ++power);
 		groupsPower.put("Genki kanji 1-12", ++power);
+
+		groupsPower.put("Genki 2-13", ++power);		
+		groupsPower.put("Genki 2-14", ++power);
+		groupsPower.put("Genki 2-15", ++power);
+		groupsPower.put("Genki 2-16", ++power);
 		
+		groupsPower.put("Genki dodatkowe 2-13", ++power);
+		groupsPower.put("Genki dodatkowe 2-14", ++power);
+		groupsPower.put("Genki dodatkowe 2-15", ++power);
+		groupsPower.put("Genki dodatkowe 2-16", ++power);
+				
 		groupsPower.put("Genki kanji 2-13", ++power);
 		groupsPower.put("Genki kanji 2-14", ++power);
 		groupsPower.put("Genki kanji 2-15", ++power);

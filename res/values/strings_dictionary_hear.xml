@@ -5,16 +5,13 @@
     <string name="dictionary_hear_options_repeat">Liczba powtórek</string>
     <string name="dictionary_hear_options_delay">Czas w sekundach pomiędzy kolejnymi słowami</string>
     <string name="dictionary_hear_options_start">Start</string>
-    <string name="dictionary_hear_options_group">Proszę wybrać grupy słów (naciśnij, aby rozwinąć)</string>
+    <string name="dictionary_hear_options_group">Proszę wybrać grupy słów</string>
     <string name="dictionary_hear_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
-    <string name="dictionary_hear_options_group_position">Grupa nr. %1$d (pozycje: %2$d - %3$d)</string>
     <string name="dictionary_hear_options_repeat_number_invalid">Niepoprawna liczba powtórzeń</string>
     <string name="dictionary_hear_options_delay_number_invalid">Niepoprawna liczba sekund</string>
     <string name="dictionary_hear_options_word_group_no_chosen">Nie wybrano grupy słów</string>
     <string name="dictionary_hear_options_other">Inne opcje</string>
     <string name="dictionary_hear_options_random">Losowa kolejność</string>
-    <string name="dictionary_hear_options_chosen_group_info">Podsumowanie wybranych grupy</string>
-    <string name="dictionary_hear_options_group_group_info">Grupy od %1$d do %2$d</string>
     <string name="dictionary_hear_options_report_problem_email_subject">Japoński pomocnik - opcje słuchania słów: Sugestia</string>
     <string name="dictionary_hear_options_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="dictionary_hear_options_check_tts1">Sprawdzanie TTS</string>

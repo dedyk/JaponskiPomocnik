@@ -1149,7 +1149,12 @@ public class DictionaryManager {
 		return sqliteConnector.getDictionaryEntryGroupTypes();
 	}
 
-	public List<DictionaryEntry> getGroupDictionaryEntries(String groupName) throws DictionaryException {
-		return sqliteConnector.getGroupDictionaryEntries(groupName);
+	public List<DictionaryEntry> getGroupDictionaryEntries(String groupName) {
+		
+		try {
+			return sqliteConnector.getGroupDictionaryEntries(groupName);
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
