@@ -34,8 +34,8 @@ public class AdjectiveIExampler {
 		// deshou
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_DESHOU, makeDeshouExample(dictionaryEntry));
 		
-		// sou desu
-		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SOU_DESU, makeSouDesuExample(dictionaryEntry));		
+		// sou desu look like
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SOU_DESU_LOOKS_LIKE, makeSouDesuLooksLikeExample(dictionaryEntry));		
 		
 		// kamoshi remasen
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
@@ -49,6 +49,9 @@ public class AdjectiveIExampler {
 		// toki
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_TOKI, makeToki(dictionaryEntry));
 		
+		// sou desu hear
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SOU_DESU_HEAR, makeSouDesuHearExample(dictionaryEntry));		
+
 		return result;
 	}
 	
@@ -118,7 +121,7 @@ public class AdjectiveIExampler {
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeSouDesuExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeSouDesuLooksLikeExample(DictionaryEntry dictionaryEntry) {
 		
 		boolean isIiAdjective = false;
 		
@@ -219,4 +222,20 @@ public class AdjectiveIExampler {
 		
 		return exampleResult;
 	}
+	
+	private static ExampleResult makeSouDesuHearExample(DictionaryEntry dictionaryEntry) {
+		
+		String templateKanji = "%sそうです";
+		String templateKana = "%sそうです";
+		String templateRomaji = "%s sou desu";	
+		
+		ExampleResult souDesuResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = AdjectiveIGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		souDesuResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(
+				informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true));
+		
+		return souDesuResult;
+	}	
 }

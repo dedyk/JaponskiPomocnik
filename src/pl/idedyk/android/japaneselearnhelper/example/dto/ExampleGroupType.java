@@ -14,7 +14,7 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_DESHOU("Prawdopodobnie, ok. 60%"),
 	
-	ADJECTIVE_I_SOU_DESU("Wygląda na"),
+	ADJECTIVE_I_SOU_DESU_LOOKS_LIKE("Wygląda na"),
 	
 	ADJECTIVE_I_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
@@ -23,6 +23,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_I_TO_II_TO_ME("Mieć nadzieję, że ... (mówienie o sobie)"),
 	
 	ADJECTIVE_I_TOKI("Kiedy ..., to ..."),
+	
+	ADJECTIVE_I_SOU_DESU_HEAR("Słyszałem, że ..."),
 	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
@@ -36,7 +38,7 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_NA_DESHOU("Prawdopodobnie, ok. 60%"),
 	
-	ADJECTIVE_NA_SOU_DESU("Wygląda na"),
+	ADJECTIVE_NA_SOU_DESU_LOOKS_LIKE("Wygląda na"),
 	
 	ADJECTIVE_NA_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
@@ -45,6 +47,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_TO_II_TO_ME("Mieć nadzieję, że ... (mówienie o sobie)"),
 	
 	ADJECTIVE_NA_TOKI("Kiedy ..., to ..."),
+	
+	ADJECTIVE_NA_SOU_DESU_HEAR("Słyszałem, że ..."),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -68,6 +72,8 @@ public enum ExampleGroupType {
 	NOUN_MORAU("Otrzymać"),
 	
 	NOUN_TOKI("Kiedy ..., to ..."),
+	
+	NOUN_SOU_DESU_HEAR("Słyszałem, że ..."),
 	
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -138,7 +144,9 @@ public enum ExampleGroupType {
 	
 	VERB_TE_SUMIMASEN("Przepraszam, że zrobiłem"),
 	
-	VERB_KUTE_SUMIMASEN("Przepraszam, że nie zrobiłem");
+	VERB_KUTE_SUMIMASEN("Przepraszam, że nie zrobiłem"),
+	
+	VERB_SOU_DESU_HEAR("Słyszałem, że ...");
 	
 	private String name;
 	

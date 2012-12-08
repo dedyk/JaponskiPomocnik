@@ -34,8 +34,8 @@ public class AdjectiveNaExampler {
 		// deshou
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_DESHOU, makeDeshouExample(dictionaryEntry));
 		
-		// sou desu
-		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_SOU_DESU, makeSouDesuExample(dictionaryEntry));
+		// sou desu looks like
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_SOU_DESU_LOOKS_LIKE, makeSouDesuLooksLikeExample(dictionaryEntry));
 		
 		// kamoshi remasen
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
@@ -48,6 +48,9 @@ public class AdjectiveNaExampler {
 		
 		// toki
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_TOKI, makeToki(dictionaryEntry));
+		
+		// sou desu hear
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_SOU_DESU_HEAR, makeSouDesuHearExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -114,7 +117,7 @@ public class AdjectiveNaExampler {
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeSouDesuExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeSouDesuLooksLikeExample(DictionaryEntry dictionaryEntry) {
 		
 		String templateKanji1 = "%sそうです";
 		String templateKana1 = "%sそうです";
@@ -203,5 +206,23 @@ public class AdjectiveNaExampler {
 		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji2, templateKana2, templateRomaji2, true));
 		
 		return exampleResult;
+	}
+	
+	private static ExampleResult makeSouDesuHearExample(DictionaryEntry dictionaryEntry) {
+		
+		String templateKanji = "%sそうです";
+		String templateKana = "%sそうです";
+		String templateRomaji = "%s sou desu";	
+		
+		GrammaFormConjugateResult informalPresentForm = AdjectiveNaGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		
+		ExampleResult souDesuResult = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji, templateKana, templateRomaji, true);
+		
+		GrammaFormConjugateResult makeInformalPastForm = AdjectiveNaGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		
+		souDesuResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(
+				makeInformalPastForm, templateKanji, templateKana, templateRomaji, true));		
+		
+		return souDesuResult;
 	}
 }

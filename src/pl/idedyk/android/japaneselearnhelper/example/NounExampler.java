@@ -51,6 +51,9 @@ public class NounExampler {
 		// toki
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TOKI, makeToki(dictionaryEntry));
 		
+		// sou desu hear
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_SOU_DESU_HEAR, makeSouDesuHearExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -171,4 +174,23 @@ public class NounExampler {
 		
 		return exampleResult;
 	}
+	
+	private static ExampleResult makeSouDesuHearExample(DictionaryEntry dictionaryEntry) {
+		
+		String templateKanji = "%sそうです";
+		String templateKana = "%sそうです";
+		String templateRomaji = "%s sou desu";	
+		
+		GrammaFormConjugateResult informalPresentForm = NounGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		
+		ExampleResult souDesuResult = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji, templateKana, templateRomaji, true);
+		
+		GrammaFormConjugateResult makeInformalPastForm = NounGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		
+		souDesuResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(
+				makeInformalPastForm, templateKanji, templateKana, templateRomaji, true));		
+		
+		return souDesuResult;
+	}
+
 }
