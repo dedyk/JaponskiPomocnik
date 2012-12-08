@@ -684,7 +684,9 @@ public class VerbExampler {
 	private static ExampleResult makeTeSumimasen(DictionaryEntry dictionaryEntry) {
 		
 		String[][] templates = new String[][] {
-				{ "%s、すみません", "%s、すみません", "%s, sumimasen" }
+				{ "%s、すみませんでした", "%s、すみませんでした", "%s, sumimasen deshita" },
+				{ "%s、すみません", "%s、すみません", "%s, sumimasen" },
+				{ "%s、ごめん", "%s、ごめん", "%s, gomen" }
 		};
 		
 		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
@@ -712,7 +714,9 @@ public class VerbExampler {
 	private static ExampleResult makeKuteSumimasen(DictionaryEntry dictionaryEntry) {
 		
 		String[][] templates = new String[][] {
-				{ "%sくて、すみません", "%sくて、すみません", "%skute, sumimasen" }				
+				{ "%sくて、すみませんでした", "%sくて、すみませんでした", "%skute, sumimasen deshita" },
+				{ "%sくて、すみません", "%sくて、すみません", "%skute, sumimasen" },
+				{ "%sくて、ごめん", "%sくて、ごめん", "%skute, gomen" }	
 		};
 		
 		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);

@@ -773,7 +773,7 @@ public class VerbGrammaConjugater {
 		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
 			
 			if (text.endsWith("来る") == true) {
-				return removeChars(text, 2) + "こない";
+				return removeChars(text, 2) + "来ない";
 				
 			} else if (text.endsWith("くる") == true) {
 				return removeChars(text, 2) + "こない";
