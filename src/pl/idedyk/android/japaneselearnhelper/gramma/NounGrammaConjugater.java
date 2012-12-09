@@ -132,7 +132,7 @@ public class NounGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 
-	private static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+	public static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, przeczenie, forma nieformalna (prosta), -ja nai
 
 		final String postfixKana = "じゃない";

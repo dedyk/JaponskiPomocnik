@@ -71,6 +71,10 @@ public enum ExampleGroupType {
 	
 	NOUN_MORAU("Otrzymać"),
 	
+	NOUN_TO_II_TO_OTHERS("Mieć nadzieję, że ... (mówienie o innych)"),
+	
+	NOUN_TO_II_TO_ME("Mieć nadzieję, że ... (mówienie o sobie)"),
+	
 	NOUN_TOKI("Kiedy ..., to ..."),
 	
 	NOUN_SOU_DESU_HEAR("Słyszałem, że ..."),

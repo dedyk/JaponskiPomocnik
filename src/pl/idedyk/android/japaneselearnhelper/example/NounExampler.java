@@ -48,6 +48,12 @@ public class NounExampler {
 		// morau
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_MORAU, makeMorauExample(dictionaryEntry));
 		
+		// to ii to others
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TO_II_TO_OTHERS, makeToIIToOthers(dictionaryEntry));
+
+		// to ii to me
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TO_II_TO_ME, makeToIIToMe(dictionaryEntry));
+		
 		// toki
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TOKI, makeToki(dictionaryEntry));
 		
@@ -154,6 +160,48 @@ public class NounExampler {
 		final String templateRomaji = "[odbiorca] [wa/ga] [dający] [ni/kara] %s o morau";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, false);
+	}
+	
+	private static ExampleResult makeToIIToOthers(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sといいですね";
+		final String templateKana = "%sといいですね";
+		final String templateRomaji = "%s to ii desu ne";
+		
+		GrammaFormConjugateResult informalPresentForm = NounGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji, templateKana, templateRomaji, true);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = NounGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true));
+		
+		return exampleResult;
+	}
+	
+	private static ExampleResult makeToIIToMe(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji1 = "%sといいんですが";
+		final String templateKana1 = "%sといいんですが";
+		final String templateRomaji1 = "%s to ii n desu ga";
+
+		final String templateKanji2 = "%sといいんですけど";
+		final String templateKana2 = "%sといいんですけど";
+		final String templateRomaji2 = "%s to ii n desu kedo";
+		
+		GrammaFormConjugateResult informalPresentForm = NounGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		
+		ExampleResult exampleResult1 = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji1, templateKana1, templateRomaji1, true);
+		ExampleResult exampleResult2 = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji2, templateKana2, templateRomaji2, true);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = NounGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		exampleResult2.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji1, templateKana1, templateRomaji1, true));
+		exampleResult2.getAlternative().setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return exampleResult1;
 	}
 	
 	private static ExampleResult makeToki(DictionaryEntry dictionaryEntry) {
