@@ -1441,7 +1441,8 @@ Genki 2-13",,泣く,なく,,naku,płakać,,
 969,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 1-12,,一年に一度,いちねんにいちど,,ichinen ni ichido,raz do roku,,
 970,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 1-12,,-,までに,,made ni,do kiedy,~,
 971,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 1-12,,願い,ねがい,,negai,życzenie,,
-972,WORD,WORD_VERB_U,HIRAGANA,Genki dodatkowe 1-12,,-,かなう,,kanau,być zrealizowany,,
+972,WORD,WORD_VERB_U,HIRAGANA,Genki dodatkowe 1-12,,-,かなう,,kanau,"zrealizować
+spełnić",,
 973,WORD,WORD_PRONOUN,HIRAGANA,"Genki dodatkowe 1-12
 Genki 2-14",,私たち,わたしたち,,watashi tachi,my,,
 974,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 1-12,,-,など,,nado,i tak dalej,,
@@ -2742,7 +2743,8 @@ nalewać",,
 1971,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-15,,走り書き,はしりがき,,hashirigaki,bazgroły,pismo,
 1972,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-15,,脱走,だっそう,,dassou,ucieczka,z więzienia,
 1973,KANJI,WORD_VERB_RU,HIRAGANA,Genki kanji 2-15,,建てる,たてる,,tateru,budować,,
-1974,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-15,,建つ,たつ,,tatsu,być zbudowany,,
+1974,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-15,,建つ,たつ,,tatsu,"być zbudowanym
+stać",,
 1975,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-15,,建国,けんこく,,kenkoku,"ugruntowanie narodu
 fundamenty narodu",,
 1976,KANJI,WORD_NOUN,HIRAGANA,"Genki kanji 2-15
@@ -3014,13 +3016,15 @@ mieć odrębne zdanie",,
 2149,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 2-16,,道具,どうぐ,,dougu,narzędzie,,
 2150,WORD,WORD_NOUN,KATAKANA,Genki dodatkowe 2-16,,-,ポケット,,poketto,kieszeń,,
 2151,WORD,WORD_ADVERB,HIRAGANA,Genki dodatkowe 2-16,,喜んで,よろこんで,,yorokonde,"z przyjemnością
-z radością",,
+z radością
+szczęśliwy",,
 2152,WORD,WORD_VERB_U,HIRAGANA,Genki dodatkowe 2-16,,続く,つづく,,tsuduku,"kontynuować
 wznawiać",,
-2153,WORD,WORD_VERB_RU,HIRAGANA,Genki dodatkowe 2-16,,売れる,うれる,,ureru,być sprzedany,,
+2153,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 2-16,,売れる,うれる,,ureru,sprzedawać,forma potencjalna,
 2154,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 2-16,,-,すると,,suruto,"... wtedy, ...",,
 2155,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 2-16,,-,また,,mata,"znów
-znowu",,
+znowu
+dodatkowo",,
 2156,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 2-16,,-,こと,,koto,"rzecz
 sprawa
 zagadnienie
@@ -3067,3 +3071,9 @@ według gazety",,
 grzyby",,
 2182,WORD,WORD_NOUN,HIRAGANA,Inne,,茸雲,きのこぐも,,kinoko gumo,grzyb atomowy,,
 2183,WORD,WORD_NOUN,HIRAGANA,Inne,,学名,がくめい,,gakumei,naukowa (międzynarodowa) nazwa,,
+2184,WORD,UNKNOWN,HIRAGANA,Inne,,様,さま,,sama,"pan
+pani",przyrostek honoryfikatywny,
+2185,WORD,WORD_NOUN,HIRAGANA,Inne,,矢,や,,ya,strzała,,
+2186,WORD,WORD_NOUN,HIRAGANA,Inne,,宇宙,うちゅう,,uchuu,"wszechświat
+kosmos",,
+2187,WORD,WORD_NOUN,HIRAGANA,Inne,,宇宙人,うちゅうじん,,uchuu jin,kosmita,,
