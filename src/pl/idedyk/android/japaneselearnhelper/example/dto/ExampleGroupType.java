@@ -28,6 +28,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
 	
+	ADJECTIVE_I_TARA("Jeśli (tryb warunkowy), to ..."),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -53,6 +55,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_SOU_DESU_HEAR("Słyszałem, że ..."),
 	
 	ADJECTIVE_NA_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
+	
+	ADJECTIVE_NA_TARA("Jeśli (tryb warunkowy), to ..."),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -84,6 +88,8 @@ public enum ExampleGroupType {
 	NOUN_SOU_DESU_HEAR("Słyszałem, że ..."),
 	
 	NOUN_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
+	
+	NOUN_TARA("Jeśli (tryb warunkowy), to ..."),
 	
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -124,7 +130,7 @@ public enum ExampleGroupType {
 	
 	VERB_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
-	VERB_TARA("Jeśli (tryb warunkowy)"),
+	VERB_TARA("Jeśli (tryb warunkowy), to ..."),
 	
 	VERB_TARA_DOU_DESU_KA("Rada lub zalecenie", "Uwaga: Nie używane w zaproszeniach"),
 	

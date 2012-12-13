@@ -63,6 +63,9 @@ public class NounExampler {
 		// tte
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TTE, makeTteExample(dictionaryEntry));
 		
+		// tara
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TARA, makeTaraExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -261,4 +264,26 @@ public class NounExampler {
 		
 		return souDesuResult;
 	}	
+	
+	private static ExampleResult makeTaraExample(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult informalPastForm = NounGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+
+		final String templateKanji1 = "%sら、...";
+		final String templateKana1 = "%sら、...";
+		final String templateRomaji1 = "%sra, ...";
+		
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = NounGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		final String templateKanji2 = "%sかったら、...";
+		final String templateKana2 = "%sかったら、...";
+		final String templateRomaji2 = "%skattara, ...";		
+		
+		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(
+				informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return exampleResult;
+	}
 }

@@ -55,6 +55,9 @@ public class AdjectiveIExampler {
 		// tte
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_TTE, makeTteExample(dictionaryEntry));		
 		
+		// tara
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_TARA, makeTaraExample(dictionaryEntry));
+		
 		return result;
 	}
 	
@@ -257,4 +260,26 @@ public class AdjectiveIExampler {
 		
 		return souDesuResult;
 	}	
+	
+	private static ExampleResult makeTaraExample(DictionaryEntry dictionaryEntry) {
+		
+		GrammaFormConjugateResult informalPastForm = AdjectiveIGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+
+		final String templateKanji1 = "%sら、...";
+		final String templateKana1 = "%sら、...";
+		final String templateRomaji1 = "%sra, ...";
+		
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = AdjectiveIGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		final String templateKanji2 = "%sかったら、...";
+		final String templateKana2 = "%sかったら、...";
+		final String templateRomaji2 = "%skattara, ...";		
+		
+		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(
+				informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return exampleResult;
+	}
 }

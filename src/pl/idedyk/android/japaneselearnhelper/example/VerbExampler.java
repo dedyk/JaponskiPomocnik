@@ -74,9 +74,6 @@ public class VerbExampler {
 
 		// kamoshi remasen
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
-
-		// tara
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA, makeTaraExample(dictionaryEntry));
 		
 		// tara dou desu ka
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA_DOU_DESU_KA, makeTaraDouDesuKaExample(dictionaryEntry));
@@ -128,6 +125,9 @@ public class VerbExampler {
 
 		// sou desu (hear)
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TTE, makeTte(dictionaryEntry));
+		
+		// tara
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA, makeTaraExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -459,11 +459,22 @@ public class VerbExampler {
 		
 		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
 
-		final String templateKanji = "%sら";
-		final String templateKana = "%sら";
-		final String templateRomaji = "%sra";
+		final String templateKanji1 = "%sら、...";
+		final String templateKana1 = "%sら、...";
+		final String templateRomaji1 = "%sra, ...";
 		
-		return ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		final String templateKanji2 = "%sかったら、...";
+		final String templateKana2 = "%sかったら、...";
+		final String templateRomaji2 = "%skattara, ...";		
+		
+		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(
+				informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
+		
+		return exampleResult;
 	}
 	
 	private static ExampleResult makeOuToOmou(DictionaryEntry dictionaryEntry) {
