@@ -26,6 +26,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_SOU_DESU_HEAR("Słyszałem, że ..."),
 	
+	ADJECTIVE_I_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -49,6 +51,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_TOKI("Kiedy ..., to ..."),
 	
 	ADJECTIVE_NA_SOU_DESU_HEAR("Słyszałem, że ..."),
+	
+	ADJECTIVE_NA_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -78,6 +82,8 @@ public enum ExampleGroupType {
 	NOUN_TOKI("Kiedy ..., to ..."),
 	
 	NOUN_SOU_DESU_HEAR("Słyszałem, że ..."),
+	
+	NOUN_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
 	
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -150,7 +156,9 @@ public enum ExampleGroupType {
 	
 	VERB_KUTE_SUMIMASEN("Przepraszam, że nie zrobiłem"),
 	
-	VERB_SOU_DESU_HEAR("Słyszałem, że ...");
+	VERB_SOU_DESU_HEAR("Słyszałem, że ..."),
+	
+	VERB_TTE("Forma tte", "Zastępuje そうです oraz と言っていました");
 	
 	private String name;
 	

@@ -125,6 +125,9 @@ public class VerbExampler {
 		
 		// sou desu (hear)
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_SOU_DESU_HEAR, makeSouDesuHear(dictionaryEntry));
+
+		// sou desu (hear)
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TTE, makeTte(dictionaryEntry));
 		
 		return result;
 	}
@@ -746,6 +749,21 @@ public class VerbExampler {
 		final String templateKanji = "%sそうです";
 		final String templateKana = "%sそうです";
 		final String templateRomaji = "%s sou desu";
+
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		
+		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		
+		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true));
+		
+		return exampleResult;
+	}	
+
+	private static ExampleResult makeTte(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sって";
+		final String templateKana = "%sって";
+		final String templateRomaji = "%stte";
 
 		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 		

@@ -59,6 +59,9 @@ public class NounExampler {
 		
 		// sou desu hear
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_SOU_DESU_HEAR, makeSouDesuHearExample(dictionaryEntry));
+
+		// tte
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TTE, makeTteExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -241,4 +244,21 @@ public class NounExampler {
 		return souDesuResult;
 	}
 
+	private static ExampleResult makeTteExample(DictionaryEntry dictionaryEntry) {
+		
+		String templateKanji = "%sって";
+		String templateKana = "%sって";
+		String templateRomaji = "%stte";	
+		
+		GrammaFormConjugateResult informalPresentForm = NounGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		
+		ExampleResult souDesuResult = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji, templateKana, templateRomaji, true);
+		
+		GrammaFormConjugateResult makeInformalPastForm = NounGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		
+		souDesuResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(
+				makeInformalPastForm, templateKanji, templateKana, templateRomaji, true));		
+		
+		return souDesuResult;
+	}	
 }

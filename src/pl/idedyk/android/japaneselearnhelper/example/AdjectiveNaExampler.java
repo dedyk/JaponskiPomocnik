@@ -51,6 +51,9 @@ public class AdjectiveNaExampler {
 		
 		// sou desu hear
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_SOU_DESU_HEAR, makeSouDesuHearExample(dictionaryEntry));
+
+		// tte
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_TTE, makeTteExample(dictionaryEntry));
 		
 		return result;
 	}
@@ -213,6 +216,24 @@ public class AdjectiveNaExampler {
 		String templateKanji = "%sそうです";
 		String templateKana = "%sそうです";
 		String templateRomaji = "%s sou desu";	
+		
+		GrammaFormConjugateResult informalPresentForm = AdjectiveNaGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		
+		ExampleResult souDesuResult = ExampleHelper.makeSimpleTemplateExample(informalPresentForm, templateKanji, templateKana, templateRomaji, true);
+		
+		GrammaFormConjugateResult makeInformalPastForm = AdjectiveNaGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		
+		souDesuResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(
+				makeInformalPastForm, templateKanji, templateKana, templateRomaji, true));		
+		
+		return souDesuResult;
+	}
+
+	private static ExampleResult makeTteExample(DictionaryEntry dictionaryEntry) {
+		
+		String templateKanji = "%sって";
+		String templateKana = "%sって";
+		String templateRomaji = "%stte";	
 		
 		GrammaFormConjugateResult informalPresentForm = AdjectiveNaGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
 		

@@ -520,7 +520,7 @@ public class WordDictionaryDetails extends Activity {
 				String exampleGroupInfo = currentExampleGroupTypeElements.getExampleGroupType().getInfo(); 
 				
 				if (exampleGroupInfo != null) {
-					report.add(new StringValue(exampleGroupInfo, 15.0f, 1));
+					report.add(new StringValue(exampleGroupInfo, 12.0f, 1));
 				}
 				
 				List<ExampleResult> exampleResults = currentExampleGroupTypeElements.getExampleResults();
