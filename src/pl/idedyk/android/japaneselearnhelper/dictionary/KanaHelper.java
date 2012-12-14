@@ -166,8 +166,8 @@ public class KanaHelper {
 		hiraganaEntries.add(new KanaEntry("ぞ", "zo", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
 		
 		hiraganaEntries.add(new KanaEntry("だ", "da", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
-		hiraganaEntries.add(new KanaEntry("ぢ", "di", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
-		hiraganaEntries.add(new KanaEntry("づ", "du", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
+		hiraganaEntries.add(new KanaEntry("ぢ", "di", "ji (di)", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
+		hiraganaEntries.add(new KanaEntry("づ", "du", "zu (du)", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
 		hiraganaEntries.add(new KanaEntry("で", "de", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
 		hiraganaEntries.add(new KanaEntry("ど", "do", KanaType.HIRAGANA, KanaGroup.DAKUTEN));
 		
@@ -328,8 +328,8 @@ public class KanaHelper {
 		katakanaEntries.add(new KanaEntry("ゾ", "zo", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		
 		katakanaEntries.add(new KanaEntry("ダ", "da", KanaType.KATAKANA, KanaGroup.DAKUTEN));
-		katakanaEntries.add(new KanaEntry("ヂ", "di", KanaType.KATAKANA, KanaGroup.DAKUTEN));
-		katakanaEntries.add(new KanaEntry("づ", "du", KanaType.KATAKANA, KanaGroup.DAKUTEN));
+		katakanaEntries.add(new KanaEntry("ヂ", "di", "ji (di)", KanaType.KATAKANA, KanaGroup.DAKUTEN));
+		katakanaEntries.add(new KanaEntry("づ", "du", "zu (du)", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		katakanaEntries.add(new KanaEntry("デ", "de", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		katakanaEntries.add(new KanaEntry("ド", "do", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		

@@ -9,6 +9,8 @@ public class KanaEntry implements Serializable {
 
 	private String kanaJapanese;
 	
+	private String kanaDisplay;
+	
 	private String kana;
 	
 	private KanaType kanaType;
@@ -23,12 +25,29 @@ public class KanaEntry implements Serializable {
 		this.kanaType = kanaType;
 		this.kanaGroup = kanaGroup;
 	}
+	
+	public KanaEntry(String kanaJapanese, String kana, String kanaDisplay, KanaType kanaType, KanaGroup kanaGroup) {
+		this.kanaJapanese = kanaJapanese;
+		this.kana = kana;
+		this.kanaDisplay = kanaDisplay;
+		this.kanaType = kanaType;
+		this.kanaGroup = kanaGroup;
+	}
 
 	public String getKanaJapanese() {
 		return kanaJapanese;
 	}
 
 	public String getKana() {
+		return kana;
+	}
+	
+	public String getKanaDisplay() {
+		
+		if (kanaDisplay != null) {
+			return kanaDisplay;
+		}
+		
 		return kana;
 	}
 	

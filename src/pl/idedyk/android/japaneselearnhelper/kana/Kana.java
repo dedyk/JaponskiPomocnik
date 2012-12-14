@@ -760,7 +760,7 @@ public class Kana extends Activity {
 				throw new RuntimeException(kana);
 			}
 			
-			Spanned spanned = Html.fromHtml("<b>" + kanaEntry.getKana() + "</b><br/>" + kanaEntry.getKanaJapanese() + "<br/>");
+			Spanned spanned = Html.fromHtml("<b>" + kanaEntry.getKanaDisplay() + "</b><br/>" + kanaEntry.getKanaJapanese() + "<br/>");
 			
 			stringValue = new StringValue(spanned, 20, 0);	
 			
