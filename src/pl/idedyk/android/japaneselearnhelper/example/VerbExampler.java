@@ -558,7 +558,7 @@ public class VerbExampler {
 		
 		String[][] templates = new String[][] {
 				{ "%sいただけませんか", "%sいただけませんか", "%s itadakemasen ka" },
-				{ "%sもらえませんか", "%sもらえませんか", "%s moraemasen ka" },
+				{ "%sくれませんか", "%sくれませんか", "%s kuremasen ka" },
 				{ "%sくれない", "%sくれない", "%s kurenai" }
 		};
 		
