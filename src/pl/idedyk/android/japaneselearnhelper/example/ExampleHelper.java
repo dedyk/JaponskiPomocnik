@@ -79,7 +79,7 @@ public class ExampleHelper {
 		return makeSimpleTemplateExampleWithLastCharRemove(prefixKana, kanji, kanaList, prefixRomaji, romajiList, templateKanji, templateKana, templateRomaji, canAddPrefix);
 	}
 	
-	private static ExampleResult makeSimpleTemplateExample(String prefixKana, String kanji, List<String> kanaList, String prefixRomaji, List<String> romajiList,
+	public static ExampleResult makeSimpleTemplateExample(String prefixKana, String kanji, List<String> kanaList, String prefixRomaji, List<String> romajiList,
 			String templateKanji, String templateKana, String templateRomaji, boolean canAddPrefix) {
 		
 		ExampleResult result = new ExampleResult();

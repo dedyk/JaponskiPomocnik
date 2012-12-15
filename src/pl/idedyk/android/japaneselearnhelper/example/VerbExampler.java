@@ -280,19 +280,17 @@ public class VerbExampler {
 		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
 		
 		String prefixKana = stemForm.getPrefixKana();
+		String prefixRomaji = stemForm.getPrefixRomaji();
 		
 		if (prefixKana != null && prefixKana.equals("を") == true) {
-			stemForm.setPrefixKana("が");
-		}
-
-		if (prefixKana != null && prefixKana.equals("を") == true) {
-			stemForm.setPrefixRomaji("ga");
+			prefixKana = "が";
+			prefixRomaji = "ga";
 		}
 		
 		String kanji = stemForm.getKanji();
 		
 		if (kanji != null) { 
-			stemForm.setKanji(kanji.replaceAll("を", "が"));
+			kanji = kanji.replaceAll("を", "が");
 		}
 		
 		List<String> kanaList = stemForm.getKanaList();
@@ -305,7 +303,7 @@ public class VerbExampler {
 				newKanaList.add(currentKana.replaceAll("を", "が"));
 			}
 			
-			stemForm.setKanaList(newKanaList);
+			kanaList = newKanaList;
 		}
 		
 		List<String> romajiList = stemForm.getRomajiList();
@@ -318,14 +316,15 @@ public class VerbExampler {
 				newRomajiList.add(currentRomaji.replaceAll(" o ", " ga "));
 			}
 			
-			stemForm.setRomajiList(newRomajiList);
+			romajiList = newRomajiList;
 		}
 		
 		final String templateKanji = "%sたいです";
 		final String templateKana = "%sたいです";
 		final String templateRomaji = "%stai desu";
 		
-		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+		return ExampleHelper.makeSimpleTemplateExample(
+				prefixKana, kanji, kanaList, prefixRomaji, romajiList, templateKanji, templateKana, templateRomaji, true);
 	}
 
 	private static ExampleResult makeTagatteIruExample(DictionaryEntry dictionaryEntry,
