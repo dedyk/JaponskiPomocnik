@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.gramma;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
@@ -12,7 +13,8 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 
 public class AdjectiveIGrammaConjugater {
 
-	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry) {
+	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry, 
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 
 		List<GrammaFormConjugateGroupTypeElements> result = new ArrayList<GrammaFormConjugateGroupTypeElements>();
 
@@ -48,19 +50,36 @@ public class AdjectiveIGrammaConjugater {
 		teForm.getGrammaFormConjugateResults().add(makeTeForm(dictionaryEntry));
 		
 		result.add(teForm);
+		
+		// caching
+		for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : result) {
+			
+			List<GrammaFormConjugateResult> grammaFormConjugateResults = grammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults();
+			
+			for (GrammaFormConjugateResult grammaFormConjugateResult : grammaFormConjugateResults) {
+				grammaFormCache.put(grammaFormConjugateResult.getResultType(), grammaFormConjugateResult);
+			}
+		}
+		
+		// virtual
+		GrammaFormConjugateResult virtualForm = makeVirtualForm(dictionaryEntry);
+		
+		grammaFormCache.put(virtualForm.getResultType(), virtualForm);
 
 		return result;		
 	}
 	
-	public static GrammaFormConjugateResult makeVirtualForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeVirtualForm(DictionaryEntry dictionaryEntry) {
 		
 		// wirtualna metoda bez "i" na koncu i ewentualne przerobienie ii na yoi
 		
-		return makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_I_VIRTUAL,
+		GrammaFormConjugateResult virtualForm = makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_I_VIRTUAL,
 				"", "");
+				
+		return virtualForm;
 	}
 
-	public static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma formalna, -i desu
 
 		final String postfixKana = "いです";
@@ -70,7 +89,7 @@ public class AdjectiveIGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 
-	public static GrammaFormConjugateResult makeFormalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, przeczenie, forma formalna (prosta), -kunai desu
 
 		final String postfixKana = "くないです";
@@ -95,7 +114,7 @@ public class AdjectiveIGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 	
-	public static GrammaFormConjugateResult makeFormalPastForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPastForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, twierdzenie, forma formalna, -katta desu
 
 		final String postfixKana = "かったです";
@@ -105,7 +124,7 @@ public class AdjectiveIGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 
-	public static GrammaFormConjugateResult makeFormalPastNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPastNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, przeczenie, forma formalna, -ku nakatta desu
 
 		final String postfixKana = "くなかったです";
@@ -130,7 +149,7 @@ public class AdjectiveIGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 	
-	public static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma nieformalna (prosta), -i
 
 		final String postfixKana = "い";
@@ -140,27 +159,33 @@ public class AdjectiveIGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 
-	public static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+		
 		// czas terazniejszy, przeczenie, forma nieformalna (prosta), -kunai
 
 		final String postfixKana = "くない";
 		final String postfixRomaji = "kunai";
 
-		return makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_I_INFORMAL_PRESENT_NEGATIVE,
+		GrammaFormConjugateResult grammaFormConjugateResult = makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_I_INFORMAL_PRESENT_NEGATIVE,
 				postfixKana, postfixRomaji);
+				
+		return grammaFormConjugateResult;
 	}
 
-	public static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
+		
 		// czas przesly, twierdzenie, forma nieformalna (prosta), -katta
 
 		final String postfixKana = "かった";
 		final String postfixRomaji = "katta";
 
-		return makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_I_INFORMAL_PAST,
+		GrammaFormConjugateResult grammaFormConjugateResult = makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_I_INFORMAL_PAST,
 				postfixKana, postfixRomaji);
+				
+		return grammaFormConjugateResult;
 	}
 
-	public static GrammaFormConjugateResult makeInformalPastNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPastNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, przeczenie, forma nieformalna (prosta), -ku nakatta
 
 		final String postfixKana = "くなかった";

@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.gramma;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
@@ -12,7 +13,7 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 
 public class NounGrammaConjugater {
 
-	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry) {
+	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 
 		List<GrammaFormConjugateGroupTypeElements> result = new ArrayList<GrammaFormConjugateGroupTypeElements>();
 
@@ -49,10 +50,20 @@ public class NounGrammaConjugater {
 		
 		result.add(teForm);
 		
+		// caching
+		for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : result) {
+			
+			List<GrammaFormConjugateResult> grammaFormConjugateResults = grammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults();
+			
+			for (GrammaFormConjugateResult grammaFormConjugateResult : grammaFormConjugateResults) {
+				grammaFormCache.put(grammaFormConjugateResult.getResultType(), grammaFormConjugateResult);
+			}
+		}
+		
 		return result;
 	}
 
-	public static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma formalna, -desu
 
 		final String postfixKana = "です";
@@ -62,7 +73,7 @@ public class NounGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 
-	public static GrammaFormConjugateResult makeFormalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, przeczenie, forma formalna (prosta), -dewa arimasen
 
 		final String postfixKana = "でわありません";
@@ -87,7 +98,7 @@ public class NounGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 	
-	public static GrammaFormConjugateResult makeFormalPastForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPastForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, twierdzenie, forma formalna, -deshita
 
 		final String postfixKana = "でした";
@@ -97,7 +108,7 @@ public class NounGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 	
-	public static GrammaFormConjugateResult makeFormalPastNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPastNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, przeczenie, forma formalna, -dewa arimasen deshita
 
 		final String postfixKana = "でわありませんでした";
@@ -122,7 +133,7 @@ public class NounGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 	
-	public static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma nieformalna (prosta), -da
 
 		final String postfixKana = "だ";
@@ -132,7 +143,7 @@ public class NounGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 
-	public static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, przeczenie, forma nieformalna (prosta), -ja nai
 
 		final String postfixKana = "じゃない";
@@ -142,7 +153,7 @@ public class NounGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 	
-	public static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, twierdzenie, forma nieformalna (prosta), -datta
 
 		final String postfixKana = "だった";

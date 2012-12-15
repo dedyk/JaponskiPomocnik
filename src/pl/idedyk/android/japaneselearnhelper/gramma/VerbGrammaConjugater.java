@@ -155,7 +155,7 @@ public class VerbGrammaConjugater {
 		lastRomajiCharsMapperToCharForVolitionalForm.put("bu", "bou");
 	}
 
-	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry) {
+	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 
 		List<GrammaFormConjugateGroupTypeElements> result = new ArrayList<GrammaFormConjugateGroupTypeElements>();
 
@@ -252,11 +252,21 @@ public class VerbGrammaConjugater {
 		volitionalForm.getGrammaFormConjugateResults().add(makeVolitionalForm(dictionaryEntry));
 		
 		result.add(volitionalForm);
+		
+		// caching
+		for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : result) {
+			
+			List<GrammaFormConjugateResult> grammaFormConjugateResults = grammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults();
+			
+			for (GrammaFormConjugateResult grammaFormConjugateResult : grammaFormConjugateResults) {
+				grammaFormCache.put(grammaFormConjugateResult.getResultType(), grammaFormConjugateResult);
+			}
+		}
 				
 		return result;		
 	}
 
-	public static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma formalna, -masu
 
 		final String postfixKana = "ます";
@@ -266,7 +276,7 @@ public class VerbGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 
-	public static GrammaFormConjugateResult makeFormalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma formalna, -masen
 
 		final String postfixKana = "ません";
@@ -276,7 +286,7 @@ public class VerbGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 
-	public static GrammaFormConjugateResult makeFormalPastForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPastForm(DictionaryEntry dictionaryEntry) {
 		// czas przeszly, przeczenie, forma formalna, -mashita
 
 		final String postfixKana = "ました";
@@ -286,7 +296,7 @@ public class VerbGrammaConjugater {
 				postfixKana, postfixRomaji);
 	}
 
-	public static GrammaFormConjugateResult makeFormalPastNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPastNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas przeszly, twierdzenie, forma formalna, -masen deshita
 
 		final String postfixKana = "ませんでした";
@@ -536,7 +546,7 @@ public class VerbGrammaConjugater {
 		return lastCharConvertedToI;
 	}
 	
-	public static GrammaFormConjugateResult makeTeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeTeForm(DictionaryEntry dictionaryEntry) {
 		
 		// forma te
 		
@@ -679,7 +689,7 @@ public class VerbGrammaConjugater {
 		}
 	}
 	
-	public static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma nieformalna (prosta)
 		
 		// make common
@@ -696,7 +706,7 @@ public class VerbGrammaConjugater {
 		return result;
 	}
 	
-	public static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, przeczenie, forma nieformalna (prosta)
 		
 		// make common
@@ -840,7 +850,7 @@ public class VerbGrammaConjugater {
 		}
 	}
 	
-	public static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
 		// czas przeszly, twierdzenie, forma nieformalna (prosta)
 		
 		GrammaFormConjugateResult teForm = makeTeForm(dictionaryEntry);
@@ -917,7 +927,7 @@ public class VerbGrammaConjugater {
 		return removeChars(text, 1) + postfix;
 	}
 	
-	public static GrammaFormConjugateResult makeInformalPastNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeInformalPastNegativeForm(DictionaryEntry dictionaryEntry) {
 		
 		// czas przeszly, przeczenie, forma nieformalna (prosta)
 		
@@ -957,7 +967,7 @@ public class VerbGrammaConjugater {
 		return result;
 	}
 	
-	public static GrammaFormConjugateResult makeStemForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeStemForm(DictionaryEntry dictionaryEntry) {
 		
 		// stem
 
@@ -965,7 +975,7 @@ public class VerbGrammaConjugater {
 				"", "");
 	}
 	
-	public static GrammaFormConjugateResult makeMashouForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeMashouForm(DictionaryEntry dictionaryEntry) {
 		
 		// mashou
 		
@@ -1348,7 +1358,7 @@ public class VerbGrammaConjugater {
 		throw new RuntimeException("makePotentialFormForRomaji 3: " + dictionaryEntryType);
 	}
 	
-	public static GrammaFormConjugateResult makeVolitionalForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeVolitionalForm(DictionaryEntry dictionaryEntry) {
 				
 		// make common
 		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);

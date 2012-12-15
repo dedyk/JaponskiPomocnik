@@ -32,6 +32,8 @@ import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 
 public class DictionaryManager {
 
@@ -422,8 +424,12 @@ public class DictionaryManager {
 				loadWithProgress.setCurrentPos(counter);
 
 				DictionaryEntry nthDictionaryEntry = sqliteConnector.getNthDictionaryEntry(dictionaryEntriesSizeIdx);
-
-				List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = GrammaConjugaterManager.getGrammaConjufateResult(nthDictionaryEntry);
+				
+				Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = 
+						new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
+				
+				List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = 
+						GrammaConjugaterManager.getGrammaConjufateResult(nthDictionaryEntry, grammaFormCache);
 
 				if (grammaConjufateResult != null) {
 					for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : grammaConjufateResult) {
@@ -431,7 +437,7 @@ public class DictionaryManager {
 					}					
 				}
 
-				List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(nthDictionaryEntry);
+				List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(nthDictionaryEntry, grammaFormCache);
 
 				if (examples != null) {
 					for (ExampleGroupTypeElements exampleGroupTypeElements : examples) {

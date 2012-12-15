@@ -2,16 +2,18 @@ package pl.idedyk.android.japaneselearnhelper.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
-import pl.idedyk.android.japaneselearnhelper.gramma.VerbGrammaConjugater;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 
 public class VerbExampler {
-	public static List<ExampleGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry) {
+	public static List<ExampleGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry, 
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		List<ExampleGroupTypeElements> result = new ArrayList<ExampleGroupTypeElements>();
 		
@@ -22,117 +24,118 @@ public class VerbExampler {
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_DISLIKE, makeKiraiExample(dictionaryEntry));
 		
 		// stem + ni + iku
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_STEM_NI_IKU, makeStemNiIkuExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_STEM_NI_IKU, makeStemNiIkuExample(dictionaryEntry, grammaFormCache));
 		
 		// te iru
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_IRU, makeTeIruExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_IRU, makeTeIruExample(dictionaryEntry, grammaFormCache));
 		
 		// te kudasai
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_KUDASAI, makeTeKudasaiExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_KUDASAI, makeTeKudasaiExample(dictionaryEntry, grammaFormCache));
 		
 		// te mo ii desu
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MO_II, makeTeMoIiExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MO_II, makeTeMoIiExample(dictionaryEntry, grammaFormCache));
 		
 		// te wa ikemasen
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_HA_IKEMASEN, makeTeHaIkemasenExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_HA_IKEMASEN, makeTeHaIkemasenExample(dictionaryEntry, grammaFormCache));
 		
 		// nai de kudasai
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAI_DE_KUDASAI, makeNaiDeKudasai(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAI_DE_KUDASAI, makeNaiDeKudasai(dictionaryEntry, grammaFormCache));
 		
 		// mada te imasen
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_MADA_TE_IMASEN, makeMadaTeImasen(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_MADA_TE_IMASEN, makeMadaTeImasen(dictionaryEntry, grammaFormCache));
 		
 		// tsumori desu
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TSUMORI_DESU, makeTsumoriDesu(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TSUMORI_DESU, makeTsumoriDesu(dictionaryEntry, grammaFormCache));
 		
 		// koto ga aru
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_KOTO_GA_ARU, makeKotoGaAru(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_KOTO_GA_ARU, makeKotoGaAru(dictionaryEntry, grammaFormCache));
 		
 		// tai
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TAI, makeTaiExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TAI, makeTaiExample(dictionaryEntry, grammaFormCache));
 
 		// tagatte iru
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TAGATTE_IRU, makeTagatteIruExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TAGATTE_IRU, makeTagatteIruExample(dictionaryEntry, grammaFormCache));
 		
 		// n desu
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_N_DESU, makeNDesuExample(dictionaryEntry));
 		
 		// sugiru
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_SUGIRU, makeSugiruExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_SUGIRU, makeSugiruExample(dictionaryEntry, grammaFormCache));
 		
 		// advice
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_ADVICE, makeAdviceExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_ADVICE, makeAdviceExample(dictionaryEntry, grammaFormCache));
 		
 		// nakucha ikemasen
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAKUCHA_IKEMASEN, makeNakuchaIkemasenExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAKUCHA_IKEMASEN, makeNakuchaIkemasenExample(dictionaryEntry, grammaFormCache));
 		
 		// deshou
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_DESHOU, makeDeshouExample(dictionaryEntry));
 		
 		// te miru
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MIRU, makeTeMiruExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MIRU, makeTeMiruExample(dictionaryEntry, grammaFormCache));
 
 		// kamoshi remasen
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_KAMOSHI_REMASEN, makeKamoshiRemasenExample(dictionaryEntry));
 		
 		// tara dou desu ka
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA_DOU_DESU_KA, makeTaraDouDesuKaExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA_DOU_DESU_KA, makeTaraDouDesuKaExample(dictionaryEntry, grammaFormCache));
 
 		// ou to omou
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_OU_TO_OMOU, makeOuToOmou(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_OU_TO_OMOU, makeOuToOmou(dictionaryEntry, grammaFormCache));
 
 		// ou to omotte iru
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_OU_TO_OMOTTE_IRU, makeOuToOmotteIru(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_OU_TO_OMOTTE_IRU, makeOuToOmotteIru(dictionaryEntry, grammaFormCache));
 		
 		// te oku
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_OKU, makeTeOkuExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_OKU, makeTeOkuExample(dictionaryEntry, grammaFormCache));
 		
 		// te ageru
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_AGERU, makeTeAgeruExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_AGERU, makeTeAgeruExample(dictionaryEntry, grammaFormCache));
 		
 		// te kureru
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_KURERU, makeTeKureruExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_KURERU, makeTeKureruExample(dictionaryEntry, grammaFormCache));
 		
 		// te morau
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MORAU, makeTeMorauExample(dictionaryEntry));		
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MORAU, makeTeMorauExample(dictionaryEntry, grammaFormCache));		
 		
 		// te kudasai
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_REQUEST, makeRequest(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_REQUEST, makeRequest(dictionaryEntry, grammaFormCache));
 		
 		// to ii to others
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TO_II_TO_OTHERS, makeToIIToOthers(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TO_II_TO_OTHERS, makeToIIToOthers(dictionaryEntry, grammaFormCache));
 
 		// to ii to me
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TO_II_TO_ME, makeToIIToMe(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TO_II_TO_ME, makeToIIToMe(dictionaryEntry, grammaFormCache));
 		
 		// toki
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TOKI, makeToki(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TOKI, makeToki(dictionaryEntry, grammaFormCache));
 		
 		// te arigatou
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_ARIGATOU, makeTeArigatou(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_ARIGATOU, makeTeArigatou(dictionaryEntry, grammaFormCache));
 
 		// te kute arigatou
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_KUTE_ARIGATOU, makeKuteArigatou(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_KUTE_ARIGATOU, makeKuteArigatou(dictionaryEntry, grammaFormCache));
 		
 		// te sumimasen
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_SUMIMASEN, makeTeSumimasen(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_SUMIMASEN, makeTeSumimasen(dictionaryEntry, grammaFormCache));
 
 		// kute sumimasen
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_KUTE_SUMIMASEN, makeKuteSumimasen(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_KUTE_SUMIMASEN, makeKuteSumimasen(dictionaryEntry, grammaFormCache));
 		
 		// sou desu (hear)
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_SOU_DESU_HEAR, makeSouDesuHear(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_SOU_DESU_HEAR, makeSouDesuHear(dictionaryEntry, grammaFormCache));
 
 		// sou desu (hear)
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TTE, makeTte(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TTE, makeTte(dictionaryEntry, grammaFormCache));
 		
 		// tara
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA, makeTaraExample(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TARA, makeTaraExample(dictionaryEntry, grammaFormCache));
 		
 		return result;
 	}
 
-	private static ExampleResult makeStemNiIkuExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeStemNiIkuExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String[][] templates = {
 				{ "[miejsce] [に/へ] %sに行く", "[miejsce] [に/へ] %sにいく", "[miejsce] [に/へ] %s ni iku" }, 
@@ -140,7 +143,7 @@ public class VerbExampler {
 				{ "[miejsce] [に/へ] %sに帰る", "[miejsce] [に/へ] %sにかえる", "[miejsce] [に/へ] %s ni kaeru" }
 		};
 		
-		GrammaFormConjugateResult stemForm = VerbGrammaConjugater.makeStemForm(dictionaryEntry);
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
 		
 		ExampleResult result = ExampleHelper.makeSimpleTemplateExample(stemForm, templates[0][0], templates[0][1], templates[0][2], false);
 		
@@ -154,35 +157,38 @@ public class VerbExampler {
 		return result;
 	}
 
-	private static ExampleResult makeTeIruExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeIruExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sいる";
 		final String templateKana = "%sいる";
 		final String templateRomaji = "%s iru";
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeTeKudasaiExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeKudasaiExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sください";
 		final String templateKana = "%sください";
 		final String templateRomaji = "%s kudasai";
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);		
 	}
 	
-	private static ExampleResult makeTeMoIiExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeMoIiExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sもいいです";
 		final String templateKana = "%sもいいです";
 		final String templateRomaji = "%s mo ii desu";
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		ExampleResult moIidesu = ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
 		
@@ -192,33 +198,36 @@ public class VerbExampler {
 		return moIidesu;
 	}
 	
-	private static ExampleResult makeNaiDeKudasai(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeNaiDeKudasai(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sでください";
 		final String templateKana = "%sでください";
 		final String templateRomaji = "%s de kudasai";
 		
-		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
 		return ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeMadaTeImasen(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeMadaTeImasen(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "まだ%sいません";
 		final String templateKana = "まだ%sいません";
 		final String templateRomaji = "mada %s imasen";
 
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, false);
 	}
 	
-	private static ExampleResult makeTsumoriDesu(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTsumoriDesu(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult informalPresentForm = VerbGrammaConjugater.makeInformalPresentForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT);
 		
-		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
 		final String templateKanji = "%sつもりです";
 		final String templateKana = "%sつもりです";
@@ -233,9 +242,10 @@ public class VerbExampler {
 		return tsumoriDesu;
 	}
 	
-	private static ExampleResult makeKotoGaAru(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeKotoGaAru(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PAST);
 		
 		final String templateKanji = "%sことがある";
 		final String templateKana = "%sことがある";
@@ -250,22 +260,24 @@ public class VerbExampler {
 		return kotoGaAru;
 	}
 	
-	private static ExampleResult makeTeHaIkemasenExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeHaIkemasenExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sはいけません";
 		final String templateKana = "%sはいけません";
 		final String templateRomaji = "%s wa ikemasen";
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		ExampleResult moIidesu = ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
 				
 		return moIidesu;
 	}
 	
-	private static ExampleResult makeTaiExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTaiExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult stemForm = VerbGrammaConjugater.makeStemForm(dictionaryEntry);
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
 		
 		String prefixKana = stemForm.getPrefixKana();
 		
@@ -316,9 +328,10 @@ public class VerbExampler {
 		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
 	}
 
-	private static ExampleResult makeTagatteIruExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTagatteIruExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult stemForm = VerbGrammaConjugater.makeStemForm(dictionaryEntry);
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
 		
 		final String templateKanji = "%sたがっている";
 		final String templateKana = "%sたがっている";
@@ -336,9 +349,10 @@ public class VerbExampler {
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeSugiruExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeSugiruExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult stemForm = VerbGrammaConjugater.makeStemForm(dictionaryEntry);
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
 		
 		final String templateKanji = "%sすぎる";
 		final String templateKana = "%sすぎる";
@@ -365,14 +379,15 @@ public class VerbExampler {
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeAdviceExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeAdviceExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sほうがいいです";
 		final String templateKana = "%sほうがいいです";
 		final String templateRomaji = "%s hou ga ii desu";
 		
-		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
-		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PAST);
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
 		ExampleResult houGaIiDesu = ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
 		
@@ -381,16 +396,17 @@ public class VerbExampler {
 		return houGaIiDesu;
 	}
 	
-	private static ExampleResult makeNakuchaIkemasenExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeNakuchaIkemasenExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		String postfixKana = "くちゃいけません";
 		String postfixRomaji = "kucha ikemasen";
 		
-		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
-		String kanji = informalPastForm.getKanji();
-		List<String> kanaList = informalPastForm.getKanaList();
-		List<String> romajiList = informalPastForm.getRomajiList();
+		String kanji = informalPresentNegativeForm.getKanji();
+		List<String> kanaList = informalPresentNegativeForm.getKanaList();
+		List<String> romajiList = informalPresentNegativeForm.getRomajiList();
 
 		ExampleResult result = new ExampleResult();
 				
@@ -433,13 +449,14 @@ public class VerbExampler {
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeTeMiruExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeMiruExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sみる";
 		final String templateKana = "%sみる";
 		final String templateRomaji = "%s miru";
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		ExampleResult teMiru = ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
 				
@@ -455,9 +472,10 @@ public class VerbExampler {
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeTaraExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTaraExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PAST);
 
 		final String templateKanji1 = "%sら、...";
 		final String templateKana1 = "%sら、...";
@@ -465,7 +483,7 @@ public class VerbExampler {
 		
 		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji1, templateKana1, templateRomaji1, true);
 		
-		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
 		final String templateKanji2 = "%sかったら、...";
 		final String templateKana2 = "%sかったら、...";
@@ -477,9 +495,10 @@ public class VerbExampler {
 		return exampleResult;
 	}
 	
-	private static ExampleResult makeOuToOmou(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeOuToOmou(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult volitionalForm = VerbGrammaConjugater.makeVolitionalForm(dictionaryEntry);
+		GrammaFormConjugateResult volitionalForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_VOLITIONAL);
 		
 		final String templateKanji = "%sと思う";
 		final String templateKana = "%sとおもう";
@@ -488,9 +507,10 @@ public class VerbExampler {
 		return ExampleHelper.makeSimpleTemplateExample(volitionalForm, templateKanji, templateKana, templateRomaji, true);		
 	}
 
-	private static ExampleResult makeOuToOmotteIru(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeOuToOmotteIru(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult volitionalForm = VerbGrammaConjugater.makeVolitionalForm(dictionaryEntry);
+		GrammaFormConjugateResult volitionalForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_VOLITIONAL);
 		
 		final String templateKanji = "%sと思っている";
 		final String templateKana = "%sとおもっている";
@@ -499,9 +519,10 @@ public class VerbExampler {
 		return ExampleHelper.makeSimpleTemplateExample(volitionalForm, templateKanji, templateKana, templateRomaji, true);		
 	}
 	
-	private static ExampleResult makeTaraDouDesuKaExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTaraDouDesuKaExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PAST);
 
 		final String templateKanji = "%sらどうですか";
 		final String templateKana = "%sらどうですか";
@@ -510,51 +531,56 @@ public class VerbExampler {
 		return ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeTeOkuExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeOkuExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sおく";
 		final String templateKana = "%sおく";
 		final String templateRomaji = "%s oku";
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeTeAgeruExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeAgeruExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "私 [は/が] [odbiorca] に%sあげる";
 		final String templateKana = "わたし [は/が] [odbiorca] に%sあげる";
 		final String templateRomaji = "watashi [wa/ga] [odbiorca] ni %s ageru";
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, false);
 	}
 	
-	private static ExampleResult makeTeKureruExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeKureruExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "[dający] [は/が] %sくれる";
 		final String templateKana = "[dający] [は/が] %sくれる";
 		final String templateRomaji = "[dający] [wa/ga] %s kureru";
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, false);
 	}
 	
-	private static ExampleResult makeTeMorauExample(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeMorauExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "[odbiorca] [は/が] [dający] [に/から] %sもらう";
 		final String templateKana = "[odbiorca] [は/が] [dający] [に/から] %sもらう";
 		final String templateRomaji = "[odbiorca] [wa/ga] [dający] [ni/kara] %s morau";
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		return ExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, false);
 	}
 	
-	private static ExampleResult makeRequest(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeRequest(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		String[][] templates = new String[][] {
 				{ "%sいただけませんか", "%sいただけませんか", "%s itadakemasen ka" },
@@ -562,7 +588,7 @@ public class VerbExampler {
 				{ "%sくれない", "%sくれない", "%s kurenai" }
 		};
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		ExampleResult currentExampleResult = null;
 		ExampleResult startExampleResult = null;
@@ -584,7 +610,8 @@ public class VerbExampler {
 		return startExampleResult;
 	}
 	
-	private static ExampleResult makeToIIToOthers(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeToIIToOthers(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sといいですね";
 		final String templateKana = "%sといいですね";
@@ -592,14 +619,15 @@ public class VerbExampler {
 		
 		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 		
-		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
 		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true));
 		
 		return exampleResult;
 	}
 	
-	private static ExampleResult makeToIIToMe(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeToIIToMe(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji1 = "%sといいんですが";
 		final String templateKana1 = "%sといいんですが";
@@ -614,7 +642,7 @@ public class VerbExampler {
 		
 		exampleResult1.setAlternative(exampleResult2);
 		
-		GrammaFormConjugateResult informalPresentNegativeForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
 		exampleResult2.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji1, templateKana1, templateRomaji1, true));
 		exampleResult2.getAlternative().setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
@@ -622,7 +650,8 @@ public class VerbExampler {
 		return exampleResult1;
 	}
 	
-	private static ExampleResult makeToki(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeToki(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%s時、...";
 		final String templateKana = "%sとき、...";
@@ -630,21 +659,22 @@ public class VerbExampler {
 		
 		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 		
-		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PAST);
 		
 		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true));
 		
 		return exampleResult;
 	}
 	
-	private static ExampleResult makeTeArigatou(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeArigatou(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		String[][] templates = new String[][] {
 				{ "%sくれて、ありがとう", "%sくれて、ありがとう", "%s kurete, arigatou" },
 				{ "%s、ありがとう", "%s、ありがとう", "%s, arigatou" }
 		};
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		ExampleResult currentExampleResult = null;
 		ExampleResult startExampleResult = null;
@@ -666,14 +696,15 @@ public class VerbExampler {
 		return startExampleResult;
 	}
 	
-	private static ExampleResult makeKuteArigatou(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeKuteArigatou(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		String[][] templates = new String[][] {
 				{ "%sくてくれて、ありがとう", "%sくてくれて、ありがとう", "%skute kurete, arigatou" },
 				{ "%sくて、ありがとう", "%sくて、ありがとう", "%skute, arigatou" }				
 		};
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
 		ExampleResult currentExampleResult = null;
 		ExampleResult startExampleResult = null;
@@ -681,10 +712,10 @@ public class VerbExampler {
 		for (int idx = 0; idx < templates.length; ++idx) {
 			
 			if (idx == 0) {
-				startExampleResult = currentExampleResult = ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+				startExampleResult = currentExampleResult = ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
 			} else {
 				ExampleResult alternativeExampleResult = 
-						ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+						ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
 				
 				currentExampleResult.setAlternative(alternativeExampleResult);
 				
@@ -695,7 +726,8 @@ public class VerbExampler {
 		return startExampleResult;
 	}
 
-	private static ExampleResult makeTeSumimasen(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTeSumimasen(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		String[][] templates = new String[][] {
 				{ "%s、すみませんでした", "%s、すみませんでした", "%s, sumimasen deshita" },
@@ -703,7 +735,7 @@ public class VerbExampler {
 				{ "%s、ごめん", "%s、ごめん", "%s, gomen" }
 		};
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeTeForm(dictionaryEntry);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 		
 		ExampleResult currentExampleResult = null;
 		ExampleResult startExampleResult = null;
@@ -725,7 +757,8 @@ public class VerbExampler {
 		return startExampleResult;
 	}
 	
-	private static ExampleResult makeKuteSumimasen(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeKuteSumimasen(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		String[][] templates = new String[][] {
 				{ "%sくて、すみませんでした", "%sくて、すみませんでした", "%skute, sumimasen deshita" },
@@ -733,7 +766,7 @@ public class VerbExampler {
 				{ "%sくて、ごめん", "%sくて、ごめん", "%skute, gomen" }	
 		};
 		
-		GrammaFormConjugateResult teForm = VerbGrammaConjugater.makeInformalPresentNegativeForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
 		ExampleResult currentExampleResult = null;
 		ExampleResult startExampleResult = null;
@@ -741,10 +774,10 @@ public class VerbExampler {
 		for (int idx = 0; idx < templates.length; ++idx) {
 			
 			if (idx == 0) {
-				startExampleResult = currentExampleResult = ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+				startExampleResult = currentExampleResult = ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
 			} else {
 				ExampleResult alternativeExampleResult = 
-						ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(teForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
+						ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templates[idx][0], templates[idx][1], templates[idx][2], true);
 				
 				currentExampleResult.setAlternative(alternativeExampleResult);
 				
@@ -755,7 +788,8 @@ public class VerbExampler {
 		return startExampleResult;
 	}
 	
-	private static ExampleResult makeSouDesuHear(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeSouDesuHear(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sそうです";
 		final String templateKana = "%sそうです";
@@ -763,14 +797,15 @@ public class VerbExampler {
 
 		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 		
-		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PAST);
 		
 		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true));
 		
 		return exampleResult;
 	}	
 
-	private static ExampleResult makeTte(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeTte(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		final String templateKanji = "%sって";
 		final String templateKana = "%sって";
@@ -778,7 +813,7 @@ public class VerbExampler {
 
 		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 		
-		GrammaFormConjugateResult informalPastForm = VerbGrammaConjugater.makeInformalPastForm(dictionaryEntry);
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PAST);
 		
 		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true));
 		
