@@ -60,6 +60,9 @@ public class AdjectiveNaExampler {
 		// tara
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_TARA, makeTaraExample(dictionaryEntry, grammaFormCache));
 		
+		// nakute mo ii desu
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_NAKUTE_MO_II_DESU, makeNakuteMoIiDesu(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -272,5 +275,17 @@ public class AdjectiveNaExampler {
 				informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
 		
 		return exampleResult;
+	}
+	
+	private static ExampleResult makeNakuteMoIiDesu(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.ADJECTIVE_NA_INFORMAL_PRESENT_NEGATIVE);
+		
+		final String templateKanji2 = "%sくてもいいです";
+		final String templateKana2 = "%sくてもいいです";
+		final String templateRomaji2 = "%skute mo ii desu";
+		
+		return ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true);
 	}
 }

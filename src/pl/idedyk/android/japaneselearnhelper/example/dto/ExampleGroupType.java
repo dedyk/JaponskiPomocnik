@@ -30,6 +30,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_TARA("Jeśli (tryb warunkowy), to ..."),
 	
+	ADJECTIVE_I_NAKUTE_MO_II_DESU("Nie trzeba"),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -57,6 +59,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
 	
 	ADJECTIVE_NA_TARA("Jeśli (tryb warunkowy), to ..."),
+	
+	ADJECTIVE_NA_NAKUTE_MO_II_DESU("Nie trzeba"),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -90,7 +94,7 @@ public enum ExampleGroupType {
 	NOUN_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
 	
 	NOUN_TARA("Jeśli (tryb warunkowy), to ..."),
-	
+		
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
 	VERB_TAGATTE_IRU("Chcieć (III osoba)"),
@@ -164,7 +168,9 @@ public enum ExampleGroupType {
 	
 	VERB_SOU_DESU_HEAR("Słyszałem, że ..."),
 	
-	VERB_TTE("Forma tte", "Zastępuje そうです oraz と言っていました");
+	VERB_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
+	
+	VERB_NAKUTE_MO_II_DESU("Nie trzeba tego robić");
 	
 	private String name;
 	
