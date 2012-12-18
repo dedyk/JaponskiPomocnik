@@ -86,6 +86,7 @@ public class GroupsHelper {
 		groupsPower.put("Genki 2-14", ++power);
 		groupsPower.put("Genki 2-15", ++power);
 		groupsPower.put("Genki 2-16", ++power);
+		groupsPower.put("Genki 2-17", ++power);
 		
 		groupsPower.put("Genki dodatkowe 2-13", ++power);
 		groupsPower.put("Genki dodatkowe 2-14", ++power);
