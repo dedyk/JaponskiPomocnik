@@ -767,8 +767,7 @@ Genki kanji 1-8",,休む,やすむ,,yasumu,odpoczywać,,
 Genki kanji 2-16",を,開ける,あける,o,akeru,otwierać,,
 486,WORD,WORD_VERB_RU,HIRAGANA,"Genki 1-6
 Genki kanji 2-16",を,教える,おしえる,o,oshieru,uczyć,"kogoś, osoba ni rzecz",
-487,WORD,WORD_VERB_RU,HIRAGANA,Genki 1-6,を,降りる,おりる,o,oriru,"zdejmować
-wysiadać",,
+487,WORD,WORD_VERB_RU,HIRAGANA,Genki 1-6,を,降りる,おりる,o,oriru,wysiadać,,
 488,WORD,WORD_VERB_RU,HIRAGANA,"Genki 1-6
 Genki kanji 2-15",を,借りる,かりる,o,kariru,pożyczać,"od kogoś, osoba ni rzecz",
 489,WORD,WORD_VERB_RU,HIRAGANA,Genki 1-6,を,閉める,しめる,o,shimeru,zamykać,,
@@ -1205,7 +1204,7 @@ szybko",zrobić coś,
 785,WORD,WORD_NOUN,HIRAGANA,Inne,,お巡り,おまわり,,omawari,policjant,patrolujący ulice,
 786,WORD,WORD_VERB_U,HIRAGANA,Inne,を,上がる,あがる,o,agaru,iść pod górę,,
 787,WORD,WORD_NOUN,HIRAGANA,Inne,,階段,かいだん,,kaidan,schody,,
-788,WORD,WORD_VERB_U,HIRAGANA,Inne,を,下りる,おりる,o,oriru,schodzić,,
+788,WORD,WORD_VERB_RU,HIRAGANA,Inne,を,下りる,おりる,o,oriru,schodzić,,
 789,WORD,WORD_NOUN,HIRAGANA,Genki kanji 2-15,,駐車場,ちゅうしゃじょう,,chuushajou,miejsce parkingowe,,
 790,WORD,WORD_VERB_U,HIRAGANA,Genki kanji 1-6,,学ぶ,まなぶ,,manabu,uczyć się,ogólnie,
 791,WORD,WORD_VERB_U,HIRAGANA,Genki 1-11,,習う,ならう,,narau,uczyć się,czegoś praktycznego,
@@ -3159,3 +3158,10 @@ akademik",,
 jednak",,
 2239,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,に,比べて,くらべて,ni,kurabete,w porównaniu z,~,
 2240,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,に,-,よると,ni,yoruto,według,,
+2241,WORD,WORD_NOUN,KATAKANA,Inne,,-,コアラ,,koara,miś koala,,
+2242,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,女々しい,めめしい,,memeshii,zniewieściały,,
+2243,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,軟らかい,やわらかい,,yawarakai,"miękki
+łagodny
+delikatny",,
+2244,WORD,WORD_VERB_RU,HIRAGANA,Inne,,溶ける,とける,,tokeru,"topić się
+rozpuszczać się",,
