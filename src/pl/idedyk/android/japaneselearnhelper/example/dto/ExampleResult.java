@@ -16,6 +16,8 @@ public class ExampleResult implements Serializable {
 	private String prefixRomaji;
 	
 	private List<String> romajiList;
+	
+	private String info;
 		
 	private ExampleResult alternative;
 	
@@ -65,6 +67,14 @@ public class ExampleResult implements Serializable {
 
 	public void setPrefixRomaji(String prefixRomaji) {
 		this.prefixRomaji = prefixRomaji;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
 	}
 
 	public boolean isKanjiExists() {

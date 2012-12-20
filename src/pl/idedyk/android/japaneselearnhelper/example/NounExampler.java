@@ -68,6 +68,9 @@ public class NounExampler {
 		// tara
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TARA, makeTaraExample(dictionaryEntry, grammaFormCache));
 		
+		// mitai desu
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_MITAI_DESU, makeMitaiDesuExample(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -292,6 +295,36 @@ public class NounExampler {
 		exampleResult.setAlternative(ExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(
 				informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true));
 		
+		return exampleResult;
+	}
+	
+	private static ExampleResult makeMitaiDesuExample(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji1 = "%sみたいです";
+		final String templateKana1 = "%sみたいです";
+		final String templateRomaji1 = "%s mitai desu";
+
+		ExampleResult exampleResult = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+
+		final String templateKanji2 = "%sみたいな";
+		final String templateKana2 = "%sみたいな";
+		final String templateRomaji2 = "%s mitai na";
+		
+		ExampleResult alternative2 = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, true);
+		
+		alternative2.setInfo("Zachowuje się, jak na-przymiotnik");
+		
+		exampleResult.setAlternative(alternative2);
+		
+		final String templateKanji3 = "%sみたいに [przymiotnik, czasownik]";
+		final String templateKana3 = "%sみたいに [przymiotnik, czasownik]";
+		final String templateRomaji3 = "%s mitai ni [przymiotnik, czasownik]";
+		
+		ExampleResult alternative3 = ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji3, templateKana3, templateRomaji3, true);
+
+		alternative2.setAlternative(alternative3);
+	
 		return exampleResult;
 	}
 }

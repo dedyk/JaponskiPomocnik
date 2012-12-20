@@ -14,7 +14,7 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_DESHOU("Prawdopodobnie, ok. 60%"),
 	
-	ADJECTIVE_I_SOU_DESU_LOOKS_LIKE("Wygląda na"),
+	ADJECTIVE_I_SOU_DESU_LOOKS_LIKE("Wygląda na", "Bardziej używane do odbieranych przez zmysły informacji, tylko do przymiotników"),
 	
 	ADJECTIVE_I_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
@@ -32,6 +32,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_NAKUTE_MO_II_DESU("Nie trzeba"),
 	
+	ADJECTIVE_I_MITAI_DESU("Wygląda, jak", "Bardziej używane z analizy sytuacji, do przymiotników częściej forma そうです"),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -44,7 +46,7 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_NA_DESHOU("Prawdopodobnie, ok. 60%"),
 	
-	ADJECTIVE_NA_SOU_DESU_LOOKS_LIKE("Wygląda na"),
+	ADJECTIVE_NA_SOU_DESU_LOOKS_LIKE("Wygląda na", "Bardziej używane do odbieranych przez zmysły informacji, tylko do przymiotników"),
 	
 	ADJECTIVE_NA_KAMOSHI_REMASEN("Prawdopodobnie, ok. 30%"),
 	
@@ -61,6 +63,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_TARA("Jeśli (tryb warunkowy), to ..."),
 	
 	ADJECTIVE_NA_NAKUTE_MO_II_DESU("Nie trzeba"),
+	
+	ADJECTIVE_NA_MITAI_DESU("Wygląda, jak", "Bardziej używane z analizy sytuacji, do przymiotników częściej forma そうです"),
 	
 	NOUN_NARU("Stawać się"),
 	
@@ -94,6 +98,8 @@ public enum ExampleGroupType {
 	NOUN_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
 	
 	NOUN_TARA("Jeśli (tryb warunkowy), to ..."),
+	
+	NOUN_MITAI_DESU("Wygląda, jak", "Bardziej używane z analizy sytuacji"),
 		
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -170,7 +176,9 @@ public enum ExampleGroupType {
 	
 	VERB_TTE("Forma tte", "Zastępuje そうです oraz と言っていました"),
 	
-	VERB_NAKUTE_MO_II_DESU("Nie trzeba tego robić");
+	VERB_NAKUTE_MO_II_DESU("Nie trzeba tego robić"),
+	
+	VERB_MITAI_DESU("Wygląda, jak", "Bardziej używane z analizy sytuacji");
 	
 	private String name;
 	

@@ -700,6 +700,12 @@ public class WordDictionaryDetails extends Activity {
 			
 			report.add(new StringValue(exampleRomajiSb.toString(), 15.0f, 2));
 			
+			String exampleResultInfo = exampleResult.getInfo();
+			
+			if (exampleResultInfo != null) {
+				report.add(new StringValue(exampleResultInfo, 12.0f, 2));
+			}
+			
 			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 2);
 			
 			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, exampleKanaList.get(idx)));
