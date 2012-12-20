@@ -137,6 +137,12 @@ public class VerbExampler {
 		// mitai desu
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_MITAI_DESU, makeMitaiDesuExample(dictionaryEntry, grammaFormCache));
 		
+		// mae ni
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_MAE_NI, makeMaeNi(dictionaryEntry, grammaFormCache));
+
+		// te kara
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_KARA, makeTeKara(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -874,5 +880,27 @@ public class VerbExampler {
 		alternative5.setAlternative(alternative6);	
 			
 		return exampleResult;
+	}
+	
+	private static ExampleResult makeMaeNi(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "%s前に, ...";
+		final String templateKana = "%sまえに, ...";
+		final String templateRomaji = "%s mae ni, ...";
+
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);	
+	}
+	
+	private static ExampleResult makeTeKara(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "%sから, ...";
+		final String templateKana = "%sから, ...";
+		final String templateRomaji = "%s kara, ...";
+		
+		GrammaFormConjugateResult verbTe = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
+
+		return ExampleHelper.makeSimpleTemplateExample(verbTe, templateKanji, templateKana, templateRomaji, true);	
 	}
 }

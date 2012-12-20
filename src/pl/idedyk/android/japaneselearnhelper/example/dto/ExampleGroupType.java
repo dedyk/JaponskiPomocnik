@@ -178,7 +178,11 @@ public enum ExampleGroupType {
 	
 	VERB_NAKUTE_MO_II_DESU("Nie trzeba tego robić"),
 	
-	VERB_MITAI_DESU("Wygląda, jak", "Bardziej używane z analizy sytuacji");
+	VERB_MITAI_DESU("Wygląda, jak", "Bardziej używane z analizy sytuacji"),
+	
+	VERB_MAE_NI("Przed czynnością, robię ..."),
+	
+	VERB_TE_KARA("Po czynności, robię ...");
 	
 	private String name;
 	
