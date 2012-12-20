@@ -97,6 +97,7 @@ public class GroupsHelper {
 		groupsPower.put("Genki kanji 2-14", ++power);
 		groupsPower.put("Genki kanji 2-15", ++power);
 		groupsPower.put("Genki kanji 2-16", ++power);
+		groupsPower.put("Genki kanji 2-17", ++power);
 		
 		groupsPower.put("Klasyfikatory", ++power);
 		groupsPower.put("Inne", ++power);
