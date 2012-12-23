@@ -3160,7 +3160,9 @@ akademik",,
 2225,WORD,WORD_VERB_U,HIRAGANA,Genki 2-17,,お湯を沸かす,おゆをわかす,,oyu o wakasu,zagotować wodę,,
 2226,WORD,WORD_VERB_U,HIRAGANA,Genki 2-17,,髪をとかす,かみをとかす,,kami o tokasu,czesać,włosy,
 2227,WORD,WORD_VERB_U,HIRAGANA,Genki 2-17,,宝くじに当たる,たからくじにあたる,,takarakuji ni ataru,wygrać na loterii,,
-2228,WORD,WORD_VERB_U,HIRAGANA,Genki 2-17,,脱ぐ,ぬぐ,,nugu,zdejmować,ubranie,
+2228,WORD,WORD_VERB_U,HIRAGANA,Genki 2-17,,脱ぐ,ぬぐ,,nugu,"zdejmować
+rozbierać
+usuwać",ubranie,
 2229,WORD,WORD_VERB_RU,HIRAGANA,Genki 2-17,,-,いれる,,ireru,robić,"herbatę, kawę",
 2230,WORD,WORD_VERB_RU,HIRAGANA,Genki 2-17,に,慣れる,なれる,ni,nareru,przyzwyczaić się do,,
 2231,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Genki 2-17,,就職する,しゅうしょくする,,shuushoku suru,dostać pracę,w pełnym wymiarze godzin,
@@ -3193,7 +3195,9 @@ trening",,
 2252,KANJI,WORD_ADVERB,HIRAGANA,Genki kanji 2-17,,主に,おもに,,omoni,głównie,,
 2253,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,主語,しゅご,,shugo,temat zdania,,
 2254,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,持ち主,もちぬし,,mochinushi,właściciel,,
-2255,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-17,,結果,けっか,,kekka,rezultat,,
+2255,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-17,,結果,けっか,,kekka,"wynik
+rezultat
+konsekwencja",,
 2256,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,結論,けつろん,,ketsuron,konkluzja,,
 2257,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,結ぶ,むすぶ,,musubu,"wiązać
 łączyć",,
@@ -3260,3 +3264,46 @@ trąba",,
 2299,WORD,WORD_NOUN,HIRAGANA,Inne,,鋭角,えいかく,,eikaku,kąt ostry,,
 2300,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,豊か,ゆたか,,yutaka,"bogaty
 zamożny",,
+2301,WORD,WORD_VERB_RU,HIRAGANA,Inne,,脱げる,ぬげる,,nugeru,"spadać
+zsuwać się",ubranie,
+2302,WORD,WORD_NOUN,HIRAGANA,Inne,,脱衣,だつい,,datsui,rozbieranie,,
+2303,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,脱衣する,だついする,,datsui suru,rozbierać się,,
+2304,WORD,WORD_NOUN,HIRAGANA,Inne,,脱衣所,だついじょ,,datsuijo,przebieralnia,,
+2305,WORD,WORD_VERB_RU,HIRAGANA,Inne,,膨れる,ふくれる,,fukureru,"puchnąć
+rozszerzać się
+tyć",,
+2306,WORD,WORD_VERB_RU,HIRAGANA,Inne,,脹れる,ふくれる,,fukureru,"puchnąć
+rozszerzać się
+wydymać się",,
+2307,WORD,WORD_NOUN,HIRAGANA,Inne,,衣類,いるい,,irui,odzież,,
+2308,WORD,WORD_NOUN,HIRAGANA,Inne,,衣料,いりょう,,iryou,odzież,,
+2309,WORD,WORD_NOUN,HIRAGANA,Inne,,衣服,いふく,,ifuku,"ubranie
+odzież",,
+2310,WORD,WORD_NOUN,KATAKANA,Inne,,-,スケートボード,,sukeetoboodo,deskorolka,,
+2311,WORD,WORD_NOUN,KATAKANA,Inne,,-,ローラースケート,,rooraa sukeeto,wrotki,,
+2312,WORD,WORD_NOUN,KATAKANA,Inne,,-,インラインスケート,,inrain sukeeto,rolki,,
+2313,WORD,WORD_VERB_U,HIRAGANA,Inne,,沈む,しずむ,,shizumu,"tonąć
+być zalewanym
+iść w dół",,
+2314,WORD,WORD_VERB_RU,HIRAGANA,Inne,,沈める,しずめる,,shizumeru,"zatapiać
+wysyłać na dno
+zalewać",,
+2315,WORD,WORD_NOUN,HIRAGANA,Inne,,核果,かっか,,kakka,pestka,cześć owocu,
+2316,WORD,WORD_VERB_U,HIRAGANA,Inne,,果たす,はたす,,hatasu,"realizować
+kończyć
+osiągnąć",,
+2317,WORD,WORD_VERB_RU,HIRAGANA,Inne,,果てる,はてる,,hateru,"kończyć się
+być wykończonym",,
+2318,WORD,WORD_NOUN,HIRAGANA,Inne,,果て,はて,,hate,"koniec
+granica",,
+2319,WORD,WORD_NOUN,HIRAGANA,Inne,,成果,せいか,,seika,"wynik
+owoc (pracy)",,
+2320,WORD,WORD_NOUN,HIRAGANA,Inne,,果物,くだもの,,kudamono,owoc,,
+2321,WORD,WORD_NOUN,HIRAGANA,Inne,,果樹,かじゅ,,kaju,drzewo owocowe,,
+2322,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,果断,かだん,,kadan,"zdecydowany
+stanowczy",,
+2323,WORD,WORD_NOUN,HIRAGANA,Inne,,画像,がぞう,,gazou,"obrazek
+rysunek",,
+2324,WORD,WORD_NOUN,HIRAGANA,Inne,,動画,どうが,,douga,"animacja
+video
+film",,
