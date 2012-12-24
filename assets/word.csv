@@ -184,7 +184,8 @@ Genki 1-8
 Genki kanji 1-6",,大学生,だいがくせい,,daigakusei,student,,
 117,WORD,WORD_NOUN,HIRAGANA,"Genki 1-1
 Genki 1-11
-Genki 2-13",,弁護士,べんごし,,bengoshi,prawnik,,
+Genki 2-13",,弁護士,べんごし,,bengoshi,"prawnik
+adwokat",,
 118,WORD,WORD_NOUN,HIRAGANA,"Genki 1-1
 Genki 1-7
 Genki kanji 1-7",,お母さん,おかあさん,,okaasan,matka,spoza swojej rodziny lub własna rodzina - nieformalnie,
@@ -1586,7 +1587,9 @@ Genki kanji 2-13",,空港,くうこう,,kuukou,lotnisko,,
 Genki 2-14
 Genki kanji 2-13",,同じ,おなじ,,onaji,taki sam,,
 1056,WORD,WORD_VERB_RU,HIRAGANA,"Genki dodatkowe 2-13
-Genki kanji 2-16",を,考える,かんがえる,o,kangaeru,myśleć o,"~ czymś, „myśleć w głowie”, bardziej analityczne, rozwiązywać, analizować",
+Genki kanji 2-16",を,考える,かんがえる,o,kangaeru,"myśleć o
+zastanawiać się
+przypuszczać","~ czymś, „myśleć w głowie”, bardziej analityczne, rozwiązywać, analizować",
 1057,WORD,UNKNOWN,HIRAGANA,"Genki dodatkowe 2-13
 Genki kanji 2-13",,昼,ひる,,hiru,"południe
 cały dzień",,
@@ -2142,7 +2145,7 @@ Genki 2-17",,給料,きゅうりょう,,kyuuryou,pensja,,
 1492,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-13,,理由,りゆう,,riyuu,powód,,
 1493,KANJI,WORD_NOUN,HIRAGANA,"Genki kanji 2-13
 Genki kanji 2-14",,特急電車,とっきゅうでんしゃ,,tokkyuu densha,super express,pociąg,
-1494,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-13,,安心,あんしん,,anshin,"spokój
+1494,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,Genki kanji 2-13,,安心,あんしん,,anshin,"spokój
 ukojenie",,
 1495,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,"Genki kanji 2-13
 Genki kanji 2-16",,安全,あんぜん,,anzen,"bezpieczny
@@ -2985,7 +2988,8 @@ mniej niż",,
 dawniej
 przed",czymś,
 2119,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-16,,以後,いご,,igo,po,czymś,
-2120,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-16,,考え,かんがえ,,kangae,myśl,,
+2120,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-16,,考え,かんがえ,,kangae,"myśl
+pomysł",,
 2121,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-16,,考古学,こうこがく,,koukogaku,archeologia,,
 2122,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-16,,参考,さんこう,,sankou,"odnośnik
 referencja
@@ -3169,141 +3173,179 @@ usuwać",ubranie,
 2232,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Genki 2-17,,-,する,,suru,nosić małe przedmioty,"np. krawaty, zegarki i etc",
 2233,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Genki 2-17,,離婚する,りこんする,,rikon suru,rozwodzić się,,
 2234,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,おめでとうございます,,omedetou gozaimasu,gratulacje,,
-2235,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,かな,,kana,zastanawiać się nad,"~, mowa potoczna",
-2236,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,かなあ,,kanaa,zastanawiać się nad,"~, mowa potoczna",
-2237,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,そうか,,souka,rozumiem,mowa potoczna,
-2238,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,それに,,soreni,"mimo wszystko
+2235,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,"かな
+かなあ",,"kana
+kanaa",zastanawiać się nad,"~, mowa potoczna",
+2236,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,そうか,,souka,rozumiem,mowa potoczna,
+2237,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,それに,,soreni,"mimo wszystko
 jednak",,
-2239,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,に,比べて,くらべて,ni,kurabete,w porównaniu z,~,
-2240,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,に,-,よると,ni,yoruto,według,,
-2241,WORD,WORD_NOUN,KATAKANA,Inne,,-,コアラ,,koara,miś koala,,
-2242,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,女々しい,めめしい,,memeshii,zniewieściały,,
-2243,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,軟らかい,やわらかい,,yawarakai,"miękki
+2238,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,に,比べて,くらべて,ni,kurabete,w porównaniu z,~,
+2239,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,に,依ると,よると,ni,yoruto,według,,
+2240,WORD,WORD_NOUN,KATAKANA,Inne,,-,コアラ,,koara,miś koala,,
+2241,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,女々しい,めめしい,,memeshii,zniewieściały,,
+2242,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,軟らかい,やわらかい,,yawarakai,"miękki
 łagodny
 delikatny",,
-2244,WORD,WORD_VERB_RU,HIRAGANA,Inne,,溶ける,とける,,tokeru,"topić się
+2243,WORD,WORD_VERB_RU,HIRAGANA,Inne,,溶ける,とける,,tokeru,"topić się
 rozpuszczać się",,
-2245,WORD,WORD_NOUN,HIRAGANA,Inne,,煙突,えんとつ,,entotsu,komin,,
-2246,WORD,WORD_NOUN,HIRAGANA,Inne,,煙突掃除夫,えんとつそうじふ,,entotsu soujifu,kominiarz,,
-2247,KANJI,WORD_AGE,HIRAGANA,Genki kanji 2-17,,二十五歳,にじゅうごさい,,ni juu go sai,dwadzieścia pięć lat,wiek,
-2248,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,お歳暮,おせいぼ,,oseibo,prezent na zakończenie roku,,
-2249,WORD,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,お中元,おちゅうげん,,ochuugen,prezent dawany podczas festiwalu o-bon,,
-2250,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,習字,しゅうじ,,shuuji,kaligrafia,,
-2251,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,練習,れんしゅう,,renshuu,"praktyka
+2244,WORD,WORD_NOUN,HIRAGANA,Inne,,煙突,えんとつ,,entotsu,komin,,
+2245,WORD,WORD_NOUN,HIRAGANA,Inne,,煙突掃除夫,えんとつそうじふ,,entotsu soujifu,kominiarz,,
+2246,KANJI,WORD_AGE,HIRAGANA,Genki kanji 2-17,,二十五歳,にじゅうごさい,,ni juu go sai,dwadzieścia pięć lat,wiek,
+2247,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,お歳暮,おせいぼ,,oseibo,prezent na zakończenie roku,,
+2248,WORD,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,お中元,おちゅうげん,,ochuugen,prezent dawany podczas festiwalu o-bon,,
+2249,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,習字,しゅうじ,,shuuji,kaligrafia,,
+2250,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,練習,れんしゅう,,renshuu,"praktyka
 ćwiczenia
 trening",,
-2252,KANJI,WORD_ADVERB,HIRAGANA,Genki kanji 2-17,,主に,おもに,,omoni,głównie,,
-2253,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,主語,しゅご,,shugo,temat zdania,,
-2254,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,持ち主,もちぬし,,mochinushi,właściciel,,
-2255,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-17,,結果,けっか,,kekka,"wynik
+2251,KANJI,WORD_ADVERB,HIRAGANA,Genki kanji 2-17,,主に,おもに,,omoni,głównie,,
+2252,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,主語,しゅご,,shugo,temat zdania,,
+2253,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,持ち主,もちぬし,,mochinushi,właściciel,,
+2254,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-17,,結果,けっか,,kekka,"wynik
 rezultat
 konsekwencja",,
-2256,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,結論,けつろん,,ketsuron,konkluzja,,
-2257,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,結ぶ,むすぶ,,musubu,"wiązać
+2255,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,結論,けつろん,,ketsuron,konkluzja,,
+2256,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,結ぶ,むすぶ,,musubu,"wiązać
 łączyć",,
-2258,WORD,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,婚約,こんやく,,kon'yaku,zaręczyny,,
-2259,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Genki kanji 2-17,,婚約する,こんやくする,,kon'yaku suru,zaręczać się,,
-2260,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,婚約者,こんやくしゃ,,kon'yakusha,"narzeczona
+2257,WORD,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,婚約,こんやく,,kon'yaku,zaręczyny,,
+2258,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Genki kanji 2-17,,婚約する,こんやくする,,kon'yaku suru,zaręczać się,,
+2259,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,婚約者,こんやくしゃ,,kon'yakusha,"narzeczona
 zaręczony
 zaręczona",,
-2261,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,特集,とくしゅう,,tokushuu,reportaż,w magazynie,
-2262,KANJI,WORD_VERB_IRREGULAR,HIRAGANA,Genki kanji 2-17,,集中する,しゅうちゅうする,,shuuchuu suru,"koncentrować się
+2260,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,特集,とくしゅう,,tokushuu,reportaż,w magazynie,
+2261,KANJI,WORD_VERB_IRREGULAR,HIRAGANA,Genki kanji 2-17,,集中する,しゅうちゅうする,,shuuchuu suru,"koncentrować się
 skupiać się",na czymś,
-2263,KANJI,WORD_VERB_IRREGULAR,HIRAGANA,Genki kanji 2-17,,発表する,はっぴょうする,,happyou suru,prezentować,,
-2264,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,出発,しゅっぱつ,,shuppatsu,"wyjazd
+2262,KANJI,WORD_VERB_IRREGULAR,HIRAGANA,Genki kanji 2-17,,発表する,はっぴょうする,,happyou suru,prezentować,,
+2263,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,出発,しゅっぱつ,,shuppatsu,"wyjazd
 wylot",,
-2265,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,表紙,ひょうし,,hyoushi,strona tytułowa,,
-2266,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,表す,あらわす,,arawasu,"wyrażać
+2264,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,表紙,ひょうし,,hyoushi,strona tytułowa,,
+2265,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,表す,あらわす,,arawasu,"wyrażać
 wypowiadać",np. opinię,
-2267,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,Genki kanji 2-17,,上品,じょうひん,,jouhin,elegancki,,
-2268,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,品物,しなもの,,shinamono,"artykuł
+2266,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,Genki kanji 2-17,,上品,じょうひん,,jouhin,elegancki,,
+2267,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,品物,しなもの,,shinamono,"artykuł
 towar
 przedmiot",,
-2269,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,赤字,あかじ,,akaji,deficyt,,
-2270,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,名字,みょうじ,,myouji,nazwisko,,
-2271,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,大文字,おおもじ,,oomoji,duże litery,,
-2272,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,活動,かつどう,,katsudou,aktywność,,
-2273,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,Genki kanji 2-17,,活発,かっぱつ,,kappatsu,"żywy
+2268,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,赤字,あかじ,,akaji,deficyt,,
+2269,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,名字,みょうじ,,myouji,nazwisko,,
+2270,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,大文字,おおもじ,,oomoji,duże litery,,
+2271,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,活動,かつどう,,katsudou,aktywność,,
+2272,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,Genki kanji 2-17,,活発,かっぱつ,,kappatsu,"żywy
 ożywiony
 energiczny",,
-2274,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,写生,しゃせい,,shasei,szkic,,
-2275,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,写す,うつす,,utsusu,kopiować,,
-2276,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,真ん中,まんなか,,mannaka,"środek
+2273,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,写生,しゃせい,,shasei,szkic,,
+2274,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,写す,うつす,,utsusu,kopiować,,
+2275,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,真ん中,まんなか,,mannaka,"środek
 centrum",,
-2277,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-17,,の真上,のまうえ,,no maue,powyżej,~,
-2278,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-17,,真夜中,まよなか,,mayonaka,północ,środek nocy,
-2279,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,歩く,あるく,,aruku,chodzić,,
-2280,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,歩道,ほどう,,hodou,chodnik,,
-2281,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,分野,ぶんや,,bun'ya,"dziedzina
+2276,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-17,,の真上,のまうえ,,no maue,powyżej,~,
+2277,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-17,,真夜中,まよなか,,mayonaka,północ,środek nocy,
+2278,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,歩く,あるく,,aruku,chodzić,,
+2279,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,歩道,ほどう,,hodou,chodnik,,
+2280,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,分野,ぶんや,,bun'ya,"dziedzina
 dział
 pole",,
-2282,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,小野さん,おのさん,,ono san,Pan/Pani Ono,,
-2283,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,長野,ながの,,nagano,Nagano,"miasto, prefektura w Japonii",
-2284,WORD,UNKNOWN,HIRAGANA,Inne,,生,なま,,nama,surowe,"np. mięso, jajko i etc.",
-2285,WORD,WORD_NOUN,HIRAGANA,Inne,,生肉,なまにく,,nama niku,surowe mięso,,
-2286,WORD,WORD_NOUN,HIRAGANA,Inne,,生卵,なまたまご,,nama tamago,surowe jajko,,
-2287,WORD,WORD_NOUN,HIRAGANA,Inne,,現実,げんじつ,,genjitsu,rzeczywistość,,
-2288,WORD,UNKNOWN,HIRAGANA,Inne,,事実,じじつ,,jijitsu,fakt,,
-2289,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,真実,しんじつ,,shinjitsu,prawda,,
-2290,WORD,WORD_NOUN,HIRAGANA,Inne,,実験室,じっけんしつ,,jikkenshitsu,laboratorium,,
-2291,WORD,WORD_NOUN,HIRAGANA,Inne,,実力,じつりょく,,jitsuryoku,"rzeczywista siła
+2281,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,小野さん,おのさん,,ono san,Pan/Pani Ono,,
+2282,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,長野,ながの,,nagano,Nagano,"miasto, prefektura w Japonii",
+2283,WORD,UNKNOWN,HIRAGANA,Inne,,生,なま,,nama,surowe,"np. mięso, jajko i etc.",
+2284,WORD,WORD_NOUN,HIRAGANA,Inne,,生肉,なまにく,,nama niku,surowe mięso,,
+2285,WORD,WORD_NOUN,HIRAGANA,Inne,,生卵,なまたまご,,nama tamago,surowe jajko,,
+2286,WORD,WORD_NOUN,HIRAGANA,Inne,,現実,げんじつ,,genjitsu,rzeczywistość,,
+2287,WORD,UNKNOWN,HIRAGANA,Inne,,事実,じじつ,,jijitsu,fakt,,
+2288,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,真実,しんじつ,,shinjitsu,prawda,,
+2289,WORD,WORD_NOUN,HIRAGANA,Inne,,実験室,じっけんしつ,,jikkenshitsu,laboratorium,,
+2290,WORD,WORD_NOUN,HIRAGANA,Inne,,実力,じつりょく,,jitsuryoku,"rzeczywista siła
 możliwości",,
-2292,WORD,WORD_VERB_U,HIRAGANA,Inne,,実る,みのる,,minoru,"owocować
+2291,WORD,WORD_VERB_U,HIRAGANA,Inne,,実る,みのる,,minoru,"owocować
 dojrzewać",,
-2293,WORD,WORD_NOUN,KATAKANA,Inne,,-,ヤドリギ,,yadorigi,jemioła pospolita,,
-2294,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,鋭い,するどい,,surudoi,"ostry
+2292,WORD,WORD_NOUN,KATAKANA,Inne,,-,ヤドリギ,,yadorigi,jemioła pospolita,,
+2293,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,鋭い,するどい,,surudoi,"ostry
 przenikliwy
 cięty
 bystry",,
-2295,WORD,WORD_NOUN,HIRAGANA,Inne,,直角,ちょっかく,,chokkaku,kąt prosty,,
-2296,WORD,WORD_NOUN,HIRAGANA,Inne,,角力,すもう,,sumou,"sumo
+2294,WORD,WORD_NOUN,HIRAGANA,Inne,,直角,ちょっかく,,chokkaku,kąt prosty,,
+2295,WORD,WORD_NOUN,HIRAGANA,Inne,,角力,すもう,,sumou,"sumo
 zapasy",,
-2297,WORD,WORD_NOUN,HIRAGANA,Inne,,角度,かくど,,kakudo,kąt,,
-2298,WORD,WORD_NOUN,HIRAGANA,Inne,,角笛,つのぶえ,,tsunobue,"róg
+2296,WORD,WORD_NOUN,HIRAGANA,Inne,,角度,かくど,,kakudo,kąt,,
+2297,WORD,WORD_NOUN,HIRAGANA,Inne,,角笛,つのぶえ,,tsunobue,"róg
 trąba",,
-2299,WORD,WORD_NOUN,HIRAGANA,Inne,,鋭角,えいかく,,eikaku,kąt ostry,,
-2300,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,豊か,ゆたか,,yutaka,"bogaty
+2298,WORD,WORD_NOUN,HIRAGANA,Inne,,鋭角,えいかく,,eikaku,kąt ostry,,
+2299,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,豊か,ゆたか,,yutaka,"bogaty
 zamożny",,
-2301,WORD,WORD_VERB_RU,HIRAGANA,Inne,,脱げる,ぬげる,,nugeru,"spadać
+2300,WORD,WORD_VERB_RU,HIRAGANA,Inne,,脱げる,ぬげる,,nugeru,"spadać
 zsuwać się",ubranie,
-2302,WORD,WORD_NOUN,HIRAGANA,Inne,,脱衣,だつい,,datsui,rozbieranie,,
-2303,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,脱衣する,だついする,,datsui suru,rozbierać się,,
-2304,WORD,WORD_NOUN,HIRAGANA,Inne,,脱衣所,だついじょ,,datsuijo,przebieralnia,,
-2305,WORD,WORD_VERB_RU,HIRAGANA,Inne,,膨れる,ふくれる,,fukureru,"puchnąć
+2301,WORD,WORD_NOUN,HIRAGANA,Inne,,脱衣,だつい,,datsui,rozbieranie,,
+2302,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,脱衣する,だついする,,datsui suru,rozbierać się,,
+2303,WORD,WORD_NOUN,HIRAGANA,Inne,,脱衣所,だついじょ,,datsuijo,przebieralnia,,
+2304,WORD,WORD_VERB_RU,HIRAGANA,Inne,,膨れる,ふくれる,,fukureru,"puchnąć
 rozszerzać się
 tyć",,
-2306,WORD,WORD_VERB_RU,HIRAGANA,Inne,,脹れる,ふくれる,,fukureru,"puchnąć
+2305,WORD,WORD_VERB_RU,HIRAGANA,Inne,,脹れる,ふくれる,,fukureru,"puchnąć
 rozszerzać się
 wydymać się",,
-2307,WORD,WORD_NOUN,HIRAGANA,Inne,,衣類,いるい,,irui,odzież,,
-2308,WORD,WORD_NOUN,HIRAGANA,Inne,,衣料,いりょう,,iryou,odzież,,
-2309,WORD,WORD_NOUN,HIRAGANA,Inne,,衣服,いふく,,ifuku,"ubranie
+2306,WORD,WORD_NOUN,HIRAGANA,Inne,,衣類,いるい,,irui,odzież,,
+2307,WORD,WORD_NOUN,HIRAGANA,Inne,,衣料,いりょう,,iryou,odzież,,
+2308,WORD,WORD_NOUN,HIRAGANA,Inne,,衣服,いふく,,ifuku,"ubranie
 odzież",,
-2310,WORD,WORD_NOUN,KATAKANA,Inne,,-,スケートボード,,sukeetoboodo,deskorolka,,
-2311,WORD,WORD_NOUN,KATAKANA,Inne,,-,ローラースケート,,rooraa sukeeto,wrotki,,
-2312,WORD,WORD_NOUN,KATAKANA,Inne,,-,インラインスケート,,inrain sukeeto,rolki,,
-2313,WORD,WORD_VERB_U,HIRAGANA,Inne,,沈む,しずむ,,shizumu,"tonąć
+2309,WORD,WORD_NOUN,KATAKANA,Inne,,-,スケートボード,,sukeetoboodo,deskorolka,,
+2310,WORD,WORD_NOUN,KATAKANA,Inne,,-,ローラースケート,,rooraa sukeeto,wrotki,,
+2311,WORD,WORD_NOUN,KATAKANA,Inne,,-,インラインスケート,,inrain sukeeto,rolki,,
+2312,WORD,WORD_VERB_U,HIRAGANA,Inne,,沈む,しずむ,,shizumu,"tonąć
 być zalewanym
 iść w dół",,
-2314,WORD,WORD_VERB_RU,HIRAGANA,Inne,,沈める,しずめる,,shizumeru,"zatapiać
+2313,WORD,WORD_VERB_RU,HIRAGANA,Inne,,沈める,しずめる,,shizumeru,"zatapiać
 wysyłać na dno
 zalewać",,
-2315,WORD,WORD_NOUN,HIRAGANA,Inne,,核果,かっか,,kakka,pestka,cześć owocu,
-2316,WORD,WORD_VERB_U,HIRAGANA,Inne,,果たす,はたす,,hatasu,"realizować
+2314,WORD,WORD_NOUN,HIRAGANA,Inne,,核果,かっか,,kakka,pestka,cześć owocu,
+2315,WORD,WORD_VERB_U,HIRAGANA,Inne,,果たす,はたす,,hatasu,"realizować
 kończyć
 osiągnąć",,
-2317,WORD,WORD_VERB_RU,HIRAGANA,Inne,,果てる,はてる,,hateru,"kończyć się
+2316,WORD,WORD_VERB_RU,HIRAGANA,Inne,,果てる,はてる,,hateru,"kończyć się
 być wykończonym",,
-2318,WORD,WORD_NOUN,HIRAGANA,Inne,,果て,はて,,hate,"koniec
+2317,WORD,WORD_NOUN,HIRAGANA,Inne,,果て,はて,,hate,"koniec
 granica",,
-2319,WORD,WORD_NOUN,HIRAGANA,Inne,,成果,せいか,,seika,"wynik
+2318,WORD,WORD_NOUN,HIRAGANA,Inne,,成果,せいか,,seika,"wynik
 owoc (pracy)",,
-2320,WORD,WORD_NOUN,HIRAGANA,Inne,,果物,くだもの,,kudamono,owoc,,
-2321,WORD,WORD_NOUN,HIRAGANA,Inne,,果樹,かじゅ,,kaju,drzewo owocowe,,
-2322,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,果断,かだん,,kadan,"zdecydowany
+2319,WORD,WORD_NOUN,HIRAGANA,Inne,,果物,くだもの,,kudamono,owoc,,
+2320,WORD,WORD_NOUN,HIRAGANA,Inne,,果樹,かじゅ,,kaju,drzewo owocowe,,
+2321,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,果断,かだん,,kadan,"zdecydowany
 stanowczy",,
-2323,WORD,WORD_NOUN,HIRAGANA,Inne,,画像,がぞう,,gazou,"obrazek
+2322,WORD,WORD_NOUN,HIRAGANA,Inne,,画像,がぞう,,gazou,"obrazek
 rysunek",,
-2324,WORD,WORD_NOUN,HIRAGANA,Inne,,動画,どうが,,douga,"animacja
+2323,WORD,WORD_NOUN,HIRAGANA,Inne,,動画,どうが,,douga,"animacja
 video
 film",,
+2324,WORD,WORD_NOUN,HIRAGANA,Inne,,冬至,とうじ,,touji,zimowe przesilenie,,
+2325,WORD,WORD_NOUN,HIRAGANA,Inne,,冬休み,ふゆやすみ,,fuyu yasumi,zimowe wakacje,,
+2326,WORD,WORD_NOUN,HIRAGANA,Inne,,冬物,ふゆもの,,fuyu mono,zimowe ubranie,,
+2327,WORD,UNKNOWN,HIRAGANA,Inne,,冬季,とうき,,touki,sezon zimowy,,
+2328,WORD,WORD_NOUN,HIRAGANA,Inne,,冬眠,とうみん,,toumin,"hibernacja
+zimowy sen",,
+2329,WORD,WORD_VERB_U,HIRAGANA,Inne,,至る,いたる,,itaru,"przybyć
+zdobyć
+osiągnąć
+doprowadzić do",,
+2330,WORD,WORD_NOUN,HIRAGANA,Inne,,至上,しじょう,,shijou,"zwierzchnictwo
+przewaga
+supremacja",,
+2331,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,至便,しべん,,shiben,bardzo wygodny,,
+2332,WORD,WORD_ADVERB,HIRAGANA,Inne,,至急,しきゅう,,shikyuu,"pilny
+nagły",,
+2333,WORD,WORD_NOUN,HIRAGANA,Inne,,至福,しふく,,shifuku,doskonałe szczęście,,
+2334,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,至難,しなん,,shinan,"wyjątkowa trudność
+niemożliwe do wykonania",,
+2335,WORD,WORD_NOUN,HIRAGANA,Inne,,検察官,けんさつかん,,kensatsukan,prokurator,,
+2336,WORD,WORD_NOUN,HIRAGANA,Inne,,裁判官,さいばんかん,,saibankan,sędzia,,
+2337,WORD,UNKNOWN,KATAKANA,Inne,,-,メリークリスマス,,merii kurisumasu,Wesołych Świąt,Bożego Narodzenia,
+2338,WORD,WORD_NOUN,HIRAGANA,Inne,,裸,はだか,,hadaka,"nagość
+nagi
+goły",,
+2339,WORD,WORD_NOUN,HIRAGANA,Inne,,裸婦,らふ,,rafu,naga kobieta,,
+2340,WORD,WORD_NOUN,HIRAGANA,Inne,,裸足,はだし,,hadashi,"boso
+goła stopa",,
+2341,WORD,WORD_VERB_RU,HIRAGANA,Inne,,怠ける,なまける,,namakeru,"lenić się
+próżnować
+zaniedbywać",,
+2342,WORD,WORD_NOUN,KATAKANA,Inne,,-,サンタクロース,,santa kuroosu,Święty Mikołaj,,
+2343,WORD,WORD_NOUN,HIRAGANA,Inne,,雪だるま,ゆきだるま,,yuki daruma,bałwan,śniegowy,
+2344,WORD,UNKNOWN,HIRAGANA,Inne,,君,きみ,,kimi,ty,używane przez dobrze znających się mężczyzn,
+2345,WORD,WORD_VERB_RU,HIRAGANA,Inne,,壊れる,こわれる,,kowareru,"uszkodzić
+zepsuć
+złamać",,
