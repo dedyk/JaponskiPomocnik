@@ -33,6 +33,7 @@ import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -41,6 +42,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.ClipboardManager;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -49,6 +51,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 public class WordDictionaryDetails extends Activity {
 
@@ -236,7 +239,7 @@ public class WordDictionaryDetails extends Activity {
 		
 		// check furigana
 		List<FuriganaEntry> furiganaEntries = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getFurigana(dictionaryEntry);
-		
+				
 		if (furiganaEntries != null && furiganaEntries.size() > 0 && addKanjiWrite == true) {
 			
 			report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
@@ -300,24 +303,35 @@ public class WordDictionaryDetails extends Activity {
 								
 				report.add(furiganaTableLayout);
 				
+				TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+				TableRow actionTableRow = new TableRow();
+				
+				// speak image
 				Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
-				
 				speakImage.setOnClickListener(new TTSJapaneseSpeak(null, currentFuriganaEntry.getKanaPartJoined()));
+				actionTableRow.addScreenItem(speakImage);
 				
-				report.add(speakImage);
+				// copy kanji
+				Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
+				clipboardKanji.setOnClickListener(new CopyToClipboard(dictionaryEntry.getKanji()));
+				actionTableRow.addScreenItem(clipboardKanji);
+								
+				actionButtons.addTableRow(actionTableRow);
+				report.add(actionButtons);
 			}
 		} else {
-			StringValue kanjiStringValue = new StringValue(kanjiSb.toString(), 35.0f, 0);
-			
 			if (addKanjiWrite == true) {
+				StringValue kanjiStringValue = new StringValue(kanjiSb.toString(), 35.0f, 0);
+				
 				report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 								
-				kanjiStringValue.setOnClickListener(kanjiDrawOnClickListener);			
-			}
-			
-			report.add(kanjiStringValue);
-			
-			if (addKanjiWrite == true) {
+				kanjiStringValue.setOnClickListener(kanjiDrawOnClickListener);		
+				
+				report.add(kanjiStringValue);
+				
+				TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+				TableRow actionTableRow = new TableRow();
+
 				Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
 				
 				if (kanaList != null && kanaList.size() > 0) {
@@ -326,7 +340,15 @@ public class WordDictionaryDetails extends Activity {
 					speakImage.setOnClickListener(new TTSJapaneseSpeak(null, dictionaryEntry.getKanji()));	
 				}
 				
-				report.add(speakImage);
+				actionTableRow.addScreenItem(speakImage);
+				
+				// clipboard kanji
+				Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
+				clipboardKanji.setOnClickListener(new CopyToClipboard(dictionaryEntry.getKanji()));
+				actionTableRow.addScreenItem(clipboardKanji);
+								
+				actionButtons.addTableRow(actionTableRow);
+				report.add(actionButtons);
 			}
 		}	
 				
@@ -371,13 +393,30 @@ public class WordDictionaryDetails extends Activity {
 					startActivity(intent);					
 				}
 			});
-					
-			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
 			
-			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanaList.get(idx)));
-
 			report.add(readingStringValue);
-			report.add(speakImage);
+
+			TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+			TableRow actionTableRow = new TableRow();
+			
+			// speak image		
+			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
+			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanaList.get(idx)));
+			actionTableRow.addScreenItem(speakImage);
+			
+			// clipboard kana
+			Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
+			clipboardKana.setOnClickListener(new CopyToClipboard(kanaList.get(idx)));
+			actionTableRow.addScreenItem(clipboardKana);
+			
+			// clipboard romaji
+			Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
+			clipboardRomaji.setOnClickListener(new CopyToClipboard(romajiList.get(idx)));
+			actionTableRow.addScreenItem(clipboardRomaji);
+			
+			actionButtons.addTableRow(actionTableRow);
+			
+			report.add(actionButtons);			
 		}
 				
 		// Translate
@@ -597,6 +636,9 @@ public class WordDictionaryDetails extends Activity {
 	
 	private void addGrammaFormConjugateResult(List<IScreenItem> report, GrammaFormConjugateResult grammaFormConjugateResult) {
 		
+		TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+		TableRow actionTableRow = new TableRow();
+		
 		String grammaFormKanji = grammaFormConjugateResult.getKanji();
 		
 		String prefixKana = grammaFormConjugateResult.getPrefixKana();
@@ -639,11 +681,31 @@ public class WordDictionaryDetails extends Activity {
 			
 			report.add(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
 			
+			// speak image
 			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 2);
-			
 			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, grammaFormKanaList.get(idx)));
+			actionTableRow.addScreenItem(speakImage);
 			
-			report.add(speakImage);
+			// clipboard kanji
+			if (grammaFormKanji != null) {			
+				Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
+				clipboardKanji.setOnClickListener(new CopyToClipboard(grammaFormKanji));
+				actionTableRow.addScreenItem(clipboardKanji);
+			}
+		
+			// clipboard kana
+			Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
+			clipboardKana.setOnClickListener(new CopyToClipboard(grammaFormKanaList.get(idx)));
+			actionTableRow.addScreenItem(clipboardKana);
+			
+			// clipboard romaji
+			Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
+			clipboardRomaji.setOnClickListener(new CopyToClipboard(grammaFormRomajiList.get(idx)));
+			actionTableRow.addScreenItem(clipboardRomaji);		
+			
+			actionButtons.addTableRow(actionTableRow);
+			
+			report.add(actionButtons);
 		}
 		
 		GrammaFormConjugateResult alternative = grammaFormConjugateResult.getAlternative();
@@ -657,10 +719,11 @@ public class WordDictionaryDetails extends Activity {
 	
 	private void addExampleResult(List<IScreenItem> report, ExampleResult exampleResult) {
 		
+		TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+		TableRow actionTableRow = new TableRow();
+		
 		String exampleKanji = exampleResult.getKanji();
-		
 		String prefixKana = exampleResult.getPrefixKana();
-		
 		String prefixRomaji = exampleResult.getPrefixRomaji();
 		
 		StringBuffer exampleKanjiSb = new StringBuffer();
@@ -706,11 +769,31 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue(exampleResultInfo, 12.0f, 2));
 			}
 			
+			// speak image
 			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 2);
-			
 			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, exampleKanaList.get(idx)));
+			actionTableRow.addScreenItem(speakImage);
 			
-			report.add(speakImage);
+			// clipboard kanji
+			if (exampleKanji != null) {			
+				Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
+				clipboardKanji.setOnClickListener(new CopyToClipboard(exampleKanji));
+				actionTableRow.addScreenItem(clipboardKanji);
+			}
+		
+			// clipboard kana
+			Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
+			clipboardKana.setOnClickListener(new CopyToClipboard(exampleKanaList.get(idx)));
+			actionTableRow.addScreenItem(clipboardKana);
+			
+			// clipboard romaji
+			Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
+			clipboardRomaji.setOnClickListener(new CopyToClipboard(exampleRomajiList.get(idx)));
+			actionTableRow.addScreenItem(clipboardRomaji);		
+			
+			actionButtons.addTableRow(actionTableRow);
+			
+			report.add(actionButtons);
 		}
 		
 		ExampleResult alternative = exampleResult.getAlternative();
@@ -800,6 +883,24 @@ public class WordDictionaryDetails extends Activity {
 				
 				alertDialog.show();
 			}
+		}
+	}
+	
+	private class CopyToClipboard implements OnClickListener {
+		
+		private String text;
+		
+		public CopyToClipboard(String text) {
+			this.text = text;
+		}
+		
+		public void onClick(View v) {
+			
+			ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+			
+			clipboardManager.setText(text);
+			
+			Toast.makeText(WordDictionaryDetails.this, getString(R.string.word_dictionary_details_clipboard_copy, text), Toast.LENGTH_SHORT).show();
 		}
 	}
 }

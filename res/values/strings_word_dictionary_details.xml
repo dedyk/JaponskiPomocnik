@@ -15,4 +15,5 @@
     <string name="word_dictionary_details_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="word_dictionary_details_report_counters_index">Indeks</string>
     <string name="word_dictionary_details_index_go">Naciśnij, aby przejść do wybranej pozycji</string>
+    <string name="word_dictionary_details_clipboard_copy">Skopiowano \'%1$s\' do schowka</string>
 </resources>
