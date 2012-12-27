@@ -2,21 +2,32 @@ package pl.idedyk.android.japaneselearnhelper.test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperWordTestContext;
+import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.ListUtil;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,10 +36,108 @@ import android.widget.Toast;
 
 public class WordTest extends Activity {
 	
+	private TextViewAndEditText[] textViewAndEditTextForWordAsArray;
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		
+		menu.add(Menu.NONE, R.id.report_problem_menu_item, Menu.NONE, R.string.report_problem);
+		
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		
+		// report problem
+		if (item.getItemId() == R.id.report_problem_menu_item) {
+			
+			final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
+			
+			final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
+			
+			final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTest.this).getWordTestConfig();
+			
+			// config
+			Set<String> chosenWordGroups = wordTestConfig.getChosenWordGroups();
+			Boolean random = wordTestConfig.getRandom();
+			Boolean untilSuccess = wordTestConfig.getUntilSuccess();
+			Integer repeatNumber = wordTestConfig.getRepeatNumber();
+			Boolean showKanji = wordTestConfig.getShowKanji();
+			
+			// context
+			List<DictionaryEntry> wordsTest = wordTestContext.getWordsTest();
+			int wordsTestIdx = wordTestContext.getWordsTestIdx();
+			int wordTestAnswers = wordTestContext.getWordTestAnswers();
+			int wordTestCorrectAnswers = wordTestContext.getWordTestCorrectAnswers();
+			int wordTestIncorrentAnswers = wordTestContext.getWordTestIncorrentAnswers();
+			
+			// details report
+			StringBuffer detailsSb = new StringBuffer();
+			
+			detailsSb.append(" *** config ***\n\n");
+			detailsSb.append("chosenWordGroups: " + chosenWordGroups).append("\n\n");
+			detailsSb.append("random: " + random).append("\n\n");
+			detailsSb.append("untilSuccess: " + untilSuccess).append("\n\n");
+			detailsSb.append("repeatNumber: " + repeatNumber).append("\n\n");
+			detailsSb.append("showKanji: " + showKanji).append("\n\n");
+			
+			detailsSb.append(" *** context ***\n\n");
+			
+			detailsSb.append("wordsTestIdx: " + wordsTestIdx).append("\n\n");
+			detailsSb.append("wordTestAnswers: " + wordTestAnswers).append("\n\n");
+			detailsSb.append("wordTestCorrectAnswers: " + wordTestCorrectAnswers).append("\n\n");
+			detailsSb.append("wordTestIncorrentAnswers: " + wordTestIncorrentAnswers).append("\n\n");
+			
+			detailsSb.append("wordsTest:\n");
+			
+			for (int idx = 0; idx < wordsTest.size(); ++idx) {
+				detailsSb.append("\t").append(idx).append(": ").append(wordsTest.get(idx).toString()).append("\n");
+			}
+						
+			String chooseEmailClientTitle = getString(R.string.choose_email_client);
+
+			String mailSubject = getString(R.string.word_test_report_problem_email_subject);
+
+			String mailBody = getString(R.string.word_test_report_problem_email_body,
+					detailsSb.toString());
+
+			String versionName = "";
+			int versionCode = 0;
+
+			try {
+				PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+				versionName = packageInfo.versionName;
+				versionCode = packageInfo.versionCode;
+
+			} catch (NameNotFoundException e) {        	
+			}
+
+			Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+
+			startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			
+			return true;
+		} else {
+			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		}
+	}
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+		
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.word_test);
 		
 		fillScreen();
@@ -38,53 +147,62 @@ public class WordTest extends Activity {
 		nextButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
-				
-				final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
-				final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
-				
-				final List<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
-				int wordsTestIdx = wordTestContext.getWordsTestIdx();
-				
-				final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(wordsTestIdx);
-				
-				List<String> fullKanaList = currentWordDictionaryEntry.getFullKanaList();
-				
-				// check user answer
-				int correctAnswersNo = getCorrectAnswersNo(context);
-				
-				wordTestContext.addWordTestAnswers(fullKanaList.size());
-				wordTestContext.addWordTestCorrectAnswers(correctAnswersNo);
-				wordTestContext.addWordTestIncorrentAnswers(fullKanaList.size() - correctAnswersNo);
-				
-				if (correctAnswersNo == fullKanaList.size()) {
-					Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT).show();
+				checkUserAnswer();
+			}
+		});
+	}
+	
+	private void checkUserAnswer() {
+		
+		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
+		final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
+		final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTest.this).getWordTestConfig();
+		
+		final List<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
+		int wordsTestIdx = wordTestContext.getWordsTestIdx();
+		
+		final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(wordsTestIdx);
+		
+		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+		
+		// check user answer
+		int correctAnswersNo = getCorrectAnswersNo(context);
+		
+		wordTestContext.addWordTestAnswers(kanaList.size());
+		wordTestContext.addWordTestCorrectAnswers(correctAnswersNo);
+		wordTestContext.addWordTestIncorrentAnswers(kanaList.size() - correctAnswersNo);
+		
+		if (correctAnswersNo == kanaList.size()) {
+			Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT).show();
+			
+			wordTestContext.incrementWordsTestIdx();				
+			
+			fillScreen();
+		} else {					
+			AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
+			
+			alertDialog.setMessage(getString(R.string.word_test_incorrect) + 
+					ListUtil.getListAsString(kanaList, "\n"));
+			
+			alertDialog.setCancelable(false);
+			alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
+
+				public void onClick(DialogInterface dialog, int which) {
+					
+					if (wordTestConfig.getUntilSuccess() != null &&
+							wordTestConfig.getUntilSuccess().equals(Boolean.TRUE)) {
+						
+						wordDictionaryEntries.add(currentWordDictionaryEntry);
+					}
 					
 					wordTestContext.incrementWordsTestIdx();				
 					
 					fillScreen();
-				} else {					
-					AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
-					
-					alertDialog.setMessage(getString(R.string.word_test_incorrect) + 
-							ListUtil.getListAsString(fullKanaList, "\n"));
-					
-					alertDialog.setCancelable(false);
-					alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
-
-						public void onClick(DialogInterface dialog, int which) {
-														
-							wordDictionaryEntries.add(currentWordDictionaryEntry);
-							
-							wordTestContext.incrementWordsTestIdx();				
-							
-							fillScreen();
-						}
-					});
-					
-					alertDialog.show();					
-				}				
-			}
-		});		
+				}
+			});
+			
+			alertDialog.show();					
+		}				
 	}
 	
 	private int getCorrectAnswersNo(JapaneseAndroidLearnHelperContext context) {
@@ -95,20 +213,18 @@ public class WordTest extends Activity {
 		int currentWordsTextIdx = wordTestContext.getWordsTestIdx();
 		
 		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);
-		List<String> fullKanaList = currentWordDictionaryEntry.getFullKanaList();
+		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 		
-		List<String> fullKanaListToRemove = new ArrayList<String>(fullKanaList);
-		
-		TextViewAndEditText[] textViewAndEditTextForWordAsArray = getTextViewAndEditTextForWordAsArray();
-		
-		for (int kanaListIdx = 0; kanaListIdx < fullKanaList.size(); ++kanaListIdx) {
+		List<String> kanaListToRemove = new ArrayList<String>(kanaList);
+				
+		for (int kanaListIdx = 0; kanaListIdx < kanaList.size(); ++kanaListIdx) {
 			
 			String currentUserAnswer = textViewAndEditTextForWordAsArray[kanaListIdx].editText.getText().toString();
 			
-			fullKanaListToRemove.remove(currentUserAnswer);
+			kanaListToRemove.remove(currentUserAnswer);
 		}
 		
-		return fullKanaList.size() - fullKanaListToRemove.size();
+		return kanaList.size() - kanaListToRemove.size();
 	}
 
 	@Override
@@ -121,6 +237,8 @@ public class WordTest extends Activity {
 	private void fillScreen() {
 		JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
 		
+		final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTest.this).getWordTestConfig();
+		
 		JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
 		
 		List<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
@@ -132,6 +250,8 @@ public class WordTest extends Activity {
 			
 			startActivity(intent);
 			
+			finish();
+			
 		} else {
 			DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);
 			
@@ -140,8 +260,19 @@ public class WordTest extends Activity {
 			TextView kanjiLabel = (TextView)findViewById(R.id.word_test_kanji_label);
 			EditText kanjiInput = (EditText)findViewById(R.id.word_test_kanji_input);
 			
-			if (kanji != null) {
-				kanjiInput.setText(currentWordDictionaryEntry.getFullKanji());
+			if (kanji != null && wordTestConfig.getShowKanji() != null && wordTestConfig.getShowKanji().equals(Boolean.TRUE) == true) {
+				
+				String kanjiText = "";
+				
+				String prefixKana = currentWordDictionaryEntry.getPrefixKana();
+				
+				if (prefixKana != null && prefixKana.equals("") == false) {
+					kanjiText += "(" + prefixKana + ") ";
+				}
+				
+				kanjiText += currentWordDictionaryEntry.getKanji();
+				
+				kanjiInput.setText(kanjiText);
 				
 				kanjiLabel.setVisibility(View.VISIBLE);
 				kanjiInput.setVisibility(View.VISIBLE);
@@ -154,13 +285,13 @@ public class WordTest extends Activity {
 				kanjiInput.setEnabled(false);
 			}
 			
-			List<String> kanaList = currentWordDictionaryEntry.getFullKanaList();
+			List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 			
-			if (kanaList.size() >= 6) {
+			if (kanaList.size() >= Utils.MAX_LIST_SIZE) {
 				throw new RuntimeException("Kana list size: " + kanaList);
 			}
 			
-			TextViewAndEditText[] textViewAndEditTextForWordAsArray = getTextViewAndEditTextForWordAsArray();
+			createTextViewAndEditTextForWordAsArray(kanaList.size() - 1);
 			
 			for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
 				
@@ -212,7 +343,7 @@ public class WordTest extends Activity {
 				additionalInfoInput.setVisibility(View.GONE);			
 			}
 			
-			TextView state = (TextView)findViewById(R.id.word_test_state);
+			TextView state = (TextView)findViewById(R.id.word_test_state_info);
 			
 			Resources resources = getResources();
 			
@@ -220,11 +351,11 @@ public class WordTest extends Activity {
 		}
 	}
 	
-	private TextViewAndEditText[] getTextViewAndEditTextForWordAsArray() {
+	private void createTextViewAndEditTextForWordAsArray(final int lastAnswerIdx) {
 		
 		TextView wordLabel1 = (TextView)findViewById(R.id.word_test_word_label1);
 		EditText wordInput1 = (EditText)findViewById(R.id.word_test_word_input1);
-
+		
 		TextView wordLabel2 = (TextView)findViewById(R.id.word_test_word_label2);
 		EditText wordInput2 = (EditText)findViewById(R.id.word_test_word_input2);
 
@@ -240,16 +371,30 @@ public class WordTest extends Activity {
 		TextView wordLabel6 = (TextView)findViewById(R.id.word_test_word_label6);
 		EditText wordInput6 = (EditText)findViewById(R.id.word_test_word_input6);
 		
-		TextViewAndEditText[] result = new TextViewAndEditText[6];
+		textViewAndEditTextForWordAsArray = new TextViewAndEditText[Utils.MAX_LIST_SIZE];
 		
-		result[0] = new TextViewAndEditText(wordLabel1, wordInput1);
-		result[1] = new TextViewAndEditText(wordLabel2, wordInput2);
-		result[2] = new TextViewAndEditText(wordLabel3, wordInput3);
-		result[3] = new TextViewAndEditText(wordLabel4, wordInput4);
-		result[4] = new TextViewAndEditText(wordLabel5, wordInput5);
-		result[5] = new TextViewAndEditText(wordLabel6, wordInput6);
+		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordInput1);
+		textViewAndEditTextForWordAsArray[1] = new TextViewAndEditText(wordLabel2, wordInput2);
+		textViewAndEditTextForWordAsArray[2] = new TextViewAndEditText(wordLabel3, wordInput3);
+		textViewAndEditTextForWordAsArray[3] = new TextViewAndEditText(wordLabel4, wordInput4);
+		textViewAndEditTextForWordAsArray[4] = new TextViewAndEditText(wordLabel5, wordInput5);
+		textViewAndEditTextForWordAsArray[5] = new TextViewAndEditText(wordLabel6, wordInput6);
 		
-		return result;
+		for (int idx = 0; idx < textViewAndEditTextForWordAsArray.length; ++idx) {
+			
+			if (idx == lastAnswerIdx) {
+				
+				textViewAndEditTextForWordAsArray[idx].editText.setOnClickListener(new View.OnClickListener() {
+					
+					public void onClick(View v) {					
+						checkUserAnswer();				
+					}
+				});	
+				
+			} else {
+				textViewAndEditTextForWordAsArray[idx].editText.setOnClickListener(null);
+			}
+		}
 	}
 		
 	private static class TextViewAndEditText {

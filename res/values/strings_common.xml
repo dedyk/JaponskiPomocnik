@@ -28,7 +28,7 @@
     <string name="main_menu_kanji_recognizer_kanji">漢字</string>
     
     <string name="main_menu_word_test_text">Test ze słówek</string>
-    <string name="main_menu_word_test_kanji">X</string>
+    <string name="main_menu_word_test_kanji">言葉</string>
     
     <string name="main_menu_kanji_test_text">Test ze znaków kanji</string>
     <string name="main_menu_kanji_test_kanji">漢字</string>
