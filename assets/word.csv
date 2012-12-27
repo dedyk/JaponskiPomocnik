@@ -2243,7 +2243,7 @@ blask",,
 1571,WORD,WORD_NOUN,HIRAGANA,Genki kanji 2-15,,金魚,きんぎょ,,kingyo,złota rybka,,
 1572,WORD,UNKNOWN,HIRAGANA,Inne,,金魚掬い,きんぎょすくい,,kingyo sukui,tradycyjna japońska gra,polega na złapaniu przy pomocy papierowej tacki złotej rybki,
 1573,WORD,WORD_NOUN,HIRAGANA,Inne,,鶴,つる,,tsuru,żuraw,,
-1574,WORD,WORD_VERB_RU,HIRAGANA,Inne,,信じる,しんじる,,shinjiru,wierzyć,,
+1574,WORD,WORD_VERB_RU,HIRAGANA,Inne,を,信じる,しんじる,o,shinjiru,wierzyć,,
 1575,WORD,WORD_NOUN,HIRAGANA,Inne,,信頼,しんらい,,shinrai,"zaufanie
 ufność
 wiara",,
@@ -3401,3 +3401,44 @@ listonosz
 doręczyciel",,
 2374,WORD,WORD_NOUN,HIRAGANA,Inne,,槍,やり,,yari,"włócznia
 lanca",,
+2375,WORD,WORD_NOUN,HIRAGANA,Inne,,異次元,いじげん,,ijigen,"inny wymiar
+alternatywny wymiar",,
+2376,WORD,WORD_VERB_U,HIRAGANA,Inne,,異なる,ことなる,,kotonaru,różnić się,,
+2377,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,異常,いじょう,,ijou,niezwykły,,
+2378,WORD,WORD_NOUN,HIRAGANA,Inne,,異国,いこく,,ikoku,obcy kraj,,
+2379,WORD,WORD_NOUN,HIRAGANA,Inne,,異邦人,いほうじん,,ihoujin,"obcokrajowiec
+poganin",,
+2380,WORD,WORD_NOUN,HIRAGANA,Inne,,異物,いぶつ,,ibutsu,"obce ciało
+obca substancja",,
+2381,WORD,WORD_NOUN,HIRAGANA,Inne,,異種,いしゅ,,ishu,"inny rodzaj
+inny gatunek",,
+2382,WORD,WORD_VERB_U,HIRAGANA,Inne,,次ぐ,つぐ,,tsugu,następować,,
+2383,WORD,UNKNOWN,HIRAGANA,Inne,,次回,じかい,,jikai,następny raz,,
+2384,WORD,WORD_NOUN,HIRAGANA,Inne,,目次,もくじ,,mokuji,spis treści,,
+2385,WORD,WORD_NOUN,HIRAGANA,Inne,,二次,にじ,,niji,"drugi
+drugorzędny",,
+2386,WORD,WORD_NOUN,HIRAGANA,Inne,,次男,じなん,,jinan,drugi syn,,
+2387,WORD,WORD_NOUN,HIRAGANA,Inne,,次官,じかん,,jikan,wiceminister,,
+2388,WORD,WORD_NOUN,HIRAGANA,Inne,,地元,じもと,,jimoto,"lokalny
+miejscowy",,
+2389,WORD,WORD_NOUN,HIRAGANA,Inne,,元日,がんじつ,,ganjitsu,pierwszy dzień nowego roku,,
+2390,WORD,WORD_NOUN,HIRAGANA,Inne,,元金,がんきん,,gankin,podstawowa kwota,,
+2391,WORD,WORD_NOUN,HIRAGANA,Inne,,元本,がんぽん,,ganpon,kapitał,,
+2392,WORD,WORD_NOUN,HIRAGANA,Inne,,謎,なぞ,,nazo,"zagadka
+łamigłówka
+rebus",,
+2393,WORD,WORD_NOUN,HIRAGANA,Inne,,学園,がくえん,,gakuen,"akademia
+kampus",,
+2394,WORD,WORD_NOUN,HIRAGANA,Inne,,入学試験,にゅうがくしけん,,nyuugakushiken,egzamin wstępny,,
+2395,WORD,WORD_NOUN,KATAKANA_HIRAGANA,Inne,,オレンジ色,オレンジイロ,,orenji iro,kolor pomarańczowy,,
+2396,WORD,WORD_NOUN,HIRAGANA,Inne,,原色,げんしょく,,genshoku,podstawowe kolory,,
+2397,WORD,WORD_NOUN,HIRAGANA,Inne,,色紙,しきし,,shikishi,kolorowy papier,,
+2398,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,好色,こうしょく,,koushoku,"erotyzm
+zmysłowość",,
+2399,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,色付けする,いろづけする,,iroduke suru,"kolorowanie
+barwienie",,
+2400,WORD,WORD_NOUN,KATAKANA,Inne,,-,マッサージ,,massaaji,masaż,,
+2401,WORD,WORD_VERB_IRREGULAR,KATAKANA_HIRAGANA,Inne,,-,マッサージする,,massaaji suru,"masować
+wykonywać masaż",,
+2402,WORD,WORD_NOUN,KATAKANA,Inne,,-,コミュニケーション,,komyunikeeshon,komunikacja,,
+2403,WORD,WORD_NOUN,HIRAGANA,Inne,,衣装,いしょう,,ishou,strój,,
