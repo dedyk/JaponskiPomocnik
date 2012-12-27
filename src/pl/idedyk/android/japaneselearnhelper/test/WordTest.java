@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -36,6 +37,7 @@ public class WordTest extends Activity {
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 		
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.word_test);
 		
 		fillScreen();
@@ -223,7 +225,7 @@ public class WordTest extends Activity {
 				additionalInfoInput.setVisibility(View.GONE);			
 			}
 			
-			TextView state = (TextView)findViewById(R.id.word_test_state);
+			TextView state = (TextView)findViewById(R.id.word_test_state_info);
 			
 			Resources resources = getResources();
 			
@@ -235,6 +237,21 @@ public class WordTest extends Activity {
 		
 		TextView wordLabel1 = (TextView)findViewById(R.id.word_test_word_label1);
 		EditText wordInput1 = (EditText)findViewById(R.id.word_test_word_input1);
+		
+		wordInput1.setOnKeyListener(new View.OnKeyListener() {
+			
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				
+				 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+					 
+					 Toast.makeText(WordTest.this, "Test", Toast.LENGTH_SHORT).show();
+					 
+					 return true;
+				 }
+				
+				return false;
+			}
+		});
 
 		TextView wordLabel2 = (TextView)findViewById(R.id.word_test_word_label2);
 		EditText wordInput2 = (EditText)findViewById(R.id.word_test_word_input2);

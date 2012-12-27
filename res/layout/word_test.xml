@@ -4,172 +4,287 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/word_test_kanji_label"
-            android:layout_width="43dp"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/word_test_kanji_label" />
-
-        <EditText
-            android:id="@+id/word_test_kanji_input"
+            android:id="@+id/word_test_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:singleLine="true" >
+            android:layout_marginBottom="10dp"
+            android:background="@color/title_background"
+            android:text="@string/word_test_view_label" />
 
-            <requestFocus />
-        </EditText>
-
-        <TextView
-            android:id="@+id/word_test_word_label1"
+        <TableRow
+            android:id="@+id/kanji_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/word_test_word_label" />
+            android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/word_test_word_input1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:singleLine="true" />
+            <TextView
+                android:id="@+id/word_test_kanji_label"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_kanji_label" />
 
-        <TextView
-            android:id="@+id/word_test_word_label2"
+            <EditText
+                android:id="@+id/word_test_kanji_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true" >
+            </EditText>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word1_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/word_test_word_label"
-            android:visibility="gone" />
+            android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/word_test_word_input2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:singleLine="true"
-            android:visibility="gone" />
+            <TextView
+                android:id="@+id/word_test_word_label1"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label" />
 
-        <TextView
-            android:id="@+id/word_test_word_label3"
+            <EditText
+                android:id="@+id/word_test_word_input1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word2_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/word_test_word_label"
-            android:visibility="gone" />
+            android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/word_test_word_input3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:singleLine="true"
-            android:visibility="gone" />
+            <TextView
+                android:id="@+id/word_test_word_label2"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/word_test_word_label4"
+            <EditText
+                android:id="@+id/word_test_word_input2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word3_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/word_test_word_label"
-            android:visibility="gone" />
+            android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/word_test_word_input4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:singleLine="true"
-            android:visibility="gone" />
+            <TextView
+                android:id="@+id/word_test_word_label3"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/word_test_word_label5"
+            <EditText
+                android:id="@+id/word_test_word_input3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word4_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/word_test_word_label"
-            android:visibility="gone" />
+            android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/word_test_word_input5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:singleLine="true"
-            android:visibility="gone" />
+            <TextView
+                android:id="@+id/word_test_word_label4"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/word_test_word_label6"
+            <EditText
+                android:id="@+id/word_test_word_input4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word5_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/word_test_word_label"
-            android:visibility="gone" />
+            android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/word_test_word_input6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:singleLine="true"
-            android:visibility="gone" />
+            <TextView
+                android:id="@+id/word_test_word_label5"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/word_test_translate"
+            <EditText
+                android:id="@+id/word_test_word_input5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word6_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="false"
-            android:text="@string/word_test_translate_label" />
+            android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/word_test_translate_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text|textMultiLine"
-            android:singleLine="false" />
+            <TextView
+                android:id="@+id/word_test_word_label6"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/word_test_additional_info_label"
+            <EditText
+                android:id="@+id/word_test_word_input6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/translate_row"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="@string/word_test_additional_info_label" />
+            android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/word_test_additional_info_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:singleLine="true" />
+            <TextView
+                android:id="@+id/word_test_translate"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_translate_label" />
+
+            <EditText
+                android:id="@+id/word_test_translate_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text|textMultiLine"
+                android:singleLine="false" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/additional_info_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_additional_info_label"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_additional_info_label" />
+
+            <EditText
+                android:id="@+id/word_test_additional_info_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/state_info_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_state_info_label"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_state_label" />
+
+            <TextView
+                android:id="@+id/word_test_state_info"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2"
+                android:singleLine="false"
+                android:text="@string/word_test_state" />
+        </TableRow>
 
         <Button
             android:id="@+id/word_test_next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:layout_marginTop="5dp"
             android:text="@string/word_test_next_button" />
-
-        <TextView
-            android:id="@+id/word_test_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/word_test_state" />
-    </LinearLayout>
+    </TableLayout>
 
 </ScrollView>

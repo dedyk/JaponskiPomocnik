@@ -4,7 +4,8 @@
     <string name="word_test_word_label">Słowo</string>
     <string name="word_test_translate_label">Tłumaczenie</string>
     <string name="word_test_additional_info_label">Dodatkowe informacje</string>
-    <string name="word_test_state">Pozycja: %1$d z %2$d</string>
+    <string name="word_test_state_label">Pozycja</string>
+    <string name="word_test_state">%1$d z %2$d</string>
     <string name="word_test_next_button">Dalej</string>
     <string name="word_test_view_label">Test ze słówek</string>
     <string name="word_test_correct">Prawidłowa odpowiedź</string>
