@@ -17,6 +17,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +29,11 @@ public class WordTest extends Activity {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.word_test);
@@ -73,7 +80,9 @@ public class WordTest extends Activity {
 
 						public void onClick(DialogInterface dialog, int which) {
 														
-							wordDictionaryEntries.add(currentWordDictionaryEntry);
+							//wordDictionaryEntries.add(currentWordDictionaryEntry);
+							
+							// FIXME !!!!!!!!!!!!!!!!!!!!!
 							
 							wordTestContext.incrementWordsTestIdx();				
 							
@@ -131,6 +140,8 @@ public class WordTest extends Activity {
 			Intent intent = new Intent(getApplicationContext(), WordTestSummary.class);
 			
 			startActivity(intent);
+			
+			finish();
 			
 		} else {
 			DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);

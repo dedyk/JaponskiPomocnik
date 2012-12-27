@@ -73,6 +73,11 @@ public class WordTestOptions extends Activity {
 		
 		untilSuccessCheckBox.setChecked(wordTestConfig.getUntilSuccess());
 		
+		// show kanji check box
+		final CheckBox showKanjiCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_kanji);
+		
+		showKanjiCheckBox.setChecked(wordTestConfig.getUntilSuccess());
+		
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 		
@@ -151,6 +156,11 @@ public class WordTestOptions extends Activity {
 				
 				wordTestConfig.setUntilSuccess(untilSuccess);
 				
+				// show kanji
+				boolean showKanji = showKanjiCheckBox.isChecked();
+				
+				wordTestConfig.setShowKanji(showKanji);
+				
 				// groups
 				List<DictionaryEntry> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntry>();
 				
@@ -219,6 +229,7 @@ public class WordTestOptions extends Activity {
 				detailsSb.append("***" + optionsOther.getText() + "***\n\n");
 				detailsSb.append(randomCheckBox.isChecked() + " - " + randomCheckBox.getText()).append("\n\n");
 				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
+				detailsSb.append(showKanjiCheckBox.isChecked() + " - " + showKanjiCheckBox.getText()).append("\n\n");
 
 				detailsSb.append("***" + optionsGroup.getText() + "***\n\n");
 		

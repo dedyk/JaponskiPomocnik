@@ -438,6 +438,8 @@ public class ConfigManager {
 		
 		private final String untilSuccessPostfix = "untilSuccess";
 		
+		private final String showKanjiPostfix = "showKanji";
+		
 		public Integer getRepeatNumber() {
 			return preferences.getInt(wordTestConfigPrefix + repeatNumberPostfix, 1);
 		}
@@ -519,5 +521,19 @@ public class ConfigManager {
 			
 			editor.commit();
 		}
+		
+		public Boolean getShowKanji() {
+			return preferences.getBoolean(wordTestConfigPrefix + showKanjiPostfix, false);
+		}
+
+		public void setShowKanji(boolean random) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestConfigPrefix + showKanjiPostfix, random);
+			
+			editor.commit();
+		}
+
 	}
 }
