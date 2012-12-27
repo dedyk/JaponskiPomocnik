@@ -32,6 +32,8 @@ import android.widget.Toast;
 
 public class WordTest extends Activity {
 	
+	private TextViewAndEditText[] textViewAndEditTextForWordAsArray;
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
@@ -67,58 +69,63 @@ public class WordTest extends Activity {
 		nextButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
+				checkUserAnswer();
+			}
 				
-				final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
-				final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
-				final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTest.this).getWordTestConfig();
-				
-				final List<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
-				int wordsTestIdx = wordTestContext.getWordsTestIdx();
-				
-				final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(wordsTestIdx);
-				
-				List<String> kanaList = currentWordDictionaryEntry.getKanaList();
-				
-				// check user answer
-				int correctAnswersNo = getCorrectAnswersNo(context);
-				
-				wordTestContext.addWordTestAnswers(kanaList.size());
-				wordTestContext.addWordTestCorrectAnswers(correctAnswersNo);
-				wordTestContext.addWordTestIncorrentAnswers(kanaList.size() - correctAnswersNo);
-				
-				if (correctAnswersNo == kanaList.size()) {
-					Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT).show();
+		});		
+	}
+	
+	private void checkUserAnswer() {
+		
+		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
+		final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
+		final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTest.this).getWordTestConfig();
+		
+		final List<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
+		int wordsTestIdx = wordTestContext.getWordsTestIdx();
+		
+		final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(wordsTestIdx);
+		
+		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+		
+		// check user answer
+		int correctAnswersNo = getCorrectAnswersNo(context);
+		
+		wordTestContext.addWordTestAnswers(kanaList.size());
+		wordTestContext.addWordTestCorrectAnswers(correctAnswersNo);
+		wordTestContext.addWordTestIncorrentAnswers(kanaList.size() - correctAnswersNo);
+		
+		if (correctAnswersNo == kanaList.size()) {
+			Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT).show();
+			
+			wordTestContext.incrementWordsTestIdx();				
+			
+			fillScreen();
+		} else {					
+			AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
+			
+			alertDialog.setMessage(getString(R.string.word_test_incorrect) + 
+					ListUtil.getListAsString(kanaList, "\n"));
+			
+			alertDialog.setCancelable(false);
+			alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
+
+				public void onClick(DialogInterface dialog, int which) {
+					
+					if (wordTestConfig.getUntilSuccess() != null &&
+							wordTestConfig.getUntilSuccess().equals(Boolean.TRUE)) {
+						
+						wordDictionaryEntries.add(currentWordDictionaryEntry);
+					}
 					
 					wordTestContext.incrementWordsTestIdx();				
 					
 					fillScreen();
-				} else {					
-					AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
-					
-					alertDialog.setMessage(getString(R.string.word_test_incorrect) + 
-							ListUtil.getListAsString(kanaList, "\n"));
-					
-					alertDialog.setCancelable(false);
-					alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
-
-						public void onClick(DialogInterface dialog, int which) {
-							
-							if (wordTestConfig.getUntilSuccess() != null &&
-									wordTestConfig.getUntilSuccess().equals(Boolean.TRUE)) {
-								
-								wordDictionaryEntries.add(currentWordDictionaryEntry);
-							}
-							
-							wordTestContext.incrementWordsTestIdx();				
-							
-							fillScreen();
-						}
-					});
-					
-					alertDialog.show();					
-				}				
-			}
-		});		
+				}
+			});
+			
+			alertDialog.show();					
+		}				
 	}
 	
 	private int getCorrectAnswersNo(JapaneseAndroidLearnHelperContext context) {
@@ -132,9 +139,7 @@ public class WordTest extends Activity {
 		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 		
 		List<String> kanaListToRemove = new ArrayList<String>(kanaList);
-		
-		TextViewAndEditText[] textViewAndEditTextForWordAsArray = getTextViewAndEditTextForWordAsArray();
-		
+				
 		for (int kanaListIdx = 0; kanaListIdx < kanaList.size(); ++kanaListIdx) {
 			
 			String currentUserAnswer = textViewAndEditTextForWordAsArray[kanaListIdx].editText.getText().toString();
@@ -209,7 +214,7 @@ public class WordTest extends Activity {
 				throw new RuntimeException("Kana list size: " + kanaList);
 			}
 			
-			TextViewAndEditText[] textViewAndEditTextForWordAsArray = getTextViewAndEditTextForWordAsArray();
+			createTextViewAndEditTextForWordAsArray(kanaList.size() - 1);
 			
 			for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
 				
@@ -269,11 +274,11 @@ public class WordTest extends Activity {
 		}
 	}
 	
-	private TextViewAndEditText[] getTextViewAndEditTextForWordAsArray() {
+	private void createTextViewAndEditTextForWordAsArray(final int lastAnswerIdx) {
 		
 		TextView wordLabel1 = (TextView)findViewById(R.id.word_test_word_label1);
 		EditText wordInput1 = (EditText)findViewById(R.id.word_test_word_input1);
-
+		
 		TextView wordLabel2 = (TextView)findViewById(R.id.word_test_word_label2);
 		EditText wordInput2 = (EditText)findViewById(R.id.word_test_word_input2);
 
@@ -289,16 +294,30 @@ public class WordTest extends Activity {
 		TextView wordLabel6 = (TextView)findViewById(R.id.word_test_word_label6);
 		EditText wordInput6 = (EditText)findViewById(R.id.word_test_word_input6);
 		
-		TextViewAndEditText[] result = new TextViewAndEditText[6];
+		textViewAndEditTextForWordAsArray = new TextViewAndEditText[Utils.MAX_LIST_SIZE];
 		
-		result[0] = new TextViewAndEditText(wordLabel1, wordInput1);
-		result[1] = new TextViewAndEditText(wordLabel2, wordInput2);
-		result[2] = new TextViewAndEditText(wordLabel3, wordInput3);
-		result[3] = new TextViewAndEditText(wordLabel4, wordInput4);
-		result[4] = new TextViewAndEditText(wordLabel5, wordInput5);
-		result[5] = new TextViewAndEditText(wordLabel6, wordInput6);
+		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordInput1);
+		textViewAndEditTextForWordAsArray[1] = new TextViewAndEditText(wordLabel2, wordInput2);
+		textViewAndEditTextForWordAsArray[2] = new TextViewAndEditText(wordLabel3, wordInput3);
+		textViewAndEditTextForWordAsArray[3] = new TextViewAndEditText(wordLabel4, wordInput4);
+		textViewAndEditTextForWordAsArray[4] = new TextViewAndEditText(wordLabel5, wordInput5);
+		textViewAndEditTextForWordAsArray[5] = new TextViewAndEditText(wordLabel6, wordInput6);
 		
-		return result;
+		for (int idx = 0; idx < textViewAndEditTextForWordAsArray.length; ++idx) {
+			
+			if (idx == lastAnswerIdx) {
+				
+				textViewAndEditTextForWordAsArray[idx].editText.setOnClickListener(new View.OnClickListener() {
+					
+					public void onClick(View v) {					
+						checkUserAnswer();				
+					}
+				});	
+				
+			} else {
+				textViewAndEditTextForWordAsArray[idx].editText.setOnClickListener(null);
+			}
+		}
 	}
 		
 	private static class TextViewAndEditText {

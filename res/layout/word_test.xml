@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textNoSuggestions"
                 android:singleLine="true" >
             </EditText>
         </TableRow>
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textNoSuggestions"
                 android:singleLine="true" />
         </TableRow>
 
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textNoSuggestions"
                 android:singleLine="true"
                 android:visibility="gone" />
         </TableRow>
@@ -117,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textNoSuggestions"
                 android:singleLine="true"
                 android:visibility="gone" />
         </TableRow>
@@ -144,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textNoSuggestions"
                 android:singleLine="true"
                 android:visibility="gone" />
         </TableRow>
@@ -171,7 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textNoSuggestions"
                 android:singleLine="true"
                 android:visibility="gone" />
         </TableRow>
@@ -198,7 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textNoSuggestions"
                 android:singleLine="true"
                 android:visibility="gone" />
         </TableRow>
@@ -249,8 +249,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:singleLine="true" />
+                android:inputType="text|textMultiLine"
+                android:singleLine="false" />
         </TableRow>
 
         <TableRow
