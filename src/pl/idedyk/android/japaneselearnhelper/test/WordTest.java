@@ -382,17 +382,24 @@ public class WordTest extends Activity {
 		
 		for (int idx = 0; idx < textViewAndEditTextForWordAsArray.length; ++idx) {
 			
+			final EditText currentEditText = textViewAndEditTextForWordAsArray[idx].editText;
+			
 			if (idx == lastAnswerIdx) {
 				
-				textViewAndEditTextForWordAsArray[idx].editText.setOnClickListener(new View.OnClickListener() {
+				currentEditText.setOnClickListener(new View.OnClickListener() {
 					
-					public void onClick(View v) {					
-						checkUserAnswer();				
+					public void onClick(View v) {
+						
+						String currentEditTextText = currentEditText.getText().toString();
+						
+						if (currentEditTextText != null && currentEditTextText.equals("") == false) {
+							checkUserAnswer();
+						}
 					}
 				});	
 				
 			} else {
-				textViewAndEditTextForWordAsArray[idx].editText.setOnClickListener(null);
+				currentEditText.setOnClickListener(null);
 			}
 		}
 	}

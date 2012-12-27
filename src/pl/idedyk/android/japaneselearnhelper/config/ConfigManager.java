@@ -523,7 +523,7 @@ public class ConfigManager {
 		}
 		
 		public Boolean getShowKanji() {
-			return preferences.getBoolean(wordTestConfigPrefix + showKanjiPostfix, false);
+			return preferences.getBoolean(wordTestConfigPrefix + showKanjiPostfix, true);
 		}
 
 		public void setShowKanji(boolean random) {

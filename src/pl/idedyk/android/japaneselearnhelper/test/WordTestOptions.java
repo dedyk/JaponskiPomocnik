@@ -76,7 +76,7 @@ public class WordTestOptions extends Activity {
 		// show kanji check box
 		final CheckBox showKanjiCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_kanji);
 		
-		showKanjiCheckBox.setChecked(wordTestConfig.getUntilSuccess());
+		showKanjiCheckBox.setChecked(wordTestConfig.getShowKanji());
 		
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
