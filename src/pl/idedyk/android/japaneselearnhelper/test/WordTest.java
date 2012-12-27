@@ -16,16 +16,25 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.InputType;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class WordTest extends Activity {
+	
+	private TextViewAndEditText[] textViewAndEditTextForWordAsArray;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -109,8 +118,6 @@ public class WordTest extends Activity {
 		
 		List<String> fullKanaListToRemove = new ArrayList<String>(fullKanaList);
 		
-		TextViewAndEditText[] textViewAndEditTextForWordAsArray = getTextViewAndEditTextForWordAsArray();
-		
 		for (int kanaListIdx = 0; kanaListIdx < fullKanaList.size(); ++kanaListIdx) {
 			
 			String currentUserAnswer = textViewAndEditTextForWordAsArray[kanaListIdx].editText.getText().toString();
@@ -167,12 +174,65 @@ public class WordTest extends Activity {
 			}
 			
 			List<String> kanaList = currentWordDictionaryEntry.getFullKanaList();
+						
+			createTextViewAndEditTextForWordAsArray(kanaList);
 			
-			if (kanaList.size() >= 6) {
-				throw new RuntimeException("Kana list size: " + kanaList);
+			TableLayout mainLayout = (TableLayout)findViewById(R.id.word_test_mail_layout);
+			
+			int kanjiRowPosition = -1;
+			
+			while(true) {
+				
+				boolean repeat = false;
+				
+				for (int mainLayoutChildIdx = 0; mainLayoutChildIdx < mainLayout.getChildCount(); ++mainLayoutChildIdx) {
+					
+					View currentChildView = mainLayout.getChildAt(mainLayoutChildIdx);
+					
+					if (currentChildView.getId() == View.NO_ID) {
+						mainLayout.removeViewAt(mainLayoutChildIdx);
+						
+						repeat = true;
+						
+						break;
+					}
+				}
+				
+				if (repeat == false) {
+					break;
+				}
 			}
 			
-			TextViewAndEditText[] textViewAndEditTextForWordAsArray = getTextViewAndEditTextForWordAsArray();
+			for (int mainLayoutChildIdx = 0; mainLayoutChildIdx < mainLayout.getChildCount(); ++mainLayoutChildIdx) {
+				
+				View currentChildView = mainLayout.getChildAt(mainLayoutChildIdx);
+				
+				if (currentChildView.getId() == R.id.word_test_kanji_row) {
+					kanjiRowPosition = mainLayoutChildIdx;
+					
+					break;
+				}
+			}
+			
+			if (kanjiRowPosition == -1) {
+				throw new RuntimeException("Can't find kanji row");
+			}
+			
+			for (int textViewAndEditTextForWordAsArrayIdx = 0; textViewAndEditTextForWordAsArrayIdx < textViewAndEditTextForWordAsArray.length; 
+					textViewAndEditTextForWordAsArrayIdx++) {
+				
+				TableRow tableRow = new TableRow(this);
+				
+				TableLayout.LayoutParams tableRowLayouytParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, 
+						TableLayout.LayoutParams.WRAP_CONTENT, 1.0f);
+				
+				tableRow.setLayoutParams(tableRowLayouytParams);
+				
+				tableRow.addView(textViewAndEditTextForWordAsArray[textViewAndEditTextForWordAsArrayIdx].textView);
+				//tableRow.addView(textViewAndEditTextForWordAsArray[textViewAndEditTextForWordAsArrayIdx].editText);
+				
+				mainLayout.addView(tableRow, kanjiRowPosition + textViewAndEditTextForWordAsArrayIdx + 1);
+			}
 			
 			for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
 				
@@ -186,18 +246,6 @@ public class WordTest extends Activity {
 				
 				if (currentKana != null && kanaListIdx == 0) {
 					currentTextViewAndEditText.editText.requestFocus();
-				}
-				
-				if (currentKana != null) {
-					currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
-					
-					currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
-					currentTextViewAndEditText.editText.setText("");
-				} else {
-					currentTextViewAndEditText.textView.setVisibility(View.GONE);
-					
-					currentTextViewAndEditText.editText.setVisibility(View.GONE);
-					currentTextViewAndEditText.editText.setText("");
 				}
 			}
 			
@@ -232,36 +280,42 @@ public class WordTest extends Activity {
 		}
 	}
 	
-	private TextViewAndEditText[] getTextViewAndEditTextForWordAsArray() {
+	private void createTextViewAndEditTextForWordAsArray(List<String> kanaList) {
 		
-		TextView wordLabel1 = (TextView)findViewById(R.id.word_test_word_label1);
-		EditText wordInput1 = (EditText)findViewById(R.id.word_test_word_input1);
-
-		TextView wordLabel2 = (TextView)findViewById(R.id.word_test_word_label2);
-		EditText wordInput2 = (EditText)findViewById(R.id.word_test_word_input2);
-
-		TextView wordLabel3 = (TextView)findViewById(R.id.word_test_word_label3);
-		EditText wordInput3 = (EditText)findViewById(R.id.word_test_word_input3);
-
-		TextView wordLabel4 = (TextView)findViewById(R.id.word_test_word_label4);
-		EditText wordInput4 = (EditText)findViewById(R.id.word_test_word_input4);
-
-		TextView wordLabel5 = (TextView)findViewById(R.id.word_test_word_label5);
-		EditText wordInput5 = (EditText)findViewById(R.id.word_test_word_input5);
-
-		TextView wordLabel6 = (TextView)findViewById(R.id.word_test_word_label6);
-		EditText wordInput6 = (EditText)findViewById(R.id.word_test_word_input6);
+		textViewAndEditTextForWordAsArray = new TextViewAndEditText[kanaList.size()];
 		
-		TextViewAndEditText[] result = new TextViewAndEditText[6];
-		
-		result[0] = new TextViewAndEditText(wordLabel1, wordInput1);
-		result[1] = new TextViewAndEditText(wordLabel2, wordInput2);
-		result[2] = new TextViewAndEditText(wordLabel3, wordInput3);
-		result[3] = new TextViewAndEditText(wordLabel4, wordInput4);
-		result[4] = new TextViewAndEditText(wordLabel5, wordInput5);
-		result[5] = new TextViewAndEditText(wordLabel6, wordInput6);
-		
-		return result;
+		for (int idx = 0; idx < kanaList.size(); ++idx) {
+			
+			// text view
+			TextView textView = new TextView(this);
+			
+			TableLayout.LayoutParams textLayoutParams = new TableLayout.LayoutParams(
+					TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1.0f);
+			
+			//textLayoutParams.bottomMargin = 5;
+			//textLayoutParams.weight = 1.0f;
+			
+			textView.setLayoutParams(textLayoutParams);
+			
+			textView.setBackgroundColor(getResources().getColor(R.color.title_background));
+			textView.setGravity(Gravity.CENTER_VERTICAL);
+			textView.setSingleLine(false);
+			textView.setText(getString(R.string.word_test_word_label));
+			
+			// edit text
+			EditText editText = new EditText(this);
+			
+			TableLayout.LayoutParams editLayoutParams = new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 
+					TableLayout.LayoutParams.WRAP_CONTENT);
+			
+			//editText.setLayoutParams(editLayoutParams);
+
+			editText.setEms(10);
+			
+			editText.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+			
+			textViewAndEditTextForWordAsArray[idx] = new TextViewAndEditText(textView, editText);
+		}
 	}
 		
 	private static class TextViewAndEditText {

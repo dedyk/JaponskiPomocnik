@@ -11,10 +11,8 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 
 public class Utils {
-	
-	private static int MAX_LIST_SIZE = 6;
-	
-	public static List<String> parseStringIntoList(String text, boolean limitSize) {
+		
+	public static List<String> parseStringIntoList(String text) {
 		
 		if (text == null) {
 			return null;
@@ -26,10 +24,6 @@ public class Utils {
 		
 		for (String currentSplitedText : splitedText) {			
 			result.add(currentSplitedText);
-		}
-		
-		if (limitSize == true && result.size() > MAX_LIST_SIZE) {
-			throw new RuntimeException("parseStringIntoList max list size: " + text);
 		}
 		
 		return result;		
@@ -77,7 +71,7 @@ public class Utils {
 		entry.setDictionaryEntryType(dictionaryEntryType);
 		
 		if (groupsObject instanceof String) {
-			entry.setGroups(GroupsHelper.sortGroups(parseStringIntoList((String)groupsObject, false)));
+			entry.setGroups(GroupsHelper.sortGroups(parseStringIntoList((String)groupsObject)));
 		} else {
 			entry.setGroups(GroupsHelper.sortGroups(convertToListString(groupsObject)));
 		}		
@@ -87,19 +81,19 @@ public class Utils {
 		entry.setPrefixRomaji(prefixRomajiString);
 		
 		if (romajiListObject instanceof String) {
-			entry.setRomajiList(parseStringIntoList((String)romajiListObject, true));
+			entry.setRomajiList(parseStringIntoList((String)romajiListObject));
 		} else {
 			entry.setRomajiList(convertToListString(romajiListObject));
 		}
 				
 		if (kanaListObject instanceof String) {
-			entry.setKanaList(parseStringIntoList((String)kanaListObject, true));
+			entry.setKanaList(parseStringIntoList((String)kanaListObject));
 		} else {
 			entry.setKanaList(convertToListString(kanaListObject));			
 		}
 		
 		if (translateListObject instanceof String) {
-			entry.setTranslates(parseStringIntoList((String)translateListObject, true));
+			entry.setTranslates(parseStringIntoList((String)translateListObject));
 		} else {
 			entry.setTranslates(convertToListString(translateListObject));
 		}
@@ -152,11 +146,11 @@ public class Utils {
 			
 			int strokeCount = Integer.parseInt(strokeCountString);
 			
-			List<String> radicals = parseStringIntoList(radicalsString, false);
+			List<String> radicals = parseStringIntoList(radicalsString);
 		
-			List<String> onReading = parseStringIntoList(onReadingString, false);
+			List<String> onReading = parseStringIntoList(onReadingString);
 		
-			List<String> kunReading = parseStringIntoList(kunReadingString, false);
+			List<String> kunReading = parseStringIntoList(kunReadingString);
 			
 			kanjiDic2Entry.setKanji(kanjiString);
 			kanjiDic2Entry.setStrokeCount(strokeCount);
@@ -169,13 +163,13 @@ public class Utils {
 		
 		entry.setId(id);
 		entry.setKanji(kanjiString);
-		entry.setStrokePaths(parseStringIntoList(strokePathString, false));
-		entry.setPolishTranslates(parseStringIntoList(polishTranslateListString, false));
+		entry.setStrokePaths(parseStringIntoList(strokePathString));
+		entry.setPolishTranslates(parseStringIntoList(polishTranslateListString));
 		entry.setInfo(infoString);
 		
 		entry.setGenerated(Boolean.parseBoolean(generatedString));
 		
-		entry.setGroups(parseStringIntoList(groupString, false));
+		entry.setGroups(parseStringIntoList(groupString));
 					
 		entry.setKanjiDic2Entry(kanjiDic2Entry);
 		

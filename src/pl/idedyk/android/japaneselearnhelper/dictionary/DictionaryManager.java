@@ -770,10 +770,10 @@ public class DictionaryManager {
 
 			List<List<String>> strokePaths = new ArrayList<List<String>>();
 
-			strokePaths.add(Utils.parseStringIntoList(strokePath1String, false));
+			strokePaths.add(Utils.parseStringIntoList(strokePath1String));
 
 			if (strokePath2String == null || strokePath2String.equals("") == false) {
-				strokePaths.add(Utils.parseStringIntoList(strokePath2String, false));
+				strokePaths.add(Utils.parseStringIntoList(strokePath2String));
 			}
 
 			kanaAndStrokePaths.put(kana, strokePaths);
