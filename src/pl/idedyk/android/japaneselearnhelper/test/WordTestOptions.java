@@ -67,6 +67,11 @@ public class WordTestOptions extends Activity {
 		final CheckBox randomCheckBox = (CheckBox)findViewById(R.id.word_test_options_random);
 		
 		randomCheckBox.setChecked(wordTestConfig.getRandom());
+
+		// until sucess check box
+		final CheckBox untilSuccessCheckBox = (CheckBox)findViewById(R.id.word_test_options_until_success);
+		
+		untilSuccessCheckBox.setChecked(wordTestConfig.getUntilSuccess());
 		
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
@@ -141,6 +146,11 @@ public class WordTestOptions extends Activity {
 				
 				wordTestConfig.setRandom(random);
 				
+				// until success
+				boolean untilSuccess = untilSuccessCheckBox.isChecked();
+				
+				wordTestConfig.setUntilSuccess(untilSuccess);
+				
 				// groups
 				List<DictionaryEntry> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntry>();
 				
@@ -208,6 +218,7 @@ public class WordTestOptions extends Activity {
 
 				detailsSb.append("***" + optionsOther.getText() + "***\n\n");
 				detailsSb.append(randomCheckBox.isChecked() + " - " + randomCheckBox.getText()).append("\n\n");
+				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
 
 				detailsSb.append("***" + optionsGroup.getText() + "***\n\n");
 		

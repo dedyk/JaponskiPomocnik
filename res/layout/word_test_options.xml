@@ -45,6 +45,13 @@
                 android:text="@string/word_test_options_random"
                 android:textSize="12dp" />
 
+			<CheckBox
+                android:id="@+id/word_test_options_until_success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_test_options_until_success"
+                android:textSize="12dp" />
+            
             <TextView
                 android:id="@+id/word_test_options_group"
                 android:layout_width="match_parent"

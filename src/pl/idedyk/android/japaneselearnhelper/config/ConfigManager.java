@@ -436,6 +436,8 @@ public class ConfigManager {
 		
 		private final String randomPostfix = "random";
 		
+		private final String untilSuccessPostfix = "untilSuccess";
+		
 		public Integer getRepeatNumber() {
 			return preferences.getInt(wordTestConfigPrefix + repeatNumberPostfix, 1);
 		}
@@ -501,6 +503,19 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(wordTestConfigPrefix + randomPostfix, random);
+			
+			editor.commit();
+		}
+
+		public Boolean getUntilSuccess() {
+			return preferences.getBoolean(wordTestConfigPrefix + untilSuccessPostfix, false);
+		}
+
+		public void setUntilSuccess(boolean random) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestConfigPrefix + untilSuccessPostfix, random);
 			
 			editor.commit();
 		}
