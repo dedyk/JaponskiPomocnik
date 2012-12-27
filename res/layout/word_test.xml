@@ -44,6 +44,166 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/word_test_word1_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label1"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label" />
+
+            <EditText
+                android:id="@+id/word_test_word_input1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word_test_word2_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label2"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word_test_word3_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label3"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word_test_word4_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label4"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word_test_word5_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label5"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word_test_word6_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label6"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:singleLine="true"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
             android:id="@+id/word_test_translate_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >

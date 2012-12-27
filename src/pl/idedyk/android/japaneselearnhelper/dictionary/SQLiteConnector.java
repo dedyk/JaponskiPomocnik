@@ -1032,9 +1032,9 @@ public class SQLiteConnector {
 					grammaFormConjugateResult.setPrefixKana(prefixKana);
 					grammaFormConjugateResult.setKanji(kanjiString);
 					grammaFormConjugateResult.setResultType(GrammaFormConjugateResultType.valueOf(resultTypeString));
-					grammaFormConjugateResult.setKanaList(Utils.parseStringIntoList(kanaListString));
+					grammaFormConjugateResult.setKanaList(Utils.parseStringIntoList(kanaListString, false));
 					grammaFormConjugateResult.setPrefixRomaji(prefixRomaji);
-					grammaFormConjugateResult.setRomajiList(Utils.parseStringIntoList(romajiListString));
+					grammaFormConjugateResult.setRomajiList(Utils.parseStringIntoList(romajiListString , false));
 					
 					DictionaryEntry relatedDictionaryEntryById = getDictionaryEntryById(dictionaryEntryId);
 					
@@ -1050,9 +1050,9 @@ public class SQLiteConnector {
 					
 					exampleResult.setPrefixKana(prefixKana);
 					exampleResult.setKanji(kanjiString);
-					exampleResult.setKanaList(Utils.parseStringIntoList(kanaListString));
+					exampleResult.setKanaList(Utils.parseStringIntoList(kanaListString, false));
 					exampleResult.setPrefixRomaji(prefixRomaji);
-					exampleResult.setRomajiList(Utils.parseStringIntoList(romajiListString));
+					exampleResult.setRomajiList(Utils.parseStringIntoList(romajiListString , false));
 
 					DictionaryEntry relatedDictionaryEntryById = getDictionaryEntryById(dictionaryEntryId);
 					
