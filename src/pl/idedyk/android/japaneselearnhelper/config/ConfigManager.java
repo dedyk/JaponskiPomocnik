@@ -44,6 +44,10 @@ public class ConfigManager {
 		return new DictionaryHearConfig();
 	}
 	
+	public WordTestConfig getWordTestConfig() {
+		return new WordTestConfig();
+	}
+	
 	public class KanaTestConfig {
 		
 		private final String kanaTestConfigPrefix = "kanaTestConfig_";
@@ -417,6 +421,86 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(dictionaryHearConfigPrefix + randomPostfix, random);
+			
+			editor.commit();
+		}
+	}
+
+	public class WordTestConfig {
+		
+		private final String wordTestConfigPrefix = "wordTestConfig_";
+		
+		private final String repeatNumberPostfix = "repeatNumber";
+				
+		private final String wordGroupsPostfix = "wordGroups";
+		
+		private final String randomPostfix = "random";
+		
+		public Integer getRepeatNumber() {
+			return preferences.getInt(wordTestConfigPrefix + repeatNumberPostfix, 1);
+		}
+		
+		public void setRepeatNumber(int repeatNumber) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putInt(wordTestConfigPrefix + repeatNumberPostfix, repeatNumber);
+			
+			editor.commit();			
+		}	
+		
+		public Set<String> getChosenWordGroups() {
+			
+			Set<String> result = new HashSet<String>();
+			
+			String chosenWordGroupString = preferences.getString(wordTestConfigPrefix + wordGroupsPostfix, null);
+			
+			if (chosenWordGroupString == null) {
+				return result;
+			}
+			
+			String[] chosenWordGroupSplited = chosenWordGroupString.split(",");
+			
+			for (String currentChosenWordGroup : chosenWordGroupSplited) {
+				result.add(currentChosenWordGroup);
+			}
+			
+			return result;
+		}
+		
+		public void setChosenWordGroups(List<String> chosenWordGroupsNumberList) {
+			
+			if (chosenWordGroupsNumberList == null) {
+				return;
+			}
+			
+			StringBuffer chosenWordGroupsNumberSb = new StringBuffer();
+			
+			for (int chosenWordGroupsNumberListIdx = 0; chosenWordGroupsNumberListIdx < chosenWordGroupsNumberList.size(); ++chosenWordGroupsNumberListIdx) {
+				
+				chosenWordGroupsNumberSb.append(chosenWordGroupsNumberList.get(chosenWordGroupsNumberListIdx));
+				
+				if (chosenWordGroupsNumberListIdx != chosenWordGroupsNumberList.size() - 1) {
+					chosenWordGroupsNumberSb.append(",");	
+				}
+			}
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(wordTestConfigPrefix + wordGroupsPostfix, chosenWordGroupsNumberSb.toString());
+			
+			editor.commit();
+		}
+		
+		public Boolean getRandom() {
+			return preferences.getBoolean(wordTestConfigPrefix + randomPostfix, false);
+		}
+
+		public void setRandom(boolean random) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestConfigPrefix + randomPostfix, random);
 			
 			editor.commit();
 		}

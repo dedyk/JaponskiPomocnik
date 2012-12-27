@@ -1,30 +1,19 @@
 package pl.idedyk.android.japaneselearnhelper.context;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 
 public class JapaneseAndroidLearnHelperWordTestContext {
 	
 	private List<DictionaryEntry> wordsTest;
+	
 	private int wordsTestIdx = 0;
 
 	private int wordTestAnswers = 0;
 	private int wordTestCorrectAnswers = 0;
 	private int wordTestIncorrentAnswers = 0;
-	
-	private Set<Integer> lastWordsGroupChecked = null;
-	
-	public Set<Integer> getLastWordsGroupChecked() {
-		if (lastWordsGroupChecked == null) {
-			lastWordsGroupChecked = new HashSet<Integer>();
-		}
 		
-		return lastWordsGroupChecked;
-	}
-	
 	public void setWordsTest(List<DictionaryEntry> wordsTest) {
 		this.wordsTest = wordsTest;	
 		this.wordsTestIdx = 0;
