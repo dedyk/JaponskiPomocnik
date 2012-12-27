@@ -156,5 +156,15 @@ public class DictionaryEntry implements Serializable {
 
 	public void setGroups(List<String> groups) {		
 		this.groups = groups;
-	}		
+	}
+
+	@Override
+	public String toString() {
+		return "DictionaryEntry [id=" + id + ", dictionaryEntryType="
+				+ dictionaryEntryType + ", groups=" + groups + ", prefixKana="
+				+ prefixKana + ", kanji=" + kanji + ", kanaList=" + kanaList
+				+ ", prefixRomaji=" + prefixRomaji + ", romajiList="
+				+ romajiList + ", translates=" + translates + ", info=" + info
+				+ "]";
+	}
 }

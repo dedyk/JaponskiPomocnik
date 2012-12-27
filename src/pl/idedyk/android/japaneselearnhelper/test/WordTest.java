@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -11,11 +12,14 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperC
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperWordTestContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.ListUtil;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -38,6 +42,8 @@ public class WordTest extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		
+		menu.add(Menu.NONE, R.id.report_problem_menu_item, Menu.NONE, R.string.report_problem);
+		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
 		return true;
@@ -47,7 +53,79 @@ public class WordTest extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
 		
-		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		// report problem
+		if (item.getItemId() == R.id.report_problem_menu_item) {
+			
+			final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
+			
+			final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
+			
+			final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTest.this).getWordTestConfig();
+			
+			// config
+			Set<String> chosenWordGroups = wordTestConfig.getChosenWordGroups();
+			Boolean random = wordTestConfig.getRandom();
+			Boolean untilSuccess = wordTestConfig.getUntilSuccess();
+			Integer repeatNumber = wordTestConfig.getRepeatNumber();
+			Boolean showKanji = wordTestConfig.getShowKanji();
+			
+			// context
+			List<DictionaryEntry> wordsTest = wordTestContext.getWordsTest();
+			int wordsTestIdx = wordTestContext.getWordsTestIdx();
+			int wordTestAnswers = wordTestContext.getWordTestAnswers();
+			int wordTestCorrectAnswers = wordTestContext.getWordTestCorrectAnswers();
+			int wordTestIncorrentAnswers = wordTestContext.getWordTestIncorrentAnswers();
+			
+			// details report
+			StringBuffer detailsSb = new StringBuffer();
+			
+			detailsSb.append(" *** config ***\n\n");
+			detailsSb.append("chosenWordGroups: " + chosenWordGroups).append("\n\n");
+			detailsSb.append("random: " + random).append("\n\n");
+			detailsSb.append("untilSuccess: " + untilSuccess).append("\n\n");
+			detailsSb.append("repeatNumber: " + repeatNumber).append("\n\n");
+			detailsSb.append("showKanji: " + showKanji).append("\n\n");
+			
+			detailsSb.append(" *** context ***\n\n");
+			
+			detailsSb.append("wordsTestIdx: " + wordsTestIdx).append("\n\n");
+			detailsSb.append("wordTestAnswers: " + wordTestAnswers).append("\n\n");
+			detailsSb.append("wordTestCorrectAnswers: " + wordTestCorrectAnswers).append("\n\n");
+			detailsSb.append("wordTestIncorrentAnswers: " + wordTestIncorrentAnswers).append("\n\n");
+			
+			detailsSb.append("wordsTest:\n");
+			
+			for (int idx = 0; idx < wordsTest.size(); ++idx) {
+				detailsSb.append("\t").append(idx).append(": ").append(wordsTest.get(idx).toString()).append("\n");
+			}
+						
+			String chooseEmailClientTitle = getString(R.string.choose_email_client);
+
+			String mailSubject = getString(R.string.word_test_report_problem_email_subject);
+
+			String mailBody = getString(R.string.word_test_report_problem_email_body,
+					detailsSb.toString());
+
+			String versionName = "";
+			int versionCode = 0;
+
+			try {
+				PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+				versionName = packageInfo.versionName;
+				versionCode = packageInfo.versionCode;
+
+			} catch (NameNotFoundException e) {        	
+			}
+
+			Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+
+			startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+			
+			return true;
+		} else {
+			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		}
 	}
 	
 	@Override
@@ -71,8 +149,7 @@ public class WordTest extends Activity {
 			public void onClick(View view) {
 				checkUserAnswer();
 			}
-				
-		});		
+		});
 	}
 	
 	private void checkUserAnswer() {
