@@ -23,6 +23,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -173,7 +174,11 @@ public class WordTest extends Activity {
 		wordTestContext.addWordTestIncorrentAnswers(kanaList.size() - correctAnswersNo);
 		
 		if (correctAnswersNo == kanaList.size()) {
-			Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT).show();
+			Toast toast = Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT);
+			
+			toast.setGravity(Gravity.TOP, 0, 110);
+			
+			toast.show();
 			
 			wordTestContext.incrementWordsTestIdx();				
 			
