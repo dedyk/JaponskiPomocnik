@@ -1,9 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.kanji.hkr;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +15,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
@@ -312,7 +311,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				Set<String> chosenKanji = kanjiTestConfig.getChosenKanji();
 
-				Map<String, Set<String>> kanjiGroups = new TreeMap<String, Set<String>>();
+				Map<GroupEnum, Set<String>> kanjiGroups = new TreeMap<GroupEnum, Set<String>>();
 				
 				for (int allKanjisIdx = 0; allKanjisIdx < allKanjis.size(); ++allKanjisIdx) {
 
@@ -347,13 +346,13 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					kanjiCheckBoxListWithoutDetails.add(currentKanjiCheckBox);
 
-					List<String> currentKanjiEntryGroups = currentKanjiEntry.getGroups();
+					List<GroupEnum> currentKanjiEntryGroups = currentKanjiEntry.getGroups();
 					
 					if (currentKanjiEntryGroups != null && currentKanjiEntryGroups.size() > 0) {
 						
-						for (String currentcurrentKanjiEntryGroup : currentKanjiEntryGroups) {
+						for (GroupEnum currentCurrentKanjiEntryGroup : currentKanjiEntryGroups) {
 							
-							Set<String> groupSet = kanjiGroups.get(currentcurrentKanjiEntryGroup);
+							Set<String> groupSet = kanjiGroups.get(currentCurrentKanjiEntryGroup);
 							
 							if (groupSet == null) {
 								groupSet = new HashSet<String>();
@@ -361,22 +360,22 @@ public class KanjiTestOptionsActivity extends Activity {
 							
 							groupSet.add(currentKanjiEntry.getKanji());
 							
-							kanjiGroups.put(currentcurrentKanjiEntryGroup, groupSet);
+							kanjiGroups.put(currentCurrentKanjiEntryGroup, groupSet);
 						}
 					}
 				}
 				
-				String[] kanjiGroupsKeysArray = new String[kanjiGroups.size()]; 
+				GroupEnum[] kanjiGroupsKeysArray = new GroupEnum[kanjiGroups.size()]; 
 				
 				kanjiGroups.keySet().toArray(kanjiGroupsKeysArray);
 				
-				sortGroupsKeysArray(kanjiGroupsKeysArray);
+				GroupEnum.sortGroups(kanjiGroupsKeysArray);
 				
 				// add to main layout
 				
 				Set<String> chosenKanjiGroup = kanjiTestConfig.getChosenKanjiGroup();
 				
-				for (String currentKanjiGroup : kanjiGroupsKeysArray) {
+				for (GroupEnum currentKanjiGroup : kanjiGroupsKeysArray) {
 					
 					CheckBox currentKanjiGroupCheckBox = new CheckBox(KanjiTestOptionsActivity.this);
 					
@@ -385,9 +384,9 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					currentKanjiGroupCheckBox.setTextSize(12);
 
-					currentKanjiGroupCheckBox.setText(currentKanjiGroup);
+					currentKanjiGroupCheckBox.setText(currentKanjiGroup.getValue());
 					
-					currentKanjiGroupCheckBox.setChecked(chosenKanjiGroup.contains(currentKanjiGroup));
+					currentKanjiGroupCheckBox.setChecked(chosenKanjiGroup.contains(currentKanjiGroup.getValue()));
 					
 					currentKanjiGroupCheckBox.setTag(kanjiGroups.get(currentKanjiGroup));
 					
@@ -434,51 +433,5 @@ public class KanjiTestOptionsActivity extends Activity {
 		}
 
 		new PrepareAsyncTask().execute();
-	}
-	
-	private void sortGroupsKeysArray(String[] groupsKeysArray) {
-		
-		Arrays.sort(groupsKeysArray, new Comparator<String>() {
-
-			public int compare(String lhs, String rhs) {
-				
-				int lhsPartIdx = lhs.indexOf("-");
-				int rhsPartIdx = rhs.indexOf("-");
-				
-				if (lhsPartIdx == -1 || rhsPartIdx == -1) {
-					return lhs.compareTo(rhs);
-				}
-				
-				String lhsPart1 = lhs.substring(0, lhsPartIdx);
-				String rhsPart1 = rhs.substring(0, rhsPartIdx);
-				
-				int lhsRhsPart1CompareResult = lhsPart1.compareTo(rhsPart1);
-				
-				if (lhsRhsPart1CompareResult != 0) {
-					return lhsRhsPart1CompareResult;
-				}
-				
-				String lhsPart2 = lhs.substring(lhsPartIdx + 1);
-				String rhsPart2 = rhs.substring(rhsPartIdx + 1);
-				
-				Integer lhsPart2Int = null;
-				
-				try {
-					lhsPart2Int = Integer.parseInt(lhsPart2);
-				} catch (NumberFormatException e) {
-					return lhsPart2.compareTo(rhsPart2);	
-				}
-
-				Integer rhsPart2Int = null;
-				
-				try {
-					rhsPart2Int = Integer.parseInt(rhsPart2);
-				} catch (NumberFormatException e) {
-					return lhsPart2.compareTo(rhsPart2);	
-				}
-				
-				return lhsPart2Int.compareTo(rhsPart2Int);
-			}
-		});
 	}
 }

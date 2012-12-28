@@ -21,7 +21,7 @@ public class KanjiEntry implements Serializable {
 	
 	private boolean generated;
 	
-	private List<String> groups;
+	private List<GroupEnum> groups;
 
 	public int getId() {
 		return id;
@@ -79,11 +79,11 @@ public class KanjiEntry implements Serializable {
 		this.generated = generated;
 	}
 
-	public List<String> getGroups() {
+	public List<GroupEnum> getGroups() {
 		return groups;
 	}
 
-	public void setGroups(List<String> groups) {
+	public void setGroups(List<GroupEnum> groups) {
 		this.groups = groups;
 	}
 }

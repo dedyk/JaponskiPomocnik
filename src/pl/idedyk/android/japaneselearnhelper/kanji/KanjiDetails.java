@@ -5,6 +5,7 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
@@ -209,13 +210,13 @@ public class KanjiDetails extends Activity {
 		}
 		
 		// kanji appearance
-		List<String> groups = kanjiEntry.getGroups();
+		List<GroupEnum> groups = kanjiEntry.getGroups();
 		
 		if (groups != null && groups.size() > 0) {
 			report.add(new TitleItem(getString(R.string.kanji_details_kanji_appearance_label), 0));
 			
 			for (int idx = 0; idx < groups.size(); ++idx) {
-				report.add(new StringValue(groups.get(idx), 20.0f, 0));
+				report.add(new StringValue(groups.get(idx).getValue(), 20.0f, 0));
 			}			
 		}		
 		

@@ -23,6 +23,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.FuriganaEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
@@ -1151,11 +1152,11 @@ public class DictionaryManager {
 		close();
 	}
 
-	public List<String> getDictionaryEntryGroupTypes() {
+	public List<GroupEnum> getDictionaryEntryGroupTypes() {
 		return sqliteConnector.getDictionaryEntryGroupTypes();
 	}
 
-	public List<DictionaryEntry> getGroupDictionaryEntries(String groupName) {
+	public List<DictionaryEntry> getGroupDictionaryEntries(GroupEnum groupName) {
 		
 		try {
 			return sqliteConnector.getGroupDictionaryEntries(groupName);

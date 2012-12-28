@@ -11,6 +11,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperDictionaryHearContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
@@ -80,7 +81,7 @@ public class DictionaryHearOptions extends Activity {
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 		
-		final List<String> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getDictionaryEntryGroupTypes();
+		final List<GroupEnum> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getDictionaryEntryGroupTypes();
 		
 		Set<String> chosenWordGroups = dictionaryHearConfig.getChosenWordGroups();
 				
@@ -93,9 +94,9 @@ public class DictionaryHearOptions extends Activity {
 
 			currentWordGroupCheckBox.setTextSize(12);
 			
-			currentWordGroupCheckBox.setText(groupsNames.get(groupsNamesIdx));
+			currentWordGroupCheckBox.setText(groupsNames.get(groupsNamesIdx).getValue());
 			
-			if (chosenWordGroups != null && chosenWordGroups.contains(groupsNames.get(groupsNamesIdx))) {
+			if (chosenWordGroups != null && chosenWordGroups.contains(groupsNames.get(groupsNamesIdx).getValue())) {
 				currentWordGroupCheckBox.setChecked(true);
 			}
 						
@@ -169,8 +170,9 @@ public class DictionaryHearOptions extends Activity {
 				progressDialog.dismiss();
 								
 				// INFO: Tylko do testow
-				// ttsInitResult.japaneseTtsResult = true;
-				// ttsInitResult.polishTtsResult = true;
+				int warning = 0;
+				ttsInitResult.japaneseTtsResult = true;
+				ttsInitResult.polishTtsResult = true;
 								
 				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {	
 					return;
@@ -312,7 +314,7 @@ public class DictionaryHearOptions extends Activity {
 				
 				List<DictionaryEntry> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntry>();
 				
-				List<String> chosenWordGroupsNumberList = new ArrayList<String>();
+				List<GroupEnum> chosenWordGroupsNumberList = new ArrayList<GroupEnum>();
 				
 				for (int wordGroupCheckBoxListIdx = 0; wordGroupCheckBoxListIdx < wordGroupCheckBoxList.size(); ++wordGroupCheckBoxListIdx) {
 					
@@ -340,7 +342,7 @@ public class DictionaryHearOptions extends Activity {
 					return;
 				}
 				
-				dictionaryHearConfig.setChosenWordGroups(chosenWordGroupsNumberList);
+				dictionaryHearConfig.setChosenWordGroups(GroupEnum.convertToValues(chosenWordGroupsNumberList));
 				
 				if (random == true) {
 					Collections.shuffle(chosenAllDictionaryEntryList);

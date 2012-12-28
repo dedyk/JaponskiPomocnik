@@ -10,6 +10,7 @@ import java.util.Set;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
@@ -89,7 +90,7 @@ public class SQLiteConnector {
 		
 		sqliteDatabase.insertOrThrow(SQLiteStatic.dictionaryEntriesTableName, null, values);
 
-		insertListEntry(dictionaryEntry.getGroups(), SQLiteStatic.dictionaryEntriesTableName, 
+		insertListEntry(GroupEnum.convertToValues(dictionaryEntry.getGroups()), SQLiteStatic.dictionaryEntriesTableName, 
 				SQLiteStatic.dictionaryEntriesTable_groups, String.valueOf(dictionaryEntry.getId()));
 		
 		insertListEntry(dictionaryEntry.getKanaList(), SQLiteStatic.dictionaryEntriesTableName, 
@@ -103,7 +104,6 @@ public class SQLiteConnector {
 		
 		insertListEntryWithPolishCharsRemove(dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName, 
 				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
-
 	}
 	
 	private void insertListEntry(List<String> list, String type, String subType, String key) {
@@ -487,7 +487,7 @@ public class SQLiteConnector {
 		values.put(SQLiteStatic.kanjiEntriesTable_polishTranslates, Utils.convertListToString(kanjiEntry.getPolishTranslates()));
 		values.put(SQLiteStatic.kanjiEntriesTable_info, emptyIfNull(kanjiEntry.getInfo()));
 		values.put(SQLiteStatic.kanjiEntriesTable_generated, String.valueOf(kanjiEntry.isGenerated()));
-		values.put(SQLiteStatic.kanjiEntriesTable_groups, Utils.convertListToString(kanjiEntry.getGroups()));
+		values.put(SQLiteStatic.kanjiEntriesTable_groups, Utils.convertListToString(GroupEnum.convertToValues(kanjiEntry.getGroups())));
 		
 		sqliteDatabase.insertOrThrow(SQLiteStatic.kanjiEntriesTableName, null, values);
 	}
@@ -1148,9 +1148,9 @@ public class SQLiteConnector {
 		return findKanjiResult;
 	}
 
-	public List<String> getDictionaryEntryGroupTypes() {
+	public List<GroupEnum> getDictionaryEntryGroupTypes() {
 		
-		List<String> result = new ArrayList<String>();
+		List<GroupEnum> result = new ArrayList<GroupEnum>();
 		
 		Cursor cursor = null;
 		
@@ -1166,7 +1166,7 @@ public class SQLiteConnector {
 				
 				String groupName = cursor.getString(0);
 
-				result.add(groupName);
+				result.add(GroupEnum.getGroupEnum(groupName));
 				
 				cursor.moveToNext();
 			}
@@ -1177,12 +1177,12 @@ public class SQLiteConnector {
 			}
 		}
 		
-		GroupsHelper.sortGroups(result);
+		GroupEnum.sortGroups(result);
 		
 		return result;
 	}
 
-	public List<DictionaryEntry> getGroupDictionaryEntries(String groupName) throws DictionaryException {
+	public List<DictionaryEntry> getGroupDictionaryEntries(GroupEnum groupName) throws DictionaryException {
 		
 		List<DictionaryEntry> result = new ArrayList<DictionaryEntry>();
 		
@@ -1195,7 +1195,7 @@ public class SQLiteConnector {
 					" select " + SQLiteStatic.listEntriesTable_key + " from " + SQLiteStatic.listEntriesTableName + " " + 
 					" where " + SQLiteStatic.listEntriesTable_type + " = ? and " + SQLiteStatic.listEntriesTable_subType + " = ? and " +
 					" " + SQLiteStatic.listEntriesTable_value + " = ? " +
-					")", new String[] { SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_groups, groupName });
+					")", new String[] { SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_groups, groupName.getValue() });
 			
 		    cursor.moveToFirst();
 		    

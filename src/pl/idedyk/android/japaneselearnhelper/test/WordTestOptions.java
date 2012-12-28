@@ -11,6 +11,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperWordTestContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
 import android.content.Intent;
@@ -81,7 +82,7 @@ public class WordTestOptions extends Activity {
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 		
-		final List<String> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getDictionaryEntryGroupTypes();
+		final List<GroupEnum> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getDictionaryEntryGroupTypes();
 		
 		Set<String> chosenWordGroups = wordTestConfig.getChosenWordGroups();
 				
@@ -94,9 +95,9 @@ public class WordTestOptions extends Activity {
 
 			currentWordGroupCheckBox.setTextSize(12);
 			
-			currentWordGroupCheckBox.setText(groupsNames.get(groupsNamesIdx));
+			currentWordGroupCheckBox.setText(groupsNames.get(groupsNamesIdx).getValue());
 			
-			if (chosenWordGroups != null && chosenWordGroups.contains(groupsNames.get(groupsNamesIdx))) {
+			if (chosenWordGroups != null && chosenWordGroups.contains(groupsNames.get(groupsNamesIdx).getValue())) {
 				currentWordGroupCheckBox.setChecked(true);
 			}
 						
@@ -179,7 +180,7 @@ public class WordTestOptions extends Activity {
 							chosenAllDictionaryEntryList.addAll(currentWordsGroupDictionaryEntryList);
 						}
 						
-						chosenWordGroupsNumberList.add(groupsNames.get(wordGroupCheckBoxListIdx));
+						chosenWordGroupsNumberList.add(groupsNames.get(wordGroupCheckBoxListIdx).getValue());
 					}
 				}
 				

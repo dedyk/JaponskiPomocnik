@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DictionaryEntry implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -12,7 +13,7 @@ public class DictionaryEntry implements Serializable {
 		
 	private DictionaryEntryType dictionaryEntryType;
 	
-	private List<String> groups;
+	private List<GroupEnum> groups;
 	
 	private String prefixKana;
 	
@@ -150,11 +151,11 @@ public class DictionaryEntry implements Serializable {
 		this.prefixRomaji = prefixRomaji;
 	}
 
-	public List<String> getGroups() {
+	public List<GroupEnum> getGroups() {
 		return groups;
 	}
 
-	public void setGroups(List<String> groups) {		
+	public void setGroups(List<GroupEnum> groups) {		
 		this.groups = groups;
 	}
 

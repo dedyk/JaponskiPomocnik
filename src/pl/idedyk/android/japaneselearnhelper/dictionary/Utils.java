@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
@@ -77,9 +78,9 @@ public class Utils {
 		entry.setDictionaryEntryType(dictionaryEntryType);
 		
 		if (groupsObject instanceof String) {
-			entry.setGroups(GroupsHelper.sortGroups(parseStringIntoList((String)groupsObject, false)));
+			entry.setGroups(GroupEnum.sortGroups(GroupEnum.convertToListGroupEnum(parseStringIntoList((String)groupsObject, false))));
 		} else {
-			entry.setGroups(GroupsHelper.sortGroups(convertToListString(groupsObject)));
+			entry.setGroups(GroupEnum.sortGroups(GroupEnum.convertToListGroupEnum(convertToListString(groupsObject))));
 		}		
 		
 		entry.setPrefixKana(prefixKanaString);
@@ -175,7 +176,7 @@ public class Utils {
 		
 		entry.setGenerated(Boolean.parseBoolean(generatedString));
 		
-		entry.setGroups(parseStringIntoList(groupString, false));
+		entry.setGroups(GroupEnum.convertToListGroupEnum(parseStringIntoList(groupString, false)));
 					
 		entry.setKanjiDic2Entry(kanjiDic2Entry);
 		
