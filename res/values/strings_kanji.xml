@@ -53,9 +53,12 @@
     <string name="kanji_test_options_test_mode">Tryb testu</string>
     <string name="kanji_test_options_test_mode_draw_kanji_from_meaning">Rysowanie kanji posługując się znaczeniem znaku</string>
     <string name="kanji_test_options_test_mode_draw_kanji_in_word">Rysowanie znaków kanji uzupełniając puste miejsce w słowie</string>
+    <string name="kanji_test_options_test_mode_draw_kanji_in_word_group">Rysowanie znaków kanji uzupełniając puste miejsce w słowie dla wybranych grup</string>
     <string name="kanji_test_options_choose_kanji_group">Proszę wybrać grupę znaków kanji użytych podczas testu</string>
     <string name="kanji_test_options_choose_kanji">Indywidualny wybór znaków kanji</string>
     <string name="kanji_test_options_choose_kanji_info">Proszę wybrać znaki kanji użyte podczas testu</string>
+    <string name="kanji_test_options_choose_kanji_group_info">Proszę wybrać grupy znaków kanji</string>
+    <string name="kanji_test_options_choose_kanji_group_no_words">Dla wybranych grup brak słów. Proszę wybrać inne grupy</string>
     <string name="kanji_test_options_start_test">Rozpocznij test</string>
     <string name="kanji_test_options_other_options">Inne opcje</string>
     <string name="kanji_test_options_until_success">"Powtarzaj aż do sukcesu"</string>

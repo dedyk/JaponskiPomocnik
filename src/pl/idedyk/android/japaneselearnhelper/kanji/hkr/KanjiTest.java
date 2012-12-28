@@ -93,7 +93,7 @@ public class KanjiTest extends Activity {
 					kanjiInTestList.add(currentKanjiEntry.getKanji());
 				}					
 
-			} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+			} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD_GROUP) {
 
 				List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
 
@@ -450,7 +450,7 @@ public class KanjiTest extends Activity {
 
 			kanjiInfoTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_meaning, kanjiInfoSb.toString())), TextView.BufferType.SPANNABLE);		
 
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD_GROUP) {
 
 			DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = (DictionaryEntryWithRemovedKanji)currentTestPosObject;
 
@@ -490,7 +490,7 @@ public class KanjiTest extends Activity {
 			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
 			return kanjiEntryList.get(testCurrentPos);			
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD_GROUP) {
 
 			List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
 
@@ -507,7 +507,7 @@ public class KanjiTest extends Activity {
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
 
 			return kanjiTestContext.getKanjiEntryList().size();			
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD_GROUP) {
 
 			return kanjiTestContext.getDictionaryEntryWithRemovedKanji().size();
 		} else {
@@ -526,7 +526,7 @@ public class KanjiTest extends Activity {
 			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
 			return kanjiEntryList.get(testCurrentPos).getKanji();		
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD_GROUP) {
 
 			List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
 
@@ -547,7 +547,7 @@ public class KanjiTest extends Activity {
 			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
 			return kanjiEntryList.get(testCurrentPos).getStrokePaths().size();	
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD_GROUP) {
 
 			List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
 
@@ -572,7 +572,7 @@ public class KanjiTest extends Activity {
 			} else {
 				return false;
 			}
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD_GROUP) {
 
 			List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
 
@@ -598,7 +598,8 @@ public class KanjiTest extends Activity {
 			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
 			kanjiEntryList.add(kanjiEntryList.get(testCurrentPos));	
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+			
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD_GROUP) {
 
 			List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
 

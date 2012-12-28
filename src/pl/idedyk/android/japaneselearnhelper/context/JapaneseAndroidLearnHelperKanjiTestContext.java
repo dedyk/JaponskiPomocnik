@@ -102,6 +102,12 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 		public String getKanjiWithRemovedKanji() {
 			return dictionaryEntry.getKanji().replaceAll(removedKanji, "_");
 		}
+
+		@Override
+		public String toString() {
+			return "DictionaryEntryWithRemovedKanji [dictionaryEntry="
+					+ dictionaryEntry + ", removedKanji=" + removedKanji + "]";
+		}
 	}
 	
 	public static class TestAnswer {
