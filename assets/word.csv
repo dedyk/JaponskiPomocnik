@@ -1446,7 +1446,8 @@ Genki kanji 1-6",,大人,おとな,,otona,dorosły,,
 962,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 1-12,,天の川,あまのがわ,,ama no gawa,Droga Mleczna,,
 963,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 1-12,,向こう,むこう,,mukou,po tamtej stronie,,
 964,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 1-12,,畑,はたけ,,hatake,pole,nieryżowe,
-965,WORD,WORD_VERB_U,HIRAGANA,Genki dodatkowe 1-12,,怒る,おこる,,okoru,zezłościć się,,
+965,WORD,WORD_VERB_U,HIRAGANA,Genki dodatkowe 1-12,,怒る,おこる,,okoru,"zezłościć się
+denerwować się",,
 966,WORD,WORD_VERB_U,HIRAGANA,"Genki dodatkowe 1-12
 Genki kanji 1-12",,連れて帰る,つれてかえる,,tsurete kaeru,wracać do domu,,
 967,WORD,WORD_VERB_U,HIRAGANA,"Genki dodatkowe 1-12
@@ -2689,7 +2690,10 @@ lęk",,
 1914,WORD,WORD_VERB_RU,HIRAGANA,Inne,,恐怖を感じる,きょうふをかんじる,,kyoufu o kanjiru,"odczuwać lęk
 bać się",,
 1915,WORD,WORD_NOUN,HIRAGANA,Inne,,感じ,かんじ,,kanji,"wrażenie
-odczucie",,
+odczucie
+czucie
+dotyk
+impresja",,
 1916,WORD,WORD_VERB_RU,HIRAGANA,Inne,,感じる,かんじる,,kanjiru,"czuć
 odczuwać",,
 1917,WORD,WORD_NOUN,KATAKANA,Inne,,-,マクドナルド,,makudonarudo,McDonald's,,
@@ -3177,8 +3181,9 @@ usuwać",ubranie,
 かなあ",,"kana
 kanaa",zastanawiać się nad,"~, mowa potoczna",
 2236,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,そうか,,souka,rozumiem,mowa potoczna,
-2237,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,-,それに,,soreni,"mimo wszystko
-jednak",,
+2237,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,,其れに,それに,,soreni,"ponadto
+poza
+poza tym",,
 2238,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,に,比べて,くらべて,ni,kurabete,w porównaniu z,~,
 2239,WORD,WORD_EXPRESSION,HIRAGANA,Genki 2-17,に,依ると,よると,ni,yoruto,według,,
 2240,WORD,WORD_NOUN,KATAKANA,Inne,,-,コアラ,,koara,miś koala,,
@@ -3442,3 +3447,64 @@ barwienie",,
 wykonywać masaż",,
 2402,WORD,WORD_NOUN,KATAKANA,Inne,,-,コミュニケーション,,komyunikeeshon,komunikacja,,
 2403,WORD,WORD_NOUN,HIRAGANA,Inne,,衣装,いしょう,,ishou,strój,,
+2404,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,怪しい,あやしい,,ayashii,"podejrzany
+dziwny
+tajemniczy",,
+2405,WORD,WORD_VERB_U,HIRAGANA,Inne,,怪しむ,あやしむ,,ayashimu,"wątpić
+podejrzewać",,
+2406,WORD,WORD_NOUN,HIRAGANA,Inne,,怒り,いかり,,ikari,"gniew
+złość",,
+2407,WORD,WORD_NOUN,KATAKANA,Inne,,-,オーケストラ,,ookesutora,orkiestra,,
+2408,WORD,WORD_NOUN,HIRAGANA,Inne,,拳銃,けんじゅう,,kenjuu,"pistolet
+rewolwer",,
+2409,WORD,WORD_VERB_RU,HIRAGANA,Inne,,挙げる,あげる,,ageru,"podnosić
+wznosić",,
+2410,WORD,WORD_VERB_U,HIRAGANA,Inne,,挙がる,あがる,,agaru,"wznosić się
+podnosić się",,
+2411,WORD,WORD_NOUN,HIRAGANA,Inne,,選挙,せんきょ,,senkyo,wybory,,
+2412,WORD,WORD_NOUN,HIRAGANA,Inne,,検挙,けんきょ,,kenkyo,"areszt
+obława
+łapanka",,
+2413,WORD,WORD_NOUN,HIRAGANA,Inne,,挙行,きょこう,,kyokou,"świętowanie
+uroczysty obchód
+celebrowanie
+uczczenie",,
+2414,WORD,WORD_NOUN,HIRAGANA,Inne,,挙手,きょしゅ,,kyoshu,"podnoszenie ręki
+pokazywanie ręką
+salutowanie",,
+2415,WORD,WORD_NOUN,HIRAGANA,Inne,,挙動,きょどう,,kyodou,"zachowanie
+postępowanie
+postawa",,
+2416,WORD,WORD_VERB_U,HIRAGANA,Inne,,集まる,あつまる,,atsumaru,"spotykać się
+zbierać",,
+2417,WORD,WORD_NOUN,HIRAGANA,Inne,,集中,しゅうちゅう,,shuuchuu,"koncentracja
+skupienie",,
+2418,WORD,WORD_NOUN,HIRAGANA,Inne,,編集,へんしゅう,,henshuu,redagowanie,,
+2419,WORD,WORD_NOUN,HIRAGANA,Inne,,集会,しゅうかい,,shuukai,"spotkanie
+zgromadzenie",,
+2420,WORD,WORD_NOUN,HIRAGANA,Inne,,集団,しゅうだん,,shuudan,grupa,,
+2421,WORD,WORD_NOUN,HIRAGANA,Inne,,集合,しゅうごう,,shuugou,"zbiórka
+spotkanie",,
+2422,WORD,WORD_NOUN,HIRAGANA,Inne,,小銃,しょうじゅう,,shoujuu,"karabin
+strzelba",,
+2423,WORD,WORD_NOUN,HIRAGANA,Inne,,指揮者,しきしゃ,,shikisha,dyrygent,,
+2424,WORD,WORD_NOUN,KATAKANA,Inne,,-,シャンパン,,shanpan,szampan,,
+2425,WORD,WORD_NOUN,KATAKANA,Inne,,-,ワイン,,wain,wino,,
+2426,WORD,WORD_NOUN,KATAKANA,Inne,,-,コニャック,,konyakku,koniak,,
+2427,WORD,WORD_NOUN,KATAKANA,Inne,,-,ウイスキー,,uisukii,whisky,,
+2428,WORD,WORD_NOUN,HIRAGANA,Inne,,操縦士,そうじゅうし,,soujuushi,pilot,,
+2429,WORD,WORD_NOUN,KATAKANA,Inne,,-,ヘリコプター,,herikoputaa,"helikopter
+śmigłowiec",,
+2430,WORD,WORD_VERB_U,HIRAGANA,Inne,,裏切る,うらぎる,,uragiru,zdradzać,,
+2431,WORD,WORD_NOUN,HIRAGANA,Inne,,散歩,さんぽ,,sanpo,spacer,,
+2432,WORD,WORD_NOUN,HIRAGANA,Inne,,背広,せびろ,,sebiro,garnitur,,
+2433,WORD,WORD_NOUN,HIRAGANA,Inne,,露天風呂,ろてんぶろ,,rotenburo,"rotenburo
+kąpiel na powietrzu",,
+2434,WORD,WORD_NOUN,KATAKANA,Inne,,-,ヒップ,,hippu,"pośladki
+tyłek
+pupa",,
+2435,WORD,WORD_NOUN,HIRAGANA,Inne,,緊張,きんちょう,,kinchou,zdenerwowanie,,
+2436,WORD,WORD_NOUN,HIRAGANA,Inne,,幹事,かんじ,,kanji,"zarządca
+kierownik
+organizator
+menadżer",,
