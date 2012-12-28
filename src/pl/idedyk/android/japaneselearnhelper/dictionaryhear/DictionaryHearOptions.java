@@ -170,9 +170,9 @@ public class DictionaryHearOptions extends Activity {
 				progressDialog.dismiss();
 								
 				// INFO: Tylko do testow
-				int warning = 0;
-				ttsInitResult.japaneseTtsResult = true;
-				ttsInitResult.polishTtsResult = true;
+//				int warning = 0;
+//				ttsInitResult.japaneseTtsResult = true;
+//				ttsInitResult.polishTtsResult = true;
 								
 				if (ttsInitResult.japaneseTtsResult == true && ttsInitResult.polishTtsResult == true) {	
 					return;
