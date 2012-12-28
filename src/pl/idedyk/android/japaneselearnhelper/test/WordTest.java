@@ -261,32 +261,29 @@ public class WordTest extends Activity {
 			DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);
 			
 			String kanji = currentWordDictionaryEntry.getKanji();
+			String prefixKana = currentWordDictionaryEntry.getPrefixKana();
 			
 			TextView kanjiLabel = (TextView)findViewById(R.id.word_test_kanji_label);
+			EditText kanjiPrefix = (EditText)findViewById(R.id.word_test_kanji_prefix);
 			EditText kanjiInput = (EditText)findViewById(R.id.word_test_kanji_input);
 			
 			if (kanji != null && wordTestConfig.getShowKanji() != null && wordTestConfig.getShowKanji().equals(Boolean.TRUE) == true) {
 				
-				String kanjiText = "";
-				
-				String prefixKana = currentWordDictionaryEntry.getPrefixKana();
-				
-				if (prefixKana != null && prefixKana.equals("") == false) {
-					kanjiText += "(" + prefixKana + ") ";
-				}
-				
-				kanjiText += currentWordDictionaryEntry.getKanji();
-				
-				kanjiInput.setText(kanjiText);
+				kanjiInput.setText(kanji);
+				kanjiPrefix.setText(prefixKana);
 				
 				kanjiLabel.setVisibility(View.VISIBLE);
+				kanjiPrefix.setVisibility(View.VISIBLE);
 				kanjiInput.setVisibility(View.VISIBLE);
+				
 				kanjiInput.setEnabled(false);
 			} else {
 				kanjiInput.setText("");
 				
 				kanjiLabel.setVisibility(View.GONE);
+				kanjiPrefix.setVisibility(View.GONE);
 				kanjiInput.setVisibility(View.GONE);
+				
 				kanjiInput.setEnabled(false);
 			}
 			
@@ -315,11 +312,15 @@ public class WordTest extends Activity {
 				if (currentKana != null) {
 					currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
 					
+					currentTextViewAndEditText.editPrefix.setText(prefixKana);
+					
+					currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
 					currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
 					currentTextViewAndEditText.editText.setText("");
 				} else {
 					currentTextViewAndEditText.textView.setVisibility(View.GONE);
 					
+					currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
 					currentTextViewAndEditText.editText.setVisibility(View.GONE);
 					currentTextViewAndEditText.editText.setText("");
 				}
@@ -359,31 +360,37 @@ public class WordTest extends Activity {
 	private void createTextViewAndEditTextForWordAsArray(final int lastAnswerIdx) {
 		
 		TextView wordLabel1 = (TextView)findViewById(R.id.word_test_word_label1);
+		EditText wordPrefix1 = (EditText)findViewById(R.id.word_test_word_prefix1);
 		EditText wordInput1 = (EditText)findViewById(R.id.word_test_word_input1);
 		
 		TextView wordLabel2 = (TextView)findViewById(R.id.word_test_word_label2);
+		EditText wordPrefix2 = (EditText)findViewById(R.id.word_test_word_prefix2);
 		EditText wordInput2 = (EditText)findViewById(R.id.word_test_word_input2);
 
 		TextView wordLabel3 = (TextView)findViewById(R.id.word_test_word_label3);
+		EditText wordPrefix3 = (EditText)findViewById(R.id.word_test_word_prefix3);
 		EditText wordInput3 = (EditText)findViewById(R.id.word_test_word_input3);
 
 		TextView wordLabel4 = (TextView)findViewById(R.id.word_test_word_label4);
+		EditText wordPrefix4 = (EditText)findViewById(R.id.word_test_word_prefix4);
 		EditText wordInput4 = (EditText)findViewById(R.id.word_test_word_input4);
 
 		TextView wordLabel5 = (TextView)findViewById(R.id.word_test_word_label5);
+		EditText wordPrefix5 = (EditText)findViewById(R.id.word_test_word_prefix5);
 		EditText wordInput5 = (EditText)findViewById(R.id.word_test_word_input5);
 
 		TextView wordLabel6 = (TextView)findViewById(R.id.word_test_word_label6);
+		EditText wordPrefix6 = (EditText)findViewById(R.id.word_test_word_prefix6);
 		EditText wordInput6 = (EditText)findViewById(R.id.word_test_word_input6);
 		
 		textViewAndEditTextForWordAsArray = new TextViewAndEditText[Utils.MAX_LIST_SIZE];
 		
-		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordInput1);
-		textViewAndEditTextForWordAsArray[1] = new TextViewAndEditText(wordLabel2, wordInput2);
-		textViewAndEditTextForWordAsArray[2] = new TextViewAndEditText(wordLabel3, wordInput3);
-		textViewAndEditTextForWordAsArray[3] = new TextViewAndEditText(wordLabel4, wordInput4);
-		textViewAndEditTextForWordAsArray[4] = new TextViewAndEditText(wordLabel5, wordInput5);
-		textViewAndEditTextForWordAsArray[5] = new TextViewAndEditText(wordLabel6, wordInput6);
+		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordPrefix1, wordInput1);
+		textViewAndEditTextForWordAsArray[1] = new TextViewAndEditText(wordLabel2, wordPrefix2, wordInput2);
+		textViewAndEditTextForWordAsArray[2] = new TextViewAndEditText(wordLabel3, wordPrefix3, wordInput3);
+		textViewAndEditTextForWordAsArray[3] = new TextViewAndEditText(wordLabel4, wordPrefix4, wordInput4);
+		textViewAndEditTextForWordAsArray[4] = new TextViewAndEditText(wordLabel5, wordPrefix5, wordInput5);
+		textViewAndEditTextForWordAsArray[5] = new TextViewAndEditText(wordLabel6, wordPrefix6, wordInput6);
 		
 		for (int idx = 0; idx < textViewAndEditTextForWordAsArray.length; ++idx) {
 			
@@ -411,10 +418,14 @@ public class WordTest extends Activity {
 		
 	private static class TextViewAndEditText {
 		TextView textView;
+		
+		EditText editPrefix;
 		EditText editText;
 		
-		public TextViewAndEditText(TextView textView, EditText editText) {
+		public TextViewAndEditText(TextView textView, EditText editPrefix, EditText editText) {
 			this.textView = textView;
+			
+			this.editPrefix = editPrefix;
 			this.editText = editText;
 		}
 	}

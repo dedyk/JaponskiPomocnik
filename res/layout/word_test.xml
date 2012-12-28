@@ -27,16 +27,27 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
                 android:text="@string/word_test_kanji_label" />
 
             <EditText
-                android:id="@+id/word_test_kanji_input"
-                android:layout_width="match_parent"
+                android:id="@+id/word_test_kanji_prefix"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/word_test_kanji_input"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true" >
@@ -53,16 +64,27 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
                 android:text="@string/word_test_word_label" />
 
             <EditText
-                android:id="@+id/word_test_word_input1"
-                android:layout_width="match_parent"
+                android:id="@+id/word_test_word_prefix1"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/word_test_word_input1"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true" />
@@ -78,7 +100,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
@@ -86,9 +108,21 @@
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_input2"
-                android:layout_width="match_parent"
+                android:id="@+id/word_test_word_prefix2"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input2"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
@@ -105,7 +139,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
@@ -113,9 +147,21 @@
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_input3"
-                android:layout_width="match_parent"
+                android:id="@+id/word_test_word_prefix3"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input3"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
@@ -132,7 +178,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
@@ -140,9 +186,21 @@
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_input4"
-                android:layout_width="match_parent"
+                android:id="@+id/word_test_word_prefix4"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input4"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
@@ -159,7 +217,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
@@ -167,9 +225,21 @@
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_input5"
-                android:layout_width="match_parent"
+                android:id="@+id/word_test_word_prefix5"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input5"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
@@ -186,7 +256,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
@@ -194,9 +264,21 @@
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_input6"
-                android:layout_width="match_parent"
+                android:id="@+id/word_test_word_prefix6"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input6"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
@@ -213,7 +295,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
@@ -221,8 +303,9 @@
 
             <EditText
                 android:id="@+id/word_test_translate_input"
-                android:layout_width="match_parent"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
+                android:layout_weight="6"
                 android:ems="10"
                 android:inputType="text|textMultiLine"
                 android:singleLine="false" />
@@ -238,7 +321,7 @@
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
@@ -246,8 +329,9 @@
 
             <EditText
                 android:id="@+id/word_test_additional_info_input"
-                android:layout_width="match_parent"
+                android:layout_width="0dip"
                 android:layout_height="wrap_content"
+                android:layout_weight="6"
                 android:ems="10"
                 android:inputType="text|textMultiLine"
                 android:singleLine="false" />
@@ -262,7 +346,7 @@
                 android:id="@+id/word_test_state_info_label"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
@@ -274,7 +358,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="left"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="2"
+                android:layout_weight="6"
                 android:singleLine="false"
                 android:text="@string/word_test_state" />
         </TableRow>
