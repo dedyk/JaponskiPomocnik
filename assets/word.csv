@@ -1873,8 +1873,11 @@ dojrzały",,
 1278,WORD,WORD_EXPRESSION,KATAKANA,Inne,,-,ポイント,,pointo,na co zwracać uwagę,,
 1279,WORD,WORD_EXPRESSION,HIRAGANA,Inne,,楽々,らくらく,,raku raku,łatwe,troszeczkę kombinowane,
 1280,WORD,WORD_EXPRESSION,HIRAGANA,Inne,,-,おすすめ,,osusume,polecane,,
-1281,WORD,WORD_EXPRESSION,HIRAGANA,Inne,,認定,にんてい,,nintei,"zatwierdzenie
-potwierdzenie",,
+1281,WORD,WORD_NOUN,HIRAGANA,Inne,,認定,にんてい,,nintei,"potwierdzenie
+autoryzacja
+uznanie
+pozwolenie
+identyfikacja",,
 1282,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,-,でかい,,dekai,"ogromny
 gigantyczny",,
 1283,WORD,WORD_NOUN,HIRAGANA,Inne,,御萩,おはぎ,,ohagi,ciastko,rodzaj ciastka,
@@ -3533,3 +3536,47 @@ słup lodowy",,
 2453,WORD,WORD_NOUN,HIRAGANA,Inne,,氷海,ひょうかい,,hyoukai,zamarznięte morze,,
 2454,WORD,WORD_NOUN,HIRAGANA,Inne,,脳,のう,,nou,"mózg
 pamięć",,
+2455,WORD,WORD_NOUN,KATAKANA,Inne,,-,ティースプーン,,tiisupuun,łyżeczka,,
+2456,WORD,WORD_NOUN,HIRAGANA,Inne,,小さじ,こさじ,,kosaji,łyżeczka,,
+2457,WORD,WORD_NOUN,HIRAGANA,Inne,,匙,さじ,,saji,łyżka,,
+2458,WORD,WORD_NOUN,KATAKANA,Inne,,-,サプーン,,sapuun,łyżka,,
+2459,WORD,WORD_NOUN,KATAKANA,Inne,,-,フォーク,,fooku,widelec,,
+2460,WORD,WORD_NOUN,KATAKANA,Inne,,-,ホーク,,hooku,widelec,,
+2461,WORD,WORD_NOUN,KATAKANA,Inne,,-,バットマン,,battoman,batman,,
+2462,WORD,WORD_NOUN,HIRAGANA,Inne,,岩,いわ,,iwa,"kamień
+skała",,
+2463,WORD,WORD_NOUN,HIRAGANA,Inne,,岩屋,いわや,,iwaya,jaskinia,,
+2464,WORD,WORD_NOUN,HIRAGANA,Inne,,巌窟,がんくつ,,gankutsu,jaskinia,,
+2465,WORD,WORD_NOUN,HIRAGANA,Inne,,岩石,がんせき,,ganseki,skała,,
+2466,WORD,WORD_NOUN,HIRAGANA,Inne,,岩礁,がんしょう,,ganshou,"rafa
+skała podwodna",,
+2467,WORD,WORD_NOUN,HIRAGANA,Inne,,星,ほし,,hoshi,gwiazda,,
+2468,WORD,WORD_NOUN,HIRAGANA,Inne,,星座,せいざ,,seiza,"układ gwiezdny
+konstelacja",,
+2469,WORD,WORD_NOUN,HIRAGANA,Inne,,星霜,せいそう,,seisou,"lata
+czas",,
+2470,WORD,WORD_NOUN,HIRAGANA,Inne,,星図,せいず,,seizu,mapa gwiezdna,,
+2471,WORD,WORD_NOUN,HIRAGANA,Inne,,流星,りゅうせい,,ryuusei,kometa,,
+2472,WORD,WORD_NOUN,HIRAGANA,Inne,,流れ星,ながれぼし,,nagareboshi,kometa,,
+2473,WORD,WORD_NOUN,HIRAGANA,Inne,,星占い,ほしうらない,,hoshiuranai,"astrologia
+horoskop",,
+2474,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,嫌,いや,,iya,"niemiły
+nieprzyjemny",,
+2475,WORD,WORD_VERB_RU,HIRAGANA,Inne,,認める,みとめる,,mitomeru,"dostrzec
+zauważyć
+rozpoznać
+uznać
+przyznać się",,
+2476,WORD,WORD_NOUN,HIRAGANA,Inne,,認識,にんしき,,ninshiki,"zrozumienie
+rozpoznanie
+wiedza",,
+2477,WORD,WORD_NOUN,HIRAGANA,Inne,,認証,にんしょう,,ninshou,"potwierdzenie
+uznanie
+poświadczenie
+certyfikat",,
+2478,WORD,WORD_NOUN,HIRAGANA,Inne,,認可,にんか,,ninka,"uznanie
+licencja
+pozwolenie",,
+2479,WORD,WORD_NOUN,HIRAGANA,Inne,,認知,にんち,,ninchi,"rozpoznanie
+uznanie",,
+2480,WORD,WORD_NOUN,HIRAGANA,Inne,,葉巻,はまき,,hamaki,cygaro,,

@@ -8,7 +8,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
@@ -230,7 +230,7 @@ public class KanjiDetails extends Activity {
 			
 			public void onClick(View view) {
 
-				Intent intent = new Intent(getApplicationContext(), WordDictionary.class);
+				Intent intent = new Intent(getApplicationContext(), WordDictionaryTab.class);
 				
 				intent.putExtra("find", kanjiEntry.getKanji());
 				

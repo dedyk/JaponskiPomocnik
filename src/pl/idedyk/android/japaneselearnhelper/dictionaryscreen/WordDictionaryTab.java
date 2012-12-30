@@ -36,7 +36,7 @@ public class WordDictionaryTab extends TabActivity {
 
 		if (itemId == R.id.main_menu_word_dictionary_tab_add_tab) { // add tab
 
-			addTab(getTabHost());
+			addTab(getTabHost(), false);
 
 			return true;
 		} else if (itemId == R.id.main_menu_word_dictionary_tab_del_tab) { // del tab
@@ -57,15 +57,19 @@ public class WordDictionaryTab extends TabActivity {
 
 		TabHost tabHost = getTabHost();
 		
-		addTab(tabHost);
+		addTab(tabHost, true);
 
 		tabHost.setCurrentTab(0);
 	}
 
-	private void addTab(TabHost tabHost) {
+	private void addTab(TabHost tabHost, boolean addFindExtra) {
 
 		// word dictionary
 		Intent wordDictionary = new Intent(getApplicationContext(), WordDictionary.class);
+		
+		if (addFindExtra == true) {
+			wordDictionary.putExtra("find", (String)getIntent().getSerializableExtra("find"));
+		}
 
 		TabSpec wordDictionaryTabSpec = tabHost.newTabSpec("WordDictionaryTabSpec." + counter)
 				.setIndicator(getString(R.string.word_dictionary_tab_tab, counter))
