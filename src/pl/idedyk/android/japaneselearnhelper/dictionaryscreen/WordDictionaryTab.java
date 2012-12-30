@@ -101,6 +101,12 @@ public class WordDictionaryTab extends TabActivity {
 			currentTab = tagHostSpecList.size();
 		}
 		
-		tabHost.setCurrentTab(currentTab - 1);
+		currentTab = currentTab - 1;
+		
+		if (currentTab < 0) {
+			currentTab = 0;
+		}
+		
+		tabHost.setCurrentTab(currentTab);
 	}
 }
