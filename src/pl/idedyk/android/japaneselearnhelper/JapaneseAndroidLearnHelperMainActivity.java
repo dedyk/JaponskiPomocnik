@@ -6,6 +6,7 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.counters.CountersActivity;
 import pl.idedyk.android.japaneselearnhelper.dictionaryhear.DictionaryHearOptions;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.info.InfoActivity;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.kana.KanaTestOptions;
@@ -133,7 +134,7 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					
 				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_dictionary_text)) == true) { // dictionary selected
 					
-					Intent intent = new Intent(getApplicationContext(), WordDictionary.class);
+					Intent intent = new Intent(getApplicationContext(), WordDictionaryTab.class);
 
 					startActivity(intent);
 					

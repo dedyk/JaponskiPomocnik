@@ -70,7 +70,7 @@ public class WordDictionary extends Activity {
 	private TextView wordDictionarySearchElementsNoTextView;
 	
 	private CheckBox[] searchDictionaryEntryListCheckBox;
-	
+			
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
@@ -86,10 +86,70 @@ public class WordDictionary extends Activity {
 
 		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 	}
+	
+	/*
+	Nie dziala to do konca dobrze :-(
+	
+	@Override
+	protected void onSaveInstanceState(Bundle bundle) {
+		
+		super.onSaveInstanceState(bundle);
+		
+		bundle.putString("searchValueEditText", searchValueEditText.getText().toString());
+		
+		bundle.putBoolean("seachOptionsEachChangeCheckBox", seachOptionsEachChangeCheckBox.isChecked());
+		
+		bundle.putBoolean("searchOptionsKanjiCheckbox", searchOptionsKanjiCheckbox.isChecked());
+		bundle.putBoolean("searchOptionsKanaCheckbox", searchOptionsKanaCheckbox.isChecked());
+		bundle.putBoolean("searchOptionsRomajiCheckbox", searchOptionsRomajiCheckbox.isChecked());
+		bundle.putBoolean("searchOptionsTranslateCheckbox", searchOptionsTranslateCheckbox.isChecked());
+		bundle.putBoolean("searchOptionsInfoCheckbox", searchOptionsInfoCheckbox.isChecked());
+		bundle.putBoolean("searchOptionsGrammaExampleSearchCheckbox", searchOptionsGrammaExampleSearchCheckbox.isChecked());
+		
+		bundle.putBoolean("searchOptionsAnyPlaceRadioButton", searchOptionsAnyPlaceRadioButton.isChecked());
+		bundle.putBoolean("searchOptionsStartWithPlaceRadioButton", searchOptionsStartWithPlaceRadioButton.isChecked());
+		
+		boolean[] searchDictionaryEntryListCheckBoxBooleanValue = new boolean[searchDictionaryEntryListCheckBox.length];
+		
+		for (int idx = 0; idx < searchDictionaryEntryListCheckBox.length; ++idx) {
+			searchDictionaryEntryListCheckBoxBooleanValue[idx] = searchDictionaryEntryListCheckBox[idx].isChecked();
+		}
+		
+		bundle.putBooleanArray("searchDictionaryEntryListCheckBox", searchDictionaryEntryListCheckBoxBooleanValue);
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle bundle) {
+			
+		super.onRestoreInstanceState(bundle);
+					   
+		seachOptionsEachChangeCheckBox.setChecked(bundle.getBoolean("seachOptionsEachChangeCheckBox"));
+		
+		searchOptionsKanjiCheckbox.setChecked(bundle.getBoolean("searchOptionsKanjiCheckbox"));
+		searchOptionsKanaCheckbox.setChecked(bundle.getBoolean("searchOptionsKanaCheckbox"));
+		searchOptionsRomajiCheckbox.setChecked(bundle.getBoolean("searchOptionsRomajiCheckbox"));
+		searchOptionsTranslateCheckbox.setChecked(bundle.getBoolean("searchOptionsTranslateCheckbox"));
+		searchOptionsInfoCheckbox.setChecked(bundle.getBoolean("searchOptionsInfoCheckbox"));
+		searchOptionsGrammaExampleSearchCheckbox.setChecked(bundle.getBoolean("searchOptionsGrammaExampleSearchCheckbox"));
+		
+		searchOptionsAnyPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsAnyPlaceRadioButton"));
+		searchOptionsStartWithPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsStartWithPlaceRadioButton"));
+
+		boolean[] searchDictionaryEntryListCheckBoxBooleanValue = bundle.getBooleanArray("searchDictionaryEntryListCheckBox");
+		
+		for (int idx = 0; idx < searchDictionaryEntryListCheckBox.length; ++idx) {
+			searchDictionaryEntryListCheckBox[idx].setChecked(searchDictionaryEntryListCheckBoxBooleanValue[idx]);
+		}
+		
+		searchValueEditText.setText(bundle.getString("searchValueEditText"));
+				
+		performSearch(searchValueEditText.getText().toString());
+	}	
+	*/
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		
+				
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.word_dictionary);
@@ -435,7 +495,7 @@ public class WordDictionary extends Activity {
 	}
 	
 	private void performRealSearch(final String findWord) {
-		
+			
 		searchResultList.clear();
 						
 		final FindWordRequest findWordRequest = new FindWordRequest();

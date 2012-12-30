@@ -25,6 +25,7 @@ public class KanjiSearch extends TabActivity {
 		
 		tabHost.addTab(kanjiSearchRadicalTabSpec);
 
+		// kanji search stroke count
 		Intent kanjiSearchStrokeCountIntent = new Intent().setClass(this, KanjiSearchStrokeCount.class);
 		
 		TabSpec kanjiSearchStrokeCountTabSpec = tabHost.newTabSpec("KanjiSearchStrokeCount")

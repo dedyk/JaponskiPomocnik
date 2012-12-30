@@ -1,7 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper;
 
 import pl.idedyk.android.japaneselearnhelper.counters.CountersActivity;
-import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
@@ -41,7 +41,7 @@ public class MenuShorterHelper {
 			return true;
 		} else if (itemId == R.id.main_menu_dictionary_text_menu_item) { // dictionary
 			
-			Intent intent = new Intent(applicationContext, WordDictionary.class);
+			Intent intent = new Intent(applicationContext, WordDictionaryTab.class);
 
 			activity.startActivity(intent);
 			

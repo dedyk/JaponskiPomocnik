@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <item name="report_problem_menu_item" type="id"/>
     
     <item name="main_menu_kana_text_menu_item" type="id"/>
@@ -7,4 +7,6 @@
     <item name="main_menu_dictionary_text_menu_item" type="id"/>
     <item name="main_menu_kanji_text_menu_item" type="id"/>
     <item name="main_menu_kanji_recognizer_text_menu_item" type="id"/>
+    <item name="main_menu_word_dictionary_tab_add_tab" type="id" />
+    <item name="main_menu_word_dictionary_tab_del_tab" type="id" />
 </resources>
