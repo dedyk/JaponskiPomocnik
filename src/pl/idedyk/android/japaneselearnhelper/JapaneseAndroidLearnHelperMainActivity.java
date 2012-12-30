@@ -5,7 +5,6 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.counters.CountersActivity;
 import pl.idedyk.android.japaneselearnhelper.dictionaryhear.DictionaryHearOptions;
-import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionary;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.info.InfoActivity;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
