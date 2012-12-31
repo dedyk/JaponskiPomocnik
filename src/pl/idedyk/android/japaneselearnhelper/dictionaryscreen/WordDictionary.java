@@ -87,9 +87,6 @@ public class WordDictionary extends Activity {
 		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 	}
 	
-	/*
-	Nie dziala to do konca dobrze :-(
-	
 	@Override
 	protected void onSaveInstanceState(Bundle bundle) {
 		
@@ -143,9 +140,15 @@ public class WordDictionary extends Activity {
 		
 		searchValueEditText.setText(bundle.getString("searchValueEditText"));
 				
-		performSearch(searchValueEditText.getText().toString());
-	}	
-	*/
+		
+		
+		searchValueEditText.post(new Runnable() {
+			
+			public void run() {
+				performSearch(searchValueEditText.getText().toString());
+			}
+		});
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
