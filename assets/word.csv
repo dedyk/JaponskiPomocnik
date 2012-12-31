@@ -1884,7 +1884,9 @@ gigantyczny",,
 1284,WORD,WORD_NOUN,HIRAGANA,Inne,,旧市街,きゅうしがい,,kyuushigai,stare miasto,,
 1285,WORD,UNKNOWN,HIRAGANA,Inne,,織物,おりもの,,orimono,tkactwo,,
 1286,WORD,WORD_NOUN,HIRAGANA,Inne,,工場,こうじょう,,koujou,fabryka,,
-1287,WORD,WORD_NOUN,HIRAGANA,Inne,,針,はり,,hari,igła,,
+1287,WORD,WORD_NOUN,HIRAGANA,Inne,,針,はり,,hari,"igła
+pinezka
+haczyk",,
 1288,WORD,WORD_NOUN,HIRAGANA,Genki 2-17,,鍵,かぎ,,kagi,"klucz
 zamknięcie",,
 1289,WORD,WORD_VERB_RU,HIRAGANA,Genki 2-17,に,鍵をかける,かぎをかける,ni,kagi o kakeru,"zamykać
@@ -2325,7 +2327,7 @@ Genki kanji 1-6",,中国,ちゅうごく,,chuugoku,Ciugoku,Region wyspy Honsiu,
 1625,WORD,WORD_NOUN,KATAKANA,Inne,,-,サンドイッチ,,sandoicchi,kanapka,,
 1626,WORD,WORD_NOUN,HIRAGANA,Inne,,西瓜,すいか,,suika,arbuz,,
 1627,WORD,WORD_NOUN,HIRAGANA,Inne,,体育,たいいく,,taiiku,wychowanie fizyczne,,
-1628,WORD,WORD_NOUN,HIRAGANA,Inne,,体育の日,たいいくのひ,,taiiku no hi,Dzień Zdrowia i Sportu,Japońskie święto państwowe,
+1628,WORD,WORD_NOUN,HIRAGANA,Inne,,体育の日,たいいくのひ,,taiiku no hi,Dzień Zdrowia i Sportu,"Japońskie święto narodowe, obchodzone w drugi poniedziałek października",
 1629,WORD,WORD_NOUN,HIRAGANA,Inne,,祭日,さいじつ,,saijitsu,święto narodowe,,
 1630,WORD,WORD_NOUN,KATAKANA,Inne,,-,アフリカ,,afurika,Afryka,,
 1631,WORD,WORD_NOUN,KATAKANA,Inne,,-,タイ,,tai,Tajlandia,,
@@ -2504,7 +2506,7 @@ system liczenia",,
 1782,WORD,WORD_EXPRESSION,HIRAGANA,Inne,,５月の２番目の日曜日,ごがつのにばんめのにちようび,,gogatsu no nibanme no nichiyoubi,druga niedziela maja,dzień matki,
 1783,WORD,WORD_EXPRESSION,HIRAGANA,Inne,,６月の３番目の日曜日,ろくがつのさんばんめのにちようび,,rokugatsu no sanbanme no nichiyoubi,trzecia niedziela czerwca,dzień ojca,
 1784,WORD,WORD_NOUN,HIRAGANA,Inne,,父の日,ちちのひ,,chichi no hi,dzień ojca,trzecia niedziela czerwca,
-1785,WORD,WORD_NOUN,HIRAGANA,Inne,,子供の日,こどものひ,,kodomo no hi,dzień dziecka,piątego maja,
+1785,WORD,WORD_NOUN,HIRAGANA,Inne,,子供の日,こどものひ,,kodomo no hi,dzień dziecka,"Japońskie święto narodowe, obchodzone 5 maja",
 1786,WORD,WORD_NOUN,HIRAGANA,Inne,,鯉,こい,,koi,karp,,
 1787,WORD,WORD_NOUN,HIRAGANA,Inne,,鯉幟,こいのぼり,,koi nobori,flaga w kształcie karpia,symbol japońskiego dnia dziecka,
 1788,WORD,WORD_NOUN,HIRAGANA,Inne,,節分,せつぶん,,setsubun,pierwszy dzień wiosny,,
@@ -3429,7 +3431,7 @@ drugorzędny",,
 2387,WORD,WORD_NOUN,HIRAGANA,Inne,,次官,じかん,,jikan,wiceminister,,
 2388,WORD,WORD_NOUN,HIRAGANA,Inne,,地元,じもと,,jimoto,"lokalny
 miejscowy",,
-2389,WORD,WORD_NOUN,HIRAGANA,Inne,,元日,がんじつ,,ganjitsu,pierwszy dzień nowego roku,,
+2389,WORD,WORD_NOUN,HIRAGANA,Inne,,元日,がんじつ,,ganjitsu,pierwszy dzień nowego roku,Japońskie święto narodowe,
 2390,WORD,WORD_NOUN,HIRAGANA,Inne,,元金,がんきん,,gankin,podstawowa kwota,,
 2391,WORD,WORD_NOUN,HIRAGANA,Inne,,元本,がんぽん,,ganpon,kapitał,,
 2392,WORD,WORD_NOUN,HIRAGANA,Inne,,謎,なぞ,,nazo,"zagadka
@@ -3580,3 +3582,43 @@ pozwolenie",,
 2479,WORD,WORD_NOUN,HIRAGANA,Inne,,認知,にんち,,ninchi,"rozpoznanie
 uznanie",,
 2480,WORD,WORD_NOUN,HIRAGANA,Inne,,葉巻,はまき,,hamaki,cygaro,,
+2481,WORD,WORD_NOUN,HIRAGANA,Inne,,成人の日,せいじんのひ,,seijin no hi,Święto Wejścia w Dorosłość,"Japońskie święto narodowe, obchodzone w drugi poniedziałek stycznia",
+2482,WORD,WORD_NOUN,HIRAGANA,Inne,,建国記念日,けんこくきねんび,,kenkoku kinenbi,Rocznica Ustanowienia Państwa,"Japońskie święto narodowe, obchodzone 11 lutego",
+2483,WORD,WORD_NOUN,HIRAGANA,Inne,,春分の日,しゅんぶんのひ,,shunbun no hi,Równonoc Wiosenna,"Japońskie święto narodowe, obchodzone ok. 21 marca",
+2484,WORD,WORD_NOUN,HIRAGANA,Inne,,昭和の日,しょうわのひ,,shouwa no hi,Rocznica Urodzin Cesarza Shōwa,"Japońskie święto narodowe, obchodzone 29 kwietnia",
+2485,WORD,WORD_NOUN,HIRAGANA,Inne,,憲法記念日,けんぽうきねんび,,kenpou kinenbi,Rocznica Wprowadzenia Konstytucji,"Japońskie święto narodowe, obchodzone 3 maja",
+2486,WORD,WORD_NOUN,HIRAGANA,Inne,,緑の日,みどりのひ,,midori no hi,Dzień Zieleni,"Japońskie święto narodowe, obchodzone 4 maja",
+2487,WORD,WORD_NOUN,HIRAGANA,Inne,,海の日,うみのひ,,umi no hi,Święto Morza,"Japońskie święto narodowe, obchodzone w trzeci poniedziałek lipca",
+2488,WORD,WORD_NOUN,HIRAGANA,Inne,,敬老の日,けいろうのひ,,keirou no hi,Święto Szacunku dla Ludzi Starych,"Japońskie święto narodowe, obchodzone w trzeci poniedziałek września",
+2489,WORD,WORD_NOUN,HIRAGANA,Inne,,秋分の日,しゅうぶんのひ,,shuubun no hi,Równonoc Jesienna,"Japońskie święto narodowe, obchodzone ok. 21 września",
+2490,WORD,WORD_NOUN,HIRAGANA,Inne,,文化の日,ぶんかのひ,,bunka no hi,Dzień Kultury,"Japońskie święto narodowe, obchodzone 3 listopada",
+2491,WORD,WORD_NOUN,HIRAGANA,Inne,,勤労感謝の日,きんろうかんしゃのひ,,kinrou kansha no hi,Święto Dziękczynienia za Pracę,"Japońskie święto narodowe, obchodzone 23 listopada",
+2492,WORD,WORD_NOUN,HIRAGANA,Inne,,天皇誕生日,てんのうたんじょうび,,tennou tanjoubi,Urodziny Cesarza,"Japońskie święto narodowe, obchodzone 23 grudnia",
+2493,WORD,WORD_VERB_U,HIRAGANA,Inne,,縫う,ぬう,,nuu,szyć,,
+2494,WORD,WORD_NOUN,HIRAGANA,Inne,,縫物,ぬいもの,,nuimono,"szycie
+robótki ręczne
+haft",,
+2495,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,縫物をする,ぬいものをする,,nuimono o suru,szyć,,
+2496,WORD,WORD_NOUN,KATAKANA,Inne,,-,ミシン,,mishin,maszyna do szycia,,
+2497,WORD,WORD_VERB_RU,KATAKANA_HIRAGANA,Inne,,-,ミシンをかける,,mishin o kakeru,szyć,na maszynie do szycia,
+2498,WORD,WORD_VERB_U,HIRAGANA,Inne,,刺す,さす,,sasu,"wbić
+ukłuć
+przeszyć
+użądlić
+przebić",,
+2499,WORD,WORD_NOUN,HIRAGANA,Inne,,刺,とげ,,toge,kolec,,
+2500,WORD,WORD_VERB_U,HIRAGANA,Inne,,刺さる,ささる,,sasaru,"utkwić
+ugrząźć
+utknąć",,
+2501,WORD,WORD_NOUN,HIRAGANA,Inne,,糸,いと,,ito,"nić
+nitka",,
+2502,WORD,WORD_NOUN,HIRAGANA,Inne,,生糸,きいと,,kiito,surowy jedwab,,
+2503,WORD,WORD_NOUN,HIRAGANA,Inne,,糸口,いとぐち,,itoguchi,"koniec nitki
+początek
+ślad
+trop",,
+2504,WORD,WORD_NOUN,HIRAGANA,Inne,,糸目,いとめ,,itome,"nitki
+sznurki",,
+2505,WORD,WORD_NOUN,HIRAGANA,Inne,,糸車,いとぐるま,,itoguruma,koło zamachowe,,
+2506,WORD,WORD_NOUN,HIRAGANA,Inne,,糸巻き,いとまき,,itomaki,szpulka,,
+2507,WORD,WORD_NOUN,HIRAGANA,Inne,,鋏,はさみ,,hasami,nożyczki,,
