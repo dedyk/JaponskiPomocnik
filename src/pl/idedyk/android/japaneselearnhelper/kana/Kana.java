@@ -666,7 +666,7 @@ public class Kana extends Activity {
 		addKanaItem(u_tableRow, kanaCache, "ウィ");
 		addKanaItem(u_tableRow, kanaCache, null);
 		addKanaItem(u_tableRow, kanaCache, "ウェ");
-		addKanaItem(u_tableRow, kanaCache, null);
+		addKanaItem(u_tableRow, kanaCache, "ウォ");
 		
 		screenItems.add(u_tableRow);
 

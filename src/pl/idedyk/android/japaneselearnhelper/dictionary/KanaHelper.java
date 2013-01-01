@@ -391,6 +391,7 @@ public class KanaHelper {
 		
 		katakanaEntries.add(new KanaEntry("ウィ", "wi", KanaType.KATAKANA, KanaGroup.YOUON));
 		katakanaEntries.add(new KanaEntry("ウェ", "we", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ウォ", "wo", KanaType.KATAKANA, KanaGroup.YOUON));
 		
 		katakanaEntries.add(new KanaEntry("シェ", "she", KanaType.KATAKANA, KanaGroup.YOUON));
 		katakanaEntries.add(new KanaEntry("ジェ", "je", KanaType.KATAKANA, KanaGroup.YOUON));
