@@ -881,7 +881,8 @@ Genki 1-7",,-,おばあさん,,obaasan,babcia,"spoza swojej rodziny lub własna 
 548,WORD,WORD_NOUN,HIRAGANA,"Genki 1-7
 Genki 2-14",,兄,あに,,ani,starszy brat,"własna rodzina, formalnie",
 549,WORD,WORD_NOUN,HIRAGANA,Genki 1-7,,姉,あね,,ane,starsza siostra,"własna rodzina, formalnie",
-550,WORD,WORD_NOUN,HIRAGANA,Genki 1-7,,主人,しゅじん,,shujin,mąż,"własna rodzina, formalnie",
+550,WORD,WORD_NOUN,HIRAGANA,Genki 1-7,,主人,しゅじん,,shujin,"mąż
+właściciel","własna rodzina, formalnie",
 551,WORD,WORD_NOUN,HIRAGANA,Genki 1-7,,夫,おっと,,otto,mąż,"własna rodzina, formalnie",
 552,WORD,WORD_NOUN,HIRAGANA,Genki 1-7,,家内,かない,,kanai,żona,"własna rodzina, formalnie",
 553,WORD,WORD_NOUN,HIRAGANA,Genki 1-7,,妻,つま,,tsuma,żona,"własna rodzina, formalnie",
@@ -1160,7 +1161,7 @@ Genki kanji 1-12",,色々,いろいろ,,iroiro,różne,,
 740,WORD,WORD_NOUN,KATAKANA,Genki 1-10,,-,クレジットカード,,kurejitto kaado,karta kredytowa,,
 741,WORD,WORD_NOUN,KATAKANA,Genki 1-10,,-,サッカー,,sakkaa,piłka nożna,,
 742,WORD,WORD_NOUN,HIRAGANA,"Genki 1-10
-Genki kanji 2-17",,生活,せいかつ,,seikatsu,życie,,
+Genki kanji 2-17",,生活,せいかつ,,seikatsu,życie,codzienne,
 743,WORD,WORD_NOUN,HIRAGANA,"Genki 1-10
 Genki kanji 2-16",,世界,せかい,,sekai,świat,,
 744,WORD,WORD_NOUN,HIRAGANA,"Genki 1-10
@@ -1993,7 +1994,8 @@ widzieć osobę","osoba ni, spotkanie przypadkowe",
 1368,KANJI,UNKNOWN,HIRAGANA,Genki kanji 1-7,,母語,ぼご,,bogo,język ojczysty,,
 1369,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 1-7,,中学校,ちゅうがっこう,,chuugakkou,gimnazjum,,
 1370,KANJI,WORD_NOUN,HIRAGANA,"Genki kanji 1-7
-Genki kanji 2-17",,文字,もじ,,moji,list,,
+Genki kanji 2-17",,文字,もじ,,moji,"litera
+znak",,
 1371,KANJI,UNKNOWN,HIRAGANA,Genki kanji 1-7,,帰国,きこく,,kikoku,wracać do kraju,,
 1372,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 1-7,,入口,いりぐち,,iriguchi,wejście,,
 1373,KANJI,WORD_VERB_RU,HIRAGANA,"Genki kanji 1-7
@@ -2002,7 +2004,9 @@ Genki 2-16",,入れる,いれる,,ireru,wkładać,,
 1375,KANJI,WORD_NOUN,HIRAGANA,"Genki kanji 1-8
 Genki kanji 2-14",,店員,てんいん,,ten'in,sprzedawca,,
 1376,KANJI,WORD_NOUN,HIRAGANA,"Genki kanji 1-8
-Genki kanji 2-17",,作品,さくひん,,sakuhin,utwór artystyczny,,
+Genki kanji 2-17",,作品,さくひん,,sakuhin,"utwór artystyczny
+dzieło
+rękodzieło",,
 1377,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 1-8,,事,こと,,koto,rzecz,,
 1378,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 1-8,,火事,かじ,,kaji,ogień,,
 1379,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 1-8,,食事,しょくじ,,shokuji,posiłek,,
@@ -3100,7 +3104,8 @@ być podobnym",,
 wynikać (z czegoś)",,
 2172,WORD,WORD_VERB_U,HIRAGANA,Inne,,新聞による,しんぶんによる,,shinbun ni yoru,"opierać się na gazecie
 według gazety",,
-2173,WORD,WORD_NOUN,HIRAGANA,Inne,,里,さと,,sato,wioska,,
+2173,WORD,WORD_NOUN,HIRAGANA,Inne,,里,さと,,sato,"wioska
+wieś",dawniejsze użycie,
 2174,WORD,WORD_NOUN,HIRAGANA,Inne,,ほかの人,ほかのひと,,hoka no hito,inny człowiek,,
 2175,WORD,UNKNOWN,HIRAGANA,Inne,,才,さい,,sai,... lat,prostszy odpowiednik,
 2176,WORD,WORD_NOUN,HIRAGANA,Inne,,天才,てんさい,,tensai,geniusz,,
@@ -3208,11 +3213,13 @@ rozpuszczać się",,
 ćwiczenia
 trening",,
 2251,KANJI,WORD_ADVERB,HIRAGANA,Genki kanji 2-17,,主に,おもに,,omoni,głównie,,
-2252,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,主語,しゅご,,shugo,temat zdania,,
+2252,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,主語,しゅご,,shugo,"temat zdania
+podmiot",,
 2253,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,持ち主,もちぬし,,mochinushi,właściciel,,
 2254,KANJI,UNKNOWN,HIRAGANA,Genki kanji 2-17,,結果,けっか,,kekka,"wynik
 rezultat
-konsekwencja",,
+konsekwencja
+owoc (czegoś)",,
 2255,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,結論,けつろん,,ketsuron,konkluzja,,
 2256,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,結ぶ,むすぶ,,musubu,"wiązać
 łączyć",,
@@ -3221,13 +3228,15 @@ konsekwencja",,
 2259,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,婚約者,こんやくしゃ,,kon'yakusha,"narzeczona
 zaręczony
 zaręczona",,
-2260,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,特集,とくしゅう,,tokushuu,reportaż,w magazynie,
+2260,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,特集,とくしゅう,,tokushuu,specjalne wydanie,magazynu,
 2261,KANJI,WORD_VERB_IRREGULAR,HIRAGANA,Genki kanji 2-17,,集中する,しゅうちゅうする,,shuuchuu suru,"koncentrować się
 skupiać się",na czymś,
-2262,KANJI,WORD_VERB_IRREGULAR,HIRAGANA,Genki kanji 2-17,,発表する,はっぴょうする,,happyou suru,prezentować,,
+2262,KANJI,WORD_VERB_IRREGULAR,HIRAGANA,Genki kanji 2-17,,発表する,はっぴょうする,,happyou suru,"prezentować
+ogłoszenie (czegoś)",,
 2263,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,出発,しゅっぱつ,,shuppatsu,"wyjazd
 wylot",,
-2264,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,表紙,ひょうし,,hyoushi,strona tytułowa,,
+2264,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,表紙,ひょうし,,hyoushi,"strona tytułowa
+okładka",,
 2265,KANJI,WORD_VERB_U,HIRAGANA,Genki kanji 2-17,,表す,あらわす,,arawasu,"wyrażać
 wypowiadać",np. opinię,
 2266,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,Genki kanji 2-17,,上品,じょうひん,,jouhin,elegancki,,
@@ -3237,7 +3246,8 @@ przedmiot",,
 2268,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,赤字,あかじ,,akaji,deficyt,,
 2269,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,名字,みょうじ,,myouji,nazwisko,,
 2270,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,大文字,おおもじ,,oomoji,duże litery,,
-2271,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,活動,かつどう,,katsudou,aktywność,,
+2271,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 2-17,,活動,かつどう,,katsudou,"aktywność
+działalność",,
 2272,KANJI,WORD_ADJECTIVE_NA,HIRAGANA,Genki kanji 2-17,,活発,かっぱつ,,kappatsu,"żywy
 ożywiony
 energiczny",,
@@ -3481,7 +3491,7 @@ salutowanie",,
 postępowanie
 postawa",,
 2416,WORD,WORD_VERB_U,HIRAGANA,Inne,,集まる,あつまる,,atsumaru,"spotykać się
-zbierać",,
+zbierać się",,
 2417,WORD,WORD_NOUN,HIRAGANA,Inne,,集中,しゅうちゅう,,shuuchuu,"koncentracja
 skupienie",,
 2418,WORD,WORD_NOUN,HIRAGANA,Inne,,編集,へんしゅう,,henshuu,redagowanie,,
@@ -3644,3 +3654,53 @@ perwersja",,
 2519,WORD,WORD_NOUN,KATAKANA,Inne,,-,ドラキュラ,,dorakyura,Drakula,,
 2520,WORD,WORD_NOUN,HIRAGANA,Inne,,吸血鬼,きゅうけつき,,kyuuketsuki,"wampir
 krwiopijca",,
+2521,WORD,WORD_VERB_RU,HIRAGANA,Inne,,負ける,まける,,makeru,"przegrać
+ponieść porażkę
+opuścić cenę",,
+2522,WORD,WORD_NOUN,HIRAGANA,Inne,,患者,かんじゃ,,kanja,pacjent,,
+2523,WORD,WORD_NOUN,HIRAGANA,Inne,,羽,はね,,hane,skrzydła,,
+2524,WORD,WORD_NOUN,KATAKANA,Inne,,-,ダンス,,dansu,taniec,,
+2525,WORD,WORD_VERB_U,HIRAGANA_KATAKANA,Inne,,ダンスを習う,ダンスをならう,,dansu o narau,nauka tańca,,
+2526,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,主,おも,,omo,główny,,
+2527,WORD,WORD_NOUN,HIRAGANA,Inne,,述語,じゅつご,,jutsugo,orzeczenie,,
+2528,WORD,WORD_NOUN,HIRAGANA,Inne,,助詞,じょし,,joshi,partykuła,,
+2529,WORD,WORD_NOUN,HIRAGANA,Inne,,品詞,ひんし,,hinshi,część mowy,,
+2530,WORD,WORD_NOUN,HIRAGANA,Inne,,名詞,めいし,,meishi,rzeczownik,,
+2531,WORD,WORD_NOUN,HIRAGANA,Inne,,動詞,どうし,,doushi,czasownik,,
+2532,WORD,WORD_NOUN,HIRAGANA,Inne,,形容詞,けいようし,,keiyoushi,przymiotnik,,
+2533,WORD,WORD_NOUN,HIRAGANA,Inne,,雀,すずめ,,suzume,wróbel,,
+2534,WORD,WORD_NOUN,HIRAGANA,Inne,,発見,はっけん,,hakken,odkrycie,,
+2535,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,発見する,はっけんする,,hakken suru,odkrywać,,
+2536,WORD,WORD_NOUN,HIRAGANA,Inne,,発明,はつめい,,hatsumei,wynalazek,,
+2537,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,発明する,はつめいする,,hatsumei suru,wynaleźć,,
+2538,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,発する,はっする,,hassuru,"emanować
+wydzielać",,
+2539,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,下品,げひん,,gehin,"wulgarny
+nieprzyzwoity
+nieelegancki",,
+2540,WORD,WORD_NOUN,HIRAGANA,Inne,,下品な言葉,げひんなことば,,gehin na kotoba,"przekleństwo
+wulgaryzm",,
+2541,WORD,WORD_NOUN,HIRAGANA,Inne,,お品書き,おしながき,,oshinagaki,"spis produktów
+katalog
+menu",,
+2542,WORD,WORD_NOUN,HIRAGANA,Inne,,黒字,くろじ,,kuroji,nadwyżka,przeciwieństwo deficytu,
+2543,WORD,WORD_NOUN,HIRAGANA,Inne,,人生,じんせい,,jinsei,życie,ludzkie,
+2544,WORD,WORD_NOUN,HIRAGANA,Inne,,生命,せいめい,,seimei,"życie
+istnienie",,
+2545,WORD,WORD_VERB_U,HIRAGANA,Inne,,移す,うつす,,utsusu,przenosić,,
+2546,WORD,WORD_NOUN,HIRAGANA,Inne,,歩行者,ほこうしゃ,,hokousha,"pieszy
+piechur",,
+2547,WORD,UNKNOWN,HIRAGANA,Inne,,真白,まっしろ,,masshiro,"prawdziwie biały
+śnieżnobiały",,
+2548,WORD,UNKNOWN,HIRAGANA,Inne,,真赤,まっか,,makka,"prawdziwie czerwony
+bardzo czerwony
+głęboka czerwień",,
+2549,WORD,UNKNOWN,HIRAGANA,Inne,,真黒,まっくろ,,makkuro,"prawdziwie czarny
+bardzo czarny
+głęboka czerń",,
+2550,WORD,UNKNOWN,HIRAGANA,Inne,,真青,まっさお,,massao,"prawdziwie niebieski
+bardzo niebieski",,
+2551,WORD,WORD_NOUN,HIRAGANA,Inne,,真青顔,まっさおかお,,massao kao,"blada twarz
+twarz, która zbladła",,
+2552,WORD,WORD_NOUN,HIRAGANA,Inne,,村,むら,,mura,"wioska
+wieś",,
