@@ -37,37 +37,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/kanji_test_recognizer_check_button"
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@android:drawable/btn_default_small"
-            android:text="@string/kanji_test_recognizer_check" />
-
-        <Button
-            android:id="@+id/kanji_test_recognizer_undo_button"
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@android:drawable/btn_default_small"
-            android:text="@string/kanji_test_recognizer_undo" />
-
-        <Button
-            android:id="@+id/kanji_test_recognizer_clear_button"
-            android:layout_width="0px"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:background="@android:drawable/btn_default_small"
-            android:text="@string/kanji_test_recognizer_clear" />
     </LinearLayout>
-
-    <pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiDrawView
-        android:id="@+id/kanji_test_recognizer_draw_view"
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="100" />
 
     <TextView
         android:id="@+id/kanji_test_state"

@@ -73,7 +73,8 @@
     <string name="kanji_test_label">Test ze znaków kanji</string>
     <string name="kanji_test_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_test_info_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>
-    <string name="kanji_test_info_kanji_in_word">Proszę dokładnie narysować znak w pustym miejscu:</string>
+    <string name="kanji_test_info_draw_kanji_in_word">Proszę dokładnie narysować znak w pustym miejscu:</string>
+    <string name="kanji_test_info_choose_kanji_in_word">Proszę wybrać właściwy znak w pustym miejscu:</string>
     <string name="kanji_test_info_kunyomi">czytania kun\'yomi</string>
     <string name="kanji_test_info_onyomi">czytania on\'yomi</string>
     <string name="kanji_test_correct_answer">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n%1$s</string>
