@@ -176,7 +176,7 @@ public class KanjiTest extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.kanji_test);
+		setContentView(R.layout.kanji_test_draw);
 
 		kanjiTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanjiTestContext();
 

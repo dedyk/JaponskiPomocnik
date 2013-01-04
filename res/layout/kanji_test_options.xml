@@ -42,6 +42,13 @@
                     android:layout_height="wrap_content"
                     android:text="@string/kanji_test_options_test_mode_draw_kanji_in_word"
                     android:textSize="12dp" />
+
+                <RadioButton
+                    android:id="@+id/kanji_test_options_test_mode_choose_kanji_in_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kanji_test_options_test_mode_choose_kanji_in_word"
+                    android:textSize="12dp" />
             </RadioGroup>
 
             <TextView

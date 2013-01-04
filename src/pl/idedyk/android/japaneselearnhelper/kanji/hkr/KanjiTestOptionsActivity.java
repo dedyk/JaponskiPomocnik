@@ -54,6 +54,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		final RadioButton testModeDrawKanjiFromMeaningRadioButton = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_draw_kanji_from_meaning);
 		final RadioButton testModeDrawKanjiFromInWord = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_draw_kanji_in_word);
+		final RadioButton testModeChooseKanjiFromInWord = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_choose_kanji_in_word);
 		
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
@@ -61,6 +62,8 @@ public class KanjiTestOptionsActivity extends Activity {
 			testModeDrawKanjiFromMeaningRadioButton.setChecked(true);
 		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
 			testModeDrawKanjiFromInWord.setChecked(true);
+		} else if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+			testModeChooseKanjiFromInWord.setChecked(true);
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
 		}
@@ -97,6 +100,8 @@ public class KanjiTestOptionsActivity extends Activity {
 					kanjiTestConfig.setKanjiTestMode(KanjiTestMode.DRAW_KANJI_FROM_MEANING);
 				} else if (testModeDrawKanjiFromInWord.isChecked() == true) {
 					kanjiTestConfig.setKanjiTestMode(KanjiTestMode.DRAW_KANJI_IN_WORD);
+				} else if (testModeChooseKanjiFromInWord.isChecked() == true) {
+					kanjiTestConfig.setKanjiTestMode(KanjiTestMode.CHOOSE_KANJI_IN_WORD);
 				} else {
 					throw new RuntimeException("KanjiTestMode kanjiTestMode");
 				}
@@ -197,7 +202,7 @@ public class KanjiTestOptionsActivity extends Activity {
 						// set kanji entry list in context
 						kanjiTestContext.setKanjiEntryList(kanjiEntryList);
 
-						if (kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+						if (kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
 							List<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanjiList = 
 									new ArrayList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>();
