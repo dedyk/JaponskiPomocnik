@@ -53,7 +53,6 @@
     <string name="kanji_test_options_test_mode">Tryb testu</string>
     <string name="kanji_test_options_test_mode_draw_kanji_from_meaning">Rysowanie kanji posługując się znaczeniem znaku</string>
     <string name="kanji_test_options_test_mode_draw_kanji_in_word">Rysowanie znaków kanji uzupełniając puste miejsce w słowie</string>
-    <string name="kanji_test_options_test_mode_draw_kanji_in_word_group">Rysowanie znaków kanji uzupełniając puste miejsce w słowie dla wybranych grup</string>
     <string name="kanji_test_options_choose_kanji_group">Proszę wybrać grupę znaków kanji użytych podczas testu</string>
     <string name="kanji_test_options_choose_kanji">Indywidualny wybór znaków kanji</string>
     <string name="kanji_test_options_choose_kanji_info">Proszę wybrać znaki kanji użyte podczas testu</string>
@@ -62,6 +61,7 @@
     <string name="kanji_test_options_start_test">Rozpocznij test</string>
     <string name="kanji_test_options_other_options">Inne opcje</string>
     <string name="kanji_test_options_until_success">"Powtarzaj aż do sukcesu"</string>
+    <string name="kanji_test_options_dedicate_example">Używaj tylko dedykowanych przykładów</string>
     <string name="kanji_test_options_report_problem_email_subject">Japoński pomocnik - opcje testu kanji: Sugestia</string>
     <string name="kanji_test_options_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kanji_test_options_prepare1">Przygotowywanie testu</string>

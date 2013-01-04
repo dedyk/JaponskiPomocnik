@@ -42,13 +42,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/kanji_test_options_test_mode_draw_kanji_in_word"
                     android:textSize="12dp" />
-
-                <RadioButton
-                    android:id="@+id/kanji_test_options_test_mode_draw_kanji_in_word_group"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/kanji_test_options_test_mode_draw_kanji_in_word_group"
-                    android:textSize="12dp" />
             </RadioGroup>
 
             <TextView
@@ -63,6 +56,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/kanji_test_options_until_success"
+                android:textSize="12dp" />
+
+            <CheckBox
+                android:id="@+id/kanji_test_options_dedicate_example"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kanji_test_options_dedicate_example"
                 android:textSize="12dp" />
 
             <TextView

@@ -175,10 +175,16 @@ public class ConfigManager {
 		private final String kanjiTestChosenKanjiGroupPostfix = "chosenKanjiGroup";
 		
 		private final String kanjiTestUntilSuccessPostfix = "untilSuccess";
+		
+		private final String kanjiTestDedicateExamplePostfix = "dedicateExample";
 
 		public KanjiTestMode getKanjiTestMode() {
 			
 			String kanjiTestMode = preferences.getString(kanjiTestConfigPrefix + kanjiTestModePostfix, KanjiTestMode.DRAW_KANJI_FROM_MEANING.toString());
+			
+			if (kanjiTestMode.equals("DRAW_KANJI_IN_WORD_GROUP") == true) { // zabezpieczenie, przed wczesniejsza wartoscia
+				return KanjiTestMode.DRAW_KANJI_IN_WORD;
+			}
 			
 			return KanjiTestMode.valueOf(kanjiTestMode);
 		}
@@ -286,6 +292,19 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(kanjiTestConfigPrefix + kanjiTestUntilSuccessPostfix, untilSuccess);
+			
+			editor.commit();
+		}
+		
+		public Boolean getDedicateExample() {
+			return preferences.getBoolean(kanjiTestConfigPrefix + kanjiTestDedicateExamplePostfix, false);
+		}
+
+		public void setDedicateExample(boolean untilSuccess) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(kanjiTestConfigPrefix + kanjiTestDedicateExamplePostfix, untilSuccess);
 			
 			editor.commit();
 		}

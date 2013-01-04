@@ -4,7 +4,5 @@ public enum KanjiTestMode {
 
 	DRAW_KANJI_FROM_MEANING,
 	
-	DRAW_KANJI_IN_WORD,
-	
-	DRAW_KANJI_IN_WORD_GROUP;
+	DRAW_KANJI_IN_WORD;
 }
