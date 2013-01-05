@@ -53,6 +53,7 @@ public class KanjiTestOptionsActivity extends Activity {
 		final TextView testModeTextView = (TextView)findViewById(R.id.kanji_test_options_test_mode);
 
 		final RadioButton testModeDrawKanjiFromMeaningRadioButton = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_draw_kanji_from_meaning);
+		final RadioButton testModeChooseKanjiFromMeaningRadioButton = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_choose_kanji_from_meaning);
 		final RadioButton testModeDrawKanjiFromInWord = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_draw_kanji_in_word);
 		final RadioButton testModeChooseKanjiFromInWord = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_choose_kanji_in_word);
 		
@@ -60,6 +61,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
 			testModeDrawKanjiFromMeaningRadioButton.setChecked(true);
+		} else if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+			testModeChooseKanjiFromMeaningRadioButton.setChecked(true);
 		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
 			testModeDrawKanjiFromInWord.setChecked(true);
 		} else if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
@@ -98,6 +101,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				if (testModeDrawKanjiFromMeaningRadioButton.isChecked() == true) {
 					kanjiTestConfig.setKanjiTestMode(KanjiTestMode.DRAW_KANJI_FROM_MEANING);
+				} else if (testModeChooseKanjiFromMeaningRadioButton.isChecked() == true) {
+					kanjiTestConfig.setKanjiTestMode(KanjiTestMode.CHOOSE_KANJI_FROM_MEANING);
 				} else if (testModeDrawKanjiFromInWord.isChecked() == true) {
 					kanjiTestConfig.setKanjiTestMode(KanjiTestMode.DRAW_KANJI_IN_WORD);
 				} else if (testModeChooseKanjiFromInWord.isChecked() == true) {
@@ -342,7 +347,9 @@ public class KanjiTestOptionsActivity extends Activity {
 				detailsSb.append("***" + testModeTextView.getText() + "***\n\n");
 
 				detailsSb.append(testModeDrawKanjiFromMeaningRadioButton.isChecked() + " - " + testModeDrawKanjiFromMeaningRadioButton.getText()).append("\n\n");
+				detailsSb.append(testModeChooseKanjiFromMeaningRadioButton.isChecked() + " - " + testModeChooseKanjiFromMeaningRadioButton.getText()).append("\n\n");
 				detailsSb.append(testModeDrawKanjiFromInWord.isChecked() + " - " + testModeDrawKanjiFromInWord.getText()).append("\n\n");
+				detailsSb.append(testModeChooseKanjiFromInWord.isChecked() + " - " + testModeChooseKanjiFromInWord.getText()).append("\n\n");
 
 				detailsSb.append("***" + otherOptionsTextView.getText() + "***\n\n");
 

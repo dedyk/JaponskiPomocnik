@@ -89,7 +89,7 @@ public class KanjiTest extends Activity {
 
 			List<String> kanjiInTestList = new ArrayList<String>();
 
-			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 				List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
@@ -187,7 +187,9 @@ public class KanjiTest extends Activity {
 
 		kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanjiTestConfig();
 
-		if (kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
+		
+		if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 			setContentView(R.layout.kanji_test_choose);
 		} else {
 			setContentView(R.layout.kanji_test_draw);
@@ -444,7 +446,7 @@ public class KanjiTest extends Activity {
 
 		kanjiTestState.setText(getString(R.string.kanji_test_state, kanjiTestContext.getCurrentPos() + 1, getMaxTestPos()));
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			KanjiEntry currentTestKanjiEntry = (KanjiEntry)currentTestPosObject;
 
@@ -494,7 +496,15 @@ public class KanjiTest extends Activity {
 				}				
 			}
 
-			kanjiInfoTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_meaning, kanjiInfoSb.toString())), TextView.BufferType.SPANNABLE);		
+			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+				kanjiInfoTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_draw_meaning, kanjiInfoSb.toString())), TextView.BufferType.SPANNABLE);
+			} else if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+				kanjiInfoTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_choose_meaning, kanjiInfoSb.toString())), TextView.BufferType.SPANNABLE);
+			}
+			
+			if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+				generateChooseButtons(currentTestKanjiEntry.getKanji());
+			}
 
 		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
@@ -605,7 +615,7 @@ public class KanjiTest extends Activity {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
@@ -624,7 +634,7 @@ public class KanjiTest extends Activity {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			return kanjiTestContext.getKanjiEntryList().size();			
 		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
@@ -641,7 +651,7 @@ public class KanjiTest extends Activity {
 
 		int testCurrentPos = kanjiTestContext.getCurrentPos();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
@@ -662,7 +672,7 @@ public class KanjiTest extends Activity {
 
 		int testCurrentPos = kanjiTestContext.getCurrentPos();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
@@ -683,7 +693,7 @@ public class KanjiTest extends Activity {
 
 		int testCurrentPos = kanjiTestContext.getCurrentPos();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
@@ -713,7 +723,7 @@ public class KanjiTest extends Activity {
 
 		int testCurrentPos = kanjiTestContext.getCurrentPos();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			List<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 

@@ -37,6 +37,14 @@
                     android:textSize="12dp" />
 
                 <RadioButton
+                    android:id="@+id/kanji_test_options_test_mode_choose_kanji_from_meaning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/kanji_test_options_test_mode_choose_kanji_from_meaning"
+                    android:textSize="12dp" />
+
+                <RadioButton
                     android:id="@+id/kanji_test_options_test_mode_draw_kanji_in_word"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

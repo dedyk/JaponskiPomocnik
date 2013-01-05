@@ -52,8 +52,9 @@
     <string name="kanji_test_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_test_options_test_mode">Tryb testu</string>
     <string name="kanji_test_options_test_mode_draw_kanji_from_meaning">Rysowanie kanji posługując się znaczeniem znaku</string>
+    <string name="kanji_test_options_test_mode_choose_kanji_from_meaning">Wybór kanji posługując się znaczeniem znaku</string>
     <string name="kanji_test_options_test_mode_draw_kanji_in_word">Rysowanie znaków kanji uzupełniając puste miejsce w słowie</string>
-    <string name="kanji_test_options_test_mode_choose_kanji_in_word">Wybór prawidłowego znaku kanji w pustym miejscu w słowie</string>
+    <string name="kanji_test_options_test_mode_choose_kanji_in_word">Wybór znaku kanji w pustym miejscu w słowie</string>
     <string name="kanji_test_options_choose_kanji_group">Proszę wybrać grupę znaków kanji użytych podczas testu</string>
     <string name="kanji_test_options_choose_kanji">Indywidualny wybór znaków kanji</string>
     <string name="kanji_test_options_choose_kanji_info">Proszę wybrać znaki kanji użyte podczas testu</string>
@@ -72,7 +73,8 @@
     <string name="kanji_test_options_info_ok">OK</string>
     <string name="kanji_test_label">Test ze znaków kanji</string>
     <string name="kanji_test_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
-    <string name="kanji_test_info_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>
+    <string name="kanji_test_info_draw_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>
+    <string name="kanji_test_info_choose_meaning">Proszę wybrać właściwy znak dla znaczenia: %1$s</string>
     <string name="kanji_test_info_draw_kanji_in_word">Proszę dokładnie narysować znak w pustym miejscu:</string>
     <string name="kanji_test_info_choose_kanji_in_word">Proszę wybrać właściwy znak w pustym miejscu:</string>
     <string name="kanji_test_info_kunyomi">czytania kun\'yomi</string>
