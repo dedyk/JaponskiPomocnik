@@ -1,7 +1,9 @@
 package pl.idedyk.android.japaneselearnhelper.kanji.hkr;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -41,6 +43,8 @@ public class KanjiTest extends Activity {
 	private Button testUndoButton;
 	private Button testClearButton;
 	private Button testCheckButton;
+	
+	private Button[] chooseAnswers;
 
 	private KanjiDrawView drawView;
 
@@ -130,15 +134,19 @@ public class KanjiTest extends Activity {
 				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_user_strokeNo)).append(" ").append(currentTestAnswer.getKanjiUserStrokeNo()).append("\n\n");
 
 				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_user_draw)).append("\n\n").append(						
-						currentTestAnswer.getDrawStrokesStrings()).append("\n");
+						currentTestAnswer.getDrawStrokesStrings()).append("\n\n");
 
 				List<KanjiRecognizerResultItem> recognizeResult = currentTestAnswer.getRecognizeResult();
 
 				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_recognize_result)).append("\n\n");
 
-				for (KanjiRecognizerResultItem currentRecognizerResultItem : recognizeResult) {
-					detailsSb.append(currentRecognizerResultItem.getKanji() + " - " + currentRecognizerResultItem.getScore()).append("\n");
+				if (recognizeResult != null) {
+					for (KanjiRecognizerResultItem currentRecognizerResultItem : recognizeResult) {
+						detailsSb.append(currentRecognizerResultItem.getKanji() + " - " + currentRecognizerResultItem.getScore()).append("\n");
+					}
 				}
+				
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_chosenKanji)).append(" ").append(currentTestAnswer.getChosenKanji()).append("\n\n");
 
 				detailsSb.append("\n----------\n\n");
 			}
@@ -312,6 +320,21 @@ public class KanjiTest extends Activity {
 		Toast toast = Toast.makeText(KanjiTest.this, getString(R.string.kanji_test_report_problem_info), Toast.LENGTH_LONG);
 
 		toast.show();
+	}
+	
+	private void processChooseAnswer(String chosenKanji) {
+		
+		final String correctKanji = getCurrentTestPosCorrectKanji();
+
+		TestAnswer testAnswer = new TestAnswer();
+		
+		boolean correctAnswer = chosenKanji.equals(correctKanji);
+		
+		testAnswer.setKanji(correctKanji);
+		testAnswer.setCorrectAnswer(correctAnswer);
+		testAnswer.setChosenKanji(chosenKanji);
+		
+		processAnswer(correctAnswer, correctKanji, testAnswer);		
 	}
 
 	private void processAnswer(boolean correctAnswer, final String correctKanji, TestAnswer testAnswer) {
@@ -521,8 +544,67 @@ public class KanjiTest extends Activity {
 				kanjiInfoSb.append(" - ").append(info);
 			}					
 
-			kanjiInfoTextView.setText(Html.fromHtml(kanjiInfoSb.toString()), TextView.BufferType.SPANNABLE);			
-
+			kanjiInfoTextView.setText(Html.fromHtml(kanjiInfoSb.toString()), TextView.BufferType.SPANNABLE);
+			
+			// set buttons
+			
+			chooseAnswers = new Button[12];
+			
+			chooseAnswers[0] = (Button)findViewById(R.id.kanji_test_choose_answer1);
+			chooseAnswers[1] = (Button)findViewById(R.id.kanji_test_choose_answer2);
+			chooseAnswers[2] = (Button)findViewById(R.id.kanji_test_choose_answer3);
+			chooseAnswers[3] = (Button)findViewById(R.id.kanji_test_choose_answer4);
+			chooseAnswers[4] = (Button)findViewById(R.id.kanji_test_choose_answer5);
+			chooseAnswers[5] = (Button)findViewById(R.id.kanji_test_choose_answer6);
+			chooseAnswers[6] = (Button)findViewById(R.id.kanji_test_choose_answer7);
+			chooseAnswers[7] = (Button)findViewById(R.id.kanji_test_choose_answer8);
+			chooseAnswers[8] = (Button)findViewById(R.id.kanji_test_choose_answer9);
+			chooseAnswers[9] = (Button)findViewById(R.id.kanji_test_choose_answer10);
+			chooseAnswers[10] = (Button)findViewById(R.id.kanji_test_choose_answer11);
+			chooseAnswers[11] = (Button)findViewById(R.id.kanji_test_choose_answer12);
+			
+			// reset
+			for (int chooseAnswerIdx = 0; chooseAnswerIdx < chooseAnswers.length; ++chooseAnswerIdx) {
+				chooseAnswers[chooseAnswerIdx].setText("");
+			}
+			
+			Random random = new Random();
+			
+			// set correct kanji
+			int correctAnswerPos = random.nextInt(chooseAnswers.length);
+			chooseAnswers[correctAnswerPos].setText(currentDictionaryEntryWithRemovedKanji.getRemovedKanji());
+			
+			List<String> chosenKanjiSource = kanjiTestConfig.getChosenKanjiAsList();
+			
+			// create available kanji list
+			List<String> availableKanji = new ArrayList<String>(chosenKanjiSource);
+			
+			availableKanji.remove(currentDictionaryEntryWithRemovedKanji.getRemovedKanji());
+			
+			Collections.shuffle(availableKanji);
+			
+			for (int chooseAnswerIdx = 0; chooseAnswerIdx < chooseAnswers.length; ++chooseAnswerIdx) {
+				
+				final Button currentChooseAnswerButton = chooseAnswers[chooseAnswerIdx];
+				
+				if (availableKanji.size() == 0) {
+					availableKanji = new ArrayList<String>(chosenKanjiSource);
+				}
+				
+				if (currentChooseAnswerButton.getText().equals("") == true) {
+					currentChooseAnswerButton.setText(availableKanji.get(0));
+					
+					availableKanji.remove(0);
+				}
+				
+				currentChooseAnswerButton.setOnClickListener(new View.OnClickListener() {
+					
+					public void onClick(View v) {						
+						processChooseAnswer(currentChooseAnswerButton.getText().toString());
+					}
+				});
+			}
+			
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}

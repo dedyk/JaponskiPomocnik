@@ -127,6 +127,8 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 		private List<KanjiRecognizerResultItem> recognizeResult;
 		
 		private boolean correctAnswer;
+		
+		private String chosenKanji;
 
 		public String getKanji() {
 			return kanji;
@@ -190,6 +192,14 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 
 		public void setKanjiUserStrokeNo(int kanjiUserStrokeNo) {
 			this.kanjiUserStrokeNo = kanjiUserStrokeNo;
+		}
+
+		public String getChosenKanji() {
+			return chosenKanji;
+		}
+
+		public void setChosenKanji(String chosenKanji) {
+			this.chosenKanji = chosenKanji;
 		}
 	}
 }

@@ -104,6 +104,7 @@
     <string name="kanji_test_report_problem_email_body_user_strokeNo">Liczba kresek użytkownika:</string>
     <string name="kanji_test_report_problem_email_body_user_draw">Rysowanie:</string>
     <string name="kanji_test_report_problem_email_body_recognize_result">Wynik rozpoznawania:</string>
+    <string name="kanji_test_report_problem_email_body_chosenKanji">Wybrany znak kanji:</string>
     <string name="kanji_test_summary_label">Wynik testu</string>
     <string name="kanji_test_result">Rezultat</string>
     <string name="kanji_test_answers_no">Liczba odpowiedzi</string>
