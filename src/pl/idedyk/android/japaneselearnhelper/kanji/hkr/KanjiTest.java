@@ -144,6 +144,8 @@ public class KanjiTest extends Activity {
 					for (KanjiRecognizerResultItem currentRecognizerResultItem : recognizeResult) {
 						detailsSb.append(currentRecognizerResultItem.getKanji() + " - " + currentRecognizerResultItem.getScore()).append("\n");
 					}
+					
+					detailsSb.append("\n");
 				}
 				
 				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_chosenKanji)).append(" ").append(currentTestAnswer.getChosenKanji()).append("\n\n");
