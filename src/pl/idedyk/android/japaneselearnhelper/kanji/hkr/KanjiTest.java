@@ -496,7 +496,7 @@ public class KanjiTest extends Activity {
 
 			kanjiInfoTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_meaning, kanjiInfoSb.toString())), TextView.BufferType.SPANNABLE);		
 
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
 			DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = (DictionaryEntryWithRemovedKanji)currentTestPosObject;
 
@@ -509,105 +509,94 @@ public class KanjiTest extends Activity {
 
 			StringBuffer kanjiInfoSb = new StringBuffer();
 
-			kanjiInfoSb.append(getString(R.string.kanji_test_info_draw_kanji_in_word)).append("<br/><br/>");			
-			kanjiInfoSb.append("<b><big>").append(kanjiWithRemovedKanji).append("</big></b>");
-			kanjiInfoSb.append(" ").append(kanaList).append(" - ");
-
-			kanjiInfoSb.append(translates);
-
-			if (info != null && info.equals("") == false) {
-				kanjiInfoSb.append(" - ").append(info);
-			}					
-
-			kanjiInfoTextView.setText(Html.fromHtml(kanjiInfoSb.toString()), TextView.BufferType.SPANNABLE);
-
-		} else if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
-
-			DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = (DictionaryEntryWithRemovedKanji)currentTestPosObject;
-
-			String kanjiWithRemovedKanji = currentDictionaryEntryWithRemovedKanji.getKanjiWithRemovedKanji();
-			DictionaryEntry dictionaryEntry = currentDictionaryEntryWithRemovedKanji.getDictionaryEntry();
-
-			List<String> kanaList = dictionaryEntry.getKanaList();
-			List<String> translates = dictionaryEntry.getTranslates();
-			String info = dictionaryEntry.getInfo();
-
-			StringBuffer kanjiInfoSb = new StringBuffer();
-
-			kanjiInfoSb.append(getString(R.string.kanji_test_info_choose_kanji_in_word)).append("<br/><br/>");			
-			kanjiInfoSb.append("<b><big>").append(kanjiWithRemovedKanji).append("</big></b>");
-			kanjiInfoSb.append(" ").append(kanaList).append(" - ");
-
-			kanjiInfoSb.append(translates);
-
-			if (info != null && info.equals("") == false) {
-				kanjiInfoSb.append(" - ").append(info);
-			}					
-
-			kanjiInfoTextView.setText(Html.fromHtml(kanjiInfoSb.toString()), TextView.BufferType.SPANNABLE);
-			
-			// set buttons
-			
-			chooseAnswers = new Button[12];
-			
-			chooseAnswers[0] = (Button)findViewById(R.id.kanji_test_choose_answer1);
-			chooseAnswers[1] = (Button)findViewById(R.id.kanji_test_choose_answer2);
-			chooseAnswers[2] = (Button)findViewById(R.id.kanji_test_choose_answer3);
-			chooseAnswers[3] = (Button)findViewById(R.id.kanji_test_choose_answer4);
-			chooseAnswers[4] = (Button)findViewById(R.id.kanji_test_choose_answer5);
-			chooseAnswers[5] = (Button)findViewById(R.id.kanji_test_choose_answer6);
-			chooseAnswers[6] = (Button)findViewById(R.id.kanji_test_choose_answer7);
-			chooseAnswers[7] = (Button)findViewById(R.id.kanji_test_choose_answer8);
-			chooseAnswers[8] = (Button)findViewById(R.id.kanji_test_choose_answer9);
-			chooseAnswers[9] = (Button)findViewById(R.id.kanji_test_choose_answer10);
-			chooseAnswers[10] = (Button)findViewById(R.id.kanji_test_choose_answer11);
-			chooseAnswers[11] = (Button)findViewById(R.id.kanji_test_choose_answer12);
-			
-			// reset
-			for (int chooseAnswerIdx = 0; chooseAnswerIdx < chooseAnswers.length; ++chooseAnswerIdx) {
-				chooseAnswers[chooseAnswerIdx].setText("");
+			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD) {
+				kanjiInfoSb.append(getString(R.string.kanji_test_info_draw_kanji_in_word)).append("<br/><br/>");
+			} else if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+				kanjiInfoSb.append(getString(R.string.kanji_test_info_choose_kanji_in_word)).append("<br/><br/>");
 			}
 			
-			Random random = new Random();
-			
-			// set correct kanji
-			int correctAnswerPos = random.nextInt(chooseAnswers.length);
-			chooseAnswers[correctAnswerPos].setText(currentDictionaryEntryWithRemovedKanji.getRemovedKanji());
-			
-			List<String> chosenKanjiSource = kanjiTestConfig.getChosenKanjiAsList();
-			
-			// create available kanji list
-			List<String> availableKanji = new ArrayList<String>(chosenKanjiSource);
-			
-			availableKanji.remove(currentDictionaryEntryWithRemovedKanji.getRemovedKanji());
-			
-			Collections.shuffle(availableKanji);
-			
-			for (int chooseAnswerIdx = 0; chooseAnswerIdx < chooseAnswers.length; ++chooseAnswerIdx) {
-				
-				final Button currentChooseAnswerButton = chooseAnswers[chooseAnswerIdx];
-				
-				if (availableKanji.size() == 0) {
-					availableKanji = new ArrayList<String>(chosenKanjiSource);
-				}
-				
-				if (currentChooseAnswerButton.getText().equals("") == true) {
-					currentChooseAnswerButton.setText(availableKanji.get(0));
-					
-					availableKanji.remove(0);
-				}
-				
-				currentChooseAnswerButton.setOnClickListener(new View.OnClickListener() {
-					
-					public void onClick(View v) {						
-						processChooseAnswer(currentChooseAnswerButton.getText().toString());
-					}
-				});
+			kanjiInfoSb.append("<b><big>").append(kanjiWithRemovedKanji).append("</big></b>");
+			kanjiInfoSb.append(" ").append(kanaList).append(" - ");
+
+			kanjiInfoSb.append(translates);
+
+			if (info != null && info.equals("") == false) {
+				kanjiInfoSb.append(" - ").append(info);
+			}					
+
+			kanjiInfoTextView.setText(Html.fromHtml(kanjiInfoSb.toString()), TextView.BufferType.SPANNABLE);
+
+			if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+				generateChooseButtons(currentDictionaryEntryWithRemovedKanji.getRemovedKanji());
 			}
 			
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}
+	}
+	
+	private void generateChooseButtons(String correctKanji) {
+		
+		// set buttons
+		
+		chooseAnswers = new Button[12];
+		
+		chooseAnswers[0] = (Button)findViewById(R.id.kanji_test_choose_answer1);
+		chooseAnswers[1] = (Button)findViewById(R.id.kanji_test_choose_answer2);
+		chooseAnswers[2] = (Button)findViewById(R.id.kanji_test_choose_answer3);
+		chooseAnswers[3] = (Button)findViewById(R.id.kanji_test_choose_answer4);
+		chooseAnswers[4] = (Button)findViewById(R.id.kanji_test_choose_answer5);
+		chooseAnswers[5] = (Button)findViewById(R.id.kanji_test_choose_answer6);
+		chooseAnswers[6] = (Button)findViewById(R.id.kanji_test_choose_answer7);
+		chooseAnswers[7] = (Button)findViewById(R.id.kanji_test_choose_answer8);
+		chooseAnswers[8] = (Button)findViewById(R.id.kanji_test_choose_answer9);
+		chooseAnswers[9] = (Button)findViewById(R.id.kanji_test_choose_answer10);
+		chooseAnswers[10] = (Button)findViewById(R.id.kanji_test_choose_answer11);
+		chooseAnswers[11] = (Button)findViewById(R.id.kanji_test_choose_answer12);
+		
+		// reset
+		for (int chooseAnswerIdx = 0; chooseAnswerIdx < chooseAnswers.length; ++chooseAnswerIdx) {
+			chooseAnswers[chooseAnswerIdx].setText("");
+		}
+		
+		Random random = new Random();
+		
+		// set correct kanji
+		int correctAnswerPos = random.nextInt(chooseAnswers.length);
+		chooseAnswers[correctAnswerPos].setText(correctKanji);
+		
+		List<String> chosenKanjiSource = kanjiTestConfig.getChosenKanjiAsList();
+		
+		// create available kanji list
+		List<String> availableKanji = new ArrayList<String>(chosenKanjiSource);
+		
+		availableKanji.remove(correctKanji);
+		
+		Collections.shuffle(availableKanji);
+		
+		for (int chooseAnswerIdx = 0; chooseAnswerIdx < chooseAnswers.length; ++chooseAnswerIdx) {
+			
+			final Button currentChooseAnswerButton = chooseAnswers[chooseAnswerIdx];
+			
+			if (availableKanji.size() == 0) {
+				availableKanji = new ArrayList<String>(chosenKanjiSource);
+				
+				Collections.shuffle(availableKanji);
+			}
+			
+			if (currentChooseAnswerButton.getText().equals("") == true) {
+				currentChooseAnswerButton.setText(availableKanji.get(0));
+				
+				availableKanji.remove(0);
+			}
+			
+			currentChooseAnswerButton.setOnClickListener(new View.OnClickListener() {
+				
+				public void onClick(View v) {						
+					processChooseAnswer(currentChooseAnswerButton.getText().toString());
+				}
+			});
+		}		
 	}
 
 	private Object getCurrentTestPosObject() {
