@@ -103,7 +103,7 @@ Genki kanji 1-7
 Genki kanji 2-14",,英語,えいご,,eigo,język angielski,,
 70,WORD,WORD_GREETING,HIRAGANA,Genki 1-1,,-,ええ,,ee,tak,mniej oficjalnie,
 71,WORD,WORD_NOUN,HIRAGANA,"Genki 1-1
-Genki kanji 1-6",,学生,がくせい,,gakusei,uczeń,,
+Genki kanji 1-6",,学生,がくせい,,gakusei,student,,
 72,WORD,UNKNOWN,HIRAGANA,Genki 1-1,,語,ご,,go,... język,,
 73,WORD,WORD_NOUN,HIRAGANA,"Genki 1-1
 Genki kanji 1-7",,高校,こうこう,,koukou,liceum,,
@@ -139,7 +139,7 @@ Genki kanji 1-4",,日本,にほん,,nihon,Japonia,,
 90,WORD,WORD_GREETING,HIRAGANA,Genki 1-1,,-,はい,,hai,tak,oficjalnie,
 91,WORD,WORD_NOUN,HIRAGANA,Genki 1-1,,番号,ばんごう,,bangou,numer,,
 92,WORD,WORD_NOUN,HIRAGANA,"Genki 1-1
-Genki kanji 2-14",,留学生,りゅうがくせい,,ryuugakusei,uczeń międzynarodowy,,
+Genki kanji 2-14",,留学生,りゅうがくせい,,ryuugakusei,student międzynarodowy,,
 93,WORD,WORD_PRONOUN,HIRAGANA,"Genki 1-1
 Genki kanji 1-5",,私,わたし,,watashi,ja,,
 94,WORD,WORD_NOUN,KATAKANA,Genki 1-1,,-,アメリカ,,Amerika,Ameryka,,
@@ -181,7 +181,7 @@ Genki kanji 2-17",,主婦,しゅふ,,shufu,Pani domu,,
 115,WORD,WORD_NOUN,HIRAGANA,Genki 1-1,,大学院生,だいがくいんせい,,daigakuinsei,student,"studia podyplomowe, magisterskie",
 116,WORD,WORD_NOUN,HIRAGANA,"Genki 1-1
 Genki 1-8
-Genki kanji 1-6",,大学生,だいがくせい,,daigakusei,student,,
+Genki kanji 1-6",,大学生,だいがくせい,,daigakusei,student,uniwersytetu,
 117,WORD,WORD_NOUN,HIRAGANA,"Genki 1-1
 Genki 1-11
 Genki 2-13",,弁護士,べんごし,,bengoshi,"prawnik
@@ -3759,3 +3759,39 @@ lupa",,
 2577,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 2-17,,主夫,しゅふ,,shufu,"domowy mąż
 mąż opiekujący się domem",,
 2578,WORD,WORD_VERB_RU,HIRAGANA,Genki dodatkowe 2-17,,縦で撃たれる,じゅうでうたれる,,juude utareru,być postrzelony,,
+2579,WORD,WORD_NOUN,HIRAGANA,Inne,,生徒,せいと,,seito,"uczeń
+uczennica","szkoły podstawowej
+gimnazjum",
+2580,WORD,WORD_NOUN,HIRAGANA,Inne,,男性生徒,だんせいせいと,,dansei seito,uczeń,płci męskiej,
+2581,WORD,WORD_NOUN,HIRAGANA,Inne,,女性生徒,じょせいせいと,,josei seito,uczennica,,
+2582,WORD,WORD_NOUN,HIRAGANA,Inne,,中学生,ちゅうがくせい,,chuugakusei,gimnazjalista,,
+2583,WORD,WORD_NOUN,HIRAGANA,Inne,,児童,じどう,,jidou,"dziecko
+wyrostek",,
+2584,WORD,WORD_NOUN,HIRAGANA,Inne,,油,あぶら,,abura,"olej
+tłuszcz",,
+2585,WORD,WORD_NOUN,HIRAGANA,Inne,,石油,せきゆ,,sekiyu,ropa naftowa,,
+2586,WORD,WORD_NOUN,HIRAGANA,Inne,,原油,げんゆ,,gen'yu,nie rafinowana ropa,,
+2587,WORD,WORD_NOUN,HIRAGANA,Inne,,油田,ゆでん,,yuden,pole naftowe,,
+2588,WORD,WORD_NOUN,HIRAGANA,Inne,,油絵,あぶらえ,,aburae,olejny obraz,,
+2589,WORD,WORD_NOUN,HIRAGANA,Inne,,油性の,ゆせいの,,yusei no,olejny,,
+2590,WORD,WORD_NOUN,HIRAGANA,Inne,,鮭,さけ,,sake,łosoś,,
+2591,WORD,WORD_NOUN,HIRAGANA,Inne,,我慢,がまん,,gaman,"cierpliwość
+wytrwałość",,
+2592,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,我慢する,がまんする,,gaman suru,"znosić
+ścierpieć",,
+2593,WORD,WORD_NOUN,HIRAGANA,Inne,,組,くみ,,kumi,"grupa
+zespół
+klasa
+zestaw",,
+2594,WORD,WORD_NOUN,HIRAGANA,Inne,,相互,そうご,,sougo,"wzajemny
+obustronny",,
+2595,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,相応しい,ふさわしい,,fusawashii,"odpowiedni
+stosowny",,
+2596,WORD,WORD_NOUN,HIRAGANA,Inne,,首相,しゅしょう,,shushou,"prezes rady ministrów
+premier",,
+2597,WORD,WORD_NOUN,HIRAGANA,Inne,,相談,そうだん,,soudan,"porada
+konsultacja",,
+2598,WORD,WORD_NOUN,HIRAGANA,Inne,,用,よう,,you,"sprawa
+zlecenie
+zadanie
+rzecz do wykonania",,
