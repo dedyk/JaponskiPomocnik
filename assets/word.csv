@@ -1918,7 +1918,7 @@ Genki kanji 1-7",,日本語,にほんご,,nihongo,język japoński,,
 1309,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 1-4,,木,き,,ki,drzewo,,
 1310,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 1-4,,土,つち,,tsuchi,ziemia,,
 1311,KANJI,WORD_NOUN,HIRAGANA,"Genki kanji 1-4
-Genki kanji 2-16",,屋上,おくじょう,,okujou,sufit,,
+Genki kanji 2-16",,屋上,おくじょう,,okujou,dach,,
 1312,KANJI,WORD_NOUN,HIRAGANA,Genki kanji 1-4,,中学,ちゅうがく,,chuugaku,gimnazjum,,
 1313,KANJI,UNKNOWN,HIRAGANA,"Genki kanji 1-4
 Genki dodatkowe 2-15",,一年中,いちねんじゅう,,ichinenjuu,cały rok,,
@@ -3747,51 +3747,70 @@ rachować",,
 wykończyć
 udoskonalić
 ulepszyć",,
-2571,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 2-17,,-,このような,,konoyouna,jak tak,,
+2571,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 2-17,,-,このような,,konoyouna,"jak tak
+taki",,
 2572,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 2-17,,展覧会,てんらんかい,,tenrankai,wystawa artystyczna,,
-2573,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 2-17,,天井,てんじょう,,tenjou,"pułap
-szczyt",ceny,
-2574,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 2-17,,-,のための,,no tame no,przez wzgląd na,~ ... X,
-2575,WORD,UNKNOWN,HIRAGANA_KATAKANA,Genki dodatkowe 2-17,,大ヒット,だいひっと,,dai hitto,"mieć swoje pięć minut
-popularny","np. film, muzyka i etc",
-2576,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 2-17,,虫眼鏡,むしめがね,,mushimegane,"szkło powiększające
+2573,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 2-17,,天井,てんじょう,,tenjou,"sufit
+pułap
+szczyt (cen)",,
+2574,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 2-17,,-,のための,,no tame no,dla,~ ... X,
+2575,WORD,UNKNOWN,HIRAGANA_KATAKANA,Genki dodatkowe 2-17,,大ヒット,だいひっと,,dai hitto,wielki hit,"np. film, muzyka i etc",
+2576,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 2-17,,-,しかし,,shikashi,"jednak
+jednakże
+ale
+lecz",,
+2577,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 2-17,,虫眼鏡,むしめがね,,mushimegane,"szkło powiększające
 lupa",,
-2577,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 2-17,,主夫,しゅふ,,shufu,"domowy mąż
+2578,WORD,WORD_NOUN,HIRAGANA,Genki dodatkowe 2-17,,主夫,しゅふ,,shufu,"pan domu
 mąż opiekujący się domem",,
-2578,WORD,WORD_VERB_RU,HIRAGANA,Genki dodatkowe 2-17,,縦で撃たれる,じゅうでうたれる,,juude utareru,być postrzelony,,
-2579,WORD,WORD_NOUN,HIRAGANA,Inne,,生徒,せいと,,seito,"uczeń
+2579,WORD,WORD_VERB_RU,HIRAGANA,Genki dodatkowe 2-17,,縦で撃たれる,じゅうでうたれる,,juude utareru,być postrzelony,,
+2580,WORD,WORD_NOUN,HIRAGANA,Inne,,生徒,せいと,,seito,"uczeń
 uczennica","szkoły podstawowej
 gimnazjum",
-2580,WORD,WORD_NOUN,HIRAGANA,Inne,,男性生徒,だんせいせいと,,dansei seito,uczeń,płci męskiej,
-2581,WORD,WORD_NOUN,HIRAGANA,Inne,,女性生徒,じょせいせいと,,josei seito,uczennica,,
-2582,WORD,WORD_NOUN,HIRAGANA,Inne,,中学生,ちゅうがくせい,,chuugakusei,gimnazjalista,,
-2583,WORD,WORD_NOUN,HIRAGANA,Inne,,児童,じどう,,jidou,"dziecko
+2581,WORD,WORD_NOUN,HIRAGANA,Inne,,男性生徒,だんせいせいと,,dansei seito,uczeń,płci męskiej,
+2582,WORD,WORD_NOUN,HIRAGANA,Inne,,女性生徒,じょせいせいと,,josei seito,uczennica,,
+2583,WORD,WORD_NOUN,HIRAGANA,Inne,,中学生,ちゅうがくせい,,chuugakusei,gimnazjalista,,
+2584,WORD,WORD_NOUN,HIRAGANA,Inne,,児童,じどう,,jidou,"dziecko
 wyrostek",,
-2584,WORD,WORD_NOUN,HIRAGANA,Inne,,油,あぶら,,abura,"olej
+2585,WORD,WORD_NOUN,HIRAGANA,Inne,,油,あぶら,,abura,"olej
 tłuszcz",,
-2585,WORD,WORD_NOUN,HIRAGANA,Inne,,石油,せきゆ,,sekiyu,ropa naftowa,,
-2586,WORD,WORD_NOUN,HIRAGANA,Inne,,原油,げんゆ,,gen'yu,nie rafinowana ropa,,
-2587,WORD,WORD_NOUN,HIRAGANA,Inne,,油田,ゆでん,,yuden,pole naftowe,,
-2588,WORD,WORD_NOUN,HIRAGANA,Inne,,油絵,あぶらえ,,aburae,olejny obraz,,
-2589,WORD,WORD_NOUN,HIRAGANA,Inne,,油性の,ゆせいの,,yusei no,olejny,,
-2590,WORD,WORD_NOUN,HIRAGANA,Inne,,鮭,さけ,,sake,łosoś,,
-2591,WORD,WORD_NOUN,HIRAGANA,Inne,,我慢,がまん,,gaman,"cierpliwość
+2586,WORD,WORD_NOUN,HIRAGANA,Inne,,石油,せきゆ,,sekiyu,ropa naftowa,,
+2587,WORD,WORD_NOUN,HIRAGANA,Inne,,原油,げんゆ,,gen'yu,nie rafinowana ropa,,
+2588,WORD,WORD_NOUN,HIRAGANA,Inne,,油田,ゆでん,,yuden,pole naftowe,,
+2589,WORD,WORD_NOUN,HIRAGANA,Inne,,油絵,あぶらえ,,aburae,olejny obraz,,
+2590,WORD,WORD_NOUN,HIRAGANA,Inne,,油性の,ゆせいの,,yusei no,olejny,,
+2591,WORD,WORD_NOUN,HIRAGANA,Inne,,鮭,さけ,,sake,łosoś,,
+2592,WORD,WORD_NOUN,HIRAGANA,Inne,,我慢,がまん,,gaman,"cierpliwość
 wytrwałość",,
-2592,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,我慢する,がまんする,,gaman suru,"znosić
+2593,WORD,WORD_VERB_IRREGULAR,HIRAGANA,Inne,,我慢する,がまんする,,gaman suru,"znosić
 ścierpieć",,
-2593,WORD,WORD_NOUN,HIRAGANA,Inne,,組,くみ,,kumi,"grupa
+2594,WORD,WORD_NOUN,HIRAGANA,Inne,,組,くみ,,kumi,"grupa
 zespół
 klasa
 zestaw",,
-2594,WORD,WORD_NOUN,HIRAGANA,Inne,,相互,そうご,,sougo,"wzajemny
+2595,WORD,WORD_NOUN,HIRAGANA,Inne,,相互,そうご,,sougo,"wzajemny
 obustronny",,
-2595,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,相応しい,ふさわしい,,fusawashii,"odpowiedni
+2596,WORD,WORD_ADJECTIVE_I,HIRAGANA,Inne,,相応しい,ふさわしい,,fusawashii,"odpowiedni
 stosowny",,
-2596,WORD,WORD_NOUN,HIRAGANA,Inne,,首相,しゅしょう,,shushou,"prezes rady ministrów
+2597,WORD,WORD_NOUN,HIRAGANA,Inne,,首相,しゅしょう,,shushou,"prezes rady ministrów
 premier",,
-2597,WORD,WORD_NOUN,HIRAGANA,Inne,,相談,そうだん,,soudan,"porada
+2598,WORD,WORD_NOUN,HIRAGANA,Inne,,相談,そうだん,,soudan,"porada
 konsultacja",,
-2598,WORD,WORD_NOUN,HIRAGANA,Inne,,用,よう,,you,"sprawa
+2599,WORD,WORD_NOUN,HIRAGANA,Inne,,用,よう,,you,"sprawa
 zlecenie
 zadanie
 rzecz do wykonania",,
+2600,WORD,WORD_NOUN,HIRAGANA,Inne,,薫製,くんせい,,kunsei,wędzenie,,
+2601,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,純情,じゅんじょう,,junjou,czyste serce,,
+2602,WORD,WORD_NOUN,HIRAGANA,Inne,,木琴,もっきん,,mokkin,cymbałki,,
+2603,WORD,WORD_NOUN,KATAKANA,Inne,,-,インストラクション,,insutorakushon,instrukcja,,
+2604,WORD,WORD_NOUN,KATAKANA,Inne,,-,ベトナム,,betonamu,Wietnam,,
+2605,WORD,WORD_NOUN,KATAKANA,Inne,,-,レコード,,rekoodo,"rekord
+nagranie",,
+2606,WORD,WORD_NOUN,KATAKANA,Inne,,-,スキャンダル,,sukyandaru,skandal,,
+2607,WORD,WORD_NOUN,KATAKANA,Inne,,-,メンバー,,menbaa,członek,,
+2608,WORD,WORD_NOUN,KATAKANA,Inne,,-,グレープフルーツ,,gureepufuruutsu,grejpfrut,,
+2609,WORD,WORD_NOUN,KATAKANA,Inne,,-,イベント,,ibento,"wydarzenie
+zdarzenie",,
+2610,WORD,WORD_NOUN,HIRAGANA,Inne,,稲,いね,,ine,ryż,roślina,
+2611,WORD,WORD_NOUN,HIRAGANA,Inne,,米,こめ,,kome,ryż,ziarno,
