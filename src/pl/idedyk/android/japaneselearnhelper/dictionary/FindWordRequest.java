@@ -27,6 +27,8 @@ public class FindWordRequest {
 	public static enum WordPlaceSearch {
 		ANY_PLACE,
 		
-		START_WITH;
+		START_WITH,
+		
+		EXACT;
 	}
 }

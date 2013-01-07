@@ -43,7 +43,7 @@
         android:id="@+id/word_dictionary_search_options_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-  		android:visibility="gone" >
+  		android:visibility="gone">
 
         <LinearLayout
             android:id="@+id/word_dictionary_search_options_scrollview_linearlayout"
@@ -99,7 +99,15 @@
                     android:layout_height="wrap_content"
                     android:text="@string/word_dictionary_search_options_search_startwith_radiobutton"
                     android:textSize="12dp" />
-            </RadioGroup>
+
+                <RadioButton
+                    android:id="@+id/word_dictionary_search_options_search_exact_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/word_dictionary_search_options_search_exact_radiobutton"
+                    android:textSize="12dp" />
+                
+                </RadioGroup>
 
             <TextView
                 android:id="@+id/word_dictionary_search_options_search_in_label"

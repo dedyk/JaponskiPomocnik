@@ -278,6 +278,11 @@ public class SQLiteConnector {
 			wordWithPercent = findWordRequest.word + "%"; 
 			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase() + "%";
 			
+		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.EXACT) {
+			
+			wordWithPercent = findWordRequest.word; 
+			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase();
+			
 		} else {
 			throw new RuntimeException(String.valueOf(findWordRequest.wordPlaceSearch));
 		}
@@ -915,6 +920,11 @@ public class SQLiteConnector {
 			
 			wordWithPercent = findWordRequest.word + "%"; 
 			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase() + "%";
+			
+		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.EXACT) {
+			
+			wordWithPercent = findWordRequest.word; 
+			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase();
 			
 		} else {
 			throw new RuntimeException(String.valueOf(findWordRequest.wordPlaceSearch));

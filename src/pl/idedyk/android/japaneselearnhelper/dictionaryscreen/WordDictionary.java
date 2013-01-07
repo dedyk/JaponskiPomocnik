@@ -66,6 +66,7 @@ public class WordDictionary extends Activity {
 	
 	private RadioButton searchOptionsAnyPlaceRadioButton;
 	private RadioButton searchOptionsStartWithPlaceRadioButton;
+	private RadioButton searchOptionsExactPlaceRadioButton;
 	
 	private TextView wordDictionarySearchElementsNoTextView;
 	
@@ -105,6 +106,7 @@ public class WordDictionary extends Activity {
 		
 		bundle.putBoolean("searchOptionsAnyPlaceRadioButton", searchOptionsAnyPlaceRadioButton.isChecked());
 		bundle.putBoolean("searchOptionsStartWithPlaceRadioButton", searchOptionsStartWithPlaceRadioButton.isChecked());
+		bundle.putBoolean("searchOptionsExactPlaceRadioButton", searchOptionsExactPlaceRadioButton.isChecked());
 		
 		boolean[] searchDictionaryEntryListCheckBoxBooleanValue = new boolean[searchDictionaryEntryListCheckBox.length];
 		
@@ -131,6 +133,7 @@ public class WordDictionary extends Activity {
 		
 		searchOptionsAnyPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsAnyPlaceRadioButton"));
 		searchOptionsStartWithPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsStartWithPlaceRadioButton"));
+		searchOptionsExactPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsExactPlaceRadioButton"));
 
 		boolean[] searchDictionaryEntryListCheckBoxBooleanValue = bundle.getBooleanArray("searchDictionaryEntryListCheckBox");
 		
@@ -215,6 +218,7 @@ public class WordDictionary extends Activity {
 		
 		searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_any_place_radiobutton);
 		searchOptionsStartWithPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_startwith_radiobutton);
+		searchOptionsExactPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_exact_radiobutton);
 		
 		OnClickListener searchOptionsOnClick = new OnClickListener() {			
 			public void onClick(View view) {
@@ -234,6 +238,7 @@ public class WordDictionary extends Activity {
 		
 		searchOptionsAnyPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		searchOptionsStartWithPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
+		searchOptionsExactPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		
 		searchValueEditText.addTextChangedListener(new TextWatcher() {
 			
@@ -517,6 +522,8 @@ public class WordDictionary extends Activity {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;
 		} else if (searchOptionsStartWithPlaceRadioButton.isChecked() == true) {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.START_WITH;
+		} else if (searchOptionsExactPlaceRadioButton.isChecked() == true) {
+			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.EXACT;
 		}
 		
 		boolean performSearch = true;
