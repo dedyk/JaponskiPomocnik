@@ -104,6 +104,21 @@ public class SQLiteConnector {
 		
 		insertListEntryWithPolishCharsRemove(dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName, 
 				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
+
+		String info = dictionaryEntry.getInfo();
+		
+		if (info != null && info.equals("") == false) {
+			
+			List<String> infoList = new ArrayList<String>();
+			
+			infoList.add(info);
+
+			insertListEntry(infoList, SQLiteStatic.dictionaryEntriesTableName, 
+					SQLiteStatic.dictionaryEntriesTable_info, String.valueOf(dictionaryEntry.getId()));
+			
+			insertListEntryWithPolishCharsRemove(infoList, SQLiteStatic.dictionaryEntriesTableName, 
+					SQLiteStatic.dictionaryEntriesTable_info, String.valueOf(dictionaryEntry.getId()));					
+		}
 	}
 	
 	private void insertListEntry(List<String> list, String type, String subType, String key) {
@@ -183,11 +198,16 @@ public class SQLiteConnector {
 			List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
 			List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
 			List<String> translateList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_translates);
+			List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_info);
 
 			String prefixRomajiString = cursor.getString(4);
 						
-			String infoString = cursor.getString(5);
-						
+			String infoString = null;
+			
+			if (infoStringList != null && infoStringList.size() > 0) {
+				infoString = infoStringList.get(0);
+			}
+			
 			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsList,
 					prefixKanaString, kanjiString, kanaList, prefixRomajiString,
 					romajiList, translateList, infoString);
@@ -219,10 +239,15 @@ public class SQLiteConnector {
 			List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
 			List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
 			List<String> translateList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_translates);
+			List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_info);
 			
 			String prefixRomajiString = cursor.getString(4);
 						
-			String infoString = cursor.getString(5);
+			String infoString = null;
+			
+			if (infoStringList != null && infoStringList.size() > 0) {
+				infoString = infoStringList.get(0);
+			}
 						
 			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsList,
 					prefixKanaString, kanjiString, kanaList, prefixRomajiString,
@@ -397,10 +422,15 @@ public class SQLiteConnector {
 				List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
 				List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
 				List<String> translateList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_translates);
+				List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_info);
 				
 				String prefixRomajiString = cursor.getString(4);
 								
-				String infoString = cursor.getString(5);
+				String infoString = null;
+				
+				if (infoStringList != null && infoStringList.size() > 0) {
+					infoString = infoStringList.get(0);
+				}
 							
 				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsList,
 						prefixKanaString, kanjiString, kanaList, prefixRomajiString,
@@ -1212,10 +1242,15 @@ public class SQLiteConnector {
 				List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
 				List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
 				List<String> translateList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_translates);
+				List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_info);
 				
 				String prefixRomajiString = cursor.getString(4);
 								
-				String infoString = cursor.getString(5);
+				String infoString = null;
+				
+				if (infoStringList != null && infoStringList.size() > 0) {
+					infoString = infoStringList.get(0);
+				}
 							
 				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsList,
 						prefixKanaString, kanjiString, kanaList, prefixRomajiString,

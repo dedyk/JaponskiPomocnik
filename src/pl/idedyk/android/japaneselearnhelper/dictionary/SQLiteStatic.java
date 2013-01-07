@@ -201,10 +201,10 @@ public class SQLiteStatic {
 			dictionaryEntriesTable_prefixKana + ", " +
 			dictionaryEntriesTable_kanji + ", " +
 			//dictionaryEntriesTable_kanaList + ", " +
-			dictionaryEntriesTable_prefixRomaji + ", " +
+			dictionaryEntriesTable_prefixRomaji + " " +
 			//dictionaryEntriesTable_romajiList + ", " +
 			//dictionaryEntriesTable_translates + ", " +
-			dictionaryEntriesTable_info + " " +
+			//dictionaryEntriesTable_info + " " +
 			"from " + dictionaryEntriesTableName + " where " + dictionaryEntriesTable_id + " = ?";
 		
 	public static final String dictionaryEntriesTableNthElement = 
@@ -214,10 +214,10 @@ public class SQLiteStatic {
 			dictionaryEntriesTable_prefixKana + ", " +
 			dictionaryEntriesTable_kanji + ", " +
 			//dictionaryEntriesTable_kanaList + ", " +
-			dictionaryEntriesTable_prefixRomaji + ", " +
+			dictionaryEntriesTable_prefixRomaji + " " +
 			//dictionaryEntriesTable_romajiList + ", " +
 			//dictionaryEntriesTable_translates + ", " +
-			dictionaryEntriesTable_info + " " +
+			//dictionaryEntriesTable_info + " " +
 			"from " + dictionaryEntriesTableName + " limit 1 offset ?";
 	
 	public static final String dictionaryEntriesTableSelectElements = 
@@ -258,7 +258,11 @@ public class SQLiteStatic {
 			" lower(" + listEntriesTable_value + ") like ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_info =
-			" lower(" + dictionaryEntriesTable_info + ") like ? ";
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + dictionaryEntriesTable_info + "' and " +
+			" lower(" + listEntriesTable_value + ") like ?) ";
 	
 	public static final String dictionaryEntriesTableSelectElements_limit = 
 			" limit " + MAX_SEARCH_RESULT;
