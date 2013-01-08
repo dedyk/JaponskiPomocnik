@@ -1457,7 +1457,8 @@ Genki 2-13",,泣く,なく,,naku,płakać,,
 968,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Genki dodatkowe 1-12,,-,かわいそう,,kawai sou,żałosny,,
 969,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 1-12,,一年に一度,いちねんにいちど,,ichinen ni ichido,raz do roku,,
 970,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 1-12,,-,までに,,made ni,do kiedy,~,
-971,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 1-12,,願い,ねがい,,negai,życzenie,,
+971,WORD,UNKNOWN,HIRAGANA,Genki dodatkowe 1-12,,願い,ねがい,,negai,"życzenie
+prośba",,
 972,WORD,WORD_VERB_U,HIRAGANA,Genki dodatkowe 1-12,,-,かなう,,kanau,"zrealizować
 spełnić",,
 973,WORD,WORD_PRONOUN,HIRAGANA,"Genki dodatkowe 1-12
@@ -3814,3 +3815,35 @@ nagranie",,
 zdarzenie",,
 2610,WORD,WORD_NOUN,HIRAGANA,Inne,,稲,いね,,ine,ryż,roślina,
 2611,WORD,WORD_NOUN,HIRAGANA,Inne,,米,こめ,,kome,ryż,ziarno,
+2612,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,逆,ぎゃく,,gyaku,"przeciwieństwo
+odwrotność",,
+2613,WORD,WORD_VERB_U,HIRAGANA,Inne,,逆らう,さからう,,sakarau,"sprzeciwiać się
+przeciwstawiać się",,
+2614,WORD,WORD_NOUN,HIRAGANA,Inne,,逆説,ぎゃくせつ,,gyakusetsu,paradoks,,
+2615,WORD,WORD_NOUN,HIRAGANA,Inne,,逆転,ぎゃくてん,,gyakuten,"przewrót
+odwrót",,
+2616,WORD,WORD_NOUN,HIRAGANA,Inne,,反逆,はんぎゃく,,hangyaku,zdrada,,
+2617,WORD,WORD_NOUN,HIRAGANA,Inne,,逆境,ぎゃっきょう,,gyakkyou,"przeciwność
+trudności",,
+2618,WORD,WORD_NOUN,HIRAGANA,Inne,,逆流,ぎゃくりゅう,,gyakuryuu,przeciwny prąd,,
+2619,WORD,WORD_VERB_U,HIRAGANA,Inne,,悲しむ,かなしむ,,kanashimu,"smucić się
+być zmartwionym
+żałować",,
+2620,WORD,WORD_ADJECTIVE_NA,HIRAGANA,Inne,,悲惨,ひさん,,hisan,"żałość
+rozpacz",,
+2621,WORD,WORD_NOUN,HIRAGANA,Inne,,悲劇,ひげき,,higeki,"dramat
+tragedia",,
+2622,WORD,WORD_NOUN,HIRAGANA,Inne,,悲喜劇,ひきげき,,hikigeki,tragikomedia,,
+2623,WORD,WORD_NOUN,HIRAGANA,Inne,,悲観,ひかん,,hikan,pesymizm,,
+2624,WORD,WORD_NOUN,HIRAGANA,Inne,,悲話,ひわ,,hiwa,smutna opowieść,,
+2625,WORD,WORD_NOUN,HIRAGANA,Inne,,出願,しゅつがん,,shutsugan,podanie,,
+2626,WORD,WORD_NOUN,HIRAGANA,Inne,,願書,がんしょ,,gansho,pisemna prośba,,
+2627,WORD,WORD_NOUN,HIRAGANA,Inne,,志願,しがん,,shigan,"pragnienie
+aspiracja
+prośba
+podanie",,
+2628,WORD,WORD_NOUN,HIRAGANA,Inne,,誓願,せいがん,,seigan,"przysięga
+przyrzeczenie
+zobowiązanie",,
+2629,WORD,WORD_NOUN,HIRAGANA,Inne,,願望,がんぼう,,ganbou,"pragnienie
+aspiracja",,
