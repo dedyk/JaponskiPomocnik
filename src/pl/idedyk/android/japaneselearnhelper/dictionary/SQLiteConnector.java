@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
@@ -90,6 +91,9 @@ public class SQLiteConnector {
 		
 		sqliteDatabase.insertOrThrow(SQLiteStatic.dictionaryEntriesTableName, null, values);
 
+		insertListEntry(AttributeType.convertToValues(dictionaryEntry.getAttributeList()), SQLiteStatic.dictionaryEntriesTableName, 
+				SQLiteStatic.dictionaryEntriesTable_attributeList, String.valueOf(dictionaryEntry.getId()));
+		
 		insertListEntry(GroupEnum.convertToValues(dictionaryEntry.getGroups()), SQLiteStatic.dictionaryEntriesTableName, 
 				SQLiteStatic.dictionaryEntriesTable_groups, String.valueOf(dictionaryEntry.getId()));
 		
@@ -194,6 +198,7 @@ public class SQLiteConnector {
 			
 			Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.dictionaryEntriesTableName, idString);
 			
+			List<String> attributeList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_attributeList);
 			List<String> groupsList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_groups);
 			List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
 			List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
@@ -208,7 +213,7 @@ public class SQLiteConnector {
 				infoString = infoStringList.get(0);
 			}
 			
-			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsList,
+			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributeList, groupsList,
 					prefixKanaString, kanjiString, kanaList, prefixRomajiString,
 					romajiList, translateList, infoString);
 			
@@ -235,6 +240,7 @@ public class SQLiteConnector {
 			
 			Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.dictionaryEntriesTableName, idString);
 			
+			List<String> attributeList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_attributeList);
 			List<String> groupsList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_groups);
 			List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
 			List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
@@ -249,7 +255,7 @@ public class SQLiteConnector {
 				infoString = infoStringList.get(0);
 			}
 						
-			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsList,
+			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributeList, groupsList,
 					prefixKanaString, kanjiString, kanaList, prefixRomajiString,
 					romajiList, translateList, infoString);
 			
@@ -423,6 +429,7 @@ public class SQLiteConnector {
 				
 				Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.dictionaryEntriesTableName, idString);
 							
+				List<String> attributeList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_attributeList);
 				List<String> groupsList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_groups);
 				List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
 				List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
@@ -437,7 +444,7 @@ public class SQLiteConnector {
 					infoString = infoStringList.get(0);
 				}
 							
-				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsList,
+				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributeList, groupsList,
 						prefixKanaString, kanjiString, kanaList, prefixRomajiString,
 						romajiList, translateList, infoString);
 				
@@ -1248,6 +1255,7 @@ public class SQLiteConnector {
 				
 				Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.dictionaryEntriesTableName, idString);
 							
+				List<String> attributeList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_attributeList);
 				List<String> groupsList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_groups);
 				List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
 				List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
@@ -1262,7 +1270,7 @@ public class SQLiteConnector {
 					infoString = infoStringList.get(0);
 				}
 							
-				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, groupsList,
+				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributeList, groupsList,
 						prefixKanaString, kanjiString, kanaList, prefixRomajiString,
 						romajiList, translateList, infoString);
 				

@@ -8,6 +8,7 @@ import java.util.Map;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.FuriganaEntry;
@@ -450,7 +451,17 @@ public class WordDictionaryDetails extends Activity {
 		if (addableDictionaryEntryTypeInfo == true) {
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));
 			
-			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));			
+			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));
+		}
+		
+		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
+		
+		if (attributeList != null && attributeList.size() > 0) {
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_attributes), 0));
+			
+			for (AttributeType currentAttributeType : attributeList) {
+				report.add(new StringValue(currentAttributeType.getName(), 20.0f, 0));
+			}
 		}
 		
 		// dictionary groups

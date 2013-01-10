@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
@@ -53,6 +54,7 @@ public class Utils {
 	public static DictionaryEntry parseDictionaryEntry(
 			String idString,
 			String dictionaryEntryTypeString,
+			Object attributesObject,
 			Object groupsObject,
 			String prefixKanaString,
 			String kanjiString,
@@ -76,6 +78,12 @@ public class Utils {
 		
 		entry.setId(Integer.parseInt(idString));
 		entry.setDictionaryEntryType(dictionaryEntryType);
+
+		if (attributesObject instanceof String) {
+			entry.setAttributeList(AttributeType.convertToListAttributeType(parseStringIntoList((String)attributesObject, false)));
+		} else {
+			entry.setAttributeList(AttributeType.convertToListAttributeType(convertToListString(attributesObject)));
+		}
 		
 		if (groupsObject instanceof String) {
 			entry.setGroups(GroupEnum.sortGroups(GroupEnum.convertToListGroupEnum(parseStringIntoList((String)groupsObject, false))));

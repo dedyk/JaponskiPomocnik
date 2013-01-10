@@ -13,6 +13,8 @@ public class DictionaryEntry implements Serializable {
 		
 	private DictionaryEntryType dictionaryEntryType;
 	
+	private List<AttributeType> attributeList;
+	
 	private List<GroupEnum> groups;
 	
 	private String prefixKana;
@@ -157,6 +159,14 @@ public class DictionaryEntry implements Serializable {
 
 	public void setGroups(List<GroupEnum> groups) {		
 		this.groups = groups;
+	}
+
+	public List<AttributeType> getAttributeList() {
+		return attributeList;
+	}
+
+	public void setAttributeList(List<AttributeType> attributeList) {
+		this.attributeList = attributeList;
 	}
 
 	@Override

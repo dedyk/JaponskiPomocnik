@@ -21,6 +21,7 @@ public class SQLiteStatic {
 	
 	public static final String dictionaryEntriesTable_id = "id";
 	public static final String dictionaryEntriesTable_dictionaryEntryType = "dictionaryEntryType";
+	public static final String dictionaryEntriesTable_attributeList = "attributeList";
 	public static final String dictionaryEntriesTable_groups = "groups";
 	public static final String dictionaryEntriesTable_prefixKana = "prefixKana";
 	public static final String dictionaryEntriesTable_kanji = "kanji";
