@@ -1642,7 +1642,7 @@ cv",,
 1079,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-14,,送る,おくる,,okuru,"wysyłać
 podwieźć (kogoś)",,
 1080,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-14,,似合う,にあう,,niau,pasować,rzecz ga,
-1081,WORD,WORD_VERB_RU,,HIRAGANA,Genki 2-14,,-,あきらめる,,akirameru,poddać się,,
+1081,WORD,WORD_VERB_RU,,HIRAGANA,Genki 2-14,,諦める,あきらめる,,akirameru,poddać się,,
 1082,WORD,WORD_VERB_RU,,HIRAGANA,Genki 2-14,,-,あげる,,ageru,dać,"komuś, rzecz o osoba ni",
 1083,WORD,WORD_VERB_RU,,HIRAGANA,Genki 2-14,,-,くれる,,kureru,dać,"mnie, rzecz o osoba ni",
 1084,WORD,WORD_VERB_RU,,HIRAGANA,Genki 2-14,が,-,できる,ga,dekiru,"zaistnieć
@@ -3941,3 +3941,36 @@ widzenie",twarzą w twarz,
 2669,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,面倒,めんどう,,mendou,"kłopot
 trudność
 komplikacja",,
+2670,WORD,WORD_NOUN,,HIRAGANA,Inne,,吉,きち,,kichi,"szczęście
+powodzenie
+radość
+gratulacje",,
+2671,WORD,WORD_VERB_U,,HIRAGANA,Inne,,威す,おどす,,odosu,"straszyć
+zastraszać
+onieśmielać",,
+2672,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,例える,たとえる,,tatoeru,"porównywać
+dawać przykład",,
+2673,WORD,WORD_NOUN,,HIRAGANA,Inne,,例文,れいぶん,,reibun,zdanie przykładowe,,
+2674,WORD,WORD_NOUN,,HIRAGANA,Inne,,例話,れいわ,,reiwa,"przykład
+ilustracja",,
+2675,WORD,WORD_NOUN,,HIRAGANA,Inne,,例外,れいがい,,reigai,wyjątek,,
+2676,WORD,UNKNOWN,,HIRAGANA,Inne,,例年,れいねん,,reinen,"normalny rok
+przeciętny rok",,
+2677,WORD,WORD_NOUN,,HIRAGANA,Inne,,条例,じょうれい,,jourei,"regulacja
+nakazy",,
+2678,WORD,WORD_NOUN,,HIRAGANA,Inne,,君主,くんしゅ,,kunshu,"monarcha
+władza",,
+2679,WORD,WORD_NOUN,,HIRAGANA,Inne,,君臨,くんりん,,kunrin,"władanie
+rządzenie",,
+2680,WORD,WORD_NOUN,,HIRAGANA,Inne,,立憲君主国,りっけんくんしゅこく,,rikken kunshukoku,monarchia konstytucyjna,,
+2681,WORD,WORD_NOUN,,HIRAGANA,Inne,,君子,くんし,,kunshi,prawy człowiek,,
+2682,WORD,WORD_NOUN,,HIRAGANA,Inne,,墨,すみ,,sumi,tusz,,
+2683,WORD,WORD_NOUN,,HIRAGANA,Inne,,髄,ずい,,zui,szpik kostny,,
+2684,WORD,WORD_NOUN,,HIRAGANA,Inne,,跡,あと,,ato,"ślad
+odbicie
+pozostałości
+ruiny",,
+2685,WORD,WORD_NOUN,,HIRAGANA,Inne,,地平線,ちへいせん,,chiheisen,horyzont,,
+2686,WORD,WORD_NOUN,,HIRAGANA,Inne,,涯,はて,,hate,horyzont,,
+2687,WORD,WORD_VERB_U,,HIRAGANA,Inne,,挿す,さす,,sasu,"wciskać
+wkładać do",,
