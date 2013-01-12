@@ -459,6 +459,8 @@ public class ConfigManager {
 		
 		private final String showKanjiPostfix = "showKanji";
 		
+		private final String showTranslatePostfix = "showTranslate";
+		
 		public Integer getRepeatNumber() {
 			return preferences.getInt(wordTestConfigPrefix + repeatNumberPostfix, 1);
 		}
@@ -545,14 +547,26 @@ public class ConfigManager {
 			return preferences.getBoolean(wordTestConfigPrefix + showKanjiPostfix, true);
 		}
 
-		public void setShowKanji(boolean random) {
+		public void setShowKanji(boolean showKanji) {
 			
 			Editor editor = preferences.edit();
 			
-			editor.putBoolean(wordTestConfigPrefix + showKanjiPostfix, random);
+			editor.putBoolean(wordTestConfigPrefix + showKanjiPostfix, showKanji);
 			
 			editor.commit();
 		}
 
+		public Boolean getShowTranslate() {
+			return preferences.getBoolean(wordTestConfigPrefix + showTranslatePostfix, true);
+		}
+
+		public void setShowTranslate(boolean showTranslate) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestConfigPrefix + showTranslatePostfix, showTranslate);
+			
+			editor.commit();
+		}
 	}
 }

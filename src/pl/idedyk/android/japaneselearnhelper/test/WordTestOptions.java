@@ -79,6 +79,11 @@ public class WordTestOptions extends Activity {
 		
 		showKanjiCheckBox.setChecked(wordTestConfig.getShowKanji());
 		
+		// show translate check box
+		final CheckBox showTranslateCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_translate);
+		
+		showTranslateCheckBox.setChecked(wordTestConfig.getShowTranslate());
+		
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 		
@@ -162,10 +167,26 @@ public class WordTestOptions extends Activity {
 				
 				wordTestConfig.setShowKanji(showKanji);
 				
+				// show translate
+				boolean showTranslate = showTranslateCheckBox.isChecked();
+				
+				wordTestConfig.setShowTranslate(showTranslate);
+				
+				if (showKanji == false && showTranslate == false) {
+					
+					Toast toast = Toast.makeText(WordTestOptions.this, getString(R.string.word_test_options_no_kanji_translate), Toast.LENGTH_SHORT);
+
+					toast.show();
+					
+					return;
+				}
+				
 				// groups
 				List<DictionaryEntry> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntry>();
 				
 				List<String> chosenWordGroupsNumberList = new ArrayList<String>();
+				
+				boolean wasFilteredWords = false;
 				
 				for (int wordGroupCheckBoxListIdx = 0; wordGroupCheckBoxListIdx < wordGroupCheckBoxList.size(); ++wordGroupCheckBoxListIdx) {
 					
@@ -177,16 +198,30 @@ public class WordTestOptions extends Activity {
 								getGroupDictionaryEntries(groupsNames.get(wordGroupCheckBoxListIdx));
 												
 						for (int repeatIdx = 0; repeatIdx < repeatNumber; ++repeatIdx) {
-							chosenAllDictionaryEntryList.addAll(currentWordsGroupDictionaryEntryList);
+							
+							for (DictionaryEntry currentDictionaryEntry : currentWordsGroupDictionaryEntryList) {
+								
+								if (showTranslate == true || currentDictionaryEntry.isKanjiExists() == true) {							
+									chosenAllDictionaryEntryList.add(currentDictionaryEntry);
+								} else {
+									wasFilteredWords = true;
+								}
+							}
 						}
 						
 						chosenWordGroupsNumberList.add(groupsNames.get(wordGroupCheckBoxListIdx).getValue());
 					}
 				}
-				
+								
 				if (chosenAllDictionaryEntryList.size() == 0) {
 					
-					Toast toast = Toast.makeText(WordTestOptions.this, getString(R.string.word_test_options_word_group_no_chosen), Toast.LENGTH_SHORT);
+					Toast toast = null;
+					
+					if (wasFilteredWords == false) {
+						toast = Toast.makeText(WordTestOptions.this, getString(R.string.word_test_options_word_group_no_chosen), Toast.LENGTH_SHORT);	
+					} else {
+						toast = Toast.makeText(WordTestOptions.this, getString(R.string.word_test_options_word_filtered), Toast.LENGTH_SHORT);
+					}
 
 					toast.show();
 
@@ -231,6 +266,7 @@ public class WordTestOptions extends Activity {
 				detailsSb.append(randomCheckBox.isChecked() + " - " + randomCheckBox.getText()).append("\n\n");
 				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
 				detailsSb.append(showKanjiCheckBox.isChecked() + " - " + showKanjiCheckBox.getText()).append("\n\n");
+				detailsSb.append(showTranslateCheckBox.isChecked() + " - " + showTranslateCheckBox.getText()).append("\n\n");
 
 				detailsSb.append("***" + optionsGroup.getText() + "***\n\n");
 		

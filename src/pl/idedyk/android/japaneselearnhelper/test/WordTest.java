@@ -69,6 +69,7 @@ public class WordTest extends Activity {
 			Boolean untilSuccess = wordTestConfig.getUntilSuccess();
 			Integer repeatNumber = wordTestConfig.getRepeatNumber();
 			Boolean showKanji = wordTestConfig.getShowKanji();
+			Boolean showTranslate = wordTestConfig.getShowTranslate();
 			
 			// context
 			List<DictionaryEntry> wordsTest = wordTestContext.getWordsTest();
@@ -86,6 +87,7 @@ public class WordTest extends Activity {
 			detailsSb.append("untilSuccess: " + untilSuccess).append("\n\n");
 			detailsSb.append("repeatNumber: " + repeatNumber).append("\n\n");
 			detailsSb.append("showKanji: " + showKanji).append("\n\n");
+			detailsSb.append("showTranslate: " + showTranslate).append("\n\n");
 			
 			detailsSb.append(" *** context ***\n\n");
 			
@@ -172,6 +174,13 @@ public class WordTest extends Activity {
 		wordTestContext.addWordTestAnswers(kanaList.size());
 		wordTestContext.addWordTestCorrectAnswers(correctAnswersNo);
 		wordTestContext.addWordTestIncorrentAnswers(kanaList.size() - correctAnswersNo);
+
+		// show translate
+		TextView translateLabel = (TextView)findViewById(R.id.word_test_translate_label);
+		EditText translateInput = (EditText)findViewById(R.id.word_test_translate_input); 
+
+		translateLabel.setVisibility(View.VISIBLE);
+		translateInput.setVisibility(View.VISIBLE);
 		
 		if (correctAnswersNo == kanaList.size()) {
 			Toast toast = Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT);
@@ -326,9 +335,19 @@ public class WordTest extends Activity {
 				}
 			}
 			
+			TextView translateLabel = (TextView)findViewById(R.id.word_test_translate_label);
 			EditText translateInput = (EditText)findViewById(R.id.word_test_translate_input); 
+			
 			translateInput.setText(ListUtil.getListAsString(currentWordDictionaryEntry.getTranslates(), "\n"));
 			translateInput.setEnabled(false);
+			
+			if (wordTestConfig.getShowTranslate() != null && wordTestConfig.getShowTranslate().equals(Boolean.TRUE) == true) {
+				translateLabel.setVisibility(View.VISIBLE);
+				translateInput.setVisibility(View.VISIBLE);
+			} else {
+				translateLabel.setVisibility(View.GONE);
+				translateInput.setVisibility(View.GONE);
+			}
 			
 			TextView additionalInfoLabel = (TextView)findViewById(R.id.word_test_additional_info_label);
 			EditText additionalInfoInput = (EditText)findViewById(R.id.word_test_additional_info_input);

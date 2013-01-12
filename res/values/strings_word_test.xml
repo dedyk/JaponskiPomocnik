@@ -30,10 +30,13 @@
     <string name="word_test_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="word_test_options_repeat_number_invalid">Niepoprawna liczba powtórzeń</string>
     <string name="word_test_options_word_group_no_chosen">Nie wybrano grupy słów</string>
+    <string name="word_test_options_word_filtered">Wybrana grupa uniemożliwia przeprowadzenie testu, proszę wybrać inne grupy</string>
+    <string name="word_test_options_no_kanji_translate">Proszę wybrać pokazywanie znaków kanji lub tłumaczeń</string>
     <string name="word_test_options_other">Inne opcje</string>
     <string name="word_test_options_random">Losowa kolejność</string>
     <string name="word_test_options_until_success">Powtarzaj aż do sukcesu</string>
     <string name="word_test_options_show_kanji">Pokazuj znaki kanji</string>
+    <string name="word_test_options_show_translate">Pokazuj tłumaczenia</string>
     <string name="word_test_options_report_problem_email_subject">Japoński pomocnik - opcje testu ze słów: Sugestia</string>
     <string name="word_test_options_report_problem_email_body">Treść sugestii:\n\n\n***\n\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s</string>
 

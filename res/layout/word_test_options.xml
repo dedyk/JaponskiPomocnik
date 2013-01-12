@@ -58,7 +58,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/word_test_options_show_kanji"
                 android:textSize="12dp" />
-			
+
+			<CheckBox
+                android:id="@+id/word_test_options_show_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_test_options_show_translate"
+                android:textSize="12dp" />
+						
             <TextView
                 android:id="@+id/word_test_options_group"
                 android:layout_width="match_parent"
