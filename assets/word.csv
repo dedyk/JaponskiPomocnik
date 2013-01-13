@@ -1051,7 +1051,7 @@ szkoda",... desu ne,
 661,WORD,UNKNOWN,,HIRAGANA,"Genki 1-8
 Genki 1-9",,-,まだ,,mada,jeszcze nie,+ czasownik w formie te negatywnej,
 662,WORD,UNKNOWN,,HIRAGANA,"Genki 1-8
-Genki 1-9",,-,みんな,,minna,wszyscy,,
+Genki 1-9",,皆,みんな,,minna,wszyscy,,
 663,WORD,UNKNOWN,,HIRAGANA,Genki 1-8,,-,だれか,,dareka,ktoś,"dareka [partykuła], do osób",
 664,WORD,UNKNOWN,,HIRAGANA,Genki 1-8,,-,どれか,,doreka,któryś,"doreka [partykuła], który",
 665,WORD,UNKNOWN,,HIRAGANA,Genki 1-8,,-,どこか,,dokoka,gdzieś,"dokoka [partykuła], do miejsc",
@@ -1277,7 +1277,8 @@ zajęcia",,
 Genki kanji 1-5",,山,やま,,yama,góra,,
 821,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,夢,ゆめ,,yume,marzenie,,
 822,WORD,WORD_NOUN,,KATAKANA,Genki 1-11,,-,ルームメート,,ruumumeeto,współlokator,,
-823,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-11,,-,うそをつく,,uso o tsuku,kłamać,,
+823,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-11,,嘘をつく,うそをつく,,uso o tsuku,"kłamać
+oszukiwać",,
 824,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-11,,お腹がすく,おなかがすく,,onaka ga suku,być głodnym,,
 825,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-11,,飼う,かう,,kau,hodować,zwierzaka,
 826,WORD,WORD_VERB_U,,KATAKANA_HIRAGANA,Genki 1-11,,-,サボる,,saboru,opuszczać zajęcia,,
@@ -2679,6 +2680,7 @@ hałaśliwy",,
 hałasować
 przeszkadzać",,
 1872,WORD,WORD_VERB_U,,HIRAGANA,Inne,,触る,さわる,,sawaru,"dotykać
+dotknąć
 ruszać",,
 1873,WORD,WORD_NOUN,,HIRAGANA,Inne,,内科,ないか,,naika,lekarz,internista,
 1874,WORD,WORD_NOUN,,HIRAGANA,Inne,,皮膚科,ひふか,,hifuka,dermatologia,,
@@ -3974,3 +3976,49 @@ ruiny",,
 2686,WORD,WORD_NOUN,,HIRAGANA,Inne,,涯,はて,,hate,horyzont,,
 2687,WORD,WORD_VERB_U,,HIRAGANA,Inne,,挿す,さす,,sasu,"wciskać
 wkładać do",,
+2688,WORD,WORD_NOUN,,HIRAGANA,Inne,,天文学者,てんもんがくしゃ,,tenmon gakusha,astronom,,
+2689,WORD,WORD_NOUN,,KATAKANA,Inne,,-,トルン,,torun,Toruń,,
+2690,WORD,WORD_NOUN,,HIRAGANA,Inne,,法学,ほうがく,,hougaku,prawo,nauka,
+2691,WORD,WORD_NOUN,,HIRAGANA,Inne,,博士,はかせ,,hakase,doktor,tytuł naukowy,
+2692,WORD,WORD_NOUN,,KATAKANA,Inne,,-,オルシュティン,,orushutin,Olsztyn,,
+2693,WORD,UNKNOWN,,HIRAGANA,Inne,,-,たった,,tatta,dopiero,,
+2694,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ニュルンベルク,,nyurunberuku,Norymberga,,
+2695,WORD,WORD_NOUN,,HIRAGANA,Inne,,記述,きじゅつ,,kijutsu,opis,,
+2696,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,記述する,きじゅつする,,kijutsu suru,opisywać,,
+2697,WORD,WORD_NOUN,,HIRAGANA,Inne,,地動説,ちどうせつ,,chidousetsu,heliocentryzm,,
+2698,WORD,WORD_NOUN,,KATAKANA,Inne,,-,モデル,,moderu,model,,
+2699,WORD,WORD_NOUN,,HIRAGANA,Inne,,嘘,うそ,,uso,"kłamstwo
+oszustwo
+fałsz",,
+2700,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,虐げる,しいたげる,,shiitageru,"uciskać
+tyranizować",,
+2701,WORD,UNKNOWN,,HIRAGANA,Inne,,天体の回転について,てんたいかいてんについて,,tentai kaiten nitsuite,O obrotach sfer niebieskich,Dzieło Mikołaja Kopernika,
+2702,WORD,WORD_NOUN,,HIRAGANA,Inne,,童子,どうじ,,douji,"dziecko
+chłopczyk",,
+2703,WORD,WORD_NOUN,,HIRAGANA,Inne,,童顔,どうがん,,dougan,twarz chłopięca,,
+2704,WORD,WORD_NOUN,,HIRAGANA,Inne,,童謡,どうよう,,douyou,"piosenki dla dzieci
+dziecięce piosenki",,
+2705,WORD,WORD_NOUN,,HIRAGANA,Inne,,童話,どうわ,,douwa,"opowiadania
+bajki dla dzieci",,
+2706,WORD,WORD_NOUN,,HIRAGANA,Inne,,童貞,どうてい,,doutei,"czystość
+niewinność
+cnota
+dziewictwo (płci męskiej)
+prawiczek",,
+2707,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,費やす,ついやす,,tsuiyasu,"wydawać
+używać
+tracić",,
+2708,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,費える,ついえる,,tsuieru,"pomniejszać się
+być marnowanym
+być zużytym",,
+2709,WORD,WORD_NOUN,,HIRAGANA,Inne,,費用,ひよう,,hiyou,"koszt
+wydatek",,
+2710,WORD,WORD_NOUN,,HIRAGANA,Inne,,旅費,りょひ,,ryohi,koszty podróży,,
+2711,WORD,WORD_NOUN,,HIRAGANA,Inne,,生活費,せいかつひ,,seikatsuhi,"koszty utrzymania
+koszty życia",,
+2712,WORD,WORD_NOUN,,HIRAGANA,Inne,,消費,しょうひ,,shouhi,"konsumpcja
+zużycie",,
+2713,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,消費する,しょうひする,,shouhi suru,"konsumować
+zużywać",,
+2714,WORD,WORD_NOUN,,HIRAGANA,Inne,,経費,けいひ,,keihi,"koszt
+wydatek",,
