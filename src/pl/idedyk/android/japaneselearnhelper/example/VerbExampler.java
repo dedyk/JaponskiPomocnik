@@ -143,6 +143,9 @@ public class VerbExampler {
 		// te kara
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_KARA, makeTeKara(dictionaryEntry, grammaFormCache));
 		
+		// te shimau
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_SHIMAU, makeTeShimau(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -902,5 +905,74 @@ public class VerbExampler {
 		GrammaFormConjugateResult verbTe = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 
 		return ExampleHelper.makeSimpleTemplateExample(verbTe, templateKanji, templateKana, templateRomaji, true);	
+	}
+	
+	private static ExampleResult makeTeShimau(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult verbTe = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
+		
+		final String templateKanji1 = "%sしまう";
+		final String templateKana1 = "%sしまう";
+		final String templateRomaji1 = "%s shimau";
+
+		ExampleResult exampleResult1 = ExampleHelper.makeSimpleTemplateExample(verbTe, templateKanji1, templateKana1, templateRomaji1, true);
+
+		ExampleResult exampleResult2 = null;
+		
+		if (verbTe.getKanaList().get(0).endsWith("て") == true) {
+			
+			final String templateKanji2 = "%sちゃう";
+			final String templateKana2 = "%sちゃう";
+			final String templateRomaji2 = "%s chau";
+
+			exampleResult2 = ExampleHelper.makeSimpleTemplateExampleWithKanaLastCharAndRomajiTwoCharsRemove(verbTe, templateKanji2, templateKana2, templateRomaji2, true);
+			
+		} else if (verbTe.getKanaList().get(0).endsWith("で") == true) {
+
+			final String templateKanji2 = "%sじゃう";
+			final String templateKana2 = "%sじゃう";
+			final String templateRomaji2 = "%s jau";
+
+			exampleResult2 = ExampleHelper.makeSimpleTemplateExampleWithKanaLastCharAndRomajiTwoCharsRemove(verbTe, templateKanji2, templateKana2, templateRomaji2, true);
+			
+		} else {
+			throw new RuntimeException("Bad te form for: " + verbTe.getKanaList().get(0));
+		}
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		final String templateKanji3 = "%sしまいました";
+		final String templateKana3 = "%sしまいました";
+		final String templateRomaji3 = "%s shimaimashita";
+
+		ExampleResult exampleResult3 = ExampleHelper.makeSimpleTemplateExample(verbTe, templateKanji3, templateKana3, templateRomaji3, true);
+				
+		exampleResult2.setAlternative(exampleResult3);
+		
+		ExampleResult exampleResult4 = null;
+		
+		if (verbTe.getKanaList().get(0).endsWith("て") == true) {
+			
+			final String templateKanji2 = "%sちゃいました";
+			final String templateKana2 = "%sちゃいました";
+			final String templateRomaji2 = "%s chaimashita";
+
+			exampleResult4 = ExampleHelper.makeSimpleTemplateExampleWithKanaLastCharAndRomajiTwoCharsRemove(verbTe, templateKanji2, templateKana2, templateRomaji2, true);
+			
+		} else if (verbTe.getKanaList().get(0).endsWith("で") == true) {
+
+			final String templateKanji2 = "%sじゃいました";
+			final String templateKana2 = "%sじゃいました";
+			final String templateRomaji2 = "%s jaimashita";
+
+			exampleResult4 = ExampleHelper.makeSimpleTemplateExampleWithKanaLastCharAndRomajiTwoCharsRemove(verbTe, templateKanji2, templateKana2, templateRomaji2, true);
+			
+		} else {
+			throw new RuntimeException("Bad te form for: " + verbTe.getKanaList().get(0));
+		}
+		
+		exampleResult3.setAlternative(exampleResult4);
+		
+		return exampleResult1;
 	}
 }

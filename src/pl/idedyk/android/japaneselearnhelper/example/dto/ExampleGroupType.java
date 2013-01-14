@@ -182,7 +182,9 @@ public enum ExampleGroupType {
 	
 	VERB_MAE_NI("Przed czynnością, robię ..."),
 	
-	VERB_TE_KARA("Po czynności, robię ...");
+	VERB_TE_KARA("Po czynności, robię ..."),
+	
+	VERB_TE_SHIMAU("Zrobić cos do końca / Niestety coś stało się");
 	
 	private String name;
 	
