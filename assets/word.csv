@@ -761,7 +761,9 @@ Genki kanji 2-15",,死ぬ,しぬ,,shinu,umierać,,
 Genki kanji 1-10",,立つ,たつ,,tatsu,stać,,
 478,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-6,,たばこを吸う,たばこをすう,,tabako o suu,palić,,
 479,WORD,WORD_VERB_U,,HIRAGANA,"Genki 1-6
-Genki kanji 1-12",を,使う,つかう,o,tsukau,używać,,
+Genki kanji 1-12",を,使う,つかう,o,tsukau,"używać
+korzystać
+wydawać (pieniądze)",,
 480,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-6,を,手伝う,てつだう,o,tetsudau,pomagać,osoba/zadanie,
 481,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,"Genki 1-6
 Genki 2-18
@@ -1420,6 +1422,7 @@ trzymaj się",,
 za parę chwil/dni",,
 929,WORD,WORD_VERB_U,,HIRAGANA,"Genki kanji 2-15
 Genki 2-18",,転ぶ,ころぶ,,korobu,"upaść
+upadać
 przewrócić się",,
 930,WORD,WORD_NOUN,,HIRAGANA,Inne,,灰,はい,,hai,popiół,,
 931,WORD,UNKNOWN,,HIRAGANA,Inne,,欲張り,よくばり,,yokubari,chciwość,,
@@ -1449,7 +1452,7 @@ masywny",,
 951,WORD,WORD_NOUN,,HIRAGANA,Inne,,桜,さくら,,sakura,kwiat wiśni,,
 952,WORD,UNKNOWN,,HIRAGANA,Inne,,花見,はなみ,,hanami,oglądanie kwiatów,,
 953,WORD,WORD_NOUN,,HIRAGANA,"Genki dodatkowe 1-12
-Genki kanji 1-12",,神さま,かみさま,,kamisama,bóg,,
+Genki kanji 1-12",,神様,かみさま,,kamisama,bóg,,
 954,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 1-12,,娘,むすめ,,musume,córka,,
 955,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki dodatkowe 1-12,,-,まじめ,,majime,poważny,,
 956,WORD,WORD_VERB_U,,HIRAGANA,Genki dodatkowe 1-12,,はたを織る,はたをおる,,hata o oru,tkać,,
@@ -2149,8 +2152,8 @@ Genki 2-18",,牛乳,ぎゅうにゅう,,gyuunyuu,mleko,,
 Genki kanji 2-13",,牛肉,ぎゅうにく,,gyuuniku,wołowina,,
 1462,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 1-12,,大使,たいし,,taishi,ambasador,,
 1463,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-12,,使用中,しようちゅう,,shiyouchuu,zajęte,korzystanie z czegoś,
-1464,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-12,,共働き,ともばたらき,,tomobataraki,oboje pracują,mąż i żona,
-1465,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-12,,労働,ろうどう,,roudou,praca,,
+1464,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 1-12,,共働き,ともばたらき,,tomobataraki,oboje pracują,mąż i żona,
+1465,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 1-12,,労働,ろうどう,,roudou,praca fizyczna,,
 1466,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 1-12,,国連,こくれん,,kokuren,ONZ,,
 1467,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-12,,連休,れんきゅう,,renkyuu,powiązane święta,święta jedno po drugim,
 1468,KANJI,WORD_ADJECTIVE_NA,,HIRAGANA,"Genki kanji 1-12
@@ -2249,7 +2252,8 @@ emocje",,
 łatwy",,
 1539,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,医学,いがく,,igaku,medycyna,,
 1540,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,医院,いいん,,iin,klinika,,
-1541,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,学者,がくしゃ,,gakusha,naukowiec,,
+1541,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,学者,がくしゃ,,gakusha,"naukowiec
+uczony",,
 1542,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,読者,どくしゃ,,dokusha,czytelnik,,
 1543,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,若者,わかもの,,wakamono,młody człowiek,,
 1544,WORD,WORD_NOUN,,HIRAGANA,Inne,,花火,はなび,,hanabi,sztuczne ognie,,
@@ -4024,3 +4028,30 @@ zużywać",,
 wydatek",,
 2715,WORD,WORD_NOUN,,KATAKANA,Inne,,-,モスク,,mosuku,meczet,,
 2716,WORD,WORD_NOUN,,KATAKANA,Inne,,-,モスクワ,,mosukuwa,Moskwa,,
+2717,WORD,WORD_NOUN,,HIRAGANA,Inne,,様式,ようしき,,youshiki,"styl
+forma",,
+2718,WORD,WORD_NOUN,,HIRAGANA,Inne,,様子,ようす,,yousu,"sytuacja
+aspekt",,
+2719,WORD,WORD_NOUN,,HIRAGANA,Inne,,同様,どうよう,,douyou,"identyczny
+taki sam
+podobny",,
+2720,WORD,WORD_NOUN,,HIRAGANA,Inne,,素因,そいん,,soin,"podstawowy element
+podstawowa przyczyna",,
+2721,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,素朴,そぼく,,soboku,"prostota
+naiwność",,
+2722,WORD,WORD_NOUN,,HIRAGANA,Inne,,素質,そしつ,,soshitsu,"temperament
+charakter
+natura
+jakość
+predyspozycja",,
+2723,WORD,WORD_NOUN,,HIRAGANA,Inne,,素人,しろうと,,shirouto,"niedoświadczony
+amator",,
+2724,WORD,WORD_NOUN,,HIRAGANA,Inne,,茶道,さどう,,sadou,ceremonia picia herbaty,dosł. droga herbaty,
+2725,WORD,WORD_NOUN,,HIRAGANA,Inne,,茶室,ちゃしつ,,chashitsu,pokój do ceremonii picia herbaty,,
+2726,WORD,WORD_NOUN,,HIRAGANA,Inne,,麦茶,むぎちゃ,,mugicha,herbata zbożowa (jęczmienna),,
+2727,WORD,WORD_NOUN,,HIRAGANA,Inne,,著者,ちょしゃ,,chosha,autor,,
+2728,WORD,WORD_NOUN,,HIRAGANA,Inne,,信者,しんじゃ,,shinja,"wierny
+wyznawca
+wierzący",,
+2729,WORD,WORD_NOUN,,HIRAGANA,Inne,,労働者,ろうどうしゃ,,roudousha,robotnik,,
+2730,WORD,WORD_NOUN,,HIRAGANA,Inne,,反対者,はんたいしゃ,,hantaisha,przeciwnik,,
