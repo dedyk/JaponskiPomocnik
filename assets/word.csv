@@ -373,7 +373,8 @@ Genki kanji 1-11",,明日,あした,,ashita,jutro,,
 234,WORD,UNKNOWN,,HIRAGANA,"Genki 1-3
 Genki 1-4
 Genki kanji 1-5",,今日,きょう,,kyou,dziś,,
-235,WORD,UNKNOWN,,HIRAGANA,Genki 1-3,,-,ごろ,,goro,około,do czasu,
+235,WORD,WORD_NOUN,,HIRAGANA,Genki 1-3,,頃,ごろ,,goro,"czas
+około",to samo co toki,
 236,WORD,UNKNOWN,,HIRAGANA,"Genki 1-3
 Genki kanji 1-5",,今晩,こんばん,,konban,dziś wieczorem,,
 237,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-3
@@ -1585,7 +1586,8 @@ Genki kanji 2-13",,不安,ふあん,,fuan,"niespokojny
 zaniepokojony",,
 1041,WORD,WORD_ADJECTIVE_I,,HIRAGANA,"Genki dodatkowe 2-13
 Genki kanji 2-13
-Genki 2-18",,気分が悪い,きぷんがわるい,,kipun ga warui,czuć się źle,,
+Genki 2-18",,気分が悪い,きぷんがわるい,,kipun ga warui,"czuć się źle
+być w złym nastroju",,
 1042,WORD,WORD_NOUN,,HIRAGANA,"Genki dodatkowe 2-13
 Genki kanji 2-13",,体,からだ,,karada,ciało,,
 1043,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-13,,体にいい,からだにいい,,karada ni ii,"zdrowe
@@ -2834,7 +2836,8 @@ fundamenty narodu",,
 1974,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-15
 Genki dodatkowe 2-15",,地下,ちか,,chika,pod ziemią,,
 1975,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-15
-Genki dodatkowe 2-16",,場所,ばしょ,,basho,miejsce,fizyczne,
+Genki dodatkowe 2-16",,場所,ばしょ,,basho,"miejsce
+miejsce w świecie (do osób)",fizyczne,
 1976,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,道場,どうば,,douba,miejsce,gdzie odbywają się sztuki walki,
 1977,WORD,UNKNOWN,,HIRAGANA,Genki kanji 2-15,,場,ば,,ba,[miejsce ~ ba],"miejsce, gdzie ma miejsce jakaś akcja",
 1978,KANJI,WORD_VERB_RU,,HIRAGANA,"Genki kanji 2-15
@@ -3904,8 +3907,9 @@ prosić",
 2646,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,,-,つく,,tsuku,włączyć się,,
 2647,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-18,を,汚す,よごす,o,yogosu,pobrudzić się,,
 2648,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,落ちる,おちる,ga,ochiru,spadać,,
-2649,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,,消える,きえる,,kieru,"upuszczać
-znikać",,
+2649,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,,消える,きえる,,kieru,"znikać
+przepadać
+rozpływać się",,
 2650,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,汚れる,よごれる,ga,yogoreru,pobrudziło się,,
 2651,WORD,WORD_ADVERB,,HIRAGANA,Genki 2-18,,今すぐ,いますぐ,,imasugu,"już
 w tej chwili
@@ -4055,3 +4059,34 @@ wyznawca
 wierzący",,
 2729,WORD,WORD_NOUN,,HIRAGANA,Inne,,労働者,ろうどうしゃ,,roudousha,robotnik,,
 2730,WORD,WORD_NOUN,,HIRAGANA,Inne,,反対者,はんたいしゃ,,hantaisha,przeciwnik,,
+2731,WORD,WORD_NOUN,,HIRAGANA,Inne,,鴨,かも,,kamo,kaczka,dzika,
+2732,WORD,WORD_NOUN,,HIRAGANA,Inne,,鶩,あひる,,ahiru,kaczka,domowa,
+2733,WORD,WORD_NOUN,,HIRAGANA,Inne,,家鴨,あひる,,ahiru,kaczka,domowa,
+2734,WORD,UNKNOWN,,HIRAGANA,Inne,,-,なぜだか,,naze daka,z jakiegoś powodu,,
+2735,WORD,WORD_VERB_U,,HIRAGANA,Inne,,暮らす,くらす,,kurasu,żyć,,
+2736,WORD,WORD_NOUN,,HIRAGANA,Inne,,実家,じっか,,jikka,dom rodzinny,,
+2737,WORD,WORD_NOUN,,HIRAGANA,Inne,,五目並べ,ごもくならべ,,gomoku narabe,gomoku,japońska gra planszowa,
+2738,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,苦手,にがて,,nigate,"słaby punkt
+słaby
+niedobry",,
+2739,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ピカピカ,,pika pika,"błysk
+pomysł
+lśnienie",,
+2740,WORD,WORD_NOUN,,HIRAGANA,Inne,,鴨南蛮,かもなんばん,,kamo nanban,pieczona kaczka,japońska potrawa,
+2741,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,損ねる,そこねる,,sokoneru,"zaszkodzić
+zranić
+wyrządzić krzywdę
+przegapić",,
+2742,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,責める,せめる,,semeru,"ganić
+krytykować
+oskarżać
+obwiniać",,
+2743,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,攻める,せめる,,semeru,"atakować
+napadać",,
+2744,WORD,WORD_VERB_U,,HIRAGANA,Inne,,打つかる,ぶつかる,,butsukaru,"zderzać się
+kolidować się
+mieć inne zdanie",,
+2745,WORD,WORD_NOUN,,HIRAGANA,Inne,,物理学,ぶつりがく,,butsurigaku,fizyka,,
+2746,WORD,WORD_NOUN,,HIRAGANA,Inne,,物理学者,ぶつりがくしゃ,,butsurigakusha,fizyk,,
+2747,WORD,WORD_NOUN,,HIRAGANA,Inne,,上京,じょうきょう,,joukyou,przyjazd do stolicy,do Tokio,
+2748,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,上京する,じょうきょうする,,joukyou suru,przyjeżdżać do stolicy,,
