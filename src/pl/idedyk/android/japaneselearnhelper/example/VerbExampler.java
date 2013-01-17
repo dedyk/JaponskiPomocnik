@@ -152,6 +152,15 @@ public class VerbExampler {
 		// nabara
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_NABARA, makeNabara(dictionaryEntry, grammaFormCache));
 		
+		// ba yokatta
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_BA_YOKATTA, makeBaYokatta(dictionaryEntry, grammaFormCache));
+
+		// te yokatta
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_YOKATTA, makeTeYokatta(dictionaryEntry, grammaFormCache));
+
+		// ba neative yokatta
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_BA_NEGATIVE_YOKATTA, makeBaNegativeYokatta(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -998,6 +1007,39 @@ public class VerbExampler {
 		final String templateKanji = "%sなばら, ...";
 		final String templateKana = "%sなばら, ...";
 		final String templateRomaji = "%s nabara, ...";
+		
+		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+	}
+
+	private static ExampleResult makeBaYokatta(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_BA_AFFIRMATIVE);
+
+		final String templateKanji = "%sよかった";
+		final String templateKana = "%sよかった";
+		final String templateRomaji = "%s yokatta";
+		
+		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+	}
+
+	private static ExampleResult makeTeYokatta(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
+
+		final String templateKanji = "%sよかった";
+		final String templateKana = "%sよかった";
+		final String templateRomaji = "%s yokatta";
+		
+		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeBaNegativeYokatta(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_BA_NEGATIVE);
+
+		final String templateKanji = "%sよかった";
+		final String templateKana = "%sよかった";
+		final String templateRomaji = "%s yokatta";
 		
 		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
 	}

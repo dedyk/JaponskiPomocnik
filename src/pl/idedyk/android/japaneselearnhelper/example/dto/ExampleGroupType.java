@@ -194,7 +194,13 @@ public enum ExampleGroupType {
 	
 	VERB_TO("Kiedy A staje się, wtedy również B staje się", "Mówi o rzeczach oczywistych, z której druga wynika z pierwszej"),
 	
-	VERB_NABARA("W trakcie czynności, robię ...", "Musi być ten sam podmiot");
+	VERB_NABARA("W trakcie czynności, robię ...", "Musi być ten sam podmiot"),
+	
+	VERB_BA_YOKATTA("Szkoda, że nie zrobiłem / Dobrze byłoby, gdybym zrobił / Żałuję, że nie zrobiłem"),
+	
+	VERB_TE_YOKATTA("Dobrze, że zrobiłem"),
+	
+	VERB_BA_NEGATIVE_YOKATTA("Szkoda, że zrobiłem / Dobrze byłoby, gdybym nie zrobił / Żałuję, że zrobiłem");
 	
 	private String name;
 	
