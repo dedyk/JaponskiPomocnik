@@ -65,7 +65,10 @@ public enum GrammaFormConjugateResultType {
 	
 	VERB_POTENTIAL_TE("Forma te", false),
 	
-	VERB_VOLITIONAL("Forma wolicjonalna", false);
+	VERB_VOLITIONAL("Forma wolicjonalna", false),
+	
+	VERB_BA_AFFIRMATIVE("Twierdzenie", true),
+	VERB_BA_NEGATIVE("Przeczenie", true);
 	
 	private String name;
 	

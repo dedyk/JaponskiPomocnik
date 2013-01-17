@@ -253,6 +253,16 @@ public class VerbGrammaConjugater {
 		
 		result.add(volitionalForm);
 		
+		// forma ba
+		GrammaFormConjugateGroupTypeElements baForm = new GrammaFormConjugateGroupTypeElements();
+		
+		baForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_BA);
+		
+		baForm.getGrammaFormConjugateResults().add(makeBaAffirmativeForm(dictionaryEntry));
+		baForm.getGrammaFormConjugateResults().add(makeBaNegativeForm(dictionaryEntry));
+		
+		result.add(baForm);
+		
 		// caching
 		for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : result) {
 			
@@ -1483,4 +1493,158 @@ public class VerbGrammaConjugater {
 		
 		return dictionaryEntry;		
 	}
+	
+	private static GrammaFormConjugateResult makeBaAffirmativeForm(DictionaryEntry dictionaryEntry) {
+		
+		final String ruPostfixKana = "れば";
+		final String ruPostfixRomaji = "reba";
+		
+		GrammaFormConjugateResult baForm = makeBaAffirmativeForm(dictionaryEntry, ruPostfixKana, ruPostfixRomaji);
+		
+		return baForm;
+	}
+	
+	private static GrammaFormConjugateResult makeBaAffirmativeForm(DictionaryEntry dictionaryEntry, String ruPostfixKana, String ruPostfixRomaji) {
+		
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+		
+		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+		
+		result.setResultType(GrammaFormConjugateResultType.VERB_BA_AFFIRMATIVE);
+		
+		String prefixKana = dictionaryEntry.getPrefixKana();
+		
+		result.setPrefixKana(prefixKana);
+		
+		String kanji = dictionaryEntry.getKanji();
+		
+		if (kanji != null) { 			
+			result.setKanji(makeBaAffirmativeFormForKanjiOrKana(kanji, dictionaryEntryType, ruPostfixKana));
+		}
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+			
+		List<String> kanaListResult = new ArrayList<String>();
+		
+		for (String currentKanaList : kanaList) {	
+			kanaListResult.add(makeBaAffirmativeFormForKanjiOrKana(currentKanaList, dictionaryEntryType, ruPostfixKana));
+		}
+		
+		result.setKanaList(kanaListResult);
+		
+		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
+		
+		result.setPrefixRomaji(prefixRomaji);
+				
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+		
+		List<String> romajiListResult = new ArrayList<String>();
+		
+		for (String currentRomajiList : romajiList) {
+			currentRomajiList = currentRomajiList.replaceAll(" o ", " ga ");
+			
+			romajiListResult.add(makeBaAffirmativeFormForRomaji(currentRomajiList, dictionaryEntryType, ruPostfixRomaji));
+		}
+		
+		result.setRomajiList(romajiListResult);
+		
+		return result;
+	}
+	
+	private static String makeBaAffirmativeFormForKanjiOrKana(String kana, DictionaryEntryType dictionaryEntryType, String ruPostfixKana) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU || dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			return removeLastChar(kana) + ruPostfixKana;
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U) {
+			
+			String kanaWithoutLastChar = removeLastChar(kana);
+			String lastChar = getLastChars(kana, 1);
+			
+			String lastCharMappedToE = lastKanaCharsMapperToEChar.get(lastChar);
+			
+			if (lastCharMappedToE == null) {
+				throw new RuntimeException("lastCharMappedToE == null: " + kana);
+			}
+			
+			return kanaWithoutLastChar + lastCharMappedToE + "ば";
+		}
+		
+		throw new RuntimeException("makeBaFormForKanjiOrKana 1: " + dictionaryEntryType);
+	}
+	
+	private static String makeBaAffirmativeFormForRomaji(String romaji, DictionaryEntryType dictionaryEntryType, String ruPostfixRomaji) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU || dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			return removeChars(romaji, 2) + ruPostfixRomaji;
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U) {
+			
+			String romajiLastThreeChars = getLastChars(romaji, 3);
+			
+			if (romajiLastThreeChars != null && lastRomajiCharsMapperToEChar.containsKey(romajiLastThreeChars) == true) {
+				return removeChars(romaji, 3) + lastRomajiCharsMapperToEChar.get(romajiLastThreeChars) + "ba";
+			}
+			
+			String romajiLastTwoChars = getLastChars(romaji, 2);
+			
+			if (romajiLastTwoChars != null && lastRomajiCharsMapperToEChar.containsKey(romajiLastTwoChars) == true) {
+				return removeChars(romaji, 2) + lastRomajiCharsMapperToEChar.get(romajiLastTwoChars) + "ba";
+			}
+			
+			String romajiLastOneChar = getLastChars(romaji, 1);
+			
+			if (romajiLastOneChar != null && lastRomajiCharsMapperToEChar.containsKey(romajiLastOneChar) == true) {
+				return removeChars(romaji, 1) + lastRomajiCharsMapperToEChar.get(romajiLastOneChar) + "ba";
+			}
+			
+			throw new RuntimeException("makeBaFormForRomaji 1: " + romaji);
+		}
+		
+		throw new RuntimeException("makeBaFormForRomaji 2: " + dictionaryEntryType);
+	}
+	
+	private static GrammaFormConjugateResult makeBaNegativeForm(DictionaryEntry dictionaryEntry) {
+		
+		final String postfixKana = "ければ";
+		final String postfixRomaji = "kereba";
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = makeInformalPresentNegativeForm(dictionaryEntry);
+		
+		GrammaFormConjugateResult result = new GrammaFormConjugateResult();
+		
+		result.setResultType(GrammaFormConjugateResultType.VERB_BA_NEGATIVE);
+		
+		result.setPrefixKana(informalPresentNegativeForm.getPrefixKana());
+		
+		String kanji = informalPresentNegativeForm.getKanji();
+		
+		if (kanji != null) {
+			result.setKanji(removeLastChar(kanji) + postfixKana);
+		}
+		
+		List<String> kanaList = informalPresentNegativeForm.getKanaList();
+		
+		List<String> kanaListResult = new ArrayList<String>();
+		
+		for (String currentKanaList : kanaList) {	
+			kanaListResult.add(removeLastChar(currentKanaList) + postfixKana);
+		}
+		
+		result.setKanaList(kanaListResult);
+				
+		result.setPrefixRomaji(informalPresentNegativeForm.getPrefixRomaji());
+				
+		List<String> romajiList = informalPresentNegativeForm.getRomajiList();
+		
+		List<String> romajiListResult = new ArrayList<String>();
+		
+		for (String currentRomajiList : romajiList) {			
+			romajiListResult.add(removeLastChar(currentRomajiList) + postfixRomaji);
+		}
+		
+		result.setRomajiList(romajiListResult);
+
+		return result;
+	}
+
 }

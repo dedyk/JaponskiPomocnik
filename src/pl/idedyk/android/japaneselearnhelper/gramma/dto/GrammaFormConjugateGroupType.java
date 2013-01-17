@@ -29,7 +29,9 @@ public enum GrammaFormConjugateGroupType {
 	
 	VERB_POTENTIAL_TE("Forma potencjalna, forma te"),
 	
-	VERB_VOLITIONAL("Forma wolicjonalna");
+	VERB_VOLITIONAL("Forma wolicjonalna"),
+	
+	VERB_BA("Forma ba");
 	
 	private String name;
 	
