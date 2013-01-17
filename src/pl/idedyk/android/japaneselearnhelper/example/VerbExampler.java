@@ -149,6 +149,9 @@ public class VerbExampler {
 		// to
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TO, makeTo(dictionaryEntry, grammaFormCache));
 		
+		// nabara
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_NABARA, makeNabara(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -986,5 +989,16 @@ public class VerbExampler {
 		final String templateRomaji = "%s to, ...";
 		
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeNabara(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
+
+		final String templateKanji = "%sなばら, ...";
+		final String templateKana = "%sなばら, ...";
+		final String templateRomaji = "%s nabara, ...";
+		
+		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
 	}
 }

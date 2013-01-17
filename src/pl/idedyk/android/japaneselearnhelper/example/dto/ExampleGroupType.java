@@ -192,7 +192,9 @@ public enum ExampleGroupType {
 	
 	VERB_TE_SHIMAU("Zrobić cos do końca / Niestety coś stało się"),
 	
-	VERB_TO("Kiedy A staje się, wtedy również B staje się", "Mówi o rzeczach oczywistych, z której druga wynika z pierwszej");
+	VERB_TO("Kiedy A staje się, wtedy również B staje się", "Mówi o rzeczach oczywistych, z której druga wynika z pierwszej"),
+	
+	VERB_NABARA("W trakcie czynności, robię ...", "Musi być ten sam podmiot");
 	
 	private String name;
 	
