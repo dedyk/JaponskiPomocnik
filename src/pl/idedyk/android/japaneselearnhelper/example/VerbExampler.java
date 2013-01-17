@@ -146,6 +146,9 @@ public class VerbExampler {
 		// te shimau
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_SHIMAU, makeTeShimau(dictionaryEntry, grammaFormCache));
 		
+		// to
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_TO, makeTo(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -974,5 +977,14 @@ public class VerbExampler {
 		exampleResult3.setAlternative(exampleResult4);
 		
 		return exampleResult1;
+	}
+	
+	private static ExampleResult makeTo(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "%sと, ...";
+		final String templateKana = "%sと, ...";
+		final String templateRomaji = "%s to, ...";
+		
+		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 }

@@ -24,7 +24,7 @@ public class NounExampler {
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_DISLIKE, makeKiraiExample(dictionaryEntry));
 		
 		// ni naru
-		ExampleHelper.addExample(result, ExampleGroupType.NOUN_NARU, makeNounNaru(dictionaryEntry));
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_NI_NARU, makeNounNiNaru(dictionaryEntry));
 		
 		// na desu
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_NA_DESU, makeNaDesuExample(dictionaryEntry));
@@ -71,6 +71,9 @@ public class NounExampler {
 		// mitai desu
 		ExampleHelper.addExample(result, ExampleGroupType.NOUN_MITAI_DESU, makeMitaiDesuExample(dictionaryEntry, grammaFormCache));
 		
+		// to
+		ExampleHelper.addExample(result, ExampleGroupType.NOUN_TO, makeToExample(dictionaryEntry));
+		
 		return result;
 	}
 
@@ -92,7 +95,7 @@ public class NounExampler {
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeNounNaru(DictionaryEntry dictionaryEntry) {
+	private static ExampleResult makeNounNiNaru(DictionaryEntry dictionaryEntry) {
 		
 		final String templateKanji = "%sになる";
 		final String templateKana = "%sになる";
@@ -326,5 +329,16 @@ public class NounExampler {
 		alternative2.setAlternative(alternative3);
 	
 		return exampleResult;
+	}
+	
+	private static ExampleResult makeToExample(DictionaryEntry dictionaryEntry) {
+		
+		ExampleResult nounNiNaru = makeNounNiNaru(dictionaryEntry);
+		
+		final String templateKanji = "%sと, ...";
+		final String templateKana = "%sと, ...";
+		final String templateRomaji = "%s to, ...";
+		
+		return ExampleHelper.makeSimpleTemplateExample(nounNiNaru, templateKanji, templateKana, templateRomaji, true);
 	}
 }

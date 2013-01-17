@@ -66,6 +66,9 @@ public class AdjectiveNaExampler {
 		// mitai desu
 		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_MITAI_DESU, makeMitaiDesuExample(dictionaryEntry, grammaFormCache));
 		
+		// to
+		ExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_TO, makeToExample(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -312,5 +315,16 @@ public class AdjectiveNaExampler {
 		exampleResult.setAlternative(alternative2);
 	
 		return exampleResult;
+	}
+	
+	private static ExampleResult makeToExample(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		ExampleResult nounNiNaru = makeAdjectiveNaNaru(dictionaryEntry);
+		
+		final String templateKanji = "%sと, ...";
+		final String templateKana = "%sと, ...";
+		final String templateRomaji = "%s to, ...";
+		
+		return ExampleHelper.makeSimpleTemplateExample(nounNiNaru, templateKanji, templateKana, templateRomaji, true);
 	}
 }
