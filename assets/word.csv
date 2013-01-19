@@ -1382,7 +1382,9 @@ gra",,
 Genki kanji 2-13",,物,もの,,mono,rzecz,konkretny obiekt,
 898,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-12
 Genki kanji 1-10",,雪,ゆき,,yuki,śnieg,,
-899,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,用事,ようじ,,youji,rzeczy do wykonania,,
+899,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,用事,ようじ,,youji,"interes
+sprawa
+rzeczy do wykonania",,
 900,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-12,,甘い,あまい,,amai,słodki,,
 901,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-12,,痛い,いたい,,itai,"bolesny
 ranny",,
@@ -3892,6 +3894,7 @@ za",czymś,
 2635,WORD,WORD_NOUN,,HIRAGANA,Genki 2-18,,冷蔵庫,れいぞうこ,,reizouko,lodówka,,
 2636,WORD,WORD_NOUN,,HIRAGANA,Genki 2-18,,蝋燭,ろうそく,,rousoku,świeczka,,
 2637,WORD,WORD_NOUN,,HIRAGANA,Inne,,当番,とうばん,,touban,"dyżur
+służba
 dyżurny
 osoba pełniąca dyżur",,
 2638,WORD,WORD_NOUN,,HIRAGANA,Inne,,冷凍庫,れいとうこ,,reitouko,zamrażarka,,
@@ -4115,3 +4118,30 @@ cecha charakterystyczna",,
 odzielny",,
 2762,WORD,WORD_NOUN,,HIRAGANA,Inne,,個室,こしつ,,koshitsu,pokój jednoosobowy,,
 2763,WORD,WORD_NOUN,,KATAKANA,Inne,,-,コレステロール,,koresuterooru,cholesterol,,
+2764,WORD,WORD_VERB_U,,HIRAGANA,Inne,,合う,あう,,au,"pasować
+zgadzać się
+porozumieć się
+płacić
+opłacalny",,
+2765,WORD,WORD_NOUN,,HIRAGANA,Inne,,合唱団,がっしょうだん,,gasshoudan,chór,,
+2766,WORD,WORD_NOUN,,HIRAGANA,Inne,,合同,ごうどう,,goudou,"połączony
+zjednoczony
+zmieszany",,
+2767,WORD,WORD_NOUN,,HIRAGANA,Inne,,合成,ごうせい,,gousei,"synteza
+kompozycja",,
+2768,WORD,WORD_NOUN,,HIRAGANA,Inne,,合格,ごうかく,,goukaku,pomyślne zdanie egzaminu,,
+2769,WORD,WORD_NOUN,,HIRAGANA,Inne,,合理,ごうり,,gouri,"racjonalność
+logiczność",,
+2770,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,用いる,もちいる,,mochiiru,"używać
+wykorzystywać",,
+2771,WORD,WORD_NOUN,,HIRAGANA,Inne,,用心,ようじん,,youjin,"troska
+ostrożność",,
+2772,WORD,WORD_NOUN,,HIRAGANA,Inne,,用具,ようぐ,,yougu,"narzędzie
+instrument",,
+2773,WORD,WORD_NOUN,,HIRAGANA,Inne,,個人用,こじんよう,,kojin'you,do użytku osobistego,,
+2774,WORD,WORD_VERB_U,,HIRAGANA,Inne,,番う,つがう,,tsugau,"parować
+łączyć",,
+2775,WORD,WORD_NOUN,,HIRAGANA,Inne,,番人,ばんにん,,bannin,"stróż
+ochroniarz
+strażnik",,
+2776,WORD,WORD_NOUN,,HIRAGANA,Inne,,番犬,ばんけん,,banken,pies stróż,,
