@@ -64,11 +64,14 @@ public class WordTest extends Activity {
 			final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTest.this).getWordTestConfig();
 			
 			// config
+			WordTestMode wordTestMode = wordTestConfig.getWordTestMode();
+			
 			Set<String> chosenWordGroups = wordTestConfig.getChosenWordGroups();
 			Boolean random = wordTestConfig.getRandom();
 			Boolean untilSuccess = wordTestConfig.getUntilSuccess();
 			Integer repeatNumber = wordTestConfig.getRepeatNumber();
 			Boolean showKanji = wordTestConfig.getShowKanji();
+			Boolean showKana = wordTestConfig.getShowKana();
 			Boolean showTranslate = wordTestConfig.getShowTranslate();
 			
 			// context
@@ -82,11 +85,13 @@ public class WordTest extends Activity {
 			StringBuffer detailsSb = new StringBuffer();
 			
 			detailsSb.append(" *** config ***\n\n");
+			detailsSb.append("wordTestMode: " + wordTestMode).append("\n\n");
 			detailsSb.append("chosenWordGroups: " + chosenWordGroups).append("\n\n");
 			detailsSb.append("random: " + random).append("\n\n");
 			detailsSb.append("untilSuccess: " + untilSuccess).append("\n\n");
 			detailsSb.append("repeatNumber: " + repeatNumber).append("\n\n");
 			detailsSb.append("showKanji: " + showKanji).append("\n\n");
+			detailsSb.append("showKana: " + showKana).append("\n\n");
 			detailsSb.append("showTranslate: " + showTranslate).append("\n\n");
 			
 			detailsSb.append(" *** context ***\n\n");
@@ -168,55 +173,123 @@ public class WordTest extends Activity {
 		
 		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 		
-		// check user answer
-		int correctAnswersNo = getCorrectAnswersNo(context);
+		WordTestMode wordTestMode = wordTestConfig.getWordTestMode();
 		
-		wordTestContext.addWordTestAnswers(kanaList.size());
-		wordTestContext.addWordTestCorrectAnswers(correctAnswersNo);
-		wordTestContext.addWordTestIncorrentAnswers(kanaList.size() - correctAnswersNo);
+		if (wordTestMode == WordTestMode.INPUT) {
+			
+			// check user answer
+			int correctAnswersNo = getCorrectAnswersNo(context);
+			
+			wordTestContext.addWordTestAnswers(kanaList.size());
+			wordTestContext.addWordTestCorrectAnswers(correctAnswersNo);
+			wordTestContext.addWordTestIncorrentAnswers(kanaList.size() - correctAnswersNo);
+			
+			if (correctAnswersNo == kanaList.size()) {
+				Toast toast = Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT);
+				
+				toast.setGravity(Gravity.TOP, 0, 110);
+				
+				toast.show();
+				
+				wordTestContext.incrementWordsTestIdx();				
+				
+				fillScreen();
+			} else {		
+				
+				showFullAnswer(currentWordDictionaryEntry);
+				
+				AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
+				
+				alertDialog.setMessage(getString(R.string.word_test_incorrect) + 
+						ListUtil.getListAsString(kanaList, "\n"));
+				
+				alertDialog.setCancelable(false);
+				alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
 
+					public void onClick(DialogInterface dialog, int which) {
+						
+						if (wordTestConfig.getUntilSuccess() != null &&
+								wordTestConfig.getUntilSuccess().equals(Boolean.TRUE)) {
+							
+							wordDictionaryEntries.add(currentWordDictionaryEntry);
+						}
+						
+						wordTestContext.incrementWordsTestIdx();				
+						
+						fillScreen();
+					}
+				});
+				
+				alertDialog.show();					
+			}
+		} else if (wordTestMode == WordTestMode.OVERVIEW) {
+			
+			boolean showAnswer = wordTestContext.getAndSwitchWordTestOverviewShowAnswer();
+			
+			boolean full = isFull(wordTestConfig);
+			
+			if (full == true || showAnswer == true) {
+				
+				wordTestContext.addWordTestAnswers(kanaList.size());
+				wordTestContext.addWordTestCorrectAnswers(kanaList.size());
+				wordTestContext.addWordTestIncorrentAnswers(0);
+				
+				wordTestContext.incrementWordsTestIdx();				
+				
+				fillScreen();
+				
+			} else {
+				showFullAnswer(currentWordDictionaryEntry);
+			}
+			
+		} else {
+			throw new RuntimeException("Unknown wordTestMode: " + wordTestConfig.getWordTestMode());
+		}	
+	}
+	
+	private void showFullAnswer(DictionaryEntry dictionaryEntry) {
+		
+		// show kanji
+		String kanji = dictionaryEntry.getKanji();
+							
+		if (kanji != null) {	
+			
+			TextView kanjiLabel = (TextView)findViewById(R.id.word_test_kanji_label);
+			EditText kanjiPrefix = (EditText)findViewById(R.id.word_test_kanji_prefix);
+			EditText kanjiInput = (EditText)findViewById(R.id.word_test_kanji_input);
+			
+			kanjiLabel.setVisibility(View.VISIBLE);
+			kanjiPrefix.setVisibility(View.VISIBLE);
+			kanjiInput.setVisibility(View.VISIBLE);
+		}
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+		
+		// show kana
+		for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
+			
+			TextViewAndEditText currentTextViewAndEditText = textViewAndEditTextForWordAsArray[kanaListIdx];
+			
+			String currentKana = null;
+			
+			if (kanaListIdx < kanaList.size()) {
+				currentKana = kanaList.get(kanaListIdx);
+			}
+			
+			if (currentKana != null) {
+									
+				currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
+				currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
+				currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
+			}
+		}
+		
 		// show translate
 		TextView translateLabel = (TextView)findViewById(R.id.word_test_translate_label);
 		EditText translateInput = (EditText)findViewById(R.id.word_test_translate_input); 
 
 		translateLabel.setVisibility(View.VISIBLE);
 		translateInput.setVisibility(View.VISIBLE);
-		
-		if (correctAnswersNo == kanaList.size()) {
-			Toast toast = Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT);
-			
-			toast.setGravity(Gravity.TOP, 0, 110);
-			
-			toast.show();
-			
-			wordTestContext.incrementWordsTestIdx();				
-			
-			fillScreen();
-		} else {					
-			AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
-			
-			alertDialog.setMessage(getString(R.string.word_test_incorrect) + 
-					ListUtil.getListAsString(kanaList, "\n"));
-			
-			alertDialog.setCancelable(false);
-			alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
-
-				public void onClick(DialogInterface dialog, int which) {
-					
-					if (wordTestConfig.getUntilSuccess() != null &&
-							wordTestConfig.getUntilSuccess().equals(Boolean.TRUE)) {
-						
-						wordDictionaryEntries.add(currentWordDictionaryEntry);
-					}
-					
-					wordTestContext.incrementWordsTestIdx();				
-					
-					fillScreen();
-				}
-			});
-			
-			alertDialog.show();					
-		}				
 	}
 	
 	private int getCorrectAnswersNo(JapaneseAndroidLearnHelperContext context) {
@@ -258,6 +331,29 @@ public class WordTest extends Activity {
 		List<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
 		int currentWordsTextIdx = wordTestContext.getWordsTestIdx();
 		
+		TextView titleTextView = (TextView)findViewById(R.id.word_test_title);
+		
+		if (wordTestConfig.getWordTestMode() == WordTestMode.INPUT) {
+			
+			titleTextView.setText(getResources().getString(R.string.word_test_view_input_label));
+			
+		} else if (wordTestConfig.getWordTestMode() == WordTestMode.OVERVIEW) {
+			
+			boolean full = isFull(wordTestConfig);
+			
+			if (full == true) {
+				
+				titleTextView.setText(getResources().getString(R.string.word_test_view_overview_full_label));
+				
+			} else {
+				
+				titleTextView.setText(getResources().getString(R.string.word_test_view_overview_think_label));
+			}
+			
+		} else {
+			throw new RuntimeException("Unknown wordTestMode: " + wordTestConfig.getWordTestMode());
+		}
+		
 		if (currentWordsTextIdx >= wordDictionaryEntries.size()) {
 			
 			Intent intent = new Intent(getApplicationContext(), WordTestSummary.class);
@@ -276,19 +372,22 @@ public class WordTest extends Activity {
 			EditText kanjiPrefix = (EditText)findViewById(R.id.word_test_kanji_prefix);
 			EditText kanjiInput = (EditText)findViewById(R.id.word_test_kanji_input);
 			
-			if (kanji != null && wordTestConfig.getShowKanji() != null && wordTestConfig.getShowKanji().equals(Boolean.TRUE) == true) {
-				
+			if (kanji != null) {
 				kanjiInput.setText(kanji);
 				kanjiPrefix.setText(prefixKana);
+			} else {
+				kanjiInput.setText("");
+				kanjiPrefix.setText("");
+			}
+			
+			if (kanji != null && wordTestConfig.getShowKanji() != null && wordTestConfig.getShowKanji().equals(Boolean.TRUE) == true) {
 				
 				kanjiLabel.setVisibility(View.VISIBLE);
 				kanjiPrefix.setVisibility(View.VISIBLE);
 				kanjiInput.setVisibility(View.VISIBLE);
 				
 				kanjiInput.setEnabled(false);
-			} else {
-				kanjiInput.setText("");
-				
+			} else {				
 				kanjiLabel.setVisibility(View.GONE);
 				kanjiPrefix.setVisibility(View.GONE);
 				kanjiInput.setVisibility(View.GONE);
@@ -314,18 +413,49 @@ public class WordTest extends Activity {
 					currentKana = kanaList.get(kanaListIdx);
 				}
 				
-				if (currentKana != null && kanaListIdx == 0) {
-					currentTextViewAndEditText.editText.requestFocus();
-				}
-				
 				if (currentKana != null) {
-					currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
+										
+					if (wordTestConfig.getWordTestMode() == WordTestMode.INPUT || (wordTestConfig.getShowKana() != null && wordTestConfig.getShowKana().equals(Boolean.TRUE) == true)) {
+						
+						currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
+						currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
+						currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
+						
+					} else {
+						currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
+						currentTextViewAndEditText.textView.setVisibility(View.GONE);
+						currentTextViewAndEditText.editText.setVisibility(View.GONE);
+					}
 					
 					currentTextViewAndEditText.editPrefix.setText(prefixKana);
 					
-					currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
-					currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
-					currentTextViewAndEditText.editText.setText("");
+					if (wordTestConfig.getWordTestMode() == WordTestMode.INPUT) {
+						
+						currentTextViewAndEditText.editPrefix.setFocusable(true);
+						currentTextViewAndEditText.textView.setFocusable(true);
+						currentTextViewAndEditText.editText.setFocusable(true);
+						
+						currentTextViewAndEditText.editText.setText("");
+						
+						currentTextViewAndEditText.editText.setEnabled(true);
+						
+						if (kanaListIdx == 0) {
+							currentTextViewAndEditText.editText.requestFocus(); 
+						}
+						
+					} else if (wordTestConfig.getWordTestMode() == WordTestMode.OVERVIEW) {
+						
+						currentTextViewAndEditText.editPrefix.setFocusable(false);
+						currentTextViewAndEditText.textView.setFocusable(false);
+						currentTextViewAndEditText.editText.setFocusable(false);
+						
+						currentTextViewAndEditText.editText.setText(currentKana);
+						
+						currentTextViewAndEditText.editText.setEnabled(false);						
+					} else {
+						throw new RuntimeException("Unknown wordTestMode: " + wordTestConfig.getWordTestMode());
+					}					
+					
 				} else {
 					currentTextViewAndEditText.textView.setVisibility(View.GONE);
 					
@@ -368,7 +498,7 @@ public class WordTest extends Activity {
 				additionalInfoInput.setVisibility(View.GONE);			
 			}
 			
-			TextView state = (TextView)findViewById(R.id.word_test_state_info);
+			TextView state = (TextView)findViewById(R.id.word_test_state_info);			
 			
 			Resources resources = getResources();
 			
@@ -432,6 +562,23 @@ public class WordTest extends Activity {
 			} else {
 				currentEditText.setOnClickListener(null);
 			}
+		}
+	}
+	
+	private boolean isFull(WordTestConfig wordTestConfig) {
+		
+		Boolean showKanji = wordTestConfig.getShowKanji();
+		Boolean showKana = wordTestConfig.getShowKana();
+		Boolean showTranslate = wordTestConfig.getShowTranslate();
+		
+		if (	showKanji != null && showKanji.booleanValue() == true &&
+				showKana != null && showKana.booleanValue() == true &&
+				showTranslate != null && showTranslate.booleanValue() == true) {
+			
+			return true;
+		} else {
+			
+			return false;
 		}
 	}
 		

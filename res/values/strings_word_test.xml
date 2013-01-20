@@ -8,7 +8,9 @@
     <string name="word_test_state_label">Pozycja</string>
     <string name="word_test_state">%1$d z %2$d</string>
     <string name="word_test_next_button">Dalej</string>
-    <string name="word_test_view_label">Proszę wpisać słowo w puste miejsce</string>
+    <string name="word_test_view_input_label">Proszę wpisać słowo w puste miejsce</string>
+    <string name="word_test_view_overview_think_label">Pomyśl, czy znasz słowo</string>
+    <string name="word_test_view_overview_full_label">Przegląd słów</string>
     <string name="word_test_correct">Prawidłowa odpowiedź</string>
     <string name="word_test_incorrect">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n</string>
     <string name="word_test_incorrect_ok">OK</string>

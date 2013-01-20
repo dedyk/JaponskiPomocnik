@@ -265,10 +265,26 @@ public class WordTestOptions extends Activity {
 							
 							for (DictionaryEntry currentDictionaryEntry : currentWordsGroupDictionaryEntryList) {
 								
-								if (showTranslate == true || currentDictionaryEntry.isKanjiExists() == true) {							
-									chosenAllDictionaryEntryList.add(currentDictionaryEntry);
+								if (chosenWordTestMode == WordTestMode.INPUT) {
+									
+									if (showTranslate == true || currentDictionaryEntry.isKanjiExists() == true) {							
+										chosenAllDictionaryEntryList.add(currentDictionaryEntry);
+									} else {
+										wasFilteredWords = true;
+									}
+
+								} else if (chosenWordTestMode == WordTestMode.OVERVIEW) {
+									
+									if (showKanji == true && showKana == false && showTranslate == false && currentDictionaryEntry.isKanjiExists() == false) {
+										wasFilteredWords = true;										
+									} else if (showKanji == false && showKana == true && showTranslate == true && currentDictionaryEntry.isKanjiExists() == false) {
+										wasFilteredWords = true;
+									} else {
+										chosenAllDictionaryEntryList.add(currentDictionaryEntry);
+									}
+									
 								} else {
-									wasFilteredWords = true;
+									throw new RuntimeException("WordTestConfig wordTestConfig: " + chosenWordTestMode);
 								}
 							}
 						}

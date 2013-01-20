@@ -13,6 +13,8 @@ public class JapaneseAndroidLearnHelperWordTestContext {
 	private int wordTestAnswers = 0;
 	private int wordTestCorrectAnswers = 0;
 	private int wordTestIncorrentAnswers = 0;
+	
+	private boolean wordTestOverviewShowAnswer = false;
 		
 	public void setWordsTest(List<DictionaryEntry> wordsTest) {
 		this.wordsTest = wordsTest;	
@@ -20,6 +22,8 @@ public class JapaneseAndroidLearnHelperWordTestContext {
 		this.wordTestAnswers = 0;
 		this.wordTestCorrectAnswers = 0;
 		this.wordTestIncorrentAnswers = 0;
+		
+		this.wordTestOverviewShowAnswer = false;
 	}
 	
 	public List<DictionaryEntry> getWordsTest() {
@@ -56,5 +60,14 @@ public class JapaneseAndroidLearnHelperWordTestContext {
 
 	public void addWordTestIncorrentAnswers(int addValue) {
 		this.wordTestIncorrentAnswers += addValue;
+	}
+	
+	public boolean getAndSwitchWordTestOverviewShowAnswer() {
+		
+		boolean result = wordTestOverviewShowAnswer;
+		
+		wordTestOverviewShowAnswer = !wordTestOverviewShowAnswer;
+		
+		return result;
 	}
 }
