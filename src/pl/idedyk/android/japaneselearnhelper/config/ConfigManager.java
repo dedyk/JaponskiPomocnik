@@ -9,6 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode1;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode2;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestMode;
+import pl.idedyk.android.japaneselearnhelper.test.WordTestMode;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -459,7 +460,11 @@ public class ConfigManager {
 		
 		private final String showKanjiPostfix = "showKanji";
 		
+		private final String showKanaPostfix = "showKana";
+		
 		private final String showTranslatePostfix = "showTranslate";
+		
+		private final String wordTestModePostfix = "wordTestMode";
 		
 		public Integer getRepeatNumber() {
 			return preferences.getInt(wordTestConfigPrefix + repeatNumberPostfix, 1);
@@ -556,6 +561,19 @@ public class ConfigManager {
 			editor.commit();
 		}
 
+		public Boolean getShowKana() {
+			return preferences.getBoolean(wordTestConfigPrefix + showKanaPostfix, true);
+		}
+
+		public void setShowKana(boolean showKanji) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestConfigPrefix + showKanaPostfix, showKanji);
+			
+			editor.commit();
+		}
+		
 		public Boolean getShowTranslate() {
 			return preferences.getBoolean(wordTestConfigPrefix + showTranslatePostfix, true);
 		}
@@ -565,6 +583,22 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(wordTestConfigPrefix + showTranslatePostfix, showTranslate);
+			
+			editor.commit();
+		}
+		
+		public WordTestMode getWordTestMode() {
+			
+			String wordTestMode = preferences.getString(wordTestConfigPrefix + wordTestModePostfix, WordTestMode.INPUT.toString());
+						
+			return WordTestMode.valueOf(wordTestMode);
+		}
+		
+		public void setWordTestMode(WordTestMode wordTestMode) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(wordTestConfigPrefix + wordTestModePostfix, wordTestMode.toString());
 			
 			editor.commit();
 		}

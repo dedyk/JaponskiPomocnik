@@ -27,6 +27,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +64,37 @@ public class WordTestOptions extends Activity {
 		final EditText repeatNumberEditText = (EditText)findViewById(R.id.word_test_options_repeat_number_edit_text);
 		
 		repeatNumberEditText.setText(String.valueOf(wordTestConfig.getRepeatNumber()));
+						
+		// show kanji check box
+		final CheckBox showKanjiCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_kanji);
+		
+		showKanjiCheckBox.setChecked(wordTestConfig.getShowKanji());
+
+		// show kana check box
+		final CheckBox showKanaCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_kana);
+		
+		showKanaCheckBox.setChecked(wordTestConfig.getShowKana());
+		
+		// show translate check box
+		final CheckBox showTranslateCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_translate);
+		
+		showTranslateCheckBox.setChecked(wordTestConfig.getShowTranslate());
+		
+		// test mode
+		final RadioButton testModeInputRadioButton = (RadioButton)findViewById(R.id.word_test_options_test_mode_radiogroup_input);
+		final RadioButton testModeOverviewRadioButton = (RadioButton)findViewById(R.id.word_test_options_test_mode_radiogroup_overview);
+		
+		WordTestMode wordTestMode = wordTestConfig.getWordTestMode();
+		
+		if (wordTestMode == WordTestMode.INPUT) {
+			testModeInputRadioButton.setChecked(true);
+			showKanaCheckBox.setEnabled(false);			
+		} else if (wordTestMode == WordTestMode.OVERVIEW) {
+			testModeOverviewRadioButton.setChecked(true);
+			showKanaCheckBox.setEnabled(true);
+		} else {
+			throw new RuntimeException("WordTestMode wordTestMode: " + wordTestMode);
+		}
 		
 		// random check box
 		final CheckBox randomCheckBox = (CheckBox)findViewById(R.id.word_test_options_random);
@@ -74,15 +106,20 @@ public class WordTestOptions extends Activity {
 		
 		untilSuccessCheckBox.setChecked(wordTestConfig.getUntilSuccess());
 		
-		// show kanji check box
-		final CheckBox showKanjiCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_kanji);
-		
-		showKanjiCheckBox.setChecked(wordTestConfig.getShowKanji());
-		
-		// show translate check box
-		final CheckBox showTranslateCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_translate);
-		
-		showTranslateCheckBox.setChecked(wordTestConfig.getShowTranslate());
+		// actions
+		testModeInputRadioButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				showKanaCheckBox.setEnabled(false);
+			}
+		});
+
+		testModeOverviewRadioButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				showKanaCheckBox.setEnabled(true);	
+			}
+		});
 		
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
@@ -151,6 +188,19 @@ public class WordTestOptions extends Activity {
 				}
 				
 				wordTestConfig.setRepeatNumber(repeatNumber);
+				
+				// test mode
+				WordTestMode chosenWordTestMode = null;
+				
+				if (testModeInputRadioButton.isChecked() == true) {
+					chosenWordTestMode = WordTestMode.INPUT;
+				} else if (testModeOverviewRadioButton.isChecked() == true) {
+					chosenWordTestMode = WordTestMode.OVERVIEW;
+				} else {
+					throw new RuntimeException("WordTestConfig wordTestConfig");
+				}
+				
+				wordTestConfig.setWordTestMode(chosenWordTestMode);
 								
 				// random
 				boolean random = randomCheckBox.isChecked();
@@ -164,17 +214,31 @@ public class WordTestOptions extends Activity {
 				
 				// show kanji
 				boolean showKanji = showKanjiCheckBox.isChecked();
-				
+								
 				wordTestConfig.setShowKanji(showKanji);
+				
+				// show kana
+				boolean showKana = showKanaCheckBox.isChecked();
+				
+				wordTestConfig.setShowKana(showKana);
 				
 				// show translate
 				boolean showTranslate = showTranslateCheckBox.isChecked();
 				
 				wordTestConfig.setShowTranslate(showTranslate);
 				
-				if (showKanji == false && showTranslate == false) {
+				if (chosenWordTestMode == WordTestMode.INPUT && showKanji == false && showTranslate == false) {
 					
 					Toast toast = Toast.makeText(WordTestOptions.this, getString(R.string.word_test_options_no_kanji_translate), Toast.LENGTH_SHORT);
+
+					toast.show();
+					
+					return;
+				}
+
+				if (chosenWordTestMode == WordTestMode.OVERVIEW && showKanji == false && showKana == false && showTranslate == false) {
+					
+					Toast toast = Toast.makeText(WordTestOptions.this, getString(R.string.word_test_options_no_kanji_kana_translate), Toast.LENGTH_SHORT);
 
 					toast.show();
 					
@@ -256,17 +320,26 @@ public class WordTestOptions extends Activity {
 				StringBuffer detailsSb = new StringBuffer();
 				
 				TextView optionsRepeat = (TextView)findViewById(R.id.word_test_options_repeat);
+				TextView optionsTestMode = (TextView)findViewById(R.id.word_test_options_test_mode);
+				TextView optionsShow = (TextView)findViewById(R.id.word_test_options_show);
 				TextView optionsOther = (TextView)findViewById(R.id.word_test_options_other);
 				TextView optionsGroup = (TextView)findViewById(R.id.word_test_options_group);
 
 				detailsSb.append("***" + optionsRepeat.getText() + "***\n\n");
 				detailsSb.append(repeatNumberEditText.getText().toString()).append("\n\n");
 
+				detailsSb.append("***" + optionsTestMode.getText() + "***\n\n");
+				detailsSb.append(testModeInputRadioButton.isChecked() + " - " + testModeInputRadioButton.getText()).append("\n\n");
+				detailsSb.append(testModeOverviewRadioButton.isChecked() + " - " + testModeOverviewRadioButton.getText()).append("\n\n");
+				
+				detailsSb.append("***" + optionsShow.getText() + "***\n\n");
+				detailsSb.append(showKanjiCheckBox.isChecked() + " - " + showKanjiCheckBox.getText()).append("\n\n");
+				detailsSb.append(showKanaCheckBox.isChecked() + " - " + showKanaCheckBox.getText()).append("\n\n");
+				detailsSb.append(showTranslateCheckBox.isChecked() + " - " + showTranslateCheckBox.getText()).append("\n\n");
+				
 				detailsSb.append("***" + optionsOther.getText() + "***\n\n");
 				detailsSb.append(randomCheckBox.isChecked() + " - " + randomCheckBox.getText()).append("\n\n");
 				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
-				detailsSb.append(showKanjiCheckBox.isChecked() + " - " + showKanjiCheckBox.getText()).append("\n\n");
-				detailsSb.append(showTranslateCheckBox.isChecked() + " - " + showTranslateCheckBox.getText()).append("\n\n");
 
 				detailsSb.append("***" + optionsGroup.getText() + "***\n\n");
 		

@@ -32,6 +32,62 @@
             </EditText>
 
             <TextView
+                android:id="@+id/word_test_options_test_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/word_test_options_test_mode" />
+
+            <RadioGroup
+                android:id="@+id/word_test_options_test_mode_radiogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/word_test_options_test_mode_radiogroup_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/word_test_options_test_mode_radiogroup_input"
+                    android:textSize="12dp" />
+
+                <RadioButton
+                    android:id="@+id/word_test_options_test_mode_radiogroup_overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/word_test_options_test_mode_radiogroup_overview"
+                    android:textSize="12dp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/word_test_options_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/word_test_options_show" />
+
+            <CheckBox
+                android:id="@+id/word_test_options_show_kanji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_test_options_show_kanji"
+                android:textSize="12dp" />
+
+            <CheckBox
+                android:id="@+id/word_test_options_show_kana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_test_options_show_kana"
+                android:textSize="12dp" />
+
+            <CheckBox
+                android:id="@+id/word_test_options_show_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_test_options_show_translate"
+                android:textSize="12dp" />
+
+            <TextView
                 android:id="@+id/word_test_options_other"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,27 +101,13 @@
                 android:text="@string/word_test_options_random"
                 android:textSize="12dp" />
 
-			<CheckBox
+            <CheckBox
                 android:id="@+id/word_test_options_until_success"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/word_test_options_until_success"
                 android:textSize="12dp" />
 
-			<CheckBox
-                android:id="@+id/word_test_options_show_kanji"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/word_test_options_show_kanji"
-                android:textSize="12dp" />
-
-			<CheckBox
-                android:id="@+id/word_test_options_show_translate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/word_test_options_show_translate"
-                android:textSize="12dp" />
-						
             <TextView
                 android:id="@+id/word_test_options_group"
                 android:layout_width="match_parent"
@@ -120,4 +162,5 @@
             android:text="@string/word_test_options_report_problem"
             android:textSize="12dp" />
     </LinearLayout>
+
 </LinearLayout>
