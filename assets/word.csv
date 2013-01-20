@@ -1274,7 +1274,8 @@ zajęcia",,
 815,WORD,UNKNOWN,,HIRAGANA,Genki 1-11,,将来,しょうらい,,shourai,przyszłość,"własna przyszłość, zwykle niedaleka",
 816,WORD,UNKNOWN,,KATAKANA,Genki 1-11,,-,ドライブ,,doraibu,przejażdżka,,
 817,WORD,WORD_NOUN,,KATAKANA,Genki 1-11,,-,ビール,,biiru,piwo,,
-818,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,美術館,びじゅつかん,,bijutsukan,muzeum,artystyczne,
+818,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,美術館,びじゅつかん,,bijutsukan,"muzeum
+galeria sztuki",artystyczne,
 819,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,湖,みずうみ,,mizuumi,jezioro,,
 820,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-11
 Genki kanji 1-5",,山,やま,,yama,góra,,
@@ -2754,8 +2755,9 @@ odczuwać",,
 1917,WORD,WORD_NOUN,,HIRAGANA,Genki 2-17,,髭,ひげ,,hige,"zarost
 wąsy
 broda",,
-1918,WORD,UNKNOWN,,HIRAGANA,Inne,,再び,ふたたび,,futatabi,"znów
+1918,WORD,WORD_ADVERB,,HIRAGANA,Inne,,再び,ふたたび,,futatabi,"znów
 znowu
+ponownie
 jeszcze raz
 po raz drugi",,
 1919,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ガソリン,,gasorin,benzyna,,
@@ -4145,3 +4147,9 @@ instrument",,
 ochroniarz
 strażnik",,
 2776,WORD,WORD_NOUN,,HIRAGANA,Inne,,番犬,ばんけん,,banken,pies stróż,,
+2777,WORD,WORD_VERB_U,,HIRAGANA,Inne,,受かる,うかる,,ukaru,"zdać
+zaliczyć",egzamin,
+2778,WORD,WORD_VERB_U,,HIRAGANA,Inne,,試験にうかる,しけんにうかる,,shiken ni ukaru,"zdać egzamin
+zaliczyć egzamin",,
+2779,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,試験に受ける,しけんにうける,,shiken ni ukeru,przystąpić do egzaminu,,
+2780,WORD,WORD_NOUN,,HIRAGANA,Inne,,館,やかた,,yakata,blok mieszkalny,,
