@@ -1634,7 +1634,10 @@ szklanka",,
 1064,WORD,WORD_NOUN,,KATAKANA,Genki 2-14,,-,ネクタイ,,nekutai,krawat,,
 1065,WORD,WORD_NOUN,,KATAKANA,Genki 2-14,,-,バレンタインデー,,barentain dee,walentynki,,
 1066,WORD,WORD_NOUN,,KATAKANA,Genki 2-14,,-,ビデオカメラ,,bideo kamera,kamera video,,
-1067,WORD,WORD_NOUN,,HIRAGANA,Genki 2-14,,夫婦,ふうふ,,fuufu,małżeństwo,,
+1067,WORD,WORD_NOUN,,HIRAGANA,Genki 2-14,,夫婦,ふうふ,,fuufu,"małżeństwo
+mąż i żona
+małżonkowie
+para małżeńska",,
 1068,WORD,WORD_NOUN,,KATAKANA,Genki 2-14,,-,ホワイトデー,,howaito dee,biały dzień,miesiąc po walentynkach,
 1069,WORD,WORD_NOUN,,KATAKANA,Genki 2-14,,-,マフラー,,mafuraa,szalik,zimowy,
 1070,WORD,WORD_NOUN,,HIRAGANA,Genki 2-14,,漫画,まんが,,manga,komiks,,
@@ -4153,3 +4156,36 @@ zaliczyć",egzamin,
 zaliczyć egzamin",,
 2779,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,試験に受ける,しけんにうける,,shiken ni ukeru,przystąpić do egzaminu,,
 2780,WORD,WORD_NOUN,,HIRAGANA,Inne,,館,やかた,,yakata,blok mieszkalny,,
+2781,WORD,WORD_NOUN,,HIRAGANA,Inne,,応援,おうえん,,ouen,"pomoc
+wsparcie",,
+2782,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,応援をする,おうえんをする,,ouen o suru,"pomagać
+wspierać",,
+2783,WORD,WORD_NOUN,,HIRAGANA,Inne,,積集合,せきしゅうごう,,sekishuugou,"część wspólna zbiorów
+przecięcie zbiorów",,
+2784,WORD,WORD_NOUN,,HIRAGANA,Inne,,旗,はた,,hata,flaga,,
+2785,WORD,WORD_NOUN,,HIRAGANA,Inne,,夫妻,ふさい,,fusai,"mąż i żona
+para małżeńska",,
+2786,WORD,WORD_NOUN,,HIRAGANA,Inne,,夫婦生活,ふうふせいかつ,,fuufuseikatsu,życie małżeńskie,,
+2787,WORD,WORD_NOUN,,HIRAGANA,Inne,,夫人,ふじん,,fujin,"pani
+kobieta",język honoryfikatywny,
+2788,WORD,WORD_NOUN,,HIRAGANA,Inne,,前の彼,まえのかれ,,mae no kare,"był chłopak
+były narzeczony
+eks chłopak",,
+2789,WORD,WORD_NOUN,,HIRAGANA,Inne,,前の彼女,まえのかのじょ,,mae no kanojo,"była dziewczyna
+była narzeczona
+eks dziewczyna",,
+2790,WORD,WORD_NOUN,,HIRAGANA,Inne,,風土,ふうど,,fuudo,"klimat
+topografia",,
+2791,WORD,WORD_NOUN,,HIRAGANA,Inne,,風景,ふうけい,,fuukei,"sceneria
+widok",,
+2792,WORD,WORD_NOUN,,HIRAGANA,Inne,,風船,ふうせん,,fuusen,"balon
+balonik",,
+2793,WORD,WORD_NOUN,,HIRAGANA,Inne,,和風,わふう,,wafuu,styl japoński,,
+2794,WORD,WORD_NOUN,,HIRAGANA,Inne,,心臓,しんぞう,,shinzou,serce,,
+2795,WORD,WORD_NOUN,,HIRAGANA,Inne,,心理学,しんりがく,,shinrigaku,psychologia,,
+2796,WORD,WORD_NOUN,,HIRAGANA,Inne,,心柄,こころがら,,kokorogara,"stan ducha
+stan umysłu",,
+2797,WORD,WORD_NOUN,,HIRAGANA,Inne,,心配,しんぱい,,shinpai,"niepokój
+troska",,
+2798,WORD,WORD_NOUN,,HIRAGANA,Inne,,真心,まごころ,,magokoro,"szczerość
+otwartość",,
