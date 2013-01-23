@@ -1270,7 +1270,8 @@ Genki kanji 1-11",,歌手,かしゅ,,kashu,piosenkarz,,
 812,WORD,UNKNOWN,,HIRAGANA,Genki 1-11,,今学期,こんがっき,,kongakki,aktualny semestr,,
 813,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,社長,しゃちょう,,shachou,prezes,firmy,
 814,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,授業,じゅぎょう,,jugyou,"wykład
-zajęcia",,
+zajęcia
+lekcja",,
 815,WORD,UNKNOWN,,HIRAGANA,Genki 1-11,,将来,しょうらい,,shourai,przyszłość,"własna przyszłość, zwykle niedaleka",
 816,WORD,UNKNOWN,,KATAKANA,Genki 1-11,,-,ドライブ,,doraibu,przejażdżka,,
 817,WORD,WORD_NOUN,,KATAKANA,Genki 1-11,,-,ビール,,biiru,piwo,,
@@ -4203,3 +4204,22 @@ natura",,
 podział ze względu na płeć",,
 2807,WORD,WORD_NOUN,,HIRAGANA,Inne,,性状,せいじょう,,seijou,"charakter
 natura",,
+2808,WORD,WORD_NOUN,,HIRAGANA,Inne,,入れ墨,いれずみ,,irezumi,tatuaż,,
+2809,WORD,WORD_NOUN,,HIRAGANA,Inne,,業,ごう,,gou,karma,,
+2810,WORD,WORD_NOUN,,HIRAGANA,Inne,,業,わざ,,waza,"praca
+sztuka
+dzieło
+uczynek",,
+2811,WORD,WORD_NOUN,,HIRAGANA,Inne,,工業,こうぎょう,,kougyou,przemysł,,
+2812,WORD,WORD_NOUN,,HIRAGANA,Inne,,産業,さんぎょう,,sangyou,przemysł,,
+2813,WORD,WORD_NOUN,,HIRAGANA,Inne,,実業家,じつぎょうか,,jitsugyouka,"przemysłowiec
+człowiek interesu
+businessman",,
+2814,WORD,WORD_NOUN,,HIRAGANA,Inne,,作業,さぎょう,,sagyou,praca,,
+2815,WORD,WORD_NOUN,,HIRAGANA,Inne,,婦人,ふじん,,fujin,"kobieta
+pani",,
+2816,WORD,WORD_NOUN,,HIRAGANA,Inne,,婦警,ふけい,,fukei,policjantka,,
+2817,WORD,WORD_NOUN,,HIRAGANA,Inne,,初心者,しょしんしゃ,,shoshinsha,"początkujący
+niedoświadczony",,
+2818,WORD,WORD_NOUN,,HIRAGANA,Inne,,初代,しょだい,,shodai,"pierwsza generacja
+założyciel",,
