@@ -1286,4 +1286,8 @@ public class SQLiteConnector {
 		
 		return result;
 	}
+
+	public void vacuum() {
+		sqliteDatabase.execSQL("vacuum");
+	}
 }

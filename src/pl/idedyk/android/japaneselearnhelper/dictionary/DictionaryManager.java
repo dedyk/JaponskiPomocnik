@@ -253,6 +253,8 @@ public class DictionaryManager {
 		} finally {
 			sqliteConnector.endTransaction();
 		}
+		
+		sqliteConnector.vacuum();
 
 		csvReader.close();
 	}
@@ -468,6 +470,8 @@ public class DictionaryManager {
 		} finally {
 			sqliteConnector.endTransaction();
 		}
+		
+		sqliteConnector.vacuum();
 	}
 
 	private void readKanjiDictionaryFile(InputStream kanjiInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
@@ -551,6 +555,8 @@ public class DictionaryManager {
 		}
 
 		csvReader.close();
+		
+		sqliteConnector.vacuum();
 	}
 
 	private void updateRadicalInfoUse(Map<String, RadicalInfo> radicalListMapCache, List<String> radicals) {
