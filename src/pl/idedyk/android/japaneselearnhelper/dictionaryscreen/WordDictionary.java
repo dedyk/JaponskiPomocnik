@@ -457,7 +457,7 @@ public class WordDictionary extends Activity {
 						LoadWithProgress loadWithProgress = new LoadWithProgress();
 						
 						try {
-							dictionaryManager.countForm(loadWithProgress);
+							dictionaryManager.countForm(loadWithProgress, getResources());
 						} catch (DictionaryException e) {
 							throw new RuntimeException(e);
 						}						

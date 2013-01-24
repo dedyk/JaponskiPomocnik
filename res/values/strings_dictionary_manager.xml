@@ -8,4 +8,5 @@
     <string name="dictionary_manager_load_kanji">Wczytywanie znaków kanji</string>
     <string name="dictionary_manager_load_ready">Gotowe</string>
     <string name="dictionary_manager_load_kanji_recognize">Wczytywanie informacji do rozpoznawania znaków kanji</string>
+    <string name="dictionary_manager_optimize">Optymalizacja</string>
 </resources>

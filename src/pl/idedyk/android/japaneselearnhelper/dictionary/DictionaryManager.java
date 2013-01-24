@@ -100,7 +100,7 @@ public class DictionaryManager {
 
 				fileWordInputStream = assets.open(WORD_FILE);
 
-				readDictionaryFile(fileWordInputStream, loadWithProgress);
+				readDictionaryFile(fileWordInputStream, loadWithProgress, resources);
 			} else {
 				fakeProgress(loadWithProgress);
 			}
@@ -147,7 +147,7 @@ public class DictionaryManager {
 
 				kanjiInputStream = assets.open(KANJI_FILE);
 
-				readKanjiDictionaryFile(kanjiInputStream, loadWithProgress);
+				readKanjiDictionaryFile(kanjiInputStream, loadWithProgress, resources);
 			} else {
 				fakeProgress(loadWithProgress);
 			}
@@ -197,7 +197,9 @@ public class DictionaryManager {
 		return size;		
 	}
 
-	private void readDictionaryFile(InputStream dictionaryInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
+	private void readDictionaryFile(InputStream dictionaryInputStream, 
+			ILoadWithProgress loadWithProgress,
+			Resources resources) throws IOException, DictionaryException {
 
 		CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
 
@@ -254,9 +256,10 @@ public class DictionaryManager {
 			sqliteConnector.endTransaction();
 		}
 		
-		sqliteConnector.vacuum();
-
 		csvReader.close();
+		
+		loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_optimize));
+		sqliteConnector.vacuum();
 	}
 
 	public int getWordGroupsNo(int groupSize) {
@@ -409,7 +412,7 @@ public class DictionaryManager {
 		return false;
 	}
 
-	public void countForm(ILoadWithProgress loadWithProgress) throws DictionaryException {
+	public void countForm(ILoadWithProgress loadWithProgress, Resources resources) throws DictionaryException {
 
 		int counter = 1;
 
@@ -470,11 +473,11 @@ public class DictionaryManager {
 		} finally {
 			sqliteConnector.endTransaction();
 		}
-		
-		sqliteConnector.vacuum();
 	}
 
-	private void readKanjiDictionaryFile(InputStream kanjiInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
+	private void readKanjiDictionaryFile(InputStream kanjiInputStream, 
+			ILoadWithProgress loadWithProgress,
+			Resources resources) throws IOException, DictionaryException {
 
 		Map<String, RadicalInfo> radicalListMapCache = new HashMap<String, RadicalInfo>();
 
@@ -556,6 +559,7 @@ public class DictionaryManager {
 
 		csvReader.close();
 		
+		loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_optimize));
 		sqliteConnector.vacuum();
 	}
 
