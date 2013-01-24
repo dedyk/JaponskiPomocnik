@@ -1515,6 +1515,7 @@ na plakatach",
 991,WORD,WORD_NOUN,,HIRAGANA,Genki 2-13,,物価,ぶっか,,bukka,ceny,"ogólnie, nie konkretna cena",
 992,WORD,WORD_NOUN,,HIRAGANA,Genki 2-13,,-,やくざ,,yakuza,yakuza,,
 993,WORD,WORD_NOUN,,HIRAGANA,Genki 2-13,,約束,やくそく,,yakusoku,"obietnica
+umowa
 termin",,
 994,WORD,WORD_NOUN,,KATAKANA,Genki 2-13,,-,レポート,,repooto,"praca semestralna
 artykuł
@@ -3592,9 +3593,10 @@ kredens",,
 robaczek świętojański",,
 2443,WORD,WORD_NOUN,,HIRAGANA,Inne,,螢,ほたる,,hotaru,"świetlik
 robaczek świętojański",,
-2444,WORD,WORD_VERB_U,,HIRAGANA,Inne,,凍る,こおる,,kooru,"zamarzać
+2444,WORD,WORD_VERB_U,,HIRAGANA,Inne,,氷る,こおる,,kooru,"zamarzać
 kostnieć",,
-2445,WORD,WORD_NOUN,,HIRAGANA,Inne,,氷,こおり,,koori,lód,,
+2445,WORD,WORD_NOUN,,HIRAGANA,Inne,,氷,こおり,,koori,"lód
+grad",,
 2446,WORD,WORD_NOUN,,HIRAGANA,Inne,,氷山,ひょうざん,,hyouzan,góra lodowa,,
 2447,WORD,WORD_NOUN,,HIRAGANA,Inne,,氷柱,ひょうちゅう,,hyouchuu,"sopel lodu
 słup lodowy",,
@@ -4223,3 +4225,16 @@ pani",,
 niedoświadczony",,
 2818,WORD,WORD_NOUN,,HIRAGANA,Inne,,初代,しょだい,,shodai,"pierwsza generacja
 założyciel",,
+2819,WORD,WORD_NOUN,,HIRAGANA,Inne,,衣紋,えもん,,emon,"sukienka
+ubranie",,
+2820,WORD,WORD_NOUN,,HIRAGANA,Inne,,約定,やくじょう,,yakujou,"umowa
+kontrakt
+zobowiązanie",,
+2821,WORD,WORD_NOUN,,HIRAGANA,Inne,,契約,けいやく,,keiyaku,"przymierze
+umowa",,
+2822,WORD,WORD_NOUN,,HIRAGANA,Inne,,新約聖書,しんやくせいしょ,,shin'yakuseisho,Nowy Testament,,
+2823,WORD,WORD_NOUN,,HIRAGANA,Inne,,公約,こうやく,,kouyaku,"zaangażowanie
+poświęcenie się
+oddanie się",sprawie,
+2824,WORD,WORD_VERB_U,,HIRAGANA,Inne,,凍る,こおる,,kooru,"zamarzać
+kostnieć",,
