@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.idedyk.android.japaneselearnhelper"
-    android:versionCode="186"
-    android:versionName="20130124" >
+    android:versionCode="187"
+    android:versionName="20130125" >
 
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="10" />
 

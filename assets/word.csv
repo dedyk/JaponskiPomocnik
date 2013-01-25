@@ -935,7 +935,10 @@ Genki kanji 1-10",,長い,ながい,,nagai,długi,,
 579,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-7,,短い,みじかい,,mijikai,krótki,,
 580,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,"Genki 1-7
 Genki kanji 2-14",,親切,しんせつ,,shinsetsu,miły,,
-581,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki 1-7,,便利,べんり,,benri,przydatny,,
+581,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki 1-7,,便利,べんり,,benri,"przydatny
+wygodny
+pożyteczny
+łatwy",,
 582,WORD,WORD_VERB_U,,HIRAGANA,"Genki 1-7
 Genki kanji 1-11",,歌う,うたう,,utau,śpiewać,,
 583,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-7,,-,かぶる,,kaburu,"zakładać
@@ -1188,7 +1191,10 @@ Genki kanji 2-15",,地下鉄,ちかてつ,,chikatetsu,metro,,
 747,WORD,WORD_NOUN,,KATAKANA,Genki 1-10,,-,パンツ,,pantsu,majtki,,
 748,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-10
 Genki kanji 1-11",,美容院,びよういん,,biyouin,fryzjer,damski,
-749,WORD,WORD_NOUN,,HIRAGANA,Genki 1-10,,便,びん,,bin,lot,,
+749,WORD,WORD_NOUN,,HIRAGANA,Genki 1-10,,便,びん,,bin,"lot
+szansa
+przesyłka
+list",,
 750,WORD,WORD_NOUN,,HIRAGANA,Genki 1-10,,船,ふね,,fune,statek,,
 751,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-10
 Genki kanji 2-17",,野球,やきゅう,,yakyuu,baseball,,
@@ -2696,7 +2702,9 @@ przeszkadzać",,
 1872,WORD,WORD_VERB_U,,HIRAGANA,Inne,,触る,さわる,,sawaru,"dotykać
 dotknąć
 ruszać",,
-1873,WORD,WORD_NOUN,,HIRAGANA,Inne,,内科,ないか,,naika,lekarz,internista,
+1873,WORD,WORD_NOUN,,HIRAGANA,Inne,,内科,ないか,,naika,"lekarz
+internista
+choroby wewnętrzne",,
 1874,WORD,WORD_NOUN,,HIRAGANA,Inne,,皮膚科,ひふか,,hifuka,dermatologia,,
 1875,WORD,WORD_NOUN,,HIRAGANA,Inne,,皮膚科医,ひふかい,,hifukai,dermatolog,,
 1876,WORD,WORD_NOUN,,HIRAGANA,Inne,,外科,げか,,geka,chirurgia,,
@@ -3530,9 +3538,9 @@ złość",,
 2405,WORD,WORD_NOUN,,KATAKANA,Inne,,-,オーケストラ,,ookesutora,orkiestra,,
 2406,WORD,WORD_NOUN,,HIRAGANA,Inne,,拳銃,けんじゅう,,kenjuu,"pistolet
 rewolwer",,
-2407,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,挙げる,あげる,,ageru,"podnosić
+2407,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,挙げる,あげる,,ageru,"podnosić
 wznosić",,
-2408,WORD,WORD_VERB_U,,HIRAGANA,Inne,,挙がる,あがる,,agaru,"wznosić się
+2408,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,挙がる,あがる,,agaru,"wznosić się
 podnosić się",,
 2409,WORD,WORD_NOUN,,HIRAGANA,Inne,,選挙,せんきょ,,senkyo,wybory,,
 2410,WORD,WORD_NOUN,,HIRAGANA,Inne,,検挙,けんきょ,,kenkyo,"areszt
@@ -4238,3 +4246,40 @@ poświęcenie się
 oddanie się",sprawie,
 2824,WORD,WORD_VERB_U,,HIRAGANA,Inne,,凍る,こおる,,kooru,"zamarzać
 kostnieć",,
+2825,WORD,WORD_NOUN,,HIRAGANA,Inne,,価,あたい,,atai,"wartość
+cena",,
+2826,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,便,べん,,ben,"wygoda
+łatwość",,
+2827,WORD,WORD_NOUN,,HIRAGANA,Inne,,便り,たより,,tayori,"wieść
+wiadomość
+list
+korespondencja",,
+2828,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,便りをする,たよりをする,,tayori o suru,"napisać list
+wysyłać wiadomość
+korespondować",,
+2829,WORD,WORD_NOUN,,HIRAGANA,Inne,,便所,べんじょ,,benjo,toaleta,,
+2830,WORD,WORD_NOUN,,HIRAGANA,Inne,,郵便,ゆうびん,,yuubin,"listy
+przesyłki pocztowe
+usługi pocztowe",,
+2831,WORD,WORD_NOUN,,HIRAGANA,Inne,,便覧,べんらん,,benran,"podręcznik
+manuał",,
+2832,WORD,WORD_NOUN,,HIRAGANA,Inne,,便法,べんぽう,,benpou,"użyteczna metoda
+skrót",,
+2833,WORD,WORD_NOUN,,KATAKANA,Inne,,-,バタフライ,,batafurai,motyl,,
+2834,WORD,WORD_NOUN,,HIRAGANA,Inne,,蝶々,ちょうちょう,,chouchou,motyl,,
+2835,WORD,WORD_NOUN,,KATAKANA,Inne,,-,サボテン,,saboten,kaktus,,
+2836,WORD,WORD_NOUN,,KATAKANA,Inne,,-,カクタス,,kakutasu,kaktus,,
+2837,WORD,WORD_NOUN,,HIRAGANA,Inne,,内,うち,,uchi,"wewnątrz
+między
+ja
+mój
+moje",,
+2838,WORD,WORD_NOUN,,HIRAGANA,Inne,,内側,うちがわ,,uchigawa,wewnętrzna strona,,
+2839,WORD,WORD_NOUN,,HIRAGANA,Inne,,内容,ないよう,,naiyou,"treść
+zawartość",,
+2840,WORD,WORD_NOUN,,HIRAGANA,Inne,,内務大臣,ないむだいじん,,naimudaijin,minister spraw wewnętrznych,,
+2841,WORD,WORD_NOUN,,HIRAGANA,Inne,,国内,こくない,,kokunai,krajowy,,
+2842,WORD,WORD_NOUN,,HIRAGANA,Inne,,学生同士,がくせいどうし,,gakusei doushi,między uczniami,,
+2843,WORD,WORD_NOUN,,HIRAGANA,Inne,,代議士,だいぎし,,daigishi,"członek parlamentu
+parlamentarzysta",,
+2844,WORD,WORD_NOUN,,HIRAGANA,Inne,,学士号,がくしごう,,gakushigou,stopień naukowy,uzyskany po ukończeniu wyższych studiów humanistycznych,
