@@ -2879,7 +2879,8 @@ iść do pracy",,
 1991,WORD,WORD_VERB_U,,HIRAGANA,Genki dodatkowe 2-15,,残す,のこす,,nokosu,"zostawiać
 pozostawiać",,
 1992,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki dodatkowe 2-15,,平和,へいわ,,heiwa,"pokój
-spokój",,
+spokój
+harmonia",,
 1993,WORD,WORD_VERB_U,,HIRAGANA,Genki dodatkowe 2-15,,楽しむ,たのしむ,,tanoshimu,"cieszyć się
 radować się
 z przyjemnością",robić coś,
@@ -3241,7 +3242,7 @@ akademik",,
 2223,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-17,,お湯を沸かす,おゆをわかす,,oyu o wakasu,zagotować wodę,,
 2224,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-17,,髪をとかす,かみをとかす,,kami o tokasu,czesać,włosy,
 2225,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-17,,宝くじに当たる,たからくじにあたる,,takarakuji ni ataru,wygrać na loterii,,
-2226,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-17,,脱ぐ,ぬぐ,,nugu,"zdejmować
+2226,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-17,,脱ぐ,ぬぐ,,nugu,"zdejmować
 rozbierać
 usuwać",ubranie,
 2227,WORD,WORD_VERB_RU,,HIRAGANA,Genki 2-17,,-,いれる,,ireru,robić,"herbatę, kawę",
@@ -3356,7 +3357,7 @@ trąba",,
 2296,WORD,WORD_NOUN,,HIRAGANA,Inne,,鋭角,えいかく,,eikaku,kąt ostry,,
 2297,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,豊か,ゆたか,,yutaka,"bogaty
 zamożny",,
-2298,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,脱げる,ぬげる,,nugeru,"spadać
+2298,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,脱げる,ぬげる,,nugeru,"spadać
 zsuwać się",ubranie,
 2299,WORD,WORD_NOUN,,HIRAGANA,Inne,,脱衣,だつい,,datsui,rozbieranie,,
 2300,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,脱衣する,だついする,,datsui suru,rozbierać się,,
@@ -4283,3 +4284,16 @@ zawartość",,
 2843,WORD,WORD_NOUN,,HIRAGANA,Inne,,代議士,だいぎし,,daigishi,"członek parlamentu
 parlamentarzysta",,
 2844,WORD,WORD_NOUN,,HIRAGANA,Inne,,学士号,がくしごう,,gakushigou,stopień naukowy,uzyskany po ukończeniu wyższych studiów humanistycznych,
+2845,WORD,WORD_NOUN,,HIRAGANA,Inne,,感覚,かんかく,,kankaku,"zmysł
+intuicja",,
+2846,WORD,WORD_NOUN,,HIRAGANA,Inne,,感想,かんそう,,kansou,"wrażenie
+przeżycie
+myśl",,
+2847,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,感情的,かんじょうてき,,kanjouteki,"emocjonalny
+impulsywny
+sentymentalny",,
+2848,WORD,WORD_VERB_U,,HIRAGANA,Inne,,和らぐ,やわらぐ,,yawaragu,"mięknąć
+godzić się",,
+2849,WORD,WORD_NOUN,,HIRAGANA,Inne,,和平,わへい,,wahei,pokój,brak konfliktów,
+2850,WORD,WORD_NOUN,,HIRAGANA,Inne,,調和,ちょうわ,,chouwa,harmonia,,
+2851,WORD,WORD_NOUN,,HIRAGANA,Inne,,和英辞典,わえいじてん,,waeijiten,słownik japońsko-angielski,,
