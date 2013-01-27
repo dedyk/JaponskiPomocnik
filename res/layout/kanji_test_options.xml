@@ -74,6 +74,13 @@
                 android:textSize="12dp" />
 
             <CheckBox
+                android:id="@+id/kanji_test_options_until_success_new_word_limit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kanji_test_options_until_success_new_word_limit"
+                android:textSize="12dp" />
+
+            <CheckBox
                 android:id="@+id/kanji_test_options_dedicate_example"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

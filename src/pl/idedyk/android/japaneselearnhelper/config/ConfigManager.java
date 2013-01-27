@@ -177,6 +177,8 @@ public class ConfigManager {
 		
 		private final String kanjiTestUntilSuccessPostfix = "untilSuccess";
 		
+		private final String kanjiTestUntilSuccessNewWordLimitPostfix = "untilSuccessNewWordLimit";
+		
 		private final String kanjiTestDedicateExamplePostfix = "dedicateExample";
 
 		public KanjiTestMode getKanjiTestMode() {
@@ -293,6 +295,19 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(kanjiTestConfigPrefix + kanjiTestUntilSuccessPostfix, untilSuccess);
+			
+			editor.commit();
+		}
+
+		public Boolean getUntilSuccessNewWordLimitPostfix() {
+			return preferences.getBoolean(kanjiTestConfigPrefix + kanjiTestUntilSuccessNewWordLimitPostfix, true);
+		}
+
+		public void setUntilSuccessNewWordLimitPostfix(boolean untilSuccessNewWordLimit) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(kanjiTestConfigPrefix + kanjiTestUntilSuccessNewWordLimitPostfix, untilSuccessNewWordLimit);
 			
 			editor.commit();
 		}

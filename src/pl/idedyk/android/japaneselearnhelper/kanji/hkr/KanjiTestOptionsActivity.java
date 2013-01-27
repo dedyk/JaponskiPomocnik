@@ -19,6 +19,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -77,6 +78,21 @@ public class KanjiTestOptionsActivity extends Activity {
 		final CheckBox untilSuccessCheckBox = (CheckBox)findViewById(R.id.kanji_test_options_until_success);
 
 		untilSuccessCheckBox.setChecked(kanjiTestConfig.getUntilSuccess());
+
+		// until success new word limit
+		final CheckBox untilSuccessNewWordLimitCheckBox = (CheckBox)findViewById(R.id.kanji_test_options_until_success_new_word_limit);
+
+		untilSuccessNewWordLimitCheckBox.setChecked(kanjiTestConfig.getUntilSuccessNewWordLimitPostfix());
+		
+		setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);
+		
+		// actions
+		untilSuccessCheckBox.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);				
+			}
+		});
 		
 		// dedicate example
 		final CheckBox dedicateExampleCheckBox = (CheckBox)findViewById(R.id.kanji_test_options_dedicate_example);
@@ -112,6 +128,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				kanjiTestConfig.setUntilSuccess(untilSuccessCheckBox.isChecked());
+				
+				kanjiTestConfig.setUntilSuccessNewWordLimitPostfix(untilSuccessNewWordLimitCheckBox.isChecked());
 				
 				kanjiTestConfig.setDedicateExample(dedicateExampleCheckBox.isChecked());
 
@@ -203,9 +221,17 @@ public class KanjiTestOptionsActivity extends Activity {
 						kanjiTestContext.resetTest();
 
 						Collections.shuffle(kanjiEntryList);
+						
+						EntryOrderList<KanjiEntry> kanjiEntryListEntryOrderList = null;
+						
+						if (untilSuccessCheckBox.isChecked() == true && untilSuccessNewWordLimitCheckBox.isChecked() == true) {
+							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList, 10);
+						} else {
+							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList, kanjiEntryList.size());
+						}
 
 						// set kanji entry list in context
-						kanjiTestContext.setKanjiEntryList(kanjiEntryList);
+						kanjiTestContext.setKanjiEntryList(kanjiEntryListEntryOrderList);
 
 						if (kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
@@ -296,8 +322,20 @@ public class KanjiTestOptionsActivity extends Activity {
 							}	
 							
 							Collections.shuffle(dictionaryEntryWithRemovedKanjiList);
+							
+							EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji> entryOrderList = null;
+							
+							if (untilSuccessCheckBox.isChecked() == true && untilSuccessNewWordLimitCheckBox.isChecked() == true) {
+								entryOrderList = 
+										new EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>(
+												dictionaryEntryWithRemovedKanjiList, 10);
+							} else {
+								entryOrderList = 
+										new EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>(
+												dictionaryEntryWithRemovedKanjiList, dictionaryEntryWithRemovedKanjiList.size());
+							}									
 
-							kanjiTestContext.setDictionaryEntryWithRemovedKanji(dictionaryEntryWithRemovedKanjiList);
+							kanjiTestContext.setDictionaryEntryWithRemovedKanji(entryOrderList);
 						}
 
 						return null;
@@ -354,6 +392,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				detailsSb.append("***" + otherOptionsTextView.getText() + "***\n\n");
 
 				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
+				
+				detailsSb.append(untilSuccessNewWordLimitCheckBox.isChecked() + " - " + untilSuccessNewWordLimitCheckBox.getText()).append("\n\n");
 				
 				detailsSb.append(dedicateExampleCheckBox.isChecked() + " - " + dedicateExampleCheckBox.getText()).append("\n\n");
 
@@ -541,5 +581,14 @@ public class KanjiTestOptionsActivity extends Activity {
 		}
 
 		new PrepareAsyncTask().execute();
+	}
+	
+	private void setUntilSuccessNewWordLimitCheckBoxEnabled(CheckBox untilSuccessCheckBox, CheckBox untilSuccessNewWordLimitCheckBox) {
+		
+		if (untilSuccessCheckBox.isChecked() == true) {
+			untilSuccessNewWordLimitCheckBox.setEnabled(true);
+		} else {
+			untilSuccessNewWordLimitCheckBox.setEnabled(false);
+		}
 	}
 }

@@ -6,15 +6,14 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizerResultItem;
+import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 
 public class JapaneseAndroidLearnHelperKanjiTestContext {
 
-	private List<KanjiEntry> kanjiEntryList;
+	private EntryOrderList<KanjiEntry> kanjiEntryList;
 	
-	private List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji;
-	
-	private int currentPos = 0;
-	
+	private EntryOrderList<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji;
+		
 	private List<TestAnswer> testAnswers;
 	
 	private int correctAnswers = 0;
@@ -26,37 +25,27 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 	public void resetTest() {
 		kanjiEntryList = null;
 		dictionaryEntryWithRemovedKanji = null;
-		
-		currentPos = 0;
-		
+				
 		testAnswers = new ArrayList<TestAnswer>();
 		
 		correctAnswers = 0;
 		incorrectAnswers = 0;
 	}
 
-	public List<KanjiEntry> getKanjiEntryList() {
+	public EntryOrderList<KanjiEntry> getKanjiEntryList() {
 		return kanjiEntryList;
 	}
 
-	public void setKanjiEntryList(List<KanjiEntry> kanjiEntryList) {
+	public void setKanjiEntryList(EntryOrderList<KanjiEntry> kanjiEntryList) {
 		this.kanjiEntryList = kanjiEntryList;
 	}
 	
-	public List<DictionaryEntryWithRemovedKanji> getDictionaryEntryWithRemovedKanji() {
+	public EntryOrderList<DictionaryEntryWithRemovedKanji> getDictionaryEntryWithRemovedKanji() {
 		return dictionaryEntryWithRemovedKanji;
 	}
 
-	public void setDictionaryEntryWithRemovedKanji(List<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji) {
+	public void setDictionaryEntryWithRemovedKanji(EntryOrderList<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji) {
 		this.dictionaryEntryWithRemovedKanji = dictionaryEntryWithRemovedKanji;
-	}
-
-	public int getCurrentPos() {
-		return currentPos;
-	}
-
-	public void setCurrentPos(int currentPos) {
-		this.currentPos = currentPos;
 	}
 
 	public List<TestAnswer> getTestAnswers() {
