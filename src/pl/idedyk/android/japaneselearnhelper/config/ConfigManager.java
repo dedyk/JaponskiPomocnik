@@ -458,6 +458,8 @@ public class ConfigManager {
 		
 		private final String untilSuccessPostfix = "untilSuccess";
 		
+		private final String untilSuccessNewWordLimitPostfix = "untilSuccessNewWordLimit";
+		
 		private final String showKanjiPostfix = "showKanji";
 		
 		private final String showKanaPostfix = "showKana";
@@ -539,11 +541,24 @@ public class ConfigManager {
 			return preferences.getBoolean(wordTestConfigPrefix + untilSuccessPostfix, false);
 		}
 
-		public void setUntilSuccess(boolean random) {
+		public void setUntilSuccess(boolean untilSuccess) {
 			
 			Editor editor = preferences.edit();
 			
-			editor.putBoolean(wordTestConfigPrefix + untilSuccessPostfix, random);
+			editor.putBoolean(wordTestConfigPrefix + untilSuccessPostfix, untilSuccess);
+			
+			editor.commit();
+		}
+
+		public Boolean getUntilSuccessNewWordLimit() {
+			return preferences.getBoolean(wordTestConfigPrefix + untilSuccessNewWordLimitPostfix, false);
+		}
+
+		public void setUntilSuccessNewWordLimit(boolean untilSuccessNewWordLimit) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestConfigPrefix + untilSuccessNewWordLimitPostfix, untilSuccessNewWordLimit);
 			
 			editor.commit();
 		}

@@ -13,6 +13,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperW
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -104,9 +105,21 @@ public class WordTestOptions extends Activity {
 		// until sucess check box
 		final CheckBox untilSuccessCheckBox = (CheckBox)findViewById(R.id.word_test_options_until_success);
 		
+		final CheckBox untilSuccessNewWordLimitCheckBox = (CheckBox)findViewById(R.id.word_test_options_new_word_limit);
+		
 		untilSuccessCheckBox.setChecked(wordTestConfig.getUntilSuccess());
+		untilSuccessNewWordLimitCheckBox.setChecked(wordTestConfig.getUntilSuccessNewWordLimit());
+		
+		setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);
 		
 		// actions
+		untilSuccessCheckBox.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);				
+			}
+		});
+		
 		testModeInputRadioButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
@@ -212,6 +225,11 @@ public class WordTestOptions extends Activity {
 				
 				wordTestConfig.setUntilSuccess(untilSuccess);
 				
+				// until success new word limit
+				boolean untilSuccessNewWordLimit = untilSuccessNewWordLimitCheckBox.isChecked();
+				
+				wordTestConfig.setUntilSuccessNewWordLimit(untilSuccessNewWordLimit);
+				
 				// show kanji
 				boolean showKanji = showKanjiCheckBox.isChecked();
 								
@@ -315,8 +333,16 @@ public class WordTestOptions extends Activity {
 				}
 				
 				JapaneseAndroidLearnHelperWordTestContext wordTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getWordTestContext();
-								
-				wordTestContext.setWordsTest(chosenAllDictionaryEntryList);
+				
+				EntryOrderList<DictionaryEntry> entryOrderList = null;
+				
+				if (untilSuccess == true && untilSuccessNewWordLimit == true) {
+					entryOrderList = new EntryOrderList<DictionaryEntry>(chosenAllDictionaryEntryList, 10);
+				} else {
+					entryOrderList = new EntryOrderList<DictionaryEntry>(chosenAllDictionaryEntryList, chosenAllDictionaryEntryList.size());
+				}				
+				
+				wordTestContext.setWordsTest(entryOrderList);
 				
 				finish();
 				
@@ -356,6 +382,7 @@ public class WordTestOptions extends Activity {
 				detailsSb.append("***" + optionsOther.getText() + "***\n\n");
 				detailsSb.append(randomCheckBox.isChecked() + " - " + randomCheckBox.getText()).append("\n\n");
 				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
+				detailsSb.append(untilSuccessNewWordLimitCheckBox.isChecked() + " - " + untilSuccessNewWordLimitCheckBox.getText()).append("\n\n");
 
 				detailsSb.append("***" + optionsGroup.getText() + "***\n\n");
 		
@@ -390,6 +417,15 @@ public class WordTestOptions extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+	}
+	
+	private void setUntilSuccessNewWordLimitCheckBoxEnabled(CheckBox untilSuccessCheckBox, CheckBox untilSuccessNewWordLimitCheckBox) {
+		
+		if (untilSuccessCheckBox.isChecked() == true) {
+			untilSuccessNewWordLimitCheckBox.setEnabled(true);
+		} else {
+			untilSuccessNewWordLimitCheckBox.setEnabled(false);
+		}
 	}
 
 	@Override

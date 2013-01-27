@@ -13,6 +13,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperW
 import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.android.japaneselearnhelper.utils.ListUtil;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -75,8 +76,8 @@ public class WordTest extends Activity {
 			Boolean showTranslate = wordTestConfig.getShowTranslate();
 			
 			// context
-			List<DictionaryEntry> wordsTest = wordTestContext.getWordsTest();
-			int wordsTestIdx = wordTestContext.getWordsTestIdx();
+			EntryOrderList<DictionaryEntry> wordsTest = wordTestContext.getWordsTest();
+			int wordsTestIdx = wordsTest.getCurrentPos();
 			int wordTestAnswers = wordTestContext.getWordTestAnswers();
 			int wordTestCorrectAnswers = wordTestContext.getWordTestCorrectAnswers();
 			int wordTestIncorrentAnswers = wordTestContext.getWordTestIncorrentAnswers();
@@ -104,7 +105,7 @@ public class WordTest extends Activity {
 			detailsSb.append("wordsTest:\n");
 			
 			for (int idx = 0; idx < wordsTest.size(); ++idx) {
-				detailsSb.append("\t").append(idx).append(": ").append(wordsTest.get(idx).toString()).append("\n");
+				detailsSb.append("\t").append(idx).append(": ").append(wordsTest.getEntry(idx).toString()).append("\n");
 			}
 						
 			String chooseEmailClientTitle = getString(R.string.choose_email_client);
@@ -166,10 +167,9 @@ public class WordTest extends Activity {
 		final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
 		final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTest.this).getWordTestConfig();
 		
-		final List<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
-		int wordsTestIdx = wordTestContext.getWordsTestIdx();
+		final EntryOrderList<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
 		
-		final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(wordsTestIdx);
+		final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
 		
 		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 		
@@ -191,7 +191,7 @@ public class WordTest extends Activity {
 				
 				toast.show();
 				
-				wordTestContext.incrementWordsTestIdx();				
+				wordDictionaryEntries.currentPositionOk();
 				
 				fillScreen();
 			} else {		
@@ -211,10 +211,11 @@ public class WordTest extends Activity {
 						if (wordTestConfig.getUntilSuccess() != null &&
 								wordTestConfig.getUntilSuccess().equals(Boolean.TRUE)) {
 							
-							wordDictionaryEntries.add(currentWordDictionaryEntry);
+							wordDictionaryEntries.currentPositionBad();
+							
+						} else {
+							wordDictionaryEntries.currentPositionOk();
 						}
-						
-						wordTestContext.incrementWordsTestIdx();				
 						
 						fillScreen();
 					}
@@ -234,7 +235,7 @@ public class WordTest extends Activity {
 				wordTestContext.addWordTestCorrectAnswers(kanaList.size());
 				wordTestContext.addWordTestIncorrentAnswers(0);
 				
-				wordTestContext.incrementWordsTestIdx();				
+				wordDictionaryEntries.currentPositionOk();
 				
 				fillScreen();
 				
@@ -296,10 +297,10 @@ public class WordTest extends Activity {
 		
 		JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
 		
-		List<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
-		int currentWordsTextIdx = wordTestContext.getWordsTestIdx();
+		EntryOrderList<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
 		
-		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);
+		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
+		
 		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 		
 		List<String> kanaListToRemove = new ArrayList<String>(kanaList);
@@ -328,8 +329,7 @@ public class WordTest extends Activity {
 		
 		JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
 		
-		List<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
-		int currentWordsTextIdx = wordTestContext.getWordsTestIdx();
+		EntryOrderList<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
 		
 		TextView titleTextView = (TextView)findViewById(R.id.word_test_title);
 		
@@ -354,7 +354,9 @@ public class WordTest extends Activity {
 			throw new RuntimeException("Unknown wordTestMode: " + wordTestConfig.getWordTestMode());
 		}
 		
-		if (currentWordsTextIdx >= wordDictionaryEntries.size()) {
+		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
+		
+		if (currentWordDictionaryEntry == null) {
 			
 			Intent intent = new Intent(getApplicationContext(), WordTestSummary.class);
 			
@@ -362,9 +364,7 @@ public class WordTest extends Activity {
 			
 			finish();
 			
-		} else {
-			DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.get(currentWordsTextIdx);
-			
+		} else {			
 			String kanji = currentWordDictionaryEntry.getKanji();
 			String prefixKana = currentWordDictionaryEntry.getPrefixKana();
 			
@@ -502,7 +502,7 @@ public class WordTest extends Activity {
 			
 			Resources resources = getResources();
 			
-			state.setText(resources.getString(R.string.word_test_state, (currentWordsTextIdx + 1), wordDictionaryEntries.size()));			
+			state.setText(resources.getString(R.string.word_test_state, (wordDictionaryEntries.getCurrentPos() + 1), wordDictionaryEntries.size()));
 		}
 	}
 	

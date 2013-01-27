@@ -20,7 +20,6 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 	private int correctAnswers = 0;
 	
 	private int incorrectAnswers = 0;
-
 	
 	// methods
 	
