@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.screen;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 
@@ -24,6 +25,10 @@ public class CheckBox implements IScreenItem {
 	public boolean isChecked() {
 		return checkBox.isChecked();
 	}
+	
+	public void setOnClickListener(OnClickListener onClickListener) {
+		checkBox.setOnClickListener(onClickListener);
+	}
 
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		layout.addView(checkBox);
@@ -31,5 +36,9 @@ public class CheckBox implements IScreenItem {
 	
 	public String toString() {
 		return checkBox.getText() + " - " + checkBox.isChecked();
+	}
+
+	public void setEnabled(boolean enabled) {
+		checkBox.setEnabled(enabled);		
 	}
 }

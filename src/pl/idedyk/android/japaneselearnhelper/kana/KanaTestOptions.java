@@ -119,6 +119,22 @@ public class KanaTestOptions extends Activity {
 		
 		result.add(untilSuccessCheckBox);
 		
+		Boolean untilSuccessNewWordLimit = kanaTestConfig.getUntilSuccessNewWordLimit();
+
+		final CheckBox untilSuccessNewWordLimitCheckBox = new CheckBox(this, getString(R.string.kana_test_until_success_new_word_limit), (untilSuccessNewWordLimit == null ? true : untilSuccessNewWordLimit.booleanValue()), R.id.kana_test_until_success_new_word_limit_id);
+		
+		result.add(untilSuccessNewWordLimitCheckBox);
+		
+		setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);
+		
+		// actions
+		untilSuccessCheckBox. setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);				
+			}
+		});
+		
 		pl.idedyk.android.japaneselearnhelper.screen.Button startButton = new pl.idedyk.android.japaneselearnhelper.screen.Button(
 				getString(R.string.kana_test_options_startTest));
 		
@@ -165,6 +181,8 @@ public class KanaTestOptions extends Activity {
 				}
 				
 				kanaTestConfig.setUntilSuccess(untilSuccessCheckBox.isChecked());
+				
+				kanaTestConfig.setUntilSuccessNewWordLimit(untilSuccessNewWordLimitCheckBox.isChecked());
 				
 				if (gojuuonCheckBox.isChecked() == false && dakutenHandakutenCheckBox.isChecked() == false && 
 						youonCheckBox.isChecked() == false) {
@@ -232,5 +250,14 @@ public class KanaTestOptions extends Activity {
 		});
 		
 		return result;
+	}
+	
+	private void setUntilSuccessNewWordLimitCheckBoxEnabled(CheckBox untilSuccessCheckBox, CheckBox untilSuccessNewWordLimitCheckBox) {
+		
+		if (untilSuccessCheckBox.isChecked() == true) {
+			untilSuccessNewWordLimitCheckBox.setEnabled(true);
+		} else {
+			untilSuccessNewWordLimitCheckBox.setEnabled(false);
+		}
 	}
 }

@@ -22,7 +22,8 @@
     <string name="kana_test_mode2_romaji_to_kana">Zamiana romaji na hiragana, katakana</string>
     <string name="kana_test_mode2_romaji_to_kana_info">Uwaga: Do prawidłowego działania potrzebna jest japońska klawiatura. Japońska klawiatura nie może być również typu qwerty, gdyż test nie ma wtedy sensu.</string>
     <string name="kana_test_other">Inne opcje</string>
-    <string name="kana_test_until_success">"Powtarzaj aż do sukcesu"</string>
+    <string name="kana_test_until_success">Powtarzaj aż do sukcesu</string>
+    <string name="kana_test_until_success_new_word_limit">Ogranicz liczbę nowych pozycji do 10</string>
     <string name="kana_test_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kana_test_options_report_problem_email_subject">Japoński pomocnik - opcje testu hiragana i katakana: Sugestia</string>
     <string name="kana_test_options_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>

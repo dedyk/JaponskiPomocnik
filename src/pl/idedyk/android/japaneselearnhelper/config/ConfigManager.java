@@ -59,6 +59,7 @@ public class ConfigManager {
 		private final String testMode2Postfix = "testMode2";
 		
 		private final String untilSuccessPostfix = "untilSuccess";
+		private final String untilSuccessNewWordLimitPostfix = "untilSuccessNewWordLimit";
 		
 		private final String gojuuonPostfix = "gojuuon";
 		private final String dakutenHandakutenPostfix = "dakutenHandakuten";
@@ -125,6 +126,19 @@ public class ConfigManager {
 			editor.commit();
 		}
 
+		public Boolean getUntilSuccessNewWordLimit() {
+			return preferences.getBoolean(kanaTestConfigPrefix + untilSuccessNewWordLimitPostfix, false);
+		}
+
+		public void setUntilSuccessNewWordLimit(boolean untilSuccessNewWordLimit) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(kanaTestConfigPrefix + untilSuccessNewWordLimitPostfix, untilSuccessNewWordLimit);
+			
+			editor.commit();
+		}
+		
 		public Boolean getGojuuon() {
 			return preferences.getBoolean(kanaTestConfigPrefix + gojuuonPostfix, true);
 		}
@@ -300,7 +314,7 @@ public class ConfigManager {
 		}
 
 		public Boolean getUntilSuccessNewWordLimitPostfix() {
-			return preferences.getBoolean(kanjiTestConfigPrefix + kanjiTestUntilSuccessNewWordLimitPostfix, true);
+			return preferences.getBoolean(kanjiTestConfigPrefix + kanjiTestUntilSuccessNewWordLimitPostfix, false);
 		}
 
 		public void setUntilSuccessNewWordLimitPostfix(boolean untilSuccessNewWordLimit) {

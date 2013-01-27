@@ -28,6 +28,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
+import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -181,9 +182,19 @@ public class KanaTest extends Activity {
 		
 		allKanaEntries = randomAllKanaEntries(allKanaEntries);
 		
+		boolean untilSuccess = kanaTestConfig.getUntilSuccess();
+		boolean UntilSuccessNewWordLimit = kanaTestConfig.getUntilSuccessNewWordLimit();
+		
 		// set
-		kanaTestContext.setAllKanaEntriesIdx(0);
-		kanaTestContext.setAllKanaEntries(allKanaEntries);
+		EntryOrderList<KanaEntry> entryOrderList = null;
+		
+		if (untilSuccess == true && UntilSuccessNewWordLimit == true) {
+			entryOrderList = new EntryOrderList<KanaEntry>(allKanaEntries, 10);
+		} else {
+			entryOrderList = new EntryOrderList<KanaEntry>(allKanaEntries, allKanaEntries.size());
+		}
+		
+		kanaTestContext.setAllKanaEntries(entryOrderList);
 		kanaTestContext.setAllKanaEntriesGroupBy(allKanaEntriesGroupBy);
 		
 		kanaTestContext.setInitialized(true);
@@ -373,8 +384,8 @@ public class KanaTest extends Activity {
 		
 		KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanaTestConfig();
 		
-		List<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
-		int allKanaEntriesIdx = kanaTestContext.getAllKanaEntriesIdx();
+		EntryOrderList<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
+		int allKanaEntriesIdx = allKanaEntries.getCurrentPos();
 		
 		charTest.setValue(kanaTestContext.getCharTestValue());
 		
@@ -453,10 +464,8 @@ public class KanaTest extends Activity {
 		
 		KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanaTestConfig();
 		
-		final List<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
-		
-		final KanaEntry currentKanaEntryToTest = allKanaEntries.get(kanaTestContext.getAllKanaEntriesIdx());
-		
+		final KanaEntry currentKanaEntryToTest = kanaTestContext.getAllKanaEntries().getNext();
+				
 		String correctAnswer = null;
 
 		TestMode2 testMode2 = kanaTestConfig.getTestMode2();
@@ -481,7 +490,7 @@ public class KanaTest extends Activity {
 			
 			kanaTestContext.incrementCorrectAnswers();
 			
-			kanaTestContext.setAllKanaEntriesIdx(kanaTestContext.getAllKanaEntriesIdx() + 1);
+			kanaTestContext.getAllKanaEntries().currentPositionOk();
 						
 			checkTestStateAndGenerateAnswers();
 			fillScreenValue();
@@ -497,11 +506,12 @@ public class KanaTest extends Activity {
 				public void onClick(DialogInterface dialog, int which) {
 					
 					if (untilSuccess == true) {
-						allKanaEntries.add(currentKanaEntryToTest);
+						kanaTestContext.getAllKanaEntries().currentPositionBad();
+					} else {
+						kanaTestContext.getAllKanaEntries().currentPositionOk();
 					}
 					
 					kanaTestContext.incrementIncorrectAnswers();
-					kanaTestContext.setAllKanaEntriesIdx(kanaTestContext.getAllKanaEntriesIdx() + 1);
 					
 					checkTestStateAndGenerateAnswers();
 					fillScreenValue();
@@ -519,10 +529,9 @@ public class KanaTest extends Activity {
 		
 		KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanaTestConfig();
 		
-		List<KanaEntry> allKanaEntries = kanaTestContext.getAllKanaEntries();
-		int allKanaEntriesIdx = kanaTestContext.getAllKanaEntriesIdx();
+		KanaEntry currentKanaEntryToTest = kanaTestContext.getAllKanaEntries().getNext();
 		
-		if (allKanaEntriesIdx >= allKanaEntries.size()) {
+		if (currentKanaEntryToTest == null) {
 			// test end
 			
 			Intent intent = new Intent(getApplicationContext(), KanaTestSummary.class);
@@ -537,9 +546,7 @@ public class KanaTest extends Activity {
 		TestMode1 testMode1 = kanaTestConfig.getTestMode1();
 		
 		TestMode2 testMode2 = kanaTestConfig.getTestMode2();
-		
-		KanaEntry currentKanaEntryToTest = allKanaEntries.get(allKanaEntriesIdx);
-		
+				
 		if (testMode2 == TestMode2.KANA_TO_ROMAJI) {
 			kanaTestContext.setCharTestValue(currentKanaEntryToTest.getKanaJapanese());
 			

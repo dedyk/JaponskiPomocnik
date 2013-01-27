@@ -4,16 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
+import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 
 public class JapaneseAndroidLearnHelperKanaTestContext {
 
 	// from test
-	private List<KanaEntry> allKanaEntries;
+	private EntryOrderList<KanaEntry> allKanaEntries;
 	
 	private Map<String, List<KanaEntry>> allKanaEntriesGroupBy;
-	
-	private int allKanaEntriesIdx = 0;
-	
+		
 	private boolean initialized = false;
 	
 	private String charTestValue;
@@ -29,7 +28,6 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 	public void resetTest() {
 		allKanaEntries = null;
 		allKanaEntriesGroupBy = null;
-		allKanaEntriesIdx = 0;
 		initialized = false;
 		charTestValue = null;
 		buttonValues = null;
@@ -37,7 +35,7 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 		incorrectAnswers = 0;
 	}
 	
-	public List<KanaEntry> getAllKanaEntries() {
+	public EntryOrderList<KanaEntry> getAllKanaEntries() {
 		return allKanaEntries;
 	}
 
@@ -45,25 +43,17 @@ public class JapaneseAndroidLearnHelperKanaTestContext {
 		return allKanaEntriesGroupBy;
 	}
 
-	public int getAllKanaEntriesIdx() {
-		return allKanaEntriesIdx;
-	}
-
 	public boolean isInitialized() {
 		return initialized;
 	}
 
-	public void setAllKanaEntries(List<KanaEntry> allKanaEntries) {
+	public void setAllKanaEntries(EntryOrderList<KanaEntry> allKanaEntries) {
 		this.allKanaEntries = allKanaEntries;
 	}
 
 	public void setAllKanaEntriesGroupBy(
 			Map<String, List<KanaEntry>> allKanaEntriesGroupBy) {
 		this.allKanaEntriesGroupBy = allKanaEntriesGroupBy;
-	}
-
-	public void setAllKanaEntriesIdx(int allKanaEntriesIdx) {
-		this.allKanaEntriesIdx = allKanaEntriesIdx;
 	}
 
 	public void setInitialized(boolean initialized) {
