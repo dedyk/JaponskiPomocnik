@@ -1375,7 +1375,8 @@ narzeczony",,
 884,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,気温,きおん,,kion,temperatura,tylko do pogody,
 885,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,曇り,くもり,,kumori,pochmurna pogoda,,
 886,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,試合,しあい,,shiai,"mecz
-gra",,
+gra
+zawody",,
 887,WORD,WORD_NOUN,,KATAKANA,Genki 1-12,,-,ジュース,,juusu,sok,,
 888,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,成績,せいせき,,seiseki,ocena,na teście i etc,
 889,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,-,せき,,seki,kaszel,,
@@ -1574,7 +1575,9 @@ Genki 2-13",,九日,ここのか,,kokonoka,dziewięć dni,liczenie dni,
 Genki 2-13",,十日,とおか,,tooka,dziesięć dni,liczenie dni,
 1024,WORD,WORD_NOUN,,HIRAGANA,Inne,,睫毛,まつげ,,matsuge,rzęsy,,
 1025,WORD,WORD_NOUN,,HIRAGANA,Inne,,眉毛,まゆげ,,mayuge,brwi,,
-1026,WORD,WORD_VERB_U,,HIRAGANA,Inne,,試す,ためす,,tamesu,próbować,,
+1026,WORD,WORD_VERB_U,,HIRAGANA,Inne,,試す,ためす,,tamesu,"próbować
+wypróbowywać
+sprawdzać",,
 1027,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ズロチ,,zurochi,zł,,
 1028,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-18,,咲く,さく,,saku,kwitnąć,,
 1029,WORD,WORD_VERB_U,,HIRAGANA,Inne,,散る,ちる,,chiru,opadać,kwiaty,
@@ -4312,3 +4315,20 @@ notować",,
 2861,WORD,WORD_NOUN,,HIRAGANA,Inne,,記者会見,きしゃかいけん,,kisha kaiken,konferencja prasowa,,
 2862,WORD,WORD_NOUN,,HIRAGANA,Inne,,記事,きじ,,kiji,artykuł,,
 2863,WORD,WORD_NOUN,,HIRAGANA,Inne,,記念,きねん,,kinen,rocznica,,
+2864,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,試みる,こころみる,,kokoromiru,"próbować
+wypróbowywać
+sprawdzać",,
+2865,WORD,WORD_NOUN,,HIRAGANA,Inne,,試運転,しうんてん,,shiunten,jazda próbna,,
+2866,WORD,WORD_NOUN,,HIRAGANA,Inne,,試食,ししょく,,shishoku,"smakowanie
+próbować jedzenia",,
+2867,WORD,WORD_NOUN,,HIRAGANA,Inne,,試作,しさく,,shisaku,"próbna
+eksperymentalna produkcja
+uprawa",,
+2868,WORD,WORD_NOUN,,HIRAGANA,Inne,,歌詞,かし,,kashi,"słowa piosenki
+tekst",,
+2869,WORD,WORD_NOUN,,HIRAGANA,Inne,,数,かず,,kazu,liczba,,
+2870,WORD,WORD_NOUN,,HIRAGANA,Inne,,数字,すうじ,,suuji,cyfra,,
+2871,WORD,UNKNOWN,,HIRAGANA,Inne,,数回,すうかい,,suukai,kilka razy,,
+2872,WORD,WORD_NOUN,,HIRAGANA,Inne,,人数,にんずう,,ninzuu,ilość osób,,
+2873,WORD,WORD_NOUN,,HIRAGANA,Inne,,無数,むすう,,musuu,"niezliczona liczba
+niezliczona ilość",,
