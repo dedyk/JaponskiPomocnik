@@ -630,7 +630,8 @@ Genki kanji 2-13",,食べ物,たべもの,,tabemono,jedzenie,,
 Genki kanji 1-5",,天気,てんき,,tenki,pogoda,,
 398,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-5
 Genki kanji 1-5",,飲み物,のみもの,,nomimono,picie,,
-399,WORD,WORD_NOUN,,HIRAGANA,Genki 1-5,,葉書,はがき,,hagaki,pocztówka,,
+399,WORD,WORD_NOUN,,HIRAGANA,Genki 1-5,,葉書,はがき,,hagaki,"pocztówka
+kartka pocztowa",,
 400,WORD,WORD_NOUN,,KATAKANA,Genki 1-5,,-,バス,,basu,autobus,,
 401,WORD,WORD_NOUN,,HIRAGANA,Genki 1-5,,飛行機,ひこうき,,hikouki,samolot,,
 402,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-5
@@ -3447,10 +3448,11 @@ jastrząb",,
 2348,WORD,WORD_NOUN,,HIRAGANA,Inne,,処女,しょじょ,,shojo,"panienka
 dziewczynka
 dziewica",,
-2349,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,処する,しょする,,sho suru,"radzić sobie
+2349,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,処する,しょする,,shosuru,"radzić sobie
 zajmować się (czymś)
 skazywać
-potępiać",,
+potępiać
+zachowywać się",,
 2350,WORD,WORD_NOUN,,HIRAGANA,Inne,,対処,たいしょ,,taisho,"stawiać czoła
 borykać się",,
 2351,WORD,WORD_NOUN,,HIRAGANA,Inne,,処刑,しょけい,,shokei,"kara
@@ -4332,3 +4334,32 @@ tekst",,
 2872,WORD,WORD_NOUN,,HIRAGANA,Inne,,人数,にんずう,,ninzuu,ilość osób,,
 2873,WORD,WORD_NOUN,,HIRAGANA,Inne,,無数,むすう,,musuu,"niezliczona liczba
 niezliczona ilość",,
+2874,WORD,WORD_VERB_U,,HIRAGANA,Inne,,回る,まわる,,mawaru,"kręcić się
+chodzić dookoła
+przechodzić
+być przekazywanym",,
+2875,WORD,WORD_VERB_U,,HIRAGANA,Inne,,回す,まわす,,mawasu,"okręcać
+nakręcać
+podawać
+przekazywać",,
+2876,WORD,UNKNOWN,,HIRAGANA,Inne,,一回,いっかい,,ikkai,jeden raz,,
+2877,WORD,WORD_NOUN,,HIRAGANA,Inne,,回数,かいすう,,kaisuu,"częstotliwość
+ilość razy",,
+2878,WORD,WORD_NOUN,,HIRAGANA,Inne,,回心,かいしん,,kaishin,nawrócenie,,
+2879,WORD,WORD_NOUN,,HIRAGANA,Inne,,回復,かいふく,,kaifuku,powrót do zdrowia,,
+2880,WORD,WORD_NOUN,,HIRAGANA,Inne,,回教,かいきょう,,kaikyou,"islam
+mahometanizm",,
+2881,WORD,WORD_NOUN,,HIRAGANA,Inne,,王国,おうこく,,oukoku,królestwo,,
+2882,WORD,WORD_NOUN,,HIRAGANA,Inne,,女王,じょおう,,joou,królowa,,
+2883,WORD,WORD_NOUN,,HIRAGANA,Inne,,王室,おうしつ,,oushitsu,"królewska rodzina
+rodzina królewska",,
+2884,WORD,WORD_NOUN,,HIRAGANA,Inne,,王政,おうせい,,ousei,"królewskie rządy
+monarchia",,
+2885,WORD,WORD_NOUN,,HIRAGANA,Inne,,王宮,おうきゅう,,oukyuu,pałac królewski,,
+2886,WORD,WORD_NOUN,,HIRAGANA,Inne,,葉末,はずえ,,hazue,koniuszek liścia,,
+2887,WORD,WORD_NOUN,,HIRAGANA,Inne,,葉緑素,ようりょくそ,,youryokuso,chlorofil,,
+2888,WORD,WORD_NOUN,,HIRAGANA,Inne,,側,かわ,,kawa,strona,,
+2889,WORD,WORD_NOUN,,HIRAGANA,Inne,,側面,そくめん,,sokumen,"strona
+bok",,
+2890,WORD,WORD_NOUN,,HIRAGANA,Inne,,反対側,はんたいがわ,,hantai gawa,przeciwna strona,,
+2891,WORD,WORD_NOUN,,HIRAGANA,Inne,,側壁,そくへき,,sokuheki,boczna ściana,,
