@@ -2360,7 +2360,9 @@ ukochana
 sympatia
 kochanek",,
 1605,WORD,WORD_NOUN,,HIRAGANA,Inne,,受付,うけつけ,,uketsuke,"recepcja
-punkt informacyjny",,
+punkt informacyjny
+portiernia
+przyjmowanie",,
 1606,WORD,WORD_NOUN,,HIRAGANA,Inne,,艦,かん,,kan,okręt wojenny,,
 1607,WORD,WORD_NOUN,,HIRAGANA,Inne,,沖縄,おきなわ,,okinawa,Okinawa,Jedna z japońskich wysp,
 1608,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ラブレター,,rabu retaa,list miłosny,,
@@ -4363,3 +4365,23 @@ monarchia",,
 bok",,
 2890,WORD,WORD_NOUN,,HIRAGANA,Inne,,反対側,はんたいがわ,,hantai gawa,przeciwna strona,,
 2891,WORD,WORD_NOUN,,HIRAGANA,Inne,,側壁,そくへき,,sokuheki,boczna ściana,,
+2892,WORD,WORD_NOUN,,HIRAGANA,Inne,,原,はら,,hara,"łąka
+pole",,
+2893,WORD,WORD_NOUN,,HIRAGANA,Inne,,原子,げんし,,genshi,atom,,
+2894,WORD,WORD_NOUN,,HIRAGANA,Inne,,原書,げんしょ,,gensho,"oryginalny tekst
+oryginalny dokument",,
+2895,WORD,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,原案,げんあん,,gen'an,"propozycja
+podstawowy plan",,
+2896,WORD,WORD_NOUN,,HIRAGANA,Inne,,原生林,げんせいりん,,genseirin,dziewiczy las,,
+2897,WORD,WORD_NOUN,,HIRAGANA,Inne,,原始人,げんしじん,,genshijin,"prymitywny człowiek
+pierwotny człowiek",,
+2898,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,受ける,うける,,ukeru,"przyjmować
+akceptować
+zdobywać",,
+2899,WORD,WORD_NOUN,,HIRAGANA,Inne,,受け身,うけみ,,ukemi,pasywność,,
+2900,WORD,WORD_NOUN,,HIRAGANA,Inne,,受信,じゅしん,,jushin,"odbiór wiadomości
+odbiór informacji
+odbiór radiowy",,
+2901,WORD,WORD_NOUN,,HIRAGANA,Inne,,受難,じゅなん,,junan,"cierpienie
+kłopoty
+pasja",,
