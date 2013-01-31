@@ -1330,7 +1330,7 @@ bardziej
 853,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,消防士,しょうぼうし,,shouboushi,strażak,,
 854,WORD,UNKNOWN,,HIRAGANA,Inne,,-,なるほど,,naruhodo,"racja
 zgadza się",,
-855,WORD,WORD_VERB_RU,,HIRAGANA,Genki dodatkowe 2-16,,助ける,たすける,,tasukeru,"pomagać
+855,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Genki dodatkowe 2-16,,助ける,たすける,,tasukeru,"pomagać
 ratować",,
 856,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,助けて,たすけて,,tasukete,pomocy,,
 857,WORD,WORD_VERB_RU,,HIRAGANA,Genki 2-16,,見せる,みせる,,miseru,pokazywać,,
@@ -2734,7 +2734,8 @@ ginekolog",,
 1892,WORD,WORD_NOUN,,HIRAGANA,Inne,,小児科,しょうにか,,shounika,pediatra,,
 1893,WORD,WORD_NOUN,,HIRAGANA,Inne,,小児科医,しょうにかい,,shounikai,pediatra,,
 1894,WORD,WORD_NOUN,,HIRAGANA,Inne,,看護婦,かんごふ,,kangofu,pielęgniarka,,
-1895,WORD,WORD_NOUN,,HIRAGANA,Inne,,助産婦,じょさんぷ,,josanpu,położna,,
+1895,WORD,WORD_NOUN,,HIRAGANA,Inne,,助産婦,じょさんぷ,,josanpu,"położna
+akuszerka",,
 1896,WORD,WORD_NOUN,,HIRAGANA,Inne,,精神科,せいしんか,,seishinka,psychiatria,,
 1897,WORD,WORD_NOUN,,HIRAGANA,Inne,,精神科医,せいしんかい,,seishinkai,psychiatra,,
 1898,WORD,WORD_NOUN,,HIRAGANA,Inne,,看護人,かんごにん,,kangonin,sanitariusz,,
@@ -3927,7 +3928,9 @@ osoba pełniąca dyżur",,
 2641,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,,お湯が沸く,おゆがわく,,oyu ga waku,woda gotuje się,,
 2642,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-18,を,壊す,こわす,o,kowasu,zepsuć,,
 2643,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,閉まる,しまる,ga,shimaru,zamykać się,,
-2644,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-18,,助かる,たすかる,,tasukaru,być uratowany,,
+2644,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,,助かる,たすかる,,tasukaru,"przetrwać
+uzyskać pomoc
+być uratowany",,
 2645,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-18,,頼む,たのむ,,tanomu,"prosić o przysługę
 prosić","prosić o przysługę
 prosić",
@@ -4385,3 +4388,25 @@ odbiór radiowy",,
 2901,WORD,WORD_NOUN,,HIRAGANA,Inne,,受難,じゅなん,,junan,"cierpienie
 kłopoty
 pasja",,
+2902,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,化ける,ばける,,bakeru,zmieniać się,w coś,
+2903,WORD,WORD_VERB_U,,HIRAGANA,Inne,,化かす,ばかす,,bakasu,"zaczarować
+oczarować",,
+2904,WORD,WORD_NOUN,,HIRAGANA,Inne,,変化,へんか,,henka,zmiana,,
+2905,WORD,WORD_NOUN,,HIRAGANA,Inne,,変化,へんげ,,henge,chochlik,,
+2906,WORD,WORD_NOUN,,HIRAGANA,Inne,,化学,かがく,,kagaku,chemia,,
+2907,WORD,WORD_NOUN,,HIRAGANA,Inne,,化け物,ばけもの,,bakemono,straszydło,,
+2908,WORD,WORD_NOUN,,HIRAGANA,Inne,,化粧品,けしょうひん,,keshouhin,artykuły kosmetyczne,,
+2909,WORD,WORD_NOUN,,HIRAGANA,Inne,,援助,えんじょ,,enjo,"pomoc
+asysta
+wsparcie",,
+2910,WORD,WORD_NOUN,,HIRAGANA,Inne,,助言,じょげん,,jogen,"rada
+sugestia",,
+2911,WORD,WORD_NOUN,,HIRAGANA,Inne,,助教授,じょきょうじゅ,,jokyouju,"asystent profesora
+adiunkt",,
+2912,WORD,WORD_NOUN,,HIRAGANA,Inne,,助祭,じょさい,,josai,diakon,,
+2913,WORD,WORD_NOUN,,HIRAGANA,Inne,,観光船,かんこうせん,,kankousen,statek turystyczny,,
+2914,WORD,WORD_NOUN,,HIRAGANA,Inne,,観念主義,かんねんしゅぎ,,kannenshugi,idealizm,,
+2915,WORD,WORD_NOUN,,HIRAGANA,Inne,,観点,かんてん,,kanten,"punkt widzenia
+opinia",,
+2916,WORD,WORD_NOUN,,HIRAGANA,Inne,,観相,かんそう,,kansou,"fizjonomia
+wygląd",,
