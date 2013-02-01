@@ -978,7 +978,9 @@ Genki kanji 1-12",,別に,べつに,,betsuni,nieszczególnie,+ czasownik w formi
 605,WORD,WORD_VERB_U,,HIRAGANA,"Genki 1-8
 Genki kanji 1-8",,言う,いう,,iu,mówić,,
 606,WORD,WORD_NOUN,,HIRAGANA,Inne,,箸置,はしおき,,hashioki,miejsce na pałeczki,,
-607,WORD,WORD_VERB_U,,HIRAGANA,Inne,,置く,おく,,oku,kłaść,,
+607,WORD,WORD_VERB_U,,HIRAGANA,Inne,,置く,おく,,oku,"kłaść
+umieszczać
+zostawiać",,
 608,WORD,WORD_NOUN,,HIRAGANA,Genki 2-14,,お皿,おさら,,osara,talerz,,
 609,WORD,WORD_VERB_U,,HIRAGANA,Inne,を,渡す,わたす,o,watasu,dawać,,
 610,WORD,WORD_NOUN,,HIRAGANA,Inne,,故郷,ふるさと,,furusato,miasto rodzinne,,
@@ -1191,7 +1193,8 @@ Genki kanji 2-15",,地下鉄,ちかてつ,,chikatetsu,metro,,
 746,WORD,WORD_NOUN,,HIRAGANA,Genki 1-10,,春,はる,,haru,wiosna,,
 747,WORD,WORD_NOUN,,KATAKANA,Genki 1-10,,-,パンツ,,pantsu,majtki,,
 748,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-10
-Genki kanji 1-11",,美容院,びよういん,,biyouin,fryzjer,damski,
+Genki kanji 1-11",,美容院,びよういん,,biyouin,"fryzjer
+salon piękności",damski,
 749,WORD,WORD_NOUN,,HIRAGANA,Genki 1-10,,便,びん,,bin,"lot
 szansa
 przesyłka
@@ -2844,7 +2847,7 @@ nalewać",,
 1960,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,初夏,しょか,,shoka,wczesne lato,,
 1961,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,魚市場,うおいちば,,uoichiba,targ rybny,,
 1962,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,人魚,にんぎょ,,ningyo,syrena,,
-1963,WORD,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,人形,にんぎょう,,ningyou,lalka,,
+1963,WORD,WORD_NOUN,,HIRAGANA,Inne,,人形,にんぎょう,,ningyou,lalka,,
 1964,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,東寺,とうじ,,touji,Toji,nazwa świątyni w Kioto,
 1965,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,広島,ひろしま,,hiroshima,Hiroszima,miasto w Japonii,
 1966,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,回転寿司,かいてんずし,,kaitenzushi,“sushi na taśmie”,,
@@ -4321,7 +4324,8 @@ notować",,
 2860,WORD,WORD_NOUN,,HIRAGANA,Inne,,記者,きしゃ,,kisha,dziennikarz,,
 2861,WORD,WORD_NOUN,,HIRAGANA,Inne,,記者会見,きしゃかいけん,,kisha kaiken,konferencja prasowa,,
 2862,WORD,WORD_NOUN,,HIRAGANA,Inne,,記事,きじ,,kiji,artykuł,,
-2863,WORD,WORD_NOUN,,HIRAGANA,Inne,,記念,きねん,,kinen,rocznica,,
+2863,WORD,WORD_NOUN,,HIRAGANA,Inne,,記念,きねん,,kinen,"rocznica
+pamiątka",,
 2864,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,試みる,こころみる,,kokoromiru,"próbować
 wypróbowywać
 sprawdzać",,
@@ -4410,3 +4414,32 @@ adiunkt",,
 opinia",,
 2916,WORD,WORD_NOUN,,HIRAGANA,Inne,,観相,かんそう,,kansou,"fizjonomia
 wygląd",,
+2917,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,念じる,ねんじる,,nenjiru,"w ciszy
+mieć na myśli",,
+2918,WORD,WORD_NOUN,,HIRAGANA,Inne,,結婚記念日,けっこんきねんび,,kekkon kinen bi,rocznica ślubu,,
+2919,WORD,WORD_NOUN,,HIRAGANA,Inne,,念仏,ねんぶつ,,nenbutsu,formuła buddyjskiej modlitwy,,
+2920,WORD,WORD_NOUN,,HIRAGANA,Inne,,信念,しんねん,,shinnen,"wiara
+przekonanie",,
+2921,WORD,WORD_NOUN,,HIRAGANA,Inne,,理念,りねん,,rinen,"idea
+ideologia
+doktryna",,
+2922,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,置ける,おける,,okeru,"pozostawiać (bez zmian)
+być nieruszonym",,
+2923,WORD,UNKNOWN,,HIRAGANA,Inne,,一日置き,いちにちおき,,ichi nichi oki,co drugi dzień,,
+2924,WORD,WORD_NOUN,,HIRAGANA,Inne,,置き場,おきば,,okiba,"schowek
+miejsce na",np. świecie,
+2925,WORD,WORD_NOUN,,HIRAGANA,Inne,,物置,ものおき,,monooki,schowek,,
+2926,WORD,WORD_NOUN,,HIRAGANA,Inne,,位置,いち,,ichi,"pozycja
+lokalizacja",,
+2927,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,遅れる,おくれる,,okureru,"być spóźniony
+zostawić z tyłu",,
+2928,WORD,WORD_VERB_U,,HIRAGANA,Inne,,遅らす,おくらす,,okurasu,"opóźniać
+odwlekać
+odkładać (na później)",,
+2929,WORD,WORD_NOUN,,HIRAGANA,Inne,,美人,びじん,,bijin,"ładna kobieta
+piękna kobieta",,
+2930,WORD,WORD_NOUN,,HIRAGANA,Inne,,美術,びじゅつ,,bijutsu,sztuka piękna,,
+2931,WORD,WORD_NOUN,,HIRAGANA,Inne,,美化,びか,,bika,upiększenie,,
+2932,WORD,WORD_NOUN,,HIRAGANA,Inne,,島民,とうみん,,toumin,ludność wyspiarska,,
+2933,WORD,WORD_NOUN,,HIRAGANA,Inne,,無人島,むじんとう,,mujintou,bezludna wyspa,,
+2934,WORD,WORD_NOUN,,HIRAGANA,Inne,,島国,しまぐに,,shimaguni,państwo wyspiarskie,,

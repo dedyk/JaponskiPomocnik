@@ -27,14 +27,14 @@
         
 	    <Button
 	        android:id="@+id/word_dictionary_search_search_button"
-	        android:layout_width="80dp"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/word_dictionary_search_search_button"
 	        android:visibility="gone" />
 
         <Button
             android:id="@+id/word_dictionary_search_options_button"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/word_dictionary_search_options_button" />        
     </LinearLayout>

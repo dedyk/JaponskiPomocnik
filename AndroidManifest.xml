@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.idedyk.android.japaneselearnhelper"
-    android:versionCode="193"
-    android:versionName="20130131" >
+    android:versionCode="194"
+    android:versionName="20130201" >
 
-    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="10" />
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="17" />
 
     <application
         android:icon="@drawable/japan"
-        android:label="@string/app_name" android:name=".JapaneseAndroidLearnHelperApplication">
+        android:label="@string/app_name" android:name=".JapaneseAndroidLearnHelperApplication"
+        android:allowBackup="true">
+        
         <activity android:name=".splash.Splash">
 
             <intent-filter>
