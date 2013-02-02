@@ -495,6 +495,8 @@ public class ConfigManager {
 		
 		private final String showTranslatePostfix = "showTranslate";
 		
+		private final String showAdditionalInfoPostfix = "showAdditionalInfo";
+		
 		private final String wordTestModePostfix = "wordTestMode";
 		
 		public Integer getRepeatNumber() {
@@ -627,6 +629,19 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(wordTestConfigPrefix + showTranslatePostfix, showTranslate);
+			
+			editor.commit();
+		}
+
+		public Boolean getShowAdditionalInfo() {
+			return preferences.getBoolean(wordTestConfigPrefix + showAdditionalInfoPostfix, true);
+		}
+
+		public void setAdditionalInfoTranslate(boolean showAdditionalInfo) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestConfigPrefix + showAdditionalInfoPostfix, showAdditionalInfo);
 			
 			editor.commit();
 		}

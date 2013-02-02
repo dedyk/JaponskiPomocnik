@@ -74,6 +74,7 @@ public class WordTest extends Activity {
 			Boolean showKanji = wordTestConfig.getShowKanji();
 			Boolean showKana = wordTestConfig.getShowKana();
 			Boolean showTranslate = wordTestConfig.getShowTranslate();
+			Boolean showAdditionalInfo = wordTestConfig.getShowAdditionalInfo();
 			
 			// context
 			EntryOrderList<DictionaryEntry> wordsTest = wordTestContext.getWordsTest();
@@ -94,6 +95,7 @@ public class WordTest extends Activity {
 			detailsSb.append("showKanji: " + showKanji).append("\n\n");
 			detailsSb.append("showKana: " + showKana).append("\n\n");
 			detailsSb.append("showTranslate: " + showTranslate).append("\n\n");
+			detailsSb.append("showAdditionalInfo: " + showAdditionalInfo).append("\n\n");
 			
 			detailsSb.append(" *** context ***\n\n");
 			
@@ -291,6 +293,26 @@ public class WordTest extends Activity {
 
 		translateLabel.setVisibility(View.VISIBLE);
 		translateInput.setVisibility(View.VISIBLE);
+		
+		// show additional info
+		TextView additionalInfoLabel = (TextView)findViewById(R.id.word_test_additional_info_label);
+		EditText additionalInfoInput = (EditText)findViewById(R.id.word_test_additional_info_input);
+		
+		String additionalInfo = dictionaryEntry.getFullInfo();
+		
+		if (additionalInfo != null) {
+			additionalInfoInput.setText(additionalInfo);
+			additionalInfoInput.setEnabled(false);
+			
+			additionalInfoLabel.setVisibility(View.VISIBLE);
+			additionalInfoInput.setVisibility(View.VISIBLE);
+		} else {
+			additionalInfoInput.setText("");
+			additionalInfoInput.setEnabled(false);
+			
+			additionalInfoLabel.setVisibility(View.GONE);
+			additionalInfoInput.setVisibility(View.GONE);			
+		}
 	}
 	
 	private int getCorrectAnswersNo(JapaneseAndroidLearnHelperContext context) {
@@ -484,7 +506,7 @@ public class WordTest extends Activity {
 
 			String additionalInfo = currentWordDictionaryEntry.getFullInfo();
 			
-			if (additionalInfo != null) {
+			if (additionalInfo != null && wordTestConfig.getShowAdditionalInfo() != null && wordTestConfig.getShowAdditionalInfo().equals(Boolean.TRUE) == true) {
 				additionalInfoInput.setText(additionalInfo);
 				additionalInfoInput.setEnabled(false);
 				
