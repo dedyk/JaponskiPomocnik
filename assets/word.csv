@@ -1214,7 +1214,7 @@ Genki kanji 2-17",,野球,やきゅう,,yakyuu,baseball,,
 761,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-10,,-,かかる,,kakaru,zajmować,"czas/pieniądze, bez partykuły",
 762,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 1-10,に,泊まる,とまる,ni,tomaru,"zatrzymywać się
 nocować",w hotelu i etc,
-763,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-10,,-,なる,,naru,stawać się,,
+763,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-10,,成る,なる,,naru,stawać się,,
 764,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-10,,払う,はらう,,harau,płacić,,
 765,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-10,,決める,きめる,,kimeru,decydować,,
 766,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-10,,練習する,れんしゅうする,,renshuu suru,ćwiczyć,praktykować,
@@ -1382,7 +1382,9 @@ narzeczony",,
 gra
 zawody",,
 887,WORD,WORD_NOUN,,KATAKANA,Genki 1-12,,-,ジュース,,juusu,sok,,
-888,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,成績,せいせき,,seiseki,ocena,na teście i etc,
+888,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,成績,せいせき,,seiseki,"ocena
+wyniki
+stopnie",na teście i etc,
 889,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,-,せき,,seki,kaszel,,
 890,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,-,のど,,nodo,gardło,,
 891,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,花,はな,,hana,kwiatek,,
@@ -4481,3 +4483,66 @@ manufaktura",,
 2952,WORD,WORD_NOUN,,KATAKANA,Inne,,-,グラウンドホッグデー,,guraundo hoggu dee,Dzień Świstaka,,
 2953,WORD,WORD_NOUN,,KATAKANA,Inne,,-,グラウンドホッグ,,guraundo hoggu,"świszcz
 świstak amerykański",,
+2954,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,付する,ふする,,fusuru,"dodawać
+przyczepiać
+dawać
+przedstawiać
+odnosić",,
+2955,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,付ける,つける,,tsukeru,"łączyć
+przyczepiać
+przyklejać
+dodawać",,
+2956,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,付く,つく,,tsuku,"łączyć się
+przyczepiać się",,
+2957,WORD,WORD_NOUN,,HIRAGANA,Inne,,付記,ふき,,fuki,"dodatkowa notatka
+dopisek",,
+2958,WORD,WORD_NOUN,,HIRAGANA,Inne,,付帯,ふたい,,futai,"drugorzędny
+dodatkowy
+przypadkowy",,
+2959,WORD,WORD_NOUN,,HIRAGANA,Inne,,付属,ふぞく,,fuzoku,"dołączony
+zaanektowany
+afiliowany
+podporządkowany",,
+2960,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,付け加える,つけくわえる,,tsukeku waeru,"dodać
+uzupełnić
+dostawić",,
+2961,WORD,WORD_NOUN,,HIRAGANA,Inne,,侍,さむらい,,samurai,"samuraj
+wojownik",,
+2962,WORD,WORD_VERB_U,,HIRAGANA,Inne,,侍る,はべる,,haberu,"służyć
+obsługiwać",,
+2963,WORD,WORD_NOUN,,HIRAGANA,Inne,,期待,きたい,,kitai,"oczekiwanie
+nadzieja
+spodziewanie się",,
+2964,WORD,WORD_NOUN,,HIRAGANA,Inne,,待望,たいぼう,,taibou,czekać,z nadzieją,
+2965,WORD,WORD_NOUN,,HIRAGANA,Inne,,待機,たいき,,taiki,czekanie na szansę,,
+2966,WORD,WORD_NOUN,,HIRAGANA,Inne,,待遇,たいぐう,,taiguu,"traktowanie
+przyjęcie
+poczęstunek
+przyjmowanie (gości)
+obsługa (hotelowa)",,
+2967,WORD,WORD_NOUN,,HIRAGANA,Inne,,船長,せんちょう,,senchou,kapitan statku,,
+2968,WORD,WORD_NOUN,,HIRAGANA,Inne,,船員,せんいん,,sen'in,"załoga
+marynarz",statku,
+2969,WORD,WORD_NOUN,,HIRAGANA,Inne,,汽船,きせん,,kisen,statek parowy,,
+2970,WORD,WORD_NOUN,,HIRAGANA,Inne,,船団,せんだん,,sendan,flota,,
+2971,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,平らげる,たいらげる,,tairageru,"opanować (trudność)
+ujarzmić (trudność)
+skonsumować (jedzenie)",,
+2972,WORD,WORD_ADVERB,,HIRAGANA,Inne,,平に,ひらに,,hira ni,"uczciwie
+pokornie",,
+2973,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,平安,へいあん,,heian,"pokój
+cisza",,
+2974,WORD,WORD_NOUN,,HIRAGANA,Inne,,平地,へいち,,heichi,"nizina
+równina",,
+2975,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,平気,へいき,,heiki,"opanowanie
+obojętność",,
+2976,WORD,WORD_NOUN,,HIRAGANA,Inne,,平均,へいきん,,heikin,przeciętny,,
+2977,WORD,WORD_VERB_U,,HIRAGANA,Inne,,成す,なす,,nasu,"robić
+wykonywać",,
+2978,WORD,WORD_NOUN,,HIRAGANA,Inne,,成長,せいちょう,,seichou,wzrost,,
+2979,WORD,WORD_NOUN,,HIRAGANA,Inne,,成人,せいじん,,seijin,"dorosły
+pełnoletni",,
+2980,WORD,WORD_NOUN,,HIRAGANA,Inne,,成熟,せいじゅく,,seijuku,dojrzałość,,
+2981,WORD,WORD_NOUN,,HIRAGANA,Inne,,成就,じょうじゅ,,jouju,"wypełnienie (np. obietnicy)
+zrealizować
+zakończenie",,
