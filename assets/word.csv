@@ -1776,7 +1776,8 @@ era",,
 Genki kanji 2-14",,父親,ちちおや,,chichioya,ojciec,formalnie,
 1175,WORD,UNKNOWN,,HIRAGANA,"Genki dodatkowe 2-14
 Genki kanji 2-14",,急に,きゅうに,,kyuuni,nagle,,
-1176,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-14,,出張,しゅっちょう,,shucchou,wyjazd biznesowy,,
+1176,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-14,,出張,しゅっちょう,,shucchou,"wyjazd biznesowy
+delegacja",,
 1177,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-14,,場合,ばあい,,baai,"powód
 sprawa",,
 1178,WORD,WORD_NOUN,,HIRAGANA,Genki 2-15,,絵,え,,e,"obraz
@@ -2311,7 +2312,8 @@ blask",,
 1569,WORD,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,金魚,きんぎょ,,kingyo,złota rybka,,
 1570,WORD,UNKNOWN,,HIRAGANA,Inne,,金魚掬い,きんぎょすくい,,kingyo sukui,tradycyjna japońska gra,polega na złapaniu przy pomocy papierowej tacki złotej rybki,
 1571,WORD,WORD_NOUN,,HIRAGANA,Inne,,鶴,つる,,tsuru,żuraw,,
-1572,WORD,WORD_VERB_RU,,HIRAGANA,Inne,を,信じる,しんじる,o,shinjiru,wierzyć,,
+1572,WORD,WORD_VERB_RU,,HIRAGANA,Inne,を,信じる,しんじる,o,shinjiru,"wierzyć
+ufać",,
 1573,WORD,WORD_NOUN,,HIRAGANA,Inne,,信頼,しんらい,,shinrai,"zaufanie
 ufność
 wiara",,
@@ -3443,7 +3445,8 @@ próżnować
 zaniedbywać",,
 2340,WORD,WORD_NOUN,,KATAKANA,Inne,,-,サンタクロース,,santa kuroosu,Święty Mikołaj,,
 2341,WORD,WORD_NOUN,,HIRAGANA,Inne,,雪だるま,ゆきだるま,,yuki daruma,bałwan,śniegowy,
-2342,WORD,UNKNOWN,,HIRAGANA,Inne,,君,きみ,,kimi,ty,używane przez dobrze znających się mężczyzn,
+2342,WORD,UNKNOWN,,HIRAGANA,Inne,,君,きみ,,kimi,"ty
+władca",używane przez dobrze znających się mężczyzn,
 2343,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,壊れる,こわれる,ga,kowareru,"uszkodzić się
 zepsuć się",,
 2344,WORD,WORD_NOUN,,KATAKANA,Inne,,-,パジャマ,,pajama,piżama,,
@@ -4443,3 +4446,38 @@ piękna kobieta",,
 2932,WORD,WORD_NOUN,,HIRAGANA,Inne,,島民,とうみん,,toumin,ludność wyspiarska,,
 2933,WORD,WORD_NOUN,,HIRAGANA,Inne,,無人島,むじんとう,,mujintou,bezludna wyspa,,
 2934,WORD,WORD_NOUN,,HIRAGANA,Inne,,島国,しまぐに,,shimaguni,państwo wyspiarskie,,
+2935,WORD,WORD_NOUN,,HIRAGANA,Inne,,信仰,しんこう,,shinkou,wiara,religijna,
+2936,WORD,WORD_NOUN,,HIRAGANA,Inne,,信用,しんよう,,shin'you,"ufność
+wiara
+poleganie na",,
+2937,WORD,WORD_NOUN,,HIRAGANA,Inne,,信号,しんごう,,shingou,"semafor
+sygnalizacja świetlna",,
+2938,WORD,WORD_VERB_U,,HIRAGANA,Inne,,背く,そむく,,somuku,"przeciwstawiać się
+być przeciwko
+buntować się",,
+2939,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,背ける,そむける,,somukeru,odwracać głowę,,
+2940,WORD,WORD_VERB_U,,HIRAGANA,Inne,,張る,はる,,haru,"rozciągać
+rozprzestrzeniać",,
+2941,WORD,WORD_NOUN,,HIRAGANA,Inne,,主張,しゅちょう,,shuchou,"nacisk
+akcentowanie
+twierdzenie
+stanowczość",,
+2942,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,張り付ける,はりつける,,haritsukeru,"nakleić
+przyczepić","np. plakat, znaczek",
+2943,WORD,WORD_NOUN,,HIRAGANA,Inne,,聴力,ちょうりょく,,chouryoku,"napięcie
+naprężenie
+siła napięcia",,
+2944,WORD,WORD_VERB_U,,HIRAGANA,Inne,,引っ張る,ひっぱる,,hipparu,"ciągnąć
+pociągnąć",,
+2945,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,産む,うむ,,umu,rodzić,,
+2946,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,産まれる,うまれる,,umareru,rodzić się,,
+2947,WORD,WORD_NOUN,,HIRAGANA,Inne,,産,うぶ,,ubu,narodziny,,
+2948,WORD,WORD_NOUN,,HIRAGANA,Inne,,出産,しゅっさん,,shussan,"poród
+rozwiązanie",,
+2949,WORD,WORD_NOUN,,HIRAGANA,Inne,,産物,さんぶつ,,sanbutsu,produkt,,
+2950,WORD,WORD_NOUN,,HIRAGANA,Inne,,生産,せいさん,,seisan,"produkcja
+manufaktura",,
+2951,WORD,WORD_NOUN,,HIRAGANA,Inne,,不動産,ふどうさん,,fudousan,nieruchomość,,
+2952,WORD,WORD_NOUN,,KATAKANA,Inne,,-,グラウンドホッグデー,,guraundo hoggu dee,Dzień Świstaka,,
+2953,WORD,WORD_NOUN,,KATAKANA,Inne,,-,グラウンドホッグ,,guraundo hoggu,"świszcz
+świstak amerykański",,
