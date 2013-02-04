@@ -21,14 +21,14 @@
             android:id="@+id/kanji_recognizer_recognize_button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:text="@string/kanji_recognizer_recognize" />
 
         <Button
             android:id="@+id/kanji_recognizer_undo_button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.9"
             android:text="@string/kanji_recognizer_undo" />
 
         <Button
