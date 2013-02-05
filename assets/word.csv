@@ -2342,7 +2342,8 @@ szczur",,
 1587,WORD,WORD_NOUN,,HIRAGANA,Inne,,教示,きょうじ,,kyouji,"instruktor
 nauczyciel",,
 1588,WORD,WORD_NOUN,,HIRAGANA,Inne,,教授,きょうじゅ,,kyouju,"profesor
-nauczyciel",,
+nauczyciel
+wykładowca",,
 1589,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ゴジラ,,gojira,Godzilla,,
 1590,WORD,WORD_NOUN,,HIRAGANA,Inne,,自殺,じさつ,,jisatsu,samobójstwo,,
 1591,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,美しい,うつくしい,,utsukushii,"piękny
@@ -4548,7 +4549,8 @@ pełnoletni",,
 zrealizować
 zakończenie",,
 2982,WORD,WORD_NOUN,,HIRAGANA,Inne,,期間,きかん,,kikan,okres czasu,,
-2983,WORD,WORD_NOUN,,HIRAGANA,Inne,,定期,ていき,,teiki,określony (ograniczony) czas,,
+2983,WORD,WORD_NOUN,,HIRAGANA,Inne,,定期,ていき,,teiki,"ustalony okres czasu
+określony (ograniczony) czas",,
 2984,WORD,WORD_NOUN,,HIRAGANA,Inne,,学期,がっき,,gakki,semestr,,
 2985,WORD,WORD_NOUN,,HIRAGANA,Inne,,期末,きまつ,,kimatsu,zakończenie okresu,,
 2986,WORD,WORD_NOUN,,HIRAGANA,Inne,,機能,きのう,,kinou,"funkcja
@@ -4595,3 +4597,37 @@ podgrzewać",,
 3013,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,温厚,おんこう,,onkou,"łagodny
 spokojny
 ciepły",,
+3014,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,授ける,さずける,,sazukeru,"dawać
+wręczać
+udzielać",,
+3015,WORD,WORD_VERB_U,,HIRAGANA,Inne,,授かる,さずかる,,sazukaru,"być obdarowanym
+otrzymywać",,
+3016,WORD,WORD_NOUN,,HIRAGANA,Inne,,授与,じゅよ,,juyo,"wręczanie
+obdarowywanie",,
+3017,WORD,WORD_NOUN,,HIRAGANA,Inne,,受賞,じゅしょう,,jushou,wręczanie nagrody,,
+3018,WORD,WORD_NOUN,,HIRAGANA,Inne,,受精,じゅせい,,jusei,"zapładnianie
+użyźnianie",,
+3019,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,関する,かんする,,kansuru,"dotyczyć
+mieć związek z",,
+3020,WORD,WORD_NOUN,,HIRAGANA,Inne,,関,せき,,seki,"bariera
+punkt kontrolny",,
+3021,WORD,WORD_NOUN,,HIRAGANA,Inne,,関心,かんしん,,kanshin,"troska
+zainteresowanie",,
+3022,WORD,WORD_NOUN,,HIRAGANA,Inne,,関連,かんれん,,kanren,"powiązanie
+połączenie
+relacja",,
+3023,WORD,WORD_NOUN,,HIRAGANA,Inne,,関税,かんぜい,,kanzei,cło,,
+3024,WORD,WORD_NOUN,,HIRAGANA,Inne,,関節,かんせつ,,kansetsu,"staw
+przegub",,
+3025,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,定まる,さだまる,,sadamaru,"być zdecydowanym
+być ustalonym",,
+3026,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,定める,さだめる,,sadameru,"decydować
+ustalać
+zakładać",,
+3027,WORD,WORD_NOUN,,HIRAGANA,Inne,,定義,ていぎ,,teigi,definicja,,
+3028,WORD,WORD_NOUN,,HIRAGANA,Inne,,定年,ていねん,,teinen,wiek emerytalny,,
+3029,WORD,WORD_NOUN,,HIRAGANA,Inne,,定休,ていきゅう,,teikyuu,"regularne wakacje
+ustalona przerwa",,
+3030,WORD,WORD_NOUN,,HIRAGANA,Inne,,定住地,ていじゅうち,,teijuuchi,miejsce stałego zamieszkania,,
+3031,WORD,WORD_NOUN,,HIRAGANA,Inne,,席,せき,,seki,"miejsce
+miejsce siedzące","np. w pociągu, w teatrze",

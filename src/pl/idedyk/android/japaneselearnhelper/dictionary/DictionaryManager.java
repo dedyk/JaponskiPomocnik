@@ -15,6 +15,7 @@ import java.util.TreeSet;
 
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.os.Environment;
 import android.util.Log;
 
 import com.csvreader.CsvReader;
@@ -151,9 +152,10 @@ public class DictionaryManager {
 			} else {
 				fakeProgress(loadWithProgress);
 			}
-
+						
 			// kopiowanie kanji recognize model do data
-			zinniaManager = new ZinniaManager(new File("/data/data/" + packageName + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE));
+			zinniaManager = new ZinniaManager(new File(Environment.getDataDirectory().getAbsolutePath() + 
+					"/data/" + packageName + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE));
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji_recognize));
 			loadWithProgress.setCurrentPos(0);
