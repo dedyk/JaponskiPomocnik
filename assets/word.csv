@@ -1119,7 +1119,7 @@ otrzymać","coś, osoba ni rzecz",
 Genki 2-18",に,出る,でる,ni,deru,pojawić się,,
 704,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,"Genki 1-9
 Genki 2-18
-Genki kanji 1-6",を,出る,でる,o,deru,wychodzić,,
+Genki kanji 1-6",を,出る,でる,o,deru,wychodzić z,,
 705,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-9,,運動する,うんどうする,,undou suru,ćwiczyć,fizyczne,
 706,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,"Genki 1-9
 Genki kanji 2-17",を,散歩する,さんぽする,o,sanpo suru,spacerować,~ o miejsce,
@@ -2053,7 +2053,7 @@ znak",,
 1370,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 1-7,,入口,いりぐち,,iriguchi,wejście,,
 1371,KANJI,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,"Genki kanji 1-7
 Genki 2-18
-Genki 2-16",,入れる,いれる,,ireru,wkładać,,
+Genki 2-16",を,入れる,いれる,o,ireru,wkładać,,
 1372,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-7,,輸入,ゆにゅう,,yunyuu,import,,
 1373,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 1-8
 Genki kanji 2-14",,店員,てんいん,,ten'in,sprzedawca,,
@@ -3384,7 +3384,7 @@ trąba",,
 2296,WORD,WORD_NOUN,,HIRAGANA,Inne,,鋭角,えいかく,,eikaku,kąt ostry,,
 2297,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,豊か,ゆたか,,yutaka,"bogaty
 zamożny",,
-2298,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,脱げる,ぬげる,,nugeru,"spadać
+2298,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,脱げる,ぬげる,ga,nugeru,"spadać
 zsuwać się",ubranie,
 2299,WORD,WORD_NOUN,,HIRAGANA,Inne,,脱衣,だつい,,datsui,rozbieranie,,
 2300,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,脱衣する,だついする,,datsui suru,rozbierać się,,
@@ -3568,9 +3568,9 @@ złość",,
 2405,WORD,WORD_NOUN,,KATAKANA,Inne,,-,オーケストラ,,ookesutora,orkiestra,,
 2406,WORD,WORD_NOUN,,HIRAGANA,Inne,,拳銃,けんじゅう,,kenjuu,"pistolet
 rewolwer",,
-2407,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,挙げる,あげる,,ageru,"podnosić
+2407,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,を,挙げる,あげる,o,ageru,"podnosić
 wznosić",,
-2408,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,挙がる,あがる,,agaru,"wznosić się
+2408,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,挙がる,あがる,ga,agaru,"wznosić się
 podnosić się",,
 2409,WORD,WORD_NOUN,,HIRAGANA,Inne,,選挙,せんきょ,,senkyo,wybory,,
 2410,WORD,WORD_NOUN,,HIRAGANA,Inne,,検挙,けんきょ,,kenkyo,"areszt
@@ -3949,16 +3949,16 @@ osoba pełniąca dyżur",,
 2641,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,,お湯が沸く,おゆがわく,,oyu ga waku,woda gotuje się,,
 2642,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-18,を,壊す,こわす,o,kowasu,zepsuć,,
 2643,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,閉まる,しまる,ga,shimaru,zamykać się,,
-2644,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,,助かる,たすかる,,tasukaru,"przetrwać
+2644,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,助かる,たすかる,ga,tasukaru,"przetrwać
 uzyskać pomoc
 być uratowany",,
 2645,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-18,,頼む,たのむ,,tanomu,"prosić o przysługę
 prosić","prosić o przysługę
 prosić",
-2646,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,,-,つく,,tsuku,włączyć się,,
+2646,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,-,つく,ga,tsuku,włączyć się,,
 2647,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-18,を,汚す,よごす,o,yogosu,pobrudzić się,,
 2648,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,落ちる,おちる,ga,ochiru,spadać,,
-2649,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,,消える,きえる,,kieru,"znikać
+2649,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,消える,きえる,ga,kieru,"znikać
 przepadać
 rozpływać się",,
 2650,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,汚れる,よごれる,ga,yogoreru,pobrudziło się,,
@@ -3985,12 +3985,12 @@ przechowywanie
 ochrona",,
 2663,WORD,WORD_ADVERB,,HIRAGANA,Inne,,存外,ぞんがい,,zongai,"ponad oczekiwanie
 wbrew oczekiwaniu",,
-2664,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,赴く,おもむく,,omomuku,"iść
+2664,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,赴く,おもむく,ga,omomuku,"iść
 postępować
 zabierać się do
 stawać się
 zdobywać",,
-2665,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,猛る,たける,,takeru,"wściekać się
+2665,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,猛る,たける,ga,takeru,"wściekać się
 unosić się",,
 2666,WORD,WORD_NOUN,,HIRAGANA,Inne,,面,おもて,,omote,"twarz
 reputacja",,
@@ -4064,10 +4064,10 @@ niewinność
 cnota
 dziewictwo (płci męskiej)
 prawiczek",,
-2707,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,費やす,ついやす,,tsuiyasu,"wydawać
+2707,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,を,費やす,ついやす,o,tsuiyasu,"wydawać
 używać
 tracić",,
-2708,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,費える,ついえる,,tsuieru,"pomniejszać się
+2708,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,費える,ついえる,ga,tsuieru,"pomniejszać się
 być marnowanym
 być zużytym",,
 2709,WORD,WORD_NOUN,,HIRAGANA,Inne,,費用,ひよう,,hiyou,"koszt
@@ -4484,8 +4484,8 @@ naprężenie
 siła napięcia",,
 2944,WORD,WORD_VERB_U,,HIRAGANA,Inne,,引っ張る,ひっぱる,,hipparu,"ciągnąć
 pociągnąć",,
-2945,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,産む,うむ,,umu,rodzić,,
-2946,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,産まれる,うまれる,,umareru,rodzić się,,
+2945,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,を,産む,うむ,o,umu,rodzić,,
+2946,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,産まれる,うまれる,ga,umareru,rodzić się,,
 2947,WORD,WORD_NOUN,,HIRAGANA,Inne,,産,うぶ,,ubu,narodziny,,
 2948,WORD,WORD_NOUN,,HIRAGANA,Inne,,出産,しゅっさん,,shussan,"poród
 rozwiązanie",,
@@ -4501,11 +4501,11 @@ przyczepiać
 dawać
 przedstawiać
 odnosić",,
-2955,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,付ける,つける,,tsukeru,"łączyć
+2955,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,を,付ける,つける,o,tsukeru,"łączyć
 przyczepiać
 przyklejać
 dodawać",,
-2956,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,付く,つく,,tsuku,"łączyć się
+2956,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,付く,つく,ga,tsuku,"łączyć się
 przyczepiać się",,
 2957,WORD,WORD_NOUN,,HIRAGANA,Inne,,付記,ふき,,fuki,"dodatkowa notatka
 dopisek",,
@@ -4588,9 +4588,9 @@ z całej mocy",,
 3000,WORD,WORD_NOUN,,HIRAGANA,Inne,,自力,じりき,,jiriki,własna siła,,
 3001,WORD,WORD_NOUN,,HIRAGANA,Inne,,力持ち,ちからもち,,chikaramochi,"siłacz
 silny człowiek",,
-3002,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,曲がる,まがる,,magaru,"skręcać się
+3002,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,曲がる,まがる,ga,magaru,"skręcać się
 zginać się",,
-3003,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,曲げる,まげる,,mageru,"zakręcać
+3003,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,を,曲げる,まげる,o,mageru,"zakręcać
 zginać",,
 3004,WORD,WORD_NOUN,,HIRAGANA,Inne,,作曲,さっきょく,,sakkyoku,"utwór muzyczny
 kompozycja",,
@@ -4630,9 +4630,9 @@ relacja",,
 3023,WORD,WORD_NOUN,,HIRAGANA,Inne,,関税,かんぜい,,kanzei,cło,,
 3024,WORD,WORD_NOUN,,HIRAGANA,Inne,,関節,かんせつ,,kansetsu,"staw
 przegub",,
-3025,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,定まる,さだまる,,sadamaru,"być zdecydowanym
+3025,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,定まる,さだまる,ga,sadamaru,"być zdecydowanym
 być ustalonym",,
-3026,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,定める,さだめる,,sadameru,"decydować
+3026,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,を,定める,さだめる,o,sadameru,"decydować
 ustalać
 zakładać",,
 3027,WORD,WORD_NOUN,,HIRAGANA,Inne,,定義,ていぎ,,teigi,definicja,,
@@ -4677,3 +4677,4 @@ zatwierdzony przez prawo",,
 3053,WORD,WORD_NOUN,,HIRAGANA,Inne,,法務省,ほうむしょう,,houmushou,ministerstwo sprawiedliwości,,
 3054,WORD,WORD_NOUN,,HIRAGANA,Inne,,方法,ほうほう,,houhou,"sposób
 metoda",,
+3055,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,出る,でる,ga,deru,wychodzić,,
