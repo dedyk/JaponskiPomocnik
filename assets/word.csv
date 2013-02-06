@@ -660,7 +660,9 @@ Genki kanji 1-7",,小さい,ちいさい,,chiisai,mały,,
 416,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-5,,-,つまらない,,tsumaranai,nudny,,
 417,WORD,WORD_ADJECTIVE_I,,HIRAGANA,"Genki 1-5
 Genki kanji 1-9",,古い,ふるい,,furui,stary,do przedmiotów,
-418,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-5,,難しい,むずかしい,,muzukashii,trudny,,
+418,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-5,,難しい,むずかしい,,muzukashii,"trudny
+problematyczny
+kłopotliwy",,
 419,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-5,,-,やさしい,,yasashii,"łatwy
 miły",problem / człowiek,
 420,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki 1-5,,嫌い,きらい,,kirai,nie lubić,,
@@ -961,7 +963,8 @@ nosić","ubranie, poniżej pasa",
 Genki kanji 2-13",,着る,きる,,kiru,"zakładać
 nosić","ubranie, powyżej pasa",
 594,WORD,WORD_VERB_RU,,HIRAGANA,"Genki 1-7
-Genki 1-11",に,勤める,つとめる,ni,tsutomeru,pracować dla,niefizycznie,
+Genki 1-11",に,勤める,つとめる,ni,tsutomeru,"pracować dla
+być zatrudnionym",niefizycznie,
 595,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 1-7,に,勤めています,つとめています,ni,tsutomete imasu,pracować dla,,
 596,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-7,,-,やせる,,yaseru,tracić na wadze,,
 597,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 1-7,,-,やせています,,yasete imasu,być chudym,,
@@ -2253,7 +2256,11 @@ lata sześćdziesiąte",,
 1517,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,書き留め,かきとめ,,kakitome,list polecony,,
 1518,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,王族,おうぞく,,ouzoku,członek rodziny królewskiej,,
 1519,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,民族,みんぞく,,minzoku,"rasa
-naród",,
+naród
+lud
+plemię
+szczep
+grupa etniczna",,
 1520,KANJI,WORD_ADJECTIVE_I,,HIRAGANA,Genki kanji 2-14,,親しい,したしい,,shitashii,poufały,,
 1521,KANJI,WORD_ADJECTIVE_NA,,HIRAGANA,Genki kanji 2-14,,大切,たいせつ,,taisetsu,ważny,,
 1522,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,英国,えいこく,,eikoku,Anglia,,
@@ -2787,6 +2794,7 @@ broda",,
 1918,WORD,WORD_ADVERB,,HIRAGANA,Inne,,再び,ふたたび,,futatabi,"znów
 znowu
 ponownie
+powtórnie
 jeszcze raz
 po raz drugi",,
 1919,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ガソリン,,gasorin,benzyna,,
@@ -2885,7 +2893,9 @@ chodzić","do szkoły, na kurs i etc",
 1983,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-15,,通学,つうがく,,tsuugaku,"uczęszczać do szkoły
 iść do szkoły",,
 1984,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-15,,通勤,つうきん,,tsuukin,"uczęszczać do szkoły
-iść do pracy",,
+iść do pracy
+dojazd do szkoły
+dojazd do pracy",,
 1985,WORD,WORD_NOUN,,HIRAGANA,Inne,,蛇,へび,,hebi,wąż,,
 1986,WORD,WORD_NOUN,,HIRAGANA,Inne,,航空母艦,こうくうぼかん,,koukuubokan,lotniskowiec,,
 1987,WORD,WORD_NOUN,,HIRAGANA,Inne,,鰐,わに,,wani,krokodyl,,
@@ -3207,7 +3217,8 @@ kosmos",,
 2187,WORD,WORD_NOUN,,KATAKANA,Inne,,-,トラクター,,torakutaa,"traktor
 ciągnik rolniczy",,
 2188,WORD,WORD_NOUN,,HIRAGANA,Inne,,結婚,けっこん,,kekkon,małżeństwo,,
-2189,WORD,WORD_NOUN,,HIRAGANA,Inne,,再婚,さいこん,,saikon,ponowne małżeństwo,,
+2189,WORD,WORD_NOUN,,HIRAGANA,Inne,,再婚,さいこん,,saikon,"ponowne małżeństwo
+drugie (powtórne) małżeństwo",,
 2190,WORD,WORD_NOUN,,HIRAGANA,Genki kanji 2-17,,離婚,りこん,,rikon,rozwód,,
 2191,WORD,WORD_NOUN,,KATAKANA,Genki 2-18,,-,タオル,,taoru,ręcznik,,
 2192,WORD,WORD_NOUN,,KATAKANA,Inne,,-,リンス,,rinsu,odżywka do włosów,,
@@ -4631,3 +4642,38 @@ ustalona przerwa",,
 3030,WORD,WORD_NOUN,,HIRAGANA,Inne,,定住地,ていじゅうち,,teijuuchi,miejsce stałego zamieszkania,,
 3031,WORD,WORD_NOUN,,HIRAGANA,Inne,,席,せき,,seki,"miejsce
 miejsce siedzące","np. w pociągu, w teatrze",
+3032,WORD,UNKNOWN,,HIRAGANA,Inne,,難い,かたい,,katai,"trudny
+ciężki",,
+3033,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,困難,こんなん,,konnan,"trudność
+kłopot",,
+3034,WORD,WORD_NOUN,,HIRAGANA,Inne,,難民,なんみん,,nanmin,"uciekinierzy
+uchodźcy",,
+3035,WORD,WORD_NOUN,,HIRAGANA,Inne,,非難,ひなん,,hinan,ostra krytyka,,
+3036,WORD,WORD_NOUN,,HIRAGANA,Inne,,難船,なんせん,,nansen,wrak statku,,
+3037,WORD,WORD_NOUN,,HIRAGANA,Inne,,難病,なんびょう,,nanbyou,nieuleczalna choroba,,
+3038,WORD,WORD_VERB_U,,HIRAGANA,Inne,,勤まる,つとまる,,tsutomaru,"pasować (na)
+mianować",,
+3039,WORD,WORD_NOUN,,HIRAGANA,Inne,,勤労,きんろう,,kinrou,praca,,
+3040,WORD,WORD_NOUN,,HIRAGANA,Inne,,勤務,きんむ,,kinmu,"obsługa
+praca (miejsce zatrudnienia)",,
+3041,WORD,WORD_NOUN,,HIRAGANA,Inne,,転勤,てんきん,,tenkin,przeniesienie,na inne stanowisko pracy,
+3042,WORD,WORD_NOUN,,HIRAGANA,Inne,,勤皇,きんのう,,kinnou,imperializm,,
+3043,WORD,WORD_NOUN,,HIRAGANA,Inne,,再編成,さいへんせい,,saihensei,reorganizacja,,
+3044,WORD,WORD_NOUN,,HIRAGANA,Inne,,再出発,さいしゅっぱつ,,saishuppatsu,"nowy początek
+nowy start
+ponowny start",,
+3045,WORD,WORD_NOUN,,HIRAGANA,Inne,,再会,さいかい,,saikai,ponowne spotkanie,,
+3046,WORD,WORD_NOUN,,HIRAGANA,Inne,,民,たみ,,tami,"lud
+naród
+poddani",,
+3047,WORD,WORD_NOUN,,HIRAGANA,Inne,,国民,こくみん,,kokumin,naród,,
+3048,WORD,WORD_NOUN,,HIRAGANA,Inne,,民主主義,みんしゅしゅぎ,,minshushugi,demokracja,,
+3049,WORD,WORD_NOUN,,HIRAGANA,Inne,,民法,みんぽう,,minpou,prawo cywilne,,
+3050,WORD,WORD_NOUN,,HIRAGANA,Inne,,民権,みんけん,,minken,"prawa cywilne
+prawa obywatelskie",,
+3051,WORD,WORD_NOUN,,HIRAGANA,Inne,,法律,ほうりつ,,houritsu,prawo,,
+3052,WORD,WORD_NOUN,,HIRAGANA,Inne,,法定,ほうてい,,houtei,"prawny
+zatwierdzony przez prawo",,
+3053,WORD,WORD_NOUN,,HIRAGANA,Inne,,法務省,ほうむしょう,,houmushou,ministerstwo sprawiedliwości,,
+3054,WORD,WORD_NOUN,,HIRAGANA,Inne,,方法,ほうほう,,houhou,"sposób
+metoda",,
