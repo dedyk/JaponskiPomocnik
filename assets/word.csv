@@ -1409,7 +1409,9 @@ ranny",,
 902,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-12,,多い,おおい,,ooi,dużo,,
 903,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-12,,狭い,せまい,,semai,"wąski
 nieprzestronny",,
-904,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,都合,つごう,,tsugou,okoliczność,,
+904,WORD,WORD_NOUN,,HIRAGANA,Genki 1-12,,都合,つごう,,tsugou,"okoliczność
+warunki
+okazja",,
 905,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-12,,都合が悪い,つごうがわるい,,tsugou ga warui,coś mi nie pasuje,w grafiku,
 906,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki 1-12,,素敵,すてき,,suteki,fantastyczny,,
 907,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-12,,風邪をひく,かぜをひく,,kaze o hiku,złapać przeziębienie,,
@@ -2921,8 +2923,10 @@ budynek biurowy",,
 1999,WORD,WORD_NOUN,,KATAKANA,Genki dodatkowe 2-15,,-,ホームレス,,hoomuresu,bezdomny,,
 2000,WORD,WORD_NOUN,,KATAKANA,Inne,,-,アルプス,,arupusu,Alpy,,
 2001,WORD,WORD_NOUN,,HIRAGANA,Inne,,お礼,おれい,,orei,podziękowanie,,
-2002,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,折れる,おれる,,oreru,"łamać
-zginać się",,
+2002,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,折れる,おれる,,oreru,"łamać się
+zginać się
+poddawać się
+ulegać",,
 2003,WORD,WORD_NOUN,,HIRAGANA,Inne,,山脈,さんみゃく,,sanmyaku,pasmo górskie,,
 2004,WORD,WORD_NOUN,,HIRAGANA,Inne,,火山,かざん,,kazan,wulkan,,
 2005,WORD,WORD_NOUN,,HIRAGANA,Inne,,猿,さる,,saru,małpa,,
@@ -3958,7 +3962,9 @@ prosić",
 2646,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,-,つく,ga,tsuku,włączyć się,,
 2647,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-18,を,汚す,よごす,o,yogosu,pobrudzić się,,
 2648,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,落ちる,おちる,ga,ochiru,spadać,,
-2649,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,消える,きえる,ga,kieru,"znikać
+2649,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,消える,きえる,ga,kieru,"wyłączyć się
+gasnąć
+znikać
 przepadać
 rozpływać się",,
 2650,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,汚れる,よごれる,ga,yogoreru,pobrudziło się,,
@@ -4678,3 +4684,24 @@ zatwierdzony przez prawo",,
 3054,WORD,WORD_NOUN,,HIRAGANA,Inne,,方法,ほうほう,,houhou,"sposób
 metoda",,
 3055,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,が,出る,でる,ga,deru,wychodzić,,
+3056,WORD,WORD_NOUN,,HIRAGANA,Inne,,招待状,しょうたいじょう,,shoutaijou,zaproszenie,pisemne,
+3057,WORD,WORD_NOUN,,HIRAGANA,Inne,,招請,しょうせい,,shousei,"zaproszenie
+wezwanie",,
+3058,WORD,WORD_NOUN,,HIRAGANA,Inne,,招集,しょうしゅう,,shoushuu,zaproszenie dla grupy ludzi,,
+3059,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,折る,おる,,oru,"łamać
+zginać
+skręcać",,
+3060,WORD,WORD_NOUN,,HIRAGANA,Inne,,骨折,こっせつ,,kossetsu,złamanie kości,,
+3061,WORD,WORD_NOUN,,HIRAGANA,Inne,,折半,せっぱん,,seppan,dzielić na połowy,,
+3062,WORD,WORD_NOUN,,HIRAGANA,Inne,,曲折,きょくせつ,,kyokusetsu,komplikacje,,
+3063,WORD,WORD_NOUN,,HIRAGANA,Inne,,眼,まなこ,,manako,oko,,
+3064,WORD,WORD_NOUN,,HIRAGANA,Inne,,眼,め,,me,oko,,
+3065,WORD,WORD_NOUN,,HIRAGANA,Inne,,近眼,きんがん,,kingan,krótkowzroczność,,
+3066,WORD,WORD_NOUN,,HIRAGANA,Inne,,眼識,がんしき,,ganshiki,"wnikliwość
+krytyczne spojrzenie",,
+3067,WORD,WORD_NOUN,,HIRAGANA,Inne,,眼界,がんかい,,gankai,pole widzenia,,
+3068,WORD,WORD_NOUN,,HIRAGANA,Inne,,都,みやこ,,miyako,"stolica
+metropolia",,
+3069,WORD,WORD_NOUN,,HIRAGANA,Inne,,首都,しゅと,,shuto,stolica,,
+3070,WORD,WORD_NOUN,,HIRAGANA,Inne,,都市,とし,,toshi,miasto,,
+3071,WORD,WORD_NOUN,,HIRAGANA,Inne,,都会,とかい,,tokai,miasto,duże,
