@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="@string/kanji_entry_search_label"
-            android:textSize="16dp" >
+            android:textSize="16sp" >
 
         </TextView>
 
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textStyle="bold"
-            android:textSize="16dp" >
+            android:textSize="16sp" >
         </TextView>
     </LinearLayout>
 
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:text="@string/kanji_entry_search_report_problem"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <RelativeLayout
@@ -71,6 +71,7 @@
 
         <Button
             android:id="@+id/kanji_entry_report_problem_button"
+            style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"

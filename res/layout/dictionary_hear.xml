@@ -38,6 +38,7 @@
 
         <Button
             android:id="@+id/dictionary_hear_start_stop_button"
+            style="@android:style/Widget.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dictionary_hear_start" />
@@ -56,6 +57,7 @@
 
         <Button
             android:id="@+id/dictionary_hear_report_problem_button"
+            style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/report_problem" />
@@ -66,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:text="@string/dictionary_hear_report_problem"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 </LinearLayout>

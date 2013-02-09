@@ -1,7 +1,10 @@
 package pl.idedyk.android.japaneselearnhelper.screen;
 
+import pl.idedyk.android.japaneselearnhelper.R;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.view.LayoutInflater;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
@@ -43,8 +46,14 @@ public class Button implements IScreenItem {
 
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		
-		button = new android.widget.Button(context);
+		LayoutInflater layoutInflater = ((Activity)context).getLayoutInflater();
 		
+		LinearLayout linearLayoutInflate = (LinearLayout)layoutInflater.inflate(R.layout.button_wrapper_layout, null);
+		
+		button = (android.widget.Button)linearLayoutInflate.getChildAt(0);
+		
+		linearLayoutInflate.removeViewAt(0);
+				
 		if (layout instanceof android.widget.TableRow) {		
 			button.setLayoutParams(new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.MATCH_PARENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT));
 			

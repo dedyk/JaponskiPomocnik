@@ -32,6 +32,7 @@
 
         <Button
             android:id="@+id/counters_report_problem_button"
+            style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/report_problem" />
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:text="@string/counters_report_problem"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 </LinearLayout>

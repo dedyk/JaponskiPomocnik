@@ -49,14 +49,14 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="@string/word_test_options_test_mode_radiogroup_input"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/word_test_options_test_mode_radiogroup_overview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/word_test_options_test_mode_radiogroup_overview"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
             </RadioGroup>
 
             <TextView
@@ -71,28 +71,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/word_test_options_show_kanji"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <CheckBox
                 android:id="@+id/word_test_options_show_kana"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/word_test_options_show_kana"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <CheckBox
                 android:id="@+id/word_test_options_show_translate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/word_test_options_show_translate"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <CheckBox
                 android:id="@+id/word_test_options_show_additional_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/word_test_options_show_additional_info"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/word_test_options_other"
@@ -106,21 +106,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/word_test_options_random"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <CheckBox
                 android:id="@+id/word_test_options_until_success"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/word_test_options_until_success"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <CheckBox
                 android:id="@+id/word_test_options_new_word_limit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/word_test_options_new_word_limit"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/word_test_options_group"
@@ -147,6 +147,7 @@
 
     <Button
         android:id="@+id/word_test_options_start"
+        style="@android:style/Widget.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/word_test_options_start" />
@@ -164,6 +165,7 @@
 
         <Button
             android:id="@+id/word_test_options_report_problem_button"
+            style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/report_problem" />
@@ -174,7 +176,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:text="@string/word_test_options_report_problem"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 </LinearLayout>

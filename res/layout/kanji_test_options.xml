@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="@string/kanji_test_options_test_mode_draw_kanji_from_meaning"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/kanji_test_options_test_mode_choose_kanji_from_meaning"
@@ -42,21 +42,21 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="@string/kanji_test_options_test_mode_choose_kanji_from_meaning"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/kanji_test_options_test_mode_draw_kanji_in_word"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/kanji_test_options_test_mode_draw_kanji_in_word"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/kanji_test_options_test_mode_choose_kanji_in_word"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/kanji_test_options_test_mode_choose_kanji_in_word"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
             </RadioGroup>
 
             <TextView
@@ -71,21 +71,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/kanji_test_options_until_success"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <CheckBox
                 android:id="@+id/kanji_test_options_until_success_new_word_limit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/kanji_test_options_until_success_new_word_limit"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <CheckBox
                 android:id="@+id/kanji_test_options_dedicate_example"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/kanji_test_options_dedicate_example"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/kanji_test_options_choose_kanji_group"
@@ -118,6 +118,7 @@
 
     <Button
         android:id="@+id/kanji_test_options_start_test"
+        style="@android:style/Widget.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/kanji_test_options_start_test" />
@@ -135,6 +136,7 @@
 
         <Button
             android:id="@+id/kanji_test_options_report_problem_button"
+            style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/report_problem" />
@@ -145,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:text="@string/kanji_test_options_report_problem"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 </LinearLayout>

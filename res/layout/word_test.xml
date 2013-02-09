@@ -41,7 +41,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:focusable="false" />
+                android:focusable="false"
+                android:textColor="@android:color/white" />
 
             <EditText
                 android:id="@+id/word_test_kanji_input"
@@ -51,7 +52,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:focusable="false" />
+                android:focusable="false"
+                android:textColor="@android:color/white" />
         </TableRow>
 
         <TableRow
@@ -78,7 +80,8 @@
                 android:ems="1"
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@android:color/white" />
 
             <EditText
                 android:id="@+id/word_test_word_input1"
@@ -87,7 +90,8 @@
                 android:layout_weight="5"
                 android:ems="10"
                 android:inputType="textNoSuggestions"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:textColor="@android:color/white" />
         </TableRow>
 
         <TableRow
@@ -116,7 +120,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
 
             <EditText
                 android:id="@+id/word_test_word_input2"
@@ -126,7 +131,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
         </TableRow>
 
         <TableRow
@@ -155,7 +161,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
 
             <EditText
                 android:id="@+id/word_test_word_input3"
@@ -165,7 +172,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
         </TableRow>
 
         <TableRow
@@ -194,7 +202,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
 
             <EditText
                 android:id="@+id/word_test_word_input4"
@@ -204,7 +213,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
         </TableRow>
 
         <TableRow
@@ -233,7 +243,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
 
             <EditText
                 android:id="@+id/word_test_word_input5"
@@ -243,7 +254,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
         </TableRow>
 
         <TableRow
@@ -272,7 +284,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
 
             <EditText
                 android:id="@+id/word_test_word_input6"
@@ -282,7 +295,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@android:color/white" />
         </TableRow>
 
         <TableRow
@@ -310,7 +324,8 @@
                 android:ems="10"
                 android:inputType="text|textMultiLine"
                 android:singleLine="false"
-                android:focusable="false" />
+                android:focusable="false"
+                android:textColor="@android:color/white" />
         </TableRow>
 
         <TableRow
@@ -338,7 +353,8 @@
                 android:ems="10"
                 android:inputType="text|textMultiLine"
                 android:singleLine="false"
-                android:focusable="false" />
+                android:focusable="false"
+                android:textColor="@android:color/white" />
         </TableRow>
 
         <TableRow
@@ -371,6 +387,7 @@
 
         <Button
             android:id="@+id/word_test_next_button"
+            style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
