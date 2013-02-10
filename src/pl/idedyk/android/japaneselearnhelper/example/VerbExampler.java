@@ -158,7 +158,7 @@ public class VerbExampler {
 		// te yokatta
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TE_YOKATTA, makeTeYokatta(dictionaryEntry, grammaFormCache));
 
-		// ba neative yokatta
+		// ba negative yokatta
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_BA_NEGATIVE_YOKATTA, makeBaNegativeYokatta(dictionaryEntry, grammaFormCache));
 		
 		return result;
@@ -938,15 +938,34 @@ public class VerbExampler {
 			
 			final String templateKanji2 = "%sちゃう";
 			final String templateKana2 = "%sちゃう";
-			final String templateRomaji2 = "%s chau";
+			final String templateRomaji2 = "%schau";
 
 			exampleResult2 = ExampleHelper.makeSimpleTemplateExampleWithKanaLastCharAndRomajiTwoCharsRemove(verbTe, templateKanji2, templateKana2, templateRomaji2, true);
+			
+			List<String> exampleResultRomajiList = exampleResult2.getRomajiList();
+			List<String> newExampleResultRomajiList = new ArrayList<String>();
+			
+			String templateRomajiToCheck = String.format(templateRomaji2, "t");
+			String templateRomajiToChange = String.format(templateRomaji2, "c");
+			
+			for (String currentExampleResultRomaji : exampleResultRomajiList) {
+				
+				if (currentExampleResultRomaji.endsWith(templateRomajiToCheck) == true) {
+					String newExampleResultRomaji = currentExampleResultRomaji.substring(0, currentExampleResultRomaji.length() - templateRomajiToCheck.length()) + templateRomajiToChange;
+					
+					newExampleResultRomajiList.add(newExampleResultRomaji);
+				} else {
+					newExampleResultRomajiList.add(currentExampleResultRomaji);
+				}
+			}
+			
+			exampleResult2.setRomajiList(newExampleResultRomajiList);
 			
 		} else if (verbTe.getKanaList().get(0).endsWith("で") == true) {
 
 			final String templateKanji2 = "%sじゃう";
 			final String templateKana2 = "%sじゃう";
-			final String templateRomaji2 = "%s jau";
+			final String templateRomaji2 = "%sjau";
 
 			exampleResult2 = ExampleHelper.makeSimpleTemplateExampleWithKanaLastCharAndRomajiTwoCharsRemove(verbTe, templateKanji2, templateKana2, templateRomaji2, true);
 			
@@ -970,15 +989,34 @@ public class VerbExampler {
 			
 			final String templateKanji2 = "%sちゃいました";
 			final String templateKana2 = "%sちゃいました";
-			final String templateRomaji2 = "%s chaimashita";
+			final String templateRomaji2 = "%schaimashita";
 
 			exampleResult4 = ExampleHelper.makeSimpleTemplateExampleWithKanaLastCharAndRomajiTwoCharsRemove(verbTe, templateKanji2, templateKana2, templateRomaji2, true);
+			
+			List<String> exampleResultRomajiList = exampleResult4.getRomajiList();
+			List<String> newExampleResultRomajiList = new ArrayList<String>();
+			
+			String templateRomajiToCheck = String.format(templateRomaji2, "t");
+			String templateRomajiToChange = String.format(templateRomaji2, "c");
+			
+			for (String currentExampleResultRomaji : exampleResultRomajiList) {
+				
+				if (currentExampleResultRomaji.endsWith(templateRomajiToCheck) == true) {
+					String newExampleResultRomaji = currentExampleResultRomaji.substring(0, currentExampleResultRomaji.length() - templateRomajiToCheck.length()) + templateRomajiToChange;
+					
+					newExampleResultRomajiList.add(newExampleResultRomaji);
+				} else {
+					newExampleResultRomajiList.add(currentExampleResultRomaji);
+				}
+			}
+			
+			exampleResult4.setRomajiList(newExampleResultRomajiList);
 			
 		} else if (verbTe.getKanaList().get(0).endsWith("で") == true) {
 
 			final String templateKanji2 = "%sじゃいました";
 			final String templateKana2 = "%sじゃいました";
-			final String templateRomaji2 = "%s jaimashita";
+			final String templateRomaji2 = "%sjaimashita";
 
 			exampleResult4 = ExampleHelper.makeSimpleTemplateExampleWithKanaLastCharAndRomajiTwoCharsRemove(verbTe, templateKanji2, templateKana2, templateRomaji2, true);
 			
