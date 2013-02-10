@@ -149,8 +149,8 @@ public class VerbExampler {
 		// to
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_TO, makeTo(dictionaryEntry, grammaFormCache));
 		
-		// nabara
-		ExampleHelper.addExample(result, ExampleGroupType.VERB_NABARA, makeNabara(dictionaryEntry, grammaFormCache));
+		// nagara
+		ExampleHelper.addExample(result, ExampleGroupType.VERB_NAGARA, makeNagara(dictionaryEntry, grammaFormCache));
 		
 		// ba yokatta
 		ExampleHelper.addExample(result, ExampleGroupType.VERB_BA_YOKATTA, makeBaYokatta(dictionaryEntry, grammaFormCache));
@@ -1038,13 +1038,13 @@ public class VerbExampler {
 		return ExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeNabara(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+	private static ExampleResult makeNagara(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
 
-		final String templateKanji = "%sなばら, ...";
-		final String templateKana = "%sなばら, ...";
-		final String templateRomaji = "%s nabara, ...";
+		final String templateKanji = "%sながら, ...";
+		final String templateKana = "%sながら, ...";
+		final String templateRomaji = "%s nagara, ...";
 		
 		return ExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
 	}
