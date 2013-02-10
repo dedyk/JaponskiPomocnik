@@ -1087,7 +1087,9 @@ Genki kanji 1-9",,最後に,さいごに,,saigoni,ostatni,,
 678,WORD,WORD_NOUN,,HIRAGANA,Genki 1-9,,温泉,おんせん,,onsen,gorące źródło,,
 679,WORD,WORD_NOUN,,HIRAGANA,Genki 1-9,,-,かぶき,,kabuki,Kabuki,tradycyjny Japoński teatr,
 680,WORD,WORD_NOUN,,KATAKANA,Genki 1-9,,-,ギター,,gitaa,gitara,,
-681,WORD,WORD_NOUN,,HIRAGANA,Genki 1-9,,薬,くすり,,kusuri,lekarstwo,,
+681,WORD,WORD_NOUN,,HIRAGANA,Genki 1-9,,薬,くすり,,kusuri,"lekarstwo
+chemikalia
+proch",,
 682,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-9,,薬を飲む,くすりをのむ,,kusuri o nomu,brać lekarstwo,,
 683,WORD,WORD_NOUN,,KATAKANA,Genki 1-9,,-,コンセート,,konseeto,koncert,,
 684,WORD,UNKNOWN,,HIRAGANA,"Genki 1-9
@@ -2233,7 +2235,8 @@ gotowany ryż",,
 1496,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-13,,肉屋,にくや,,nikuya,sklep mięsny,,
 1497,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-13,,最悪,さいあく,,saiaku,najgorszy,,
 1498,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-13,,悪魔,あくま,,akuma,diabeł,,
-1499,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-13,,体重,たいじゅう,,taijuu,ciężar ciała,,
+1499,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-13,,体重,たいじゅう,,taijuu,"ciężar ciała
+waga (ciała)",,
 1500,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-13,,体操,たいそう,,taisou,gimnastyka,,
 1501,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-13
 Genki dodatkowe 2-16",,空,そら,,sora,niebo,,
@@ -2365,7 +2368,8 @@ wykładowca",,
 1593,WORD,WORD_NOUN,,KATAKANA,Inne,,-,カタツムリ,,katatsumuri,ślimak,,
 1594,WORD,WORD_NOUN,,HIRAGANA,Inne,,血液,けつえき,,ketsueki,krew,,
 1595,WORD,WORD_NOUN,,HIRAGANA,Inne,,血液型,けつえきがた,,ketsueki gata,grupa krwi,,
-1596,WORD,UNKNOWN,,HIRAGANA,Inne,,献血,けんけつ,,kenketsu,krwiodawstwo,,
+1596,WORD,UNKNOWN,,HIRAGANA,Inne,,献血,けんけつ,,kenketsu,"krwiodawstwo
+oddawanie krwi",,
 1597,WORD,WORD_NOUN,,HIRAGANA,Inne,,心,こころ,,kokoro,"serce
 dusza
 duch",,
@@ -3213,7 +3217,8 @@ wieś",dawniejsze użycie,
 2175,WORD,WORD_NOUN,,HIRAGANA,Inne,,忘年会,ぼうねんかい,,bounenkai,przyjęcie na zakończenie roku,,
 2176,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ビザ,,biza,wiza,,
 2177,WORD,WORD_NOUN,,HIRAGANA,Genki 1-7,,塾,じゅく,,juku,szkoła korepetycyjna,,
-2178,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,重要,じゅうよう,,juuyou,ważny,,
+2178,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,重要,じゅうよう,,juuyou,"ważny
+poważny",,
 2179,WORD,WORD_NOUN,,HIRAGANA,Inne,,茸,きのこ,,kinoko,"grzyb
 grzyby",,
 2180,WORD,WORD_NOUN,,HIRAGANA,Inne,,茸雲,きのこぐも,,kinoko gumo,grzyb atomowy,,
@@ -4770,3 +4775,34 @@ ostatni okres",,
 zabieg chirurgiczny",,
 3109,WORD,WORD_NOUN,,HIRAGANA,Inne,,魔術,まじゅつ,,majutsu,magia,,
 3110,WORD,WORD_NOUN,,HIRAGANA,Inne,,術語,じゅつご,,jutsugo,termin techniczny,,
+3111,WORD,WORD_NOUN,,HIRAGANA,Inne,,毛皮,けがわ,,kegawa,"futro
+skóra",,
+3112,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,髪の毛,かみのけ,,kami no ke,włosy,na głowie,
+3113,WORD,WORD_NOUN,,HIRAGANA,Inne,,毛生え薬,けはえぐすり,,kehae gusuri,lekarstwo na porost włosów,,
+3114,WORD,WORD_NOUN,,HIRAGANA,Inne,,毛根,もうこん,,moukon,cebulka,włosa,
+3115,WORD,WORD_NOUN,,HIRAGANA,Inne,,毛筆,もうひつ,,mouhitsu,pędzelek,,
+3116,WORD,WORD_NOUN,,HIRAGANA,Inne,,血管,けっかん,,kekkan,żyła,,
+3117,WORD,WORD_NOUN,,HIRAGANA,Inne,,内出血,ないしゅっけつ,,naishukketsu,wewnętrzny wylew krwi,,
+3118,WORD,WORD_NOUN,,HIRAGANA,Inne,,流血,りゅうけつ,,ryuuketsu,"upływ krwi
+krwawienie
+krwotok",,
+3119,WORD,WORD_NOUN,,HIRAGANA,Inne,,岩窟,がんくつ,,gankutsu,jaskinia,,
+3120,WORD,WORD_NOUN,,HIRAGANA,Inne,,薬学,やくがく,,yakugaku,farmakologia,,
+3121,WORD,WORD_NOUN,,HIRAGANA,Inne,,薬品,やくひん,,yakuhin,"lekarstwa
+chemikalia",,
+3122,WORD,WORD_NOUN,,HIRAGANA,Inne,,薬草,やくそう,,yakusou,"zioła
+rośliny z własnościami leczniczymi",,
+3123,WORD,WORD_NOUN,,HIRAGANA,Inne,,薬指,くすりゆび,,kusuriyubi,palec serdeczny,,
+3124,WORD,WORD_NOUN,,HIRAGANA,Inne,,麻薬,まやく,,mayaku,narkotyk,,
+3125,WORD,WORD_NOUN,,HIRAGANA,Inne,,衣,ころも,,koromo,ubranie,,
+3126,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,重ねる,かさねる,,kasaneru,"nakładać
+powtarzać
+kłaść (jedno na drugie)",,
+3127,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,重なる,かさなる,,kasanaru,"nakładać się
+powtarzać się
+leżeć (jedno na drugie)",,
+3128,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,重たい,おもたい,,omotai,ciężki,,
+3129,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,重大,じゅうだい,,juudai,"ważny
+poważny",,
+3130,WORD,WORD_NOUN,,HIRAGANA,Inne,,重力,じゅうりょく,,juuryoku,"siła ciężkości
+grawitacja",,
