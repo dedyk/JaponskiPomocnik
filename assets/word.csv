@@ -957,7 +957,8 @@ Genki kanji 1-10",に,住む,すむ,ni,sumu,"mieszkać
 588,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 1-7,に,住んでいます,すんでいます,ni,sunde imasu,mieszkać,,
 589,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-7,,-,はく,,haku,"zakładać
 nosić","ubranie, poniżej pasa",
-590,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-7,,太る,ふとる,,futoru,zyskiwać na wadze,,
+590,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-7,,太る,ふとる,,futoru,"zyskiwać na wadze
+grubieć",,
 591,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 1-7,,太っています,ふとっています,,futotte imasu,być grubym,,
 592,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-7,,-,めがねをかける,,megane o kakeru,zakładać okulary,,
 593,WORD,WORD_VERB_RU,,HIRAGANA,"Genki 1-7
@@ -3796,7 +3797,10 @@ wulgaryzm",,
 2539,WORD,WORD_NOUN,,HIRAGANA,Inne,,お品書き,おしながき,,oshinagaki,"spis produktów
 katalog
 menu",,
-2540,WORD,WORD_NOUN,,HIRAGANA,Inne,,黒字,くろじ,,kuroji,nadwyżka,przeciwieństwo deficytu,
+2540,WORD,WORD_NOUN,,HIRAGANA,Inne,,黒字,くろじ,,kuroji,"nadwyżka
+zysk
+dochód
+czarne litery",przeciwieństwo deficytu,
 2541,WORD,WORD_NOUN,,HIRAGANA,Inne,,人生,じんせい,,jinsei,życie,ludzkie,
 2542,WORD,WORD_NOUN,,HIRAGANA,Inne,,生命,せいめい,,seimei,"życie
 istnienie",,
@@ -4104,7 +4108,8 @@ wydatek",,
 2715,WORD,WORD_NOUN,,KATAKANA,Inne,,-,モスク,,mosuku,meczet,,
 2716,WORD,WORD_NOUN,,KATAKANA,Inne,,-,モスクワ,,mosukuwa,Moskwa,,
 2717,WORD,WORD_NOUN,,HIRAGANA,Inne,,様式,ようしき,,youshiki,"styl
-forma",,
+forma
+tryb",,
 2718,WORD,WORD_NOUN,,HIRAGANA,Inne,,様子,ようす,,yousu,"sytuacja
 aspekt",,
 2719,WORD,WORD_NOUN,,HIRAGANA,Inne,,同様,どうよう,,douyou,"identyczny
@@ -4806,3 +4811,29 @@ leżeć (jedno na drugie)",,
 poważny",,
 3130,WORD,WORD_NOUN,,HIRAGANA,Inne,,重力,じゅうりょく,,juuryoku,"siła ciężkości
 grawitacja",,
+3131,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,後悔する,こうかいする,,koukai suru,żałować,,
+3132,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ランプ,,ranpu,światełko,,
+3133,WORD,WORD_NOUN,,KATAKANA,Inne,,-,スクリーン,,sukuriin,ekran,,
+3134,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ユーザー,,yuuzaa,użytkownik,,
+3135,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,太い,ふとい,,futoi,"gruby
+duży",,
+3136,WORD,WORD_NOUN,,HIRAGANA,Inne,,太鼓,たいこ,,taiko,bęben,,
+3137,WORD,WORD_NOUN,,HIRAGANA,Inne,,太陽,たいよう,,taiyou,słońce,,
+3138,WORD,WORD_NOUN,,HIRAGANA,Inne,,太平洋,たいへいよう,,taiheiyou,"Ocena Spokojny
+Pacyfik",,
+3139,WORD,WORD_NOUN,,HIRAGANA,Inne,,太子,たいし,,taishi,koronowany książę,,
+3140,WORD,WORD_NOUN,,HIRAGANA,Inne,,黒人,こくじん,,kokujin,"Murzyn
+czarny człowiek",,
+3141,WORD,WORD_NOUN,,HIRAGANA,Inne,,黒表,こくひょう,,kokuhyou,czarna lista,,
+3142,WORD,WORD_NOUN,,HIRAGANA,Inne,,黒白,くろしろ,,kuroshiro,czarno-biały,,
+3143,WORD,WORD_NOUN,,HIRAGANA,Inne,,粉,こな,,kona,mąka,,
+3144,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,正式,せいしき,,seishiki,"formalny
+oficjalny",,
+3145,WORD,WORD_NOUN,,HIRAGANA,Inne,,公式,こうしき,,koushiki,"formuła (matematyczna)
+oficjalnie
+formalnie",,
+3146,WORD,WORD_NOUN,,HIRAGANA,Inne,,方式,ほうしき,,houshiki,"formuła
+tryb
+sposób
+metoda
+system",,
