@@ -464,7 +464,8 @@ Genki kanji 2-15",,お寺,おてら,,otera,świątynia,buddyjska,
 Genki dodatkowe 1-11
 Genki kanji 1-7
 Genki kanji 1-12",,神社,じんじゃ,,jinja,świątynia,shintoistyczna,
-289,WORD,WORD_NOUN,,HIRAGANA,Genki 1-4,,公園,こうえん,,kouen,park,publiczny,
+289,WORD,WORD_NOUN,,HIRAGANA,Genki 1-4,,公園,こうえん,,kouen,"park
+ogród",publiczny,
 290,WORD,WORD_NOUN,,KATAKANA,Genki 1-4,,-,スーパー,,suupaa,supermarket,,
 291,WORD,WORD_NOUN,,KATAKANA,Genki 1-4,,-,デパート,,depaato,dom handlowy,,
 292,WORD,WORD_NOUN,,HIRAGANA_KATAKANA,Genki 1-4,,バス停,バスてい,,basutei,przystanek autobusowy,,
@@ -1312,7 +1313,8 @@ zdać do następnej klasy",,
 Genki kanji 1-12",,働く,はたらく,,hataraku,pracować,,
 830,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-11,,仕事をする,しごとをする,,shigoto o suru,pracować,,
 831,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-11,,疲れる,つかれる,,tsukareru,"być zmęczony
-zmęczyć się",,
+zmęczyć się
+znużyć się",,
 832,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-11,,-,やめる,,yameru,rezygnować,,
 833,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-11,,-,けんかする,,kenka suru,pokłócić się,,
 834,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-11,を,紹介する,しょうかいする,o,shoukai suru,przedstawiać,"kogoś ni kto ~, hiragana i katakana",
@@ -4837,3 +4839,35 @@ tryb
 sposób
 metoda
 system",,
+3147,WORD,WORD_NOUN,,HIRAGANA,Inne,,公,おおやけ,,ooyake,"publiczny
+oficjalny",,
+3148,WORD,WORD_NOUN,,HIRAGANA,Inne,,公衆,こうしゅう,,koushuu,publiczny,np. telefon,
+3149,WORD,WORD_NOUN,,HIRAGANA,Inne,,公海,こうかい,,koukai,wody międzynarodowe,,
+3150,WORD,WORD_NOUN,,HIRAGANA,Inne,,公会議,こうかいぎ,,koukaigi,sobór,,
+3151,WORD,WORD_VERB_U,,HIRAGANA,Inne,,指す,さす,,sasu,wskazywać,,
+3152,WORD,WORD_NOUN,,HIRAGANA,Inne,,指導,しどう,,shidou,"przewodnictwo
+kierownictwo
+instruktaż",,
+3153,WORD,WORD_NOUN,,HIRAGANA,Inne,,指導者,しどうしゃ,,shidousha,"przywódca
+lider
+wódz
+instruktor",,
+3154,WORD,WORD_NOUN,,HIRAGANA,Inne,,指名,しめい,,shimei,"wyznaczyć
+nominować",,
+3155,WORD,WORD_NOUN,,HIRAGANA,Inne,,指定席,していせき,,shiteiseki,miejsce zarezerwowane,,
+3156,WORD,WORD_NOUN,,HIRAGANA,Inne,,指図,さしず,,sashizu,"wskazówki
+podawanie kierunku",,
+3157,WORD,WORD_VERB_U,,HIRAGANA,Inne,,疲らす,つからす,,tsukarasu,"męczyć się
+nużyć się",,
+3158,WORD,WORD_NOUN,,HIRAGANA,Inne,,図,ず,,zu,"rysunek
+plan
+diagram
+ilustracja",,
+3159,WORD,WORD_VERB_U,,HIRAGANA,Inne,,図る,はかる,,hakaru,mierzyć,,
+3160,WORD,WORD_NOUN,,HIRAGANA,Inne,,合図,あいず,,aizu,"sygnał
+znak
+gest",,
+3161,WORD,WORD_NOUN,,HIRAGANA,Inne,,図式,ずしき,,zushiki,"diagram
+wykres",,
+3162,WORD,WORD_NOUN,,HIRAGANA,Inne,,意図,いと,,ito,"intencja
+motywacja",,
