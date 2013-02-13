@@ -756,7 +756,9 @@ miło spędzać czas",,
 471,WORD,WORD_VERB_U,,HIRAGANA,"Genki 1-6
 Genki kanji 2-14",,急ぐ,いそぐ,,isogu,spieszyć się,,
 472,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-6,,お風呂に入る,おふろにはいる,,ofuro ni hairu,brać kąpiel,,
-473,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-6,を,返す,かえす,o,kaesu,zwrócić,osoba ni rzecz,
+473,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-6,を,返す,かえす,o,kaesu,"zwrócić
+zwracać
+oddawać",osoba ni rzecz,
 474,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,"Genki 1-6
 Genki 2-18",を,消す,けす,o,kesu,"wyłączyć
 skasować",,
@@ -1615,7 +1617,10 @@ zwłaszcza",,
 1039,WORD,WORD_VERB_IRREGULAR,,KATAKANA_HIRAGANA,Genki dodatkowe 2-13,,-,ニヤニヤする,,niyaniya suru,szczerzyć się,,
 1040,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,"Genki dodatkowe 2-13
 Genki kanji 2-13",,不安,ふあん,,fuan,"niespokojny
-zaniepokojony",,
+zaniepokojony
+obawa
+lęk
+niepokój",,
 1041,WORD,WORD_ADJECTIVE_I,,HIRAGANA,"Genki dodatkowe 2-13
 Genki kanji 2-13
 Genki 2-18",,気分が悪い,きぷんがわるい,,kipun ga warui,"czuć się źle
@@ -4493,7 +4498,8 @@ piękna kobieta",,
 wiara
 poleganie na",,
 2937,WORD,WORD_NOUN,,HIRAGANA,Inne,,信号,しんごう,,shingou,"semafor
-sygnalizacja świetlna",,
+sygnalizacja świetlna
+sygnał",,
 2938,WORD,WORD_VERB_U,,HIRAGANA,Inne,,背く,そむく,,somuku,"przeciwstawiać się
 być przeciwko
 buntować się",,
@@ -4871,3 +4877,37 @@ gest",,
 wykres",,
 3162,WORD,WORD_NOUN,,HIRAGANA,Inne,,意図,いと,,ito,"intencja
 motywacja",,
+3163,WORD,WORD_NOUN,,HIRAGANA,Inne,,自信,じしん,,jishin,pewność siebie,,
+3164,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,不公平,ふこうへい,,fukouhei,niesprawiedliwość,,
+3165,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,不自由,ふじゆう,,fujiyuu,"nieswobodny
+krępujący
+niesprawność
+inwalidztwo",,
+3166,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,不自然,ふしぜん,,fushizen,nienaturalny,,
+3167,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,不法,ふほう,,fuhou,"nielegalny
+bezprawny
+niedozwolony",,
+3168,WORD,WORD_NOUN,,HIRAGANA,Inne,,号室,ごうしつ,,goushitsu,~ pokój nr.,postfiks dla numeru pokoju,
+3169,WORD,WORD_NOUN,,HIRAGANA,Inne,,号外,ごうがい,,gougai,dodatek,do gazety,
+3170,WORD,WORD_NOUN,,HIRAGANA,Inne,,号令,ごうれい,,gourei,"rozkaz
+nakaz",,
+3171,WORD,WORD_VERB_U,,HIRAGANA,Inne,,返る,かえる,,kaeru,wracać,,
+3172,WORD,WORD_NOUN,,HIRAGANA,Inne,,返信,へんしん,,henshin,"odpowiedź
+odpis",,
+3173,WORD,WORD_NOUN,,HIRAGANA,Inne,,返金,へんきん,,henkin,spłata,,
+3174,WORD,WORD_NOUN,,HIRAGANA,Inne,,返済,へんさい,,hensai,"opłata
+wykop
+spłata",,
+3175,WORD,WORD_NOUN,,HIRAGANA,Inne,,返送,へんそう,,hensou,zwrot,,
+3176,WORD,WORD_VERB_U,,HIRAGANA,Inne,,組む,くむ,,kumu,"splatać
+składać
+konstruować",,
+3177,WORD,WORD_NOUN,,HIRAGANA,Inne,,組み立て,くみたて,,kumitate,"konstrukcja
+montaż
+składanie",,
+3178,WORD,WORD_NOUN,,HIRAGANA,Inne,,組成,そせい,,sosei,"kompozycja
+formacja
+konstrukcja",,
+3179,WORD,WORD_NOUN,,HIRAGANA,Inne,,労働組合,ろうどうくみあい,,roudou kumiai,związki zawodowe,,
+3180,WORD,WORD_NOUN,,HIRAGANA,Inne,,組閣,そかく,,sokaku,"tworzenie gabinetu (rządu)
+formowanie gabinetu (rządu)",,
