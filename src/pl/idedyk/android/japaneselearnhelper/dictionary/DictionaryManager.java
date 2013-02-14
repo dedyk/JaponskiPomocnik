@@ -56,9 +56,13 @@ public class DictionaryManager {
 	private List<RadicalInfo> radicalList = null;
 	
 	private KanaHelper kanaHelper;
+	
+	private KeigoHelper keigoHeper;
 
 	public DictionaryManager(SQLiteConnector sqliteConnector) {
 		this.sqliteConnector = sqliteConnector;
+		
+		keigoHeper = new KeigoHelper();
 	}
 
 	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName) {
@@ -367,53 +371,6 @@ public class DictionaryManager {
 		return findWordResult;
 	}
 
-	public boolean matchWord(DictionaryEntry dictionaryEntry, String word) {
-
-		String fullKanji = dictionaryEntry.getFullKanji();
-
-		if (fullKanji != null && fullKanji.contains(word) == true) {
-			return true;
-		}
-
-		List<String> fullKanaList = dictionaryEntry.getFullKanaList();
-
-		for (String currentFullKanaList : fullKanaList) {
-
-			if (currentFullKanaList.toLowerCase().contains(word) == true) {
-				return true;
-			}
-		}
-
-		String wordLowerCase = word.toLowerCase();
-
-		List<String> romajiList = dictionaryEntry.getRomajiList();
-
-		for (String currentRomaji : romajiList) {
-			if (currentRomaji.toLowerCase().contains(wordLowerCase) == true) {
-				return true;
-			}
-		}
-
-		List<String> translates = dictionaryEntry.getTranslates();
-
-
-		for (String currentTranslate : translates) {
-			if (currentTranslate.toLowerCase().contains(wordLowerCase) == true) {
-				return true;
-			}
-		}
-
-		String info = dictionaryEntry.getInfo();
-
-		if (info != null) {
-			if (info.toLowerCase().contains(wordLowerCase) == true) {
-				return true;
-			}			
-		}
-
-		return false;
-	}
-
 	public void countForm(ILoadWithProgress loadWithProgress, Resources resources) throws DictionaryException {
 
 		int counter = 1;
@@ -438,7 +395,7 @@ public class DictionaryManager {
 						new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
 				
 				List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = 
-						GrammaConjugaterManager.getGrammaConjufateResult(nthDictionaryEntry, grammaFormCache);
+						GrammaConjugaterManager.getGrammaConjufateResult(this, nthDictionaryEntry, grammaFormCache);
 
 				if (grammaConjufateResult != null) {
 					for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : grammaConjufateResult) {
@@ -1156,6 +1113,10 @@ public class DictionaryManager {
 
 	public KanaHelper getKanaHelper() {
 		return kanaHelper;
+	}
+	
+	public KeigoHelper getKeigoHelper() {
+		return keigoHeper;
 	}
 
 	@Override

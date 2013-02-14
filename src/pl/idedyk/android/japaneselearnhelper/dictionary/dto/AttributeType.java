@@ -7,7 +7,9 @@ public enum AttributeType {
 	
 	VERB_TRANSITIVITY("czasownik przechodni"),
 	
-	VERB_INTRANSITIVITY("czasownik nieprzechodni");
+	VERB_INTRANSITIVITY("czasownik nieprzechodni"),
+	
+	VERB_KEIGO_HIGH("czasownik honoryfikatywny (wywyższająca)");
 	
 	private String name;
 	

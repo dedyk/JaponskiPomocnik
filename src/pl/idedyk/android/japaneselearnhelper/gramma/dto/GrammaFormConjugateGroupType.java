@@ -31,7 +31,9 @@ public enum GrammaFormConjugateGroupType {
 	
 	VERB_VOLITIONAL("Forma wolicjonalna"),
 	
-	VERB_BA("Forma ba");
+	VERB_BA("Forma ba"),
+	
+	VERB_KEIGO("Forma honoryfikatywna");
 	
 	private String name;
 	

@@ -534,7 +534,7 @@ public class WordDictionaryDetails extends Activity {
 		
 		// Conjugater
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = 
-				GrammaConjugaterManager.getGrammaConjufateResult(dictionaryEntry, grammaCache);
+				GrammaConjugaterManager.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
 		
 		if (grammaFormConjugateGroupTypeElementsList != null) {
 			report.add(new StringValue("", 15.0f, 2));

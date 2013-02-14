@@ -5,12 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
+import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper.KeigoEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupType;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
+import pl.idedyk.android.japaneselearnhelper.grammaexample.GrammaExampleHelper;
 
 public class VerbGrammaConjugater {
 	
@@ -155,7 +160,7 @@ public class VerbGrammaConjugater {
 		lastRomajiCharsMapperToCharForVolitionalForm.put("bu", "bou");
 	}
 
-	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 
 		List<GrammaFormConjugateGroupTypeElements> result = new ArrayList<GrammaFormConjugateGroupTypeElements>();
 
@@ -262,6 +267,21 @@ public class VerbGrammaConjugater {
 		baForm.getGrammaFormConjugateResults().add(makeBaNegativeForm(dictionaryEntry));
 		
 		result.add(baForm);
+		
+		// forma honoryfikatywna
+		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
+		
+		GrammaFormConjugateGroupTypeElements keigoForm = new GrammaFormConjugateGroupTypeElements();
+		
+		keigoForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_KEIGO);
+		
+		if (attributeList.contains(AttributeType.VERB_KEIGO_HIGH) == false) {
+			keigoForm.getGrammaFormConjugateResults().add(makeKeigoHighForm(dictionaryManager, dictionaryEntry));
+		}
+		
+		if (keigoForm.getGrammaFormConjugateResults().size() > 0) {
+			result.add(keigoForm);
+		}			
 		
 		// caching
 		for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : result) {
@@ -1646,5 +1666,79 @@ public class VerbGrammaConjugater {
 
 		return result;
 	}
-
+	
+	private static GrammaFormConjugateResult makeKeigoHighForm(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry) {
+		
+		KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();		
+		List<KeigoEntry> keigoHighEntryList = keigoHelper.getKeigoHighEntryList();
+		
+		KeigoEntry keigoEntry = findKeigoHightEntry(dictionaryEntry, keigoHighEntryList);
+		
+		GrammaFormConjugateResult result = null;
+		
+		if (keigoEntry == null) {
+			GrammaFormConjugateResult stemForm = makeStemForm(dictionaryEntry);
+			
+			String templateKanji = "お%sになる";
+			String templateKana = "お%sになる";
+			String templateRomaji = "o%s ni naru";
+			
+			result = GrammaExampleHelper.makeSimpleTemplateGrammaFormConjugateResult(stemForm, templateKanji, templateKana, templateRomaji);
+		} else {
+			
+			// TODO dokonczyc
+			
+			result = new GrammaFormConjugateResult();
+		}
+				
+		result.setResultType(GrammaFormConjugateResultType.VERB_KEIGO_HIGH);
+		
+		return result;
+	}
+	
+	private static KeigoEntry findKeigoHightEntry(DictionaryEntry dictionaryEntry, List<KeigoEntry> keigoHighEntryList) {
+		
+		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+		
+		String kanji = dictionaryEntry.getKanji();
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+		
+		for (KeigoEntry keigoEntry : keigoHighEntryList) {
+			
+			DictionaryEntryType keigoEntryDictionaryEntryType = keigoEntry.getDictionaryEntryType();
+			
+			String keigoEntryKanji = keigoEntry.getKanji();
+			String keigoEntryKana = keigoEntry.getKana();
+			String keigoEntryRomaji = keigoEntry.getRomaji();
+			
+			for (int idx = 0; idx < kanaList.size(); ++idx) {
+				
+				if (	dictionaryEntryType == keigoEntryDictionaryEntryType &&
+						stringEndWith(kanji, keigoEntryKanji) == true &&
+						stringEndWith(kanaList.get(idx), keigoEntryKana) == true &&
+						stringEndWith(romajiList.get(idx), keigoEntryRomaji) == true) {
+					
+					return keigoEntry;
+				}
+			}			
+		}
+		
+		return null;		
+	}
+	
+	private static boolean stringEndWith(String string1, String string2) {
+		
+		if (string1 == null && string2 == null) {
+			return true;
+		} else if (string1 != null && string2 == null) {
+			return false;
+		} else if (string1 == null && string2 != null) {
+			return false;
+		} else {
+			
+			return string1.endsWith(string2);
+		}
+	}
 }
