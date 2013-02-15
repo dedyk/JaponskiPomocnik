@@ -1685,10 +1685,45 @@ public class VerbGrammaConjugater {
 			
 			result = GrammaExampleHelper.makeSimpleTemplateGrammaFormConjugateResult(stemForm, templateKanji, templateKana, templateRomaji);
 		} else {
-			
-			// TODO dokonczyc
-			
+						
 			result = new GrammaFormConjugateResult();
+			
+			String prefixKana = dictionaryEntry.getPrefixKana();		
+			String prefixRomaji = dictionaryEntry.getPrefixRomaji();
+			
+			String kanji = dictionaryEntry.getKanji();
+			
+			List<String> kanaList = dictionaryEntry.getKanaList();
+			
+			List<String> romajiList = dictionaryEntry.getRomajiList();
+			
+			result.setPrefixKana(prefixKana);
+			result.setPrefixRomaji(prefixRomaji);
+			
+			if (kanji != null) {
+				
+				if (keigoEntry.getKanji() != null && keigoEntry.getKeigoKanji() != null) {
+					result.setKanji(replaceEndWith(kanji, keigoEntry.getKanji(), keigoEntry.getKeigoKanji()));
+				} else {
+					result.setKanji(replaceEndWith(kanji, keigoEntry.getKana(), keigoEntry.getKeigoKana()));
+				}
+			}
+
+			List<String> kanaListResult = new ArrayList<String>();
+
+			for (String currentKana : kanaList) {			
+				kanaListResult.add(replaceEndWith(currentKana, keigoEntry.getKana(), keigoEntry.getKeigoKana()));
+			}
+
+			result.setKanaList(kanaListResult);
+
+			List<String> romajiListResult = new ArrayList<String>();
+
+			for (String currentRomaji : romajiList) {
+				romajiListResult.add(replaceEndWith(currentRomaji, keigoEntry.getRomaji(), keigoEntry.getKeigoRomaji()));
+			}
+
+			result.setRomajiList(romajiListResult);			
 		}
 				
 		result.setResultType(GrammaFormConjugateResultType.VERB_KEIGO_HIGH);
@@ -1728,16 +1763,19 @@ public class VerbGrammaConjugater {
 		return null;		
 	}
 	
+	private static String replaceEndWith(String word, String wordEndWithToReplace, String replacement) {
+		return word.substring(0, word.length() - wordEndWithToReplace.length()) + replacement; 
+	}
+	
 	private static boolean stringEndWith(String string1, String string2) {
 		
 		if (string1 == null && string2 == null) {
 			return true;
 		} else if (string1 != null && string2 == null) {
-			return false;
+			return true; // dla kanji
 		} else if (string1 == null && string2 != null) {
 			return false;
 		} else {
-			
 			return string1.endsWith(string2);
 		}
 	}

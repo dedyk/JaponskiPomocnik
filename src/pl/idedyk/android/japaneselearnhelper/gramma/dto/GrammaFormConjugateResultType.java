@@ -70,7 +70,7 @@ public enum GrammaFormConjugateResultType {
 	VERB_BA_AFFIRMATIVE("Twierdzenie", true),
 	VERB_BA_NEGATIVE("Przeczenie", true),
 	
-	VERB_KEIGO_HIGH("wywyższająca", true);
+	VERB_KEIGO_HIGH("Wywyższająca", true);
 	
 	private String name;
 	
