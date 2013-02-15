@@ -1,4 +1,4 @@
-package pl.idedyk.android.japaneselearnhelper.example;
+package pl.idedyk.android.japaneselearnhelper.grammaexample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,13 @@ import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElement
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 
-public class ExampleHelper {
+public class GrammaExampleHelper {
 	
 	public static void addExample(List<ExampleGroupTypeElements> result, ExampleGroupType exampleGroupType, ExampleResult exampleResult) {
+		
+		if (exampleResult == null) {
+			return;
+		}
 		
 		ExampleGroupTypeElements exampleGroup = new ExampleGroupTypeElements();
 		
@@ -20,6 +24,46 @@ public class ExampleHelper {
 		exampleGroup.getExampleResults().add(exampleResult);
 		
 		result.add(exampleGroup);
+	}
+	
+	public static GrammaFormConjugateResult makeSimpleTemplateGrammaFormConjugateResult(GrammaFormConjugateResult grammaFormConjugateResult,
+			String templateKanji, String templateKana, String templateRomaji) {
+		
+		GrammaFormConjugateResult result = new GrammaFormConjugateResult();
+		
+		String kanji = grammaFormConjugateResult.getKanji();
+		
+		List<String> kanaList = grammaFormConjugateResult.getKanaList();
+		
+		List<String> romajiList = grammaFormConjugateResult.getRomajiList();
+		
+		String prefixKana = grammaFormConjugateResult.getPrefixKana();		
+		String prefixRomaji = grammaFormConjugateResult.getPrefixRomaji();
+		
+		result.setPrefixKana(prefixKana);
+		result.setPrefixRomaji(prefixRomaji);
+		
+		if (kanji != null) {		
+			result.setKanji(String.format(templateKanji, kanji));
+		}
+
+		List<String> kanaListResult = new ArrayList<String>();
+
+		for (String currentKana : kanaList) {			
+			kanaListResult.add(String.format(templateKana, currentKana));
+		}
+
+		result.setKanaList(kanaListResult);
+
+		List<String> romajiListResult = new ArrayList<String>();
+
+		for (String currentRomaji : romajiList) {
+			romajiListResult.add(String.format(templateRomaji, currentRomaji));
+		}
+
+		result.setRomajiList(romajiListResult);
+		
+		return result;
 	}
 	
 	public static ExampleResult makeSimpleTemplateExample(DictionaryEntry dictionaryEntry,
