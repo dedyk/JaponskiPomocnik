@@ -165,6 +165,7 @@ public class VerbGrammaConjugater {
 		// is aru verb
 		boolean isAruVerb = false;		
 		
+		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
 		List<String> kanaList = dictionaryEntry.getKanaList();
 		
 		for (String currentKana : kanaList) {
@@ -172,7 +173,14 @@ public class VerbGrammaConjugater {
 			if (currentKana.equals("ある") == true) {
 				isAruVerb = true;
 			}
-		}		
+		}
+		
+		// is keigo high
+		boolean isKeigoHigh = false;
+		
+		if (attributeList.contains(AttributeType.VERB_KEIGO_HIGH) == true) {
+			isKeigoHigh = true;
+		}
 		
 		List<GrammaFormConjugateGroupTypeElements> result = new ArrayList<GrammaFormConjugateGroupTypeElements>();
 
@@ -181,10 +189,10 @@ public class VerbGrammaConjugater {
 
 		formal.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_FORMAL);
 
-		formal.getGrammaFormConjugateResults().add(makeFormalPresentForm(dictionaryEntry));
-		formal.getGrammaFormConjugateResults().add(makeFormalPresentNegativeForm(dictionaryEntry));
-		formal.getGrammaFormConjugateResults().add(makeFormalPastForm(dictionaryEntry));
-		formal.getGrammaFormConjugateResults().add(makeFormalPastNegativeForm(dictionaryEntry));
+		formal.getGrammaFormConjugateResults().add(makeFormalPresentForm(dictionaryManager, dictionaryEntry, isKeigoHigh));
+		formal.getGrammaFormConjugateResults().add(makeFormalPresentNegativeForm(dictionaryManager, dictionaryEntry, isKeigoHigh));
+		formal.getGrammaFormConjugateResults().add(makeFormalPastForm(dictionaryManager, dictionaryEntry, isKeigoHigh));
+		formal.getGrammaFormConjugateResults().add(makeFormalPastNegativeForm(dictionaryManager, dictionaryEntry, isKeigoHigh));
 
 		result.add(formal);
 		
@@ -214,7 +222,7 @@ public class VerbGrammaConjugater {
 		
 		mashouForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_MASHOU);
 		
-		mashouForm.getGrammaFormConjugateResults().add(makeMashouForm(dictionaryEntry));
+		mashouForm.getGrammaFormConjugateResults().add(makeMashouForm(dictionaryManager, dictionaryEntry, isKeigoHigh));
 		
 		result.add(mashouForm);
 		
@@ -242,17 +250,20 @@ public class VerbGrammaConjugater {
 			potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPastNegativeForm(potentialFormInformalPresentForm));
 			
 			result.add(potentialInformalForm);
+
+			if (isKeigoHigh == false) {
 			
-			GrammaFormConjugateGroupTypeElements potentialFormalForm = new GrammaFormConjugateGroupTypeElements();
-			potentialFormalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_FORMAL);
-			
-			// formalna
-			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentForm(potentialFormInformalPresentForm));
-			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentNegativeForm(potentialFormInformalPresentForm));
-			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastForm(potentialFormInformalPresentForm));
-			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastNegativeForm(potentialFormInformalPresentForm));
-			
-			result.add(potentialFormalForm);
+				GrammaFormConjugateGroupTypeElements potentialFormalForm = new GrammaFormConjugateGroupTypeElements();
+				potentialFormalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_FORMAL);
+				
+				// formalna
+				potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentForm(dictionaryManager, potentialFormInformalPresentForm, isKeigoHigh));
+				potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentNegativeForm(dictionaryManager, potentialFormInformalPresentForm, isKeigoHigh));
+				potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastForm(dictionaryManager, potentialFormInformalPresentForm, isKeigoHigh));
+				potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastNegativeForm(dictionaryManager, potentialFormInformalPresentForm, isKeigoHigh));
+				
+				result.add(potentialFormalForm);
+			}
 			
 			// forma te
 			GrammaFormConjugateGroupTypeElements potentialTeForm = new GrammaFormConjugateGroupTypeElements();
@@ -285,14 +296,12 @@ public class VerbGrammaConjugater {
 		
 		// forma honoryfikatywna
 		if (isAruVerb == false) {
-			
-			List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
-			
+						
 			GrammaFormConjugateGroupTypeElements keigoForm = new GrammaFormConjugateGroupTypeElements();
 			
 			keigoForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_KEIGO);
 			
-			if (attributeList.contains(AttributeType.VERB_KEIGO_HIGH) == false) {
+			if (isKeigoHigh == false) {
 				keigoForm.getGrammaFormConjugateResults().add(makeKeigoHighForm(dictionaryManager, dictionaryEntry));
 			}
 			
@@ -314,44 +323,142 @@ public class VerbGrammaConjugater {
 		return result;		
 	}
 
-	private static GrammaFormConjugateResult makeFormalPresentForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPresentForm(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, boolean isKeigoHigh) {
 		// czas terazniejszy, twierdzenie, forma formalna, -masu
 
 		final String postfixKana = "ます";
 		final String postfixRomaji = "masu";
+		
+		if (isKeigoHigh == false) {
+			return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PRESENT,
+					postfixKana, postfixRomaji);
+		} else {			
+			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
+			
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			
+			if (keigoEntry == null) {
+				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
+			}
+			
+			if (keigoEntry.getKeigoLongFormWithoutMasuKana() != null) {
+				return makeKeigoHighFormalForm(dictionaryEntry, keigoEntry, GrammaFormConjugateResultType.VERB_FORMAL_PRESENT, postfixKana, postfixRomaji);
+			} else {
+				return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PRESENT,
+						postfixKana, postfixRomaji);
+			}
+		}
+	}
+	
+	private static GrammaFormConjugateResult makeKeigoHighFormalForm(DictionaryEntry dictionaryEntry, KeigoEntry keigoEntry, GrammaFormConjugateResultType grammaFormConjugateResultType, String postfixKana, String postfixRomaji) {
+		
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+		
+		result.setResultType(grammaFormConjugateResultType);
+		
+		// kanji
+		if (keigoEntry.getKeigoLongFormWithoutMasuKanji() != null) {
+			result.setKanji(keigoEntry.getKeigoLongFormWithoutMasuKanji() + postfixKana);
+		}
+		
+		// kana list
+		List<String> kanaList = new ArrayList<String>();
+		
+		kanaList.add(keigoEntry.getKeigoLongFormWithoutMasuKana() + postfixKana);
+		
+		result.setKanaList(kanaList);
+		
+		// romaji list
+		List<String> romajiList = new ArrayList<String>();
+		
+		romajiList.add(keigoEntry.getKeigoLongFormWithoutMasuRomaji() + postfixRomaji);
+		
+		result.setRomajiList(romajiList);
 
-		return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PRESENT,
-				postfixKana, postfixRomaji);
+		return result;		
 	}
 
-	private static GrammaFormConjugateResult makeFormalPresentNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPresentNegativeForm(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, boolean isKeigoHigh) {
 		// czas terazniejszy, twierdzenie, forma formalna, -masen
 
 		final String postfixKana = "ません";
 		final String postfixRomaji = "masen";
-
-		return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PRESENT_NEGATIVE,
-				postfixKana, postfixRomaji);
+		
+		if (isKeigoHigh == false) {	
+			return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PRESENT_NEGATIVE,
+					postfixKana, postfixRomaji);
+		} else {
+			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
+			
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			
+			if (keigoEntry == null) {
+				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
+			}
+			
+			if (keigoEntry.getKeigoLongFormWithoutMasuKana() != null) {
+				return makeKeigoHighFormalForm(dictionaryEntry, keigoEntry, GrammaFormConjugateResultType.VERB_FORMAL_PRESENT_NEGATIVE, postfixKana, postfixRomaji);
+			} else {
+				return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PRESENT_NEGATIVE,
+						postfixKana, postfixRomaji);
+			}
+		}
 	}
 
-	private static GrammaFormConjugateResult makeFormalPastForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPastForm(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, boolean isKeigoHigh) {
 		// czas przeszly, przeczenie, forma formalna, -mashita
 
 		final String postfixKana = "ました";
 		final String postfixRomaji = "mashita";
 
-		return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PAST,
-				postfixKana, postfixRomaji);
+		
+		if (isKeigoHigh == false) {	
+			return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PAST,
+					postfixKana, postfixRomaji);
+		} else {
+			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
+			
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			
+			if (keigoEntry == null) {
+				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
+			}
+			
+			if (keigoEntry.getKeigoLongFormWithoutMasuKana() != null) {
+				return makeKeigoHighFormalForm(dictionaryEntry, keigoEntry, GrammaFormConjugateResultType.VERB_FORMAL_PAST, postfixKana, postfixRomaji);
+			} else {
+				return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PAST,
+						postfixKana, postfixRomaji);
+			}
+		}
 	}
 
-	private static GrammaFormConjugateResult makeFormalPastNegativeForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeFormalPastNegativeForm(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, boolean isKeigoHigh) {
 		// czas przeszly, twierdzenie, forma formalna, -masen deshita
 
 		final String postfixKana = "ませんでした";
 		final String postfixRomaji = "masen deshita";
-
-		return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PAST_NEGATIVE,
-				postfixKana, postfixRomaji);
+		
+		if (isKeigoHigh == false) {	
+			return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PAST_NEGATIVE,
+					postfixKana, postfixRomaji);
+		} else {
+			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
+			
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			
+			if (keigoEntry == null) {
+				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
+			}
+			
+			if (keigoEntry.getKeigoLongFormWithoutMasuKana() != null) {
+				return makeKeigoHighFormalForm(dictionaryEntry, keigoEntry, GrammaFormConjugateResultType.VERB_FORMAL_PAST_NEGATIVE, postfixKana, postfixRomaji);
+			} else {
+				return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_FORMAL_PAST_NEGATIVE,
+						postfixKana, postfixRomaji);
+			}
+		}
 	}
 
 	private static GrammaFormConjugateResult makeVerbGrammaConjugateFormalForm(DictionaryEntry dictionaryEntry,
@@ -1023,18 +1130,34 @@ public class VerbGrammaConjugater {
 				"", "");
 	}
 	
-	private static GrammaFormConjugateResult makeMashouForm(DictionaryEntry dictionaryEntry) {
+	private static GrammaFormConjugateResult makeMashouForm(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, boolean isKeigoHigh) {
 		
 		// mashou
 		
-		GrammaFormConjugateResult mashouForm = makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_MASHOU,
-				"ましょう", "mashou");
-		
-		mashouForm.setAlternative(
-				makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_MASHOU,
-						"ましょうか", "mashou ka"));
-		
-		return mashouForm;
+		final String postfixKana = "ましょう";
+		final String postfixRomaji = "mashou";
+
+		if (isKeigoHigh == false) {		
+			return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_MASHOU,
+					postfixKana, postfixRomaji);
+			
+		} else {
+			
+			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
+			
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			
+			if (keigoEntry == null) {
+				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
+			}
+			
+			if (keigoEntry.getKeigoLongFormWithoutMasuKana() != null) {
+				return makeKeigoHighFormalForm(dictionaryEntry, keigoEntry, GrammaFormConjugateResultType.VERB_MASHOU, postfixKana, postfixRomaji);
+			} else {
+				return makeVerbGrammaConjugateFormalForm(dictionaryEntry, GrammaFormConjugateResultType.VERB_MASHOU,
+						postfixKana, postfixRomaji);
+			}
+		}
 	}
 	
 	private static GrammaFormConjugateResult makePotentialFormInformalPresentForm(DictionaryEntry dictionaryEntry) {
@@ -1143,13 +1266,13 @@ public class VerbGrammaConjugater {
 		return potentialFormInformalPastNegativeForm;
 	}
 	
-	private static GrammaFormConjugateResult makePotentialFormFormalPresentForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+	private static GrammaFormConjugateResult makePotentialFormFormalPresentForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm, boolean isKeigoHigh) {
 		
 		// convert to dictionary entry
 		DictionaryEntry potentialFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
 		
 		// make form
-		GrammaFormConjugateResult potentialFormFormalPresentForm = makeFormalPresentForm(potentialFormInformalPresentFormAsDictionaryEntry);
+		GrammaFormConjugateResult potentialFormFormalPresentForm = makeFormalPresentForm(dictionaryManager, potentialFormInformalPresentFormAsDictionaryEntry, isKeigoHigh);
 		
 		// replace result type
 		potentialFormFormalPresentForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT);
@@ -1160,7 +1283,7 @@ public class VerbGrammaConjugater {
 			
 			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
 			
-			GrammaFormConjugateResult alternativeFormalPresentForm = makeFormalPresentForm(alternativeAsDictionaryEntry);
+			GrammaFormConjugateResult alternativeFormalPresentForm = makeFormalPresentForm(dictionaryManager, alternativeAsDictionaryEntry, isKeigoHigh);
 			
 			alternativeFormalPresentForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT);
 			
@@ -1170,13 +1293,13 @@ public class VerbGrammaConjugater {
 		return potentialFormFormalPresentForm;
 	}
 
-	private static GrammaFormConjugateResult makePotentialFormFormalPresentNegativeForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+	private static GrammaFormConjugateResult makePotentialFormFormalPresentNegativeForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm, boolean isKeigoHigh) {
 		
 		// convert to dictionary entry
 		DictionaryEntry potentialFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
 		
 		// make form
-		GrammaFormConjugateResult potentialFormFormalPresentNegativeForm = makeFormalPresentNegativeForm(potentialFormInformalPresentNegativeFormAsDictionaryEntry);
+		GrammaFormConjugateResult potentialFormFormalPresentNegativeForm = makeFormalPresentNegativeForm(dictionaryManager, potentialFormInformalPresentNegativeFormAsDictionaryEntry, isKeigoHigh);
 		
 		// replace result type
 		potentialFormFormalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT_NEGATIVE);
@@ -1187,7 +1310,7 @@ public class VerbGrammaConjugater {
 			
 			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
 			
-			GrammaFormConjugateResult alternativeFormalPresentNegativeForm = makeFormalPresentNegativeForm(alternativeAsDictionaryEntry);
+			GrammaFormConjugateResult alternativeFormalPresentNegativeForm = makeFormalPresentNegativeForm(dictionaryManager, alternativeAsDictionaryEntry, isKeigoHigh);
 			
 			alternativeFormalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT_NEGATIVE);
 			
@@ -1197,13 +1320,13 @@ public class VerbGrammaConjugater {
 		return potentialFormFormalPresentNegativeForm;
 	}
 
-	private static GrammaFormConjugateResult makePotentialFormFormalPastForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+	private static GrammaFormConjugateResult makePotentialFormFormalPastForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm, boolean isKeigoHigh) {
 		
 		// convert to dictionary entry
 		DictionaryEntry potentialFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
 		
 		// make form
-		GrammaFormConjugateResult potentialFormFormalPastForm = makeFormalPastForm(potentialFormInformalPresentNegativeFormAsDictionaryEntry);
+		GrammaFormConjugateResult potentialFormFormalPastForm = makeFormalPastForm(dictionaryManager, potentialFormInformalPresentNegativeFormAsDictionaryEntry, isKeigoHigh);
 		
 		// replace result type
 		potentialFormFormalPastForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST);
@@ -1214,7 +1337,7 @@ public class VerbGrammaConjugater {
 			
 			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
 			
-			GrammaFormConjugateResult alternativeFormalPastForm = makeFormalPastForm(alternativeAsDictionaryEntry);
+			GrammaFormConjugateResult alternativeFormalPastForm = makeFormalPastForm(dictionaryManager, alternativeAsDictionaryEntry, isKeigoHigh);
 			
 			alternativeFormalPastForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST);
 			
@@ -1224,13 +1347,13 @@ public class VerbGrammaConjugater {
 		return potentialFormFormalPastForm;
 	}
 
-	private static GrammaFormConjugateResult makePotentialFormFormalPastNegativeForm(GrammaFormConjugateResult potentialFormInformalPresentForm) {
+	private static GrammaFormConjugateResult makePotentialFormFormalPastNegativeForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm, boolean isKeigoHigh) {
 		
 		// convert to dictionary entry
 		DictionaryEntry potentialFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
 		
 		// make form
-		GrammaFormConjugateResult potentialFormFormalPastNegativeForm = makeFormalPastNegativeForm(potentialFormInformalPresentNegativeFormAsDictionaryEntry);
+		GrammaFormConjugateResult potentialFormFormalPastNegativeForm = makeFormalPastNegativeForm(dictionaryManager, potentialFormInformalPresentNegativeFormAsDictionaryEntry, isKeigoHigh);
 		
 		// replace result type
 		potentialFormFormalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST_NEGATIVE);
@@ -1241,7 +1364,7 @@ public class VerbGrammaConjugater {
 			
 			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
 			
-			GrammaFormConjugateResult alternativeFormalPastNegativeForm = makeFormalPastNegativeForm(alternativeAsDictionaryEntry);
+			GrammaFormConjugateResult alternativeFormalPastNegativeForm = makeFormalPastNegativeForm(dictionaryManager, alternativeAsDictionaryEntry, isKeigoHigh);
 			
 			alternativeFormalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST_NEGATIVE);
 			
@@ -1702,20 +1825,14 @@ public class VerbGrammaConjugater {
 			
 			result = GrammaExampleHelper.makeSimpleTemplateGrammaFormConjugateResult(stemForm, templateKanji, templateKana, templateRomaji);
 			
-		} else {			
-			result = new GrammaFormConjugateResult();
-			
-			String prefixKana = dictionaryEntry.getPrefixKana();		
-			String prefixRomaji = dictionaryEntry.getPrefixRomaji();
+		} else {
+			result = makeCommon(dictionaryEntry);
 			
 			String kanji = dictionaryEntry.getKanji();
 			
 			List<String> kanaList = dictionaryEntry.getKanaList();
 			
 			List<String> romajiList = dictionaryEntry.getRomajiList();
-			
-			result.setPrefixKana(prefixKana);
-			result.setPrefixRomaji(prefixRomaji);
 			
 			if (kanji != null) {
 				
@@ -1747,10 +1864,7 @@ public class VerbGrammaConjugater {
 			
 			if (keigoLongFormWithoutMasuKana != null) {
 				
-				GrammaFormConjugateResult masuResult = new GrammaFormConjugateResult();
-				
-				masuResult.setPrefixKana(prefixKana);
-				masuResult.setPrefixRomaji(prefixRomaji);
+				GrammaFormConjugateResult masuResult = makeCommon(dictionaryEntry);
 
 				if (kanji != null) {
 					
