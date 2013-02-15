@@ -162,6 +162,18 @@ public class VerbGrammaConjugater {
 
 	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 
+		// is aru verb
+		boolean isAruVerb = false;		
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+		
+		for (String currentKana : kanaList) {
+			
+			if (currentKana.equals("ある") == true) {
+				isAruVerb = true;
+			}
+		}		
+		
 		List<GrammaFormConjugateGroupTypeElements> result = new ArrayList<GrammaFormConjugateGroupTypeElements>();
 
 		// forma formalna
@@ -215,48 +227,51 @@ public class VerbGrammaConjugater {
 		
 		result.add(teForm);
 		
-		// forma potecjalna
-		GrammaFormConjugateGroupTypeElements potentialInformalForm = new GrammaFormConjugateGroupTypeElements();
-		potentialInformalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_INFORMAL);
-		
-		GrammaFormConjugateResult potentialFormInformalPresentForm = makePotentialFormInformalPresentForm(dictionaryEntry);
-		
-		// prosta
-		potentialInformalForm.getGrammaFormConjugateResults().add(potentialFormInformalPresentForm);
-		potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPresentNegativeForm(potentialFormInformalPresentForm));
-		potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPastForm(potentialFormInformalPresentForm));
-		potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPastNegativeForm(potentialFormInformalPresentForm));
-		
-		result.add(potentialInformalForm);
-		
-		GrammaFormConjugateGroupTypeElements potentialFormalForm = new GrammaFormConjugateGroupTypeElements();
-		potentialFormalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_FORMAL);
-		
-		// formalna
-		potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentForm(potentialFormInformalPresentForm));
-		potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentNegativeForm(potentialFormInformalPresentForm));
-		potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastForm(potentialFormInformalPresentForm));
-		potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastNegativeForm(potentialFormInformalPresentForm));
-		
-		result.add(potentialFormalForm);
-		
-		// forma te
-		GrammaFormConjugateGroupTypeElements potentialTeForm = new GrammaFormConjugateGroupTypeElements();
-		
-		potentialTeForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_TE);
-		
-		potentialTeForm.getGrammaFormConjugateResults().add(makePotentialTeForm(potentialFormInformalPresentForm));
-		
-		result.add(potentialTeForm);
-		
-		// forma wolicjonalna
-		GrammaFormConjugateGroupTypeElements volitionalForm = new GrammaFormConjugateGroupTypeElements();
-		
-		volitionalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_VOLITIONAL);
-		
-		volitionalForm.getGrammaFormConjugateResults().add(makeVolitionalForm(dictionaryEntry));
-		
-		result.add(volitionalForm);
+		if (isAruVerb == false) {
+			
+			// forma potecjalna			
+			GrammaFormConjugateGroupTypeElements potentialInformalForm = new GrammaFormConjugateGroupTypeElements();
+			potentialInformalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_INFORMAL);
+			
+			GrammaFormConjugateResult potentialFormInformalPresentForm = makePotentialFormInformalPresentForm(dictionaryEntry);
+			
+			// prosta
+			potentialInformalForm.getGrammaFormConjugateResults().add(potentialFormInformalPresentForm);
+			potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPresentNegativeForm(potentialFormInformalPresentForm));
+			potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPastForm(potentialFormInformalPresentForm));
+			potentialInformalForm.getGrammaFormConjugateResults().add(makePotentialFormInformalPastNegativeForm(potentialFormInformalPresentForm));
+			
+			result.add(potentialInformalForm);
+			
+			GrammaFormConjugateGroupTypeElements potentialFormalForm = new GrammaFormConjugateGroupTypeElements();
+			potentialFormalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_FORMAL);
+			
+			// formalna
+			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentForm(potentialFormInformalPresentForm));
+			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentNegativeForm(potentialFormInformalPresentForm));
+			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastForm(potentialFormInformalPresentForm));
+			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastNegativeForm(potentialFormInformalPresentForm));
+			
+			result.add(potentialFormalForm);
+			
+			// forma te
+			GrammaFormConjugateGroupTypeElements potentialTeForm = new GrammaFormConjugateGroupTypeElements();
+			
+			potentialTeForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_TE);
+			
+			potentialTeForm.getGrammaFormConjugateResults().add(makePotentialTeForm(potentialFormInformalPresentForm));
+			
+			result.add(potentialTeForm);
+			
+			// forma wolicjonalna
+			GrammaFormConjugateGroupTypeElements volitionalForm = new GrammaFormConjugateGroupTypeElements();
+			
+			volitionalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_VOLITIONAL);
+			
+			volitionalForm.getGrammaFormConjugateResults().add(makeVolitionalForm(dictionaryEntry));
+			
+			result.add(volitionalForm);
+		}
 		
 		// forma ba
 		GrammaFormConjugateGroupTypeElements baForm = new GrammaFormConjugateGroupTypeElements();
@@ -269,19 +284,22 @@ public class VerbGrammaConjugater {
 		result.add(baForm);
 		
 		// forma honoryfikatywna
-		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
-		
-		GrammaFormConjugateGroupTypeElements keigoForm = new GrammaFormConjugateGroupTypeElements();
-		
-		keigoForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_KEIGO);
-		
-		if (attributeList.contains(AttributeType.VERB_KEIGO_HIGH) == false) {
-			keigoForm.getGrammaFormConjugateResults().add(makeKeigoHighForm(dictionaryManager, dictionaryEntry));
+		if (isAruVerb == false) {
+			
+			List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
+			
+			GrammaFormConjugateGroupTypeElements keigoForm = new GrammaFormConjugateGroupTypeElements();
+			
+			keigoForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_KEIGO);
+			
+			if (attributeList.contains(AttributeType.VERB_KEIGO_HIGH) == false) {
+				keigoForm.getGrammaFormConjugateResults().add(makeKeigoHighForm(dictionaryManager, dictionaryEntry));
+			}
+			
+			if (keigoForm.getGrammaFormConjugateResults().size() > 0) {
+				result.add(keigoForm);
+			}
 		}
-		
-		if (keigoForm.getGrammaFormConjugateResults().size() > 0) {
-			result.add(keigoForm);
-		}			
 		
 		// caching
 		for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : result) {

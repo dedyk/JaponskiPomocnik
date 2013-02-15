@@ -13,6 +13,10 @@ public class GrammaExampleHelper {
 	
 	public static void addExample(List<ExampleGroupTypeElements> result, ExampleGroupType exampleGroupType, ExampleResult exampleResult) {
 		
+		if (exampleResult == null) {
+			return;
+		}
+		
 		ExampleGroupTypeElements exampleGroup = new ExampleGroupTypeElements();
 		
 		exampleGroup.setExampleGroupType(exampleGroupType);

@@ -530,6 +530,10 @@ public class VerbExampler {
 		
 		GrammaFormConjugateResult volitionalForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_VOLITIONAL);
 		
+		if (volitionalForm == null) {
+			return null;
+		}
+		
 		final String templateKanji = "%sと思う";
 		final String templateKana = "%sとおもう";
 		final String templateRomaji = "%s to omou";
@@ -541,6 +545,10 @@ public class VerbExampler {
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		GrammaFormConjugateResult volitionalForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_VOLITIONAL);
+		
+		if (volitionalForm == null) {
+			return null;
+		}
 		
 		final String templateKanji = "%sと思っている";
 		final String templateKana = "%sとおもっている";
