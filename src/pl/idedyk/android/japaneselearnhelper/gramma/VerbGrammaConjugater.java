@@ -1688,9 +1688,8 @@ public class VerbGrammaConjugater {
 	private static GrammaFormConjugateResult makeKeigoHighForm(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry) {
 		
 		KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();		
-		List<KeigoEntry> keigoHighEntryList = keigoHelper.getKeigoHighEntryList();
 		
-		KeigoEntry keigoEntry = findKeigoHightEntry(dictionaryEntry, keigoHighEntryList);
+		KeigoEntry keigoEntry = keigoHelper.findKeigoEntry(dictionaryEntry.getDictionaryEntryType(), dictionaryEntry.getKanji(), dictionaryEntry.getKanaList(), dictionaryEntry.getRomajiList());
 		
 		GrammaFormConjugateResult result = null;
 		
@@ -1702,8 +1701,8 @@ public class VerbGrammaConjugater {
 			String templateRomaji = "o%s ni naru";
 			
 			result = GrammaExampleHelper.makeSimpleTemplateGrammaFormConjugateResult(stemForm, templateKanji, templateKana, templateRomaji);
-		} else {
-						
+			
+		} else {			
 			result = new GrammaFormConjugateResult();
 			
 			String prefixKana = dictionaryEntry.getPrefixKana();		
@@ -1741,7 +1740,47 @@ public class VerbGrammaConjugater {
 				romajiListResult.add(replaceEndWith(currentRomaji, keigoEntry.getRomaji(), keigoEntry.getKeigoRomaji()));
 			}
 
-			result.setRomajiList(romajiListResult);			
+			result.setRomajiList(romajiListResult);
+			
+			// forma masu
+			String keigoLongFormWithoutMasuKana = keigoEntry.getKeigoLongFormWithoutMasuKana();
+			
+			if (keigoLongFormWithoutMasuKana != null) {
+				
+				GrammaFormConjugateResult masuResult = new GrammaFormConjugateResult();
+				
+				masuResult.setPrefixKana(prefixKana);
+				masuResult.setPrefixRomaji(prefixRomaji);
+
+				if (kanji != null) {
+					
+					if (keigoEntry.getKanji() != null && keigoEntry.getKeigoKanji() != null) {
+						masuResult.setKanji(replaceEndWith(kanji, keigoEntry.getKanji(), keigoEntry.getKeigoLongFormWithoutMasuKanji()) + "ます");
+					} else {
+						masuResult.setKanji(replaceEndWith(kanji, keigoEntry.getKana(), keigoLongFormWithoutMasuKana) + "ます");
+					}
+				}
+				
+				List<String> masuKanaListResult = new ArrayList<String>();
+
+				for (String currentKana : kanaList) {			
+					masuKanaListResult.add(replaceEndWith(currentKana, keigoEntry.getKana(), keigoLongFormWithoutMasuKana) + "ます");
+				}
+
+				masuResult.setKanaList(masuKanaListResult);
+
+				List<String> masuRomajiListResult = new ArrayList<String>();
+
+				for (String currentRomaji : romajiList) {
+					masuRomajiListResult.add(replaceEndWith(currentRomaji, keigoEntry.getRomaji(), keigoEntry.getKeigoLongFormWithoutMasuRomaji()) + "masu");
+				}
+
+				masuResult.setRomajiList(masuRomajiListResult);
+				
+				masuResult.setResultType(GrammaFormConjugateResultType.VERB_KEIGO_HIGH);
+
+				result.setAlternative(masuResult);
+			}			
 		}
 				
 		result.setResultType(GrammaFormConjugateResultType.VERB_KEIGO_HIGH);
@@ -1749,52 +1788,7 @@ public class VerbGrammaConjugater {
 		return result;
 	}
 	
-	private static KeigoEntry findKeigoHightEntry(DictionaryEntry dictionaryEntry, List<KeigoEntry> keigoHighEntryList) {
-		
-		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
-		
-		String kanji = dictionaryEntry.getKanji();
-		
-		List<String> kanaList = dictionaryEntry.getKanaList();
-		List<String> romajiList = dictionaryEntry.getRomajiList();
-		
-		for (KeigoEntry keigoEntry : keigoHighEntryList) {
-			
-			DictionaryEntryType keigoEntryDictionaryEntryType = keigoEntry.getDictionaryEntryType();
-			
-			String keigoEntryKanji = keigoEntry.getKanji();
-			String keigoEntryKana = keigoEntry.getKana();
-			String keigoEntryRomaji = keigoEntry.getRomaji();
-			
-			for (int idx = 0; idx < kanaList.size(); ++idx) {
-				
-				if (	dictionaryEntryType == keigoEntryDictionaryEntryType &&
-						stringEndWith(kanji, keigoEntryKanji) == true &&
-						stringEndWith(kanaList.get(idx), keigoEntryKana) == true &&
-						stringEndWith(romajiList.get(idx), keigoEntryRomaji) == true) {
-					
-					return keigoEntry;
-				}
-			}			
-		}
-		
-		return null;		
-	}
-	
 	private static String replaceEndWith(String word, String wordEndWithToReplace, String replacement) {
 		return word.substring(0, word.length() - wordEndWithToReplace.length()) + replacement; 
-	}
-	
-	private static boolean stringEndWith(String string1, String string2) {
-		
-		if (string1 == null && string2 == null) {
-			return true;
-		} else if (string1 != null && string2 == null) {
-			return true; // dla kanji
-		} else if (string1 == null && string2 != null) {
-			return false;
-		} else {
-			return string1.endsWith(string2);
-		}
 	}
 }

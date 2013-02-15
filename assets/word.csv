@@ -1079,7 +1079,7 @@ Genki 1-9",,皆,みんな,,minna,wszyscy,,
 Genki 2-15",,-,について,,nitsuite,"o ...
 odnośnie ...",czegoś,
 670,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 1-8,,-,いつか,,itsuka,któregoś dnia,czas,
-671,WORD,WORD_VERB_U,,HIRAGANA,Genki dodatkowe 1-8,,疲れている,つかれている,,tsukarete iru,być zmęczony,,
+671,WORD,WORD_VERB_RU,,HIRAGANA,Genki dodatkowe 1-8,,疲れている,つかれている,,tsukarete iru,być zmęczony,,
 672,WORD,UNKNOWN,,HIRAGANA,"Genki dodatkowe 1-8
 Genki 2-18",,-,まず,,mazu,pierwszy,,
 673,WORD,WORD_VERB_RU,,HIRAGANA,Genki dodatkowe 1-8,,答える,こたえる,,kotaeru,odpowiadać,,
@@ -2294,7 +2294,7 @@ Genki dodatkowe 2-16",,未来,みらい,,mirai,przyszłość,"ogólnie przyszło
 1532,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-14,,乗馬,じょうば,,jouba,jeździć konno,,
 1533,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-14,,当時,とうじ,,touji,w tym czasie,,
 1534,KANJI,WORD_VERB_U,,HIRAGANA,Genki kanji 2-14,,当たる,あたる,,ataru,trafić,,
-1535,KANJI,WORD_VERB_U,,HIRAGANA,Genki kanji 2-14,,当っている,とうっている,,toutte iru,dobrze idzie,,
+1535,KANJI,WORD_VERB_RU,,HIRAGANA,Genki kanji 2-14,,当っている,とうっている,,toutte iru,dobrze idzie,,
 1536,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,音,おと,,oto,dźwięk,,
 1537,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-14,,本音,ほんね,,honne,"prawdziwe myślenie
 emocje",,
