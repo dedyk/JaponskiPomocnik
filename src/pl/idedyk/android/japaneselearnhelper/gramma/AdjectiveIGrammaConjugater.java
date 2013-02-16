@@ -15,6 +15,9 @@ public class AdjectiveIGrammaConjugater {
 
 	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry, 
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		// validate DictionaryEntry
+		validateDictionaryEntry(dictionaryEntry);
 
 		List<GrammaFormConjugateGroupTypeElements> result = new ArrayList<GrammaFormConjugateGroupTypeElements>();
 
@@ -265,9 +268,6 @@ public class AdjectiveIGrammaConjugater {
 	}
 
 	private static GrammaFormConjugateResult makeCommon(DictionaryEntry dictionaryEntry) {
-
-		// validate DictionaryEntry
-		validateDictionaryEntry(dictionaryEntry);
 
 		// create result
 		GrammaFormConjugateResult result = new GrammaFormConjugateResult();

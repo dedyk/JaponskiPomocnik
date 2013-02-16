@@ -162,6 +162,9 @@ public class VerbGrammaConjugater {
 
 	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 
+		// validate DictionaryEntry
+		validateDictionaryEntry(dictionaryEntry);
+		
 		// is aru verb
 		boolean isAruVerb = false;		
 		
@@ -251,19 +254,16 @@ public class VerbGrammaConjugater {
 			
 			result.add(potentialInformalForm);
 
-			if (isKeigoHigh == false) {
+			GrammaFormConjugateGroupTypeElements potentialFormalForm = new GrammaFormConjugateGroupTypeElements();
+			potentialFormalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_FORMAL);
+				
+			// formalna
+			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentForm(dictionaryManager, potentialFormInformalPresentForm));
+			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentNegativeForm(dictionaryManager, potentialFormInformalPresentForm));
+			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastForm(dictionaryManager, potentialFormInformalPresentForm));
+			potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastNegativeForm(dictionaryManager, potentialFormInformalPresentForm));
 			
-				GrammaFormConjugateGroupTypeElements potentialFormalForm = new GrammaFormConjugateGroupTypeElements();
-				potentialFormalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_POTENTIAL_FORMAL);
-				
-				// formalna
-				potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentForm(dictionaryManager, potentialFormInformalPresentForm, isKeigoHigh));
-				potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPresentNegativeForm(dictionaryManager, potentialFormInformalPresentForm, isKeigoHigh));
-				potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastForm(dictionaryManager, potentialFormInformalPresentForm, isKeigoHigh));
-				potentialFormalForm.getGrammaFormConjugateResults().add(makePotentialFormFormalPastNegativeForm(dictionaryManager, potentialFormInformalPresentForm, isKeigoHigh));
-				
-				result.add(potentialFormalForm);
-			}
+			result.add(potentialFormalForm);
 			
 			// forma te
 			GrammaFormConjugateGroupTypeElements potentialTeForm = new GrammaFormConjugateGroupTypeElements();
@@ -613,9 +613,6 @@ public class VerbGrammaConjugater {
 	}
 
 	private static GrammaFormConjugateResult makeCommon(DictionaryEntry dictionaryEntry) {
-
-		// validate DictionaryEntry
-		validateDictionaryEntry(dictionaryEntry);
 
 		// create result
 		GrammaFormConjugateResult result = new GrammaFormConjugateResult();
@@ -1266,13 +1263,13 @@ public class VerbGrammaConjugater {
 		return potentialFormInformalPastNegativeForm;
 	}
 	
-	private static GrammaFormConjugateResult makePotentialFormFormalPresentForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm, boolean isKeigoHigh) {
+	private static GrammaFormConjugateResult makePotentialFormFormalPresentForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm) {
 		
 		// convert to dictionary entry
 		DictionaryEntry potentialFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
 		
 		// make form
-		GrammaFormConjugateResult potentialFormFormalPresentForm = makeFormalPresentForm(dictionaryManager, potentialFormInformalPresentFormAsDictionaryEntry, isKeigoHigh);
+		GrammaFormConjugateResult potentialFormFormalPresentForm = makeFormalPresentForm(dictionaryManager, potentialFormInformalPresentFormAsDictionaryEntry, false);
 		
 		// replace result type
 		potentialFormFormalPresentForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT);
@@ -1283,7 +1280,7 @@ public class VerbGrammaConjugater {
 			
 			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
 			
-			GrammaFormConjugateResult alternativeFormalPresentForm = makeFormalPresentForm(dictionaryManager, alternativeAsDictionaryEntry, isKeigoHigh);
+			GrammaFormConjugateResult alternativeFormalPresentForm = makeFormalPresentForm(dictionaryManager, alternativeAsDictionaryEntry, false);
 			
 			alternativeFormalPresentForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT);
 			
@@ -1293,13 +1290,13 @@ public class VerbGrammaConjugater {
 		return potentialFormFormalPresentForm;
 	}
 
-	private static GrammaFormConjugateResult makePotentialFormFormalPresentNegativeForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm, boolean isKeigoHigh) {
+	private static GrammaFormConjugateResult makePotentialFormFormalPresentNegativeForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm) {
 		
 		// convert to dictionary entry
 		DictionaryEntry potentialFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
 		
 		// make form
-		GrammaFormConjugateResult potentialFormFormalPresentNegativeForm = makeFormalPresentNegativeForm(dictionaryManager, potentialFormInformalPresentNegativeFormAsDictionaryEntry, isKeigoHigh);
+		GrammaFormConjugateResult potentialFormFormalPresentNegativeForm = makeFormalPresentNegativeForm(dictionaryManager, potentialFormInformalPresentNegativeFormAsDictionaryEntry, false);
 		
 		// replace result type
 		potentialFormFormalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT_NEGATIVE);
@@ -1310,7 +1307,7 @@ public class VerbGrammaConjugater {
 			
 			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
 			
-			GrammaFormConjugateResult alternativeFormalPresentNegativeForm = makeFormalPresentNegativeForm(dictionaryManager, alternativeAsDictionaryEntry, isKeigoHigh);
+			GrammaFormConjugateResult alternativeFormalPresentNegativeForm = makeFormalPresentNegativeForm(dictionaryManager, alternativeAsDictionaryEntry, false);
 			
 			alternativeFormalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PRESENT_NEGATIVE);
 			
@@ -1320,13 +1317,13 @@ public class VerbGrammaConjugater {
 		return potentialFormFormalPresentNegativeForm;
 	}
 
-	private static GrammaFormConjugateResult makePotentialFormFormalPastForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm, boolean isKeigoHigh) {
+	private static GrammaFormConjugateResult makePotentialFormFormalPastForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm) {
 		
 		// convert to dictionary entry
 		DictionaryEntry potentialFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
 		
 		// make form
-		GrammaFormConjugateResult potentialFormFormalPastForm = makeFormalPastForm(dictionaryManager, potentialFormInformalPresentNegativeFormAsDictionaryEntry, isKeigoHigh);
+		GrammaFormConjugateResult potentialFormFormalPastForm = makeFormalPastForm(dictionaryManager, potentialFormInformalPresentNegativeFormAsDictionaryEntry, false);
 		
 		// replace result type
 		potentialFormFormalPastForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST);
@@ -1337,7 +1334,7 @@ public class VerbGrammaConjugater {
 			
 			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
 			
-			GrammaFormConjugateResult alternativeFormalPastForm = makeFormalPastForm(dictionaryManager, alternativeAsDictionaryEntry, isKeigoHigh);
+			GrammaFormConjugateResult alternativeFormalPastForm = makeFormalPastForm(dictionaryManager, alternativeAsDictionaryEntry, false);
 			
 			alternativeFormalPastForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST);
 			
@@ -1347,13 +1344,13 @@ public class VerbGrammaConjugater {
 		return potentialFormFormalPastForm;
 	}
 
-	private static GrammaFormConjugateResult makePotentialFormFormalPastNegativeForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm, boolean isKeigoHigh) {
+	private static GrammaFormConjugateResult makePotentialFormFormalPastNegativeForm(DictionaryManager dictionaryManager, GrammaFormConjugateResult potentialFormInformalPresentForm) {
 		
 		// convert to dictionary entry
 		DictionaryEntry potentialFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(potentialFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
 		
 		// make form
-		GrammaFormConjugateResult potentialFormFormalPastNegativeForm = makeFormalPastNegativeForm(dictionaryManager, potentialFormInformalPresentNegativeFormAsDictionaryEntry, isKeigoHigh);
+		GrammaFormConjugateResult potentialFormFormalPastNegativeForm = makeFormalPastNegativeForm(dictionaryManager, potentialFormInformalPresentNegativeFormAsDictionaryEntry, false);
 		
 		// replace result type
 		potentialFormFormalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST_NEGATIVE);
@@ -1364,7 +1361,7 @@ public class VerbGrammaConjugater {
 			
 			DictionaryEntry alternativeAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(alternative, DictionaryEntryType.WORD_VERB_RU);
 			
-			GrammaFormConjugateResult alternativeFormalPastNegativeForm = makeFormalPastNegativeForm(dictionaryManager, alternativeAsDictionaryEntry, isKeigoHigh);
+			GrammaFormConjugateResult alternativeFormalPastNegativeForm = makeFormalPastNegativeForm(dictionaryManager, alternativeAsDictionaryEntry, false);
 			
 			alternativeFormalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_POTENTIAL_FORMAL_PAST_NEGATIVE);
 			

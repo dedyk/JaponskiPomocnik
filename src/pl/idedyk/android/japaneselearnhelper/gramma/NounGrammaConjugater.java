@@ -15,6 +15,9 @@ public class NounGrammaConjugater {
 
 	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 
+		// validate DictionaryEntry
+		validateDictionaryEntry(dictionaryEntry);
+		
 		List<GrammaFormConjugateGroupTypeElements> result = new ArrayList<GrammaFormConjugateGroupTypeElements>();
 
 		// forma formalna
@@ -211,9 +214,6 @@ public class NounGrammaConjugater {
 	}
 	
 	private static GrammaFormConjugateResult makeCommon(DictionaryEntry dictionaryEntry) {
-
-		// validate DictionaryEntry
-		validateDictionaryEntry(dictionaryEntry);
 
 		// create result
 		GrammaFormConjugateResult result = new GrammaFormConjugateResult();
