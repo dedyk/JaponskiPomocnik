@@ -1699,7 +1699,8 @@ para małżeńska",,
 Genki kanji 2-14",,両親,りょうしん,,ryoushin,rodzice,bardziej grzecznie,
 1076,WORD,WORD_NOUN,,HIRAGANA,Genki 2-14,,履歴書,りれきしょ,,rirekisho,"curriculum vitae
 cv",,
-1077,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 2-14,,欲しい,ほしい,,hoshii,chcieć,rzecz ga,
+1077,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 2-14,,欲しい,ほしい,,hoshii,"chcieć
+pragnąć",rzecz ga,
 1078,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki 2-14,,-,けち,,kechi,skąpy,,
 1079,WORD,WORD_VERB_U,,HIRAGANA,"Genki 2-14
 Genki 2-19",,送る,おくる,,okuru,"wysyłać
@@ -4300,7 +4301,8 @@ seks
 natura",,
 2803,WORD,WORD_NOUN,,HIRAGANA,Inne,,性,しょう,,shou,temperament,,
 2804,WORD,WORD_NOUN,,HIRAGANA,Inne,,性教育,せいきょういく,,seikyouiku,wychowanie seksualne,,
-2805,WORD,WORD_NOUN,,HIRAGANA,Inne,,性欲,せいよく,,seiyoku,pożądanie seksualne,,
+2805,WORD,WORD_NOUN,,HIRAGANA,Inne,,性欲,せいよく,,seiyoku,"pożądanie seksualne
+popęd seksualny",,
 2806,WORD,WORD_NOUN,,HIRAGANA,Inne,,性別,せいべつ,,seibetsu,"rozróżnienie płci
 podział ze względu na płeć",,
 2807,WORD,WORD_NOUN,,HIRAGANA,Inne,,性状,せいじょう,,seijou,"charakter
@@ -4973,7 +4975,8 @@ zostały ustalone",,
 3200,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ルール,,ruuru,zasady,,
 3201,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,奥様,おくさま,,okusama,żona,"uprzejmie, grzecznie",
 3202,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,敬語,けいご,,keigo,język honoryfikatywny,,
-3203,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,種類,しゅるい,,shurui,rodzaj,,
+3203,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,種類,しゅるい,,shurui,"rodzaj
+gatunek",,
 3204,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,怠け者,なまけもの,,namakemono,leń,,
 3205,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,恥ずかしがり屋,はずかしがりや,,hazukashigariya,nieśmiała osoba,,
 3206,WORD,WORD_NOUN,,HIRAGANA,Inne,,課長,かちょう,,kachou,kierownik,,
@@ -5049,3 +5052,52 @@ prowadzący spotkanie",,
 3254,WORD,WORD_NOUN,,HIRAGANA,Inne,,司書,ししょ,,shisho,"bibliotekarz
 bibliotekarka",,
 3255,WORD,WORD_NOUN,,HIRAGANA,Inne,,上司,じょうし,,joushi,przełożony,,
+3256,WORD,UNKNOWN,,HIRAGANA,Inne,,類,たぐい,,tagui,"rodzaj
+taki sam
+jednakowy
+dopasowany",,
+3257,WORD,WORD_NOUN,,HIRAGANA,Inne,,人類,じんるい,,jinrui,"ludzkość
+rodzaj ludzki",,
+3258,WORD,WORD_NOUN,,HIRAGANA,Inne,,類比,るいひ,,ruihi,"analogia
+porównanie",,
+3259,WORD,WORD_NOUN,,HIRAGANA,Inne,,類似,るいじ,,ruiji,podobieństwo,,
+3260,WORD,WORD_NOUN,,HIRAGANA,Inne,,類語,るいご,,ruigo,synonim,,
+3261,WORD,WORD_NOUN,,HIRAGANA,Inne,,情,じょう,,jou,"uczucie
+emocja
+pasja
+sympatia",,
+3262,WORD,WORD_NOUN,,HIRAGANA,Inne,,情け,なさけ,,nasake,"współczucie
+sympatia",,
+3263,WORD,WORD_NOUN,,HIRAGANA,Inne,,情状,じょうじょう,,joujou,"warunki
+okoliczności",,
+3264,WORD,WORD_NOUN,,HIRAGANA,Inne,,情勢,じょうせい,,jousei,"sytuacja
+warunki
+wygląd",,
+3265,WORD,WORD_NOUN,,HIRAGANA,Inne,,情感,じょうかん,,joukan,"uczucie
+emocja",,
+3266,WORD,WORD_NOUN,,HIRAGANA,Inne,,情欲,じょうよく,,jouyoku,pasja,,
+3267,WORD,WORD_NOUN,,HIRAGANA,Inne,,欲,よく,,yoku,"pragnienie
+żądza
+pasja",,
+3268,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,欲する,ほっする,,hossuru,"pragnąć
+chcieć",,
+3269,WORD,WORD_NOUN,,HIRAGANA,Inne,,食欲,しょくよく,,shokuyoku,apetyt,,
+3270,WORD,WORD_NOUN,,HIRAGANA,Inne,,欲望,よくぼう,,yokubou,pragnienie,,
+3271,WORD,WORD_NOUN,,HIRAGANA,Inne,,欲求,よっきゅう,,yokkyuu,"pragnienie
+aspiracje",,
+3272,WORD,WORD_NOUN,,HIRAGANA,Inne,,欲得,よくとく,,yokutoku,"egoizm
+prywatny interes",,
+3273,WORD,WORD_NOUN,,HIRAGANA,Inne,,神宮,じんぐう,,jinguu,sintoistyczna świątynia,,
+3274,WORD,WORD_NOUN,,HIRAGANA,Inne,,宮参り,みやまいり,,miyamairi,nawiedzenie świątyni,,
+3275,WORD,WORD_NOUN,,HIRAGANA,Inne,,宮城,きゅうじょう,,kyuujou,pałac cesarski,,
+3276,WORD,WORD_NOUN,,HIRAGANA,Inne,,子宮,しきゅう,,shikyuu,łono,,
+3277,WORD,WORD_NOUN,,HIRAGANA,Inne,,宮殿,きゅうでん,,kyuuden,pałac,,
+3278,WORD,WORD_NOUN,,HIRAGANA,Inne,,状況,じょうきょう,,joukyou,"okoliczność
+warunki
+sytuacja
+stan",,
+3279,WORD,WORD_NOUN,,HIRAGANA,Inne,,状態,じょうたい,,joutai,"sytuacja
+stan",,
+3280,WORD,WORD_NOUN,,HIRAGANA,Inne,,現状,げんじょう,,genjou,obecna sytuacja,,
+3281,WORD,WORD_NOUN,,HIRAGANA,Inne,,礼状,れいじょう,,reijou,dziękczynny list,,
+3282,WORD,WORD_NOUN,,HIRAGANA,Inne,,賞状,しょうじょう,,shoujou,dyplom,nagroda,
