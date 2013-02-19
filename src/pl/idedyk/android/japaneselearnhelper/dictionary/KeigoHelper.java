@@ -19,52 +19,57 @@ public class KeigoHelper {
 
 		// iru
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_RU, null, "いる", "iru",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null,  "いらっしゃる", "irassharu", null, "いらっしゃい", "irasshai");
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いらっしゃる", null, "irassharu", null, null, "いらっしゃい", "irasshai");
 
 		// iku
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_U, "行く", "いく", "iku",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null,  "いらっしゃる", "irassharu", null, "いらっしゃい", "irasshai");
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いらっしゃる", null, "irassharu", null, null, "いらっしゃい", "irasshai");
 
 		// kuru
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_IRREGULAR, "来る", "くる", "kuru",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null,  "いらっしゃる", "irassharu", null, "いらっしゃい", "irasshai");
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いらっしゃる", null, "irassharu", null, null, "いらっしゃい", "irasshai");
 
 		// miru
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_RU, "見る", "みる", "miru",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "ご覧になる", "ごらんになる", "goran ni naru", null, null, null);
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "ご覧", "になる", "ごらん", "になる", "goran", "ni naru", null, null, null);
 
 		// iu
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_U, "言う", "いう", "iu",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, "おっしゃる", "ossharu", null, "おっしゃい", "osshai");
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "おっしゃる", null, "ossharu", null, null, "おっしゃい", "osshai");
 
 		// suru
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_IRREGULAR, null, "する", "suru",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, "なさる", "nasaru", null, "なさい", "nasai");
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "なさる", null, "nasaru", null, null, "なさい", "nasai");
 
 		// taberu
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_RU, "食べる", "たべる", "taberu",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "召し上がる", "めしあがる", "meshiagaru", null, null, null);
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "召し上がる", null, "めしあがる", null, "meshiagaru", null, null, null, null);
 
 		// nomu
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_U, "飲む", "のむ", "nomu",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "召し上がる", "めしあがる", "meshiagaru", null, null, null);
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "召し上がる", null, "めしあがる", null, "meshiagaru", null, null, null, null);
 
 		// kureru
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_RU, null, "くれる", "kureru",
-				KeigoEntryFindMatchType.EXACT, DictionaryEntryType.WORD_VERB_U, "下さる", "くださる", "kudasaru", "下さい", "ください", "kudasai");
+				KeigoEntryFindMatchType.EXACT, DictionaryEntryType.WORD_VERB_U, "下さる", null, "くださる", null, "kudasaru", null, "下さい", "ください", "kudasai");
 
 		// neru
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_RU, "寝る", "ねる", "neru",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "お休みになる", "おやすみになる", "oyasumi ni naru", null, null, null);
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "お休み", "になる", "おやすみ", "になる", "oyasumi", "ni naru", null, null, null);
 	}
 
 	private void addKeigoHighEntry(DictionaryEntryType dictionaryEntryType, String kanji, String kana, String romaji,
-			KeigoEntryFindMatchType findMatchType, DictionaryEntryType keigoDictionaryEntryType, String keigoKanji, String keigoKana, String keigoRomaji,
+			
+			KeigoEntryFindMatchType findMatchType, DictionaryEntryType keigoDictionaryEntryType, String keigoKanji, String keigoKanjiPostfix, 
+			String keigoKana, String keigoKanaPostfix, String keigoRomaji, String keigoRomajiPostfix,			
+			
 			String keigoLongFormWithoutMasuKanji, String keigoLongFormWithoutMasuKana, String keigoLongFormWithoutMasuRomaji) {
+		
+		//////
 
 		KeigoEntry keigoEntry = new KeigoEntry(dictionaryEntryType, kanji, kana, romaji,
 
-				findMatchType, keigoDictionaryEntryType, keigoKanji, keigoKana, keigoRomaji, 
+				findMatchType, keigoDictionaryEntryType, keigoKanji, keigoKanjiPostfix, keigoKana, keigoKanaPostfix, keigoRomaji, keigoRomajiPostfix, 
 
 				keigoLongFormWithoutMasuKanji, keigoLongFormWithoutMasuKana, keigoLongFormWithoutMasuRomaji);
 
@@ -173,17 +178,23 @@ public class KeigoHelper {
 
 		private KeigoEntryFindMatchType findMatchType;
 
-		private String keigoKanji;		
-		private String keigoKana;		
+		private String keigoKanji;
+		private String keigoKanjiPostfix;
+		
+		private String keigoKana;
+		private String keigoKanaPostfix;
+		
 		private String keigoRomaji;
-
+		private String keigoRomajiPostfix;
+		
 		private String keigoLongFormWithoutMasuKanji;
 		private String keigoLongFormWithoutMasuKana;
 		private String keigoLongFormWithoutMasuRomaji;
 
 		public KeigoEntry(DictionaryEntryType dictionaryEntryType, String kanji, String kana, String romaji,
 
-				KeigoEntryFindMatchType findMatchType, DictionaryEntryType keigoDictionaryEntryType, String keigoKanji, String keigoKana, String keigoRomaji,
+				KeigoEntryFindMatchType findMatchType, DictionaryEntryType keigoDictionaryEntryType, String keigoKanji, String keigoKanjiPostfix, 
+				String keigoKana, String keigoKanaPostfix, String keigoRomaji, String keigoRomajiPostfix,
 
 				String keigoLongFormWithoutMasuKanji, String keigoLongFormWithoutMasuKana, String keigoLongFormWithoutMasuRomaji) {
 
@@ -198,8 +209,13 @@ public class KeigoHelper {
 			this.keigoDictionaryEntryType = keigoDictionaryEntryType;
 
 			this.keigoKanji = keigoKanji;
+			this.keigoKanjiPostfix = keigoKanjiPostfix;
+			
 			this.keigoKana = keigoKana;
+			this.keigoKanaPostfix = keigoKanaPostfix;
+			
 			this.keigoRomaji = keigoRomaji;
+			this.keigoRomajiPostfix = keigoRomajiPostfix;
 
 			this.keigoLongFormWithoutMasuKanji = keigoLongFormWithoutMasuKanji;
 			this.keigoLongFormWithoutMasuKana = keigoLongFormWithoutMasuKana;
@@ -228,14 +244,46 @@ public class KeigoHelper {
 			return keigoDictionaryEntryType;
 		}
 
-		public String getKeigoKanji() {
-			return keigoKanji;
+		public String getKeigoKanji(boolean full) {
+			
+			if (keigoKanji == null) {
+				return null;
+			}
+			
+			StringBuffer sb = new StringBuffer();
+			
+			sb.append(keigoKanji);
+			
+			if (full == true && keigoKanjiPostfix != null) {
+				sb.append(keigoKanjiPostfix);
+			}
+			
+			return sb.toString();
 		}
-		public String getKeigoKana() {
-			return keigoKana;
+		public String getKeigoKana(boolean full) {
+			
+			StringBuffer sb = new StringBuffer();
+			
+			sb.append(keigoKana);
+			
+			if (full == true && keigoKanaPostfix != null) {
+				sb.append(keigoKanaPostfix);
+			}
+			
+			return sb.toString();
 		}
-		public String getKeigoRomaji() {
-			return keigoRomaji;
+		
+		public String getKeigoRomaji(boolean full) {
+			
+			StringBuffer sb = new StringBuffer();
+			
+			sb.append(keigoRomaji);
+			
+			if (full == true && keigoRomajiPostfix != null) {
+				sb.append(" ").append(keigoRomajiPostfix);
+			}
+			
+			return sb.toString();
 		}
 
 		public String getKeigoLongFormWithoutMasuKanji() {

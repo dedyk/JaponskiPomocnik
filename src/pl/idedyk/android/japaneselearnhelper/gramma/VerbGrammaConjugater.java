@@ -1833,17 +1833,17 @@ public class VerbGrammaConjugater {
 			
 			if (kanji != null) {
 				
-				if (keigoEntry.getKanji() != null && keigoEntry.getKeigoKanji() != null) {
-					result.setKanji(replaceEndWith(kanji, keigoEntry.getKanji(), keigoEntry.getKeigoKanji()));
+				if (keigoEntry.getKanji() != null && keigoEntry.getKeigoKanji(true) != null) {
+					result.setKanji(replaceEndWith(kanji, keigoEntry.getKanji(), keigoEntry.getKeigoKanji(true)));
 				} else {
-					result.setKanji(replaceEndWith(kanji, keigoEntry.getKana(), keigoEntry.getKeigoKana()));
+					result.setKanji(replaceEndWith(kanji, keigoEntry.getKana(), keigoEntry.getKeigoKana(true)));
 				}
 			}
 
 			List<String> kanaListResult = new ArrayList<String>();
 
 			for (String currentKana : kanaList) {			
-				kanaListResult.add(replaceEndWith(currentKana, keigoEntry.getKana(), keigoEntry.getKeigoKana()));
+				kanaListResult.add(replaceEndWith(currentKana, keigoEntry.getKana(), keigoEntry.getKeigoKana(true)));
 			}
 
 			result.setKanaList(kanaListResult);
@@ -1851,7 +1851,7 @@ public class VerbGrammaConjugater {
 			List<String> romajiListResult = new ArrayList<String>();
 
 			for (String currentRomaji : romajiList) {
-				romajiListResult.add(replaceEndWith(currentRomaji, keigoEntry.getRomaji(), keigoEntry.getKeigoRomaji()));
+				romajiListResult.add(replaceEndWith(currentRomaji, keigoEntry.getRomaji(), keigoEntry.getKeigoRomaji(true)));
 			}
 
 			result.setRomajiList(romajiListResult);
@@ -1865,7 +1865,7 @@ public class VerbGrammaConjugater {
 
 				if (kanji != null) {
 					
-					if (keigoEntry.getKanji() != null && keigoEntry.getKeigoKanji() != null) {
+					if (keigoEntry.getKanji() != null && keigoEntry.getKeigoKanji(true) != null) {
 						masuResult.setKanji(replaceEndWith(kanji, keigoEntry.getKanji(), keigoEntry.getKeigoLongFormWithoutMasuKanji()) + "ます");
 					} else {
 						masuResult.setKanji(replaceEndWith(kanji, keigoEntry.getKana(), keigoLongFormWithoutMasuKana) + "ます");
