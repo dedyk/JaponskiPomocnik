@@ -75,25 +75,25 @@ public class KeigoHelper {
 
 		keigoHighEntryList.add(keigoEntry);
 
-		wordToKeigoEntryHighMap.put(getKey(kanji, kana), keigoEntry);
-		keigoWordToKeigoEntryHighMap.put(getKey(keigoKanji, keigoKana), keigoEntry);
+		wordToKeigoEntryHighMap.put(getKey(kanji, null, kana, null), keigoEntry);
+		keigoWordToKeigoEntryHighMap.put(getKey(keigoKanji, keigoKanaPostfix, keigoKana, keigoKanaPostfix), keigoEntry);
 	}
 
 	public KeigoEntry getKeigoEntryFromWord(String kanji, String kana) {
-		return wordToKeigoEntryHighMap.get(getKey(kanji, kana));
+		return wordToKeigoEntryHighMap.get(getKey(kanji, null, kana, null));
 	}
 
-	public KeigoEntry getKeigoEntryFromKeigoWord(String keigoKanji, String keigoKana) {
-		return keigoWordToKeigoEntryHighMap.get(getKey(keigoKanji, keigoKana));
+	public KeigoEntry getKeigoEntryFromKeigoWord(String keigoKanji, String keigoKanjiPostfix, String keigoKana, String keigoKanaPostfix) {
+		return keigoWordToKeigoEntryHighMap.get(getKey(keigoKanji, keigoKanjiPostfix, keigoKana, keigoKanaPostfix));
 	}
 	
-    private String getKey(String kanji, String kana) {
+    private String getKey(String kanji, String kanjiPostfix, String kana, String kanaPostfix) {
         
         if (kanji == null) {
                 kanji = "-";
         }
        
-        return kanji + "." + kana;              
+        return kanji + (kanjiPostfix != null ? kanjiPostfix : "") + "." + kana + (kanaPostfix != null ? kanaPostfix : "");          
     }
 
 	public KeigoEntry findKeigoEntry(DictionaryEntryType dictionaryEntryType, String kanji, List<String> kanaList, List<String> romajiList) {

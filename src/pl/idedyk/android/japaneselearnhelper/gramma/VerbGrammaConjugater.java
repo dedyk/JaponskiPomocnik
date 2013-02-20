@@ -335,7 +335,7 @@ public class VerbGrammaConjugater {
 		} else {			
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -391,7 +391,7 @@ public class VerbGrammaConjugater {
 		} else {
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -419,7 +419,7 @@ public class VerbGrammaConjugater {
 		} else {
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -446,7 +446,7 @@ public class VerbGrammaConjugater {
 		} else {
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -1142,7 +1142,7 @@ public class VerbGrammaConjugater {
 			
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), dictionaryEntry.getKanaList().get(0));
+			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));

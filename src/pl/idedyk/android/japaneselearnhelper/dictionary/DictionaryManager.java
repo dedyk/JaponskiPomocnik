@@ -403,7 +403,7 @@ public class DictionaryManager {
 					}					
 				}
 
-				List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(nthDictionaryEntry, grammaFormCache);
+				List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(this, nthDictionaryEntry, grammaFormCache);
 
 				if (examples != null) {
 					for (ExampleGroupTypeElements exampleGroupTypeElements : examples) {

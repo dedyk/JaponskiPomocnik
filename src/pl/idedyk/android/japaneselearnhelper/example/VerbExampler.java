@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
+import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper.KeigoEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
@@ -13,7 +18,7 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 import pl.idedyk.android.japaneselearnhelper.grammaexample.GrammaExampleHelper;
 
 public class VerbExampler {
-	public static List<ExampleGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry, 
+	public static List<ExampleGroupTypeElements> makeAll(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, 
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		List<ExampleGroupTypeElements> result = new ArrayList<ExampleGroupTypeElements>();
@@ -161,6 +166,9 @@ public class VerbExampler {
 
 		// ba negative yokatta
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_BA_NEGATIVE_YOKATTA, makeBaNegativeYokatta(dictionaryEntry, grammaFormCache));
+		
+		// keigo kudasai
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_KEIGO_KUDASAI, makeKeigoKudasai(dictionaryManager, dictionaryEntry, grammaFormCache));
 		
 		return result;
 	}
@@ -1089,5 +1097,287 @@ public class VerbExampler {
 		final String templateRomaji = "%s yokatta";
 		
 		return GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeKeigoKudasai(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		// check		
+		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
+		
+		String kanji = dictionaryEntry.getKanji();
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+		
+		for (String currentKana : kanaList) {
+			
+			if (currentKana.equals("ある") == true) {
+				return null;
+			}
+		}
+		
+		// is keigo high
+		boolean isKeigoHigh = false;
+		
+		if (attributeList.contains(AttributeType.VERB_KEIGO_HIGH) == true) {
+			isKeigoHigh = true;
+		}
+		
+		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+		
+		final String templateOKanji = "お%sください";
+		final String templateOKana = "お%sください";
+		final String templateORomaji = "o%s kudasai";
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
+			
+			final String woSuruKana = "をする";
+			final String woSuruRomaji = "o suru";
+
+			final String suruKana = "する";
+			final String suruRomaji = "suru";
+			
+			final String templateGoSuruKanji = "ご%sください";
+			final String templateGoSuruKana = "ご%sください";
+			final String templateGoSuruRomaji = "go%s kudasai";
+			
+			if (kanaList.get(0).endsWith(woSuruKana) == true) {
+				
+				if (kanji != null) {
+					
+					if (kanji.endsWith(woSuruKana) == false) {
+						throw new RuntimeException("Kanji: " + kanji);
+					}
+					
+					kanji = kanji.substring(0, kanji.length() - woSuruKana.length());					
+				}
+				
+				List<String> newKanaList = new ArrayList<String>();
+				
+				for (String currentKanaList : kanaList) {					
+					newKanaList.add(currentKanaList.substring(0, currentKanaList.length() - woSuruKana.length()));
+				}
+				
+				kanaList = newKanaList;
+				
+				List<String> newRomajiList = new ArrayList<String>();
+				
+				for (String currentRomajiList : romajiList) {
+					
+					if (currentRomajiList.endsWith(woSuruRomaji) == false) {
+						throw new RuntimeException("Romaji: " + kanji);
+					}
+					
+					newRomajiList.add(currentRomajiList.substring(0, currentRomajiList.length() - woSuruRomaji.length()));
+				}
+				
+				romajiList = newRomajiList;
+				
+				return GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry.getPrefixKana(), kanji, kanaList, dictionaryEntry.getPrefixRomaji(),
+						romajiList, templateGoSuruKanji, templateGoSuruKana, templateGoSuruRomaji, false);
+				
+			} else if (kanaList.get(0).endsWith(suruKana) == true) {
+				
+				if (kanji != null) {
+					
+					if (kanji.endsWith(suruKana) == false) {
+						throw new RuntimeException("Kanji: " + kanji);
+					}
+					
+					kanji = kanji.substring(0, kanji.length() - suruKana.length());					
+				}
+				
+				List<String> newKanaList = new ArrayList<String>();
+				
+				for (String currentKanaList : kanaList) {					
+					newKanaList.add(currentKanaList.substring(0, currentKanaList.length() - suruKana.length()));
+				}
+				
+				kanaList = newKanaList;
+				
+				List<String> newRomajiList = new ArrayList<String>();
+				
+				for (String currentRomajiList : romajiList) {
+					
+					if (currentRomajiList.endsWith(suruRomaji) == false) {
+						throw new RuntimeException("Romaji: " + kanji);
+					}
+					
+					newRomajiList.add(currentRomajiList.substring(0, currentRomajiList.length() - suruRomaji.length()));
+				}
+				
+				romajiList = newRomajiList;
+				
+				return GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry.getPrefixKana(), kanji, kanaList, dictionaryEntry.getPrefixRomaji(),
+						romajiList, templateGoSuruKanji, templateGoSuruKana, templateGoSuruRomaji, false);	
+				
+			} else {				
+				GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
+				
+				return GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateOKanji, templateOKana, templateORomaji, false);				
+			}
+			
+		} else {
+			
+			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
+			
+			if (isKeigoHigh == true) {
+				
+				KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
+				
+				if (keigoEntry == null) {
+					throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
+				}
+				
+				return makeKeigoKudasaiForKeigoEntry(dictionaryEntry, keigoEntry, true);
+				
+			} else {
+				
+				KeigoEntry keigoEntry = keigoHelper.findKeigoEntry(dictionaryEntry.getDictionaryEntryType(), dictionaryEntry.getKanji(), dictionaryEntry.getKanaList(), dictionaryEntry.getRomajiList());
+
+				if (keigoEntry == null) {
+					GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
+					
+					return GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateOKanji, templateOKana, templateORomaji, false);
+					
+				} else {
+					
+					return makeKeigoKudasaiForKeigoEntry(dictionaryEntry, keigoEntry, false);
+				}
+			}
+		}
+	}
+	
+	private static ExampleResult makeKeigoKudasaiForKeigoEntry(DictionaryEntry dictionaryEntry, KeigoEntry keigoEntry, boolean isKeigoHigh) {
+
+		String kanji = null;
+		List<String> kanaList = null;
+		List<String> romajiList = null;
+		
+		if (isKeigoHigh == false) {
+			
+			kanji = dictionaryEntry.getKanji();
+			kanaList = dictionaryEntry.getKanaList();
+			romajiList = dictionaryEntry.getRomajiList();
+			
+		} else {
+			
+			kanji = keigoEntry.getKeigoKanji(false);
+			
+			kanaList = new ArrayList<String>();
+			kanaList.add(keigoEntry.getKeigoKana(false));
+			
+			romajiList = new ArrayList<String>();
+			romajiList.add(keigoEntry.getKeigoRomaji(false));
+		}
+		
+		DictionaryEntryType keigoDictionaryEntryType = keigoEntry.getKeigoDictionaryEntryType();
+		
+		if (keigoDictionaryEntryType != DictionaryEntryType.WORD_VERB_U) {
+			throw new RuntimeException("Keigo dictionary entry type != WORD_VERB_U");
+		}
+		
+		String keigoKanji = keigoEntry.getKeigoKanji(false);
+		String keigoKana = keigoEntry.getKeigoKana(false);
+		String keigoRomaji = keigoEntry.getKeigoRomaji(false);
+		
+		if (kanji != null) {
+			
+			if (isKeigoHigh == false) {
+
+				if (keigoEntry.getKanji() != null && keigoKanji != null) {				
+					kanji =  replaceEndWith(kanji, keigoEntry.getKanji(), "お" + keigoKanji);
+				} else {				
+					kanji = replaceEndWith(kanji, keigoEntry.getKana(), "お" + keigoKana);
+				}
+				
+			} else {
+				kanji = keigoKanji;
+			}
+			
+			if (kanji.endsWith("る") == true) {
+				kanji = kanji.substring(0, kanji.length() - 1) + "り";
+				
+			} else if (kanji.endsWith("う") == true) {
+				kanji = kanji.substring(0, kanji.length() - 1) + "い";
+			}
+			
+			if (kanji.startsWith("おお") == true) {
+				kanji = kanji.substring(1);
+			} else if (kanji.startsWith("おご") == true) {
+				kanji = kanji.substring(1);
+			}
+						
+			kanji += "ください";
+		}
+
+		List<String> newKanaList = new ArrayList<String>();
+		
+		for (String currentKana : kanaList) {		
+			
+			if (isKeigoHigh == false) {
+				currentKana = replaceEndWith(currentKana, keigoEntry.getKana(), "お" + keigoKana);
+			} else {
+				currentKana = keigoKana;
+			}			
+			
+			if (currentKana.endsWith("る") == true) {
+								
+				currentKana = currentKana.substring(0, currentKana.length() - 1) + "り";
+				
+			} else if (currentKana.endsWith("う") == true) {
+				currentKana = currentKana.substring(0, currentKana.length() - 1) + "い";
+			}
+			
+			if (currentKana.startsWith("おお") == true) {
+				currentKana = currentKana.substring(1);
+			} else if (currentKana.startsWith("おご") == true) {
+				currentKana = currentKana.substring(1);
+			}
+						
+			currentKana += "ください";
+			
+			newKanaList.add(currentKana);
+		}
+					
+		kanaList = newKanaList;
+
+		List<String> newRomajiList = new ArrayList<String>();
+		
+		for (String currentRomaji : romajiList) {
+			
+			if (isKeigoHigh == false) {		
+				currentRomaji = replaceEndWith(currentRomaji, keigoEntry.getRomaji(), (isKeigoHigh == false ? "o" : "") + keigoRomaji);
+			} else {
+				currentRomaji = keigoRomaji;
+			}
+			
+			if (currentRomaji.endsWith("ru") == true) {
+				currentRomaji = currentRomaji.substring(0, currentRomaji.length() - 2) + "ri";
+				
+			} else if (currentRomaji.endsWith("u") == true) {
+				currentRomaji = currentRomaji.substring(0, currentRomaji.length() - 1) + "i";
+			}
+			
+			if (currentRomaji.startsWith("oo") == true) {
+				currentRomaji = currentRomaji.substring(1);
+			} else if (currentRomaji.startsWith("ogo") == true) {
+				currentRomaji = currentRomaji.substring(1);
+			}
+						
+			currentRomaji += " kudasai";
+
+			newRomajiList.add(currentRomaji);
+		}
+				
+		romajiList = newRomajiList;
+		
+		return GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry.getPrefixKana(), kanji, kanaList, dictionaryEntry.getPrefixRomaji(),
+				romajiList, "%s", "%s", "%s", false);		
+	}
+	
+	private static String replaceEndWith(String word, String wordEndWithToReplace, String replacement) {
+		return word.substring(0, word.length() - wordEndWithToReplace.length()) + replacement; 
 	}
 }

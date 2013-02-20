@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
@@ -13,7 +14,7 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 
 public class ExampleManager {
 	
-	public static List<ExampleGroupTypeElements> getExamples(DictionaryEntry dictionaryEntry, 
+	public static List<ExampleGroupTypeElements> getExamples(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, 
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
@@ -33,7 +34,7 @@ public class ExampleManager {
 				dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU ||
 				dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
 			
-			result = VerbExampler.makeAll(dictionaryEntry, grammaFormCache);
+			result = VerbExampler.makeAll(dictionaryManager, dictionaryEntry, grammaFormCache);
 		}
 		
 		if (result != null) {

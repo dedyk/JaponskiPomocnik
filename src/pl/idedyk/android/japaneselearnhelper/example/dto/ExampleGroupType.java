@@ -120,7 +120,7 @@ public enum ExampleGroupType {
 	
 	VERB_TE_IRU("Trwanie czynności/stanu"),
 	
-	VERB_TE_KUDASAI("Prośba I"),
+	VERB_TE_KUDASAI("Prośba"),
 	
 	VERB_TE_MO_II("Pozwolenie"),
 	
@@ -200,7 +200,9 @@ public enum ExampleGroupType {
 	
 	VERB_TE_YOKATTA("Dobrze, że zrobiłem"),
 	
-	VERB_BA_NEGATIVE_YOKATTA("Dobrze byłoby, gdybym nie zrobił");
+	VERB_BA_NEGATIVE_YOKATTA("Dobrze byłoby, gdybym nie zrobił"),
+	
+	VERB_KEIGO_KUDASAI("Grzeczna prośba", "Nie używane dla dobra mówiącego; Uwaga na dużą nieregularność, którego aplikacja może nie uwzględniać");
 	
 	private String name;
 	

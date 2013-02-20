@@ -561,7 +561,7 @@ public class WordDictionaryDetails extends Activity {
 		}	
 		
 		// Exampler
-		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(dictionaryEntry, grammaCache);
+		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
 		
 		if (exampleGroupTypeElementsList != null) {
 			
