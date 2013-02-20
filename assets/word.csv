@@ -934,7 +934,8 @@ Genki kanji 1-8",,車,くるま,,kuruma,samochód,,
 568,WORD,WORD_NOUN,,KATAKANA,Genki 1-7,,-,コンビニ,,konbini,kombini,,
 569,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-7
 Genki kanji 1-5
-Genki kanji 2-18",,食堂,しょくどう,,shokudou,stołówka,,
+Genki kanji 2-18",,食堂,しょくどう,,shokudou,"stołówka
+jadalnia",,
 570,WORD,WORD_NOUN,,KATAKANA,Genki 1-7,,-,ティシェツ,,tishetsu,t-shirt,,
 571,WORD,WORD_NOUN,,HIRAGANA,Genki 1-7,,眼鏡,めがね,,megane,okulary,,
 572,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-7,,-,かっこいい,,kakko ii,dobrze wyglądający,,
@@ -5128,7 +5129,7 @@ punkt","fizyczny, np. cel tarczy",
 3288,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,力仕事,ちからしごと,,chikara shigoto,praca fizyczna,,
 3289,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,力士,りきし,,rikishi,zawodnik sumo,,
 3290,KANJI,WORD_NOUN,,HIRAGANA,Inne,,協会,きょうかい,,kyoukai,stowarzyszenie,,
-3291,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,洋服,ようふく,,youfuku,ubranie,pochodzenie zachodniego,
+3291,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,洋服,ようふく,,youfuku,ubranie,w zachodnim stylu,
 3292,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,東洋,とうよう,,touyou,Azja,nazwa tradycyjna,
 3293,KANJI,WORD_NOUN,,KATAKANA,Inne,,-,アジア,,ajia,Azja,,
 3294,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,洋食,ようしょく,,youshoku,zachodnie jedzenie,,
@@ -5138,25 +5139,70 @@ punkt","fizyczny, np. cel tarczy",
 mundur
 mundurek",,
 3298,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,公会堂,こうかいどう,,koukaidou,"duże pomieszczenie, gdzie spotykają się ludzie
-duża sala",np. miejsca kulturalne,
+duża sala
+publiczna sala",np. miejsca kulturalne,
 3299,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-18,,堂々とした,どうどうとした,,doudoutoshita,dostojny,,
 3300,KANJI,WORD_NOUN,,HIRAGANA,Inne,,聖堂,せいどう,,seidou,"miejsce kultu
-duża świątynia",,
+duża świątynia
+kaplica",,
 3301,KANJI,WORD_NOUN,,HIRAGANA,Inne,,聖書,せいしょ,,seisho,Biblia,,
 3302,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,職業,しょくぎょう,,shokugyou,zawód,,
 3303,KANJI,WORD_NOUN,,KATAKANA_HIRAGANA,Genki kanji 2-18,,サービズ業,サービズぎょう,,saabizu gyou,przemysł usługowy,,
 3304,KANJI,WORD_NOUN,,HIRAGANA,Inne,,農業,のうぎょう,,nougyou,przemysł rolniczy,,
 3305,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,入試,にゅうし,,nyuushi,egzamin wstępny,,
 3306,KANJI,WORD_NOUN,,HIRAGANA,Inne,,就職,しゅうしょく,,shuushoku,zatrudnienie,,
-3307,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,貸し出し,かしだし,,kashidashi,wypożyczalnia,,
+3307,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,貸し出し,かしだし,,kashidashi,wypożyczanie,,
 3308,KANJI,WORD_NOUN,,HIRAGANA_KATAKANA,Genki kanji 2-18,,賃貸マンション,ちんたいまんしょん,,chintai manshon,wynajmowane mieszkanie,,
 3309,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,大使館,たいしかん,,taishikan,ambasada,,
 3310,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,終わり,おわり,,owari,koniec,,
 3311,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,最終,さいしゅう,,saishuu,ostatni ~ ...,"np. pociąg, autobus i etc",
-3312,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,下宿,げしゅく,,geshuku,stancja,,
+3312,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,下宿,げしゅく,,geshuku,"stancja
+pensjonat",,
 3313,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,宿泊,しゅくはく,,shukuhaku,nocleg,,
 3314,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,宿,やど,,yado,"zajazd
 motel",,
-3315,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,話題,わだい,,wadai,temat rozmowy,,
+3315,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,話題,わだい,,wadai,"temat rozmowy
+przedmiot rozmowy",,
 3316,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,題,だい,,dai,"temat
 tytuł",,
+3317,WORD,WORD_NOUN,,HIRAGANA,Inne,,西洋,せいよう,,seiyou,"zachód
+zachodnie kraje",,
+3318,WORD,WORD_NOUN,,HIRAGANA,Inne,,洋式,ようしき,,youshiki,w stylu zachodnim,,
+3319,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,服する,ふくする,,fukusuru,"słuchać się
+stosować się (do)
+przyznawać",,
+3320,WORD,WORD_NOUN,,HIRAGANA,Inne,,服従,ふくじゅう,,fukujuu,posłuszeństwo,,
+3321,WORD,WORD_NOUN,,HIRAGANA,Inne,,服務時間,ふくむじかん,,fukumu jikan,godziny urzędowania biura,,
+3322,WORD,WORD_NOUN,,HIRAGANA,Inne,,服薬,ふくやく,,fukuyaku,branie leków,,
+3323,WORD,WORD_NOUN,,HIRAGANA,Inne,,服毒,ふくどく,,fukudoku,zażywanie trucizny,,
+3324,WORD,WORD_NOUN,,HIRAGANA,Inne,,国会議事堂,こっかいぎじどう,,kokkaigijidou,budynek parlamentu,,
+3325,WORD,WORD_NOUN,,HIRAGANA,Inne,,本堂,ほんどう,,hondou,główna świątynia,,
+3326,WORD,WORD_NOUN,,HIRAGANA,Inne,,貸与,たいよ,,taiyo,pożyczka,,
+3327,WORD,WORD_NOUN,,HIRAGANA,Inne,,貸手,かして,,kashite,"pożyczający
+wypożyczający",,
+3328,WORD,WORD_NOUN,,HIRAGANA,Inne,,貸借,たいしゃく,,taishaku,pożyczka,,
+3329,WORD,WORD_NOUN,,HIRAGANA,Inne,,貸室,かししつ,,kashishitsu,pokój do wynajęcia,,
+3330,WORD,WORD_NOUN,,HIRAGANA,Inne,,終了,しゅうりょう,,shuuryou,"koniec
+zakończenie",,
+3331,WORD,WORD_NOUN,,HIRAGANA,Inne,,終点,しゅうてん,,shuuten,"punkt docelowy
+ostatni przystanek",,
+3332,WORD,WORD_NOUN,,HIRAGANA,Inne,,終列車,しゅうれっしゃ,,shuuressha,ostatni pociąg,,
+3333,WORD,WORD_NOUN,,HIRAGANA,Inne,,終戦,しゅうせん,,shuusen,zakończenie wojny,,
+3334,WORD,UNKNOWN,,HIRAGANA,Inne,,終生,しゅうせい,,shuusei,"przez całe życie
+do końca życia",,
+3335,WORD,WORD_VERB_U,,HIRAGANA,Inne,,宿る,やどる,,yadoru,"mieszkać
+schronić się
+być w ciąży",,
+3336,WORD,WORD_VERB_U,,HIRAGANA,Inne,,宿す,やどす,,yadosu,"zakwaterowywać
+dawać schronienie",,
+3337,WORD,WORD_NOUN,,HIRAGANA,Inne,,合宿,がっしゅく,,gasshuku,"wspólny nocleg
+obóz",np. sportowy,
+3338,WORD,WORD_NOUN,,HIRAGANA,Inne,,宿屋,やどや,,yadoya,"gospoda
+zajazd
+motel",,
+3339,WORD,WORD_NOUN,,HIRAGANA,Inne,,民宿,みんしゅく,,minshuku,prywatny dom udzielający noclegu turystom,,
+3340,WORD,WORD_NOUN,,HIRAGANA,Inne,,宿命,しゅくめい,,shukumei,"przeznaczenie
+los
+fatum",,
+3341,WORD,WORD_NOUN,,HIRAGANA,Inne,,題目,だいもく,,daimoku,tytuł,,
+3342,WORD,WORD_NOUN,,HIRAGANA,Inne,,議題,ぎだい,,gidai,przedmiot dyskusji,,
