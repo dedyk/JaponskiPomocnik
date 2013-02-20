@@ -2123,7 +2123,9 @@ rękodzieło",,
 1378,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 1-8,,休日,きゅうじつ,,kyuujitsu,wakacje,,
 1379,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-8,,言語学,げんごがく,,gengogaku,lingwistyka,,
 1380,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-8,,読書,どくしょ,,dokusho,czytać książki,,
-1381,KANJI,WORD_ADJECTIVE_NA,,HIRAGANA,Genki kanji 1-8,,不思議,ふしぎ,,fushigi,tajemniczy,,
+1381,KANJI,WORD_ADJECTIVE_NA,,HIRAGANA,Genki kanji 1-8,,不思議,ふしぎ,,fushigi,"tajemniczy
+niezwykły
+dziwny",,
 1382,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-8,,次女,じじょ,,jijo,następna córka,,
 1383,KANJI,WORD_ASK,,HIRAGANA,Genki kanji 1-8,,何時,なんじ,,nanji,która godzina,,
 1384,KANJI,WORD_ASK,,HIRAGANA,Genki kanji 1-8,,何人,なんにん,,nan nin,ile ludzi,,
@@ -2303,7 +2305,8 @@ za oceanem",,
 Genki dodatkowe 1-11
 Genki kanji 2-14",,彼女,かのじょ,,kanojo,"ona
 narzeczona",,
-1512,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-14,,電気代,でんきだい,,denki dai,opłata za prąd,,
+1512,KANJI,UNKNOWN,,HIRAGANA,"Genki kanji 2-14
+Genki dodatkowe 2-18",,電気代,でんきだい,,denki dai,opłata za prąd,,
 1513,KANJI,UNKNOWN,,HIRAGANA,"Genki kanji 2-14
 Genki dodatkowe 2-17",,六十年代,ろくじゅうねんだい,,rokujuunen dai,"lata 60
 lata sześćdziesiąte",,
@@ -2318,7 +2321,11 @@ lud
 plemię
 szczep
 grupa etniczna",,
-1520,KANJI,WORD_ADJECTIVE_I,,HIRAGANA,Genki kanji 2-14,,親しい,したしい,,shitashii,poufały,,
+1520,KANJI,WORD_ADJECTIVE_I,,HIRAGANA,"Genki kanji 2-14
+Genki dodatkowe 2-18",,親しい,したしい,,shitashii,"zaprzyjaźniony
+przyjazny
+bliski
+poufały",,
 1521,KANJI,WORD_ADJECTIVE_NA,,HIRAGANA,Genki kanji 2-14,,大切,たいせつ,,taisetsu,ważny,,
 1522,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,英国,えいこく,,eikoku,Anglia,,
 1523,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-14,,英会話,えいかいわ,,eikaiwa,angielska rozmowa,,
@@ -4150,7 +4157,7 @@ być zużytym",,
 2709,WORD,WORD_NOUN,,HIRAGANA,Inne,,費用,ひよう,,hiyou,"koszt
 wydatek",,
 2710,WORD,WORD_NOUN,,HIRAGANA,Inne,,旅費,りょひ,,ryohi,koszty podróży,,
-2711,WORD,WORD_NOUN,,HIRAGANA,Inne,,生活費,せいかつひ,,seikatsuhi,"koszty utrzymania
+2711,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,生活費,せいかつひ,,seikatsuhi,"koszty utrzymania
 koszty życia",,
 2712,WORD,WORD_NOUN,,HIRAGANA,Inne,,消費,しょうひ,,shouhi,"konsumpcja
 zużycie",,
@@ -4233,7 +4240,8 @@ kataster",,
 wózek",,
 2755,WORD,WORD_NOUN,,HIRAGANA,Inne,,台湾,たいわん,,taiwan,Taiwan,,
 2756,WORD,WORD_NOUN,,HIRAGANA,Inne,,目玉,めだま,,medama,gałka oczna,,
-2757,WORD,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,目的,もくてき,,mokuteki,cel,do którego się zmierza,
+2757,WORD,WORD_NOUN,,HIRAGANA,"Genki kanji 2-18
+Genki dodatkowe 2-18",,目的,もくてき,,mokuteki,cel,do którego się zmierza,
 2758,WORD,UNKNOWN,,HIRAGANA,Inne,,二番目,にばんめ,,ni ban me,drugi,,
 2759,WORD,WORD_NOUN,,HIRAGANA,Inne,,個人,こじん,,kojin,"jednostka
 indywidualny człowiek",,
@@ -4992,7 +5000,8 @@ zostały ustalone",,
 3199,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ルール,,ruuru,zasady,,
 3200,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,奥様,おくさま,,okusama,żona,"uprzejmie, grzecznie",
 3201,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,敬語,けいご,,keigo,język honoryfikatywny,,
-3202,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,種類,しゅるい,,shurui,"rodzaj
+3202,WORD,WORD_NOUN,,HIRAGANA,"Genki 2-19
+Genki dodatkowe 2-18",,種類,しゅるい,,shurui,"rodzaj
 gatunek",,
 3203,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,怠け者,なまけもの,,namakemono,leń,,
 3204,WORD,WORD_NOUN,,HIRAGANA,Genki 2-19,,恥ずかしがり屋,はずかしがりや,,hazukashigariya,nieśmiała osoba,,
@@ -5057,7 +5066,7 @@ prowadzony przez rząd",,
 3244,WORD,WORD_NOUN,,HIRAGANA,Inne,,国務長官,こくむちょうかん,,kokumuchoukan,sekretariat stanu,,
 3245,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,引く,ひく,,hiku,ciągnąć,,
 3246,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,引ける,ひける,,hikeru,ciągnąć,,
-3247,WORD,WORD_NOUN,,HIRAGANA,Inne,,引っ越し,ひっこし,,hikkoshi,przeprowadzka,,
+3247,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,引っ越し,ひっこし,,hikkoshi,przeprowadzka,,
 3248,WORD,WORD_NOUN,,HIRAGANA,Inne,,引用,いんよう,,in'you,cytat,,
 3249,WORD,WORD_NOUN,,HIRAGANA,Inne,,引責,いんせき,,inseki,branie odpowiedzialności,,
 3250,WORD,WORD_NOUN,,HIRAGANA,Inne,,引力,いんりょく,,inryoku,"przyciąganie
@@ -5126,10 +5135,12 @@ stan",,
 3287,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,的,まと,,mato,"cel
 znak
 punkt","fizyczny, np. cel tarczy",
-3288,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,力仕事,ちからしごと,,chikara shigoto,praca fizyczna,,
+3288,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-18
+Genki dodatkowe 2-18",,力仕事,ちからしごと,,chikara shigoto,praca fizyczna,,
 3289,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,力士,りきし,,rikishi,zawodnik sumo,,
 3290,KANJI,WORD_NOUN,,HIRAGANA,Inne,,協会,きょうかい,,kyoukai,stowarzyszenie,,
-3291,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,洋服,ようふく,,youfuku,ubranie,w zachodnim stylu,
+3291,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-18
+Genki dodatkowe 2-18",,洋服,ようふく,,youfuku,ubranie,w zachodnim stylu,
 3292,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,東洋,とうよう,,touyou,Azja,nazwa tradycyjna,
 3293,KANJI,WORD_NOUN,,KATAKANA,Inne,,-,アジア,,ajia,Azja,,
 3294,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-18,,洋食,ようしょく,,youshoku,zachodnie jedzenie,,
@@ -5206,3 +5217,40 @@ los
 fatum",,
 3341,WORD,WORD_NOUN,,HIRAGANA,Inne,,題目,だいもく,,daimoku,tytuł,,
 3342,WORD,WORD_NOUN,,HIRAGANA,Inne,,議題,ぎだい,,gidai,przedmiot dyskusji,,
+3343,WORD,WORD_NOUN,,HIRAGANA,Inne,,彼氏,かれし,,kareshi,narzeczony,,
+3344,WORD,WORD_NOUN,,HIRAGANA,Inne,,女子,じょし,,joshi,"dziewczyna
+kobieta",,
+3345,WORD,WORD_NOUN,,HIRAGANA,Inne,,男子,だんし,,danshi,"chłopiec
+mężczyzna",,
+3346,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki dodatkowe 2-18,,楽しみ,たのしみ,,tanoshimi,"przyjemność
+zabawa
+radość
+rozrywka
+zamiłowanie
+szczęście",,
+3347,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,女子学生,じょしがくせい,,joshi gakusei,studentka,,
+3348,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,男子学生,だんしがくせい,,danshi gakusei,student,,
+3349,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,家庭教師,かていきょうし,,katei kyoushi,"nauczyciel udzielający lekcji w prywatnym domu
+korepetytor",,
+3350,WORD,WORD_NOUN,,KATAKANA,Genki dodatkowe 2-18,,-,サークル,,saakuru,klub,,
+3351,WORD,WORD_NOUN,,KATAKANA,Inne,,-,チラシ,,chirashi,ulotka,,
+3352,WORD,WORD_VERB_U,,HIRAGANA,Inne,,配る,くばる,,kubaru,"dystrybuować
+dostarczać
+roznosić",,
+3353,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,事務,じむ,,jimu,praca biurowa,,
+3354,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-18,,生活のゆとり,せいかつのゆとり,,seikatsu no yutori,dodatkowe pieniądze zaoszczędzone na kosztach życia,,
+3355,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,貯金,ちょきん,,chokin,oszczędności,,
+3356,WORD,WORD_NOUN,,KATAKANA,Genki dodatkowe 2-18,,-,ワンルームマンション,,wanruumu manshon,jednopokojowe mieszkanie,,
+3357,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,食費,しょくひ,,shokuhi,koszty jedzenia,,
+3358,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-18,,代,だい,,dai,"koszt
+opłata",~ za,
+3359,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-18,,毎月,まいつき,,maitsuki,"w każdym miesiącu
+każdego miesiąca",,
+3360,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-18,,始めは,はじめは,,hajimeha,na początku,,
+3361,WORD,WORD_NOUN,,HIRAGANA,Inne,,会議,かいぎ,,kaigi,"konferencja
+spotkanie",,
+3362,WORD,WORD_NOUN,,HIRAGANA,Inne,,協議,きょうぎ,,kyougi,"rada
+konferencja",,
+3363,WORD,WORD_NOUN,,HIRAGANA,Inne,,議会,ぎかい,,gikai,"parlament
+sejm",,
+3364,WORD,WORD_NOUN,,HIRAGANA,Inne,,議員,ぎいん,,giin,członek parlamentu,,
