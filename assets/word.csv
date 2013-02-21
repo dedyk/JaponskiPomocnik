@@ -2970,7 +2970,9 @@ dojazd do pracy",,
 1986,WORD,WORD_NOUN,,HIRAGANA,Inne,,航空母艦,こうくうぼかん,,koukuubokan,lotniskowiec,,
 1987,WORD,WORD_NOUN,,HIRAGANA,Inne,,鰐,わに,,wani,krokodyl,,
 1988,WORD,WORD_NOUN,,HIRAGANA,Inne,,貝殻,かいがら,,kaigara,muszla,,
-1989,WORD,WORD_NOUN,,HIRAGANA,Inne,,案内所,あんないじょ,,annaijo,punkt informacyjny,,
+1989,WORD,WORD_NOUN,,HIRAGANA,Inne,,案内所,あんないじょ,,annaijo,"punkt informacyjny
+informacja
+biuro informacyjne",,
 1990,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-15,,原爆,げんばく,,genbaku,bomba atomowa,,
 1991,WORD,WORD_VERB_U,,HIRAGANA,Genki dodatkowe 2-15,,残す,のこす,,nokosu,"zostawiać
 pozostawiać",,
@@ -3192,9 +3194,8 @@ nieprzyjaciel
 przeciwnik
 rywal
 oponent",znajdujący się w tej innej grupie niż ja,
-2131,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-16,,読み方,よみかた,,yomikata,"kierunek czytania
-sposób czytania
-czytanie",,
+2131,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-16,,読み方,よみかた,,yomikata,"sposób czytania
+kierunek czytania",,
 2132,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-16,,食べ方,たべかた,,tabekata,sposób jedzenia,,
 2133,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-16,,書き方,かきかた,,kakikata,"sposób pisania
 styl pisania",,
@@ -3212,6 +3213,7 @@ wozić
 przenosić
 transportować",,
 2139,KANJI,WORD_VERB_U,,HIRAGANA,Genki kanji 2-16,,動く,うごく,,ugoku,"ruszać się
+przesuwać się
 posuwać się
 nie stać",,
 2140,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-16
@@ -4315,7 +4317,8 @@ balonik",,
 2796,WORD,WORD_NOUN,,HIRAGANA,Inne,,心柄,こころがら,,kokorogara,"stan ducha
 stan umysłu",,
 2797,WORD,WORD_NOUN,,HIRAGANA,Inne,,心配,しんぱい,,shinpai,"niepokój
-troska",,
+troska
+obawa",,
 2798,WORD,WORD_NOUN,,HIRAGANA,Inne,,真心,まごころ,,magokoro,"szczerość
 otwartość",,
 2799,WORD,WORD_NOUN,,HIRAGANA,Inne,,体験,たいけん,,taiken,"doświadczenie
@@ -5236,7 +5239,8 @@ korepetytor",,
 3351,WORD,WORD_NOUN,,KATAKANA,Inne,,-,チラシ,,chirashi,ulotka,,
 3352,WORD,WORD_VERB_U,,HIRAGANA,Inne,,配る,くばる,,kubaru,"dystrybuować
 dostarczać
-roznosić",,
+roznosić
+rozdawać",,
 3353,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,事務,じむ,,jimu,praca biurowa,,
 3354,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-18,,生活のゆとり,せいかつのゆとり,,seikatsu no yutori,dodatkowe pieniądze zaoszczędzone na kosztach życia,,
 3355,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-18,,貯金,ちょきん,,chokin,oszczędności,,
@@ -5254,3 +5258,47 @@ konferencja",,
 3363,WORD,WORD_NOUN,,HIRAGANA,Inne,,議会,ぎかい,,gikai,"parlament
 sejm",,
 3364,WORD,WORD_NOUN,,HIRAGANA,Inne,,議員,ぎいん,,giin,członek parlamentu,,
+3365,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,現す,あらわす,,arawasu,pokazywać,,
+3366,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,現れる,あらわれる,,arawareru,ukazywać się,,
+3367,WORD,WORD_NOUN,,HIRAGANA,Inne,,現代,げんだい,,gendai,"teraźniejszość
+współczesność
+czasy nowożytne",,
+3368,WORD,WORD_NOUN,,HIRAGANA,Inne,,実現,じつげん,,jitsugen,"realizować
+osiągnąć
+wypełnić",,
+3369,WORD,WORD_NOUN,,HIRAGANA,Inne,,現金,げんきん,,genkin,"pieniądze
+gotówka",,
+3370,WORD,WORD_NOUN,,HIRAGANA,Inne,,表現,ひょうげん,,hyougen,"wyrażenie
+określenie",,
+3371,WORD,WORD_NOUN,,HIRAGANA,Inne,,支配,しはい,,shihai,"panowanie
+rządzenie",,
+3372,WORD,WORD_NOUN,,HIRAGANA,Inne,,配達,はいたつ,,haitatsu,"dystrybucja
+dostawa",,
+3373,WORD,WORD_NOUN,,HIRAGANA,Inne,,配電,はいでん,,haiden,przesyłanie energii elektrycznej,,
+3374,WORD,WORD_NOUN,,HIRAGANA,Inne,,配膳,はいぜん,,haizen,nakrywanie do stołu,,
+3375,WORD,WORD_NOUN,,HIRAGANA,Inne,,案内,あんない,,annai,"oprowadzanie
+przewodzenie
+ogłoszenie
+zaproszenie",,
+3376,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,案外,あんがい,,angai,"niespodziewany
+zaskakujący
+nieoczekiwany",,
+3377,WORD,WORD_NOUN,,HIRAGANA,Inne,,案出,あんしゅつ,,anshutsu,"pomysł
+wynalazek
+opracowanie (czegoś)",,
+3378,WORD,WORD_NOUN,,HIRAGANA,Inne,,案件,あんけん,,anken,"artykuł
+sprawa
+przedmiot
+wniosek",,
+3379,WORD,WORD_NOUN,,HIRAGANA,Inne,,礼儀,れいぎ,,reigi,"zachowanie
+maniery
+etykieta",,
+3380,WORD,WORD_NOUN,,HIRAGANA,Inne,,礼拝,れいはい,,reihai,"oddawanie czci
+rytuał
+adoracja
+nabożeństwo",,
+3381,WORD,WORD_NOUN,,HIRAGANA,Inne,,礼典,れいてん,,reiten,"ceremonia
+rytuał",,
+3382,WORD,WORD_NOUN,,HIRAGANA,Inne,,典礼,てんれい,,tenrei,"liturgia
+obrzędy",,
+3383,WORD,WORD_NOUN,,HIRAGANA,Inne,,洗礼,せんれい,,senrei,chrzest,,
