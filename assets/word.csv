@@ -3020,10 +3020,11 @@ zrzucać",,
 2016,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-15,,鹿,しか,,shika,jeleń,,
 2017,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-15,,鯨,くじら,,kujira,wieloryb,,
 2018,WORD,WORD_NOUN,,HIRAGANA_KATAKANA,Genki dodatkowe 2-15,,トロッコ列車,トロッコれっしゃ,,torokko ressha,mały pociąg,zwykle dla turystów,
-2019,WORD,WORD_NOUN,,HIRAGANA,Inne,,最高,さいこう,,saikou,"najwyższy
+2019,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,最高,さいこう,,saikou,"najwyższy
 najwspanialszy
 największy
-najfajniejszy",,
+najlepszy
+maksymalny",,
 2020,WORD,WORD_NOUN,,HIRAGANA,Inne,,兵士,へいし,,heishi,żołnierz,,
 2021,WORD,WORD_NOUN,,HIRAGANA,Inne,,軍隊,ぐんたい,,guntai,armia,,
 2022,WORD,WORD_NOUN,,HIRAGANA,Inne,,襲う,おそう,,osou,"atakować
@@ -3129,7 +3130,7 @@ osobowość",,
 2092,WORD,UNKNOWN,,HIRAGANA,Inne,,掃除するべき,そうじするべき,,souji suru beki,powinien sprzątać,,
 2093,WORD,UNKNOWN,,HIRAGANA,Inne,,-,べき,,beki,powinien (coś zrobić),forma prosta czasownika ~,
 2094,WORD,WORD_NOUN,,HIRAGANA,Inne,,お見合い,おみあい,,omiai,spotkanie,w celu zawarcia aranżowanego małżeństwa,
-2095,KANJI,WORD_ADVERB,,HIRAGANA,Genki kanji 2-16,,共に,ともに,,tomoni,razem,bardziej oficjalnie,
+2095,KANJI,WORD_ADVERB,,HIRAGANA,Genki kanji 2-16,,供に,ともに,,tomoni,razem,bardziej oficjalnie,
 2096,KANJI,WORD_VERB_RU,,HIRAGANA,Genki kanji 2-16,,供える,そなえる,,sonaeru,ofiarować,np. coś bogom,
 2097,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-16,,提供,ていきょう,,teikyou,oferta,,
 2098,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-16,,世話,せわ,,sewa,opieka,,
@@ -5302,3 +5303,63 @@ rytuał",,
 3382,WORD,WORD_NOUN,,HIRAGANA,Inne,,典礼,てんれい,,tenrei,"liturgia
 obrzędy",,
 3383,WORD,WORD_NOUN,,HIRAGANA,Inne,,洗礼,せんれい,,senrei,chrzest,,
+3384,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,老いる,おいる,,oiru,starzenie się,,
+3385,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,老ける,ふける,,fukeru,starzenie się,,
+3386,WORD,WORD_NOUN,,HIRAGANA,Inne,,老人,ろうじん,,roujin,człowiek w podeszłym wieku,,
+3387,WORD,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,老人ホーム,ろうじんほーむ,,roujin hoomu,dom starców,,
+3388,WORD,WORD_NOUN,,HIRAGANA,Inne,,老い心,おいごころ,,oi gokoro,czuć się staro,,
+3389,WORD,WORD_NOUN,,HIRAGANA,Inne,,老巧,ろうこう,,roukou,doświadczony,,
+3390,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,老巧,ろうこう,,roukou,weteran,,
+3391,WORD,WORD_NOUN,,HIRAGANA,Inne,,老眼,ろうがん,,rougan,"dalekowzroczność starcza
+starczowzroczność",,
+3392,WORD,WORD_NOUN,,HIRAGANA,Inne,,警察,けいさつ,,keisatsu,policja,,
+3393,WORD,WORD_NOUN,,HIRAGANA,Inne,,検察,けんさつ,,kensatsu,dochodzenie kryminalne,,
+3394,WORD,WORD_NOUN,,HIRAGANA,Inne,,考察,こうさつ,,kousatsu,"analiza
+zastanawianie się
+studiowanie
+dochodzenie",,
+3395,WORD,WORD_NOUN,,HIRAGANA,Inne,,視察,しさつ,,shisatsu,"inspekcja
+obserwacja",,
+3396,WORD,WORD_NOUN,,HIRAGANA,Inne,,観察,かんさつ,,kansatsu,obserwacja,,
+3397,WORD,WORD_NOUN,,HIRAGANA,Inne,,進級,しんきゅう,,shinkyuu,promocja,"np. w wojsku, w szkole",
+3398,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,高級,こうきゅう,,koukyuu,"wysoka klasa
+wysoka ranga
+de luxe",,
+3399,WORD,UNKNOWN,,HIRAGANA,Inne,,級数,きゅうすう,,kyuusuu,"progresja
+postęp
+seria
+szereg",,
+3400,WORD,WORD_NOUN,,HIRAGANA,Inne,,学級,がっきゅう,,gakkyuu,klasa,w szkole,
+3401,WORD,WORD_NOUN,,HIRAGANA,Inne,,同級生,どうきゅうせい,,doukyuusei,kolega klasowy,,
+3402,WORD,WORD_NOUN,,HIRAGANA,Inne,,最後,さいご,,saigo,koniec,,
+3403,WORD,WORD_NOUN,,HIRAGANA,Inne,,最小,さいしょう,,saishou,najmniejszy,,
+3404,WORD,WORD_NOUN,,HIRAGANA,Inne,,最大,さいだい,,saidai,największy,,
+3405,WORD,WORD_NOUN,,HIRAGANA,Inne,,材料,ざいりょう,,zairyou,"materiały
+składniki",,
+3406,WORD,WORD_NOUN,,HIRAGANA,Inne,,材木,ざいもく,,zaimoku,"drewno
+dłużyce",,
+3407,WORD,WORD_NOUN,,HIRAGANA,Inne,,教材,きょうざい,,kyouzai,materiały do nauki,,
+3408,WORD,WORD_NOUN,,HIRAGANA,Inne,,題材,だいざい,,daizai,"temat
+przedmiot","rozmowy
+dyskusji",
+3409,WORD,WORD_NOUN,,HIRAGANA,Inne,,材質,ざいしつ,,zaishitsu,jakość budulca,,
+3410,WORD,WORD_ADVERB,,HIRAGANA,Inne,,共に,ともに,,tomoni,razem,bardziej oficjalnie,
+3411,WORD,WORD_VERB_U,,HIRAGANA,Inne,,除く,のぞく,,nozoku,"pomijać
+pozbywać się
+wykluczać",,
+3412,WORD,WORD_NOUN,,HIRAGANA,Inne,,除外,じょがい,,jogai,wykluczenie,,
+3413,WORD,WORD_NOUN,,HIRAGANA,Inne,,除名,じょめい,,jomei,"skreślenie imienia
+wyrzucenie",,
+3414,WORD,WORD_NOUN,,HIRAGANA,Inne,,除法,じょほう,,johou,dzielenie,matematyka,
+3415,WORD,WORD_NOUN,,HIRAGANA,Inne,,解除,かいじょ,,kaijo,odwołanie,,
+3416,WORD,WORD_VERB_U,,HIRAGANA,Inne,,取り除く,とりのぞく,,torinozoku,"usuwać
+wykluczać",,
+3417,WORD,WORD_NOUN,,HIRAGANA,Inne,,大陸,たいりく,,tairiku,kontynent,,
+3418,WORD,WORD_NOUN,,HIRAGANA,Inne,,陸上,りくじょう,,rikujou,na lądzie,,
+3419,WORD,WORD_NOUN,,HIRAGANA,Inne,,陸軍,りくぐん,,rikugun,wojska lądowa,,
+3420,WORD,WORD_NOUN,,HIRAGANA,Inne,,陸運,りくうん,,rikuun,transport lądowy,,
+3421,WORD,WORD_NOUN,,HIRAGANA,Inne,,百科事典,ひゃっかじてん,,hyakkajiten,encyklopedia,,
+3422,WORD,WORD_NOUN,,HIRAGANA,Inne,,古典,こてん,,koten,literatura klasyczna,,
+3423,WORD,WORD_NOUN,,HIRAGANA,Inne,,特典,とくてん,,tokuten,przywilej,,
+3424,WORD,WORD_NOUN,,HIRAGANA,Inne,,典型,てんけい,,tenkei,"typ
+wzór",,
