@@ -1731,7 +1731,7 @@ być zrobiony",,
 1088,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-14,,-,こんな,,konna,"jak tak
 taki
 takiego rodzaju",blisko mówcy,
-1089,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-14,,-,たち,,tachi,[tworzenie liczby mnogiej do zaimków osobowych],"np. my, wy",
+1089,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-14,,達,たち,,tachi,[tworzenie liczby mnogiej do zaimków osobowych],"np. my, wy",
 1090,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-14,,-,ちょうど,,choudo,dokładnie,,
 1091,WORD,WORD_EXPRESSION,,HIRAGANA,"Genki 1-3
 Genki 2-14",,-,よく,,yoku,dobrze,,
@@ -3209,14 +3209,11 @@ kierowanie",pojazdem,
 2136,KANJI,WORD_EXPRESSION,,HIRAGANA,Genki kanji 2-16,,運がいい,うんがいい,,un ga ii,szczęśliwy,"w znaczeniu zrządzenia losu, trafu",
 2137,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-16,,運命,うんめい,,unmei,"los
 przeznaczenie",,
-2138,KANJI,WORD_VERB_U,,HIRAGANA,Genki kanji 2-16,,運ぶ,はこぶ,,hakobu,"nosić
-wozić
-przenosić
-transportować",,
-2139,KANJI,WORD_VERB_U,,HIRAGANA,Genki kanji 2-16,,動く,うごく,,ugoku,"ruszać się
-przesuwać się
-posuwać się
-nie stać",,
+2138,KANJI,WORD_VERB_U,,HIRAGANA,Genki kanji 2-16,,運ぶ,はこぶ,,hakobu,"transportować
+przewozić
+nosić",,
+2139,KANJI,WORD_VERB_U,,HIRAGANA,Genki kanji 2-16,,動く,うごく,,ugoku,"poruszać się
+ruszać się",,
 2140,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-16
 Genki dodatkowe 2-16",,教室,きょうしつ,,kyoushitsu,sala,szkolna,
 2141,KANJI,WORD_NOUN,,HIRAGANA_KATAKANA,Genki kanji 2-16,,キリスト教,キリストきょう,,kirisuto kyou,chrześcijaństwo,,
@@ -5363,3 +5360,41 @@ wykluczać",,
 3423,WORD,WORD_NOUN,,HIRAGANA,Inne,,特典,とくてん,,tokuten,przywilej,,
 3424,WORD,WORD_NOUN,,HIRAGANA,Inne,,典型,てんけい,,tenkei,"typ
 wzór",,
+3425,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,達する,たっする,,tassuru,"przybywać
+osiągnąć",,
+3426,WORD,WORD_NOUN,,HIRAGANA,Inne,,発達,はったつ,,hattatsu,rozwój,,
+3427,WORD,WORD_NOUN,,HIRAGANA,Inne,,上達,じょうたつ,,joutatsu,"postęp
+biegłość",,
+3428,WORD,WORD_NOUN,,HIRAGANA,Inne,,達成,たっせい,,tassei,osiągnięcie,,
+3429,WORD,WORD_NOUN,,HIRAGANA,Inne,,達磨,だるま,,daruma,Dharma,"indyjski kapłan, założyciel buddyjskiej sekty Zen",
+3430,WORD,WORD_NOUN,,HIRAGANA,Inne,,達人,たつじん,,tatsujin,"ekspert
+specjalista
+mistrz",,
+3431,WORD,WORD_NOUN,,HIRAGANA,Inne,,質,しち,,shichi,"zakładnik
+zestaw",,
+3432,WORD,WORD_VERB_U,,HIRAGANA,Inne,,質す,ただす,,tadasu,"pytać
+żądać
+prosić
+dochodzić
+potwierdzać",,
+3433,WORD,WORD_NOUN,,HIRAGANA,Inne,,本質,ほんしつ,,honshitsu,"istota
+prawdziwa natura",,
+3434,WORD,WORD_NOUN,,HIRAGANA,Inne,,物質,ぶっしつ,,busshitsu,"materia
+rzecz materialna",,
+3435,WORD,WORD_NOUN,,HIRAGANA,Inne,,質屋,しちや,,shichiya,lombard,,
+3436,WORD,WORD_NOUN,,HIRAGANA,Inne,,人質,ひとじち,,hitojichi,"zakładnik
+więzień",,
+3437,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,離れる,はなれる,,hanareru,"separować się
+odłączać się
+odchodzić",,
+3438,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,離す,はなす,,hanasu,"rozdzielać
+separować
+trzymać oddzielnie",,
+3439,WORD,WORD_NOUN,,HIRAGANA,Inne,,客,きゃく,,kyaku,"gość
+klient",,
+3440,WORD,WORD_NOUN,,HIRAGANA,Inne,,旅客,りょきゃく,,ryokyaku,"podróżny
+pasażer",,
+3441,WORD,WORD_NOUN,,HIRAGANA,Inne,,客船,きゃくせん,,kyakusen,statek pasażerski,,
+3442,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,客観的,きゃっかんてき,,kyakkanteki,obiektywny,,
+3443,WORD,WORD_NOUN,,HIRAGANA,Inne,,客車,きゃくしゃ,,kyakusha,"pociąg pasażerski
+wagon osobowy",,
