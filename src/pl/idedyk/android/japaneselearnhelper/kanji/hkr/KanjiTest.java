@@ -182,6 +182,35 @@ public class KanjiTest extends Activity {
 			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 		}
 	}
+	
+	@Override
+	public void onBackPressed() {
+		
+		DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+			
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		        switch (which){
+		        case DialogInterface.BUTTON_POSITIVE:
+		        	
+		        	finish();
+		        	
+		            break;
+
+		        case DialogInterface.BUTTON_NEGATIVE:
+		        	
+		        	// noop
+		        	
+		            break;
+		        }
+		    }
+		};
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		
+		builder.setMessage(getString(R.string.kanji_test_quit_question)).setPositiveButton(getString(R.string.kanji_test_quit_question_yes), dialogClickListener)
+		    .setNegativeButton(getString(R.string.kanji_test_quit_question_no), dialogClickListener).show();
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

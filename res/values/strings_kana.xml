@@ -48,4 +48,7 @@
     <string name="kana_test_char_range_dakuten_handakuten">Dakuten + Handakuten (が/ガ - ぽ/ポ)</string>
     <string name="kana_test_char_range_youon">Youon (きゃ/キャ - ぴょ/ピョ)</string>
     <string name="kana_test_char_no_range">Proszę wybrać zakres znaków</string>
+    <string name="kana_test_quit_question">Czy na pewno chcesz zrezygnować z testu?</string>
+    <string name="kana_test_quit_question_yes">Tak</string>
+    <string name="kana_test_quit_question_no">Nie</string>
 </resources>
