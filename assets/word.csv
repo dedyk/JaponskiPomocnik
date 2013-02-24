@@ -1062,7 +1062,8 @@ Genki kanji 1-8",,作る,つくる,,tsukuru,tworzyć,,
 650,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-8,,持っていく,もっていく,,motte iku,brać,coś,
 651,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-8,を,じろじろ見る,じろじろみる,o,jirojiro miru,spojrzeć,,
 652,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,"Genki 1-8
-Genki kanji 2-16",を,始める,はじめる,o,hajimeru,zaczynać,,
+Genki kanji 2-16",を,始める,はじめる,o,hajimeru,"zaczynać
+rozpoczynać",,
 653,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,"Genki 1-8
 Genki kanji 2-15",を,運転する,うんてんする,o,unten suru,prowadzić,pojazd,
 654,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-8,,洗濯する,せんたくする,,sentaku suru,robić pranie,,
@@ -1125,7 +1126,8 @@ Genki kanji 1-8",,新幹線,しんかんせん,,shinkansen,shinkansen,szybka kol
 Genki kanji 2-18",が,終わる,おわる,ga,owaru,kończyć się,,
 696,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-9,,人気がある,にんきがある,,ninki ga aru,być popularny,,
 697,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,"Genki 1-9
-Genki kanji 2-16",が,始まる,はじまる,ga,hajimaru,zaczynać się,coś,
+Genki kanji 2-16",が,始まる,はじまる,ga,hajimaru,"zaczynać się
+rozpoczynać się",coś,
 698,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-9,,弾く,ひく,,hiku,grać,"np. instrument klawiszowy, gitara, skrzypce i etc",
 699,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-9,,敲く,たたく,,tataku,grać,na bębnie,
 700,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-9,,吹く,ふく,,fuku,grać,instrument dmuchany,
@@ -2200,7 +2202,8 @@ hobby",,
 1432,KANJI,WORD_ADJECTIVE_I,,HIRAGANA,"Genki kanji 1-11
 Genki 2-18",,明るい,あかるい,,akarui,"pogodny
 jasny",,
-1433,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-11,,説明,せつめい,,setsumei,wyjaśnienie,,
+1433,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-11,,説明,せつめい,,setsumei,"wyjaśnienie
+wytłumaczenie",,
 1434,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-11,,重病,じゅうびょう,,juubyou,poważnie chory,,
 1435,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-11,,急病,きゅうびょう,,kyuubyou,nagła choroba,,
 1436,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 1-11
@@ -2690,6 +2693,7 @@ zawstydzony",,
 skromność
 bojaźliwość",,
 1805,WORD,WORD_NOUN,,HIRAGANA,Inne,,感謝,かんしゃ,,kansha,"podziękowanie
+dziękczynienie
 wdzięczność",,
 1806,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,感謝する,かんしゃする,,kansha suru,dziękować,,
 1807,WORD,WORD_NOUN,,HIRAGANA,Inne,,組織,そしき,,soshiki,"organizacja
@@ -5398,3 +5402,47 @@ pasażer",,
 3442,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,客観的,きゃっかんてき,,kyakkanteki,obiektywny,,
 3443,WORD,WORD_NOUN,,HIRAGANA,Inne,,客車,きゃくしゃ,,kyakusha,"pociąg pasażerski
 wagon osobowy",,
+3444,WORD,WORD_NOUN,,HIRAGANA,Inne,,忍者,にんじゃ,,ninja,Ninja,"rodzaj japońskich wojowników specjalizujących się w szpiegowaniu, zamachach i sztukach walki",
+3445,WORD,WORD_NOUN,,HIRAGANA,Inne,,絆創膏,ばんそうこう,,bansoukou,plaster,,
+3446,WORD,WORD_NOUN,,HIRAGANA,Inne,,謝礼,しゃれい,,sharei,"podziękowanie
+wynagrodzenie",,
+3447,WORD,WORD_NOUN,,HIRAGANA,Inne,,謝恩,しゃおん,,shaon,"spłacanie długu wdzięczności
+odpłata za dobroć",,
+3448,WORD,WORD_NOUN,,HIRAGANA,Inne,,謝意,しゃい,,shai,poczucie wdzięczności,,
+3449,WORD,WORD_NOUN,,HIRAGANA,Inne,,謝絶,しゃぜつ,,shazetsu,odmowa,,
+3450,WORD,WORD_VERB_U,,HIRAGANA,Inne,,護る,まもる,,mamoru,"bronić
+chronić",,
+3451,WORD,WORD_NOUN,,HIRAGANA,Inne,,護身,ごしん,,goshin,samoobrona,,
+3452,WORD,WORD_NOUN,,HIRAGANA,Inne,,護国,ごこく,,gokoku,obrona kraju,,
+3453,WORD,WORD_NOUN,,HIRAGANA,Inne,,護送,ごそう,,gosou,"konwój
+eskorta",,
+3454,WORD,WORD_NOUN,,HIRAGANA,Inne,,守護,しゅご,,shugo,"patron
+obrońca
+stróż",,
+3455,WORD,WORD_NOUN,,HIRAGANA,Inne,,保護,ほご,,hogo,"obrona
+protekcja
+ochrona",,
+3456,WORD,WORD_VERB_U,,HIRAGANA,Inne,,説く,とく,,toku,tłumaczyć,,
+3457,WORD,WORD_NOUN,,HIRAGANA,Inne,,説教,せっきょう,,sekkyou,"kazanie
+homilia",,
+3458,WORD,WORD_NOUN,,HIRAGANA,Inne,,説得,せっとく,,settoku,przekonywanie,,
+3459,WORD,WORD_NOUN,,HIRAGANA,Inne,,小説,しょうせつ,,shousetsu,"nowela
+krótkie opowiadanie",,
+3460,WORD,WORD_NOUN,,HIRAGANA,Inne,,演説,えんぜつ,,enzetsu,przemówienie,,
+3461,WORD,WORD_VERB_U,,HIRAGANA,Inne,,保つ,たもつ,,tamotsu,"zachowywać
+utrzymywać
+przetrzymywać",,
+3462,WORD,WORD_NOUN,,HIRAGANA,Inne,,保証,ほしょう,,hoshou,"zapewnienie
+gwarancja",,
+3463,WORD,WORD_NOUN,,HIRAGANA,Inne,,保守主義,ほしゅしゅぎ,,hoshushugi,konserwatyzm,,
+3464,WORD,WORD_NOUN,,HIRAGANA,Inne,,保育所,ほいくじょ,,hoikujo,żłobek,,
+3465,WORD,WORD_VERB_U,,HIRAGANA,Inne,,守る,まもる,,mamoru,"bronić
+ochraniać
+przestrzegać",,
+3466,WORD,WORD_NOUN,,HIRAGANA,Inne,,守勢,しゅせい,,shusei,"obrona
+postawa obronna
+postawa pasywna",,
+3467,WORD,WORD_NOUN,,HIRAGANA,Inne,,守衛,しゅえい,,shuei,strażnik,,
+3468,WORD,WORD_NOUN,,HIRAGANA,Inne,,守備隊,しゅびたい,,shubitai,garnizon,,
+3469,WORD,WORD_NOUN,,HIRAGANA,Inne,,保守派,ほしゅは,,hoshuha,ugrupowanie konserwatywne,,
+3470,WORD,WORD_NOUN,,HIRAGANA,Inne,,守護天使,しゅごてんし,,shugotenshi,anioł stróż,,
