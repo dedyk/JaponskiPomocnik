@@ -716,6 +716,7 @@ public class VerbExampler {
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		String[][] templates = new String[][] {
+				{ "%sくださって、ありがとうございました", "%sくださって、ありがとうございました", "%s kudasatte, arigatou gozaimashita" },
 				{ "%sくれて、ありがとう", "%sくれて、ありがとう", "%s kurete, arigatou" },
 				{ "%s、ありがとう", "%s、ありがとう", "%s, arigatou" }
 		};
@@ -746,6 +747,7 @@ public class VerbExampler {
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		String[][] templates = new String[][] {
+				{ "%sくださって、ありがとうございました", "%sくださって、ありがとうございました", "%s kudasatte, arigatou gozaimashita" },
 				{ "%sくてくれて、ありがとう", "%sくてくれて、ありがとう", "%skute kurete, arigatou" },
 				{ "%sくて、ありがとう", "%sくて、ありがとう", "%skute, arigatou" }				
 		};
