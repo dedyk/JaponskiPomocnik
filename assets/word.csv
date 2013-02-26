@@ -1049,7 +1049,9 @@ Genki kanji 1-4",が,下手,へた,ga,heta,słaby w,,
 Genki kanji 1-9
 Genki kanji 1-11",,有名,ゆうめい,,yuumei,sławny,,
 643,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-8,,雨が降る,あめがふる,,ame ga furu,pada deszcz,,
-644,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-8,,洗う,あらう,,arau,myć,,
+644,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-8,,洗う,あらう,,arau,"myć
+badać
+sondować",,
 645,WORD,WORD_VERB_U,,HIRAGANA,"Genki 1-4
 Genki 1-8",が,-,いる,ga,iru,potrzebować,,
 646,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-8,に,遅くなる,おそくなる,ni,osoku naru,być spóźniony,na,
@@ -4053,7 +4055,8 @@ rozpływać się",,
 2651,WORD,WORD_ADVERB,,HIRAGANA,Genki 2-18,,今すぐ,いますぐ,,imasugu,"już
 w tej chwili
 natychmiast",,
-2652,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-18,,-,おかげで,,okagede,podziękowania dla,~ no,
+2652,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-18,,-,おかげで,,okagede,"podziękowania dla ciebie
+dzięki tobie",~ no,
 2653,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-18,,お先に失礼します,おさきにしつれいします,,osaki ni shitsurei shimasu,do zobaczenia,,
 2654,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-18,,お疲れ様,おつかれさま,,otsukaresama,musisz być zmęczony pracując tak ciężko,,
 2655,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-18,,お疲れ様でした,おつかれさまでした,,otsukaresama deshita,musisz być zmęczony pracując tak ciężko,forma deshita,
@@ -4855,6 +4858,7 @@ skóra",,
 3115,WORD,WORD_NOUN,,HIRAGANA,Inne,,血管,けっかん,,kekkan,żyła,,
 3116,WORD,WORD_NOUN,,HIRAGANA,Inne,,内出血,ないしゅっけつ,,naishukketsu,wewnętrzny wylew krwi,,
 3117,WORD,WORD_NOUN,,HIRAGANA,Inne,,流血,りゅうけつ,,ryuuketsu,"upływ krwi
+rozlew krwi
 krwawienie
 krwotok",,
 3118,WORD,WORD_NOUN,,HIRAGANA,Inne,,岩窟,がんくつ,,gankutsu,jaskinia,,
@@ -5471,3 +5475,40 @@ Ewangelia",,
 3491,WORD,WORD_NOUN,,KATAKANA,Inne,,-,キリン,,kirin,żyrafa,,
 3492,WORD,WORD_NOUN,,HIRAGANA,Inne,,骸骨,がいこつ,,gaikotsu,"szkielet
 kościotrup",,
+3493,WORD,WORD_NOUN,,HIRAGANA,Inne,,団体,だんたい,,dantai,"grupa
+organizacja",,
+3494,WORD,WORD_NOUN,,HIRAGANA,Inne,,団長,だんちょう,,danchou,"lider
+przywódca grupy",,
+3495,WORD,WORD_NOUN,,HIRAGANA,Inne,,団結,だんけつ,,danketsu,"jedność
+solidarność",,
+3496,WORD,WORD_NOUN,,HIRAGANA,Inne,,宗教団体,しゅうきょうだんたい,,shuukyou dantai,grupa religijna,,
+3497,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,流れる,ながれる,,nagareru,"płynąć
+zostać zniesionym (przez wodę)
+wędrować
+płynąć (o czasie)",,
+3498,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,流す,ながす,,nagasu,"polewać
+spłukiwać
+spuszczać (wodę)",,
+3499,WORD,WORD_NOUN,,HIRAGANA,Inne,,電流,でんりゅう,,denryuu,prąd elektryczny,,
+3500,WORD,WORD_NOUN,,HIRAGANA,Inne,,流刑,りゅうけい,,ryuukei,"deportacja
+wygnanie
+banicja",,
+3501,WORD,WORD_NOUN,,HIRAGANA,Inne,,流刑,るけい,,rukei,"deportacja
+wygnanie
+banicja",,
+3502,WORD,WORD_NOUN,,HIRAGANA,Inne,,流言,りゅうげん,,ryuugen,"bezpodstawna plotka
+bezpodstawna pogłoska",,
+3503,WORD,WORD_NOUN,,HIRAGANA,Inne,,流儀,りゅうぎ,,ryuugi,"system
+styl
+metoda
+forma",,
+3504,WORD,WORD_NOUN,,HIRAGANA,Inne,,点火,てんか,,tenka,"błysk
+zapłon",,
+3505,WORD,WORD_NOUN,,HIRAGANA,Inne,,点滴,てんてき,,tenteki,"spadająca kropla wody
+kroplówka",,
+3506,WORD,WORD_NOUN,,HIRAGANA,Inne,,点字,てんじ,,tenji,wypukłe pismo dla niewidomych,,
+3507,WORD,WORD_NOUN,,HIRAGANA,Inne,,点灯,てんとう,,tentou,oświetlenie,,
+3508,WORD,WORD_NOUN,,HIRAGANA,Inne,,点検,てんけん,,tenken,"inspekcja
+kontrola
+badanie
+sprawdzanie",,
