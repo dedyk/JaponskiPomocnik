@@ -198,7 +198,9 @@ public enum ExampleGroupType {
 	
 	VERB_BA_YOKATTA("Dobrze byłoby, gdybym zrobił"),
 	
-	VERB_TE_YOKATTA("Dobrze, że zrobiłem"),
+	VERB_TE_YOKATTA("Dobrze, że zrobiłem / Cieszę się, że zrobiłem"),
+	
+	VERB_NAKUTE_YOKATTA("Dobrze, że nie zrobiłem / Cieszę się, że nie zrobiłem"),
 	
 	VERB_BA_NEGATIVE_YOKATTA("Dobrze byłoby, gdybym nie zrobił"),
 	

@@ -164,6 +164,9 @@ public class VerbExampler {
 		// te yokatta
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_TE_YOKATTA, makeTeYokatta(dictionaryEntry, grammaFormCache));
 
+		// nakute yokatta
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NAKUTE_YOKATTA, makeNakuteYokatta(dictionaryEntry, grammaFormCache));
+		
 		// ba negative yokatta
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_BA_NEGATIVE_YOKATTA, makeBaNegativeYokatta(dictionaryEntry, grammaFormCache));
 		
@@ -1088,6 +1091,18 @@ public class VerbExampler {
 		final String templateRomaji = "%s yokatta";
 		
 		return GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeNakuteYokatta(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
+		
+		final String templateKanji2 = "%sくてよかった";
+		final String templateKana2 = "%sくてよかった";
+		final String templateRomaji2 = "%skute yokatta";
+		
+		return GrammaExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true);
 	}
 	
 	private static ExampleResult makeBaNegativeYokatta(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
