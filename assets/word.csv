@@ -2280,7 +2280,8 @@ Genki kanji 2-13",,特別,とくべつ,,tokubetsu,specjalne,,
 młody pan",,
 1480,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 1-12
 Genki dodatkowe 2-15",,景色,けしき,,keshiki,"sceneria
-widok",,
+widok
+krajobraz",,
 1481,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 1-12,,特色,とくしょく,,tokushoku,charakterystyka,,
 1482,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-13
 Genki kanji 2-16",,動物,どうぶつ,,doubutsu,zwierze,,
@@ -4333,7 +4334,8 @@ eks dziewczyna",,
 2790,WORD,WORD_NOUN,,HIRAGANA,Inne,,風土,ふうど,,fuudo,"klimat
 topografia",,
 2791,WORD,WORD_NOUN,,HIRAGANA,Inne,,風景,ふうけい,,fuukei,"sceneria
-widok",,
+widok
+krajobraz",,
 2792,WORD,WORD_NOUN,,HIRAGANA,Inne,,風船,ふうせん,,fuusen,"balon
 balonik",,
 2793,WORD,WORD_NOUN,,HIRAGANA,Inne,,和風,わふう,,wafuu,styl japoński,,
@@ -5531,7 +5533,8 @@ kroplówka",,
 3508,WORD,WORD_NOUN,,HIRAGANA,Inne,,点検,てんけん,,tenken,"inspekcja
 kontrola
 badanie
-sprawdzanie",,
+sprawdzanie
+egzaminowanie",,
 3509,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-19,,春巻,はるまき,,harumaki,harumaki,japońskie wiosenne naleśniki,
 3510,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-19,,春分,しゅんぶん,,shunbun,"pierwszy dzień wiosny
 przesilenie wiosenne
@@ -5547,7 +5550,8 @@ równonoc jesienna",,
 3517,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-19,,お客様,おきゃくさま,,okyakusama,szanowny klient,,
 3518,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-19,,皆様,みなさま,,minasama,"wszyscy
 szanowni państwo",,
-3519,KANJI,WORD_ADJECTIVE_NA,,HIRAGANA,Genki kanji 2-19,,不景気,ふけいき,,fukeiki,recesja,,
+3519,KANJI,WORD_ADJECTIVE_NA,,HIRAGANA,Genki kanji 2-19,,不景気,ふけいき,,fukeiki,"recesja
+zła sytuacja ekonomiczna",,
 3520,KANJI,WORD_ADJECTIVE_NA,,HIRAGANA,Genki kanji 2-19,,不便,ふべん,,fuben,niewygodny,,
 3521,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-19,,姉妹,しまい,,shimai,siostry,,
 3522,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-19,,父兄,ふけい,,fukei,opiekunowie,,
@@ -5568,3 +5572,14 @@ studiować coś dogłębnie",,
 3535,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-19,,の多く,のおおく,,no ooku,większość,~ ...,
 3536,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-19,,多数決,たすうけつ,,tasuuketsu,decyzja większością głosów,,
 3537,WORD,WORD_NOUN,,HIRAGANA,Inne,,穴,あな,,ana,dziura,,
+3538,WORD,WORD_NOUN,,HIRAGANA,Inne,,弟妹,ていまい,,teimai,młodsi bracia i siostry,,
+3539,WORD,WORD_NOUN,,HIRAGANA,Inne,,義妹,ぎまい,,gimai,młodsza bratowa,,
+3540,WORD,WORD_NOUN,,HIRAGANA,Inne,,景勝地,けいしょうち,,keishouchi,miejsce ze wspaniałymi widokami,,
+3541,WORD,WORD_NOUN,,HIRAGANA,Inne,,景気,けいき,,keiki,sytuacja ekonomiczna,,
+3542,WORD,WORD_NOUN,,HIRAGANA,Inne,,検査,けんさ,,kensa,"badanie
+dochodzenie",,
+3543,WORD,WORD_NOUN,,HIRAGANA,Inne,,検事,けんじ,,kenji,prokurator publiczny,,
+3544,WORD,WORD_NOUN,,HIRAGANA,Inne,,検定,けんてい,,kentei,"oficjalne potwierdzenie
+autoryzacja",,
+3545,WORD,WORD_NOUN,,HIRAGANA,Inne,,検証,けんしょう,,kenshou,"sprawdzanie
+inspekcja",,
