@@ -1244,7 +1244,8 @@ prenumerata",,
 755,WORD,WORD_NOUN,,HIRAGANA,Genki 1-10,,-,りんご,,ringo,jabłko,,
 756,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-10,,暖かい,あたたかい,,atatakai,ciepły,,
 757,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-10,,涼しい,すずしい,,suzushii,zimny,tylko do pogody,
-758,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-10,,冷たい,つめたい,,tsumetai,zimny,do ludzi/rzeczy,
+758,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-10,,冷たい,つめたい,,tsumetai,"zimny
+chłodny",do ludzi/rzeczy,
 759,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-10,,眠い,ねむい,,nemui,śpiący,,
 760,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki 1-10,,簡単,かんたん,,kantan,łatwy,,
 761,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-10,,-,かかる,,kakaru,zajmować,"czas/pieniądze, bez partykuły",
@@ -5610,3 +5611,48 @@ zabezpieczenie",,
 wstępne",np. rozmowy,
 3557,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,予想,よそう,,yosou,"przypuszczenie
 prognoza",,
+3558,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,備わる,そなわる,,sonawaru,"być zaopatrywanym w
+posiadać",,
+3559,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,備える,そなえる,,sonaeru,"zaopatrywać
+wyposażać
+instalować",,
+3560,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,準備,じゅんび,,junbi,przygotowanie,,
+3561,WORD,WORD_NOUN,,HIRAGANA,Inne,,備考,びこう,,bikou,"uwaga
+obserwacja
+spostrzeżenie
+notatka
+komentarz",,
+3562,WORD,WORD_NOUN,,HIRAGANA,Inne,,備品,びひん,,bihin,"wyposażenie
+sprzęt
+umeblowanie",,
+3563,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,設備,せつび,,setsubi,"wyposażenie
+sprzęt
+instalacja",,
+3564,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,備蓄,びちく,,bichiku,"rezerwa
+zapasy",,
+3565,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,冷える,ひえる,,hieru,"oziębiać się
+czuć ziąb",,
+3566,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,冷やす,ひやす,,hiyasu,"oziębiać
+ochładzać",,
+3567,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,冷凍,れいとう,,reitou,zamrażanie,,
+3568,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,冷房,れいぼう,,reibou,klimatyzacja,,
+3569,WORD,WORD_NOUN,,HIRAGANA,Inne,,冷戦,れいせん,,reisen,zimna wojna,,
+3570,WORD,WORD_NOUN,,HIRAGANA,Inne,,冷気,れいき,,reiki,"zimno
+chłód
+zimne powietrze",,
+3571,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,失う,うしなう,,ushinau,"gubić
+tracić",,
+3572,WORD,WORD_NOUN,,HIRAGANA,Inne,,失業者,しつぎょうしゃ,,shitsugyousha,bezrobotny,,
+3573,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,失神,しっしん,,shisshin,"omdlenie
+zemdlenie
+zachwyt
+ekstaza
+trans",,
+3574,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,失望,しつぼう,,shitsubou,"rozczarowanie
+zawód
+rozpacz",,
+3575,WORD,WORD_NOUN,,HIRAGANA,Inne,,失意,しつい,,shitsui,"rozczarowanie
+zawód
+rozpacz",,
+3576,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,失恋,しつれん,,shitsuren,"zawiedziona miłość
+złamane serce",,
