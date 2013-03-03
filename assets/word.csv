@@ -1962,7 +1962,8 @@ jasny kolor","np. materiał, np. pastelowy",
 1245,WORD,WORD_NOUN,,HIRAGANA,Inne,,楽しさ,たのしさ,,tanoshisa,zabawna rzecz,,
 1246,WORD,UNKNOWN,,HIRAGANA,Inne,,梅雨,つゆ,,tsuyu,pora deszczowa,,
 1247,WORD,WORD_EXPRESSION,,KATAKANA,Inne,,-,ケア,,kea,dbać,,
-1248,WORD,UNKNOWN,,HIRAGANA,Inne,,恋,こい,,koi,miłość,,
+1248,WORD,WORD_NOUN,,HIRAGANA,Inne,,恋,こい,,koi,"miłość
+zakochanie",,
 1249,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,"Genki kanji 1-6
 Genki 2-16
 Genki 2-18",を,出す,だす,o,dasu,"wyjmować
@@ -5656,3 +5657,37 @@ zawód
 rozpacz",,
 3576,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,失恋,しつれん,,shitsuren,"zawiedziona miłość
 złamane serce",,
+3577,WORD,WORD_NOUN,,HIRAGANA,Inne,,準決勝,じゅんけっしょう,,junkesshou,półfinał,,
+3578,WORD,WORD_NOUN,,HIRAGANA,Inne,,基準,きじゅん,,kijun,"standard
+norma
+kryterium",,
+3579,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,準拠,じゅんきょ,,junkyo,"dostosowanie
+przystosowanie
+autorytet
+norma",,
+3580,WORD,WORD_NOUN,,HIRAGANA,Inne,,水準,すいじゅん,,suijun,poziom wody,,
+3581,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,望む,のぞむ,,nozomu,"pragnąć
+oczekiwać
+mieć nadzieję
+tęsknić
+obserwować z daleka",,
+3582,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,希望,きぼう,,kibou,nadzieja,,
+3583,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,望外,ぼうがい,,bougai,nieoczekiwany,,
+3584,WORD,WORD_NOUN,,HIRAGANA,Inne,,望遠鏡,ぼうえんきょう,,bouenkyou,"teleskop
+luneta
+lornetka",,
+3585,WORD,WORD_NOUN,,HIRAGANA,Inne,,望楼,ぼうろう,,bourou,wieża obserwacyjna,,
+3586,WORD,WORD_NOUN,,HIRAGANA,Inne,,望郷,ぼうきょう,,boukyou,"nostalgia
+tęsknota za domem, rodziną, ojczyzną",,
+3587,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,恋する,こいする,,koisuru,być zakochanym,,
+3588,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,決心,けっしん,,kesshin,"postanowienie
+determinacja",,
+3589,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,決意,けつい,,ketsui,"postanowienie
+determinacja",,
+3590,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,決断,けつだん,,ketsudan,rozstrzygnięcie,,
+3591,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,決定,けってい,,kettei,decyzja,,
+3592,WORD,WORD_NOUN,,HIRAGANA,Inne,,未決,みけつ,,miketsu,"niezdecydowany
+nie rozstrzygnięty
+toczący się (proces)",,
+3593,WORD,WORD_NOUN,,HIRAGANA,Inne,,手鏡,てかがみ,,tekagami,ręczne lusterko,,
+3594,WORD,WORD_NOUN,,HIRAGANA,Inne,,鏡台,きょうだい,,kyoudai,toaletka,,
