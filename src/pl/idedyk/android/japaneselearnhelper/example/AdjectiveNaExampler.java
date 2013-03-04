@@ -70,6 +70,9 @@ public class AdjectiveNaExampler {
 		// to
 		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_TO, makeToExample(dictionaryEntry, grammaFormCache));
 		
+		// hazu desu
+		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_HAZU_DESU, makeHazuDesu(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -327,5 +330,24 @@ public class AdjectiveNaExampler {
 		final String templateRomaji = "%s to, ...";
 		
 		return GrammaExampleHelper.makeSimpleTemplateExample(nounNiNaru, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeHazuDesu(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji1 = "%sなはずです";
+		final String templateKana1 = "%sなはずです";
+		final String templateRomaji1 = "%s na hazu desu";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		final String templateKanji2 = "%sなはずでした";
+		final String templateKana2 = "%sなはずでした";
+		final String templateRomaji2 = "%s na hazu deshita";
+		
+		ExampleResult alternative1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, true);
+		
+		exampleResult1.setAlternative(alternative1);
+		
+		return exampleResult1;
 	}
 }

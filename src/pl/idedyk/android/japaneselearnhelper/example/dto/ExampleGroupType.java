@@ -36,6 +36,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_TO("Kiedy A staje się, wtedy również B staje się", "Mówi o rzeczach oczywistych, z której druga wynika z pierwszej"),
 	
+	ADJECTIVE_I_HAZU_DESU("Przypuszczam, że ..."),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -69,6 +71,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_MITAI_DESU("Wygląda, jak", "Bardziej używane z analizy sytuacji, do przymiotników częściej forma そうです"),
 	
 	ADJECTIVE_NA_TO("Kiedy A staje się, wtedy również B staje się", "Mówi o rzeczach oczywistych, z której druga wynika z pierwszej"),
+	
+	ADJECTIVE_NA_HAZU_DESU("Przypuszczam, że ..."),
 	
 	NOUN_NI_NARU("Stawać się"),
 	
@@ -106,6 +110,8 @@ public enum ExampleGroupType {
 	NOUN_MITAI_DESU("Wygląda, jak", "Bardziej używane z analizy sytuacji"),
 	
 	NOUN_TO("Kiedy A staje się, wtedy również B staje się", "Mówi o rzeczach oczywistych, z której druga wynika z pierwszej"),
+	
+	NOUN_HAZU_DESU("Przypuszczam, że ..."),
 		
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -204,7 +210,9 @@ public enum ExampleGroupType {
 	
 	VERB_BA_NEGATIVE_YOKATTA("Dobrze byłoby, gdybym nie zrobił"),
 	
-	VERB_KEIGO_KUDASAI("Grzeczna prośba", "Nie używane dla dobra mówiącego; Uwaga na dużą nieregularność, którego aplikacja może nie uwzględniać");
+	VERB_KEIGO_KUDASAI("Grzeczna prośba", "Nie używane dla dobra mówiącego; Uwaga na dużą nieregularność, którego aplikacja może nie uwzględniać"),
+	
+	VERB_HAZU_DESU("Przypuszczam, że ...");
 	
 	private String name;
 	

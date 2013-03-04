@@ -757,7 +757,11 @@ Genki 1-11",,-,ページ,,peeji,strona,,
 468,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-6
 Genki kanji 1-10",,夜,よる,,yoru,noc,,
 469,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,"Genki 1-6
-Genki kanji 1-6",,大変,たいへん,,taihen,ciężka,sytuacja,
+Genki kanji 1-6
+Genki dodatkowe 2-19",,大変,たいへん,,taihen,"ciężka (sytuacja)
+bardzo
+wielce
+ogromnie",,
 470,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 1-6,,遊ぶ,あそぶ,,asobu,"grać
 miło spędzać czas",,
 471,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,"Genki 1-6
@@ -1003,7 +1007,10 @@ Genki kanji 1-8",,言う,いう,,iu,mówić,,
 umieszczać
 zostawiać",,
 608,WORD,WORD_NOUN,,HIRAGANA,Genki 2-14,,お皿,おさら,,osara,talerz,,
-609,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,を,渡す,わたす,o,watasu,dawać,,
+609,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,を,渡す,わたす,o,watasu,"dawać
+wręczać
+przekazywać
+przenosić przez",,
 610,WORD,WORD_NOUN,,HIRAGANA,Inne,,故郷,ふるさと,,furusato,miasto rodzinne,,
 611,WORD,WORD_ADJECTIVE_I,,HIRAGANA,"Genki 1-9
 Genki kanji 1-9",,白い,しろい,,shiroi,biały,,
@@ -1142,7 +1149,8 @@ rozpoczynać się",coś,
 701,WORD,WORD_VERB_U,,HIRAGANA,"Genki 1-9
 Genki 2-14",を,-,もらう,o,morau,"dostać
 otrzymać","coś, osoba ni rzecz",
-702,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Genki 1-9,,覚える,おぼえる,,oboeru,zapamiętać,,
+702,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Genki 1-9,,覚える,おぼえる,,oboeru,"zapamiętać
+uczyć się",,
 703,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,"Genki 1-9
 Genki 2-18",に,出る,でる,ni,deru,pojawić się,,
 704,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,"Genki 1-9
@@ -1937,7 +1945,7 @@ doprowadzać do porządku",,
 1223,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,荷物を纏める,にもつをまとめる,,nimotsu o matomeru,pakować bagaż,dosł. doprowadzać do porządku,
 1224,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,中,じゅう,,juu,"cały czas
 całe miejsce",czas/miejsce + ~,
-1225,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,中,ちゅう,,chuu,w trakcie czegoś,czas + ~,
+1225,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,中,ちゅう,,chuu,w trakcie czegoś,czas + ~,
 1226,WORD,WORD_NOUN,,HIRAGANA,Inne,,交差点,こうさてん,,kousaten,skrzyżowanie,,
 1227,WORD,WORD_NOUN,,HIRAGANA,Inne,,森,もり,,mori,las,,
 1228,WORD,WORD_NOUN,,HIRAGANA,Inne,,林,はやし,,hayashi,lasek,,
@@ -1945,7 +1953,10 @@ całe miejsce",czas/miejsce + ~,
 1230,WORD,WORD_COUNTERS,,HIRAGANA,Klasyfikatory,,階,かい,,kai,numer piętra,liczba +,
 1231,WORD,WORD_NOUN,,KATAKANA,Inne,,-,エレベーター,,erebeetaa,winda,,
 1232,WORD,WORD_NOUN,,KATAKANA,Inne,,-,エスカレーター,,esukareetaa,ruchome schody,,
-1233,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,を,渡る,わたる,o,wataru,przechodzić przez,,
+1233,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,を,渡る,わたる,o,wataru,"przechodzić przez
+przekraczać
+migrować
+być importowanym",,
 1234,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,"Genki kanji 2-15
 Genki dodatkowe 2-15",,走る,はしる,,hashiru,biegać,,
 1235,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,車を走る,くるまをはしる,,kuruma o hashiru,samochody jeżdżą,dosł. biegają,
@@ -3258,8 +3269,10 @@ mieć odrębne zdanie",,
 2149,WORD,WORD_ADVERB,,HIRAGANA,Genki dodatkowe 2-16,,喜んで,よろこんで,,yorokonde,"z przyjemnością
 z radością
 szczęśliwy",,
-2150,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki dodatkowe 2-16,,続く,つづく,,tsuduku,"kontynuować
-wznawiać",,
+2150,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,"Genki dodatkowe 2-16
+Genki dodatkowe 2-19",,続く,つづく,,tsuduku,"kontynuować
+wznawiać
+ciągnąć się (np. dni)",,
 2151,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-16,,売れる,うれる,,ureru,sprzedawać,forma potencjalna,
 2152,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-16,,-,すると,,suruto,"... wtedy, ...",,
 2153,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-16,,-,また,,mata,"znów
@@ -5558,7 +5571,8 @@ równonoc jesienna",,
 3515,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-19,,春夏秋冬,しゅんかしゅうとう,,shunkashuutou,cztery pory roku,,
 3516,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 2-19,,花粉症,かふんしょう,,kafunshou,alergia na pyłki kwiatowe,,
 3517,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-19,,お客様,おきゃくさま,,okyakusama,szanowny klient,,
-3518,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 2-19,,皆様,みなさま,,minasama,"wszyscy
+3518,KANJI,UNKNOWN,,HIRAGANA,"Genki kanji 2-19
+Genki dodatkowe 2-19",,皆様,みなさま,,minasama,"wszyscy
 szanowni państwo",,
 3519,KANJI,WORD_ADJECTIVE_NA,,HIRAGANA,Genki kanji 2-19,,不景気,ふけいき,,fukeiki,"recesja
 zła sytuacja ekonomiczna",,
@@ -5691,3 +5705,45 @@ nie rozstrzygnięty
 toczący się (proces)",,
 3593,WORD,WORD_NOUN,,HIRAGANA,Inne,,手鏡,てかがみ,,tekagami,ręczne lusterko,,
 3594,WORD,WORD_NOUN,,HIRAGANA,Inne,,鏡台,きょうだい,,kyoudai,toaletka,,
+3595,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki dodatkowe 2-19,,思い出す,おもいだす,,omoidasu,przypominać,,
+3596,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-19,,思い出,おもいで,,omoide,wspomnienie,,
+3597,WORD,WORD_ADVERB,,HIRAGANA,Genki dodatkowe 2-19,,如何,いかが,,ikaga,jak,uprzejma forma od どう,
+3598,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki dodatkowe 2-19,,経つ,たつ,,tatsu,"mijać
+przechodzić",np. czas,
+3599,WORD,WORD_VERB_U,,HIRAGANA,Genki dodatkowe 2-19,に,お世話になる,おせわになる,ni,osewa ni naru,podziękowanie za opiekę,,
+3600,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki dodatkowe 2-19,,懐かしい,なつかしい,,natsukashii,"tęsknić za kimś
+utęsknienie
+przywołujący wspomnienia",,
+3601,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,-,それでは,,sore de ha,no więc,tylko na początku zdania,
+3602,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-19,,将棋,しょうぎ,,shougi,japońskie szachy,,
+3603,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,今も,いまも,,ima mo,nawet teraz,,
+3604,WORD,WORD_VERB_U,,HIRAGANA,Genki dodatkowe 2-19,,楽しみになる,たのしみになる,,tanoshimi ni naru,cieszyć się na,,
+3605,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,ことを思い出す,ことをおもいだす,,koto o omoidasu,~ wspominać,jakąś czynność,
+3606,WORD,WORD_NOUN,,HIRAGANA,Inne,,経,きょう,,kyou,sutra,,
+3607,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,経る,へる,,heru,"przechodzić przez
+doświadczenie",,
+3608,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,経理,けいり,,keiri,"zarządzanie
+rachunkowość",,
+3609,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,経営,けいえい,,keiei,"konstrukcja
+zarządzanie
+operacja
+projekt",,
+3610,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,経歴,けいれき,,keireki,życiorys,,
+3611,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,覚ます,さます,,samasu,"budzić
+trzeźwieć",,
+3612,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,覚める,さめる,,sameru,"budzić się
+trzeźwieć",,
+3613,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,覚る,さとる,,satoru,"zrozumieć
+pojąć",,
+3614,WORD,WORD_NOUN,,HIRAGANA,Inne,,覚書,おぼえがき,,oboegaki,"notatki
+protokół
+memorandum",,
+3615,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,覚悟,かくご,,kakugo,"gotowość
+stanowczość
+oczekiwanie
+rezygnacja
+pojęcie",,
+3616,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,覚醒,かくせい,,kakusei,"przebudzenie
+otrzeźwienie
+pozbywanie się iluzji",,
+3617,WORD,WORD_NOUN,,HIRAGANA,Inne,,渡り,わたり,,watari,przejście,,
