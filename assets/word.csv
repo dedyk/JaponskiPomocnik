@@ -4550,7 +4550,8 @@ pasja",,
 2902,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,化ける,ばける,,bakeru,zmieniać się,w coś,
 2903,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,化かす,ばかす,,bakasu,"zaczarować
 oczarować",,
-2904,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,変化,へんか,,henka,zmiana,,
+2904,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,変化,へんか,,henka,"zmiana
+urozmaicenie",,
 2905,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,変化,へんげ,,henge,chochlik,,
 2906,WORD,WORD_NOUN,,HIRAGANA,Inne,,化学,かがく,,kagaku,chemia,,
 2907,WORD,WORD_NOUN,,HIRAGANA,Inne,,化け物,ばけもの,,bakemono,straszydło,,
@@ -5747,3 +5748,23 @@ pojęcie",,
 otrzeźwienie
 pozbywanie się iluzji",,
 3617,WORD,WORD_NOUN,,HIRAGANA,Inne,,渡り,わたり,,watari,przejście,,
+3618,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,変える,かえる,,kaeru,zmieniać,,
+3619,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,変わる,かわる,,kawaru,zmieniać się,,
+3620,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,変更,へんこう,,henkou,"zmiana
+poprawa",,
+3621,WORD,WORD_NOUN,,HIRAGANA,Inne,,変成,へんせい,,hensei,metamorfoza,,
+3622,WORD,WORD_NOUN,,HIRAGANA,Inne,,変声期,へんせいき,,henseiki,okres mutacji głosu,,
+3623,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,変死,へんし,,henshi,przypadkowa śmierć,,
+3624,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,暖める,あたためる,,atatameru,"ogrzewać
+podgrzewać",,
+3625,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,暖まる,あたたまる,,atatamaru,"ogrzewać się
+podgrzewać się",,
+3626,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,温まる,あたたまる,,atatamaru,"ogrzewać się
+podgrzewać się",,
+3627,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,温かい,あたたかい,,atatakai,ciepły,,
+3628,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,温かい,あったかい,,attakai,ciepły,,
+3629,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,暖かい,あったかい,,attakai,ciepły,,
+3630,WORD,WORD_NOUN,,HIRAGANA,Inne,,石炭,せきたん,,sekitan,węgiel,,
+3631,WORD,WORD_NOUN,,HIRAGANA,Inne,,宝石,ほうせき,,houseki,"kamień drogocenny
+biżuteria",,
+3632,WORD,WORD_NOUN,,HIRAGANA,Inne,,石英,せきえい,,sekiei,kwarc,,
