@@ -408,7 +408,7 @@ public class DBGenerator {
 		values.put(SQLiteStatic.kanjiEntriesTable_strokePaths, Utils.convertListToString(kanjiEntry.getStrokePaths()));
 		values.put(SQLiteStatic.kanjiEntriesTable_polishTranslates, Utils.convertListToString(kanjiEntry.getPolishTranslates()));
 		values.put(SQLiteStatic.kanjiEntriesTable_info, emptyIfNull(kanjiEntry.getInfo()));
-		values.put(SQLiteStatic.kanjiEntriesTable_generated, kanjiEntry.isGenerated() == true ? "1" : "0");
+		values.put(SQLiteStatic.kanjiEntriesTable_generated, String.valueOf(kanjiEntry.isGenerated()));
 		values.put(SQLiteStatic.kanjiEntriesTable_groups, Utils.convertListToString(GroupEnum.convertToValues(kanjiEntry.getGroups())));
 		
 		insert(statement, SQLiteStatic.kanjiEntriesTableName, values);
