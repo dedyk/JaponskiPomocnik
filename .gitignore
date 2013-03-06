@@ -2,3 +2,4 @@ bin
 dictionary/word.csv
 gen
 release
+assets/dictionary.db

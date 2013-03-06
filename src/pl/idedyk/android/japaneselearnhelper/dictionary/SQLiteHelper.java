@@ -15,6 +15,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		
+		int fixme = 1;
+		
 		db.execSQL(SQLiteStatic.listEntriesTableCreate);
 		db.execSQL(SQLiteStatic.listEntriesTableCreateAllIndex);
 		db.execSQL(SQLiteStatic.listEntriesTableCreateTypeKeyIndex);

@@ -77,6 +77,8 @@ public class SQLiteConnector {
 	
 	public void insertDictionaryEntry(DictionaryEntry dictionaryEntry) {
 		
+		int fixme = 1;
+		
 		ContentValues values = new ContentValues();
 		
 		values.put(SQLiteStatic.dictionaryEntriesTable_id, dictionaryEntry.getId());		
@@ -505,7 +507,9 @@ public class SQLiteConnector {
 	}
 		
 	public void insertKanjiEntry(KanjiEntry kanjiEntry) {
-				
+		
+		int fixme = 1;
+		
 		ContentValues values = new ContentValues();
 		
 		values.put(SQLiteStatic.kanjiEntriesTable_id, kanjiEntry.getId());
