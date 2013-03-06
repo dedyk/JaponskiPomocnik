@@ -114,7 +114,9 @@ public class DBGenerator {
 			if (connection != null) {
 				connection.close();
 			}			
-		}		
+		}	
+		
+		System.out.println("DB Generator - done");
 	}
 		
 	private static void readDictionaryFile(Statement statement, InputStream dictionaryInputStream) throws IOException, DictionaryException, SQLException {

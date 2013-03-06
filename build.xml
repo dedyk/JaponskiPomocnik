@@ -91,6 +91,28 @@
 
     <target name="-pre-clean">
 	<delete dir="release" />
+	<delete dir="bin-db-generator" />
+	<delete file="assets/dictionary.db" />
+    </target>
+
+    <target name="db-generate">
+	<mkdir dir="bin-db-generator" />
+
+	<javac destdir="bin-db-generator" classpath="bin/classes:libs/javacsv-2.1.jar">
+	    <src>
+		<pathelement location="src-db-generator" />
+	    </src>
+	</javac>
+
+	<exec executable="java">
+	    <arg value="-cp" />
+	    <arg value="bin-db-generator:bin/classes:libs/javacsv-2.1.jar:libs-db-generator/sqlite-jdbc-3.7.2.jar" />
+	    <arg value="pl.idedyk.android.japaneselearnhelper.dbgenerator.DBGenerator" />
+	</exec>
+    </target>
+    
+    <target name="-post-compile">
+	<antcall target="db-generate" />
     </target>
 
     <target name="-post-build">
