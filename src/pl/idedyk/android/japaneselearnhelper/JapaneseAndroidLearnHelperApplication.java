@@ -75,11 +75,11 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	        } catch (NameNotFoundException e) {        	
 	        }
 			
-			SQLiteConnector sqliteConnector = new SQLiteConnector(this, versionCode);
+			SQLiteConnector sqliteConnector = new SQLiteConnector();
 			
 			dictionaryManager = new DictionaryManager(sqliteConnector);
 			
-			dictionaryManager.init(null, resources, assets, getPackageName());
+			dictionaryManager.init(null, resources, assets, getPackageName(), versionCode);
 		}
 		
 		return dictionaryManager;

@@ -254,7 +254,7 @@ public class DBGenerator {
 			values.put(SQLiteStatic.listEntriesTable_subType, subType);
 			values.put(SQLiteStatic.listEntriesTable_key, key);
 			values.put(SQLiteStatic.listEntriesTable_value, currentListValue);
-			values.put(SQLiteStatic.listEntriesTable_special, String.valueOf(false));
+			values.put(SQLiteStatic.listEntriesTable_special, "0");
 			
 			insert(statement, SQLiteStatic.listEntriesTableName, values);
 		}
@@ -278,7 +278,7 @@ public class DBGenerator {
 			values.put(SQLiteStatic.listEntriesTable_subType, subType);
 			values.put(SQLiteStatic.listEntriesTable_key, key);
 			values.put(SQLiteStatic.listEntriesTable_value, Utils.removePolishChars(currentListValue));
-			values.put(SQLiteStatic.listEntriesTable_special, String.valueOf(true));
+			values.put(SQLiteStatic.listEntriesTable_special, "1");
 			
 			insert(statement, SQLiteStatic.listEntriesTableName, values);
 		}
@@ -408,7 +408,7 @@ public class DBGenerator {
 		values.put(SQLiteStatic.kanjiEntriesTable_strokePaths, Utils.convertListToString(kanjiEntry.getStrokePaths()));
 		values.put(SQLiteStatic.kanjiEntriesTable_polishTranslates, Utils.convertListToString(kanjiEntry.getPolishTranslates()));
 		values.put(SQLiteStatic.kanjiEntriesTable_info, emptyIfNull(kanjiEntry.getInfo()));
-		values.put(SQLiteStatic.kanjiEntriesTable_generated, String.valueOf(kanjiEntry.isGenerated()));
+		values.put(SQLiteStatic.kanjiEntriesTable_generated, kanjiEntry.isGenerated() == true ? "1" : "0");
 		values.put(SQLiteStatic.kanjiEntriesTable_groups, Utils.convertListToString(GroupEnum.convertToValues(kanjiEntry.getGroups())));
 		
 		insert(statement, SQLiteStatic.kanjiEntriesTableName, values);

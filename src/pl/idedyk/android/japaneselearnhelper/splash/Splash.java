@@ -55,14 +55,16 @@ public class Splash extends Activity {
         	
             versionCode = packageInfo.versionCode;
 
-        } catch (NameNotFoundException e) {        	
+        } catch (NameNotFoundException e) {
         }
+        
+        final int finalVersionCode = versionCode;
         
         ConfigManager configManager = new ConfigManager(this);
         
         JapaneseAndroidLearnHelperApplication.getInstance().setConfigManager(configManager);
         
-        SQLiteConnector sqliteConnector = new SQLiteConnector(this, versionCode);
+        SQLiteConnector sqliteConnector = new SQLiteConnector();
         
         // create dictionary manager
         final DictionaryManager dictionaryManager = new DictionaryManager(sqliteConnector);
@@ -109,7 +111,7 @@ public class Splash extends Activity {
 								
 				LoadWithProgress loadWithProgress = new LoadWithProgress();
 				
-				dictionaryManager.init(loadWithProgress, resources, assets, getPackageName());
+				dictionaryManager.init(loadWithProgress, resources, assets, getPackageName(), finalVersionCode);
 				
 				JapaneseAndroidLearnHelperApplication.getInstance().setDictionaryManager(dictionaryManager);
 				

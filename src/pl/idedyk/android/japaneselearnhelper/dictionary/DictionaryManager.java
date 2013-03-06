@@ -1,6 +1,12 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -38,16 +44,16 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 
 public class DictionaryManager {
-
-	private static final String WORD_FILE = "word.csv";
-
-	private static final String KANJI_FILE = "kanji.csv";
-
+	
 	private static final String KANJI_RECOGNIZE_MODEL_DB_FILE = "kanji_recognizer.model.db";
 
 	private static final String RADICAL_FILE = "radical.csv";
 
 	private static final String KANA_FILE = "kana.csv";
+	
+	private static final String OLD_DATABASE_FILE = "JapaneseAndroidLearnHelperDb";
+	
+	private static final String DATABASE_FILE = "dictionary.db";
 
 	private SQLiteConnector sqliteConnector;
 
@@ -65,7 +71,7 @@ public class DictionaryManager {
 		keigoHeper = new KeigoHelper();
 	}
 
-	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName) {
+	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
 
 		if (loadWithProgress == null) {
 			
@@ -87,28 +93,42 @@ public class DictionaryManager {
 			// init
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
 
-			sqliteConnector.open();
+			// check if database path exists
+			String databaseDir = Environment.getDataDirectory().getAbsolutePath() + "/data/" + packageName + "/databases/";
+			
+			File databaseDirFile = new File(databaseDir);
+			
+			if (databaseDirFile.isDirectory() == false) {
+				databaseDirFile.mkdir();
+			}
+			
+			// delete old database file
+			new File(databaseDir + OLD_DATABASE_FILE).delete();
+			new File(databaseDir + "-journal").delete();
+			
+			final String databaseFile = databaseDir + DATABASE_FILE;
+			
+			// get database version
+			String databaseVersionFile = databaseFile + "-version";
+			
+			int databaseVersion = getDatabaseVersion(databaseVersionFile);
+			
+			if (versionCode != databaseVersion) {
+				
+				// copy dictionary file
+				copyDatabaseFileToDatabaseDir(assets.open(DATABASE_FILE), databaseFile);
 
-			boolean needInsertData = sqliteConnector.isNeedInsertData();
+				// save database version
+				saveDatabaseVersion(databaseVersionFile, versionCode);
+			}			
+				
+			sqliteConnector.open(databaseFile);
 
 			// wczytywanie slow
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_words));
 			loadWithProgress.setCurrentPos(0);
 
-			if (needInsertData == true) {
-
-				InputStream fileWordInputStream = assets.open(WORD_FILE);
-
-				int wordFileSize = getWordSize(fileWordInputStream);
-
-				loadWithProgress.setMaxValue(wordFileSize);
-
-				fileWordInputStream = assets.open(WORD_FILE);
-
-				readDictionaryFile(fileWordInputStream, loadWithProgress, resources);
-			} else {
-				fakeProgress(loadWithProgress);
-			}
+			fakeProgress(loadWithProgress);
 
 			// wczytanie informacji o pisaniu znakow kana
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kana));
@@ -142,20 +162,7 @@ public class DictionaryManager {
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji));
 			loadWithProgress.setCurrentPos(0);
 
-			if (needInsertData == true) {
-
-				InputStream kanjiInputStream = assets.open(KANJI_FILE);
-
-				int kanjiFileSize = getWordSize(kanjiInputStream);
-
-				loadWithProgress.setMaxValue(kanjiFileSize);
-
-				kanjiInputStream = assets.open(KANJI_FILE);
-
-				readKanjiDictionaryFile(kanjiInputStream, loadWithProgress, resources);
-			} else {
-				fakeProgress(loadWithProgress);
-			}
+			fakeProgress(loadWithProgress);
 						
 			// kopiowanie kanji recognize model do data
 			zinniaManager = new ZinniaManager(new File(Environment.getDataDirectory().getAbsolutePath() + 
@@ -187,6 +194,73 @@ public class DictionaryManager {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	private void saveDatabaseVersion(String databaseVersionFile, int versionCode) throws IOException {
+		
+		BufferedWriter writer = new BufferedWriter(new FileWriter(databaseVersionFile));
+		
+		writer.write(String.valueOf(versionCode));
+		
+		writer.close();		
+	}
+	
+	private int getDatabaseVersion(String databaseVersionFile) {
+		
+		int version = 0;
+		
+		if (new File(databaseVersionFile).exists() == false) {
+			return version;
+		}
+		
+		BufferedReader reader = null;
+		
+		try {
+			reader = new BufferedReader(new FileReader(databaseVersionFile));
+			
+			String line = reader.readLine();
+			
+			if (line == null) {
+				return version;
+			}
+			
+			try {
+				version = Integer.parseInt(line);
+			} catch (NumberFormatException e) {
+				return version;
+			}
+			
+			return version;
+			
+		} catch (IOException e) {
+			
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e1) {
+				}
+			}
+			
+			return version;
+		}
+	}
+
+	private void copyDatabaseFileToDatabaseDir(InputStream databaseInputStream, String databaseOutputFile) throws IOException {
+		
+		BufferedOutputStream databaseOutputStream = null;
+
+		databaseOutputStream = new BufferedOutputStream(new FileOutputStream(databaseOutputFile));
+
+		byte[] buffer = new byte[8096];
+		
+		int read;  
+		
+		while ((read = databaseInputStream.read(buffer)) != -1) {  
+			databaseOutputStream.write(buffer, 0, read);  
+		}  
+
+		databaseInputStream.close();
+		databaseOutputStream.close();
+	}
 
 	private int getWordSize(InputStream dictionaryInputStream) throws IOException {
 
@@ -201,71 +275,6 @@ public class DictionaryManager {
 		dictionaryInputStream.close();
 
 		return size;		
-	}
-
-	private void readDictionaryFile(InputStream dictionaryInputStream, 
-			ILoadWithProgress loadWithProgress,
-			Resources resources) throws IOException, DictionaryException {
-
-		CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
-
-		int currentPos = 1;
-
-		int transactionCounter = 0;
-
-		sqliteConnector.beginTransaction();
-
-		try {
-			while(csvReader.readRecord()) {
-
-				currentPos++;
-
-				loadWithProgress.setCurrentPos(currentPos);
-
-				String idString = csvReader.get(0);
-				String dictionaryEntryTypeString = csvReader.get(2);
-				String attributesString = csvReader.get(3);
-				String groupsString = csvReader.get(5);
-				String prefixKanaString = csvReader.get(6);
-				String kanjiString = csvReader.get(7);
-
-				String kanaListString = csvReader.get(8);
-				String prefixRomajiString = csvReader.get(9);
-
-				String romajiListString = csvReader.get(10);
-				String translateListString = csvReader.get(11);
-				String infoString = csvReader.get(12);
-
-				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributesString, groupsString,
-						prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
-						romajiListString, translateListString, infoString);
-
-				sqliteConnector.insertDictionaryEntry(entry);
-
-				transactionCounter++;
-
-				if (transactionCounter >= 1000) {
-					transactionCounter = 0;
-
-					try {
-						sqliteConnector.commitTransaction();
-					} finally {
-						sqliteConnector.endTransaction();
-					}
-
-					sqliteConnector.beginTransaction();
-				}
-			}
-
-			sqliteConnector.commitTransaction();
-		} finally {
-			sqliteConnector.endTransaction();
-		}
-		
-		csvReader.close();
-		
-		loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_optimize));
-		sqliteConnector.vacuum();
 	}
 
 	public int getWordGroupsNo(int groupSize) {
@@ -433,109 +442,7 @@ public class DictionaryManager {
 			sqliteConnector.endTransaction();
 		}
 	}
-
-	private void readKanjiDictionaryFile(InputStream kanjiInputStream, 
-			ILoadWithProgress loadWithProgress,
-			Resources resources) throws IOException, DictionaryException {
-
-		Map<String, RadicalInfo> radicalListMapCache = new HashMap<String, RadicalInfo>();
-
-		for (RadicalInfo currentRadicalInfo : radicalList) {
-
-			String radical = currentRadicalInfo.getRadical();
-
-			radicalListMapCache.put(radical, currentRadicalInfo);
-		}
-
-		CsvReader csvReader = new CsvReader(new InputStreamReader(kanjiInputStream), ',');
-
-		int currentPos = 1;
-
-		int transactionCounter = 0;
-
-		sqliteConnector.beginTransaction();
-
-		try {
-			while(csvReader.readRecord()) {
-
-				currentPos++;
-
-				loadWithProgress.setCurrentPos(currentPos);
-
-				String idString = csvReader.get(0);
-
-				String kanjiString = csvReader.get(1);
-
-				String strokeCountString = csvReader.get(2);
-
-				String radicalsString = csvReader.get(3);
-
-				String onReadingString = csvReader.get(4);
-
-				String kunReadingString = csvReader.get(5);
-
-				String strokePathString = csvReader.get(6);
-
-				String polishTranslateListString = csvReader.get(7);
-				String infoString = csvReader.get(8);
-
-				String generatedString = csvReader.get(9);
-
-				String groupString = csvReader.get(10);
-
-				KanjiEntry entry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
-						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generatedString, groupString);
-
-				// update radical info
-				if (entry.getKanjiDic2Entry() != null) {
-					updateRadicalInfoUse(radicalListMapCache, entry.getKanjiDic2Entry().getRadicals());	
-				}
-
-				// insert
-				sqliteConnector.insertKanjiEntry(entry);
-
-				transactionCounter++;
-
-				if (transactionCounter >= 1000) {
-					transactionCounter = 0;
-
-					try {
-						sqliteConnector.commitTransaction();
-					} finally {
-						sqliteConnector.endTransaction();
-					}
-
-					sqliteConnector.beginTransaction();
-				}
-			}
-
-			sqliteConnector.commitTransaction();
-
-		} finally {
-			sqliteConnector.endTransaction();
-		}
-
-		csvReader.close();
-		
-		loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_optimize));
-		sqliteConnector.vacuum();
-	}
-
-	private void updateRadicalInfoUse(Map<String, RadicalInfo> radicalListMapCache, List<String> radicals) {
-
-		for (String currentRadical : radicals) {
-
-			RadicalInfo currentRadicalInfo = radicalListMapCache.get(currentRadical);
-
-			if (currentRadicalInfo == null) {
-				throw new RuntimeException("currentRadicalInfo == null: " + currentRadical);
-			}
-
-			//currentRadicalInfo.incrementUse();			
-		}
-	}
-
+	
 	public List<KanjiEntry> findKnownKanji(String text) {
 
 		List<KanjiEntry> result = new ArrayList<KanjiEntry>();

@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
@@ -22,7 +21,6 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroup
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,16 +29,10 @@ public class SQLiteConnector {
 	
 	private SQLiteDatabase sqliteDatabase;
 
-	private SQLiteHelper sqliteHelper;
-
-	public SQLiteConnector(Context context, int version) {
-		sqliteHelper = new SQLiteHelper(context, version);
-	}
-
-	public void open() throws SQLException {
+	public void open(String path) throws SQLException {
 		
 		if (sqliteDatabase == null) {
-			sqliteDatabase = sqliteHelper.getWritableDatabase();
+			sqliteDatabase = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READWRITE);
 		}
 	}
 
@@ -58,10 +50,6 @@ public class SQLiteConnector {
 		
 		close();
 	}
-
-	public boolean isNeedInsertData() {
-		return sqliteHelper.isNeedInsertData();
-	}
 	
 	public void beginTransaction() {
 		sqliteDatabase.beginTransaction();
@@ -73,109 +61,6 @@ public class SQLiteConnector {
 	
 	public void endTransaction() {
 		sqliteDatabase.endTransaction();
-	}
-	
-	public void insertDictionaryEntry(DictionaryEntry dictionaryEntry) {
-		
-		int fixme = 1;
-		
-		ContentValues values = new ContentValues();
-		
-		values.put(SQLiteStatic.dictionaryEntriesTable_id, dictionaryEntry.getId());		
-		values.put(SQLiteStatic.dictionaryEntriesTable_dictionaryEntryType, dictionaryEntry.getDictionaryEntryType().toString());
-		values.put(SQLiteStatic.dictionaryEntriesTable_prefixKana, emptyIfNull(dictionaryEntry.getPrefixKana()));
-		values.put(SQLiteStatic.dictionaryEntriesTable_kanji, emptyIfNull(dictionaryEntry.getKanji()));
-		//values.put(SQLiteStatic.dictionaryEntriesTable_kanaList, Utils.convertListToString(dictionaryEntry.getKanaList()));
-		values.put(SQLiteStatic.dictionaryEntriesTable_prefixRomaji, emptyIfNull(dictionaryEntry.getPrefixRomaji()));
-		//values.put(SQLiteStatic.dictionaryEntriesTable_romajiList, Utils.convertListToString(dictionaryEntry.getRomajiList()));
-		//values.put(SQLiteStatic.dictionaryEntriesTable_translates, Utils.convertListToString(dictionaryEntry.getTranslates()));
-		values.put(SQLiteStatic.dictionaryEntriesTable_info, emptyIfNull(dictionaryEntry.getInfo()));		
-		
-		sqliteDatabase.insertOrThrow(SQLiteStatic.dictionaryEntriesTableName, null, values);
-
-		insertListEntry(AttributeType.convertToValues(dictionaryEntry.getAttributeList()), SQLiteStatic.dictionaryEntriesTableName, 
-				SQLiteStatic.dictionaryEntriesTable_attributeList, String.valueOf(dictionaryEntry.getId()));
-		
-		insertListEntry(GroupEnum.convertToValues(dictionaryEntry.getGroups()), SQLiteStatic.dictionaryEntriesTableName, 
-				SQLiteStatic.dictionaryEntriesTable_groups, String.valueOf(dictionaryEntry.getId()));
-		
-		insertListEntry(dictionaryEntry.getKanaList(), SQLiteStatic.dictionaryEntriesTableName, 
-				SQLiteStatic.dictionaryEntriesTable_kanaList, String.valueOf(dictionaryEntry.getId()));
-
-		insertListEntry(dictionaryEntry.getRomajiList(), SQLiteStatic.dictionaryEntriesTableName, 
-				SQLiteStatic.dictionaryEntriesTable_romajiList, String.valueOf(dictionaryEntry.getId()));
-		
-		insertListEntry(dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName, 
-				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
-		
-		insertListEntryWithPolishCharsRemove(dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName, 
-				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
-
-		String info = dictionaryEntry.getInfo();
-		
-		if (info != null && info.equals("") == false) {
-			
-			List<String> infoList = new ArrayList<String>();
-			
-			infoList.add(info);
-
-			insertListEntry(infoList, SQLiteStatic.dictionaryEntriesTableName, 
-					SQLiteStatic.dictionaryEntriesTable_info, String.valueOf(dictionaryEntry.getId()));
-			
-			insertListEntryWithPolishCharsRemove(infoList, SQLiteStatic.dictionaryEntriesTableName, 
-					SQLiteStatic.dictionaryEntriesTable_info, String.valueOf(dictionaryEntry.getId()));					
-		}
-	}
-	
-	private void insertListEntry(List<String> list, String type, String subType, String key) {
-		
-		if (list == null || list.size() == 0) {
-			return;
-		}
-		
-		for (String currentListValue : list) {
-			ContentValues values = new ContentValues();
-			
-			values.put(SQLiteStatic.listEntriesTable_type, type);
-			values.put(SQLiteStatic.listEntriesTable_subType, subType);
-			values.put(SQLiteStatic.listEntriesTable_key, key);
-			values.put(SQLiteStatic.listEntriesTable_value, currentListValue);
-			values.put(SQLiteStatic.listEntriesTable_special, false);
-			
-			sqliteDatabase.insertOrThrow(SQLiteStatic.listEntriesTableName, null, values);
-		}
-	}
-	
-	private void insertListEntryWithPolishCharsRemove(List<String> list, String type, String subType, String key) {
-		
-		if (list == null || list.size() == 0) {
-			return;
-		}
-		
-		for (String currentListValue : list) {
-			
-			if (Utils.containsPolishChars(currentListValue) == false) {
-				continue;
-			}			
-			
-			ContentValues values = new ContentValues();
-			
-			values.put(SQLiteStatic.listEntriesTable_type, type);
-			values.put(SQLiteStatic.listEntriesTable_subType, subType);
-			values.put(SQLiteStatic.listEntriesTable_key, key);
-			values.put(SQLiteStatic.listEntriesTable_value, Utils.removePolishChars(currentListValue));
-			values.put(SQLiteStatic.listEntriesTable_special, true);
-			
-			sqliteDatabase.insertOrThrow(SQLiteStatic.listEntriesTableName, null, values);
-		}
-	}	
-	
-	private String emptyIfNull(String text) {
-		if (text == null) {
-			return "";
-		}
-		
-		return text;
 	}
 	
 	public int getDictionaryEntriesSize() {
@@ -506,38 +391,6 @@ public class SQLiteConnector {
 		return result;
 	}
 		
-	public void insertKanjiEntry(KanjiEntry kanjiEntry) {
-		
-		int fixme = 1;
-		
-		ContentValues values = new ContentValues();
-		
-		values.put(SQLiteStatic.kanjiEntriesTable_id, kanjiEntry.getId());
-		values.put(SQLiteStatic.kanjiEntriesTable_kanji, kanjiEntry.getKanji());
-		
-		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
-		
-		if (kanjiDic2Entry != null) {
-			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, kanjiDic2Entry.getStrokeCount());
-			values.put(SQLiteStatic.kanjiEntriesTable_radicals, Utils.convertListToString(kanjiDic2Entry.getRadicals()));
-			values.put(SQLiteStatic.kanjiEntriesTable_onReading, Utils.convertListToString(kanjiDic2Entry.getOnReading()));
-			values.put(SQLiteStatic.kanjiEntriesTable_kunReading, Utils.convertListToString(kanjiDic2Entry.getKunReading()));
-		} else {
-			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, "");
-			values.put(SQLiteStatic.kanjiEntriesTable_radicals, "");
-			values.put(SQLiteStatic.kanjiEntriesTable_onReading, "");
-			values.put(SQLiteStatic.kanjiEntriesTable_kunReading, "");			
-		}
-		
-		values.put(SQLiteStatic.kanjiEntriesTable_strokePaths, Utils.convertListToString(kanjiEntry.getStrokePaths()));
-		values.put(SQLiteStatic.kanjiEntriesTable_polishTranslates, Utils.convertListToString(kanjiEntry.getPolishTranslates()));
-		values.put(SQLiteStatic.kanjiEntriesTable_info, emptyIfNull(kanjiEntry.getInfo()));
-		values.put(SQLiteStatic.kanjiEntriesTable_generated, String.valueOf(kanjiEntry.isGenerated()));
-		values.put(SQLiteStatic.kanjiEntriesTable_groups, Utils.convertListToString(GroupEnum.convertToValues(kanjiEntry.getGroups())));
-		
-		sqliteDatabase.insertOrThrow(SQLiteStatic.kanjiEntriesTableName, null, values);
-	}
-	
 	public List<KanjiEntry> getAllKanjis(boolean withDetails, boolean addGenerated) throws DictionaryException {
 		
 		KanjiEntry kanjiEntry = null;
