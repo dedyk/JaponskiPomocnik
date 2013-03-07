@@ -38,7 +38,7 @@ public class DBGenerator {
 		// file params
 		final String dictionaryFilePath = "db/word.csv";
 		final String kanjiFilePath = "db/kanji.csv";
-		final String radicalFilePath = "assets/radical.csv";
+		final String radicalFilePath = "db/radical.csv";
 
 		final String dbOutputFilePath = "assets/dictionary.db";
 		

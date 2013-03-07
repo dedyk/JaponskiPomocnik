@@ -93,6 +93,10 @@
 	<delete dir="release" />
 	<delete dir="bin-db-generator" />
 	<delete file="assets/dictionary.db" />
+	<delete file="assets/dictionary.db-journal" />
+	<delete file="assets/kana.csv" />
+	<delete file="assets/radical.csv" />
+	<delete file="assets/kanji_recognizer.model.db" />
     </target>
 
     <target name="db-generate">
@@ -109,8 +113,12 @@
 	    <arg value="bin-db-generator:bin/classes:libs/javacsv-2.1.jar:libs-db-generator/sqlite-jdbc-3.7.2.jar" />
 	    <arg value="pl.idedyk.android.japaneselearnhelper.dbgenerator.DBGenerator" />
 	</exec>
+
+	<copy file="db/kana.csv" todir="assets" />
+	<copy file="db/radical.csv" todir="assets" />
+	<copy file="db/kanji_recognizer.model.db" todir="assets" />
     </target>
-    
+
     <target name="-post-compile">
 	<antcall target="db-generate" />
     </target>
