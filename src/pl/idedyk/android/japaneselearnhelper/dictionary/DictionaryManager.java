@@ -104,7 +104,7 @@ public class DictionaryManager {
 			
 			// delete old database file
 			new File(databaseDir + OLD_DATABASE_FILE).delete();
-			new File(databaseDir + "-journal").delete();
+			new File(databaseDir + OLD_DATABASE_FILE + "-journal").delete();
 			
 			final String databaseFile = databaseDir + DATABASE_FILE;
 			
