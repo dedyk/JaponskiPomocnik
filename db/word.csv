@@ -91,8 +91,11 @@ Genki kanji 2-17",,二十歳,はたち,,hatachi,dwadzieścia lat,wiek,
 61,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,いただきます,,Itadakimasu,Smacznego,Przed jedzeniem,
 62,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,ごちそうさま,,Gochisousama,Smacznego,Po jedzeniu,
 63,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,始めまして,はじめまして,,Hajimemashite,Przywitanie,Pierwsze spotkanie,
-64,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,どうぞよろしく,,Douzo yoroshiku,Miło Cię spotkać,,
-65,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,どうぞよろしくおねがいします,,Douzo yoroshiku onegai shimasu,Miło Cię spotkać,Kierowane do osoby wyżej postawionej,
+64,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,どうぞよろしく,,Douzo yoroshiku,"miło Cię spotkać
+bardzo miło mi",,
+65,WORD,WORD_GREETING,,HIRAGANA,"Genki 1-1
+Genki dodatkowe 2-19",,どうぞよろしくお願いします,どうぞよろしくおねがいします,,Douzo yoroshiku onegai shimasu,"miło Cię spotkać
+bardzo miło mi",kierowane do osoby wyżej postawionej,
 66,WORD,UNKNOWN,,HIRAGANA,"Genki 1-1
 Genki kanji 1-5",,今,いま,,ima,teraz,,
 67,WORD,UNKNOWN,,HIRAGANA,Genki 1-1,,半,はん,,han,połowa,,
@@ -1406,7 +1409,8 @@ Genki kanji 2-17",,発音,はつおん,,hatsuon,wymowa,,
 865,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-11
 Genki 2-13",,文法,ぶんぽう,,bunpou,gramatyka,,
 866,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,"Genki 1-11
-Genki kanji 2-19",,質問,しつもん,,shitsumon,pytanie,,
+Genki kanji 2-19
+Genki dodatkowe 2-19",,質問,しつもん,,shitsumon,pytanie,,
 867,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,答,こたえ,,kotae,odpowiedź,,
 868,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,例,れい,,rei,przykład,,
 869,WORD,WORD_NOUN,,HIRAGANA,Genki 1-11,,-,かっこ,,kakko,nawias,,
@@ -2175,7 +2179,8 @@ pora deszczowa",,
 Genki kanji 1-9",を,書く,かく,o,kaku,pisać,osoba ni rzecz,
 1390,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 1-9
 Genki kanji 2-14",,親友,しんゆう,,shin'yuu,najlepszy przyjaciel,,
-1391,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 1-9,,友人,ゆうじん,,yuujin,przyjaciel,bardziej oficjalnie,
+1391,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 1-9
+Genki dodatkowe 2-19",,友人,ゆうじん,,yuujin,przyjaciel,bardziej oficjalnie,
 1392,KANJI,UNKNOWN,,HIRAGANA,"Genki 1-4
 Genki 2-14
 Genki kanji 1-9",,時間,じかん,,jikan,"czas
@@ -2420,7 +2425,7 @@ propozycja",,
 blask
 promień",,
 1566,WORD,WORD_NOUN,,HIRAGANA,Inne,,馬,うま,,uma,koń,,
-1567,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,お誕生日おめでとうございます,おたんじょうびおめでとうございます,,otanjoubi omedetou gozaimasu,wszystkiego najlepszego,z okazji urodzin,
+1567,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,お誕生日おめでとうございます,おたんじょうびおめでとうございます,,otanjoubi omedetou gozaimasu,wszystkiego najlepszego,z okazji urodzin,
 1568,WORD,WORD_NOUN,,KATAKANA,Inne,,-,バレーボール,,bareebooru,siatkówka,,
 1569,WORD,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,金魚,きんぎょ,,kingyo,złota rybka,,
 1570,WORD,UNKNOWN,,HIRAGANA,Inne,,金魚掬い,きんぎょすくい,,kingyo sukui,tradycyjna japońska gra,polega na złapaniu przy pomocy papierowej tacki złotej rybki,
@@ -4327,7 +4332,7 @@ instrument",,
 ochroniarz
 strażnik",,
 2776,WORD,WORD_NOUN,,HIRAGANA,Inne,,番犬,ばんけん,,banken,pies stróż,,
-2777,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,受かる,うかる,,ukaru,"zdać
+2777,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,に,受かる,うかる,ni,ukaru,"zdać
 zaliczyć",egzamin,
 2778,WORD,WORD_VERB_U,,HIRAGANA,Inne,,試験にうかる,しけんにうかる,,shiken ni ukaru,"zdać egzamin
 zaliczyć egzamin",,
@@ -4537,9 +4542,11 @@ podstawowy plan",,
 2896,WORD,WORD_NOUN,,HIRAGANA,Inne,,原生林,げんせいりん,,genseirin,dziewiczy las,,
 2897,WORD,WORD_NOUN,,HIRAGANA,Inne,,原始人,げんしじん,,genshijin,"prymitywny człowiek
 pierwotny człowiek",,
-2898,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,受ける,うける,,ukeru,"przyjmować
+2898,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Genki dodatkowe 2-19,を,受ける,うける,o,ukeru,"przyjmować
 akceptować
-zdobywać",,
+zdobywać
+zdawać egzamin
+przystępować do egzaminu",,
 2899,WORD,WORD_NOUN,,HIRAGANA,Inne,,受け身,うけみ,,ukemi,pasywność,,
 2900,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,受信,じゅしん,,jushin,"odbiór wiadomości
 odbiór informacji
@@ -5768,3 +5775,27 @@ podgrzewać się",,
 3631,WORD,WORD_NOUN,,HIRAGANA,Inne,,宝石,ほうせき,,houseki,"kamień drogocenny
 biżuteria",,
 3632,WORD,WORD_NOUN,,HIRAGANA,Inne,,石英,せきえい,,sekiei,kwarc,,
+3633,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-19,,突然,とつぜん,,totsuzen,"nagle
+niespodziewanie
+nieoczekiwanie",,
+3634,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-19,,国際,こくさい,,kokusai,międzynarodowy,,
+3635,WORD,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-19,,電気工学,でんきこうがく,,denki kougaku,elektrotechnika,,
+3636,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki dodatkowe 2-19,,研究する,けんきゅうする,,kenkyuu suru,badać,,
+3637,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,-,のために,,no tame ni,dla,"~ kogoś, czegoś",
+3638,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki dodatkowe 2-19,に,申し込む,もうしこむ,ni,moushikomu,aplikować,,
+3639,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-19,,-,もしたら,,moshi tara,jeżeli,moshi ~ tara,
+3640,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,申し訳ありません,もうしわけありません,,moushiwake arimasen,bardzo przepraszam,,
+3641,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,明けましておめでとうございます,あけましておめでとうございます,,akemashite omedetou gozaimasu,Szczęśliwego Nowego Roku,dosł. gratulację za rozpoczęcie nowego (jasnego) roku,
+3642,WORD,WORD_EXPRESSION,,HIRAGANA_KATAKANA,Genki dodatkowe 2-19,,新年おめでとうございます,しんねんおめでとうございます,,shinnen' omedetou gozaimasu,Szczęśliwego Nowego Roku,dosł. gratulację za nowego roku,
+3643,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,謹賀新年,きんがしんねん,,kinga shinnen,Szczęśliwego Nowego Roku,,
+3644,WORD,WORD_EXPRESSION,,HIRAGANA_KATAKANA,Genki dodatkowe 2-19,,昨年は大変お世話になりました,さくねんはたいへんおせわになりました,,sakunen ha taihen' osewa ni narimashita,Szczęśliwego Nowego Roku,dosł. dziękuję Ci za opiekę w poprzednim roku,
+3645,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,本年もどうぞよろしくお願いいたします,ほんねんもどうぞよろしくおねがいいたします,,honnen mo douzo yoroshiku onegai itashimasu,Szczęśliwego Nowego Roku,dosł. dziękuję Ci za opiekę w nadchodzącym roku,
+3646,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,暑中お見舞い申し上げます,しょちゅうおみまいもうしあげます,,shochuu omimai mou shiagemasu,pozdrowienie w gorące dni,,
+3647,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,ご卒業おめでとうございます,ごそつぎょうおめでとうございます,,go sotsugyou omedetou gozaimasu,gratulacje z okazji ukończenia szkoły,,
+3648,WORD,WORD_EXPRESSION,,HIRAGANA_KATAKANA,Genki dodatkowe 2-19,,ご結婚おめでとうございます,ごけっこんおめでとうございます,,go kekkon' omedetou gozaimasu,gratulacje z okazji ślubu,,
+3649,WORD,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,早くよくなってください,はやくよくなってください,,hayaku yoku natte kudasai,wyzdrowiej szybko,,
+3650,WORD,WORD_NOUN,,HIRAGANA,Inne,,恵み,めぐみ,,megumi,"łaska
+błogosławieństwo",,
+3651,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,恵む,めぐむ,,megumu,"błogosławić
+okazywać łaskawość
+udzielać łaski",,
