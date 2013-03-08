@@ -438,8 +438,7 @@ wiele",,
 266,WORD,UNKNOWN,,HIRAGANA,Genki 1-3,,末,まつ,,matsu,koniec,,
 267,WORD,UNKNOWN,,HIRAGANA,Inne,,毎,まい,,mai,każdy,,
 268,WORD,WORD_NOUN,,HIRAGANA,Genki 1-8,,お箸,おはし,,ohashi,pałeczki,,
-269,WORD,WORD_NOUN,,HIRAGANA,Genki 1-6,,お風呂,おふろ,,ofuro,"wanna
-kąpiel",,
+269,WORD,WORD_NOUN,,HIRAGANA,Genki 1-6,,お風呂,おふろ,,ofuro,kąpiel,,
 270,WORD,WORD_NOUN,,HIRAGANA,"Genki 2-13
 Genki kanji 2-14",,店,みせ,,mise,sklep,,
 271,WORD,WORD_NOUN,,HIRAGANA,Inne,,-,おしょうさん,,oshousan,mnich,buddyjski,
@@ -1480,7 +1479,9 @@ okazja",,
 910,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-12,,熱がある,ねつがある,,netsu ga aru,mieć gorączkę,,
 911,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-12,,のどが渇く,のどがかわく,,nodo ga kawaku,"być spragniony
 mieć sucho w gardle",,
-912,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 1-12,,渇く,かわく,,kawaku,wyschnąć,,
+912,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 1-12,,渇く,かわく,,kawaku,"wyschnąć
+schnąć
+być spragnionym",,
 913,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-12,,渇かす,かわかす,,kawakasu,suszyć,,
 914,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-12,,せきが出る,せきがでる,,seki ga deru,kasłać,,
 915,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,"Genki 1-12
@@ -2017,7 +2018,8 @@ podnosić na duchu",,
 1272,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,立派,りっぱ,,rippa,"wspaniały
 dojrzały",,
 1273,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ランドセル,,randoseru,tornister,,
-1274,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-17,,選ぶ,えらぶ,,erabu,wybierać,,
+1274,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-17,,選ぶ,えらぶ,,erabu,"wybierać
+selekcjonować",,
 1275,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,一言,ひとこと,,hitokoto,prosić o wypowiedź,,
 1276,WORD,WORD_EXPRESSION,,KATAKANA,Inne,,-,ポイント,,pointo,na co zwracać uwagę,,
 1277,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,楽々,らくらく,,raku raku,łatwe,troszeczkę kombinowane,
@@ -5073,17 +5075,17 @@ gatunek",,
 3207,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 2-19,,仲がいい,なかがいい,,naka ga ii,"lubić się
 mieć z kimś dobry kontakt",,
 3208,WORD,WORD_VERB_U,"VERB_KEIGO_HIGH
-VERB_INTRANSITIVITY",HIRAGANA,Genki 2-19,,-,いらっしゃる,,irassharu,"[honoryfikatywna forma od いく, くる, いる]",,
-3209,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,-,おっしゃる,,ossharu,[honoryfikatywna forma od いう],,
-3210,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,お休みになる,おやすみになる,,oyasumi ni naru,[honoryfikatywna forma od ねる],,
-3211,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,下さる,くださる,,kudasaru,[honoryfikatywna forma od くれる],,
-3212,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,ご覧になる,ごらんになる,,goran ni naru,[honoryfikatywna forma od みる],,
+VERB_INTRANSITIVITY",HIRAGANA,Genki 2-19,,-,いらっしゃる,,irassharu,"[honoryfikatywna forma od iku, kuru, iru]",,
+3209,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,-,おっしゃる,,ossharu,[honoryfikatywna forma od iu],,
+3210,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,お休みになる,おやすみになる,,oyasumi ni naru,[honoryfikatywna forma od neru],,
+3211,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,下さる,くださる,,kudasaru,[honoryfikatywna forma od kureru],,
+3212,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,ご覧になる,ごらんになる,,goran ni naru,[honoryfikatywna forma od miru],,
 3213,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-19,と,知り合う,しりあう,to,shiriau,"poznawać kogoś
 poznawać się",,
-3214,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,-,なさる,,nasaru,[honoryfikatywna forma od する],,
+3214,WORD,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,-,なさる,,nasaru,[honoryfikatywna forma od suru],,
 3215,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-19,に,引っ越す,ひっこす,ni,hikkosu,przeprowadzać się,,
 3216,WORD,WORD_VERB_U,"VERB_KEIGO_HIGH
-VERB_TRANSITIVITY",HIRAGANA,Genki 2-19,,召し上がる,めしあがる,,meshiagaru,"[honoryfikatywna forma od たべる, のむ]",,
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-19,,召し上がる,めしあがる,,meshiagaru,"[honoryfikatywna forma od taberu, nomu]",,
 3217,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-19,,呼ぶ,よぶ,,yobu,"wołać
 zapraszać",kogoś,
 3218,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-19,,寄る,よる,,yoru,"wstępować
@@ -5842,7 +5844,7 @@ tłumaczenie",pisemne,
 przeprosiny
 wymówka",,
 3671,WORD,WORD_NOUN,,HIRAGANA,Inne,,歴代,れきだい,,rekidai,"sukcesywni
-kolejni",królewie,
+kolejni",królowie,
 3672,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,歴任,れきにん,,rekinin,kolejne obejmowanie różnych stanowisk,,
 3673,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,命じる,めいじる,,meijiru,rozkazywać,,
 3674,WORD,WORD_NOUN,,HIRAGANA,Inne,,命,いのち,,inochi,życie,,
@@ -5850,3 +5852,37 @@ kolejni",królewie,
 3676,WORD,WORD_NOUN,,HIRAGANA,Inne,,命日,めいにち,,meinichi,dzień rocznicy śmierci,,
 3677,WORD,WORD_NOUN,,HIRAGANA,Inne,,命題,めいだい,,meidai,"teza
 propozycja",,
+3678,WORD,WORD_NOUN,,HIRAGANA,Inne,,奥,おく,,oku,"serce
+wnętrze",,
+3679,WORD,WORD_NOUN,,HIRAGANA,Inne,,湯,ゆ,,yu,"gorąca woda
+gorąca kąpiel
+gorące źródło",,
+3680,WORD,WORD_NOUN,,HIRAGANA,Inne,,茶の湯,ちゃのゆ,,chanoyu,ceremonia picia herbaty,,
+3681,WORD,WORD_NOUN,,HIRAGANA,Inne,,湯船,ゆぶね,,yubune,wanna,,
+3682,WORD,WORD_NOUN,,HIRAGANA,Inne,,湯上がり,ゆあがり,,yuagari,"zaraz po kąpieli
+szlafrok",,
+3683,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,湯浴み,ゆあみ,,yuami,kąpiel,,
+3684,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,湯治,とうじ,,touji,zdrowotna kąpiel,,
+3685,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,選択,せんたく,,sentaku,"wybór
+alternatywa",,
+3686,WORD,WORD_NOUN,,HIRAGANA,Inne,,選手,せんしゅ,,senshu,"atleta
+zawodnik",,
+3687,WORD,WORD_NOUN,,HIRAGANA,Inne,,選集,せんしゅう,,senshuu,"selekcja
+antologia",,
+3688,WORD,WORD_NOUN,,HIRAGANA,Inne,,選民,せんみん,,senmin,naród wybrany,,
+3689,WORD,WORD_NOUN,,HIRAGANA,Inne,,崎,さき,,saki,"przylądek
+cypel",,
+3690,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,凍える,こごえる,,kogoeru,zamarzać,,
+3691,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,凍らす,こおらす,,koorasu,zamrażać,,
+3692,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,巻く,まく,,maku,zwijać,,
+3693,WORD,WORD_NOUN,,HIRAGANA,Inne,,巻,まき,,maki,zwój,,
+3694,WORD,WORD_NOUN,,HIRAGANA,Inne,,州,しゅう,,shuu,"prowincja
+stan
+kontynent",,
+3695,WORD,WORD_NOUN,,HIRAGANA,Inne,,州,す,,su,"mielizna
+ławica",,
+3696,WORD,WORD_NOUN,,HIRAGANA,Inne,,アラスカ州,あらすかしゅう,,arasukashuu,stan Alaska,w USA,
+3697,WORD,WORD_NOUN,,HIRAGANA,Inne,,三角州,さんかくす,,sankakusu,delta,,
+3698,WORD,UNKNOWN,,HIRAGANA,Inne,,晩,ばん,,ban,"wieczór
+noc
+późno",,
