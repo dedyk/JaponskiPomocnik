@@ -460,7 +460,7 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_attributes), 0));
 			
 			for (AttributeType currentAttributeType : attributeList) {
-				report.add(new StringValue(currentAttributeType.getName(), 20.0f, 0));
+				report.add(new StringValue(currentAttributeType.getName(), 15.0f, 0));
 			}
 		}
 		
