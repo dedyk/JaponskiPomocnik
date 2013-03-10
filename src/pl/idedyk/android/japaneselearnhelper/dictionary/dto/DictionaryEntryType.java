@@ -53,6 +53,14 @@ public enum DictionaryEntryType {
 	
 	WORD_PRONOUN("zaimki"),
 	
+	WORD_NAME("imię"),
+	
+	WORD_MALE_NAME("imię męskie"),
+	
+	WORD_FEMALE_NAME("imię żeńskie"),
+	
+	WORD_SURNAME_NAME("nazwisko"),
+	
 	UNKNOWN("nieznany");
 	
 	private String name;
