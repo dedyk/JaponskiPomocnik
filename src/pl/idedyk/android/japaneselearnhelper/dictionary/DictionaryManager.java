@@ -92,14 +92,16 @@ public class DictionaryManager {
 		try {			
 			// init
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
+			
+			String baseDir = Environment.getDataDirectory().getAbsolutePath() + "/data/" + packageName;
 
 			// check if database path exists
-			String databaseDir = Environment.getDataDirectory().getAbsolutePath() + "/data/" + packageName + "/databases/";
+			String databaseDir = baseDir + "/databases/";
 			
 			File databaseDirFile = new File(databaseDir);
 			
 			if (databaseDirFile.isDirectory() == false) {
-				databaseDirFile.mkdir();
+				databaseDirFile.mkdirs();
 			}
 			
 			// delete old database file
@@ -111,7 +113,7 @@ public class DictionaryManager {
 			// get database version
 			String databaseVersionFile = databaseFile + "-version";
 			
-			int databaseVersion = getDatabaseVersion(databaseVersionFile);
+			int databaseVersion = getDatabaseVersion(databaseFile, databaseVersionFile);
 			
 			if (versionCode != databaseVersion) {
 				
@@ -163,10 +165,12 @@ public class DictionaryManager {
 			loadWithProgress.setCurrentPos(0);
 
 			fakeProgress(loadWithProgress);
+			
+			// delete old kanji recognize mode db data
+			new File(baseDir + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE).delete();
 						
-			// kopiowanie kanji recognize model do data
-			zinniaManager = new ZinniaManager(new File(Environment.getDataDirectory().getAbsolutePath() + 
-					"/data/" + packageName + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE));
+			// copy kanji recognize model db data
+			zinniaManager = new ZinniaManager(new File(databaseDir + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE));
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji_recognize));
 			loadWithProgress.setCurrentPos(0);
@@ -177,16 +181,6 @@ public class DictionaryManager {
 			zinniaManager.copyKanjiRecognizeModelToData(kanjiRecognizeModelInputStream, loadWithProgress);			
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
-
-			// if emulator
-			/*
-			if (new File("/data/data/" + packageName + "/emulator").exists() == true) {
-				// validate
-				
-				// countForm(loadWithProgress);
-				// getFuriganaForAll();
-			}
-			*/
 
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -204,9 +198,13 @@ public class DictionaryManager {
 		writer.close();		
 	}
 	
-	private int getDatabaseVersion(String databaseVersionFile) {
+	private int getDatabaseVersion(String databaseFile, String databaseVersionFile) {
 		
 		int version = 0;
+
+		if (new File(databaseFile).exists() == false) {
+			return version;
+		}
 		
 		if (new File(databaseVersionFile).exists() == false) {
 			return version;
