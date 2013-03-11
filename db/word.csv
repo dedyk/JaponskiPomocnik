@@ -1454,7 +1454,9 @@ Genki kanji 1-12",,働く,はたらく,,hataraku,pracować,,
 VERB_INTRANSITIVITY",HIRAGANA,Genki 1-11,,疲れる,つかれる,,tsukareru,"być zmęczony
 zmęczyć się
 znużyć się",,
-832,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-11,,-,やめる,,yameru,rezygnować,,
+832,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Genki 1-11,,辞める,やめる,,yameru,"rezygnować
+przestawać",,
 833,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-11,,-,けんかする,,kenka suru,pokłócić się,,
 834,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-11,を,紹介する,しょうかいする,o,shoukai suru,przedstawiać,"kogoś ni kto ~, hiragana i katakana",
 835,WORD,WORD_VERB_IRREGULAR,,HIRAGANA_KATAKANA,Genki 1-11,,-,ダイエットする,,daietto suru,być na diecie,,
@@ -3714,7 +3716,8 @@ rezultat
 konsekwencja
 owoc (czegoś)",,
 2253,KANJI,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Genki kanji 2-17,,結論,けつろん,,ketsuron,konkluzja,,
+SURU_VERB",HIRAGANA,Genki kanji 2-17,,結論,けつろん,,ketsuron,"konkluzja
+wniosek",,
 2254,KANJI,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki kanji 2-17,,結ぶ,むすぶ,,musubu,"wiązać
 łączyć",,
@@ -5737,7 +5740,8 @@ publiczna sala",np. miejsca kulturalne,
 duża świątynia
 kaplica",,
 3301,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,聖書,せいしょ,,seisho,Biblia,,
-3302,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-18,,職業,しょくぎょう,,shokugyou,zawód,,
+3302,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-18,,職業,しょくぎょう,,shokugyou,"zawód
+zatrudnienie",,
 3303,KANJI,WORD_NOUN,,KATAKANA_HIRAGANA,Genki kanji 2-18,,サービズ業,サービズぎょう,,saabizu gyou,przemysł usługowy,,
 3304,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,農業,のうぎょう,,nougyou,przemysł rolniczy,,
 3305,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-18,,入試,にゅうし,,nyuushi,egzamin wstępny,,
@@ -6599,3 +6603,63 @@ rozpoczęcie",,
 3737,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,素顔,すがお,,sugao,twarz bez makijażu,,
 3738,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,顔面,がんめん,,ganmen,twarz,,
 3739,WORD,WORD_NOUN,,HIRAGANA,Inne,,顔料,がんりょう,,ganryou,kosmetyki,,
+3740,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,翻す,ひるがえす,,hirugaesu,"odwracać
+zmieniać nagle (opinię, przekonanie)
+powiewać",,
+3741,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,翻る,ひるがえる,,hirugaeru,"okręcać się
+zmieniać się
+falować",,
+3742,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,歯医者,はいしゃ,,haisha,dentysta,,
+3743,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,歯磨き,はみがき,,hamigaki,szczoteczka do zębów,,
+3744,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,入れ歯,いれば,,ireba,proteza,,
+3745,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,義歯,ぎし,,gishi,sztuczne zęby,,
+3746,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,歯車,はぐるま,,haguruma,"koło zębate (zębatka)
+przekładnia",,
+3747,WORD,WORD_NOUN,,HIRAGANA,Inne,,犬小屋,いぬごや,,inugoya,buda,,
+3748,WORD,WORD_NOUN,,HIRAGANA,Inne,,小犬,こいぬ,,koinu,szczeniak,,
+3749,WORD,WORD_NOUN,,HIRAGANA,Inne,,愛犬者,あいけんしゃ,,aikensha,miłośnik psów,,
+3750,WORD,WORD_NOUN,,HIRAGANA,Inne,,犬歯,けんし,,kenshi,kieł,,
+3751,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,野犬,やけん,,yaken,dziki pies,,
+3752,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,順位,じゅんい,,jun'i,"miejsce
+ranking
+pozycja",w rankingu,
+3753,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,計,けい,,kei,suma,,
+3754,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,膝,ひざ,,hiza,kolano,,
+3755,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,-,ずっと,,zutto,cały czas,,
+3756,WORD,WORD_NOUN,,HIRAGANA,Inne,,卒業論文,そつぎょうろんぶん,,sotsugyou ronbun,praca dyplomowa,,
+3757,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,論争,ろんそう,,ronsou,dyskusja,,
+3758,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,論文,ろんぶん,,ronbun,"rozprawa
+praca",,
+3759,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,論理,ろんり,,ronri,logika,,
+3760,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,理論,りろん,,riron,teoria,,
+3761,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,弟子,でし,,deshi,"uczeń
+zwolennik",,
+3762,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,弟子,でし,,deshi,"uczeń
+terminator",,
+3763,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,辞典,じてん,,jiten,słownik,,
+3764,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,辞任,じにん,,jinin,"ustąpienie
+rezygnacja",ze stanowiska,
+3765,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,辞職,じしょく,,jishoku,"rezygnacja
+zwolnienie się",z pracy,
+3766,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,お世辞,おせじ,,oseji,"komplement
+pochlebstwo",,
+3767,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,職,しょく,,shoku,"zatrudnienie
+praca",,
+3768,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,職場,しょくば,,shokuba,miejsce pracy,,
+3769,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,職人,しょくにん,,shokunin,pracownik,,
+3770,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,職員,しょくいん,,shokuin,"personel
+obsługa",,
+3771,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,職務,しょくむ,,shokumu,"obowiązki
+praca
+stanowisko",,
+3772,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,政,まつりごと,,matsurigoto,"władza
+rząd",,
+3773,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,政府,せいふ,,seifu,rząd,,
+3774,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,政治家,せいじか,,seijika,polityk,,
+3775,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,政党,せいとう,,seitou,partia polityczna,,
+3776,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,政策,せいさく,,seisaku,program polityczny,,

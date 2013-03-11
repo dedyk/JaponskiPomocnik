@@ -212,7 +212,7 @@ public enum ExampleGroupType {
 	
 	VERB_KEIGO_KUDASAI("Grzeczna prośba", "Nie używane dla dobra mówiącego; Uwaga na dużą nieregularność, którego aplikacja może nie uwzględniać"),
 	
-	VERB_HAZU_DESU("Przypuszczam, że ...");
+	VERB_HAZU_DESU("Powinnien / Miało być");
 	
 	private String name;
 	
