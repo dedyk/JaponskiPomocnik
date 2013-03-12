@@ -52,7 +52,7 @@ public class KanaHelper {
 		for (KanaEntry kanaEntry : kanaWord.kanaEntries) {
 			String kana = kanaEntry.getKana();
 
-			if (lastN == true && (kana.startsWith("y") == true || kana.equals("i") == true)) {				
+			if (lastN == true && (kana.startsWith("y") == true || kana.equals("i") == true || kana.equals("a") == true)) {				
 				sb.append("'");
 
 				lastN = true;	
