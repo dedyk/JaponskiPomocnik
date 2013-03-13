@@ -850,7 +850,9 @@ Genki kanji 2-16",を,開ける,あける,o,akeru,otwierać,,
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-6
 Genki kanji 2-16",を,教える,おしえる,o,oshieru,uczyć,"kogoś, osoba ni rzecz",
 487,WORD,WORD_VERB_RU,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Genki 1-6,を,降りる,おりる,o,oriru,wysiadać,,
+VERB_INTRANSITIVITY",HIRAGANA,Genki 1-6,を,降りる,おりる,o,oriru,"wysiadać
+schodzić
+zstępować",,
 488,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-6
 Genki kanji 2-15",を,借りる,かりる,o,kariru,pożyczać,"od kogoś, osoba ni rzecz",
@@ -2129,7 +2131,7 @@ Genki dodatkowe 2-15",,走る,はしる,,hashiru,biegać,,
 jasny kolor","np. materiał, np. pastelowy",
 1238,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,掛ける,かける,,kakeru,powiesić coś na czymś,,
-1239,WORD,WORD_NOUN,,HIRAGANA,Inne,,-,かど,,kado,róg,,
+1239,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,角,かど,,kado,róg,,
 1240,WORD,WORD_VERB_U,,HIRAGANA,Inne,,に気がつく,にきがつく,,niki ga tsuku,zauważyć,,
 1241,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,美,び,,bi,piękno,,
 1242,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ヒール,,hiiru,wysokie obcasy,,
@@ -6721,3 +6723,66 @@ SURU_VERB",HIRAGANA,Inne,,入荷,にゅうか,,nyuuka,nowa dostawa towaru,,
 SURU_VERB",HIRAGANA,Inne,,出荷,しゅっか,,shukka,wysyłka towaru,,
 3800,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,可能性,かのうせい,,kanousei,możliwość,,
 3801,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,不可分,ふかぶん,,fukabun,niepodzielny,,
+3802,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,降ろす,おろす,,orosu,"zdejmować
+obniżać
+spuszczać",,
+3803,WORD,WORD_NOUN,,HIRAGANA,Inne,,首,こうべ,,koube,głowa,,
+3804,WORD,WORD_NOUN,,HIRAGANA,Inne,,首輪,くびわ,,kubiwa,"naszyjnik
+kołnierzyk
+obroża",,
+3805,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,首尾,しゅび,,shubi,"przebieg (wydarzeń)
+sprawa
+wynik
+początek i koniec",,
+3806,WORD,WORD_NOUN,,HIRAGANA,Inne,,首題,しゅだい,,shudai,pierwszy paragraf,,
+3807,WORD,WORD_VERB_U,,HIRAGANA,Inne,,首になる,くびになる,,kubi ni naru,być zwolnionym,np. z pracy,
+3808,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,緑色,みどりいろ,,midori iro,zielony kolor,,
+3809,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,緑化,りょっか,,ryokka,"zazielenianie
+sadzenie drzewek",,
+3810,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,緑化,りょくか,,ryokuka,"zazielenianie
+sadzenie drzewek",,
+3811,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,緑地,りょくち,,ryokuchi,"zielony obszar
+oaza",,
+3812,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,緑茶,りょくちゃ,,ryokucha,zielona herbata,,
+3813,WORD,WORD_NOUN,,HIRAGANA,Inne,,緑陰,りょくいん,,ryokuin,cień drzew,,
+3814,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,王子,おうじ,,ouji,książę,,
+3815,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,必要,ひつよう,,hitsuyou,"potrzebować
+być potrzebnym",,
+3816,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ホーム,,hoomu,"platforma
+peron",,
+3817,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,零時,れいじ,,reiji,"północ
+godzina zero",,
+3818,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,幽霊,ゆうれい,,yuurei,duch,,
+3819,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,過ぎ,すぎ,,sugi,po,+ godzina,
+3820,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,資料,しりょう,,shiryou,"materiały
+dane
+dokumenty",,
+3821,WORD,WORD_NOUN,,KATAKANA,Inne,,-,セントラルヒーティング,,sentoraru hiitingu,centralne ogrzewanie,,
+3822,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,天使,てんし,,tenshi,anioł,,
+3823,WORD,WORD_NOUN,,HIRAGANA,Inne,,お使い,おつかい,,otsukai,posłaniec,,
+3824,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,零す,こぼす,,kobosu,rozlewać,na podłogę,
+3825,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,零れる,こぼれる,,koboreru,rozlewać się,,
+3826,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,専ら,もっぱら,,moppara,"głównie
+jedynie
+wyłącznie",,
+3827,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,専門家,せんもんか,,senmonka,specjalista,,
+3828,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,専用,せんよう,,sen'you,do osobistego użytku,,
+3829,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,専売,せんばい,,senbai,monopol,,
+3830,WORD,WORD_NOUN,,HIRAGANA,Inne,,専制主義,せんせいしゅぎ,,senseishugi,"despotyzm
+absolutyzm",,
+3831,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,門,かど,,kado,"brama
+furtka
+drzwi",,
+3832,WORD,WORD_NOUN,,HIRAGANA,Inne,,門限,もんげん,,mongen,"godzina zamykania drzwi
+godzina zamykania bramy",,
+3833,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,門扉,もんぴ,,monpi,skrzydło,bramy,
+3834,WORD,WORD_NOUN,,HIRAGANA,Inne,,門口,かどぐち,,kadoguchi,"wejście
+brama",,
+3835,WORD,WORD_NOUN,,HIRAGANA,Inne,,門衛,もんえい,,mon'ei,"wartownik
+strażnik",,
