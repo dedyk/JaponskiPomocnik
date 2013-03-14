@@ -6,5 +6,10 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="lib" path="libs/javacsv-2.1.jar"/>
+	<classpathentry kind="lib" path="libs-db-generator/lucene-analyzers-common-4.0.0.jar"/>
+	<classpathentry kind="lib" path="libs-db-generator/lucene-core-4.0.0.jar"/>
+	<classpathentry kind="lib" path="libs-db-generator/lucene-analyzers-kuromoji-4.0.0.jar"/>
+	<classpathentry kind="lib" path="libs-db-generator/lucene-queries-4.0.0.jar"/>
+	<classpathentry kind="lib" path="libs-db-generator/lucene-queryparser-4.0.0.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
