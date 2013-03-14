@@ -5,18 +5,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
-import org.apache.lucene.analysis.ja.JapaneseAnalyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.cjk.CJKAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.IntField;
-import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.index.DirectoryReader;
@@ -28,36 +22,29 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
-import org.apache.lucene.search.similarities.PerFieldSimilarityWrapper;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.MMapDirectory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 
 import com.csvreader.CsvReader;
 
 public class LuceneGenerator {
 	
-	// test
+	// test !!!!!!
 
 	public static void main(String[] args) throws Exception {
 
 		// init db driver
-		Class.forName("org.sqlite.JDBC");
+		//Class.forName("org.sqlite.JDBC");
 
 		// file params
 		final String dictionaryFilePath = "db/word.csv";
-		final String kanjiFilePath = "db/kanji.csv";
-		final String radicalFilePath = "db/radical.csv";
+		//final String kanjiFilePath = "db/kanji.csv";
+		//final String radicalFilePath = "db/radical.csv";
 
 		final String dbOutputFilePath = "assets/dictionary.db";
 		
@@ -65,10 +52,10 @@ public class LuceneGenerator {
 		new File(dbOutputFilePath).delete();
 		
 		// open db
-		JapaneseAnalyzer analyzer = new JapaneseAnalyzer(Version.LUCENE_40);
+		Analyzer analyzer = new CJKAnalyzer(Version.LUCENE_40);
 
 		// 1. create the index
-		Directory index = new MMapDirectory(new File("lucene-db-test"));
+		Directory index = new RAMDirectory(); // MMapDirectory(new File("lucene-db-test"));
 
 		IndexWriterConfig indexWriterConfig = new IndexWriterConfig(Version.LUCENE_40, analyzer);
 
@@ -89,11 +76,14 @@ public class LuceneGenerator {
 			
 			indexWriter.close(); // FIXME !!!!!!
 			
-			String querystr = "おか"; //"lucene";
+			//String querystr = "くるま"; //"lucene";
 
 			// the "title" arg specifies the default field to use
 			// when no field is explicitly specified in the query.
-			Query q = new QueryParser(Version.LUCENE_40, "kana", analyzer).parse(querystr);
+			
+			Query q = new QueryParser(Version.LUCENE_40,  "", analyzer).parse("kana:くるま"); 
+					
+			//
 
 			// 3. search
 			int hitsPerPage = 10;
@@ -491,7 +481,6 @@ public class LuceneGenerator {
 		
 		insert(statement, SQLiteStatic.kanjiEntriesTableName, values);
 	}
-	*/
 	
 	private static String emptyIfNull(String text) {
 		if (text == null) {
@@ -500,4 +489,5 @@ public class LuceneGenerator {
 		
 		return text;
 	}	
+	*/
 }
