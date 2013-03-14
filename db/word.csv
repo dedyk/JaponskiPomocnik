@@ -75,26 +75,28 @@ Genki kanji 1-3",,十歳,じゅっさい,,jussai,dziesięć lat,wiek,
 46,WORD,WORD_AGE,,HIRAGANA,Genki 1-1,,十一歳,じゅういっさい,,juuissai,jedenaście lat,wiek,
 47,WORD,WORD_AGE,COMMON_WORD,HIRAGANA,"Genki 1-1
 Genki kanji 2-17",,二十歳,はたち,,hatachi,dwadzieścia lat,wiek,
-48,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,お早う御座います,おはようございます,,Ohayou gozaimasu,Dzień dobry,rano (grzecznie),
-49,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,こんにちわ,,Konnichiwa,Dzień dobry,po południu,
-50,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,こんばんわ,,Konbanwa,Dobry wieczór,,
-51,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,さようなら,,Sayounara,Do widzenia,,
-52,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,お休みなさい,おやすみなさい,,Oyasuminasai,Dobranoc,,
-53,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,有難う,ありがとう,,Arigatou,Dziękuję,,
-54,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,有難う御座います,ありがとうございます,,Arigatou gozaimasu,Dziękuję,grzecznie,
-55,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,すみません,,Sumimasen,Przepraszam,,
-56,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,いいえ,,Iie,nie,,
-57,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,行ってきます,いってきます,,Ittekimasu,Wychodzę,Idę i wrócę,
-58,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,行ってらっしゃい,いってらっしゃい,,Itterasshai,Wróć,Idź i wróć,
-59,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,ただいま,,tadaima,Już jestem,Po przybyciu do domu,
-60,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,おかえりなさい,,Okaerinasai,Już jesteś,Będąc w domu,
-61,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,いただきます,,Itadakimasu,Smacznego,Przed jedzeniem,
-62,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,ごちそうさま,,Gochisousama,Smacznego,Po jedzeniu,
-63,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,始めまして,はじめまして,,Hajimemashite,Przywitanie,Pierwsze spotkanie,
-64,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,どうぞよろしく,,Douzo yoroshiku,"miło Cię spotkać
+48,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,お早う御座います,おはようございます,,ohayou gozaimasu,dzień dobry,rano (grzecznie),
+49,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,こんにちわ,,konnichiwa,dzień dobry,po południu,
+50,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,こんばんわ,,konbanwa,dobry wieczór,,
+51,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,さようなら,,sayounara,do widzenia,,
+52,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,お休みなさい,おやすみなさい,,oyasuminasai,dobranoc,,
+53,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,有難う,ありがとう,,arigatou,dziękuję,,
+54,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,有難う御座います,ありがとうございます,,arigatou gozaimasu,dziękuję,grzecznie,
+55,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,済みません,すみません,,sumimasen,"przepraszam
+proszę mi wybaczyć
+dziękuję",,
+56,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,いいえ,,iie,nie,,
+57,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,行ってきます,いってきます,,ittekimasu,wychodzę,Idę i wrócę,
+58,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,行ってらっしゃい,いってらっしゃい,,itterasshai,wróć,Idź i wróć,
+59,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,ただいま,,tadaima,już jestem,Po przybyciu do domu,
+60,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,おかえりなさい,,okaerinasai,już jesteś,Będąc w domu,
+61,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,いただきます,,itadakimasu,smacznego,Przed jedzeniem,
+62,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,ごちそうさま,,gochisousama,smacznego,Po jedzeniu,
+63,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,始めまして,はじめまして,,hajimemashite,przywitanie,Pierwsze spotkanie,
+64,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,どうぞよろしく,,douzo yoroshiku,"miło Cię spotkać
 bardzo miło mi",,
 65,WORD,WORD_GREETING,,HIRAGANA,"Genki 1-1
-Genki dodatkowe 2-19",,どうぞよろしくお願いします,どうぞよろしくおねがいします,,Douzo yoroshiku onegai shimasu,"miło Cię spotkać
+Genki dodatkowe 2-19",,どうぞよろしくお願いします,どうぞよろしくおねがいします,,douzo yoroshiku onegai shimasu,"miło Cię spotkać
 bardzo miło mi",kierowane do osoby wyżej postawionej,
 66,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,"Genki 1-1
 Genki kanji 1-5",,今,いま,,ima,teraz,,
@@ -191,7 +193,8 @@ Genki kanji 1-6",,大学生,だいがくせい,,daigakusei,student,uniwersytetu,
 117,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-1
 Genki 1-11
 Genki 2-13",,弁護士,べんごし,,bengoshi,"prawnik
-adwokat",,
+adwokat
+obrońca",,
 118,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-1
 Genki 1-7
 Genki kanji 1-7",,お母さん,おかあさん,,okaasan,matka,spoza swojej rodziny lub własna rodzina - nieformalnie,
@@ -1158,7 +1161,9 @@ Genki kanji 2-15",を,運転する,うんてんする,o,unten suru,prowadzić,po
 657,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-8,,-,ううん,,uun,nie,potocznie,
 658,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-8,,-,うん,,un,tak,potocznie,
 659,WORD,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Genki 1-8,,乾杯,かんぱい,,kanpai,na zdrowie,"toast, dosł. osuszanie szklanki",
-660,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-8,,残念,ざんねん,,zannen,"trudno
+660,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-8,,残念,ざんねん,,zannen,"żałosny
+niestety
+trudno
 szkoda",... desu ne,
 661,WORD,UNKNOWN,,HIRAGANA,"Genki 1-8
 Genki 1-9
@@ -6786,3 +6791,65 @@ godzina zamykania bramy",,
 brama",,
 3835,WORD,WORD_NOUN,,HIRAGANA,Inne,,門衛,もんえい,,mon'ei,"wartownik
 strażnik",,
+3836,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,残る,のこる,,nokoru,zostawać,,
+3837,WORD,WORD_NOUN,,HIRAGANA,Inne,,残り物,のこりもの,,nokorimono,"resztki
+pozostałości",,
+3838,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,生き残る,いきのこる,,ikinokoru,"ocaleć
+pozostać przy życiu",,
+3839,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,残酷,ざんこく,,zankoku,"brutalność
+okrucieństwo",,
+3840,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,済む,すむ,,sumu,"kończyć
+mieć zapłacone
+wystarczać",,
+3841,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,済ます,すます,,sumasu,"kończyć
+zapłacić
+radzić sobie",,
+3842,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,決済,けっさい,,kessai,rozliczenie,,
+3843,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,済度,さいど,,saido,zbawienie,w buddyzmie,
+3844,WORD,WORD_NOUN,,HIRAGANA,Inne,,際,きわ,,kiwa,"strona
+brzeg
+krawędź",,
+3845,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,国際化,こくさいか,,kokusaika,umiędzynarodowienie,,
+3846,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,実際,じっさい,,jissai,"rzeczywistość
+prawda",,
+3847,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,交際,こうさい,,kousai,"znajomość
+towarzyskość
+relacje
+stosunki (osobowe)",,
+3848,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,水際,みずぎわ,,mizugiwa,"linia wodna
+brzeg",,
+3849,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,係わる,かかわる,,kakawaru,"dotyczyć
+być zaangażowanym",,
+3850,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,係る,かかる,,kakaru,"oddziaływać
+mieć wpływ",,
+3851,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,係,かかり,,kakari,"funkcja
+obowiązek
+człowiek odpowiedzialny",,
+3852,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,連係,れんけい,,renkei,"połączenie
+związek",,
+3853,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,係員,かかりいん,,kakariin,członek obsługi,,
+3854,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,係争,けいそう,,keisou,"dyskusja
+sprzeczka",,
+3855,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,係属,けいぞく,,keizoku,"związek
+relacja",,
+3856,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,史実,しじつ,,shijitsu,fakt historyczny,,
+3857,WORD,WORD_NOUN,,HIRAGANA,Inne,,近代史,きんだいし,,kindaishi,historia nowożytna,,
+3858,WORD,WORD_NOUN,,HIRAGANA,Inne,,文学史,ぶんがくし,,bungakushi,historia literatury,,
+3859,WORD,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,ポーランド史,ポーランドどし,,poorando doshi,historia Polski,,
+3860,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,弁別,べんべつ,,benbetsu,dyskryminacja,,
+3861,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,弁償,べんしょう,,benshou,"kompensata
+wyrównanie",,
+3862,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,弁解,べんかい,,benkai,"wyjaśnianie
+usprawiedliwianie
+obrona",,
