@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -654,10 +655,10 @@ public class WordDictionary extends Activity {
 			    		return text;
 			    	}
 			    	
-			    	String findWordLowerCase = findWord.toLowerCase();
+			    	String findWordLowerCase = findWord.toLowerCase(Locale.getDefault());
 			    	
 					StringBuffer texStringBuffer = new StringBuffer(text);								
-					StringBuffer textLowerCaseStringBuffer = new StringBuffer(text.toLowerCase());
+					StringBuffer textLowerCaseStringBuffer = new StringBuffer(text.toLowerCase(Locale.getDefault()));
 													
 					int idxStart = 0;
 					

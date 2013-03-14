@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -503,7 +504,7 @@ public class KanaHelper {
 	
 	public KanaWord convertRomajiIntoHiraganaWord(Map<String, KanaEntry> hiraganaCache, String word) throws DictionaryException {
 		
-		word = word.toLowerCase();
+		word = word.toLowerCase(Locale.getDefault());
 		
 		List<KanaEntry> kanaEntries = new ArrayList<KanaEntry>();
 		
@@ -518,7 +519,7 @@ public class KanaHelper {
 				continue;
 			}
 			
-			currentRestChars += currentChar.toLowerCase();
+			currentRestChars += currentChar.toLowerCase(Locale.getDefault());
 			
 			if (currentRestChars.length() == 2 && currentRestChars.charAt(0) == currentRestChars.charAt(1) &&
 					currentRestChars.charAt(0) != 'n') {
@@ -884,7 +885,7 @@ public class KanaHelper {
 
 	public KanaWord convertRomajiIntoKatakanaWord(Map<String, KanaEntry> kitakanaCache, String word) throws DictionaryException {
 		
-		word = word.toLowerCase();
+		word = word.toLowerCase(Locale.getDefault());
 		
 		List<KanaEntry> kanaEntries = new ArrayList<KanaEntry>();
 		
@@ -899,7 +900,7 @@ public class KanaHelper {
 				continue;
 			}
 			
-			currentRestChars += currentChar.toLowerCase();
+			currentRestChars += currentChar.toLowerCase(Locale.getDefault());
 			
 			if (idx > 0) {
 				char previousChar = word.charAt(idx - 1);
