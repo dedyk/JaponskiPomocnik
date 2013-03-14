@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -164,17 +165,17 @@ public class SQLiteConnector {
 		if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
 			
 			wordWithPercent = "%" + findWordRequest.word + "%"; 
-			wordLowerCaseWithPercent = "%" + findWordRequest.word.toLowerCase() + "%";
+			wordLowerCaseWithPercent = "%" + findWordRequest.word.toLowerCase(Locale.getDefault()) + "%";
 			
 		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.START_WITH) {
 			
 			wordWithPercent = findWordRequest.word + "%"; 
-			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase() + "%";
+			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase(Locale.getDefault()) + "%";
 			
 		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.EXACT) {
 			
 			wordWithPercent = findWordRequest.word; 
-			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase();
+			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase(Locale.getDefault());
 			
 		} else {
 			throw new RuntimeException(String.valueOf(findWordRequest.wordPlaceSearch));
@@ -301,7 +302,7 @@ public class SQLiteConnector {
 		arguments.toArray(argumentsStringArray);
 		
 		Cursor cursor = null;
-		
+				
 		try {			
 			cursor = sqliteDatabase.rawQuery(sql.toString(), argumentsStringArray);
 			
@@ -778,17 +779,17 @@ public class SQLiteConnector {
 		if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
 			
 			wordWithPercent = "%" + findWordRequest.word + "%"; 
-			wordLowerCaseWithPercent = "%" + findWordRequest.word.toLowerCase() + "%";
+			wordLowerCaseWithPercent = "%" + findWordRequest.word.toLowerCase(Locale.getDefault()) + "%";
 			
 		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.START_WITH) {
 			
 			wordWithPercent = findWordRequest.word + "%"; 
-			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase() + "%";
+			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase(Locale.getDefault()) + "%";
 			
 		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.EXACT) {
 			
 			wordWithPercent = findWordRequest.word; 
-			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase();
+			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase(Locale.getDefault());
 			
 		} else {
 			throw new RuntimeException(String.valueOf(findWordRequest.wordPlaceSearch));

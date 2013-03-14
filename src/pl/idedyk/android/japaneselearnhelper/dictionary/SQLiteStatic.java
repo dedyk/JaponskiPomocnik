@@ -249,21 +249,21 @@ public class SQLiteStatic {
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_romajiList + "' and " +
-			" lower(" + listEntriesTable_value + ") like ?) ";
+			" " + listEntriesTable_value + " like ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_translate =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_translates + "' and " +
-			" lower(" + listEntriesTable_value + ") like ?) ";
+			" " + listEntriesTable_value + " like ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_info =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_info + "' and " +
-			" lower(" + listEntriesTable_value + ") like ?) ";
+			" " + listEntriesTable_value + " like ?) ";
 	
 	public static final String dictionaryEntriesTableSelectElements_limit = 
 			" limit " + MAX_SEARCH_RESULT;
@@ -296,7 +296,7 @@ public class SQLiteStatic {
 			grammaFormConjugateResultEntriesTable_kanaList + " like ? ";
 
 	public static final String grammaFormSelectElements_romaji =
-			" lower(" + grammaFormConjugateResultEntriesTable_romajiList + ") like ? ";
+			" " + grammaFormConjugateResultEntriesTable_romajiList + " like ? ";
 	
 	public static final String exampleResultSelectElements =
 			"select 'ExampleResult', " + 
@@ -320,7 +320,7 @@ public class SQLiteStatic {
 			exampleResultEntriesTable_kanaList + " like ? ";
 
 	public static final String exampleResultSelectElements_romaji =
-			" lower(" + exampleResultEntriesTable_romajiList + ") like ? ";
+			" " + exampleResultEntriesTable_romajiList + " like ? ";
 	
 	public static final String grammaFormExampleSelectElements_limit = 
 			" limit ";
