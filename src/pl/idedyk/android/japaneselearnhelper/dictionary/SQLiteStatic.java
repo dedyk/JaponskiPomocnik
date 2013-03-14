@@ -223,17 +223,21 @@ public class SQLiteStatic {
 	
 	public static final String dictionaryEntriesTableSelectElements = 
 			"select " + 
-			dictionaryEntriesTable_id + ", " +
-			dictionaryEntriesTable_dictionaryEntryType + ", " +
-			dictionaryEntriesTable_prefixKana + ", " +
-			dictionaryEntriesTable_kanji + ", " +
-			//dictionaryEntriesTable_kanaList + ", " +
-			dictionaryEntriesTable_prefixRomaji + ", " +
-			//dictionaryEntriesTable_romajiList + ", " +
-			//dictionaryEntriesTable_translates + ", " +
-			dictionaryEntriesTable_info + " " +
-			"from " + dictionaryEntriesTableName + " ";
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + ", " +
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_dictionaryEntryType + ", " +
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_prefixKana + ", " +
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_kanji + ", " +
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_prefixRomaji + ", " +
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_info + ", " +
+			listEntriesTableName + "." + listEntriesTable_subType + ", " +
+			listEntriesTableName + "." + listEntriesTable_value + " " +
+			"from " + dictionaryEntriesTableName + " , " + listEntriesTableName + " ";			
 	
+	public static final String dictionaryEntriesTableSelectElements_beginWhere = 
+			" ( " + listEntriesTableName + "." + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " + 
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " = " + listEntriesTableName + "." + listEntriesTable_key + " and " + 
+			listEntriesTableName + "." + listEntriesTable_special + " = '0' ) ";
+			
 	public static final String dictionaryEntriesTableSelectElements_kanji =
 			dictionaryEntriesTable_kanji + " like ? ";
 	
@@ -265,8 +269,9 @@ public class SQLiteStatic {
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_info + "' and " +
 			" " + listEntriesTable_value + " like ?) ";
 	
-	public static final String dictionaryEntriesTableSelectElements_limit = 
-			" limit " + MAX_SEARCH_RESULT;
+	public static final String dictionaryEntriesTableSelectElements_end = 
+			" order by " + dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " , " + 
+			listEntriesTableName + "." + listEntriesTable_subType;
 	
 	public static final String dictionaryEntriesTableSelectElements_dictionaryEntryType =
 			dictionaryEntriesTable_dictionaryEntryType + " = ? ";

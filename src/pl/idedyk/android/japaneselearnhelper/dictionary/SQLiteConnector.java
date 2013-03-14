@@ -184,15 +184,19 @@ public class SQLiteConnector {
 		StringBuffer sql = new StringBuffer(SQLiteStatic.dictionaryEntriesTableSelectElements);
 		List<String> arguments = new ArrayList<String>();
 		
-		boolean addedWhere = false;
+		sql.append(" where ");
+		
+		sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_beginWhere);
+		
+		boolean addedAdditionalWhere = false;
 		
 		if (findWordRequest.searchKanji == true) {
 			
-			if (addedWhere == false) {
-				sql.append(" where ( ");
-				
-				addedWhere = true;
+			if (addedAdditionalWhere == false) {
+				sql.append(" and ( ");	
 			}
+			
+			addedAdditionalWhere = true;
 			
 			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_kanji);
 			
@@ -201,10 +205,10 @@ public class SQLiteConnector {
 		
 		if (findWordRequest.searchKana == true) {
 			
-			if (addedWhere == false) {
-				sql.append(" where ( ");
+			if (addedAdditionalWhere == false) {
+				sql.append(" and ( ");
 				
-				addedWhere = true;
+				addedAdditionalWhere = true;
 			} else {
 				sql.append(" or ");
 			}
@@ -216,10 +220,10 @@ public class SQLiteConnector {
 		
 		if (findWordRequest.searchRomaji == true) {
 			
-			if (addedWhere == false) {
-				sql.append(" where ( ");
+			if (addedAdditionalWhere == false) {
+				sql.append(" and ( ");
 				
-				addedWhere = true;
+				addedAdditionalWhere = true;
 			} else {
 				sql.append(" or ");
 			}
@@ -231,10 +235,10 @@ public class SQLiteConnector {
 
 		if (findWordRequest.searchTranslate == true) {
 			
-			if (addedWhere == false) {
-				sql.append(" where ( ");
+			if (addedAdditionalWhere == false) {
+				sql.append(" and ( ");
 				
-				addedWhere = true;
+				addedAdditionalWhere = true;
 			} else {
 				sql.append(" or ");
 			}
@@ -246,10 +250,10 @@ public class SQLiteConnector {
 		
 		if (findWordRequest.searchInfo == true) {
 			
-			if (addedWhere == false) {
-				sql.append(" where ( ");
+			if (addedAdditionalWhere == false) {
+				sql.append(" and ( ");
 				
-				addedWhere = true;
+				addedAdditionalWhere = true;
 			} else {
 				sql.append(" or ");
 			}
@@ -259,8 +263,8 @@ public class SQLiteConnector {
 			arguments.add(wordLowerCaseWithPercent);
 		}
 		
-		if (addedWhere == true) {
-			sql.append(" )");
+		if (addedAdditionalWhere == true) {
+			sql.append(" ) ");
 		}
 		
 		List<DictionaryEntryType> findWordRequestDictionaryEntryList = findWordRequest.dictionaryEntryList;
@@ -268,10 +272,10 @@ public class SQLiteConnector {
 		if (findWordRequestDictionaryEntryList != null && findWordRequestDictionaryEntryList.size() != 0 &&
 				findWordRequestDictionaryEntryList.size() != DictionaryEntryType.values().length) {
 			
-			if (addedWhere == false) {
-				sql.append(" where ");
+			if (addedAdditionalWhere == false) {
+				sql.append(" and ( ");
 				
-				addedWhere = true;
+				addedAdditionalWhere = true;
 			} else {
 				sql.append(" and ");
 			}
@@ -295,7 +299,7 @@ public class SQLiteConnector {
 			sql.append(" ) ");			
 		}
 		
-		sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_limit);
+		sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_end);
 
 		String[] argumentsStringArray = new String[arguments.size()];
 		
@@ -305,41 +309,106 @@ public class SQLiteConnector {
 				
 		try {			
 			cursor = sqliteDatabase.rawQuery(sql.toString(), argumentsStringArray);
-			
+						
 		    cursor.moveToFirst();
+		    
+		    class EntryWrapper {
+		    	
+			    String idString = null;
+			    
+			    String dictionaryEntryTypeString = null;
+			    String prefixKanaString = null;
+			    String kanjiString = null;
+			    
+				List<String> attributeList = null;
+				List<String> groupsList = null;
+				List<String> kanaList = null;
+				List<String> romajiList = null;
+				List<String> translateList = null;
+				
+				String prefixRomajiString = null;
+				String infoString = null;
+		    }
+		    
+		    EntryWrapper currentEntryWrapper = null;
 		    
 		    while (!cursor.isAfterLast()) {
 		    	
 				String idString = cursor.getString(0);
-				String dictionaryEntryTypeString = cursor.getString(1);
-				String prefixKanaString = cursor.getString(2);
-				String kanjiString = cursor.getString(3);
 				
-				Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.dictionaryEntriesTableName, idString);
-							
-				List<String> attributeList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_attributeList);
-				List<String> groupsList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_groups);
-				List<String> kanaList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_kanaList);
-				List<String> romajiList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_romajiList);
-				List<String> translateList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_translates);
-				List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.dictionaryEntriesTable_info);
-				
-				String prefixRomajiString = cursor.getString(4);
-								
-				String infoString = null;
-				
-				if (infoStringList != null && infoStringList.size() > 0) {
-					infoString = infoStringList.get(0);
+				if (currentEntryWrapper == null || currentEntryWrapper.idString.equals(idString) == false) { // new entry
+					
+					if (currentEntryWrapper != null) { // add old entry
+						
+						DictionaryEntry entry = Utils.parseDictionaryEntry(idString, currentEntryWrapper.dictionaryEntryTypeString, currentEntryWrapper.attributeList, currentEntryWrapper.groupsList,
+								currentEntryWrapper.prefixKanaString, currentEntryWrapper.kanjiString, currentEntryWrapper.kanaList, currentEntryWrapper.prefixRomajiString,
+								currentEntryWrapper.romajiList, currentEntryWrapper.translateList, currentEntryWrapper.infoString);
+						
+						findWordResult.result.add(new ResultItem(entry));
+					}
+					
+					currentEntryWrapper = new EntryWrapper();
+					
+					currentEntryWrapper.idString = idString;
+					
+					currentEntryWrapper.dictionaryEntryTypeString = cursor.getString(1);
+					currentEntryWrapper.prefixKanaString = cursor.getString(2);
+					currentEntryWrapper.kanjiString = cursor.getString(3);
+					
+					currentEntryWrapper.prefixRomajiString = cursor.getString(4);
+					
+					currentEntryWrapper.attributeList = new ArrayList<String>();
+					currentEntryWrapper.groupsList = new ArrayList<String>();
+					currentEntryWrapper.kanaList = new ArrayList<String>();
+					currentEntryWrapper.romajiList = new ArrayList<String>();
+					currentEntryWrapper.translateList = new ArrayList<String>();				
 				}
-							
-				DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributeList, groupsList,
-						prefixKanaString, kanjiString, kanaList, prefixRomajiString,
-						romajiList, translateList, infoString);
 				
-				findWordResult.result.add(new ResultItem(entry));
+				if (findWordResult.result.size() >= SQLiteStatic.MAX_SEARCH_RESULT - 1) {
+					break;
+				}
+					
+				String listSubType = cursor.getString(6);
+				String listValue = cursor.getString(7);
+				
+				if (listSubType.equals(SQLiteStatic.dictionaryEntriesTable_attributeList) == true) {
+					currentEntryWrapper.attributeList.add(listValue);
+					
+				} else if (listSubType.equals(SQLiteStatic.dictionaryEntriesTable_groups) == true) {
+					currentEntryWrapper.groupsList.add(listValue);
+					
+				} else if (listSubType.equals(SQLiteStatic.dictionaryEntriesTable_kanaList) == true) {
+					currentEntryWrapper.kanaList.add(listValue);
+					
+				} else if (listSubType.equals(SQLiteStatic.dictionaryEntriesTable_romajiList) == true) {
+					currentEntryWrapper.romajiList.add(listValue);
+					
+				} else if (listSubType.equals(SQLiteStatic.dictionaryEntriesTable_translates) == true) {
+					currentEntryWrapper.translateList.add(listValue);
+					
+				} else if (listSubType.equals(SQLiteStatic.dictionaryEntriesTable_info) == true) {
+					currentEntryWrapper.infoString = listValue;
+					
+				}
 				
 				cursor.moveToNext();
+		    }	
+		    
+		    if (currentEntryWrapper != null && currentEntryWrapper.idString != null) {
+		    	
+				DictionaryEntry entry = Utils.parseDictionaryEntry(currentEntryWrapper.idString, currentEntryWrapper.dictionaryEntryTypeString, currentEntryWrapper.attributeList, currentEntryWrapper.groupsList,
+						currentEntryWrapper.prefixKanaString, currentEntryWrapper.kanjiString, currentEntryWrapper.kanaList, currentEntryWrapper.prefixRomajiString,
+						currentEntryWrapper.romajiList, currentEntryWrapper.translateList, currentEntryWrapper.infoString);
+				
+				findWordResult.result.add(new ResultItem(entry));
+
+				
+
+				
+				
+				
 		    }
+		    
 		} finally {
 			if (cursor != null) {
 				cursor.close();
