@@ -3354,7 +3354,9 @@ kucharz",,
 2039,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,側,がわ,,gawa,strona,czegoś,
 2040,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,右側,みぎがわ,,migi gawa,prawa strona,,
 2041,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,左側,ひだりがわ,,hidari gawa,lewa strona,,
-2042,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,布団,ふとん,,futon,futon,"tradycyjne składane łóżko, chowane na dzień",
+2042,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,布団,ふとん,,futon,"futon
+materac
+kołdra","tradycyjne składane łóżko, chowane na dzień",
 2043,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,本棚,ほんだな,,hondana,półka na książki,,
 2044,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,昼間,ひるま,,hiruma,"za dnia
 w czasie",,
@@ -6853,3 +6855,51 @@ wyrównanie",,
 SURU_VERB",HIRAGANA,Inne,,弁解,べんかい,,benkai,"wyjaśnianie
 usprawiedliwianie
 obrona",,
+3863,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,豚,ぶた,,buta,"świnia
+wieprz
+maciora",,
+3864,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,菜,な,,na,"warzywo
+rzepak",,
+3865,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,菜園,さいえん,,saien,ogród warzywny,,
+3866,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,山菜,さんさい,,sansai,jadalna dzika roślina,,
+3867,WORD,WORD_NOUN,,HIRAGANA,Inne,,菜食者,さいしょくしゃ,,saishokusha,"wegetarianin
+jarosz",,
+3868,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鉛,なまり,,namari,ołów,,
+3869,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,筆,ふで,,fude,pędzelek,do pisania,
+3870,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,筆者,ひっしゃ,,hissha,"pisarz
+autor",,
+3871,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,筆記,ひっき,,hikki,"notowanie
+notatki
+kopia",,
+3872,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,筆記試験,ひっきしけん,,hikki shiken,egzamin pisemny,,
+3873,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,筆順,ひつじゅん,,hitsujun,kolejność kresek,w pisaniu chińskich znaków,
+3874,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,筆算,ひっさん,,hissan,"kalkulacja
+rachowanie",,
+3875,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,財,ざい,,zai,"bogactwo
+pieniądze
+własność",,
+3876,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,財産,ざいさん,,zaisan,"własność
+posiadłość
+mienie",,
+3877,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,文化財,ぶんかざい,,bunkazai,"dorobek kulturalny
+bogactwo kulturalne",,
+3878,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,財界,ざいかい,,zaikai,świat finansów,,
+3879,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,財務,ざいむ,,zaimu,sprawy finansowe,,
+3880,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,財政,ざいせい,,zaisei,"finanse
+sprawy finansowe
+polityka finansowa",,
+3881,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,布,ぬの,,nuno,tkanina,,
+3882,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,布巾,ふきん,,fukin,"ścierka
+serwetka",,
+3883,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,布告,ふこく,,fukoku,"proklamacja
+deklaracja
+zawiadomienie",,
+3884,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,布教,ふきょう,,fukyou,"propaganda (religii)
+praca misyjna",,
+3885,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,布石,ふせき,,fuseki,"wstęp
+rozpoczęcie
+przygotowanie",,
