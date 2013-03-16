@@ -6903,3 +6903,30 @@ praca misyjna",,
 SURU_VERB",HIRAGANA,Inne,,布石,ふせき,,fuseki,"wstęp
 rozpoczęcie
 przygotowanie",,
+3886,WORD,WORD_VERB_IRREGULAR,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,喫する,きっする,,kissuru,"jeść
+pić
+palić papierosy",,
+3887,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,局員,きょくいん,,kyokuin,pracownik biura,,
+3888,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,時局,じきょく,,jikyoku,sytuacja,,
+3889,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,局長,きょくちょう,,kyokuchou,"dyrektor
+kierownik biura
+naczelnik poczty",,
+3890,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,局面,きょくめん,,kyokumen,aspekt,,
+3891,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,板,いた,,ita,"deska
+tablica",,
+3892,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,看板,かんばん,,kanban,"tablica ogłoszeń
+szyld",,
+3893,WORD,WORD_NOUN,,HIRAGANA,Inne,,床板,ゆかいた,,yukaita,podłoga z desek,,
+3894,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,甲板,かんぱん,,kanpan,pokład,statku,
+3895,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,甲板,こうはん,,kouhan,pokład,statku,
+3896,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,合板,ごうはん,,gouhan,sklejka,,
+3897,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,寿,ことぶき,,kotobuki,"długie życie
+gratulacje",,
+3898,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,携える,たずさえる,,tazusaeru,"nieść (w ręce)
+przyprowadzać (kogoś)
+towarzyszyć",,
+3899,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,携わる,たずさわる,,tazusawaru,"uczestniczyć
+być zaangażowanym",,
