@@ -431,7 +431,8 @@ Genki kanji 1-8",を,読む,よむ,o,yomu,czytać,,
 VERB_INTRANSITIVITY",HIRAGANA,"Genki 1-3
 Genki kanji 1-12",,起きる,おきる,,okiru,wstawać,,
 250,WORD,WORD_VERB_RU,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Genki 1-3,,寝る,ねる,,neru,spać,,
+VERB_INTRANSITIVITY",HIRAGANA,Genki 1-3,,寝る,ねる,,neru,"spać
+leżeć",,
 251,WORD,WORD_VERB_IRREGULAR,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,"Genki 1-3
 Genki kanji 1-9",に,来る,くる,ni,kuru,przybyć,"cel, ni ~",
@@ -1148,7 +1149,9 @@ Genki kanji 2-14",,切る,きる,,kiru,ciąć,,
 649,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-8
 Genki kanji 1-8",,作る,つくる,,tsukuru,tworzyć,,
-650,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 1-8,,持っていく,もっていく,,motte iku,brać,coś,
+650,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 1-8,,持っていく,もっていく,,motte iku,"brać
+zanieść
+zanosić",coś,
 651,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-8,を,じろじろ見る,じろじろみる,o,jirojiro miru,spojrzeć,,
 652,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-8
@@ -6975,3 +6978,7 @@ rozmaite uczucia",,
 3921,WORD,WORD_NOUN,,HIRAGANA,Inne,,酒造場,しゅぞうじょう,,shuzoujou,"browar
 destylarnia
 gorzelnia",,
+3922,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,寝かす,ねかす,,nekasu,"kłaść
+usypiać",,
+3923,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,眠り,ねむり,,nemuri,sen,,
+3924,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,睡眠,すいみん,,suimin,sen,,
