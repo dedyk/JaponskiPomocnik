@@ -356,7 +356,8 @@ Genki kanji 2-13",,安い,やすい,,yasui,tani,,
 Genki kanji 1-11",,映画,えいが,,eiga,film,,
 213,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-3
 Genki kanji 2-14",,音楽,おんがく,,ongaku,muzyka,,
-214,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-3,,雑誌,ざっし,,zasshi,magazyn,,
+214,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-3,,雑誌,ざっし,,zasshi,"magazyn
+czasopismo",,
 215,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 1-3,,-,スポーツ,,supootsu,sport,,
 216,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",KATAKANA,Genki 1-3,,-,デート,,deeto,randka,,
@@ -3084,7 +3085,8 @@ ginekolog",,
 1882,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,眼科医,がんかい,,gankai,okulista,,
 1883,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,歯科,しか,,shika,stomatologia,,
 1884,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,歯科医,しかい,,shikai,dentysta,,
-1885,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,耳鼻科,じびか,,jibika,otolaryngologia,,
+1885,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,耳鼻科,じびか,,jibika,"otolaryngologia
+laryngologia",,
 1886,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,抗生物質,こうせいぶっしつ,,kouseibusshitsu,antybiotyk,,
 1887,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,レントゲン,,rentogen,rentgen,,
 1888,WORD,WORD_NOUN,"COMMON_WORD
@@ -4134,8 +4136,10 @@ konstelacja",,
 2467,WORD,WORD_NOUN,,HIRAGANA,Inne,,星霜,せいそう,,seisou,"lata
 czas",,
 2468,WORD,WORD_NOUN,,HIRAGANA,Inne,,星図,せいず,,seizu,mapa gwiezdna,,
-2469,WORD,WORD_NOUN,,HIRAGANA,Inne,,流星,りゅうせい,,ryuusei,kometa,,
-2470,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,流れ星,ながれぼし,,nagareboshi,kometa,,
+2469,WORD,WORD_NOUN,,HIRAGANA,Inne,,流星,りゅうせい,,ryuusei,"meteor
+spadająca gwiazda",,
+2470,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,流れ星,ながれぼし,,nagareboshi,"meteor
+spadająca gwiazda",,
 2471,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,星占い,ほしうらない,,hoshiuranai,"astrologia
 horoskop",,
 2472,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,嫌,いや,,iya,"niemiły
@@ -6930,3 +6934,44 @@ towarzyszyć",,
 3899,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,携わる,たずさわる,,tazusawaru,"uczestniczyć
 być zaangażowanym",,
+3900,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-18,,沸かす,わかす,,wakasu,zagotować wodę,,
+3901,WORD,WORD_NOUN,,HIRAGANA,Inne,,彗星,すいせい,,suisei,kometa,,
+3902,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,帯びる,おびる,,obiru,"nosić
+przyczepiać (do pasa)
+obejmować
+ogarniać
+przyjmować","np. miecz, dekoracje, ozdoby",
+3903,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,地帯,ちたい,,chitai,"obszar
+region
+pas",,
+3904,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,熱帯,ねったい,,nettai,strefa tropikalna,,
+3905,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,包帯,ほうたい,,houtai,"bandaż
+opaska",,
+3906,WORD,WORD_NOUN,,HIRAGANA,Inne,,所帯,しょたい,,shotai,domostwo,,
+3907,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,中耳,ちゅうじ,,chuuji,ucho wewnętrzne,,
+3908,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,耳目,じもく,,jimoku,"ucho i oko
+uwaga",,
+3909,WORD,WORD_NOUN,,HIRAGANA,Inne,,耳漏,じろう,,jirou,wydzieliny z ucha,,
+3910,WORD,WORD_NOUN,,HIRAGANA,Inne,,耳輪,みみわ,,mimiwa,kolczyki,,
+3911,WORD,WORD_NOUN,,HIRAGANA,Inne,,耳環,みみわ,,mimiwa,kolczyki,,
+3912,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,雑,ざつ,,zatsu,"zbieranina
+mieszanina
+zbiór",,
+3913,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,複雑,ふくざつ,,fukuzatsu,skomplikowany,,
+3914,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,雑草,ざっそう,,zassou,"chwast
+zielsko",,
+3915,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,雑音,ざつおん,,zatsuon,"hałas
+zagłuszenie",,
+3916,WORD,WORD_NOUN,,HIRAGANA,Inne,,雑感,ざっかん,,zakkan,"rozmaite myśli
+rozmaite wrażenia
+rozmaite uczucia",,
+3917,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,日本酒,にほんしゅ,,nihonshu,sake,,
+3918,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,酒屋,さかや,,sakaya,sklep monopolowy,,
+3919,WORD,WORD_NOUN,,HIRAGANA,Inne,,酒飲み,さけのみ,,sakenomi,pijak,,
+3920,WORD,WORD_NOUN,,HIRAGANA,Inne,,葡萄酒,ぶどうしゅ,,budoushu,wino,,
+3921,WORD,WORD_NOUN,,HIRAGANA,Inne,,酒造場,しゅぞうじょう,,shuzoujou,"browar
+destylarnia
+gorzelnia",,
