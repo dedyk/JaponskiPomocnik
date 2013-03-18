@@ -260,7 +260,7 @@ czapka",,
 158,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-2
 Klasyfikatory
 Genki kanji 1-4",,本,ほん,,hon,książka,,
-159,WORD,WORD_NOUN,,HIRAGANA,Genki 1-2,,御手洗,おてあらい,,otearai,toaleta,,
+159,WORD,WORD_NOUN,,HIRAGANA,Genki 1-2,,御手洗,おてあらい,,otearai,toaleta,"dosł: miejsce, gdzie myje się ręce",
 160,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-2,,喫茶店,きっさてん,,kissaten,kawiarnia,,
 161,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-2
 Genki kanji 1-5",,銀行,ぎんこう,,ginkou,bank,,
@@ -648,7 +648,9 @@ Genki kanji 1-4",,上,うえ,,ue,na,,
 Genki kanji 1-4",,下,した,,shita,pod,,
 385,WORD,WORD_LOCATION,,HIRAGANA,"Genki 1-4
 Genki 2-15",,-,そば,,soba,w pobliżu,,
-386,WORD,WORD_LOCATION,COMMON_WORD,HIRAGANA,Genki 1-4,,隣,となり,,tonari,obok,,
+386,WORD,WORD_LOCATION,COMMON_WORD,HIRAGANA,Genki 1-4,,隣,となり,,tonari,"obok
+po sąsiedzku
+przyległy",,
 387,WORD,WORD_LOCATION,COMMON_WORD,HIRAGANA,"Genki 1-4
 Genki kanji 1-9",,間,あいだ,,aida,pomiędzy,,
 388,WORD,WORD_NOUN,,HIRAGANA,Genki 1-4,,お隣さん,おとなりさん,,otonarisan,sąsiad,mniej oficjalnie,
@@ -1902,7 +1904,8 @@ pragnąć",rzecz ga,
 VERB_TRANSITIVITY",HIRAGANA,"Genki 2-14
 Genki 2-19",,送る,おくる,,okuru,"wysyłać
 podwieźć (kogoś)
-odprowadzać (kogoś)",,
+odprowadzać (kogoś)
+podrzucać (kogoś)",,
 1080,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 2-14,,似合う,にあう,,niau,pasować,rzecz ga,
 1081,WORD,WORD_VERB_RU,"COMMON_WORD
@@ -5769,7 +5772,7 @@ kaplica",,
 3301,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,聖書,せいしょ,,seisho,Biblia,,
 3302,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-18,,職業,しょくぎょう,,shokugyou,"zawód
 zatrudnienie",,
-3303,KANJI,WORD_NOUN,,KATAKANA_HIRAGANA,Genki kanji 2-18,,サービズ業,サービズぎょう,,saabizu gyou,przemysł usługowy,,
+3303,KANJI,WORD_NOUN,COMMON_WORD,KATAKANA_HIRAGANA,Genki kanji 2-18,,サービス業,サービスぎょう,,saabisu gyou,przemysł usługowy,,
 3304,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,農業,のうぎょう,,nougyou,przemysł rolniczy,,
 3305,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-18,,入試,にゅうし,,nyuushi,egzamin wstępny,,
 3306,KANJI,WORD_NOUN,"COMMON_WORD
@@ -6982,3 +6985,15 @@ gorzelnia",,
 usypiać",,
 3923,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,眠り,ねむり,,nemuri,sen,,
 3924,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,睡眠,すいみん,,suimin,sen,,
+3925,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,僧,そう,,sou,"mnich
+kapłan (buddyjski)",,
+3926,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,停止,ていし,,teishi,"odwołanie
+zawieszenie",,
+3927,WORD,WORD_NOUN,,HIRAGANA,Inne,,停年,ていねん,,teinen,wiek emerytalny,,
+3928,WORD,WORD_NOUN,,HIRAGANA,Inne,,停職,ていしょく,,teishoku,zwolnienie z pracy,,
+3929,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,停電,ていでん,,teiden,przerwa w dopływie prądu,,
+3930,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,撮む,つまむ,,tsumamu,"szczypać
+zrywać",,
+3931,WORD,WORD_VERB_U,,HIRAGANA,Inne,,隣る,となる,,tonaru,sąsiadować,,

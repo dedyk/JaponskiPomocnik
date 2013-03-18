@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.idedyk.android.japaneselearnhelper"
-    android:versionCode="244"
-    android:versionName="20130317"
+    android:versionCode="245"
+    android:versionName="20130318"
     android:installLocation="auto" >
 
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="17" />
+    
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:icon="@drawable/japan"
