@@ -679,7 +679,8 @@ kartka pocztowa",,
 401,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-5,,飛行機,ひこうき,,hikouki,samolot,,
 402,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-5
 Genki kanji 2-16",,部屋,へや,,heya,pokój,,
-403,WORD,WORD_PRONOUN,COMMON_WORD,HIRAGANA,Genki 1-5,,僕,ぼく,,boku,ja,używane przez mężczyzn,
+403,WORD,WORD_PRONOUN,COMMON_WORD,HIRAGANA,Genki 1-5,,僕,ぼく,,boku,"ja
+służący",używane przez mężczyzn,
 404,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-5
 Genki kanji 1-8",,休み,やすみ,,yasumi,"wakacje
 odpoczynek
@@ -691,7 +692,8 @@ Genki kanji 1-11",,旅行,りょこう,,ryokou,podróż,,
 Genki kanji 1-8",,新しい,あたらしい,,atarashii,nowy,,
 407,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-5,,暑い,あつい,,atsui,gorąca,pogoda,
 408,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-5,,熱い,あつい,,atsui,gorący,przedmioty,
-409,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-5,,忙しい,いそがしい,,isogashii,zajęty,człowiek / dzień,
+409,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-5,,忙しい,いそがしい,,isogashii,"zajęty
+zapracowany",człowiek / dzień,
 410,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki 1-5
 Genki kanji 1-6",,大きい,おおきい,,ookii,duży,,
 411,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-5,,面白い,おもしろい,,omoshiroi,interesujący,,
@@ -3192,7 +3194,8 @@ SURU_VERB",KATAKANA,Genki 2-15,,-,ウインク,,uinku,mrugnięcie,,
 VERB_INTRANSITIVITY",HIRAGANA,"Genki 2-15
 Genki dodatkowe 2-16",,飛ぶ,とぶ,,tobu,"latać
 lecieć
-wznieść się",,
+wznieść się
+skakać",,
 1942,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-15,,観光客,かんこうきゃく,,kankoukyaku,turysta,,
 1943,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-15,,観光する,かんこうする,,kankou suru,zwiedzać,,
 1944,WORD,WORD_NOUN,"COMMON_WORD
@@ -6118,7 +6121,7 @@ trening",,
 SURU_VERB",HIRAGANA,Inne,,育児,いくじ,,ikuji,opieka nad dziećmi,,
 3477,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,育英,いくえい,,ikuei,edukacja,,
 3478,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,園,その,,sono,ogród,,
-3479,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,幼稚園,ようちえん,,youchien,przedszkole,,
+3479,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,幼稚園,ようちえん,,youchien,przedszkole,prywatne,
 3480,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,園長,えんちょう,,enchou,"dyrektor przedszkola, ogrodu",,
 3481,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,植物園,しょくぶつえん,,shokubutsuen,ogród botaniczny,,
 3482,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,幸福,こうふく,,koufuku,szczęście,,
@@ -6952,7 +6955,9 @@ przyjmować","np. miecz, dekoracje, ozdoby",
 3903,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,地帯,ちたい,,chitai,"obszar
 region
 pas",,
-3904,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,熱帯,ねったい,,nettai,strefa tropikalna,,
+3904,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,熱帯,ねったい,,nettai,"strefa tropikalna
+gorąca strefa
+tropik",,
 3905,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,包帯,ほうたい,,houtai,"bandaż
 opaska",,
@@ -6997,3 +7002,37 @@ SURU_VERB",HIRAGANA,Inne,,停電,ていでん,,teiden,przerwa w dopływie prądu
 3930,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,撮む,つまむ,,tsumamu,"szczypać
 zrywać",,
 3931,WORD,WORD_VERB_U,,HIRAGANA,Inne,,隣る,となる,,tonaru,sąsiadować,,
+3932,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,飛行場,ひこうじょう,,hikoujou,lotnisko,,
+3933,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,飛散,ひさん,,hisan,"rozpraszanie
+rozwiewanie
+rozsypywanie",,
+3934,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,飛び込む,とびこむ,,tobikomu,wskakiwać do,np. wody,
+3935,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,飛び出す,とびだす,,tobidasu,"wyskakiwać
+odlatywać",,
+3936,WORD,WORD_NOUN,,HIRAGANA,Inne,,僕,しもべ,,shimobe,"służący
+sługa
+poddany",,
+3937,WORD,WORD_NOUN,,HIRAGANA,Inne,,暑気,しょき,,shoki,"letni upał
+udar słoneczny",,
+3938,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,暑中,しょちゅう,,shochuu,"środek lata
+gorący okres",,
+3939,WORD,WORD_NOUN,,HIRAGANA,Inne,,暑熱,しょねつ,,shonetsu,letni upał,,
+3940,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,熱心,ねっしん,,nesshin,"entuzjazm
+zapał",,
+3941,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,熱意,ねつい,,netsui,"zapał
+entuzjazm",,
+3942,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,熱湯,ねっとう,,nettou,wrzątek,,
+3943,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,熱病,ねつびょう,,netsubyou,gorączka,,
+3944,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,保育園,ほいくえん,,hoikuen,przedszkole,państwowe,
+3945,WORD,WORD_NOUN,,HIRAGANA,Inne,,寒色,かんしょく,,kanshoku,zimne kolory,,
+3946,WORD,WORD_NOUN,,HIRAGANA,Inne,,寒地,かんち,,kanchi,zimny rejon,,
+3947,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,寒気,かんき,,kanki,"zimno
+zimna pogoda",,
+3948,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,寒気,さむけ,,samuke,"zimno
+zimna pogoda",,
+3949,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,寒冷,かんれい,,kanrei,"zimno
+chłód",,
+3950,WORD,WORD_NOUN,,HIRAGANA,Inne,,寒風,かんぷう,,kanpuu,"zimny wiatr
+mroźny wiatr",,
