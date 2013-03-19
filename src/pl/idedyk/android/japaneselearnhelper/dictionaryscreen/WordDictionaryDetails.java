@@ -1,10 +1,10 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -60,10 +60,7 @@ public class WordDictionaryDetails extends Activity {
 
 	private TtsConnector ttsConnector;
 	
-	@Override
-	public void onBackPressed() {
-		super.onBackPressed();
-	}
+	private Stack<Integer> backScreenPositionStack = new Stack<Integer>();
 
 	@Override
 	protected void onDestroy() {
@@ -117,6 +114,22 @@ public class WordDictionaryDetails extends Activity {
 	}
 	
 	@Override
+	public void onBackPressed() {
+		
+		if (backScreenPositionStack.isEmpty() == true) {
+			super.onBackPressed();
+			
+			return;
+		}
+		
+		Integer backPostion = backScreenPositionStack.pop();
+
+		final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.word_dictionary_details_main_layout_scroll);
+		
+		scrollMainLayout.scrollTo(0, backPostion);
+	}
+	
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
@@ -128,10 +141,7 @@ public class WordDictionaryDetails extends Activity {
 		final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.word_dictionary_details_main_layout_scroll);
 		final LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.word_dictionary_details_main_layout);
 		
-		// get from parent gramma and example cache
-		GrammaAndExampleCache grammaAndExampleCacheFromParent = (GrammaAndExampleCache)getIntent().getSerializableExtra("grammaAndExampleCache");
-		
-		final List<IScreenItem> generatedDetails = generateDetails(dictionaryEntry, grammaAndExampleCacheFromParent);
+		final List<IScreenItem> generatedDetails = generateDetails(dictionaryEntry, scrollMainLayout);
 		
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 		
@@ -172,17 +182,6 @@ public class WordDictionaryDetails extends Activity {
 			}
 		});
 		
-		final int counterPos = getIntent().getIntExtra("counterPos", -1);
-		
-		if (counterPos != -1) {	
-			detailsMainLayout.post(new Runnable() {
-				
-				public void run() {
-					scrollMainLayout.scrollTo(0, counterPos - 10);
-				}
-			});
-		}
-		
 		if (ttsConnector != null) {
 			ttsConnector.stop();
 		}
@@ -190,7 +189,7 @@ public class WordDictionaryDetails extends Activity {
 		ttsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
 	}
 
-	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry, GrammaAndExampleCache grammaAndExampleCacheFromParent) {
+	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry, final ScrollView scrollMainLayout) {
 		
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 				
@@ -532,22 +531,13 @@ public class WordDictionaryDetails extends Activity {
 		
 		// index
 		int indexStartPos = report.size();
-				
+		
 		Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaCache = 
 				new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
 		
 		// Conjugater
-		final List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList;
-		
-		if (grammaAndExampleCacheFromParent == null) {
-			
-			grammaFormConjugateGroupTypeElementsList = 			 
-					GrammaConjugaterManager.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance().
-							getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
-			
-		} else {
-			grammaFormConjugateGroupTypeElementsList = grammaAndExampleCacheFromParent.getGrammaFormConjugateGroupTypeElementsList();			
-		}		
+		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = 
+				GrammaConjugaterManager.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
 		
 		if (grammaFormConjugateGroupTypeElementsList != null) {
 			report.add(new StringValue("", 15.0f, 2));
@@ -574,18 +564,7 @@ public class WordDictionaryDetails extends Activity {
 		}	
 		
 		// Exampler
-		final List<ExampleGroupTypeElements> exampleGroupTypeElementsList;
-		
-		if (grammaAndExampleCacheFromParent == null) {
-			
-			exampleGroupTypeElementsList = 
-					ExampleManager.getExamples(JapaneseAndroidLearnHelperApplication.getInstance().
-							getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
-			
-		} else {
-			exampleGroupTypeElementsList = grammaAndExampleCacheFromParent.getExampleGroupTypeElementsList();
-		}
-		
+		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
 		
 		if (exampleGroupTypeElementsList != null) {
 			
@@ -636,24 +615,16 @@ public class WordDictionaryDetails extends Activity {
 				
 				final TitleItem currentReportScreenItemAsTitle = (TitleItem)currentReportScreenItem;
 				
-				StringValue titleStringValue = new StringValue(currentReportScreenItemAsTitle.getTitle(), 15.0f, currentReportScreenItemAsTitle.getLevel() + 2);
+				final StringValue titleStringValue = new StringValue(currentReportScreenItemAsTitle.getTitle(), 15.0f, currentReportScreenItemAsTitle.getLevel() + 2);
 				
 				titleStringValue.setOnClickListener(new OnClickListener() {
 					
-					public void onClick(View v) {					
-						Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+					public void onClick(View v) {
 						
-						GrammaAndExampleCache grammaAndExampleCache = new GrammaAndExampleCache();
+						backScreenPositionStack.push(scrollMainLayout.getScrollY());
 						
-						grammaAndExampleCache.setGrammaFormConjugateGroupTypeElementsList(grammaFormConjugateGroupTypeElementsList);
-						grammaAndExampleCache.setExampleGroupTypeElementsList(exampleGroupTypeElementsList);
-						
-						intent.putExtra("grammaAndExampleCache", grammaAndExampleCache);
-						
-						intent.putExtra("counterPos", currentReportScreenItemAsTitle.getY());
-						intent.putExtra("item", dictionaryEntry);
-						
-						startActivity(intent);	
+						int counterPos = currentReportScreenItemAsTitle.getY();						
+						scrollMainLayout.scrollTo(0, counterPos - 3);
 					}
 				});
 				
@@ -945,31 +916,5 @@ public class WordDictionaryDetails extends Activity {
 			
 			Toast.makeText(WordDictionaryDetails.this, getString(R.string.word_dictionary_details_clipboard_copy, text), Toast.LENGTH_SHORT).show();
 		}
-	}
-	
-	public static class GrammaAndExampleCache implements Serializable {
-		
-		private static final long serialVersionUID = 1L;
-
-		private List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = null;
-
-		private List<ExampleGroupTypeElements> exampleGroupTypeElementsList = null;
-
-		public List<GrammaFormConjugateGroupTypeElements> getGrammaFormConjugateGroupTypeElementsList() {
-			return grammaFormConjugateGroupTypeElementsList;
-		}
-
-		public void setGrammaFormConjugateGroupTypeElementsList(
-				List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList) {
-			this.grammaFormConjugateGroupTypeElementsList = grammaFormConjugateGroupTypeElementsList;
-		}
-
-		public List<ExampleGroupTypeElements> getExampleGroupTypeElementsList() {
-			return exampleGroupTypeElementsList;
-		}
-
-		public void setExampleGroupTypeElementsList(List<ExampleGroupTypeElements> exampleGroupTypeElementsList) {
-			this.exampleGroupTypeElementsList = exampleGroupTypeElementsList;
-		}		
 	}
 }
