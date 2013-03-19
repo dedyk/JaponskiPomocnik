@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteConnector;
 import android.app.Activity;
 import android.app.Application;
@@ -61,8 +62,11 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 		return context;
 	}
 
-	public DictionaryManager getDictionaryManager(Resources resources, AssetManager assets) {
+	public DictionaryManager getDictionaryManager(final Activity activity) {
 		
+		Resources resources = activity.getResources();
+		AssetManager assets = activity.getAssets();
+				
 		if (dictionaryManager == null) {
 			
 	        int versionCode = 0;
@@ -74,12 +78,32 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 
 	        } catch (NameNotFoundException e) {        	
 	        }
-			
+	        
+	        ILoadWithProgress loadWithProgress = new ILoadWithProgress() {
+				
+				@Override
+				public void setMaxValue(int maxValue) {
+				}
+				
+				@Override
+				public void setError(String errorMessage) {					
+					throw new RuntimeException(errorMessage);					
+				}
+				
+				@Override
+				public void setDescription(String desc) {
+				}
+				
+				@Override
+				public void setCurrentPos(int currentPos) {
+				}
+			};
+						
 			SQLiteConnector sqliteConnector = new SQLiteConnector();
 			
 			dictionaryManager = new DictionaryManager(sqliteConnector);
 			
-			dictionaryManager.init(null, resources, assets, getPackageName(), versionCode);
+			dictionaryManager.init(loadWithProgress, resources, assets, getPackageName(), versionCode);
 		}
 		
 		return dictionaryManager;

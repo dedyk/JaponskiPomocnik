@@ -63,7 +63,7 @@ public class KanjiSearchRadicalResult extends Activity {
 		
 		kanjiDictionarySearchElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "???"));
 		
-		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
+		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 		
 		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_result_list);
 		

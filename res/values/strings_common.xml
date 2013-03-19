@@ -42,6 +42,10 @@
     <string name="main_menu_email_subject">Japoński pomocnik - sugestia</string>
     <string name="main_menu_email_body">Treść sugestii:\n\n</string>
     
+    <string name="ok">OK</string>
+    
+    <string name="init_dictionary_error">Błąd inicjalizacji bazy danych:\n\n%1$s</string>
+    
     <string name="report_problem">Zgłoś sugestię</string>
     
     <string name="choose_email_client">Wybierz klienta poczty:</string>

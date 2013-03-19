@@ -74,7 +74,9 @@ public class Splash extends Activity {
     		
     		Integer progressBarValue;
     		
-    		String description;    		
+    		String description;    
+    		
+    		String errorMessage;
     	}
         
         class InitJapaneseAndroidLearnHelperContextAsyncTask extends AsyncTask<Void, ProgressInfo, Void> {
@@ -104,7 +106,19 @@ public class Splash extends Activity {
 					
 					publishProgress(progressInfo);
 				}
+
+				@Override
+				public void setError(String errorMessage) {
+					
+					ProgressInfo progressInfo = new ProgressInfo();
+					
+					progressInfo.errorMessage = errorMessage;
+					
+					publishProgress(progressInfo);
+				}
         	}
+        	
+        	private String errorMessage;
 
 			@Override
 			protected Void doInBackground(Void... params) {
@@ -134,11 +148,35 @@ public class Splash extends Activity {
 
 				if (progressInfo.progressBarValue != null) {
 					progressBar.setProgress(progressInfo.progressBarValue);
-				}				
+				}
+				
+				if (progressInfo.errorMessage != null) {
+					this.errorMessage = progressInfo.errorMessage;
+				}
 			}
 
 			@Override
 			protected void onPostExecute(Void result) {
+				
+				if (errorMessage != null) {
+					
+					AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
+					
+					alertDialog.setMessage(getString(R.string.init_dictionary_error, errorMessage));					
+					alertDialog.setCancelable(false);
+					
+					alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+
+						public void onClick(DialogInterface dialog, int which) {
+							finish();							
+						}
+					});	
+					
+					alertDialog.show();
+					
+					return;
+				}
+				
 				
 				final SplashConfig splashConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(Splash.this).getSplashConfig();
 				

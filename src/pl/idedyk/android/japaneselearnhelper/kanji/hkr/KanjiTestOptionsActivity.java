@@ -144,7 +144,7 @@ public class KanjiTestOptionsActivity extends Activity {
 						KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
 
 						// get kanji with details
-						currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findKanji(currentCheckBoxKanjiEntry.getKanji());
+						currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findKanji(currentCheckBoxKanjiEntry.getKanji());
 
 						chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
 						kanjiEntryList.add(currentCheckBoxKanjiEntry);						
@@ -189,7 +189,7 @@ public class KanjiTestOptionsActivity extends Activity {
 					for (String currentKanjiGroup : chosenKanjiGroupList) {
 						
 						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = 
-								JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+								JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
 									getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
 						
 						dictionaryEntrySize += currentWordsGroupDictionaryEntryList.size();
@@ -256,7 +256,7 @@ public class KanjiTestOptionsActivity extends Activity {
 									findWordRequest.word = currentKanjiEntry.getKanji();
 
 									// find word with this kanji
-									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findWord(findWordRequest);
+									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findWord(findWordRequest);
 
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
@@ -272,7 +272,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
 
 									// find word with this kanji
-									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findWord(findWordRequest);
+									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findWord(findWordRequest);
 
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
@@ -299,7 +299,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								for (String currentKanjiGroup : chosenKanjiGroupList) {
 									
 									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = 
-											JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+											JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
 												getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
 									
 									for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
@@ -451,7 +451,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			@Override
 			protected List<KanjiEntry> doInBackground(Void... arg) {
 
-				return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getAllKanjis(false, false);
+				return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, false);
 			}
 
 			@Override

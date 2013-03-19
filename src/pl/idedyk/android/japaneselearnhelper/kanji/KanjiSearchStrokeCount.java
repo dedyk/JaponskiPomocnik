@@ -145,7 +145,7 @@ public class KanjiSearchStrokeCount extends Activity {
 					@Override
 					protected FindKanjiResult doInBackground(Void... params) {		
 						
-						return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+						return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchStrokeCount.this).
 								findKanjisFromStrokeCount(fromInt, toInt);
 					}
 					

@@ -81,7 +81,7 @@ public class DictionaryHearOptions extends Activity {
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 		
-		final List<GroupEnum> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getDictionaryEntryGroupTypes();
+		final List<GroupEnum> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getDictionaryEntryGroupTypes();
 		
 		Set<String> chosenWordGroups = dictionaryHearConfig.getChosenWordGroups();
 				
@@ -322,7 +322,7 @@ public class DictionaryHearOptions extends Activity {
 					
 					if (currentWordGroupCheckBox.isChecked() == true) {
 						
-						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(DictionaryHearOptions.this).
 								getGroupDictionaryEntries(groupsNames.get(wordGroupCheckBoxListIdx));
 												
 						for (int repeatIdx = 0; repeatIdx < repeatNumber; ++repeatIdx) {

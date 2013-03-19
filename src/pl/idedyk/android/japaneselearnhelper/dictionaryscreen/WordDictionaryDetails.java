@@ -225,7 +225,7 @@ public class WordDictionaryDetails extends Activity {
 		OnClickListener kanjiDrawOnClickListener = new OnClickListener() {
 			
 			public void onClick(View v) {
-				List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getStrokePathsForWord(kanjiSb.toString());
+				List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(kanjiSb.toString());
 				
 				StrokePathInfo strokePathInfo = new StrokePathInfo();
 				
@@ -243,7 +243,7 @@ public class WordDictionaryDetails extends Activity {
 		List<String> kanaList = dictionaryEntry.getKanaList();
 		
 		// check furigana
-		List<FuriganaEntry> furiganaEntries = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getFurigana(dictionaryEntry);
+		List<FuriganaEntry> furiganaEntries = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getFurigana(dictionaryEntry);
 				
 		if (furiganaEntries != null && furiganaEntries.size() > 0 && addKanjiWrite == true) {
 			
@@ -384,7 +384,7 @@ public class WordDictionaryDetails extends Activity {
 			readingStringValue.setOnClickListener(new OnClickListener() {
 				
 				public void onClick(View v) {
-					List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getStrokePathsForWord(sb.toString());
+					List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(sb.toString());
 					
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 					
@@ -486,7 +486,7 @@ public class WordDictionaryDetails extends Activity {
 		List<KanjiEntry> knownKanji = null;
 		
 		if (dictionaryEntry.isKanjiExists() == true) {
-			knownKanji = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findKnownKanji(dictionaryEntry.getKanji());
+			knownKanji = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).findKnownKanji(dictionaryEntry.getKanji());
 		}
 		
 		if (knownKanji != null && knownKanji.size() > 0) {
@@ -537,7 +537,7 @@ public class WordDictionaryDetails extends Activity {
 		
 		// Conjugater
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = 
-				GrammaConjugaterManager.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
+				GrammaConjugaterManager.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this), dictionaryEntry, grammaCache);
 		
 		if (grammaFormConjugateGroupTypeElementsList != null) {
 			report.add(new StringValue("", 15.0f, 2));
@@ -564,7 +564,7 @@ public class WordDictionaryDetails extends Activity {
 		}	
 		
 		// Exampler
-		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
+		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this), dictionaryEntry, grammaCache);
 		
 		if (exampleGroupTypeElementsList != null) {
 			
