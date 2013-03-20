@@ -4,7 +4,6 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
-import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteConnector;
 import android.app.Activity;
 import android.app.Application;
 import android.content.pm.PackageInfo;
@@ -99,9 +98,7 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 				}
 			};
 						
-			SQLiteConnector sqliteConnector = new SQLiteConnector();
-			
-			dictionaryManager = new DictionaryManager(sqliteConnector);
+			dictionaryManager = new DictionaryManager();
 			
 			dictionaryManager.init(loadWithProgress, resources, assets, getPackageName(), versionCode);
 		}

@@ -11,4 +11,6 @@
     <string name="dictionary_manager_optimize">Optymalizacja</string>
     <string name="dictionary_manager_bad_external_storage_state">Zewnętrzna pamięć urządzenia nie jest dostępna do zapisu</string>
     <string name="dictionary_manager_create_directories_error">Błąd tworzenia struktury katalogów na zewnętrznej pamięci urządzenia. Sprawdź ilość wolnego miejsca.</string>
+    <string name="dictionary_manager_ioerror">Błąd przygotowywania bazy danych na zewnętrznej pamięci urządzenia. Sprawdź ilość wolnego miejsca.</string>
+    <string name="dictionary_manager_generic_ioerror">Błąd wczytywania bazy danych: %1$s</string>
 </resources>

@@ -7,7 +7,6 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.SplashConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
-import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteConnector;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -64,10 +63,8 @@ public class Splash extends Activity {
         
         JapaneseAndroidLearnHelperApplication.getInstance().setConfigManager(configManager);
         
-        SQLiteConnector sqliteConnector = new SQLiteConnector();
-        
         // create dictionary manager
-        final DictionaryManager dictionaryManager = new DictionaryManager(sqliteConnector);
+        final DictionaryManager dictionaryManager = new DictionaryManager();
         
     	class ProgressInfo {
     		Integer progressBarMaxValue;
