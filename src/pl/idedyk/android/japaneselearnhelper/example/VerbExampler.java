@@ -1244,7 +1244,7 @@ public class VerbExampler {
 			
 			if (isKeigoHigh == true) {
 				
-				KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
+				KeigoEntry keigoEntry = keigoHelper.getKeigoHighEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 				
 				if (keigoEntry == null) {
 					throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -1254,7 +1254,7 @@ public class VerbExampler {
 				
 			} else {
 				
-				KeigoEntry keigoEntry = keigoHelper.findKeigoEntry(dictionaryEntry.getDictionaryEntryType(), dictionaryEntry.getKanji(), dictionaryEntry.getKanaList(), dictionaryEntry.getRomajiList());
+				KeigoEntry keigoEntry = keigoHelper.findKeigoHighEntry(dictionaryEntry.getDictionaryEntryType(), dictionaryEntry.getKanji(), dictionaryEntry.getKanaList(), dictionaryEntry.getRomajiList());
 
 				if (keigoEntry == null) {
 					GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);

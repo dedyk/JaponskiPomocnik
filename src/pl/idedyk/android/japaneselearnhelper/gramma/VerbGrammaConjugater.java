@@ -170,10 +170,14 @@ public class VerbGrammaConjugater {
 		
 		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
 		List<String> kanaList = dictionaryEntry.getKanaList();
+		List<String> romajiList = dictionaryEntry.getRomajiList();
 		
-		for (String currentKana : kanaList) {
+		for (int idx = 0; idx < kanaList.size(); ++idx) {
 			
-			if (currentKana.equals("ある") == true) {
+			String currentKana = kanaList.get(idx);
+			String currentRomaji = romajiList.get(idx);
+			
+			if (currentKana.endsWith("ある") == true && currentRomaji.endsWith(" aru") == true) {
 				isAruVerb = true;
 			}
 		}
@@ -295,19 +299,20 @@ public class VerbGrammaConjugater {
 		result.add(baForm);
 		
 		// forma honoryfikatywna
-		if (isAruVerb == false) {
-						
-			GrammaFormConjugateGroupTypeElements keigoForm = new GrammaFormConjugateGroupTypeElements();
-			
-			keigoForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_KEIGO);
-			
-			if (isKeigoHigh == false) {
-				keigoForm.getGrammaFormConjugateResults().add(makeKeigoHighForm(dictionaryManager, dictionaryEntry));
-			}
-			
-			if (keigoForm.getGrammaFormConjugateResults().size() > 0) {
-				result.add(keigoForm);
-			}
+		GrammaFormConjugateGroupTypeElements keigoForm = new GrammaFormConjugateGroupTypeElements();
+		
+		keigoForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_KEIGO);
+		
+		if (isAruVerb == false && isKeigoHigh == false) {
+			keigoForm.getGrammaFormConjugateResults().add(makeKeigoHighForm(dictionaryManager, dictionaryEntry));
+		}
+		
+		if (isKeigoHigh == false) {
+			keigoForm.getGrammaFormConjugateResults().add(makeKeigoLowForm(dictionaryManager, dictionaryEntry));
+		}
+		
+		if (keigoForm.getGrammaFormConjugateResults().size() > 0) {
+			result.add(keigoForm);
 		}
 		
 		// caching
@@ -335,7 +340,7 @@ public class VerbGrammaConjugater {
 		} else {			
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
+			KeigoEntry keigoEntry = keigoHelper.getKeigoHighEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -391,7 +396,7 @@ public class VerbGrammaConjugater {
 		} else {
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
+			KeigoEntry keigoEntry = keigoHelper.getKeigoHighEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -419,7 +424,7 @@ public class VerbGrammaConjugater {
 		} else {
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
+			KeigoEntry keigoEntry = keigoHelper.getKeigoHighEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -446,7 +451,7 @@ public class VerbGrammaConjugater {
 		} else {
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
+			KeigoEntry keigoEntry = keigoHelper.getKeigoHighEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -1142,7 +1147,7 @@ public class VerbGrammaConjugater {
 			
 			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
-			KeigoEntry keigoEntry = keigoHelper.getKeigoEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
+			KeigoEntry keigoEntry = keigoHelper.getKeigoHighEntryFromKeigoWord(dictionaryEntry.getKanji(), null, dictionaryEntry.getKanaList().get(0), null);
 			
 			if (keigoEntry == null) {
 				throw new RuntimeException("Empty keigo entry for: " + dictionaryEntry.getKanji() + " - " + dictionaryEntry.getKanaList().get(0));
@@ -1809,7 +1814,7 @@ public class VerbGrammaConjugater {
 		
 		KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();		
 		
-		KeigoEntry keigoEntry = keigoHelper.findKeigoEntry(dictionaryEntry.getDictionaryEntryType(), dictionaryEntry.getKanji(), dictionaryEntry.getKanaList(), dictionaryEntry.getRomajiList());
+		KeigoEntry keigoEntry = keigoHelper.findKeigoHighEntry(dictionaryEntry.getDictionaryEntryType(), dictionaryEntry.getKanji(), dictionaryEntry.getKanaList(), dictionaryEntry.getRomajiList());
 		
 		GrammaFormConjugateResult result = null;
 		
@@ -1897,6 +1902,117 @@ public class VerbGrammaConjugater {
 		result.setResultType(GrammaFormConjugateResultType.VERB_KEIGO_HIGH);
 		
 		return result;
+	}
+	
+	private static GrammaFormConjugateResult makeKeigoLowForm(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry) {
+		
+		KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();		
+		
+		KeigoEntry keigoEntry = keigoHelper.findKeigoLowEntry(dictionaryEntry.getDictionaryEntryType(), dictionaryEntry.getKanji(), dictionaryEntry.getKanaList(), dictionaryEntry.getRomajiList());
+		
+		GrammaFormConjugateResult resultInformalResult = null;
+		
+		DictionaryEntryType resultInformalResultDictiobaryEntryType = null;
+		
+		if (keigoEntry == null) {
+			GrammaFormConjugateResult stemForm = makeStemForm(dictionaryEntry);
+			
+			String templateKanji = "お%sする";
+			String templateKana = "お%sする";
+			String templateRomaji = "o%s suru";
+			
+			resultInformalResult = GrammaExampleHelper.makeSimpleTemplateGrammaFormConjugateResult(stemForm, templateKanji, templateKana, templateRomaji);
+			
+			resultInformalResult.setResultType(GrammaFormConjugateResultType.VERB_KEIGO_LOW);
+			
+			resultInformalResultDictiobaryEntryType = DictionaryEntryType.WORD_VERB_IRREGULAR;
+			
+		} else {
+			resultInformalResult = makeCommon(dictionaryEntry);
+			
+			String kanji = dictionaryEntry.getKanji();
+			List<String> kanaList = dictionaryEntry.getKanaList();
+			List<String> romajiList = dictionaryEntry.getRomajiList();
+			
+			if (kanji != null) {
+				
+				if (keigoEntry.getKanji() != null && keigoEntry.getKeigoKanji(true) != null) {
+					resultInformalResult.setKanji(replaceEndWith(kanji, keigoEntry.getKanji(), keigoEntry.getKeigoKanji(true)));
+				} else {
+					resultInformalResult.setKanji(replaceEndWith(kanji, keigoEntry.getKana(), keigoEntry.getKeigoKana(true)));
+				}
+			}
+
+			List<String> kanaListResult = new ArrayList<String>();
+
+			for (String currentKana : kanaList) {			
+				kanaListResult.add(replaceEndWith(currentKana, keigoEntry.getKana(), keigoEntry.getKeigoKana(true)));
+			}
+
+			resultInformalResult.setKanaList(kanaListResult);
+
+			List<String> romajiListResult = new ArrayList<String>();
+
+			for (String currentRomaji : romajiList) {
+				romajiListResult.add(replaceEndWith(currentRomaji, keigoEntry.getRomaji(), keigoEntry.getKeigoRomaji(true)));
+			}
+
+			resultInformalResult.setRomajiList(romajiListResult);
+			
+			resultInformalResult.setResultType(GrammaFormConjugateResultType.VERB_KEIGO_LOW);
+			
+			resultInformalResultDictiobaryEntryType = keigoEntry.getKeigoDictionaryEntryType();
+		}
+		
+		// forma masu
+		GrammaFormConjugateResult masuResult = null;
+				
+		if (keigoEntry != null && keigoEntry.getKeigoLongFormWithoutMasuKana() != null) {
+						
+			masuResult = makeCommon(dictionaryEntry);
+			
+			String kanji = dictionaryEntry.getKanji();
+			List<String> kanaList = dictionaryEntry.getKanaList();
+			List<String> romajiList = dictionaryEntry.getRomajiList();
+
+			if (kanji != null) {
+				
+				if (keigoEntry.getKanji() != null && keigoEntry.getKeigoKanji(true) != null) {
+					masuResult.setKanji(replaceEndWith(kanji, keigoEntry.getKanji(), keigoEntry.getKeigoLongFormWithoutMasuKanji()) + "ます");
+				} else {
+					masuResult.setKanji(replaceEndWith(kanji, keigoEntry.getKana(), keigoEntry.getKeigoLongFormWithoutMasuKana()) + "ます");
+				}
+			}
+			
+			List<String> masuKanaListResult = new ArrayList<String>();
+
+			for (String currentKana : kanaList) {			
+				masuKanaListResult.add(replaceEndWith(currentKana, keigoEntry.getKana(), keigoEntry.getKeigoLongFormWithoutMasuKana()) + "ます");
+			}
+
+			masuResult.setKanaList(masuKanaListResult);
+
+			List<String> masuRomajiListResult = new ArrayList<String>();
+
+			for (String currentRomaji : romajiList) {
+				masuRomajiListResult.add(replaceEndWith(currentRomaji, keigoEntry.getRomaji(), keigoEntry.getKeigoLongFormWithoutMasuRomaji()) + "masu");
+			}
+
+			masuResult.setRomajiList(masuRomajiListResult);
+			
+			masuResult.setResultType(GrammaFormConjugateResultType.VERB_KEIGO_LOW);
+			
+		} else {			
+			DictionaryEntry virtualDictionaryEntry = GrammaExampleHelper.convertToVirtualDictionaryEntry(resultInformalResult, resultInformalResultDictiobaryEntryType);
+			
+			masuResult = makeFormalPresentForm(dictionaryManager, virtualDictionaryEntry, false);
+		}
+		
+		masuResult.setResultType(GrammaFormConjugateResultType.VERB_KEIGO_LOW);
+		
+		masuResult.setAlternative(resultInformalResult);
+		
+		return masuResult;
 	}
 	
 	private static String replaceEndWith(String word, String wordEndWithToReplace, String replacement) {

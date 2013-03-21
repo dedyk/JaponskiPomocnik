@@ -8,14 +8,22 @@ import java.util.Map;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 
 public class KeigoHelper {
-
+	
+	// high
 	private List<KeigoEntry> keigoHighEntryList = new ArrayList<KeigoEntry>();
 
 	private Map<String, KeigoEntry> wordToKeigoEntryHighMap = new HashMap<String, KeigoEntry>();
 	private Map<String, KeigoEntry> keigoWordToKeigoEntryHighMap = new HashMap<String, KeigoEntry>();
 
+	// low
+	private List<KeigoEntry> keigoLowEntryList = new ArrayList<KeigoEntry>();
+
+	private Map<String, KeigoEntry> wordToKeigoEntryLowMap = new HashMap<String, KeigoEntry>();
+	private Map<String, KeigoEntry> keigoWordToKeigoEntryLowMap = new HashMap<String, KeigoEntry>();	
 
 	KeigoHelper() {
+		
+		// *** high ***
 
 		// iru
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_RU, null, "いる", "iru",
@@ -56,8 +64,51 @@ public class KeigoHelper {
 		// neru
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_RU, "寝る", "ねる", "neru",
 				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "お休み", "になる", "おやすみ", "になる", "oyasumi", "ni naru", null, null, null);
+		
+		// *** low ***
+		
+		// iru
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_RU, null, "いる", "iru",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "おる", null, "oru", null, null, null, null);
+
+		// iku
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_U, "行く", "いく", "iku",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "参る", null, "まいる", null, "mairu", null, null, null, null);
+
+		// kuru
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_IRREGULAR, "来る", "くる", "kuru",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "参る", null, "まいる", null, "mairu", null, null, null, null);
+		
+		// iu
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_U, "言う", "いう", "iu",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "申す", null, "もうす", null, "mousu", null, null, null, null);
+
+		// suru
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_IRREGULAR, null, "する", "suru",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いたす", null, "itasu", null, null, null, null);
+		
+		// taberu
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_RU, "食べる", "たべる", "taberu",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いただく", null, "itadaku", null, null, null, null);
+
+		// nomu
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_U, "飲む", "のむ", "nomu",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いただく", null, "itadaku", null, null, null, null);
+
+		// aru
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_U, null, "ある", "aru",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "ござる", null, "gozaru", null, null, "ござい", "gozai");
+		
+		// morau
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_U, null, "もらう", "morau",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いただく", null, "itadaku", null, null, null, null);
+		
+		// ageru
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_RU, null, "あげる", "ageru",
+				KeigoEntryFindMatchType.EXACT, DictionaryEntryType.WORD_VERB_RU, null, null, "さしあげる", null, "sashiageru", null, null, null, null);
 	}
 
+	// *** high ***
 	private void addKeigoHighEntry(DictionaryEntryType dictionaryEntryType, String kanji, String kana, String romaji,
 			
 			KeigoEntryFindMatchType findMatchType, DictionaryEntryType keigoDictionaryEntryType, String keigoKanji, String keigoKanjiPostfix, 
@@ -79,24 +130,15 @@ public class KeigoHelper {
 		keigoWordToKeigoEntryHighMap.put(getKey(keigoKanji, keigoKanaPostfix, keigoKana, keigoKanaPostfix), keigoEntry);
 	}
 
-	public KeigoEntry getKeigoEntryFromWord(String kanji, String kana) {
+	public KeigoEntry getKeigoHighEntryFromWord(String kanji, String kana) {
 		return wordToKeigoEntryHighMap.get(getKey(kanji, null, kana, null));
 	}
 
-	public KeigoEntry getKeigoEntryFromKeigoWord(String keigoKanji, String keigoKanjiPostfix, String keigoKana, String keigoKanaPostfix) {
+	public KeigoEntry getKeigoHighEntryFromKeigoWord(String keigoKanji, String keigoKanjiPostfix, String keigoKana, String keigoKanaPostfix) {
 		return keigoWordToKeigoEntryHighMap.get(getKey(keigoKanji, keigoKanjiPostfix, keigoKana, keigoKanaPostfix));
 	}
-	
-    private String getKey(String kanji, String kanjiPostfix, String kana, String kanaPostfix) {
-        
-        if (kanji == null) {
-                kanji = "-";
-        }
-       
-        return kanji + (kanjiPostfix != null ? kanjiPostfix : "") + "." + kana + (kanaPostfix != null ? kanaPostfix : "");          
-    }
 
-	public KeigoEntry findKeigoEntry(DictionaryEntryType dictionaryEntryType, String kanji, List<String> kanaList, List<String> romajiList) {
+	public KeigoEntry findKeigoHighEntry(DictionaryEntryType dictionaryEntryType, String kanji, List<String> kanaList, List<String> romajiList) {
 
 		for (KeigoEntry keigoEntry : keigoHighEntryList) {
 
@@ -138,6 +180,88 @@ public class KeigoHelper {
 
 		return null;		
 	}
+	
+	/// *** low ***
+	private void addKeigoLowEntry(DictionaryEntryType dictionaryEntryType, String kanji, String kana, String romaji,
+			
+			KeigoEntryFindMatchType findMatchType, DictionaryEntryType keigoDictionaryEntryType, String keigoKanji, String keigoKanjiPostfix, 
+			String keigoKana, String keigoKanaPostfix, String keigoRomaji, String keigoRomajiPostfix,			
+			
+			String keigoLongFormWithoutMasuKanji, String keigoLongFormWithoutMasuKana, String keigoLongFormWithoutMasuRomaji) {
+		
+		//////
+
+		KeigoEntry keigoEntry = new KeigoEntry(dictionaryEntryType, kanji, kana, romaji,
+
+				findMatchType, keigoDictionaryEntryType, keigoKanji, keigoKanjiPostfix, keigoKana, keigoKanaPostfix, keigoRomaji, keigoRomajiPostfix, 
+
+				keigoLongFormWithoutMasuKanji, keigoLongFormWithoutMasuKana, keigoLongFormWithoutMasuRomaji);
+
+		keigoLowEntryList.add(keigoEntry);
+
+		wordToKeigoEntryLowMap.put(getKey(kanji, null, kana, null), keigoEntry);
+		keigoWordToKeigoEntryLowMap.put(getKey(keigoKanji, keigoKanaPostfix, keigoKana, keigoKanaPostfix), keigoEntry);
+	}
+
+	public KeigoEntry getKeigoLowEntryFromWord(String kanji, String kana) {
+		return wordToKeigoEntryLowMap.get(getKey(kanji, null, kana, null));
+	}
+
+	public KeigoEntry getKeigoLowEntryFromKeigoWord(String keigoKanji, String keigoKanjiPostfix, String keigoKana, String keigoKanaPostfix) {
+		return keigoWordToKeigoEntryLowMap.get(getKey(keigoKanji, keigoKanjiPostfix, keigoKana, keigoKanaPostfix));
+	}
+
+	public KeigoEntry findKeigoLowEntry(DictionaryEntryType dictionaryEntryType, String kanji, List<String> kanaList, List<String> romajiList) {
+
+		for (KeigoEntry keigoEntry : keigoLowEntryList) {
+
+			DictionaryEntryType keigoEntryDictionaryEntryType = keigoEntry.getDictionaryEntryType();
+
+			String keigoEntryKanji = keigoEntry.getKanji();
+			String keigoEntryKana = keigoEntry.getKana();
+			String keigoEntryRomaji = keigoEntry.getRomaji();
+
+			for (int idx = 0; idx < kanaList.size(); ++idx) {
+
+				if (dictionaryEntryType == keigoEntryDictionaryEntryType) {
+
+					KeigoEntryFindMatchType findMatchType = keigoEntry.getFindMatchType();
+
+					if (findMatchType == KeigoEntryFindMatchType.END_WITH) {
+
+						if (	stringEndWith(kanji, keigoEntryKanji) == true &&
+								stringEndWith(kanaList.get(idx), keigoEntryKana) == true &&
+								stringEndWith(romajiList.get(idx), keigoEntryRomaji) == true) {
+
+							return keigoEntry;
+						}
+
+					} else if (findMatchType == KeigoEntryFindMatchType.EXACT) {
+
+						if (	equals(kanji, keigoEntryKanji) == true &&
+								equals(kanaList.get(idx), keigoEntryKana) == true &&
+								equals(romajiList.get(idx), keigoEntryRomaji) == true) {
+
+							return keigoEntry;
+						}
+					} else {
+						throw new RuntimeException("Unknown find match type: " + findMatchType);
+					}
+				}
+			}			
+		}
+
+		return null;		
+	}
+	
+    private String getKey(String kanji, String kanjiPostfix, String kana, String kanaPostfix) {
+        
+        if (kanji == null) {
+                kanji = "-";
+        }
+       
+        return kanji + (kanjiPostfix != null ? kanjiPostfix : "") + "." + kana + (kanaPostfix != null ? kanaPostfix : "");          
+    }
 
 	private boolean stringEndWith(String string1, String string2) {
 

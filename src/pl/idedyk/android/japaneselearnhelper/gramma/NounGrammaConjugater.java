@@ -53,6 +53,15 @@ public class NounGrammaConjugater {
 		
 		result.add(teForm);
 		
+		// forma honoryfikatywna
+		GrammaFormConjugateGroupTypeElements keigoForm = new GrammaFormConjugateGroupTypeElements();
+		
+		keigoForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.NOUN_KEIGO);
+		
+		keigoForm.getGrammaFormConjugateResults().add(makeKeigoLowForm(dictionaryEntry));
+		
+		result.add(keigoForm);
+
 		// caching
 		for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : result) {
 			
@@ -241,5 +250,24 @@ public class NounGrammaConjugater {
 
 		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_TE,
 				postfixKana, postfixRomaji);
+	}
+	
+	private static GrammaFormConjugateResult makeKeigoLowForm(DictionaryEntry dictionaryEntry) {
+		
+		// keigo low
+		
+		final String postfixKana1 = "でございます";
+		final String postfixRomaji1 = " de gozaimasu";
+
+		GrammaFormConjugateResult result = makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_KEIGO_LOW,
+				postfixKana1, postfixRomaji1);
+		
+		final String postfixKana2 = "でござる";
+		final String postfixRomaji2 = " de gozaru";
+		
+		result.setAlternative(makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_KEIGO_LOW,
+				postfixKana2, postfixRomaji2));		
+		
+		return result;
 	}
 }

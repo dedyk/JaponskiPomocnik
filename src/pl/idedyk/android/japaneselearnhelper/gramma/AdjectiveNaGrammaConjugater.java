@@ -10,6 +10,7 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroup
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
+import pl.idedyk.android.japaneselearnhelper.grammaexample.GrammaExampleHelper;
 
 public class AdjectiveNaGrammaConjugater {
 
@@ -53,6 +54,15 @@ public class AdjectiveNaGrammaConjugater {
 		teForm.getGrammaFormConjugateResults().add(makeTeForm(dictionaryEntry));
 		
 		result.add(teForm);
+		
+		// forma honoryfikatywna
+		GrammaFormConjugateGroupTypeElements keigoForm = new GrammaFormConjugateGroupTypeElements();
+		
+		keigoForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.ADJECTIVE_NA_KEIGO);
+		
+		keigoForm.getGrammaFormConjugateResults().add(makeKeigoLowForm(dictionaryEntry));
+		
+		result.add(keigoForm);
 		
 		// caching
 		for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : result) {
@@ -271,5 +281,30 @@ public class AdjectiveNaGrammaConjugater {
 
 		return makeAdjectiveGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.ADJECTIVE_NA_TE,
 				postfixKana, postfixRomaji);
+	}
+	
+	private static GrammaFormConjugateResult makeKeigoLowForm(DictionaryEntry dictionaryEntry) {
+		
+		// keigo low
+		
+		final String templateKanji1 = "%sでございます";
+		final String templateKana1 = "%sでございます";
+		final String templateRomaji1 = "%s de gozaimasu";
+		
+		GrammaFormConjugateResult result = GrammaExampleHelper.makeSimpleTemplateGrammaFormConjugateResult(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		result.setResultType(GrammaFormConjugateResultType.ADJECTIVE_NA_KEIGO_LOW);
+		
+		final String templateKanji2 = "%sでござる";
+		final String templateKana2 = "%sでござる";
+		final String templateRomaji2 = "%s de gozaru";
+		
+		GrammaFormConjugateResult alternative = GrammaExampleHelper.makeSimpleTemplateGrammaFormConjugateResult(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, true);
+
+		alternative.setResultType(GrammaFormConjugateResultType.ADJECTIVE_NA_KEIGO_LOW);
+		
+		result.setAlternative(alternative);
+		
+		return result;
 	}
 }
