@@ -140,6 +140,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				currentCheckBox.setChecked(false);
 			}
 			
+			Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_clear_selected_kanji_all), Toast.LENGTH_SHORT).show();
+			
 			return true;
 		}
 		
