@@ -108,7 +108,7 @@ public class DictionaryManager {
 			}
 			
 			// create directory dir
-			File databaseDir = new File(baseDir, "database");
+			File databaseDir = new File(baseDir, "db");
 
 			if (databaseDir.isDirectory() == false) {
 				
