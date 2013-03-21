@@ -85,15 +85,15 @@ public class KeigoHelper {
 
 		// suru
 		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_IRREGULAR, null, "する", "suru",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いたす", null, "itasu", null, null, null, null);
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "致す", null, "いたす", null, "itasu", null, null, null, null);
 		
 		// taberu
 		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_RU, "食べる", "たべる", "taberu",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いただく", null, "itadaku", null, null, null, null);
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "頂く", null, "いただく", null, "itadaku", null, null, null, null);
 
 		// nomu
 		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_U, "飲む", "のむ", "nomu",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いただく", null, "itadaku", null, null, null, null);
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "頂く", null, "いただく", null, "itadaku", null, null, null, null);
 
 		// aru
 		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_U, null, "ある", "aru",
@@ -101,11 +101,20 @@ public class KeigoHelper {
 		
 		// morau
 		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_U, null, "もらう", "morau",
-				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "いただく", null, "itadaku", null, null, null, null);
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "頂く", null, "いただく", null, "itadaku", null, null, null, null);
 		
 		// ageru
 		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_RU, null, "あげる", "ageru",
-				KeigoEntryFindMatchType.EXACT, DictionaryEntryType.WORD_VERB_RU, null, null, "さしあげる", null, "sashiageru", null, null, null, null);
+				KeigoEntryFindMatchType.EXACT, DictionaryEntryType.WORD_VERB_RU, "差し上げる", null, "さしあげる", null, "sashiageru", null, null, null, null);
+		
+		// desu - special
+		addKeigoLowEntry(DictionaryEntryType.UNKNOWN, null, "です", "desu",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "でござる", null, "de gozaru", null, null, "でござい", "de gozai");
+		
+		// te oru - special
+		addKeigoLowEntry(DictionaryEntryType.WORD_VERB_RU, null, "ている", "te iru",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "ておる", null, "te oru", null, null, null, null);
+
 	}
 
 	// *** high ***

@@ -462,7 +462,7 @@ public class ConfigManager {
 		}
 		
 		public Boolean getRandom() {
-			return preferences.getBoolean(dictionaryHearConfigPrefix + randomPostfix, false);
+			return preferences.getBoolean(dictionaryHearConfigPrefix + randomPostfix, true);
 		}
 
 		public void setRandom(boolean random) {
@@ -556,7 +556,7 @@ public class ConfigManager {
 		}
 		
 		public Boolean getRandom() {
-			return preferences.getBoolean(wordTestConfigPrefix + randomPostfix, false);
+			return preferences.getBoolean(wordTestConfigPrefix + randomPostfix, true);
 		}
 
 		public void setRandom(boolean random) {
@@ -569,7 +569,7 @@ public class ConfigManager {
 		}
 
 		public Boolean getUntilSuccess() {
-			return preferences.getBoolean(wordTestConfigPrefix + untilSuccessPostfix, false);
+			return preferences.getBoolean(wordTestConfigPrefix + untilSuccessPostfix, true);
 		}
 
 		public void setUntilSuccess(boolean untilSuccess) {

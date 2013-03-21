@@ -11,6 +11,8 @@ public enum AttributeType {
 	
 	VERB_KEIGO_HIGH("czasownik honoryfikatywny (wywyższający)"),
 	
+	VERB_KEIGO_LOW("czasownik modestywny (uniżający)"),
+	
 	SURU_VERB("suru czasownik"),
 	
 	COMMON_WORD("słowo powszechnego użycia");
