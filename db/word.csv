@@ -718,7 +718,10 @@ czyste",,
 422,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki 1-5
 Genki kanji 1-5",,元気,げんき,,genki,"zdrowy
 energiczny",,
-423,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 1-5,,静か,しずか,,shizuka,cichy,,
+423,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 1-5,,静か,しずか,,shizuka,"cisza
+cichy
+spokój
+bierność",,
 424,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki 1-5
 Genki kanji 1-11",,好き,すき,,suki,lubić,,
 425,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 1-5,,大嫌い,だいきらい,,daikirai,nienawidzić,,
@@ -766,7 +769,8 @@ Genki 2-16",,汚い,きたない,,kitanai,"brudny
 zanieczyszczony",,
 447,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-5,,窓口,まどぐち,,madoguchi,okienko pocztowe,,
 448,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-5,,小包,こづつみ,,kodutsumi,paczka,,
-449,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-5,,航空便,こうくうびん,,koukuubin,poczta lotnicza,,
+449,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-5,,航空便,こうくうびん,,koukuubin,"poczta lotnicza
+przesyłka lotnicza",,
 450,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-5,,保険,ほけん,,hoken,ubezpieczenie,,
 451,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki 1-5,,書留,かきとめ,,kakitome,list polecony,,
@@ -7104,3 +7108,64 @@ jeśli jest możliwe",,
 3983,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,Genki 2-20,,誠に,まことに,,makotoni,na prawdę,grzecznie,
 3984,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-20,,-,みたいな,,mitai na,"wygląda jak, ...",... X,
 3985,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-20,,-,よろしかったら,,yoroshikattara,proszę o dobre traktowanie,grzecznie,
+3986,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,静けさ,しずけさ,,shizukesa,"cisza
+spokój
+bierność",,
+3987,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,静める,しずめる,,shizumeru,"uciszać
+uspokajać",,
+3988,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,静まる,しずまる,,shizumaru,"cichnąć
+uspokajać się",,
+3989,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,静止,せいし,,seishi,bezruch,,
+3990,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,静的,せいてき,,seiteki,statyczny,,
+3991,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,静物,せいぶつ,,seibutsu,martwa natura,,
+3992,WORD,WORD_NOUN,,HIRAGANA,Inne,,静修,せいしゅう,,seishuu,"skupienie
+rekolekcje",,
+3993,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,静脈,じょうみゃく,,joumyaku,żyła,,
+3994,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,水泳,すいえい,,suiei,pływanie,,
+3995,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,平泳ぎ,ひらおよぎ,,hiraoyogi,styl klasyczny (żabka),,
+3996,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,競泳,きょうえい,,kyouei,zawody pływackie,,
+3997,WORD,WORD_NOUN,,HIRAGANA,Inne,,泳法,えいほう,,eihou,styl pływania,,
+3998,WORD,WORD_NOUN,,HIRAGANA,Inne,,泳者,えいしゃ,,eisha,pływak,,
+3999,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,緒,お,,o,"sznurek
+lina
+kabel",,
+4000,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,丈,たけ,,take,"wzrost
+miara
+długość",,
+4001,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,若し,もし,,moshi,"jeśli
+w przypadku",,
+4002,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,若しくは,もしくは,,moshikuha,"lub
+albo",,
+4003,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,包む,つつむ,,tsutsumu,"owijać
+pakować
+pokrywać",,
+4004,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,包み紙,つつみがみ,,tsutsumi gami,papier do pakowania,,
+4005,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,包装,ほうそう,,housou,"pakowanie
+owijanie",,
+4006,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,包含する,ほうがんする,,hougan suru,"obejmować
+pokrywać
+rozumieć
+pojmować",,
+4007,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,包容する,ほうようする,,houyou suru,"rozumieć
+obejmować
+pojmować",,
+4008,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,包囲,ほうい,,houi,"okrążenie
+oblężenie",,
+4009,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,航海,こうかい,,koukai,"podróż morska
+nawigacja",,
+4010,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,巡航,じゅんこう,,junkou,"wyprawa
+podróż morska",,
+4011,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,航路,こうろ,,kouro,"droga morska
+kurs",,
+4012,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,航空券,こうくうけん,,koukuuken,bilet lotniczy,,
+4013,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,封,ふう,,fuu,pieczęć,,
+4014,WORD,WORD_NOUN,,HIRAGANA,Inne,,封,ほう,,hou,lenno,,
