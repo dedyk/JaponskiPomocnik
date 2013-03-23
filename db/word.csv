@@ -877,7 +877,8 @@ Genki 2-18",を,閉める,しめる,o,shimeru,zamykać,,
 Genki 2-18",を,-,つける,o,tsukeru,włączać,,
 491,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-6,,電話をかける,でんわをかける,,denwa o kakeru,dzwonić,osoba ni,
 492,WORD,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki 1-6,を,忘れる,わすれる,o,wasureru,zapomnieć,,
+VERB_TRANSITIVITY",HIRAGANA,Genki 1-6,を,忘れる,わすれる,o,wasureru,"zapomnieć
+zapominać",,
 493,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-6,を,連れてくる,つれてくる,o,tsurete kuru,przyprowadzać,,
 494,WORD,UNKNOWN,,HIRAGANA,"Genki 1-6
 Genki kanji 1-9",,後で,あとで,,atode,później,,
@@ -7093,7 +7094,9 @@ VERB_INTRANSITIVITY",HIRAGANA,Genki 2-20,が,聞こえる,きこえる,ga,kikoer
 VERB_KEIGO_LOW
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-20,,差し上げる,さしあげる,,sashiageru,[modestywna forma od ageru],,
 3972,WORD,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki 2-20,,伝える,つたえる,,tsutaeru,przekazywać,wiadomość,
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-20,,伝える,つたえる,,tsutaeru,"przekazywać
+składać raport
+składać sprawozdanie",wiadomość,
 3973,WORD,WORD_VERB_RU,COMMON_WORD,HIRAGANA,Genki 2-20,,待たせる,またせる,,mataseru,kazać komuś czekać,,
 3974,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-20,,交換する,こうかんする,,koukan suru,wymieniać się,"o czym, to z kimś",
 3975,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-20,,生活する,せいかつする,,seikatsu suru,żyć,,
@@ -7194,3 +7197,23 @@ wesołe miasteczko",,
 4027,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,遊興,ゆうきょう,,yuukyou,"szukanie przyjemności
 rozrywka",,
 4028,WORD,WORD_NOUN,,HIRAGANA,Inne,,遊星,ゆうせい,,yuusei,planeta,,
+4029,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,吸う,すう,,suu,"wdychać
+ssać
+popijać (małymi łykami)",,
+4030,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,伝う,つたう,,tsutau,iść za,,
+4031,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,伝統,でんとう,,dentou,"tradycja
+zwyczaj",,
+4032,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,伝説,でんせつ,,densetsu,"legenda
+podanie",,
+4033,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,伝記,でんき,,denki,biografia,,
+4034,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,伝送,でんそう,,densou,"obieg
+propaganda
+przekazywanie
+komunikacja
+dostawa",,
+4035,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,伝染病,でんせんびょう,,densenbyou,choroba zakaźna,,
+4036,WORD,WORD_VERB_RU,COMMON_WORD,HIRAGANA,Inne,を,閉じる,とじる,o,tojiru,zamykać,,
+4037,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,を,閉ざす,とざす,o,tozasu,zamykać,,
