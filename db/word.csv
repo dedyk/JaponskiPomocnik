@@ -812,7 +812,8 @@ bardzo
 wielce
 ogromnie",,
 470,WORD,WORD_VERB_U,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Genki 1-6,,遊ぶ,あそぶ,,asobu,"grać
+VERB_INTRANSITIVITY",HIRAGANA,Genki 1-6,,遊ぶ,あそぶ,,asobu,"bawić się
+grać
 miło spędzać czas",,
 471,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-6
@@ -1026,7 +1027,8 @@ uroczy",,
 576,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-7,,背が低い,せがひくい,,se ga hikui,niski,,
 577,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki 1-7
 Genki kanji 1-10",,長い,ながい,,nagai,długi,,
-578,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-7,,速い,はやい,,hayai,szybki,,
+578,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-7,,速い,はやい,,hayai,"szybki
+prędki",,
 579,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-7,,短い,みじかい,,mijikai,krótki,,
 580,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki 1-7
 Genki kanji 2-14",,親切,しんせつ,,shinsetsu,miły,,
@@ -7169,3 +7171,26 @@ kurs",,
 4012,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,航空券,こうくうけん,,koukuuken,bilet lotniczy,,
 4013,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,封,ふう,,fuu,pieczęć,,
 4014,WORD,WORD_NOUN,,HIRAGANA,Inne,,封,ほう,,hou,lenno,,
+4015,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,速やか,すみやか,,sumiyaka,"szybki
+prędki",,
+4016,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,速度,そくど,,sokudo,prędkość,,
+4017,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,高速道路,こうそくどうろ,,kousokudouro,"droga szybkiego ruchu
+autostrada",,
+4018,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,促成,そくせい,,sokusei,"szybki trening
+przyspieszony (krótki) kurs",,
+4019,WORD,WORD_NOUN,,HIRAGANA,Inne,,速効,そっこう,,sokkou,natychmiastowy efekt,,
+4020,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,速記,そっき,,sokki,stenografia,,
+4021,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,池,いけ,,ike,"staw
+basen
+sadzawka",,
+4022,WORD,WORD_NOUN,,HIRAGANA,Inne,,池畔,ちはん,,chihan,brzeg stawu,,
+4023,WORD,WORD_SURNAME_NAME,,HIRAGANA,Inne,,池田,いけだ,,ikeda,Ikeda,,
+4024,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,遊園地,ゆうえんち,,yuuenchi,"plac zabaw
+wesołe miasteczko",,
+4025,WORD,WORD_NOUN,,HIRAGANA,Inne,,遊び仲間,あそびなかま,,asobi nakama,towarzysz zabaw,,
+4026,WORD,WORD_NOUN,,HIRAGANA,Inne,,遊び時間,あそびじかん,,asobi jikan,czas na zabawę,,
+4027,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,遊興,ゆうきょう,,yuukyou,"szukanie przyjemności
+rozrywka",,
+4028,WORD,WORD_NOUN,,HIRAGANA,Inne,,遊星,ゆうせい,,yuusei,planeta,,

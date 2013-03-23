@@ -518,7 +518,7 @@ public class Kana extends Activity {
 
 		addKanaItem(d_tableRow, kanaCache, "ダ");
 		addKanaItem(d_tableRow, kanaCache, "ヂ");
-		addKanaItem(d_tableRow, kanaCache, "づ");
+		addKanaItem(d_tableRow, kanaCache, "ヅ");
 		addKanaItem(d_tableRow, kanaCache, "デ");
 		addKanaItem(d_tableRow, kanaCache, "ド");
 		

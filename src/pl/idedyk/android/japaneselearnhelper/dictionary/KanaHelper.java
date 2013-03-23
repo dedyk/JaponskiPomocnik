@@ -335,7 +335,7 @@ public class KanaHelper {
 		
 		katakanaEntries.add(new KanaEntry("ダ", "da", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		katakanaEntries.add(new KanaEntry("ヂ", "di", "ji (di)", KanaType.KATAKANA, KanaGroup.DAKUTEN));
-		katakanaEntries.add(new KanaEntry("づ", "du", "zu (du)", KanaType.KATAKANA, KanaGroup.DAKUTEN));
+		katakanaEntries.add(new KanaEntry("ヅ", "du", "zu (du)", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		katakanaEntries.add(new KanaEntry("デ", "de", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		katakanaEntries.add(new KanaEntry("ド", "do", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		
