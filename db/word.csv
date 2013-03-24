@@ -962,7 +962,9 @@ ręka",,
 536,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-7,,背中,せなか,,senaka,plecy,,
 537,WORD,WORD_NOUN,,HIRAGANA,Genki 1-7,,-,おしり,,oshiri,pośladek,,
 538,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-7,,肩,かた,,kata,ramię,,
-539,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-7,,胸,むね,,mune,klatka piersiowa,,
+539,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-7,,胸,むね,,mune,"klatka piersiowa
+piersi
+serce",,
 540,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-7
 Genki 1-12",,お腹,おなか,,onaka,brzuch,,
 541,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-7
@@ -1087,7 +1089,8 @@ Genki kanji 1-8",,言う,いう,,iu,mówić,,
 607,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,置く,おく,,oku,"kłaść
 umieszczać
 zostawiać",,
-608,WORD,WORD_NOUN,,HIRAGANA,Genki 2-14,,お皿,おさら,,osara,talerz,,
+608,WORD,WORD_NOUN,,HIRAGANA,Genki 2-14,,お皿,おさら,,osara,"talerz
+naczynie",,
 609,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,を,渡す,わたす,o,watasu,"dawać
 wręczać
@@ -3696,7 +3699,9 @@ SURU_VERB",HIRAGANA,Inne,,妊娠,にんしん,,ninshin,ciąża,,
 2212,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",KATAKANA,Genki 2-17,,-,コンタクト,,kontakuto,soczewka kontaktowa,,
 2213,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-17,,最低,さいてい,,saitei,"najniższy
-najgorszy",,
+najgorszy
+minimum
+beznadziejny",,
 2214,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 2-17,,-,サラリーマン,,sarariiman,pracownik,,
 2215,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki 2-17,,残業,ざんぎょう,,zangyou,praca po godzinach,,
@@ -7217,3 +7222,73 @@ dostawa",,
 4036,WORD,WORD_VERB_RU,COMMON_WORD,HIRAGANA,Inne,を,閉じる,とじる,o,tojiru,zamykać,,
 4037,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,を,閉ざす,とざす,o,tozasu,zamykać,,
+4038,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,構える,かまえる,,kamaeru,"budować
+konstruować
+przyjmować pozycję
+przyjmować postawę",,
+4039,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,構う,かまう,,kamau,"troszczyć się
+przejmować się
+wtrącać się",,
+4040,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,構成,こうせい,,kousei,"kompozycja
+struktura
+skład",,
+4041,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,機構,きこう,,kikou,"mechanizm
+struktura
+organizacja
+organ",np. władzy,
+4042,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,心構え,こころがまえ,,kokoro ga mae,"nastawienie psychiczne
+gotowość",,
+4043,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,構造,こうぞう,,kouzou,"konstrukcja
+struktura
+organizacja",,
+4044,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,構図,こうず,,kouzu,"plan
+projekt
+kompozycja",,
+4045,WORD,WORD_NOUN,,HIRAGANA,Inne,,鼻水,はなみず,,hanamizu,"smark
+gil",,
+4046,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鼻先,はなさき,,hanasaki,czubek nosa,,
+4047,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,鼻が高い,はながたかい,,hana ga takai,"bycie dumnym
+bycie pysznym",,
+4048,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,後妻,ごさい,,gosai,druga żona,,
+4049,WORD,WORD_NOUN,,HIRAGANA,Inne,,妻帯者,さいたいしゃ,,saitaisha,żonaty,,
+4050,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,祖先,そせん,,sosen,przodek,,
+4051,WORD,WORD_NOUN,,HIRAGANA,Inne,,祖先崇拝,そせんすうはい,,sosen suuhai,"oddawanie czci przodkom
+kult przodków",,
+4052,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,祖国,そこく,,sokoku,ojczyzna,,
+4053,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,低い,ひくい,,hikui,niski,,
+4054,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,低能,ていのう,,teinou,"niska inteligencja
+małe zdolności",,
+4055,WORD,WORD_NOUN,,HIRAGANA,Inne,,低賃金,ていちんぎん,,teichingin,niska pensja,,
+4056,WORD,WORD_NOUN,,HIRAGANA,Inne,,低速,ていそく,,teisoku,mała prędkość,,
+4057,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,低級,ていきゅう,,teikyuu,"niski poziom
+niski stopień
+wulgarny",,
+4058,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,短期大学,たんきだいがく,,tanki daigaku,studium pomaturalne,,
+4059,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,短編,たんぺん,,tanpen,"krótkie opowiadanie
+krótka nowela",,
+4060,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,短気,たんき,,tanki,"niecierpliwość
+drażliwość
+nerwowość",,
+4061,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,短波,たんぱ,,tanpa,krótka fala,,
+4062,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,短時間,たんじかん,,tanjikan,krótki czas,,
+4063,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,利,り,,ri,"korzyść
+zysk
+interes
+zwycięstwo",,
+4064,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,利く,きく,,kiku,"być efektywnym
+działać",,
+4065,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,勝利,しょうり,,shouri,zwycięstwo,,
+4066,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,利己主義,りこしゅぎ,,rikoshugi,egoizm,,
+4067,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,利益,りえき,,rieki,"zysk
+dochód",,
+4068,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,利用,りよう,,riyou,"używać
+wykorzystywać",,
+4069,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,利息,りそく,,risoku,"odsetki
+procent",,
