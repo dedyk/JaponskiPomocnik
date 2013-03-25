@@ -76,8 +76,8 @@ Genki kanji 1-3",,十歳,じゅっさい,,jussai,dziesięć lat,wiek,
 47,WORD,WORD_AGE,COMMON_WORD,HIRAGANA,"Genki 1-1
 Genki kanji 2-17",,二十歳,はたち,,hatachi,dwadzieścia lat,wiek,
 48,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,お早う御座います,おはようございます,,ohayou gozaimasu,dzień dobry,rano (grzecznie),
-49,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,こんにちわ,,konnichiwa,dzień dobry,po południu,
-50,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,こんばんわ,,konbanwa,dobry wieczór,,
+49,WORD,WORD_GREETING,,HIRAGANA_EXCEPTION,Genki 1-1,,-,こんにちは,,konnichiwa,dzień dobry,po południu,
+50,WORD,WORD_GREETING,,HIRAGANA_EXCEPTION,Genki 1-1,,-,こんばんは,,konbanwa,dobry wieczór,,
 51,WORD,WORD_GREETING,,HIRAGANA,Genki 1-1,,-,さようなら,,sayounara,do widzenia,,
 52,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,お休みなさい,おやすみなさい,,oyasuminasai,dobranoc,,
 53,WORD,WORD_GREETING,COMMON_WORD,HIRAGANA,Genki 1-1,,有難う,ありがとう,,arigatou,dziękuję,,
@@ -643,9 +643,13 @@ Genki kanji 1-9",,後ろ,うしろ,,ushiro,za,,
 382,WORD,WORD_LOCATION,COMMON_WORD,HIRAGANA,"Genki 1-4
 Genki kanji 1-4",,中,なか,,naka,środek,,
 383,WORD,WORD_LOCATION,COMMON_WORD,HIRAGANA,"Genki 1-4
-Genki kanji 1-4",,上,うえ,,ue,na,,
+Genki kanji 1-4",,上,うえ,,ue,"na
+góra
+górna część",,
 384,WORD,WORD_LOCATION,COMMON_WORD,HIRAGANA,"Genki 1-4
-Genki kanji 1-4",,下,した,,shita,pod,,
+Genki kanji 1-4",,下,した,,shita,"pod
+dół
+dolna część",,
 385,WORD,WORD_LOCATION,,HIRAGANA,"Genki 1-4
 Genki 2-15",,-,そば,,soba,w pobliżu,,
 386,WORD,WORD_LOCATION,COMMON_WORD,HIRAGANA,Genki 1-4,,隣,となり,,tonari,"obok
@@ -1013,7 +1017,7 @@ Genki kanji 2-14",,家族,かぞく,,kazoku,rodzina,,
 Genki kanji 1-6",,国,くに,,kuni,kraj,,
 567,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-7
 Genki kanji 1-8",,車,くるま,,kuruma,samochód,,
-568,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 1-7,,-,コンビニ,,konbini,kombini,,
+568,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 1-7,,-,コンビニ,,konbini,kombini,Rodzaj japońskich sklepów całodobowych,
 569,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-7
 Genki kanji 1-5
 Genki kanji 2-18",,食堂,しょくどう,,shokudou,"stołówka
@@ -1100,7 +1104,7 @@ przenosić przez",,
 611,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki 1-9
 Genki kanji 1-9",,白い,しろい,,shiroi,biały,,
 612,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-9,,黒い,くろい,,kuroi,czarny,,
-613,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-9,,黄色い,きいろい,,kiiroi,żółty,,
+613,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-9,,黄色い,きいろい,,kiiroi,żółty kolor,,
 614,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-9
 Genki kanji 1-12",,色,いろ,,iro,kolor,,
 615,WORD,UNKNOWN,,HIRAGANA_KATAKANA,Genki 1-9,,ピンク色の,ピンクいろの,,pinku iro no,różowy,,
@@ -1186,8 +1190,9 @@ szkoda",... desu ne,
 661,WORD,UNKNOWN,,HIRAGANA,"Genki 1-8
 Genki 1-9
 Genki 2-19",,-,まだ,,mada,jeszcze nie,+ czasownik w formie te negatywnej,
-662,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,"Genki 1-8
-Genki 1-9",,皆,みんな,,minna,wszyscy,,
+662,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,"Genki 1-8
+Genki 1-9",,皆,みんな,,minna,"wszyscy
+wszystko",,
 663,WORD,UNKNOWN,,HIRAGANA,Genki 1-8,,-,だれか,,dareka,ktoś,"dareka [partykuła], do osób",
 664,WORD,UNKNOWN,,HIRAGANA,Genki 1-8,,-,どれか,,doreka,któryś,"doreka [partykuła], który",
 665,WORD,UNKNOWN,,HIRAGANA,Genki 1-8,,-,どこか,,dokoka,gdzieś,"dokoka [partykuła], do miejsc",
@@ -1613,8 +1618,10 @@ mieć sucho w gardle",,
 912,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 1-12,,渇く,かわく,,kawaku,"wyschnąć
 schnąć
-być spragnionym",,
-913,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-12,,渇かす,かわかす,,kawakasu,suszyć,,
+być spragnionym
+czuć pragnienie",,
+913,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Genki 1-12,,乾かす,かわかす,,kawakasu,suszyć,,
 914,WORD,WORD_VERB_RU,,HIRAGANA,Genki 1-12,,せきが出る,せきがでる,,seki ga deru,kasłać,,
 915,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,"Genki 1-12
@@ -2645,7 +2652,8 @@ potwór",,
 SURU_VERB",HIRAGANA,Inne,,提案,ていあん,,teian,"sugestia
 rada
 propozycja",,
-1564,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,情報,じょうほう,,jouhou,informacja,,
+1564,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,情報,じょうほう,,jouhou,"informacja
+wiadomość",,
 1565,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,光,ひかり,,hikari,"światło
 blask
 promień",,
@@ -2760,7 +2768,9 @@ dzień świąteczny",,
 1631,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ニュージーランド,,nyuujiirando,Nowa Zelandia,,
 1632,WORD,WORD_NOUN,,KATAKANA,Inne,,-,チベット,,chibetto,Tybet,,
 1633,WORD,WORD_VERB_U,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Inne,,干す,ほす,,hosu,suszyć,,
+VERB_TRANSITIVITY",HIRAGANA,Inne,,干す,ほす,,hosu,"suszyć
+wykręcać
+wypijać",,
 1634,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,梅干し,うめぼし,,umeboshi,suszona śliwka,japońska potrawa,
 1635,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,換える,かえる,,kaeru,"wymieniać
@@ -3313,7 +3323,8 @@ z przyjemnością",robić coś,
 natura",,
 1995,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki dodatkowe 2-15,,紅葉,こうよう,,kouyou,"kolory jesieni
-pora czerwieni",,
+pora czerwieni
+żółte (jesienne) liście",,
 1996,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-15,,竹,たけ,,take,bambus,,
 1997,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Genki dodatkowe 2-15,,-,ビル,,biru,"wieżowiec
 budynek biurowy",,
@@ -3633,7 +3644,8 @@ wynikać (z czegoś)",,
 2170,WORD,WORD_VERB_U,,HIRAGANA,Inne,,新聞による,しんぶんによる,,shinbun ni yoru,"opierać się na gazecie
 według gazety",,
 2171,WORD,WORD_NOUN,,HIRAGANA,Inne,,里,さと,,sato,"wioska
-wieś",dawniejsze użycie,
+wieś
+miejsce pochodzenia",dawniejsze użycie,
 2172,WORD,WORD_NOUN,,HIRAGANA,Inne,,ほかの人,ほかのひと,,hoka no hito,inny człowiek,,
 2173,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,才,さい,,sai,... lat,prostszy odpowiednik,
 2174,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,天才,てんさい,,tensai,geniusz,,
@@ -7292,3 +7304,65 @@ SURU_VERB",HIRAGANA,Inne,,利用,りよう,,riyou,"używać
 wykorzystywać",,
 4069,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,利息,りそく,,risoku,"odsetki
 procent",,
+4070,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,帰省,きせい,,kisei,wracać do domu,,
+4071,WORD,UNKNOWN,,HIRAGANA,Inne,,故,こ,,ko,zmarły,,
+4072,WORD,UNKNOWN,,HIRAGANA,Inne,,故,ゆえ,,yue,"przyczyna
+okoliczność",,
+4073,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,交通事故,こうつうじこ,,koutsuujiko,wypadek drogowy,,
+4074,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,故事,こじ,,koji,wydarzenie historyczne,,
+4075,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,故人,こじん,,kojin,zmarły,,
+4076,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,故意,こい,,koi,"intencja
+cel",,
+4077,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,故国,ここく,,kokoku,"własny kraj
+ojczyzna",,
+4078,WORD,WORD_NOUN,,HIRAGANA,Inne,,郷,きょう,,kyou,"wioska
+miejsce pochodzenia",,
+4079,WORD,WORD_NOUN,,HIRAGANA,Inne,,郷,さと,,sato,"wioska
+wieś
+miejsce pochodzenia",,
+4080,WORD,WORD_NOUN,,HIRAGANA,Inne,,郷,ごう,,gou,"wioska
+okręg",,
+4081,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,黄,き,,ki,żółty,,
+4082,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,黄身,きみ,,kimi,żółtko,,
+4083,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,黄金,おうごん,,ougon,złoto,,
+4084,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,黄葉,こうよう,,kouyou,"kolory jesieni
+pora czerwieni
+żółte (jesienne) liście",,
+4085,WORD,WORD_NOUN,,HIRAGANA,Inne,,黄海,こうかい,,koukai,Morze Żółte,,
+4086,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,報,ほう,,hou,"wiadomość
+sprawozdanie
+nagroda",,
+4087,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,報じる,ほうじる,,houjiru,"odpłacać
+informować",,
+4088,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,報いる,むくいる,,mukuiru,"wynagradzać
+rekompensować",,
+4089,WORD,WORD_NOUN,,HIRAGANA,Inne,,報い,むくい,,mukui,nagroda,,
+4090,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,報告,ほうこく,,houkoku,"raport
+informacja",,
+4091,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,報恩,ほうおん,,houon,"wdzięczność
+odpłata",,
+4092,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,報復,ほうふく,,houfuku,"odpłata
+rewanż",,
+4093,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,報償,ほうしょう,,houshou,"wynagrodzenie
+odszkodowanie
+kompensata",,
+4094,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,乾す,ほす,,hosu,"suszyć
+wykręcać
+wypijać",,
+4095,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,乾く,かわく,,kawaku,"być suchym
+schnąć",,
+4096,WORD,WORD_NOUN,,HIRAGANA,Inne,,乾き,かわき,,kawaki,"suszenie
+suchość",,
+4097,WORD,WORD_NOUN,,HIRAGANA,Inne,,杯,はい,,hai,"szklanka
+filiżanka
+toast",,
+4098,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,杯,さかずき,,sakazuki,"kielich
+kieliszek do wina",,
+4099,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,皆,みな,,mina,"wszyscy
+wszystko",,
