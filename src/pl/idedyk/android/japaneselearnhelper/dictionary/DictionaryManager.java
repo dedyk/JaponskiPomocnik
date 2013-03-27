@@ -482,9 +482,9 @@ public class DictionaryManager {
 		return sqliteConnector.getDictionaryEntriesSize();
 	}
 	
-	public DictionaryEntry getNthDictionaryEntry(int nthDictionaryEntryIdx) {
+	public DictionaryEntry getDictionaryEntryById(int id) {
 		try {
-			return sqliteConnector.getNthDictionaryEntry(nthDictionaryEntryIdx);
+			return sqliteConnector.getDictionaryEntryById(String.valueOf(id));
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
 		}

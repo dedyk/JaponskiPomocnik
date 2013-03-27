@@ -269,14 +269,34 @@ public class WordTestSM2Options extends Activity {
 						
 						TestSM2Manager testSM2Manager = dictionaryManager.getTestSM2Manager();
 						
-						int dictionaryEntriesSize = dictionaryManager.getDictionaryEntriesSize();
+						testSM2Manager.beginTransaction();
 						
-						for (int currentDictionaryEntryIdx = 0; currentDictionaryEntryIdx < dictionaryEntriesSize; ++currentDictionaryEntryIdx) {
+						try {						
+							int dictionaryEntriesSize = dictionaryManager.getDictionaryEntriesSize();
 							
-							DictionaryEntry dictionaryEntry = dictionaryManager.getNthDictionaryEntry(currentDictionaryEntryIdx);
+							for (int currentDictionaryEntryIdx = 1; currentDictionaryEntryIdx <= dictionaryEntriesSize; ++currentDictionaryEntryIdx) {
+								
+								boolean dictionaryEntryExistsInWordStat = testSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
+								
+								if (dictionaryEntryExistsInWordStat == false) {
+									
+									DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
+									
+									testSM2Manager.insertDictionaryEntry(dictionaryEntry);
+									
+								} else {
+									
+									DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
+									
+									testSM2Manager.updateDictionaryEntry(dictionaryEntry);
+								}
+							}
 							
-							testSM2Manager.insertOrUpdateDictionaryManager(dictionaryEntry);							
-						}						
+							testSM2Manager.commitTransaction();
+							
+						} finally {
+							testSM2Manager.endTransaction();
+						}
 
 						return null;
 					}

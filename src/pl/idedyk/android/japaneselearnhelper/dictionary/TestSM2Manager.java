@@ -41,6 +41,18 @@ public class TestSM2Manager {
 		}
 	}
 	
+	public void beginTransaction() {
+		sqliteDatabase.beginTransaction();
+	}
+	
+	public void endTransaction() {
+		sqliteDatabase.endTransaction();
+	}
+	
+	public void commitTransaction() {
+		sqliteDatabase.setTransactionSuccessful();
+	}
+	
 	private boolean isObjectExists(String type, String name) {
 		
 		Cursor cursor = null;
@@ -73,27 +85,21 @@ public class TestSM2Manager {
 		}
 	}
 	
-	public void insertOrUpdateDictionaryManager(DictionaryEntry dictionaryEntry) {
+	public void insertDictionaryEntry(DictionaryEntry dictionaryEntry) {
 		
-		boolean dictionaryEntryExistsInWordStat = isDictionaryEntryExistsInWordStat(dictionaryEntry);
-		
-		if (dictionaryEntryExistsInWordStat == false) { // insert
-			
-			sqliteDatabase.execSQL(SQLiteStatic.insertWordStatSql, new Object[] { dictionaryEntry.getId(), dictionaryEntry.getGroups().get(0).getPower() });
-			
-		} else { // update
-			
-			sqliteDatabase.execSQL(SQLiteStatic.updateWordStatSql, new Object[] { dictionaryEntry.getGroups().get(0).getPower(), dictionaryEntry.getId() });
-			
-		}
+		sqliteDatabase.execSQL(SQLiteStatic.insertWordStatSql, new Object[] { dictionaryEntry.getId(), dictionaryEntry.getGroups().get(0).getPower() });
 	}
 	
-	public boolean isDictionaryEntryExistsInWordStat(DictionaryEntry dictionaryEntry) {
+	public void updateDictionaryEntry(DictionaryEntry dictionaryEntry) {		
+		sqliteDatabase.execSQL(SQLiteStatic.updateWordStatSql, new Object[] { dictionaryEntry.getGroups().get(0).getPower(), dictionaryEntry.getId() });		
+	}
+	
+	public boolean isDictionaryEntryExistsInWordStat(int id) {
 		
 		Cursor cursor = null;
 		
 		try {
-			cursor = sqliteDatabase.rawQuery(SQLiteStatic.countWordStatSql, new String[] { String.valueOf(dictionaryEntry.getId()) });
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.countWordStatSql, new String[] { String.valueOf(id) });
 			
 			cursor.moveToFirst();
 			

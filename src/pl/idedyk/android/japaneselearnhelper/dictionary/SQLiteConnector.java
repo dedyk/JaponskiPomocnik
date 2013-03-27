@@ -75,7 +75,7 @@ public class SQLiteConnector {
 		
 		try {
 			cursor = sqliteDatabase.rawQuery(
-					SQLiteStatic.dictionaryEntriesTableIdElement, new String[] { String.valueOf(id) });
+					SQLiteStatic.dictionaryEntriesTableIdElement, new String[] { id });
 			
 			cursor.moveToFirst();
 			
