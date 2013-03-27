@@ -30,6 +30,7 @@
         <activity android:name=".test.WordTest" android:label="" ></activity>
         <activity android:name=".test.WordTestSummary" android:label="@string/word_test_summary_view_label"></activity>
         <activity android:name=".test.WordTestOptions" android:label="@string/word_test_options_view_label"></activity>
+        <activity android:name=".testsm2.WordTestSM2Options" android:label="@string/word_test_sm2_options_view_label"></activity>
         <activity android:name=".dictionaryscreen.WordDictionary" android:label="@string/word_dictionary_view_label" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".dictionaryscreen.WordDictionaryTab" android:label="@string/word_dictionary_view_label" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".dictionaryscreen.WordDictionaryDetails" android:label="@string/word_dictionary_details_label"></activity>

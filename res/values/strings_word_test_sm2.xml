@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="word_test_sm2_options_view_label">Opcje testu SM2</string>
+    
+    <string name="word_test_sm2_options_max_new_words">Maksymalna liczba nowy słów na dzień</string>
+    <string name="word_test_sm2_options_max_repeat_words">Maksymalna liczba powtórek słów na dzień</string>
+
+    <string name="word_test_sm2_options_test_mode">Tryb testu</string>
+    <string name="word_test_sm2_options_test_mode_radiogroup_input">Wpisywanie słów</string>
+    <string name="word_test_sm2_options_test_mode_radiogroup_overview">Przegląd słów</string>
+    <string name="word_test_sm2_options_start">Start</string>
+    
+    <string name="word_test_sm2_options_show">Pokazuj</string>
+    
+    <string name="word_test_sm2_options_show_kanji">Znaki kanji</string>
+    <string name="word_test_sm2_options_show_kana">Znaki kana</string>
+    <string name="word_test_sm2_options_show_translate">Tumaczenia</string>
+    <string name="word_test_sm2_options_show_additional_info">Informacje dodatkowe</string>
+    
+    <string name="word_test_sm2_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="word_test_sm2_options_report_problem_email_subject">Japoński pomocnik - opcje testu sm2 ze słów: Sugestia</string>
+    <string name="word_test_sm2_options_report_problem_email_body">Treść sugestii:\n\n\n***\n\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s</string>
+    
+</resources>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/word_test_sm2_options_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/word_test_sm2_options_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/word_test_sm2_options_max_new_words"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/word_test_sm2_options_max_new_words" />
+
+            <EditText
+                android:id="@+id/word_test_sm2_options_max_new_words_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/word_test_sm2_options_max_repeat_words"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/word_test_sm2_options_max_repeat_words" />
+
+            <EditText
+                android:id="@+id/word_test_sm2_options_max_repeat_words_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/word_test_sm2_options_test_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/word_test_sm2_options_test_mode" />
+
+            <RadioGroup
+                android:id="@+id/word_test_sm2_options_test_mode_radiogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/word_test_sm2_options_test_mode_radiogroup_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/word_test_sm2_options_test_mode_radiogroup_input"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/word_test_sm2_options_test_mode_radiogroup_overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/word_test_sm2_options_test_mode_radiogroup_overview"
+                    android:textSize="12sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/word_test_sm2_options_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/word_test_sm2_options_show" />
+
+            <CheckBox
+                android:id="@+id/word_test_sm2_options_show_kanji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_test_sm2_options_show_kanji"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/word_test_sm2_options_show_kana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_test_sm2_options_show_kana"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/word_test_sm2_options_show_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_test_sm2_options_show_translate"
+                android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/word_test_sm2_options_show_additional_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word_test_sm2_options_show_additional_info"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/word_test_sm2_options_start"
+        style="@android:style/Widget.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/word_test_sm2_options_start" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/word_test_sm2_options_report_problem_button"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/report_problem" />
+
+        <TextView
+            android:id="@+id/word_test_sm2_options_problem_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="@string/word_test_sm2_options_report_problem"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>
