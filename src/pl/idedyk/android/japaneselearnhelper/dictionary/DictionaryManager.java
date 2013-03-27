@@ -37,6 +37,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
@@ -63,6 +64,8 @@ public class DictionaryManager {
 	private KanaHelper kanaHelper;
 	
 	private KeigoHelper keigoHeper;
+	
+	private TestSM2Manager testSM2Manager;
 
 	public DictionaryManager() {
 		
@@ -217,7 +220,19 @@ public class DictionaryManager {
 				
 				return;
 			}
-
+			
+			// create test sm2 manager
+			testSM2Manager = new TestSM2Manager(databaseDir);
+			
+			// open test sm2 manager
+			try {
+				testSM2Manager.open();
+			}  catch (TestSM2ManagerException e) {
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
+				
+				return;
+			}
+			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 			
 			return;
@@ -1100,6 +1115,10 @@ public class DictionaryManager {
 	public ZinniaManager getZinniaManager() {
 		return zinniaManager;
 	}
+	
+	public TestSM2Manager getTestSM2Manager() {
+		return testSM2Manager;
+	}
 
 	public KanaHelper getKanaHelper() {
 		return kanaHelper;
@@ -1112,6 +1131,8 @@ public class DictionaryManager {
 	@Override
 	protected void finalize() throws Throwable {
 		super.finalize();
+		
+		testSM2Manager.close();
 
 		close();
 	}

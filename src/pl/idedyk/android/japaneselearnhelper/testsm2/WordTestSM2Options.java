@@ -4,11 +4,15 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Config;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.TestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -250,7 +254,33 @@ public class WordTestSM2Options extends Activity {
 					return;
 				}
 				
+				// prepare test
+				final ProgressDialog progressDialog = ProgressDialog.show(WordTestSM2Options.this, 
+						getString(R.string.word_test_sm2_options_prepare1),
+						getString(R.string.word_test_sm2_options_prepare2));
+
+				class PrepareAsyncTask extends AsyncTask<Void, Void, Void> {
+
+					@Override
+					protected Void doInBackground(Void... arg) {
+						
+						//TestSM2Manager testSM2Manager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this).getTestSM2Manager();
+						
+						
+
+						return null;
+					}
+
+					@Override
+					protected void onPostExecute(Void arg) {
+						super.onPostExecute(arg);
+
+						progressDialog.dismiss();
+
+					}
+				};
 				
+				new PrepareAsyncTask().execute();				
 			}
 		});
 		

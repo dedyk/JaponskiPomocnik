@@ -24,9 +24,11 @@
     <string name="word_test_sm2_options_no_kanji_translate">Proszę wybrać pokazywanie znaków kanji lub tłumaczeń</string>
     <string name="word_test_sm2_options_no_kanji_kana">Proszę wybrać pokazywanie znaków kanji lub kana</string>
     
-    
     <string name="word_test_sm2_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="word_test_sm2_options_report_problem_email_subject">Japoński pomocnik - opcje testu sm2 ze słów: Sugestia</string>
     <string name="word_test_sm2_options_report_problem_email_body">Treść sugestii:\n\n\n***\n\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s</string>
+    
+    <string name="word_test_sm2_options_prepare1">Przygotowywanie testu</string>
+    <string name="word_test_sm2_options_prepare2">Proszę czekać</string>
     
 </resources>
