@@ -477,6 +477,18 @@ public class DictionaryManager {
 
 		return findWordResult;
 	}
+	
+	public int getDictionaryEntriesSize() {
+		return sqliteConnector.getDictionaryEntriesSize();
+	}
+	
+	public DictionaryEntry getNthDictionaryEntry(int nthDictionaryEntryIdx) {
+		try {
+			return sqliteConnector.getNthDictionaryEntry(nthDictionaryEntryIdx);
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	public void countForm(ILoadWithProgress loadWithProgress, Resources resources) throws DictionaryException {
 

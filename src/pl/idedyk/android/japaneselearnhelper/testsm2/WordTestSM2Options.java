@@ -6,6 +6,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Config;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.TestSM2Manager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -264,9 +265,18 @@ public class WordTestSM2Options extends Activity {
 					@Override
 					protected Void doInBackground(Void... arg) {
 						
-						//TestSM2Manager testSM2Manager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this).getTestSM2Manager();
+						DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this);
 						
+						TestSM2Manager testSM2Manager = dictionaryManager.getTestSM2Manager();
 						
+						int dictionaryEntriesSize = dictionaryManager.getDictionaryEntriesSize();
+						
+						for (int currentDictionaryEntryIdx = 0; currentDictionaryEntryIdx < dictionaryEntriesSize; ++currentDictionaryEntryIdx) {
+							
+							DictionaryEntry dictionaryEntry = dictionaryManager.getNthDictionaryEntry(currentDictionaryEntryIdx);
+							
+							testSM2Manager.insertOrUpdateDictionaryManager(dictionaryEntry);							
+						}						
 
 						return null;
 					}

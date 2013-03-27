@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 import java.io.File;
 
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 
 import android.database.Cursor;
@@ -32,7 +33,6 @@ public class TestSM2Manager {
 				
 				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreate);
 				
-				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreateDictionaryIdKeyIndex);
 				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreateNextRepetitionsKeyIndex);
 			}
 
@@ -73,25 +73,52 @@ public class TestSM2Manager {
 		}
 	}
 	
+	public void insertOrUpdateDictionaryManager(DictionaryEntry dictionaryEntry) {
+		
+		boolean dictionaryEntryExistsInWordStat = isDictionaryEntryExistsInWordStat(dictionaryEntry);
+		
+		if (dictionaryEntryExistsInWordStat == false) { // insert
+			
+			sqliteDatabase.execSQL(SQLiteStatic.insertWordStatSql, new Object[] { dictionaryEntry.getId(), dictionaryEntry.getGroups().get(0).getPower() });
+			
+		} else { // update
+			
+			sqliteDatabase.execSQL(SQLiteStatic.updateWordStatSql, new Object[] { dictionaryEntry.getGroups().get(0).getPower(), dictionaryEntry.getId() });
+			
+		}
+	}
+	
+	public boolean isDictionaryEntryExistsInWordStat(DictionaryEntry dictionaryEntry) {
+		
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.countWordStatSql, new String[] { String.valueOf(dictionaryEntry.getId()) });
+			
+			cursor.moveToFirst();
+			
+			int result = cursor.getInt(0);
+			
+			if (result > 0) {
+				return true;
+				
+			} else {
+				return false;
+			}
+			
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}		
+	}
+	
 	private static class SQLiteStatic {
-		
-		/*
-		private float easiness_factor = 2.5f;
-
-		private int number_repetitions = 0;
-
-		private int quality_of_last_recall = 0;
-
-		private int repetition_interval = 0;
-
-		private Date next_repetition = null;
-		private Date last_studied = null;
-		*/
-		
+				
 		public static final String wordStatTableName = "WordStat";
 		
 		public static final String wordStatTable_id = "id";
-		public static final String wordStatTable_dictionaryId = "dictionaryId";
+		public static final String wordStatTable_power = "power";
 		public static final String wordStatTable_easinessFactor = "easinessFactor";
 		public static final String wordStatTable_repetitions = "repetitions";
 		public static final String wordStatTable_interval = "interval";
@@ -100,17 +127,13 @@ public class TestSM2Manager {
 		
 		public static final String wordStatTableCreate =
 				"create table " + wordStatTableName + "(" +
-				wordStatTable_id + " integer primary key autoincrement, " +
-				wordStatTable_dictionaryId + " integer not null, " +
+				wordStatTable_id + " integer primary key, " +
+				wordStatTable_power + " integer not null, " +
 				wordStatTable_easinessFactor + " real not null, " +
 				wordStatTable_repetitions + " integer not null, " +
 				wordStatTable_interval + " integer not null, " +
-				wordStatTable_nextRepetitions + " date not null, " +
-				wordStatTable_lastStudied + " date not null);";
-
-		public static final String wordStatTableCreateDictionaryIdKeyIndex = 
-				"create index " + wordStatTableName + "DictionaryIdKeyIdx on " +
-				wordStatTableName + "(" + wordStatTable_dictionaryId + ")";
+				wordStatTable_nextRepetitions + " datetime not null, " +
+				wordStatTable_lastStudied + " datetime not null);";
 		
 		public static final String wordStatTableCreateNextRepetitionsKeyIndex = 
 				"create index " + wordStatTableName + "NextRepetitionsKeyIdx on " +
@@ -118,5 +141,14 @@ public class TestSM2Manager {
 		
 		public static final String countObjectSql = 
 				"select count(*) from sqlite_master where type = ? and name = ?";
+		
+		public static final String countWordStatSql =
+				"select count(*) from " + wordStatTableName + " where " + wordStatTable_id + " = ? ";
+		
+		public static final String insertWordStatSql =
+				"insert into " + wordStatTableName + " values(?, ?, '2.5', '0', '0', datetime(0, 'unixepoch', 'localtime'), datetime(0, 'unixepoch', 'localtime'));";
+		
+		public static final String updateWordStatSql =
+				"update " + wordStatTableName + " set " + wordStatTable_power + " = ? where " + wordStatTable_id + " = ? ";
 	}
 }
