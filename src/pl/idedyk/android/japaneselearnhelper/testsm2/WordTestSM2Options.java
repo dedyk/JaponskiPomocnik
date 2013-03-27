@@ -4,15 +4,21 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Config;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class WordTestSM2Options extends Activity {
@@ -113,7 +119,6 @@ public class WordTestSM2Options extends Activity {
 			
 			public void onClick(View v) {
 				showKanaCheckBox.setEnabled(true);
-				showKanaCheckBox.setChecked(true);
 				
 				showTranslateCheckBox.setEnabled(false);
 				showTranslateCheckBox.setChecked(false);
@@ -246,6 +251,63 @@ public class WordTestSM2Options extends Activity {
 				}
 				
 				
+			}
+		});
+		
+		// report problem button
+		Button reportProblemButton = (Button)findViewById(R.id.word_test_sm2_options_report_problem_button);
+
+		reportProblemButton.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View view) {
+
+				StringBuffer detailsSb = new StringBuffer();
+				
+				TextView optionsMaxNewWords = (TextView)findViewById(R.id.word_test_sm2_options_max_new_words);
+				TextView optionsMaxRepeatWords = (TextView)findViewById(R.id.word_test_sm2_options_max_repeat_words);
+				
+				TextView optionsTestMode = (TextView)findViewById(R.id.word_test_sm2_options_test_mode);
+				
+				TextView optionsShow = (TextView)findViewById(R.id.word_test_sm2_options_show);
+
+				detailsSb.append("*** " + optionsMaxNewWords.getText() + " ***\n\n");
+				detailsSb.append(maxNewWordsNumberEditText.getText().toString()).append("\n\n");
+
+				detailsSb.append("*** " + optionsMaxRepeatWords.getText() + " ***\n\n");
+				detailsSb.append(maxRepeatWordsNumberEditText.getText().toString()).append("\n\n");
+
+				detailsSb.append("*** " + optionsTestMode.getText() + " ***\n\n");
+				detailsSb.append(testModeInputRadioButton.isChecked() + " - " + testModeInputRadioButton.getText()).append("\n\n");
+				detailsSb.append(testModeChooseRadioButton.isChecked() + " - " + testModeChooseRadioButton.getText()).append("\n\n");
+				
+				detailsSb.append("*** " + optionsShow.getText() + " ***\n\n");
+				detailsSb.append(showKanjiCheckBox.isChecked() + " - " + showKanjiCheckBox.getText()).append("\n\n");
+				detailsSb.append(showKanaCheckBox.isChecked() + " - " + showKanaCheckBox.getText()).append("\n\n");
+				detailsSb.append(showTranslateCheckBox.isChecked() + " - " + showTranslateCheckBox.getText()).append("\n\n");
+				detailsSb.append(showAdditionalInfoCheckBox.isChecked() + " - " + showAdditionalInfoCheckBox.getText()).append("\n\n");
+				
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+
+				String mailSubject = getString(R.string.word_test_sm2_options_report_problem_email_subject);
+
+				String mailBody = getString(R.string.word_test_sm2_options_report_problem_email_body,
+						detailsSb.toString());
+
+				String versionName = "";
+				int versionCode = 0;
+
+				try {
+					PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+					versionName = packageInfo.versionName;
+					versionCode = packageInfo.versionCode;
+
+				} catch (NameNotFoundException e) {        	
+				}
+
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+
+				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
 	}	

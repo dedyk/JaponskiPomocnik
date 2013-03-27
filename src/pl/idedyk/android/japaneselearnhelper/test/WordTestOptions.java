@@ -377,25 +377,25 @@ public class WordTestOptions extends Activity {
 				TextView optionsOther = (TextView)findViewById(R.id.word_test_options_other);
 				TextView optionsGroup = (TextView)findViewById(R.id.word_test_options_group);
 
-				detailsSb.append("***" + optionsRepeat.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsRepeat.getText() + " ***\n\n");
 				detailsSb.append(repeatNumberEditText.getText().toString()).append("\n\n");
 
-				detailsSb.append("***" + optionsTestMode.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsTestMode.getText() + " ***\n\n");
 				detailsSb.append(testModeInputRadioButton.isChecked() + " - " + testModeInputRadioButton.getText()).append("\n\n");
 				detailsSb.append(testModeOverviewRadioButton.isChecked() + " - " + testModeOverviewRadioButton.getText()).append("\n\n");
 				
-				detailsSb.append("***" + optionsShow.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsShow.getText() + " ***\n\n");
 				detailsSb.append(showKanjiCheckBox.isChecked() + " - " + showKanjiCheckBox.getText()).append("\n\n");
 				detailsSb.append(showKanaCheckBox.isChecked() + " - " + showKanaCheckBox.getText()).append("\n\n");
 				detailsSb.append(showTranslateCheckBox.isChecked() + " - " + showTranslateCheckBox.getText()).append("\n\n");
 				detailsSb.append(showAdditionalInfoCheckBox.isChecked() + " - " + showAdditionalInfoCheckBox.getText()).append("\n\n");
 				
-				detailsSb.append("***" + optionsOther.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsOther.getText() + " ***\n\n");
 				detailsSb.append(randomCheckBox.isChecked() + " - " + randomCheckBox.getText()).append("\n\n");
 				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
 				detailsSb.append(untilSuccessNewWordLimitCheckBox.isChecked() + " - " + untilSuccessNewWordLimitCheckBox.getText()).append("\n\n");
 
-				detailsSb.append("***" + optionsGroup.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsGroup.getText() + " ***\n\n");
 		
 				for (CheckBox currentWordGroupCheckBox : wordGroupCheckBoxList) {
 
