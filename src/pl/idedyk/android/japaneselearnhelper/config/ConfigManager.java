@@ -10,6 +10,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode2;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestMode;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestMode;
+import pl.idedyk.android.japaneselearnhelper.testsm2.WordTestSM2Mode;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -47,6 +48,10 @@ public class ConfigManager {
 	
 	public WordTestConfig getWordTestConfig() {
 		return new WordTestConfig();
+	}
+
+	public WordTestSM2Config getWordTestSM2Config() {
+		return new WordTestSM2Config();
 	}
 	
 	public class KanaTestConfig {
@@ -658,6 +663,119 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putString(wordTestConfigPrefix + wordTestModePostfix, wordTestMode.toString());
+			
+			editor.commit();
+		}
+	}
+	
+	public class WordTestSM2Config {
+		
+		private final String wordTestSM2ConfigPrefix = "wordTestSM2Config_";
+		
+		private final String maxNewWordsPostfix = "maxNewWords";
+		
+		private final String maxRepeatWordsPostfix = "maxRepeatWords";
+		
+		private final String showKanjiPostfix = "showKanji";
+		
+		private final String showKanaPostfix = "showKana";
+		
+		private final String showTranslatePostfix = "showTranslate";
+		
+		private final String showAdditionalInfoPostfix = "showAdditionalInfo";
+		
+		private final String wordTestSM2ModePostfix = "wordTestSM2Mode";
+		
+		public Integer getMaxNewWords() {
+			return preferences.getInt(wordTestSM2ConfigPrefix + maxNewWordsPostfix, 20);
+		}
+		
+		public void setMaxNewWords(int maxNewWords) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putInt(wordTestSM2ConfigPrefix + maxNewWordsPostfix, maxNewWords);
+			
+			editor.commit();			
+		}	
+
+		public Integer getMaxRepeatWords() {
+			return preferences.getInt(wordTestSM2ConfigPrefix + maxRepeatWordsPostfix, 20);
+		}
+		
+		public void setMaxRepeatWords(int maxRepeatWords) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putInt(wordTestSM2ConfigPrefix + maxRepeatWordsPostfix, maxRepeatWords);
+			
+			editor.commit();			
+		}
+		
+		public Boolean getShowKanji() {
+			return preferences.getBoolean(wordTestSM2ConfigPrefix + showKanjiPostfix, true);
+		}
+
+		public void setShowKanji(boolean showKanji) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestSM2ConfigPrefix + showKanjiPostfix, showKanji);
+			
+			editor.commit();
+		}
+
+		public Boolean getShowKana() {
+			return preferences.getBoolean(wordTestSM2ConfigPrefix + showKanaPostfix, true);
+		}
+
+		public void setShowKana(boolean showKanji) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestSM2ConfigPrefix + showKanaPostfix, showKanji);
+			
+			editor.commit();
+		}
+		
+		public Boolean getShowTranslate() {
+			return preferences.getBoolean(wordTestSM2ConfigPrefix + showTranslatePostfix, true);
+		}
+
+		public void setShowTranslate(boolean showTranslate) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestSM2ConfigPrefix + showTranslatePostfix, showTranslate);
+			
+			editor.commit();
+		}
+
+		public Boolean getShowAdditionalInfo() {
+			return preferences.getBoolean(wordTestSM2ConfigPrefix + showAdditionalInfoPostfix, true);
+		}
+
+		public void setAdditionalInfoTranslate(boolean showAdditionalInfo) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordTestSM2ConfigPrefix + showAdditionalInfoPostfix, showAdditionalInfo);
+			
+			editor.commit();
+		}
+		
+		public WordTestSM2Mode getWordTestSM2Mode() {
+			
+			String wordTestSM2Mode = preferences.getString(wordTestSM2ConfigPrefix + wordTestSM2ModePostfix, WordTestSM2Mode.CHOOSE.toString());
+						
+			return WordTestSM2Mode.valueOf(wordTestSM2Mode);
+		}
+		
+		public void setWordTestSM2Mode(WordTestSM2Mode wordTestSM2Mode) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(wordTestSM2ConfigPrefix + wordTestSM2ModePostfix, wordTestSM2Mode.toString());
 			
 			editor.commit();
 		}

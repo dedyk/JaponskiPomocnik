@@ -8,7 +8,7 @@
 
     <string name="word_test_sm2_options_test_mode">Tryb testu</string>
     <string name="word_test_sm2_options_test_mode_radiogroup_input">Wpisywanie słów</string>
-    <string name="word_test_sm2_options_test_mode_radiogroup_overview">Przegląd słów</string>
+    <string name="word_test_sm2_options_test_mode_radiogroup_choose">Wybór stopnia znajomości słowa</string>
     <string name="word_test_sm2_options_start">Start</string>
     
     <string name="word_test_sm2_options_show">Pokazuj</string>

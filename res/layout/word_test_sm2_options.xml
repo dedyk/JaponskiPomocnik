@@ -67,10 +67,10 @@
                     android:textSize="12sp" />
 
                 <RadioButton
-                    android:id="@+id/word_test_sm2_options_test_mode_radiogroup_overview"
+                    android:id="@+id/word_test_sm2_options_test_mode_radiogroup_choose"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/word_test_sm2_options_test_mode_radiogroup_overview"
+                    android:text="@string/word_test_sm2_options_test_mode_radiogroup_choose"
                     android:textSize="12sp" />
             </RadioGroup>
 
