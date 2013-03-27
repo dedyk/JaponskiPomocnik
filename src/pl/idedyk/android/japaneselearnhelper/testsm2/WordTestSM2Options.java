@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class WordTestSM2Options extends Activity {
 
@@ -127,6 +128,122 @@ public class WordTestSM2Options extends Activity {
 			
 			public void onClick(View v) {
 				
+				// max new words number
+				String maxNewWordsNumberString = maxNewWordsNumberEditText.getText().toString();
+				
+				boolean maxNewWordsNumberError = false;
+				
+				int maxNewWordsNumber = -1;
+				
+				if (maxNewWordsNumberString == null) {
+					maxNewWordsNumberError = true;
+				} else {
+					
+					try {
+						maxNewWordsNumber = Integer.parseInt(maxNewWordsNumberString);
+					} catch (NumberFormatException e) {
+						maxNewWordsNumberError = true;
+					}
+				}
+				
+				if (maxNewWordsNumberError == false && maxNewWordsNumber <= 0) {
+					maxNewWordsNumberError = true;
+				}
+				
+				if (maxNewWordsNumberError == true) {
+					
+					Toast toast = Toast.makeText(WordTestSM2Options.this, getString(R.string.word_test_sm2_options_max_new_words_number_invalid), Toast.LENGTH_SHORT);
+
+					toast.show();
+
+					return;					
+				}
+				
+				wordTestSM2Config.setMaxNewWords(maxNewWordsNumber);
+
+				// max repeat words number
+				String maxRepeatWordsNumberString = maxRepeatWordsNumberEditText.getText().toString();
+				
+				boolean maxRepeatWordsNumberError = false;
+				
+				int maxRepeatWordsNumber = -1;
+				
+				if (maxRepeatWordsNumberString == null) {
+					maxRepeatWordsNumberError = true;
+				} else {
+					
+					try {
+						maxRepeatWordsNumber = Integer.parseInt(maxRepeatWordsNumberString);
+					} catch (NumberFormatException e) {
+						maxRepeatWordsNumberError = true;
+					}
+				}
+				
+				if (maxRepeatWordsNumberError == false && maxRepeatWordsNumber <= 0) {
+					maxRepeatWordsNumberError = true;
+				}
+				
+				if (maxRepeatWordsNumberError == true) {
+					
+					Toast toast = Toast.makeText(WordTestSM2Options.this, getString(R.string.word_test_sm2_options_max_repeat_words_number_invalid), Toast.LENGTH_SHORT);
+
+					toast.show();
+
+					return;					
+				}
+				
+				wordTestSM2Config.setMaxRepeatWords(maxRepeatWordsNumber);
+				
+				// test mode
+				WordTestSM2Mode chosenWordTestSM2Mode = null;
+				
+				if (testModeInputRadioButton.isChecked() == true) {
+					chosenWordTestSM2Mode = WordTestSM2Mode.INPUT;
+				} else if (testModeChooseRadioButton.isChecked() == true) {
+					chosenWordTestSM2Mode = WordTestSM2Mode.CHOOSE;
+				} else {
+					throw new RuntimeException("WordTestSM2Mode wordTestSM2Mode");
+				}
+				
+				wordTestSM2Config.setWordTestSM2Mode(chosenWordTestSM2Mode);
+								
+				// show kanji
+				boolean showKanji = showKanjiCheckBox.isChecked();
+								
+				wordTestSM2Config.setShowKanji(showKanji);
+				
+				// show kana
+				boolean showKana = showKanaCheckBox.isChecked();
+				
+				wordTestSM2Config.setShowKana(showKana);
+				
+				// show translate
+				boolean showTranslate = showTranslateCheckBox.isChecked();
+				
+				wordTestSM2Config.setShowTranslate(showTranslate);
+				
+				// show additional info
+				boolean showAdditionalInfo = showAdditionalInfoCheckBox.isChecked();
+				
+				wordTestSM2Config.setAdditionalInfoTranslate(showAdditionalInfo);
+				
+				if (chosenWordTestSM2Mode == WordTestSM2Mode.INPUT && showKanji == false && showTranslate == false) {
+					
+					Toast toast = Toast.makeText(WordTestSM2Options.this, getString(R.string.word_test_sm2_options_no_kanji_translate), Toast.LENGTH_SHORT);
+
+					toast.show();
+					
+					return;
+				}
+
+				if (chosenWordTestSM2Mode == WordTestSM2Mode.CHOOSE && showKanji == false && showKana == false) {
+					
+					Toast toast = Toast.makeText(WordTestSM2Options.this, getString(R.string.word_test_sm2_options_no_kanji_kana), Toast.LENGTH_SHORT);
+
+					toast.show();
+					
+					return;
+				}
 				
 				
 			}
