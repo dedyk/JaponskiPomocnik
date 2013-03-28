@@ -8,6 +8,7 @@ import java.util.Locale;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DateStat;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 
 import android.database.Cursor;
@@ -253,7 +254,6 @@ public class WordTestSM2Manager {
 		}	
 	}
 	
-	/*
 	private Date getDatetimeFromString(String datetimeString) {
 
 		if (datetimeString == null) {
@@ -269,7 +269,58 @@ public class WordTestSM2Manager {
 			throw new RuntimeException(e);
 		}	
 	}
-	*/
+	
+	public WordTestSM2WordStat getNextNewWordStat(int maxNewWordsLimit) {
+		
+		WordTestSM2DateStat currentDateStat = getCurrentDateStat();
+		
+		if (currentDateStat.getNewWords() >= maxNewWordsLimit) {
+			return null;
+		}
+		
+		Cursor cursor = null;
+		
+		try {			
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.selectNextNewWordStatSql, new String[] { });
+			
+			boolean moveToFirstResult = cursor.moveToFirst();
+			
+			if (moveToFirstResult == false) {
+				return null;
+			}			
+			
+			return getWordTestSM2WordStatFromCursor(cursor, true);
+
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+	}
+	
+	private WordTestSM2WordStat getWordTestSM2WordStatFromCursor(Cursor cursor, boolean wasNew) {
+		
+		int id = cursor.getInt(0);
+		int power = cursor.getInt(1);
+		float easinessFactor = cursor.getFloat(2);
+		int repetitions = cursor.getInt(3);
+		int interval = cursor.getInt(4);
+		String nextRepetitions = cursor.getString(5);
+		String lastStudied = cursor.getString(6);
+		
+		WordTestSM2WordStat wordStat = new WordTestSM2WordStat();
+		
+		wordStat.setId(id);
+		wordStat.setPower(power);
+		wordStat.setEasinessFactor(easinessFactor);
+		wordStat.setRepetitions(repetitions);
+		wordStat.setInterval(interval);
+		wordStat.setNextRepetitions(getDatetimeFromString(nextRepetitions));
+		wordStat.setLastStudied(getDatetimeFromString(lastStudied));
+		wordStat.setWasNew(wasNew);
+		
+		return wordStat;
+	}
 	
 	private static class SQLiteStatic {
 				
@@ -362,8 +413,14 @@ public class WordTestSM2Manager {
 		public static final String insertNewCurrentDateStatSql =
 				"insert into " + dayStatTableName + " (" + dayStatTable_dateStat + " , " + dayStatTable_newWords + " , " + dayStatTable_repeatWords + 
 				" ) values (date('now'), 0, 0);";
+		
+		public static final String selectNextNewWordStatSql =
+				"select " + wordStatTable_id + ", " + wordStatTable_power + " , " + wordStatTable_easinessFactor  + " , " + 
+				" " + wordStatTable_repetitions + " , " + wordStatTable_interval + " , " + 
+				" datetime( " + wordStatTable_nextRepetitions + " ) , " +
+				" datetime( " + wordStatTable_lastStudied + " ) from " + wordStatTableName + " limit 1";
 	}
 	
-	// select * from WordStat where nextRepetitions IS NULL order by power limit 1;
-	// select * from WordStat where nextRepetitions IS NOT NULL and nextRepetitions < datetime('now') order by power limit 1;
+	// select * from WordStat where nextRepetitions IS NULL order by power, id limit 1;
+	// select * from WordStat where nextRepetitions IS NOT NULL and nextRepetitions < datetime('now') order by nextRepetitions, power, id limit 1;
 }

@@ -5,8 +5,10 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -41,7 +43,11 @@ public class WordTestSM2 extends Activity {
 		
 		WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
 		
-		wordTestSM2Manager.getCurrentDateStat();
+		//wordTestSM2Manager.getCurrentDateStat();
+		
+		WordTestSM2WordStat nextNewWordStat = wordTestSM2Manager.getNextNewWordStat(20);
+		
+		Log.d("AAAAAAAA:", "BBBB: " + nextNewWordStat);
 		
 
 	}
