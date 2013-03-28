@@ -47,7 +47,7 @@ public class WordTestSM2 extends Activity {
 		
 		for (int idx = 0; idx < 10; ++idx) {
 
-			WordTestSM2WordStat nextNewWordStat = wordTestSM2Manager.getNextNewWordStat(10);
+			WordTestSM2WordStat nextNewWordStat = wordTestSM2Manager.getNextNewWordStat(20);
 			
 			Log.d("AAAAAAAA:", "BBBB: " + nextNewWordStat);
 			
