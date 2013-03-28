@@ -1,8 +1,13 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DateStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 
 import android.database.Cursor;
@@ -41,6 +46,13 @@ public class WordTestSM2Manager {
 				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreate);
 				
 				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreateNameKeyIndex);				
+			}
+			
+			if (isObjectExists("table", SQLiteStatic.dayStatTableName) == false) {
+				
+				sqliteDatabase.execSQL(SQLiteStatic.dayStatTableCreate);
+				
+				sqliteDatabase.execSQL(SQLiteStatic.dayStatTableCreateDateStatKeyIndex);				
 			}
 
 		} catch (SQLException e) {
@@ -172,6 +184,93 @@ public class WordTestSM2Manager {
 		sqliteDatabase.execSQL(SQLiteStatic.insertOrReplaceConfigSql, new Object[] { name, value });
 	}
 	
+	public WordTestSM2DateStat getCurrentDateStat() {
+		
+		WordTestSM2DateStat currentDateStat = getCurrentDateStatPriv();
+		
+		if (currentDateStat != null) {
+			return currentDateStat;			
+		}
+		
+		sqliteDatabase.execSQL(SQLiteStatic.insertNewCurrentDateStatSql);
+		
+		currentDateStat = getCurrentDateStatPriv();
+		
+		if (currentDateStat == null) {
+			throw new RuntimeException("Empty: " + currentDateStat);
+		}
+		
+		return null;
+	}
+	
+	private WordTestSM2DateStat getCurrentDateStatPriv() {
+		
+		Cursor cursor = null;
+				
+		try {
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.selectCurrentDateStatSql, new String[] { });
+			
+			boolean moveToFirstResult = cursor.moveToFirst();
+			
+			if (moveToFirstResult == false) {
+				return null;
+			}
+			
+			WordTestSM2DateStat result = new WordTestSM2DateStat();
+			
+			int id = cursor.getInt(0);
+			String dateStatString = cursor.getString(1);
+			int newWords = cursor.getInt(2);
+			int repeatWords = cursor.getInt(3);
+			
+			result.setId(id);
+			result.setDateStat(getDateFromString(dateStatString));
+			result.setNewWords(newWords);
+			result.setRepeatWords(repeatWords);
+						
+			return result;
+			
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+	}
+	
+	private Date getDateFromString(String dateString) {
+
+		if (dateString == null) {
+			return null;
+		}
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+
+		try {
+			return dateFormat.parse(dateString);
+
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}	
+	}
+	
+	/*
+	private Date getDatetimeFromString(String datetimeString) {
+
+		if (datetimeString == null) {
+			return null;
+		}
+
+		SimpleDateFormat datetimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+		try {
+			return datetimeFormat.parse(datetimeString);
+
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}	
+	}
+	*/
+	
 	private static class SQLiteStatic {
 				
 		public static final String wordStatTableName = "WordStat";
@@ -192,6 +291,13 @@ public class WordTestSM2Manager {
 		
 		public static final String configName_version = "version";
 		
+		public static final String dayStatTableName = "DayStat";
+		
+		public static final String dayStatTable_id = "id";
+		public static final String dayStatTable_dateStat = "dateStat";
+		public static final String dayStatTable_newWords = "newWords";
+		public static final String dayStatTable_repeatWords = "repeatWords";
+				
 		public static final String wordStatTableCreate =
 				"create table " + wordStatTableName + "(" +
 				wordStatTable_id + " integer primary key, " +
@@ -199,8 +305,8 @@ public class WordTestSM2Manager {
 				wordStatTable_easinessFactor + " real not null, " +
 				wordStatTable_repetitions + " integer not null, " +
 				wordStatTable_interval + " integer not null, " +
-				wordStatTable_nextRepetitions + " datetime not null, " +
-				wordStatTable_lastStudied + " datetime not null);";
+				wordStatTable_nextRepetitions + " datetime null, " +
+				wordStatTable_lastStudied + " datetime null);";
 		
 		public static final String wordStatTableCreateNextRepetitionsKeyIndex = 
 				"create index " + wordStatTableName + "NextRepetitionsKeyIdx on " +
@@ -216,6 +322,17 @@ public class WordTestSM2Manager {
 				"create unique index " + configTableName + "NameKeyIdx on " +
 				configTableName + "(" + configTable_name + ")";
 		
+		public static final String dayStatTableCreate =
+				"create table " + dayStatTableName + "(" +
+				dayStatTable_id + " integer primary key, " +
+				dayStatTable_dateStat + " date not null, " +
+				dayStatTable_newWords + " integer not null, " +
+				dayStatTable_repeatWords + " integer not null);";
+		
+		public static final String dayStatTableCreateDateStatKeyIndex = 
+				"create unique index " + dayStatTableName + "DateStatKeyIdx on " +
+				dayStatTableName + "(" + dayStatTable_dateStat + ")";
+		
 		public static final String countObjectSql = 
 				"select count(*) from sqlite_master where type = ? and name = ?";
 		
@@ -223,7 +340,7 @@ public class WordTestSM2Manager {
 				"select count(*) from " + wordStatTableName + " where " + wordStatTable_id + " = ? ";
 		
 		public static final String insertWordStatSql =
-				"insert into " + wordStatTableName + " values(?, ?, '2.5', '0', '0', datetime(0, 'unixepoch', 'localtime'), datetime(0, 'unixepoch', 'localtime'));";
+				"insert into " + wordStatTableName + " values(?, ?, '2.5', '0', '0', NULL, NULL);";
 		
 		public static final String updateWordStatSql =
 				"update " + wordStatTableName + " set " + wordStatTable_power + " = ? where " + wordStatTable_id + " = ? ";
@@ -233,5 +350,20 @@ public class WordTestSM2Manager {
 		
 		public static final String insertOrReplaceConfigSql =
 				"insert or replace into " + configTableName + " ( " + configTable_name + " , " + configTable_value + " ) values (?, ?)";
+		
+		public static final String selectCurrentDateStatSql =
+				"select " +
+				" " + dayStatTable_id + ", " +
+				" datetime( " + dayStatTable_dateStat + "), " +
+				" " + dayStatTable_newWords + ", " +
+				" " + dayStatTable_repeatWords + " " + 
+				" from " + dayStatTableName + " where dateStat = date('now');";
+		
+		public static final String insertNewCurrentDateStatSql =
+				"insert into " + dayStatTableName + " (" + dayStatTable_dateStat + " , " + dayStatTable_newWords + " , " + dayStatTable_repeatWords + 
+				" ) values (date('now'), 0, 0);";
 	}
+	
+	// select * from WordStat where nextRepetitions IS NULL order by power limit 1;
+	// select * from WordStat where nextRepetitions IS NOT NULL and nextRepetitions < datetime('now') order by power limit 1;
 }

@@ -323,7 +323,10 @@ public class WordTestSM2Options extends Activity {
 						super.onPostExecute(arg);
 
 						progressDialog.dismiss();
+						
+						Intent intent = new Intent(getApplicationContext(), WordTestSM2.class);
 
+						startActivity(intent);						
 					}
 				};
 				
