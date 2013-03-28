@@ -35,6 +35,13 @@ public class TestSM2Manager {
 				
 				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreateNextRepetitionsKeyIndex);
 			}
+			
+			if (isObjectExists("table", SQLiteStatic.configTableName) == false) {
+				
+				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreate);
+				
+				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreateNameKeyIndex);				
+			}
 
 		} catch (SQLException e) {
 			throw new TestSM2ManagerException(e.toString());
@@ -119,6 +126,52 @@ public class TestSM2Manager {
 		}		
 	}
 	
+	public Integer getVersion() {
+		
+		String configValue = getConfigValue(SQLiteStatic.configName_version);
+		
+		if (configValue == null) {
+			return null;
+		}
+		
+		try {
+			return Integer.parseInt(configValue);
+			
+		} catch (NumberFormatException e) {
+			return null;
+		}
+	}
+	
+	public void setVersion(int version) {		
+		setConfigValue(SQLiteStatic.configName_version, String.valueOf(version));		
+	}
+	
+	private String getConfigValue(String name) {
+		
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.selectConfigSql, new String[] { name });
+			
+			boolean moveToFirstResult = cursor.moveToFirst();
+			
+			if (moveToFirstResult == false) {
+				return null;
+			}
+			
+			return cursor.getString(0);
+			
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}		
+	}
+	
+	private void setConfigValue(String name, String value) {		
+		sqliteDatabase.execSQL(SQLiteStatic.insertOrReplaceConfigSql, new Object[] { name, value });
+	}
+	
 	private static class SQLiteStatic {
 				
 		public static final String wordStatTableName = "WordStat";
@@ -130,6 +183,14 @@ public class TestSM2Manager {
 		public static final String wordStatTable_interval = "interval";
 		public static final String wordStatTable_nextRepetitions = "nextRepetitions";
 		public static final String wordStatTable_lastStudied = "lastStudied";
+		
+		public static final String configTableName = "Config";
+		
+		public static final String configTable_id = "id";
+		public static final String configTable_name = "name";
+		public static final String configTable_value = "value";
+		
+		public static final String configName_version = "version";
 		
 		public static final String wordStatTableCreate =
 				"create table " + wordStatTableName + "(" +
@@ -145,6 +206,16 @@ public class TestSM2Manager {
 				"create index " + wordStatTableName + "NextRepetitionsKeyIdx on " +
 				wordStatTableName + "(" + wordStatTable_nextRepetitions + ")";
 		
+		public static final String configTableNameCreate =
+				"create table " + configTableName + "(" +
+				configTable_id + " integer primary key, " +
+				configTable_name + " text not null, " +
+				configTable_value + " text not null);";		
+
+		public static final String configTableNameCreateNameKeyIndex = 
+				"create unique index " + configTableName + "NameKeyIdx on " +
+				configTableName + "(" + configTable_name + ")";
+		
 		public static final String countObjectSql = 
 				"select count(*) from sqlite_master where type = ? and name = ?";
 		
@@ -156,5 +227,11 @@ public class TestSM2Manager {
 		
 		public static final String updateWordStatSql =
 				"update " + wordStatTableName + " set " + wordStatTable_power + " = ? where " + wordStatTable_id + " = ? ";
+		
+		public static final String selectConfigSql =
+				"select " + configTable_value + " from " + configTableName + " where " + configTable_name + " = ?";
+		
+		public static final String insertOrReplaceConfigSql =
+				"insert or replace into " + configTableName + " ( " + configTable_name + " , " + configTable_value + " ) values (?, ?)";
 	}
 }

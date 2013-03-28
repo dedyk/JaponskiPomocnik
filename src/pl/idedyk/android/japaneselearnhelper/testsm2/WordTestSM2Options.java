@@ -265,37 +265,54 @@ public class WordTestSM2Options extends Activity {
 					@Override
 					protected Void doInBackground(Void... arg) {
 						
+						int versionCode = 0;
+
+						try {
+							PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+							versionCode = packageInfo.versionCode;
+
+						} catch (NameNotFoundException e) {        	
+						}
+						
 						DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this);
 						
 						TestSM2Manager testSM2Manager = dictionaryManager.getTestSM2Manager();
 						
-						testSM2Manager.beginTransaction();
+						Integer dbVersion = testSM2Manager.getVersion();
 						
-						try {						
-							int dictionaryEntriesSize = dictionaryManager.getDictionaryEntriesSize();
+						if (dbVersion == null || dbVersion.intValue() != versionCode) { // update db
 							
-							for (int currentDictionaryEntryIdx = 1; currentDictionaryEntryIdx <= dictionaryEntriesSize; ++currentDictionaryEntryIdx) {
+							try {		
+								testSM2Manager.beginTransaction();
 								
-								boolean dictionaryEntryExistsInWordStat = testSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
+								int dictionaryEntriesSize = dictionaryManager.getDictionaryEntriesSize();
 								
-								if (dictionaryEntryExistsInWordStat == false) {
+								for (int currentDictionaryEntryIdx = 1; currentDictionaryEntryIdx <= dictionaryEntriesSize; ++currentDictionaryEntryIdx) {
 									
-									DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
+									boolean dictionaryEntryExistsInWordStat = testSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
 									
-									testSM2Manager.insertDictionaryEntry(dictionaryEntry);
-									
-								} else {
-									
-									DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
-									
-									testSM2Manager.updateDictionaryEntry(dictionaryEntry);
+									if (dictionaryEntryExistsInWordStat == false) {
+										
+										DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
+										
+										testSM2Manager.insertDictionaryEntry(dictionaryEntry);
+										
+									} else {
+										
+										DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
+										
+										testSM2Manager.updateDictionaryEntry(dictionaryEntry);
+									}
 								}
-							}
-							
-							testSM2Manager.commitTransaction();
-							
-						} finally {
-							testSM2Manager.endTransaction();
+								
+								testSM2Manager.setVersion(versionCode);
+								
+								testSM2Manager.commitTransaction();
+								
+							} finally {
+								testSM2Manager.endTransaction();
+							}							
 						}
 
 						return null;
