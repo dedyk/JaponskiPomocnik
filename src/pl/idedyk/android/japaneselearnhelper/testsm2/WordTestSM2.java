@@ -60,12 +60,12 @@ public class WordTestSM2 extends Activity {
 
 		for (int idx = 0; idx < 10; ++idx) {
 
-			WordTestSM2WordStat nextRepeatWordStat = wordTestSM2Manager.getNextRepeatWordStat(10);
+			WordTestSM2WordStat nextRepeatWordStat = wordTestSM2Manager.getNextRepeatWordStat();
 			
 			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + nextRepeatWordStat);
 			
 			if (nextRepeatWordStat != null) {			
-				nextRepeatWordStat.processRecallResult(2);
+				nextRepeatWordStat.processRecallResult(3);
 			
 				wordTestSM2Manager.updateWordStat(nextRepeatWordStat);
 			}

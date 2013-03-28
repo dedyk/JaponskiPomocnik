@@ -673,9 +673,7 @@ public class ConfigManager {
 		private final String wordTestSM2ConfigPrefix = "wordTestSM2Config_";
 		
 		private final String maxNewWordsPostfix = "maxNewWords";
-		
-		private final String maxRepeatWordsPostfix = "maxRepeatWords";
-		
+				
 		private final String showKanjiPostfix = "showKanji";
 		
 		private final String showKanaPostfix = "showKana";
@@ -698,19 +696,6 @@ public class ConfigManager {
 			
 			editor.commit();			
 		}	
-
-		public Integer getMaxRepeatWords() {
-			return preferences.getInt(wordTestSM2ConfigPrefix + maxRepeatWordsPostfix, 20);
-		}
-		
-		public void setMaxRepeatWords(int maxRepeatWords) {
-			
-			Editor editor = preferences.edit();
-			
-			editor.putInt(wordTestSM2ConfigPrefix + maxRepeatWordsPostfix, maxRepeatWords);
-			
-			editor.commit();			
-		}
 		
 		public Boolean getShowKanji() {
 			return preferences.getBoolean(wordTestSM2ConfigPrefix + showKanjiPostfix, true);

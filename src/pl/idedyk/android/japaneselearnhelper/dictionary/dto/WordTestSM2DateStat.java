@@ -10,8 +10,6 @@ public class WordTestSM2DateStat {
 	
 	private int newWords;
 	
-	private int repeatWords;
-
 	public int getId() {
 		return id;
 	}
@@ -34,13 +32,5 @@ public class WordTestSM2DateStat {
 
 	public void setNewWords(int newWords) {
 		this.newWords = newWords;
-	}
-
-	public int getRepeatWords() {
-		return repeatWords;
-	}
-
-	public void setRepeatWords(int repeatWords) {
-		this.repeatWords = repeatWords;
 	}
 }

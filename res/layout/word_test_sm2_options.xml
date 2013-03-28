@@ -30,22 +30,7 @@
                 android:ems="10"
                 android:inputType="number" >
             </EditText>
-
-            <TextView
-                android:id="@+id/word_test_sm2_options_max_repeat_words"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/title_background"
-                android:text="@string/word_test_sm2_options_max_repeat_words" />
-
-            <EditText
-                android:id="@+id/word_test_sm2_options_max_repeat_words_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" >
-            </EditText>
-
+			
             <TextView
                 android:id="@+id/word_test_sm2_options_test_mode"
                 android:layout_width="match_parent"

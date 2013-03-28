@@ -222,12 +222,10 @@ public class WordTestSM2Manager {
 			int id = cursor.getInt(0);
 			String dateStatString = cursor.getString(1);
 			int newWords = cursor.getInt(2);
-			int repeatWords = cursor.getInt(3);
 			
 			result.setId(id);
 			result.setDateStat(getDateFromString(dateStatString));
 			result.setNewWords(newWords);
-			result.setRepeatWords(repeatWords);
 						
 			return result;
 			
@@ -309,14 +307,8 @@ public class WordTestSM2Manager {
 		}
 	}
 
-	public WordTestSM2WordStat getNextRepeatWordStat(int maxRepeatWordsLimit) {
-		
-		WordTestSM2DateStat currentDateStat = getCurrentDateStat();
-		
-		if (currentDateStat.getRepeatWords() >= maxRepeatWordsLimit) {
-			return null;
-		}
-		
+	public WordTestSM2WordStat getNextRepeatWordStat() {
+				
 		Cursor cursor = null;
 		
 		try {			
@@ -371,12 +363,8 @@ public class WordTestSM2Manager {
 		if (wordStat.isWasNew() == true) {
 			
 			sqliteDatabase.execSQL(SQLiteStatic.updateDayStatNewRepeatWordsSql,
-				new Object[] { 1, 0 });
+				new Object[] { 1 });
 			
-		} else {
-
-			sqliteDatabase.execSQL(SQLiteStatic.updateDayStatNewRepeatWordsSql,
-					new Object[] { 0, 1 });
 		}
 	}
 	
@@ -405,7 +393,6 @@ public class WordTestSM2Manager {
 		public static final String dayStatTable_id = "id";
 		public static final String dayStatTable_dateStat = "dateStat";
 		public static final String dayStatTable_newWords = "newWords";
-		public static final String dayStatTable_repeatWords = "repeatWords";
 				
 		public static final String wordStatTableCreate =
 				"create table " + wordStatTableName + "(" +
@@ -435,8 +422,7 @@ public class WordTestSM2Manager {
 				"create table " + dayStatTableName + "(" +
 				dayStatTable_id + " integer primary key, " +
 				dayStatTable_dateStat + " date not null, " +
-				dayStatTable_newWords + " integer not null, " +
-				dayStatTable_repeatWords + " integer not null);";
+				dayStatTable_newWords + " integer not null);";
 		
 		public static final String dayStatTableCreateDateStatKeyIndex = 
 				"create unique index " + dayStatTableName + "DateStatKeyIdx on " +
@@ -446,8 +432,8 @@ public class WordTestSM2Manager {
 		
 		public static final String updateDayStatNewRepeatWordsSql =
 				"update " + dayStatTableName + " set " +
-				dayStatTable_newWords + " = " + dayStatTable_newWords + " + ? , " +
-				dayStatTable_repeatWords + " = " + dayStatTable_repeatWords + " + ? where " +
+				dayStatTable_newWords + " = " + dayStatTable_newWords + " + ? " +
+				" where " +
 				dayStatTable_dateStat + " = date('now');";
 		
 		public static final String countObjectSql = 
@@ -479,13 +465,12 @@ public class WordTestSM2Manager {
 				"select " +
 				" " + dayStatTable_id + ", " +
 				" datetime( " + dayStatTable_dateStat + "), " +
-				" " + dayStatTable_newWords + ", " +
-				" " + dayStatTable_repeatWords + " " + 
+				" " + dayStatTable_newWords + " " + 
 				" from " + dayStatTableName + " where dateStat = date('now');";
 		
 		public static final String insertNewCurrentDateStatSql =
-				"insert into " + dayStatTableName + " (" + dayStatTable_dateStat + " , " + dayStatTable_newWords + " , " + dayStatTable_repeatWords + 
-				" ) values (date('now'), 0, 0);";
+				"insert into " + dayStatTableName + " (" + dayStatTable_dateStat + " , " + dayStatTable_newWords + " ) " + 
+				" values (date('now'), 0);";
 		
 		public static final String selectNextNewWordStatSql =
 				"select " + wordStatTable_id + ", " + wordStatTable_power + " , " + wordStatTable_easinessFactor  + " , " + 

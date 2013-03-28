@@ -4,7 +4,6 @@
     <string name="word_test_sm2_options_view_label">Opcje testu SM2</string>
     
     <string name="word_test_sm2_options_max_new_words">Maksymalna liczba nowy słów na dzień</string>
-    <string name="word_test_sm2_options_max_repeat_words">Maksymalna liczba powtórek słów na dzień</string>
 
     <string name="word_test_sm2_options_test_mode">Tryb testu</string>
     <string name="word_test_sm2_options_test_mode_radiogroup_input">Wpisywanie słów</string>
@@ -19,7 +18,6 @@
     <string name="word_test_sm2_options_show_additional_info">Informacje dodatkowe</string>
     
     <string name="word_test_sm2_options_max_new_words_number_invalid">Niepoprawna liczba maksymalnej liczby nowy słów na dzień</string>
-    <string name="word_test_sm2_options_max_repeat_words_number_invalid">Niepoprawna liczba maksymalnej liczby powtórek słów na dzień</string>
     
     <string name="word_test_sm2_options_no_kanji_translate">Proszę wybrać pokazywanie znaków kanji lub tłumaczeń</string>
     <string name="word_test_sm2_options_no_kanji_kana">Proszę wybrać pokazywanie znaków kanji lub kana</string>
