@@ -308,6 +308,34 @@ public class WordTestSM2Manager {
 			}
 		}
 	}
+
+	public WordTestSM2WordStat getNextRepeatWordStat(int maxRepeatWordsLimit) {
+		
+		WordTestSM2DateStat currentDateStat = getCurrentDateStat();
+		
+		if (currentDateStat.getRepeatWords() >= maxRepeatWordsLimit) {
+			return null;
+		}
+		
+		Cursor cursor = null;
+		
+		try {			
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.selectNextRepeatWordStatSql, new String[] { });
+			
+			boolean moveToFirstResult = cursor.moveToFirst();
+			
+			if (moveToFirstResult == false) {
+				return null;
+			}			
+			
+			return getWordTestSM2WordStatFromCursor(cursor, false);
+
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+	}
 	
 	private WordTestSM2WordStat getWordTestSM2WordStatFromCursor(Cursor cursor, boolean wasNew) {
 		
@@ -466,7 +494,14 @@ public class WordTestSM2Manager {
 				" datetime( " + wordStatTable_lastStudied + " ) from " + wordStatTableName + " " +
 				" where " + wordStatTable_nextRepetitions + " IS NULL order by " + wordStatTable_power + " , " + wordStatTable_id + " " +				
 				" limit 1";
+		
+		public static final String selectNextRepeatWordStatSql =
+				"select " + wordStatTable_id + ", " + wordStatTable_power + " , " + wordStatTable_easinessFactor  + " , " + 
+				" " + wordStatTable_repetitions + " , " + wordStatTable_interval + " , " + 
+				" datetime( " + wordStatTable_nextRepetitions + " ) , " +
+				" datetime( " + wordStatTable_lastStudied + " ) from " + wordStatTableName + " " +
+				" where " + wordStatTable_nextRepetitions + " IS NOT NULL and " +
+				wordStatTable_nextRepetitions + " < date('now', '+1 day') order by " + wordStatTable_nextRepetitions + " , " +
+				wordStatTable_power + " , " + wordStatTable_id + " limit 1 ";
 	}
-	
-	// select * from WordStat where nextRepetitions IS NOT NULL and nextRepetitions < datetime('now') order by nextRepetitions, power, id limit 1;
 }

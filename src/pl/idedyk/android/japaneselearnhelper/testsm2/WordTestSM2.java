@@ -47,17 +47,29 @@ public class WordTestSM2 extends Activity {
 		
 		for (int idx = 0; idx < 10; ++idx) {
 
-			WordTestSM2WordStat nextNewWordStat = wordTestSM2Manager.getNextNewWordStat(5);
+			WordTestSM2WordStat nextNewWordStat = wordTestSM2Manager.getNextNewWordStat(10);
 			
 			Log.d("AAAAAAAA:", "BBBB: " + nextNewWordStat);
 			
 			if (nextNewWordStat != null) {			
-				nextNewWordStat.processRecallResult(3);
+				nextNewWordStat.processRecallResult(2);
 			
 				wordTestSM2Manager.updateWordStat(nextNewWordStat);
 			}
 		}
-		
+
+		for (int idx = 0; idx < 10; ++idx) {
+
+			WordTestSM2WordStat nextRepeatWordStat = wordTestSM2Manager.getNextRepeatWordStat(10);
+			
+			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + nextRepeatWordStat);
+			
+			if (nextRepeatWordStat != null) {			
+				nextRepeatWordStat.processRecallResult(2);
+			
+				wordTestSM2Manager.updateWordStat(nextRepeatWordStat);
+			}
+		}
 		
 
 	}

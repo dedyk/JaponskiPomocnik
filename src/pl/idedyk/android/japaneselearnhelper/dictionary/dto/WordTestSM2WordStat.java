@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 public class WordTestSM2WordStat {
 	
@@ -112,8 +113,17 @@ public class WordTestSM2WordStat {
 
 		if (interval != 0) {
 			calendar.add(Calendar.DAY_OF_MONTH, interval);	
+			
+			calendar.set(Calendar.HOUR_OF_DAY, 0);
+			calendar.set(Calendar.MINUTE, 0);
+			calendar.set(Calendar.SECOND, 0);
 		} else {
-			calendar.add(Calendar.MINUTE, 1);
+			
+			Random random = new Random();
+			
+			int randomSecond = random.nextInt(5 * 60);
+			
+			calendar.add(Calendar.SECOND, randomSecond);
 		}		
 
 		nextRepetitions = calendar.getTime();
