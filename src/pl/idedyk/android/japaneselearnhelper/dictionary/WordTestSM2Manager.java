@@ -9,15 +9,15 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-public class TestSM2Manager {
+public class WordTestSM2Manager {
 	
-	private static final String DATABASE_FILE = "test_sm2_dictionary.db";
+	private static final String DATABASE_FILE = "word_test_sm2.db";
 	
 	private File databaseDir;
 	
 	private SQLiteDatabase sqliteDatabase;
 	
-	TestSM2Manager(File databaseDir) {
+	WordTestSM2Manager(File databaseDir) {
 		this.databaseDir = databaseDir;
 	}
 	

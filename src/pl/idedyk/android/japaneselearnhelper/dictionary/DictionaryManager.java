@@ -65,7 +65,7 @@ public class DictionaryManager {
 	
 	private KeigoHelper keigoHeper;
 	
-	private TestSM2Manager testSM2Manager;
+	private WordTestSM2Manager wordTestSM2Manager;
 
 	public DictionaryManager() {
 		
@@ -221,12 +221,12 @@ public class DictionaryManager {
 				return;
 			}
 			
-			// create test sm2 manager
-			testSM2Manager = new TestSM2Manager(databaseDir);
+			// create word test sm2 manager
+			wordTestSM2Manager = new WordTestSM2Manager(databaseDir);
 			
-			// open test sm2 manager
+			// open word test sm2 manager
 			try {
-				testSM2Manager.open();
+				wordTestSM2Manager.open();
 			}  catch (TestSM2ManagerException e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
 				
@@ -1128,8 +1128,8 @@ public class DictionaryManager {
 		return zinniaManager;
 	}
 	
-	public TestSM2Manager getTestSM2Manager() {
-		return testSM2Manager;
+	public WordTestSM2Manager getWordTestSM2Manager() {
+		return wordTestSM2Manager;
 	}
 
 	public KanaHelper getKanaHelper() {
@@ -1144,7 +1144,7 @@ public class DictionaryManager {
 	protected void finalize() throws Throwable {
 		super.finalize();
 		
-		testSM2Manager.close();
+		wordTestSM2Manager.close();
 
 		close();
 	}

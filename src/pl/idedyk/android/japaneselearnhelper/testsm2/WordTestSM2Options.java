@@ -5,7 +5,7 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Config;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
-import pl.idedyk.android.japaneselearnhelper.dictionary.TestSM2Manager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
@@ -277,41 +277,41 @@ public class WordTestSM2Options extends Activity {
 						
 						DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this);
 						
-						TestSM2Manager testSM2Manager = dictionaryManager.getTestSM2Manager();
+						WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
 						
-						Integer dbVersion = testSM2Manager.getVersion();
+						Integer dbVersion = wordTestSM2Manager.getVersion();
 						
 						if (dbVersion == null || dbVersion.intValue() != versionCode) { // update db
 							
 							try {		
-								testSM2Manager.beginTransaction();
+								wordTestSM2Manager.beginTransaction();
 								
 								int dictionaryEntriesSize = dictionaryManager.getDictionaryEntriesSize();
 								
 								for (int currentDictionaryEntryIdx = 1; currentDictionaryEntryIdx <= dictionaryEntriesSize; ++currentDictionaryEntryIdx) {
 									
-									boolean dictionaryEntryExistsInWordStat = testSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
+									boolean dictionaryEntryExistsInWordStat = wordTestSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
 									
 									if (dictionaryEntryExistsInWordStat == false) {
 										
 										DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
 										
-										testSM2Manager.insertDictionaryEntry(dictionaryEntry);
+										wordTestSM2Manager.insertDictionaryEntry(dictionaryEntry);
 										
 									} else {
 										
 										DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
 										
-										testSM2Manager.updateDictionaryEntry(dictionaryEntry);
+										wordTestSM2Manager.updateDictionaryEntry(dictionaryEntry);
 									}
 								}
 								
-								testSM2Manager.setVersion(versionCode);
+								wordTestSM2Manager.setVersion(versionCode);
 								
-								testSM2Manager.commitTransaction();
+								wordTestSM2Manager.commitTransaction();
 								
 							} finally {
-								testSM2Manager.endTransaction();
+								wordTestSM2Manager.endTransaction();
 							}							
 						}
 
