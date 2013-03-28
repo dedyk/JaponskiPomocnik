@@ -45,9 +45,19 @@ public class WordTestSM2 extends Activity {
 		
 		//wordTestSM2Manager.getCurrentDateStat();
 		
-		WordTestSM2WordStat nextNewWordStat = wordTestSM2Manager.getNextNewWordStat(20);
+		for (int idx = 0; idx < 10; ++idx) {
+
+			WordTestSM2WordStat nextNewWordStat = wordTestSM2Manager.getNextNewWordStat(5);
+			
+			Log.d("AAAAAAAA:", "BBBB: " + nextNewWordStat);
+			
+			if (nextNewWordStat != null) {			
+				nextNewWordStat.processRecallResult(3);
+			
+				wordTestSM2Manager.updateWordStat(nextNewWordStat);
+			}
+		}
 		
-		Log.d("AAAAAAAA:", "BBBB: " + nextNewWordStat);
 		
 
 	}

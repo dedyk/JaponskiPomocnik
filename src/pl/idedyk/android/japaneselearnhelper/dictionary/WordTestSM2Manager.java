@@ -111,7 +111,7 @@ public class WordTestSM2Manager {
 	}
 	
 	public void updateDictionaryEntry(DictionaryEntry dictionaryEntry) {		
-		sqliteDatabase.execSQL(SQLiteStatic.updateWordStatSql, new Object[] { dictionaryEntry.getGroups().get(0).getPower(), dictionaryEntry.getId() });		
+		sqliteDatabase.execSQL(SQLiteStatic.updateWordStatPowerSql, new Object[] { dictionaryEntry.getGroups().get(0).getPower(), dictionaryEntry.getId() });		
 	}
 	
 	public boolean isDictionaryEntryExistsInWordStat(int id) {
@@ -201,7 +201,7 @@ public class WordTestSM2Manager {
 			throw new RuntimeException("Empty: " + currentDateStat);
 		}
 		
-		return null;
+		return currentDateStat;
 	}
 	
 	private WordTestSM2DateStat getCurrentDateStatPriv() {
@@ -270,6 +270,17 @@ public class WordTestSM2Manager {
 		}	
 	}
 	
+	private String getDatetimeFromDate(Date date) {
+		
+		if (date == null) {
+			return null;
+		}
+		
+		SimpleDateFormat datetimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+		
+		return datetimeFormat.format(date);
+	}
+	
 	public WordTestSM2WordStat getNextNewWordStat(int maxNewWordsLimit) {
 		
 		WordTestSM2DateStat currentDateStat = getCurrentDateStat();
@@ -320,6 +331,25 @@ public class WordTestSM2Manager {
 		wordStat.setWasNew(wasNew);
 		
 		return wordStat;
+	}
+	
+	public void updateWordStat(WordTestSM2WordStat wordStat) {
+		
+		sqliteDatabase.execSQL(SQLiteStatic.updateWordStatSql, 
+				new Object[] { wordStat.getEasinessFactor(), wordStat.getRepetitions(),
+					wordStat.getInterval(), getDatetimeFromDate(wordStat.getNextRepetitions()),
+					getDatetimeFromDate(wordStat.getLastStudied()), wordStat.getId() });
+		
+		if (wordStat.isWasNew() == true) {
+			
+			sqliteDatabase.execSQL(SQLiteStatic.updateDayStatNewRepeatWordsSql,
+				new Object[] { 1, 0 });
+			
+		} else {
+
+			sqliteDatabase.execSQL(SQLiteStatic.updateDayStatNewRepeatWordsSql,
+					new Object[] { 0, 1 });
+		}
 	}
 	
 	private static class SQLiteStatic {
@@ -384,6 +414,14 @@ public class WordTestSM2Manager {
 				"create unique index " + dayStatTableName + "DateStatKeyIdx on " +
 				dayStatTableName + "(" + dayStatTable_dateStat + ")";
 		
+		// update DayStat set newWords = newWords + 0, repeatWords = repeatWords + 1 where dateStat = date('now');
+		
+		public static final String updateDayStatNewRepeatWordsSql =
+				"update " + dayStatTableName + " set " +
+				dayStatTable_newWords + " = " + dayStatTable_newWords + " + ? , " +
+				dayStatTable_repeatWords + " = " + dayStatTable_repeatWords + " + ? where " +
+				dayStatTable_dateStat + " = date('now');";
+		
 		public static final String countObjectSql = 
 				"select count(*) from sqlite_master where type = ? and name = ?";
 		
@@ -393,8 +431,15 @@ public class WordTestSM2Manager {
 		public static final String insertWordStatSql =
 				"insert into " + wordStatTableName + " values(?, ?, '2.5', '0', '0', NULL, NULL);";
 		
-		public static final String updateWordStatSql =
+		public static final String updateWordStatPowerSql =
 				"update " + wordStatTableName + " set " + wordStatTable_power + " = ? where " + wordStatTable_id + " = ? ";
+		
+		public static final String updateWordStatSql =
+				"update " + wordStatTableName + " set " + wordStatTable_easinessFactor + " = ?, " +
+				wordStatTable_repetitions + " = ?, " +
+				wordStatTable_interval + " = ?, " + 
+				wordStatTable_nextRepetitions + " = datetime(?), " +
+				wordStatTable_lastStudied + " = datetime(?) where " + wordStatTable_id + " = ? ";				
 		
 		public static final String selectConfigSql =
 				"select " + configTable_value + " from " + configTableName + " where " + configTable_name + " = ?";
@@ -418,9 +463,10 @@ public class WordTestSM2Manager {
 				"select " + wordStatTable_id + ", " + wordStatTable_power + " , " + wordStatTable_easinessFactor  + " , " + 
 				" " + wordStatTable_repetitions + " , " + wordStatTable_interval + " , " + 
 				" datetime( " + wordStatTable_nextRepetitions + " ) , " +
-				" datetime( " + wordStatTable_lastStudied + " ) from " + wordStatTableName + " limit 1";
+				" datetime( " + wordStatTable_lastStudied + " ) from " + wordStatTableName + " " +
+				" where " + wordStatTable_nextRepetitions + " IS NULL order by " + wordStatTable_power + " , " + wordStatTable_id + " " +				
+				" limit 1";
 	}
 	
-	// select * from WordStat where nextRepetitions IS NULL order by power, id limit 1;
 	// select * from WordStat where nextRepetitions IS NOT NULL and nextRepetitions < datetime('now') order by nextRepetitions, power, id limit 1;
 }

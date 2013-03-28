@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class WordTestSM2WordStat {
@@ -82,6 +83,45 @@ public class WordTestSM2WordStat {
 
 	public void setWasNew(boolean wasNew) {
 		this.wasNew = wasNew;
+	}
+	
+	public void processRecallResult(int qualityOfRecall) {
+
+		if (qualityOfRecall < 3) {
+
+			repetitions = 0;
+			interval = 0;
+
+		} else {
+			easinessFactor = calculate_easiness_factor(easinessFactor, qualityOfRecall);
+
+			repetitions += 1;
+
+			if (repetitions == 1) {
+				interval = 1;
+
+			} else if (repetitions == 2) {
+				interval = 6;
+
+			} else {
+				interval *= easinessFactor;
+			}
+		}
+
+		Calendar calendar = Calendar.getInstance();
+
+		if (interval != 0) {
+			calendar.add(Calendar.DAY_OF_MONTH, interval);	
+		} else {
+			calendar.add(Calendar.MINUTE, 1);
+		}		
+
+		nextRepetitions = calendar.getTime();
+		lastStudied = new Date();
+	}
+
+	private float calculate_easiness_factor(float easinessFactor, int quality) {
+		return Math.max(1.3f, easinessFactor + (0.1f -(5.0f - quality) * (0.08f + (5.0f - quality) * 0.02f)));
 	}
 
 	@Override

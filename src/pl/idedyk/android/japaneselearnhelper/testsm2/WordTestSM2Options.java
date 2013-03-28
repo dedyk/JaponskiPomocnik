@@ -324,6 +324,8 @@ public class WordTestSM2Options extends Activity {
 
 						progressDialog.dismiss();
 						
+						finish();
+						
 						Intent intent = new Intent(getApplicationContext(), WordTestSM2.class);
 
 						startActivity(intent);						
