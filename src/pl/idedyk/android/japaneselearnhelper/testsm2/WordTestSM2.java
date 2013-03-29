@@ -360,7 +360,7 @@ public class WordTestSM2 extends Activity {
 			
 			Resources resources = getResources();
 			
-			state.setText(resources.getString(R.string.word_test_sm2_remaining_label, wordTestSM2Manager.getNextWordSize(wordTestSM2Config.getMaxNewWords())));
+			state.setText(resources.getString(R.string.word_test_sm2_state, wordTestSM2Manager.getNextWordSize(wordTestSM2Config.getMaxNewWords())));
 		}
 	}
 	

@@ -39,7 +39,7 @@
     <string name="word_test_sm2_additional_info_label">Dodatkowe informacje</string>
     
     <string name="word_test_sm2_remaining_label">Pozostało</string>
-    <string name="word_test_sm2_state">%1$d</string>
+    <string name="word_test_sm2_state">%1$d element(y/ów)</string>
     <string name="word_test_sm2_next_button">Dalej</string>
     
     <string name="word_test_sm2_view_input_label">Proszę wpisać słowo w puste miejsce</string>
