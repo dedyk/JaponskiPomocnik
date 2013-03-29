@@ -29,4 +29,17 @@
     <string name="word_test_sm2_options_prepare1">Przygotowywanie testu</string>
     <string name="word_test_sm2_options_prepare2">Proszę czekać</string>
     
+    <string name="word_test_sm2_quit_question">Czy na pewno chcesz zrezygnować z testu?</string>
+    <string name="word_test_sm2_quit_question_yes">Tak</string>
+    <string name="word_test_sm2_quit_question_no">Nie</string>
+    
+    <string name="word_test_sm2_kanji_label">Kanji</string>
+    <string name="word_test_sm2_word_label">Słowo</string>
+    <string name="word_test_sm2_translate_label">Tłumaczenie</string>
+    <string name="word_test_sm2_additional_info_label">Dodatkowe informacje</string>
+    
+    <string name="word_test_sm2_remaining_label">Pozostało</string>
+    <string name="word_test_sm2_state">%1$d</string>
+    <string name="word_test_sm2_next_button">Dalej</string>
+    
 </resources>

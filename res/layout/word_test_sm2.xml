@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/word_test_scrollview"
+    android:id="@+id/word_test_sm2_scrollview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
     <TableLayout
-        android:id="@+id/word_test_mail_layout"
+        android:id="@+id/word_test_sm2_mail_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/word_test_title"
+            android:id="@+id/word_test_sm2_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@color/title_background" />
 
         <TableRow
-            android:id="@+id/word_test_kanji_row"
+            android:id="@+id/word_test_sm2_kanji_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_kanji_label"
+                android:id="@+id/word_test_sm2_kanji_label"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -30,10 +30,10 @@
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_kanji_label" />
+                android:text="@string/word_test_sm2_kanji_label" />
 
             <EditText
-                android:id="@+id/word_test_kanji_prefix"
+                android:id="@+id/word_test_sm2_kanji_prefix"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -45,7 +45,7 @@
                 android:textColor="@android:color/white" />
 
             <EditText
-                android:id="@+id/word_test_kanji_input"
+                android:id="@+id/word_test_sm2_kanji_input"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -57,12 +57,12 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/word_test_word1_row"
+            android:id="@+id/word_test_sm2_word1_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_word_label1"
+                android:id="@+id/word_test_sm2_word_label1"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -70,10 +70,10 @@
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_word_label" />
+                android:text="@string/word_test_sm2_word_label" />
 
             <EditText
-                android:id="@+id/word_test_word_prefix1"
+                android:id="@+id/word_test_sm2_word_prefix1"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -84,7 +84,7 @@
                 android:textColor="@android:color/white" />
 
             <EditText
-                android:id="@+id/word_test_word_input1"
+                android:id="@+id/word_test_sm2_word_input1"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -95,12 +95,12 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/word_test_word2_row"
+            android:id="@+id/word_test_sm2_word2_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_word_label2"
+                android:id="@+id/word_test_sm2_word_label2"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -108,11 +108,11 @@
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_word_label"
+                android:text="@string/word_test_sm2_word_label"
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_prefix2"
+                android:id="@+id/word_test_sm2_word_prefix2"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -124,7 +124,7 @@
                 android:textColor="@android:color/white" />
 
             <EditText
-                android:id="@+id/word_test_word_input2"
+                android:id="@+id/word_test_sm2_word_input2"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -136,12 +136,12 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/word_test_word3_row"
+            android:id="@+id/word_test_sm2_word3_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_word_label3"
+                android:id="@+id/word_test_sm2_word_label3"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -149,11 +149,11 @@
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_word_label"
+                android:text="@string/word_test_sm2_word_label"
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_prefix3"
+                android:id="@+id/word_test_sm2_word_prefix3"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -165,7 +165,7 @@
                 android:textColor="@android:color/white" />
 
             <EditText
-                android:id="@+id/word_test_word_input3"
+                android:id="@+id/word_test_sm2_word_input3"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -177,12 +177,12 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/word_test_word4_row"
+            android:id="@+id/word_test_sm2_word4_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_word_label4"
+                android:id="@+id/word_test_sm2_word_label4"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -190,11 +190,11 @@
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_word_label"
+                android:text="@string/word_test_sm2_word_label"
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_prefix4"
+                android:id="@+id/word_test_sm2_word_prefix4"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -206,7 +206,7 @@
                 android:textColor="@android:color/white" />
 
             <EditText
-                android:id="@+id/word_test_word_input4"
+                android:id="@+id/word_test_sm2_word_input4"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -218,12 +218,12 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/word_test_word5_row"
+            android:id="@+id/word_test_sm2_word5_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_word_label5"
+                android:id="@+id/word_test_sm2_word_label5"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -231,11 +231,11 @@
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_word_label"
+                android:text="@string/word_test_sm2_word_label"
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_prefix5"
+                android:id="@+id/word_test_sm2_word_prefix5"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -247,7 +247,7 @@
                 android:textColor="@android:color/white" />
 
             <EditText
-                android:id="@+id/word_test_word_input5"
+                android:id="@+id/word_test_sm2_word_input5"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -259,12 +259,12 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/word_test_word6_row"
+            android:id="@+id/word_test_sm2_word6_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_word_label6"
+                android:id="@+id/word_test_sm2_word_label6"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -272,11 +272,11 @@
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_word_label"
+                android:text="@string/word_test_sm2_word_label"
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/word_test_word_prefix6"
+                android:id="@+id/word_test_sm2_word_prefix6"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -288,7 +288,7 @@
                 android:textColor="@android:color/white" />
 
             <EditText
-                android:id="@+id/word_test_word_input6"
+                android:id="@+id/word_test_sm2_word_input6"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
@@ -300,12 +300,12 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/word_test_translate_row"
+            android:id="@+id/word_test_sm2_translate_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_translate_label"
+                android:id="@+id/word_test_sm2_translate_label"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -313,11 +313,11 @@
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_translate_label"
+                android:text="@string/word_test_sm2_translate_label"
                 android:focusable="false" />
 
             <EditText
-                android:id="@+id/word_test_translate_input"
+                android:id="@+id/word_test_sm2_translate_input"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
@@ -329,12 +329,12 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/word_test_additional_info_row"
+            android:id="@+id/word_test_sm2_additional_info_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_additional_info_label"
+                android:id="@+id/word_test_sm2_additional_info_label"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
@@ -342,11 +342,11 @@
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_additional_info_label"
+                android:text="@string/word_test_sm2_additional_info_label"
                 android:focusable="false" />
 
             <EditText
-                android:id="@+id/word_test_additional_info_input"
+                android:id="@+id/word_test_sm2_additional_info_input"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
@@ -358,41 +358,41 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/word_test_state_info_row"
+            android:id="@+id/word_test_sm2_state_info_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/word_test_state_info_label"
+                android:id="@+id/word_test_sm2_state_info_label"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:background="@color/title_background"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_state_label"
+                android:text="@string/word_test_sm2_remaining_label"
                 android:focusable="false" />
 
             <TextView
-                android:id="@+id/word_test_state_info"
+                android:id="@+id/word_test_sm2_state_info"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_gravity="left"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="6"
                 android:singleLine="false"
-                android:text="@string/word_test_state"
+                android:text="@string/word_test_sm2_state"
                 android:focusable="false" />
         </TableRow>
 
         <Button
-            android:id="@+id/word_test_next_button"
+            android:id="@+id/word_test_sm2_next_button"
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginTop="5dp"
-            android:text="@string/word_test_next_button" />
+            android:text="@string/word_test_sm2_next_button" />
     </TableLayout>
 
 </ScrollView>

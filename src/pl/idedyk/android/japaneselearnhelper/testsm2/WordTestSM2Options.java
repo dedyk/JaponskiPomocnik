@@ -34,6 +34,8 @@ public class WordTestSM2Options extends Activity {
 		
 		menu.add(Menu.NONE, 342342343, Menu.NONE, "Reset"); // FIXME !!!!!!!!!!!!!!!
 		
+		int fixme = 1;
+		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
 		return true;
@@ -44,6 +46,8 @@ public class WordTestSM2Options extends Activity {
 		super.onOptionsItemSelected(item);
 		
 		if (item.getItemId() == 342342343) { // FIXME !!!!! 
+			
+			int fixme = 1;
 			
 			final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 			

@@ -9,10 +9,17 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class WordTestSM2 extends Activity {
 
@@ -45,17 +52,65 @@ public class WordTestSM2 extends Activity {
 	}
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onBackPressed() {
+		
+		DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+			
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		        switch (which){
+		        case DialogInterface.BUTTON_POSITIVE:
+		        	
+		        	finish();
+		        	
+		            break;
 
+		        case DialogInterface.BUTTON_NEGATIVE:
+		        	
+		        	// noop
+		        	
+		            break;
+		        }
+		    }
+		};
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		
+		builder.setMessage(getString(R.string.word_test_sm2_quit_question)).setPositiveButton(getString(R.string.word_test_sm2_quit_question_yes), dialogClickListener)
+		    .setNegativeButton(getString(R.string.word_test_sm2_quit_question_no), dialogClickListener).show();
+	}
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+        
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.word_test_sm2);
 		
+		fillScreen();
+		
+		Button nextButton = (Button)findViewById(R.id.word_test_sm2_next_button);
+		
+		nextButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View view) {
+				//checkUserAnswer();
+				
+				int fixme = 1;
+			}
+		});
+
+		
 		// testy !!!!!!
 		
-		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+		// final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 		
-		final WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();		
+		// final WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();		
 		
 		//wordTestSM2Manager.getCurrentDateStat();
 		
@@ -95,7 +150,7 @@ public class WordTestSM2 extends Activity {
 		}
 		*/
 		
-		
+		/*
 		for (int idx = 0; idx < 20; ++idx) {
 			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + wordTestSM2Manager.getNextWordSize(20));
 			
@@ -113,6 +168,11 @@ public class WordTestSM2 extends Activity {
 			
 			wordTestSM2Manager.updateWordStat(nextWordStat);
 		}
+		*/		
+	}
+
+	private void fillScreen() {
+		
 		
 	}
 }
