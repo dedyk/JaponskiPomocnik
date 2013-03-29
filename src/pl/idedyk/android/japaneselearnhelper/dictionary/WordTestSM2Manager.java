@@ -459,6 +459,12 @@ public class WordTestSM2Manager {
 		}
 	}
 	
+	public void reverseWordStatNextRepetionsOneDay() {
+		sqliteDatabase.execSQL(SQLiteStatic.reverseWordStatNextRepetionsOneDaySql);
+		
+		sqliteDatabase.execSQL(SQLiteStatic.resetDayStatSql);
+	}
+	
 	private static class SQLiteStatic {
 				
 		public static final String wordStatTableName = "WordStat";
@@ -589,5 +595,12 @@ public class WordTestSM2Manager {
 				" where " + wordStatTable_nextRepetitions + " IS NOT NULL and " +
 				wordStatTable_nextRepetitions + " < date('now', '+1 day') order by " + wordStatTable_nextRepetitions + " , " +
 				wordStatTable_power + " , " + wordStatTable_id + " ";
+		
+		public static final String reverseWordStatNextRepetionsOneDaySql =
+				"update " + wordStatTableName + " set " + wordStatTable_nextRepetitions + " = datetime( " + 
+				wordStatTable_nextRepetitions + ", '-1 day') where " + wordStatTable_nextRepetitions + " IS NOT NULL;";
+		
+		public static final String resetDayStatSql = 
+				"update " + dayStatTableName + " set " + dayStatTable_newWords + " = 0 where " + dayStatTable_dateStat + " = date('now');";
 	}
 }

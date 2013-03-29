@@ -20,6 +20,8 @@ public class WordTestSM2 extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		
+		menu.add(Menu.NONE, R.id.report_problem_menu_item, Menu.NONE, R.string.report_problem);
+		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
 		return true;
@@ -29,7 +31,17 @@ public class WordTestSM2 extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
 		
-		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		// report problem
+		if (item.getItemId() == R.id.report_problem_menu_item) {
+
+			// FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			
+			
+			return false;
+			
+		} else {
+			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		}
 	}
 	
 	@Override
@@ -41,9 +53,9 @@ public class WordTestSM2 extends Activity {
 		
 		// testy !!!!!!
 		
-		DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 		
-		WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
+		final WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();		
 		
 		//wordTestSM2Manager.getCurrentDateStat();
 		
@@ -83,6 +95,7 @@ public class WordTestSM2 extends Activity {
 		}
 		*/
 		
+		
 		for (int idx = 0; idx < 20; ++idx) {
 			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + wordTestSM2Manager.getNextWordSize(20));
 			
@@ -100,5 +113,6 @@ public class WordTestSM2 extends Activity {
 			
 			wordTestSM2Manager.updateWordStat(nextWordStat);
 		}
+		
 	}
 }

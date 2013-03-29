@@ -32,6 +32,8 @@ public class WordTestSM2Options extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		
+		menu.add(Menu.NONE, 342342343, Menu.NONE, "Reset"); // FIXME !!!!!!!!!!!!!!!
+		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
 		return true;
@@ -41,7 +43,19 @@ public class WordTestSM2Options extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
 		
-		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		if (item.getItemId() == 342342343) { // FIXME !!!!! 
+			
+			final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+			
+			final WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
+		
+			wordTestSM2Manager.reverseWordStatNextRepetionsOneDay();
+			
+			return true;
+		
+		} else {
+			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		}
 	}
 	
 	@Override
