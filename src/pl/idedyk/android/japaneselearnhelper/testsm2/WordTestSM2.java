@@ -196,8 +196,6 @@ public class WordTestSM2 extends Activity {
 		
 		WordTestSM2Mode wordTestSM2Mode = wordTestSM2Config.getWordTestSM2Mode();
 		
-		showFullAnswer();
-		
 		if (wordTestSM2Mode == WordTestSM2Mode.INPUT) {
 			
 			// check user answer
@@ -212,6 +210,8 @@ public class WordTestSM2 extends Activity {
 				
 				toast.show();
 				
+				showFullAnswer();
+				
 				int fixme = 1;
 				// FIXME: wybor odpowiedzi dla sm2
 				
@@ -223,13 +223,15 @@ public class WordTestSM2 extends Activity {
 				
 				toast.show();
 				
+				showFullAnswer();
+				
 				int fixme = 1;
 				// FIXME: wybor odpowiedzi dla sm2
 			}
 			
 		} else if (wordTestSM2Mode == WordTestSM2Mode.CHOOSE) {
 			
-			// noop
+			showFullAnswer();
 			
 			int fixme = 1;
 			// FIXME: wybor odpowiedzi dla sm2
@@ -273,6 +275,10 @@ public class WordTestSM2 extends Activity {
 				currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
 				currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
 				currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
+				
+				currentTextViewAndEditText.editText.setFocusable(false);
+				currentTextViewAndEditText.editText.setText(currentKana);
+				currentTextViewAndEditText.editText.setEnabled(false);
 			}
 		}
 		
