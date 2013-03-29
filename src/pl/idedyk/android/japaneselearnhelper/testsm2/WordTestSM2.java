@@ -39,6 +39,8 @@ public class WordTestSM2 extends Activity {
 	private WordTestSM2WordStat currentNextWordStat = null;
 	private DictionaryEntry currentWordDictionaryEntry = null;
 	
+	private boolean inputWasCorrectAnswer = false;
+	
 	private TextViewAndEditText[] textViewAndEditTextForWordAsArray;	
 
 	@Override
@@ -212,6 +214,8 @@ public class WordTestSM2 extends Activity {
 				
 				showFullAnswer();
 				
+				inputWasCorrectAnswer = true;
+				
 				int fixme = 1;
 				// FIXME: wybor odpowiedzi dla sm2
 				
@@ -224,6 +228,8 @@ public class WordTestSM2 extends Activity {
 				toast.show();
 				
 				showFullAnswer();
+				
+				inputWasCorrectAnswer = false;
 				
 				int fixme = 1;
 				// FIXME: wybor odpowiedzi dla sm2
