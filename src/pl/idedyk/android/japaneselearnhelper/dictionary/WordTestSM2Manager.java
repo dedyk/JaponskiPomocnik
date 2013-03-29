@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DateStat;
@@ -279,13 +280,103 @@ public class WordTestSM2Manager {
 		return datetimeFormat.format(date);
 	}
 	
-	public WordTestSM2WordStat getNextNewWordStat(int maxNewWordsLimit) {
+	public WordTestSM2WordStat getNextWordStat(int maxNewWordsLimit) {
+		
+		Random random = new Random();
+		
+		boolean canGetNextWordStat = canGetNextWordStat(maxNewWordsLimit);
+		
+		WordTestSM2WordStat wordStat = null;
+		
+		if (canGetNextWordStat == true) {
+			
+			boolean getNew = random.nextBoolean();
+			
+			if (getNew == true) {
+				wordStat = getNextNewWordStat(maxNewWordsLimit);
+				
+			} else {
+				wordStat = getNextRepeatWordStat();
+				
+				if (wordStat == null) {
+					wordStat = getNextNewWordStat(maxNewWordsLimit);
+				}
+			}			
+			
+		} else {			
+			wordStat = getNextRepeatWordStat();
+		}
+		
+		return wordStat;
+	}
+	
+	public int getNextWordSize(int maxNewWordsLimit) {		
+		return countNextNewWordSize(maxNewWordsLimit) + countNextRepeatWordSize();
+	}
+	
+	private int countNextNewWordSize(int maxNewWordsLimit) {
+		
+		boolean canGetNextWordStat = canGetNextWordStat(maxNewWordsLimit);
+		
+		if (canGetNextWordStat == false) {
+			return 0;
+		}
+		
+		WordTestSM2DateStat currentDateStat = getCurrentDateStat();
+		
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.countNextNewWordStatSql, new String[] { });
+			
+			cursor.moveToFirst();
+			
+			int resultFromCount = cursor.getInt(0);
+			
+			if (resultFromCount > (maxNewWordsLimit - currentDateStat.getNewWords())) {
+				return maxNewWordsLimit - currentDateStat.getNewWords();
+				
+			} else {
+				return resultFromCount;
+			}			
+			
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+	}
+	
+	private int countNextRepeatWordSize() {
+		
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.rawQuery(SQLiteStatic.countNextRepeatWordStatSql, new String[] { });
+			
+			cursor.moveToFirst();
+			
+			return cursor.getInt(0);			
+			
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+	}
+	
+	private boolean canGetNextWordStat(int maxNewWordsLimit) {
 		
 		WordTestSM2DateStat currentDateStat = getCurrentDateStat();
 		
 		if (currentDateStat.getNewWords() >= maxNewWordsLimit) {
-			return null;
+			return false;
 		}
+		
+		return true;
+	}
+	
+	private WordTestSM2WordStat getNextNewWordStat(int maxNewWordsLimit) {
 		
 		Cursor cursor = null;
 		
@@ -307,7 +398,7 @@ public class WordTestSM2Manager {
 		}
 	}
 
-	public WordTestSM2WordStat getNextRepeatWordStat() {
+	private WordTestSM2WordStat getNextRepeatWordStat() {
 				
 		Cursor cursor = null;
 		
@@ -480,6 +571,10 @@ public class WordTestSM2Manager {
 				" where " + wordStatTable_nextRepetitions + " IS NULL order by " + wordStatTable_power + " , " + wordStatTable_id + " " +				
 				" limit 1";
 		
+		public static final String countNextNewWordStatSql =
+				"select count(*) from " + wordStatTableName + " " +
+				" where " + wordStatTable_nextRepetitions + " IS NULL order by " + wordStatTable_power + " , " + wordStatTable_id + " ";
+		
 		public static final String selectNextRepeatWordStatSql =
 				"select " + wordStatTable_id + ", " + wordStatTable_power + " , " + wordStatTable_easinessFactor  + " , " + 
 				" " + wordStatTable_repetitions + " , " + wordStatTable_interval + " , " + 
@@ -488,5 +583,11 @@ public class WordTestSM2Manager {
 				" where " + wordStatTable_nextRepetitions + " IS NOT NULL and " +
 				wordStatTable_nextRepetitions + " < date('now', '+1 day') order by " + wordStatTable_nextRepetitions + " , " +
 				wordStatTable_power + " , " + wordStatTable_id + " limit 1 ";
+		
+		public static final String countNextRepeatWordStatSql = 
+				"select count(*) from " + wordStatTableName + " " +
+				" where " + wordStatTable_nextRepetitions + " IS NOT NULL and " +
+				wordStatTable_nextRepetitions + " < date('now', '+1 day') order by " + wordStatTable_nextRepetitions + " , " +
+				wordStatTable_power + " , " + wordStatTable_id + " ";
 	}
 }

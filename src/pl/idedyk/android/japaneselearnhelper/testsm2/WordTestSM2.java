@@ -1,5 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.testsm2;
 
+import java.util.Random;
+
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
@@ -45,6 +47,7 @@ public class WordTestSM2 extends Activity {
 		
 		//wordTestSM2Manager.getCurrentDateStat();
 		
+		/*
 		for (int idx = 0; idx < 10; ++idx) {
 
 			WordTestSM2WordStat nextNewWordStat = wordTestSM2Manager.getNextNewWordStat(20);
@@ -70,7 +73,32 @@ public class WordTestSM2 extends Activity {
 				wordTestSM2Manager.updateWordStat(nextRepeatWordStat);
 			}
 		}
+		*/
 		
-
+		/*
+		for (int idx = 0; idx < 30; ++idx) {
+			WordTestSM2WordStat nextRepeatWordStat = wordTestSM2Manager.getNextWordStat(20);
+			
+			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + nextRepeatWordStat);
+		}
+		*/
+		
+		for (int idx = 0; idx < 20; ++idx) {
+			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + wordTestSM2Manager.getNextWordSize(20));
+			
+			WordTestSM2WordStat nextWordStat = wordTestSM2Manager.getNextWordStat(20);
+			
+			if (nextWordStat == null) {
+				break;
+			}
+			
+			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + nextWordStat);
+			
+			Random random = new Random();
+			
+			nextWordStat.processRecallResult(random.nextInt(6));
+			
+			wordTestSM2Manager.updateWordStat(nextWordStat);
+		}
 	}
 }
