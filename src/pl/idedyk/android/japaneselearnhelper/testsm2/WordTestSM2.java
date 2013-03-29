@@ -28,6 +28,7 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -342,6 +343,18 @@ public class WordTestSM2 extends Activity {
 		
 		TextView titleTextView = (TextView)findViewById(R.id.word_test_sm2_title);
 		
+		Button nextButton = (Button)findViewById(R.id.word_test_sm2_next_button);
+		
+		TableRow sm2SpacerTableRow = (TableRow)findViewById(R.id.word_test_sm2_spacer);
+		TableRow sm2IncorrectButtonsTableRow = (TableRow)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons);
+		TableRow sm2CorrectButtonsTableRow = (TableRow)findViewById(R.id.word_test_sm2_correct_sm2_buttons);
+		
+		nextButton.setVisibility(View.VISIBLE);
+		
+		sm2SpacerTableRow.setVisibility(View.GONE);
+		sm2IncorrectButtonsTableRow.setVisibility(View.GONE);
+		sm2CorrectButtonsTableRow.setVisibility(View.GONE);		
+		
 		if (wordTestSM2Config.getWordTestSM2Mode() == WordTestSM2Mode.INPUT) {
 			
 			titleTextView.setText(getResources().getString(R.string.word_test_sm2_view_input_label));
@@ -520,11 +533,48 @@ public class WordTestSM2 extends Activity {
 	
 	private void showSM2Buttons() {
 		
-		int fixme = 1;
+		Button nextButton = (Button)findViewById(R.id.word_test_sm2_next_button);
 		
+		TableRow sm2SpacerTableRow = (TableRow)findViewById(R.id.word_test_sm2_spacer);
+		TableRow sm2IncorrectButtonsTableRow = (TableRow)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons);
+		TableRow sm2CorrectButtonsTableRow = (TableRow)findViewById(R.id.word_test_sm2_correct_sm2_buttons);
 		
+		TextView titleTextView = (TextView)findViewById(R.id.word_test_sm2_title);
 		
+		nextButton.setVisibility(View.GONE);
+		sm2SpacerTableRow.setVisibility(View.VISIBLE);
+				
+		final WordTestSM2Config wordTestSM2Config = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTestSM2.this).getWordTestSM2Config();
 		
+		WordTestSM2Mode wordTestSM2Mode = wordTestSM2Config.getWordTestSM2Mode();
+		
+		if (wordTestSM2Mode == WordTestSM2Mode.INPUT) {
+			
+			if (inputWasCorrectAnswer == false) {
+				
+				titleTextView.setText(getString(R.string.word_test_sm2_view_input_incorrect_label));
+				
+				sm2IncorrectButtonsTableRow.setVisibility(View.VISIBLE);
+				sm2CorrectButtonsTableRow.setVisibility(View.GONE);
+				
+			} else {
+				
+				titleTextView.setText(getString(R.string.word_test_sm2_view_input_correct_label));
+				
+				sm2IncorrectButtonsTableRow.setVisibility(View.GONE);
+				sm2CorrectButtonsTableRow.setVisibility(View.VISIBLE);
+			}
+			
+		} else if (wordTestSM2Mode == WordTestSM2Mode.CHOOSE) {
+
+			titleTextView.setText(getString(R.string.word_test_sm2_view_choose_think_result_label));
+			
+			sm2IncorrectButtonsTableRow.setVisibility(View.VISIBLE);
+			sm2CorrectButtonsTableRow.setVisibility(View.VISIBLE);
+			
+		} else {
+			throw new RuntimeException("Unknown wordTestSM2Mode: " + wordTestSM2Config.getWordTestSM2Mode());
+		}		
 	}
 	
 	private void createTextViewAndEditTextForWordAsArray(final int lastAnswerIdx) {

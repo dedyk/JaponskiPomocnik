@@ -45,6 +45,11 @@
     <string name="word_test_sm2_view_input_label">Proszę wpisać słowo w puste miejsce</string>
     <string name="word_test_sm2_view_choose_think_label">Pomyśl, czy znasz słowo</string>
     
+    <string name="word_test_sm2_view_input_incorrect_label">Jak oceniasz swoją niepoprawną odpowiedź</string>
+    <string name="word_test_sm2_view_input_correct_label">Jak oceniasz swoją poprawną odpowiedź</string>
+    
+    <string name="word_test_sm2_view_choose_think_result_label">Jak oceniasz swoją odpowiedź</string>
+    
     <string name="word_test_sm2_correct">Prawidłowa odpowiedź</string>
     <string name="word_test_sm2_incorrect">Niepoprawna odpowiedź</string>
     
