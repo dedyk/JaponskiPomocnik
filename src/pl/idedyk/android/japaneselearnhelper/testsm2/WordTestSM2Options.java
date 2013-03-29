@@ -114,9 +114,6 @@ public class WordTestSM2Options extends Activity {
 			showKanaCheckBox.setEnabled(true);
 			showKanaCheckBox.setChecked(true);
 			
-			showTranslateCheckBox.setEnabled(false);
-			showTranslateCheckBox.setChecked(false);
-			
 		} else {
 			throw new RuntimeException("WordTestSM2Mode wordTestSM2Mode: " + wordTestSM2Mode);
 		}	
@@ -128,8 +125,6 @@ public class WordTestSM2Options extends Activity {
 			public void onClick(View v) {
 				showKanaCheckBox.setEnabled(false);
 				showKanaCheckBox.setChecked(false);
-				
-				showTranslateCheckBox.setEnabled(true);
 			}
 		});
 
@@ -137,9 +132,6 @@ public class WordTestSM2Options extends Activity {
 			
 			public void onClick(View v) {
 				showKanaCheckBox.setEnabled(true);
-				
-				showTranslateCheckBox.setEnabled(false);
-				showTranslateCheckBox.setChecked(false);
 			}
 		});
 		
@@ -226,9 +218,18 @@ public class WordTestSM2Options extends Activity {
 					return;
 				}
 
-				if (chosenWordTestSM2Mode == WordTestSM2Mode.CHOOSE && showKanji == false && showKana == false) {
+				if (chosenWordTestSM2Mode == WordTestSM2Mode.CHOOSE && showKanji == false && showKana == false && showTranslate == false) {
 					
-					Toast toast = Toast.makeText(WordTestSM2Options.this, getString(R.string.word_test_sm2_options_no_kanji_kana), Toast.LENGTH_SHORT);
+					Toast toast = Toast.makeText(WordTestSM2Options.this, getString(R.string.word_test_sm2_options_no_kanji_kana_translate), Toast.LENGTH_SHORT);
+
+					toast.show();
+					
+					return;
+				}
+				
+				if (chosenWordTestSM2Mode == WordTestSM2Mode.CHOOSE && showKanji == true && showKana == true && showTranslate == true) {
+					
+					Toast toast = Toast.makeText(WordTestSM2Options.this, getString(R.string.word_test_sm2_options_all_kanji_kana_translate), Toast.LENGTH_SHORT);
 
 					toast.show();
 					
