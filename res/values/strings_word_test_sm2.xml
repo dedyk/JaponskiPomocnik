@@ -40,7 +40,7 @@
     
     <string name="word_test_sm2_remaining_label">Pozostało</string>
     <string name="word_test_sm2_state">%1$d element(y/ów)</string>
-    <string name="word_test_sm2_next_button">Dalej</string>
+    <string name="word_test_sm2_next_button">Sprawdź</string>
     
     <string name="word_test_sm2_view_input_label">Proszę wpisać słowo w puste miejsce</string>
     <string name="word_test_sm2_view_choose_think_label">Pomyśl, czy znasz słowo</string>
@@ -48,5 +48,14 @@
     <string name="word_test_sm2_correct">Prawidłowa odpowiedź</string>
     <string name="word_test_sm2_incorrect">Niepoprawna odpowiedź</string>
     
+    <string name="word_test_sm2_incorrect_sm2_buttons_quality0">0 Zapomnij</string>
+    <string name="word_test_sm2_incorrect_sm2_buttons_quality1">1 Bardzo trudno</string>
+    <string name="word_test_sm2_incorrect_sm2_buttons_quality2">2 Trudno</string>
+
+    <string name="word_test_sm2_correct_sm2_buttons_quality3">3 Trudno</string>
+    <string name="word_test_sm2_correct_sm2_buttons_quality4">4 Łatwo</string>
+    <string name="word_test_sm2_correct_sm2_buttons_quality5">5 Bardzo łatwo</string>
+    
+    <string name="word_test_sm2_no_more_words">Na chwilę obecną nie ma żadnych nowych słów do przetestowania. Spróbuj ponownie jutro, bądź zwiększ limit nowych słów na dzień.</string>
     
 </resources>

@@ -216,8 +216,7 @@ public class WordTestSM2 extends Activity {
 				
 				inputWasCorrectAnswer = true;
 				
-				int fixme = 1;
-				// FIXME: wybor odpowiedzi dla sm2
+				showSM2Buttons();
 				
 			} else {		
 								
@@ -231,16 +230,14 @@ public class WordTestSM2 extends Activity {
 				
 				inputWasCorrectAnswer = false;
 				
-				int fixme = 1;
-				// FIXME: wybor odpowiedzi dla sm2
+				showSM2Buttons();
 			}
 			
 		} else if (wordTestSM2Mode == WordTestSM2Mode.CHOOSE) {
 			
 			showFullAnswer();
 			
-			int fixme = 1;
-			// FIXME: wybor odpowiedzi dla sm2
+			showSM2Buttons();
 			
 		} else {
 			throw new RuntimeException("Unknown wordTestSM2Mode: " + wordTestSM2Config.getWordTestSM2Mode());
@@ -360,13 +357,21 @@ public class WordTestSM2 extends Activity {
 		currentNextWordStat = wordTestSM2Manager.getNextWordStat(wordTestSM2Config.getMaxNewWords());
 		
 		if (currentNextWordStat == null) {
+						
+			AlertDialog alertDialog = new AlertDialog.Builder(WordTestSM2.this).create();
 			
-			int fixme = 1;
+			alertDialog.setMessage(getString(R.string.word_test_sm2_no_more_words));
 			
-			// FIXME: INFO !!!!
-			// zakonczenie
+			alertDialog.setCancelable(false);
+			alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+
+				public void onClick(DialogInterface dialog, int which) {
+					
+					finish();
+				}
+			});
 			
-			finish();
+			alertDialog.show();
 			
 		} else {
 			
@@ -511,6 +516,15 @@ public class WordTestSM2 extends Activity {
 			
 			state.setText(resources.getString(R.string.word_test_sm2_state, wordTestSM2Manager.getNextWordSize(wordTestSM2Config.getMaxNewWords())));
 		}
+	}
+	
+	private void showSM2Buttons() {
+		
+		int fixme = 1;
+		
+		
+		
+		
 	}
 	
 	private void createTextViewAndEditTextForWordAsArray(final int lastAnswerIdx) {
