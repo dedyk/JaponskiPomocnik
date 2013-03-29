@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.testsm2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -15,8 +16,10 @@ import pl.idedyk.android.japaneselearnhelper.utils.ListUtil;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +29,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class WordTestSM2 extends Activity {
 	
@@ -188,7 +192,139 @@ public class WordTestSM2 extends Activity {
 	
 	private void checkUserAnswer() {
 		
-		int fixme = 1;		
+		final WordTestSM2Config wordTestSM2Config = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTestSM2.this).getWordTestSM2Config();
+		
+		WordTestSM2Mode wordTestSM2Mode = wordTestSM2Config.getWordTestSM2Mode();
+		
+		showFullAnswer();
+		
+		if (wordTestSM2Mode == WordTestSM2Mode.INPUT) {
+			
+			// check user answer
+			int correctAnswersNo = getCorrectAnswersNo();
+			
+			List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+						
+			if (correctAnswersNo == kanaList.size()) {
+				Toast toast = Toast.makeText(WordTestSM2.this, getString(R.string.word_test_sm2_correct), Toast.LENGTH_SHORT);
+				
+				toast.setGravity(Gravity.TOP, 0, 110);
+				
+				toast.show();
+				
+				int fixme = 1;
+				// FIXME: wybor odpowiedzi dla sm2
+				
+			} else {		
+								
+				Toast toast = Toast.makeText(WordTestSM2.this, getString(R.string.word_test_sm2_incorrect), Toast.LENGTH_SHORT);
+				
+				toast.setGravity(Gravity.TOP, 0, 110);
+				
+				toast.show();
+				
+				int fixme = 1;
+				// FIXME: wybor odpowiedzi dla sm2
+			}
+			
+		} else if (wordTestSM2Mode == WordTestSM2Mode.CHOOSE) {
+			
+			// noop
+			
+			int fixme = 1;
+			// FIXME: wybor odpowiedzi dla sm2
+			
+		} else {
+			throw new RuntimeException("Unknown wordTestSM2Mode: " + wordTestSM2Config.getWordTestSM2Mode());
+		}	
+	}
+	
+	private void showFullAnswer() {
+		
+		// show kanji
+		String kanji = currentWordDictionaryEntry.getKanji();
+							
+		if (kanji != null) {	
+			
+			TextView kanjiLabel = (TextView)findViewById(R.id.word_test_sm2_kanji_label);
+			EditText kanjiPrefix = (EditText)findViewById(R.id.word_test_sm2_kanji_prefix);
+			EditText kanjiInput = (EditText)findViewById(R.id.word_test_sm2_kanji_input);
+			
+			kanjiLabel.setVisibility(View.VISIBLE);
+			kanjiPrefix.setVisibility(View.VISIBLE);
+			kanjiInput.setVisibility(View.VISIBLE);
+		}
+		
+		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+		
+		// show kana
+		for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
+			
+			TextViewAndEditText currentTextViewAndEditText = textViewAndEditTextForWordAsArray[kanaListIdx];
+			
+			String currentKana = null;
+			
+			if (kanaListIdx < kanaList.size()) {
+				currentKana = kanaList.get(kanaListIdx);
+			}
+			
+			if (currentKana != null) {
+									
+				currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
+				currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
+				currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
+			}
+		}
+		
+		// show translate
+		TextView translateLabel = (TextView)findViewById(R.id.word_test_sm2_translate_label);
+		EditText translateInput = (EditText)findViewById(R.id.word_test_sm2_translate_input); 
+
+		translateLabel.setVisibility(View.VISIBLE);
+		translateInput.setVisibility(View.VISIBLE);
+		
+		// show additional info
+		TextView additionalInfoLabel = (TextView)findViewById(R.id.word_test_sm2_additional_info_label);
+		EditText additionalInfoInput = (EditText)findViewById(R.id.word_test_sm2_additional_info_input);
+		
+		String additionalInfo = currentWordDictionaryEntry.getFullInfo();
+		
+		if (additionalInfo != null) {
+			additionalInfoInput.setText(additionalInfo);
+			additionalInfoInput.setEnabled(false);
+			
+			additionalInfoLabel.setVisibility(View.VISIBLE);
+			additionalInfoInput.setVisibility(View.VISIBLE);
+		} else {
+			additionalInfoInput.setText("");
+			additionalInfoInput.setEnabled(false);
+			
+			additionalInfoLabel.setVisibility(View.GONE);
+			additionalInfoInput.setVisibility(View.GONE);			
+		}
+	}
+	
+	private int getCorrectAnswersNo() {
+				
+		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+		
+		List<String> kanaListToRemove = new ArrayList<String>(kanaList);
+				
+		for (int kanaListIdx = 0; kanaListIdx < kanaList.size(); ++kanaListIdx) {
+			
+			String currentUserAnswer = textViewAndEditTextForWordAsArray[kanaListIdx].editText.getText().toString();
+			
+			kanaListToRemove.remove(currentUserAnswer);
+		}
+		
+		return kanaList.size() - kanaListToRemove.size();
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		
+		fillScreen();
 	}
 
 	private void fillScreen() {
@@ -216,6 +352,7 @@ public class WordTestSM2 extends Activity {
 			int fixme = 1;
 			
 			// FIXME: INFO !!!!
+			// zakonczenie
 			
 			finish();
 			

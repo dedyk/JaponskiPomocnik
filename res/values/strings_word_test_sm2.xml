@@ -45,4 +45,8 @@
     <string name="word_test_sm2_view_input_label">Proszę wpisać słowo w puste miejsce</string>
     <string name="word_test_sm2_view_choose_think_label">Pomyśl, czy znasz słowo</string>
     
+    <string name="word_test_sm2_correct">Prawidłowa odpowiedź</string>
+    <string name="word_test_sm2_incorrect">Niepoprawna odpowiedź</string>
+    
+    
 </resources>
