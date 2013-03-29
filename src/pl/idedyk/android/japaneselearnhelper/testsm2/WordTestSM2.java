@@ -574,7 +574,67 @@ public class WordTestSM2 extends Activity {
 			
 		} else {
 			throw new RuntimeException("Unknown wordTestSM2Mode: " + wordTestSM2Config.getWordTestSM2Mode());
-		}		
+		}
+		
+		// actions
+		Button incorrectSM2ButtonQuality0 = (Button)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons_quality0);
+		Button incorrectSM2ButtonQuality1 = (Button)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons_quality1);
+		Button incorrectSM2ButtonQuality2 = (Button)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons_quality2);
+
+		Button correctSM2ButtonQuality3 = (Button)findViewById(R.id.word_test_sm2_correct_sm2_buttons_quality3);
+		Button correctSM2ButtonQuality4 = (Button)findViewById(R.id.word_test_sm2_correct_sm2_buttons_quality4);
+		Button correctSM2ButtonQuality5 = (Button)findViewById(R.id.word_test_sm2_correct_sm2_buttons_quality5);
+
+		incorrectSM2ButtonQuality0.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				processSM2RecallResult(0);	
+			}
+		});
+
+		incorrectSM2ButtonQuality1.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				processSM2RecallResult(1);	
+			}
+		});
+
+		incorrectSM2ButtonQuality2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				processSM2RecallResult(2);	
+			}
+		});
+
+		correctSM2ButtonQuality3.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				processSM2RecallResult(3);	
+			}
+		});
+
+		correctSM2ButtonQuality4.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				processSM2RecallResult(4);	
+			}
+		});
+
+		correctSM2ButtonQuality5.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				processSM2RecallResult(5);	
+			}
+		});		
+	}
+	
+	private void processSM2RecallResult(int quality) {
+		
+		currentNextWordStat.processRecallResult(quality);
+		
+		wordTestSM2Manager.updateWordStat(currentNextWordStat);
+
+		fillScreen();
 	}
 	
 	private void createTextViewAndEditTextForWordAsArray(final int lastAnswerIdx) {
