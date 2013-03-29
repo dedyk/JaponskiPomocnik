@@ -110,10 +110,7 @@ public class WordTestSM2Options extends Activity {
 			
 		} else if (wordTestSM2Mode == WordTestSM2Mode.CHOOSE) {
 			testModeChooseRadioButton.setChecked(true);
-			
-			showKanaCheckBox.setEnabled(true);
-			showKanaCheckBox.setChecked(true);
-			
+						
 		} else {
 			throw new RuntimeException("WordTestSM2Mode wordTestSM2Mode: " + wordTestSM2Mode);
 		}	
