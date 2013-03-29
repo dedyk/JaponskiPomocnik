@@ -280,7 +280,6 @@ public class WordTestSM2 extends Activity {
 				currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
 				currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
 				
-				currentTextViewAndEditText.editText.setFocusable(false);
 				currentTextViewAndEditText.editText.setText(currentKana);
 				currentTextViewAndEditText.editText.setEnabled(false);
 			}
