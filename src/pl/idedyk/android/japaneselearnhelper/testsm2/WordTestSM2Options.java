@@ -36,7 +36,7 @@ public class WordTestSM2Options extends Activity {
 		super.onCreateOptionsMenu(menu);
 		
 		// tylko do testow
-		menu.add(Menu.NONE, R.id.word_test_sm2_options_reset, Menu.NONE, getString(R.string.word_test_sm2_options_reset));
+		// menu.add(Menu.NONE, R.id.word_test_sm2_options_reset, Menu.NONE, getString(R.string.word_test_sm2_options_reset));
 		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
