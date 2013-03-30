@@ -126,71 +126,6 @@ public class WordTestSM2 extends Activity {
 				checkUserAnswer();
 			}
 		});
-
-		
-		// testy !!!!!!
-		
-		// final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
-		
-		// final WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();		
-		
-		//wordTestSM2Manager.getCurrentDateStat();
-		
-		/*
-		for (int idx = 0; idx < 10; ++idx) {
-
-			WordTestSM2WordStat nextNewWordStat = wordTestSM2Manager.getNextNewWordStat(20);
-			
-			Log.d("AAAAAAAA:", "BBBB: " + nextNewWordStat);
-			
-			if (nextNewWordStat != null) {			
-				nextNewWordStat.processRecallResult(2);
-			
-				wordTestSM2Manager.updateWordStat(nextNewWordStat);
-			}
-		}
-
-		for (int idx = 0; idx < 10; ++idx) {
-
-			WordTestSM2WordStat nextRepeatWordStat = wordTestSM2Manager.getNextRepeatWordStat();
-			
-			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + nextRepeatWordStat);
-			
-			if (nextRepeatWordStat != null) {			
-				nextRepeatWordStat.processRecallResult(3);
-			
-				wordTestSM2Manager.updateWordStat(nextRepeatWordStat);
-			}
-		}
-		*/
-		
-		/*
-		for (int idx = 0; idx < 30; ++idx) {
-			WordTestSM2WordStat nextRepeatWordStat = wordTestSM2Manager.getNextWordStat(20);
-			
-			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + nextRepeatWordStat);
-		}
-		*/
-		
-		/*
-		for (int idx = 0; idx < 20; ++idx) {
-			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + wordTestSM2Manager.getNextWordSize(20));
-			
-			WordTestSM2WordStat nextWordStat = wordTestSM2Manager.getNextWordStat(20);
-			
-			if (nextWordStat == null) {
-				break;
-			}
-			
-			Log.d("ZZZZZZZ:", "ZZZZZZZ: " + nextWordStat);
-			
-			Random random = new Random();
-			
-			nextWordStat.processRecallResult(random.nextInt(6));
-			
-			wordTestSM2Manager.updateWordStat(nextWordStat);
-		}
-		*/		
 	}
 	
 	private void checkUserAnswer() {
@@ -344,13 +279,13 @@ public class WordTestSM2 extends Activity {
 		
 		Button nextButton = (Button)findViewById(R.id.word_test_sm2_next_button);
 		
-		TableRow sm2SpacerTableRow = (TableRow)findViewById(R.id.word_test_sm2_spacer);
+		TableRow sm2QualityTitleTableRow = (TableRow)findViewById(R.id.word_test_sm2_quality_title_table_row);
 		TableRow sm2IncorrectButtonsTableRow = (TableRow)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons);
 		TableRow sm2CorrectButtonsTableRow = (TableRow)findViewById(R.id.word_test_sm2_correct_sm2_buttons);
 		
 		nextButton.setVisibility(View.VISIBLE);
 		
-		sm2SpacerTableRow.setVisibility(View.GONE);
+		sm2QualityTitleTableRow.setVisibility(View.GONE);
 		sm2IncorrectButtonsTableRow.setVisibility(View.GONE);
 		sm2CorrectButtonsTableRow.setVisibility(View.GONE);		
 		
@@ -534,14 +469,14 @@ public class WordTestSM2 extends Activity {
 		
 		Button nextButton = (Button)findViewById(R.id.word_test_sm2_next_button);
 		
-		TableRow sm2SpacerTableRow = (TableRow)findViewById(R.id.word_test_sm2_spacer);
+		TableRow sm2QualityTitleTableRow = (TableRow)findViewById(R.id.word_test_sm2_quality_title_table_row);
 		TableRow sm2IncorrectButtonsTableRow = (TableRow)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons);
 		TableRow sm2CorrectButtonsTableRow = (TableRow)findViewById(R.id.word_test_sm2_correct_sm2_buttons);
 		
-		TextView titleTextView = (TextView)findViewById(R.id.word_test_sm2_title);
+		TextView qualityTitleTextView = (TextView)findViewById(R.id.word_test_sm2_quality_title);
 		
 		nextButton.setVisibility(View.GONE);
-		sm2SpacerTableRow.setVisibility(View.VISIBLE);
+		sm2QualityTitleTableRow.setVisibility(View.VISIBLE);
 				
 		final WordTestSM2Config wordTestSM2Config = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTestSM2.this).getWordTestSM2Config();
 		
@@ -551,14 +486,14 @@ public class WordTestSM2 extends Activity {
 			
 			if (inputWasCorrectAnswer == false) {
 				
-				titleTextView.setText(getString(R.string.word_test_sm2_view_input_incorrect_label));
+				qualityTitleTextView.setText(getString(R.string.word_test_sm2_view_input_incorrect_label));
 				
 				sm2IncorrectButtonsTableRow.setVisibility(View.VISIBLE);
 				sm2CorrectButtonsTableRow.setVisibility(View.GONE);
 				
 			} else {
 				
-				titleTextView.setText(getString(R.string.word_test_sm2_view_input_correct_label));
+				qualityTitleTextView.setText(getString(R.string.word_test_sm2_view_input_correct_label));
 				
 				sm2IncorrectButtonsTableRow.setVisibility(View.GONE);
 				sm2CorrectButtonsTableRow.setVisibility(View.VISIBLE);
@@ -566,7 +501,7 @@ public class WordTestSM2 extends Activity {
 			
 		} else if (wordTestSM2Mode == WordTestSM2Mode.CHOOSE) {
 
-			titleTextView.setText(getString(R.string.word_test_sm2_view_choose_think_result_label));
+			qualityTitleTextView.setText(getString(R.string.word_test_sm2_view_choose_think_result_label));
 			
 			sm2IncorrectButtonsTableRow.setVisibility(View.VISIBLE);
 			sm2CorrectButtonsTableRow.setVisibility(View.VISIBLE);

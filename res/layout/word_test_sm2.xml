@@ -395,15 +395,18 @@
             android:text="@string/word_test_sm2_next_button" />
 
         <TableRow
-            android:id="@+id/word_test_sm2_spacer"
+            android:id="@+id/word_test_sm2_quality_title_table_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="visible" >
+            android:visibility="gone" >
 
             <TextView
-                android:id="@+id/word_test_sm2_spacer_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="10dp"
+                android:id="@+id/word_test_sm2_quality_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/title_background"
                 android:text="" />
         </TableRow>
 
@@ -419,6 +422,7 @@
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
+                android:textSize="15sp"
                 android:text="@string/word_test_sm2_incorrect_sm2_buttons_quality0" />
 
             <Button
@@ -427,6 +431,7 @@
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
+                android:textSize="15sp"
                 android:text="@string/word_test_sm2_incorrect_sm2_buttons_quality1" />
 
             <Button
@@ -435,6 +440,7 @@
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
+                android:textSize="15sp"
                 android:text="@string/word_test_sm2_incorrect_sm2_buttons_quality2" />
         </TableRow>
 
@@ -450,6 +456,7 @@
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
+                android:textSize="15sp"
                 android:text="@string/word_test_sm2_correct_sm2_buttons_quality3" />
 
             <Button
@@ -458,6 +465,7 @@
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
+                android:textSize="15sp"
                 android:text="@string/word_test_sm2_correct_sm2_buttons_quality4" />
 
             <Button
@@ -466,6 +474,7 @@
                 android:layout_width="0px"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
+                android:textSize="15sp"
                 android:text="@string/word_test_sm2_correct_sm2_buttons_quality5" />
         </TableRow>
     </TableLayout>
