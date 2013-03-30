@@ -1459,7 +1459,9 @@ Genki kanji 2-20",,声,こえ,,koe,głos,,
 801,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-10,,戸,と,,to,drzwi,,
 802,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki dodatkowe 1-10,,-,びっくりする,,bikkuri suru,być zaskoczony,,
 803,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki dodatkowe 1-10
-Genki 2-13",,幸せ,しあわせ,,shiawase,szczęśliwy,,
+Genki 2-13",,幸せ,しあわせ,,shiawase,"szczęśliwy
+szczęście
+powodzenie",,
 804,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-11,,お菓子,おかし,,okashi,"słodycze
 przekąski",,
 805,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-11
@@ -1491,17 +1493,23 @@ galeria sztuki",artystyczne,
 819,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-11,,湖,みずうみ,,mizuumi,jezioro,,
 820,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-11
 Genki kanji 1-5",,山,やま,,yama,góra,,
-821,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-11,,夢,ゆめ,,yume,marzenie,,
+821,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-11,,夢,ゆめ,,yume,"marzenie
+sen
+wizja
+iluzja",,
 822,WORD,WORD_NOUN,,KATAKANA,Genki 1-11,,-,ルームメート,,ruumumeeto,współlokator,,
 823,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-11,,嘘をつく,うそをつく,,uso o tsuku,"kłamać
 oszukiwać",,
 824,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-11,,お腹がすく,おなかがすく,,onaka ga suku,być głodnym,,
 825,WORD,WORD_VERB_U,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki 1-11,,飼う,かう,,kau,hodować,zwierzaka,
+VERB_TRANSITIVITY",HIRAGANA,Genki 1-11,,飼う,かう,,kau,"hodować
+trzymać",zwierzęta,
 826,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",KATAKANA_HIRAGANA,Genki 1-11,,-,サボる,,saboru,opuszczać zajęcia,,
 827,WORD,WORD_VERB_U,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Genki 1-11,に,登る,のぼる,ni,noboru,wspinać się,na górę,
+VERB_INTRANSITIVITY",HIRAGANA,Genki 1-11,に,登る,のぼる,ni,noboru,"wspinać się
+piąć się
+podnosić się",na górę,
 828,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,"Genki 1-11
 Genki kanji 1-12",,働く,はたらく,,hataraku,pracować,,
@@ -1518,12 +1526,13 @@ przestawać",,
 834,WORD,WORD_VERB_IRREGULAR,,HIRAGANA_KATAKANA,Genki 1-11,,-,ダイエットする,,daietto suru,być na diecie,,
 835,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-11,,遅刻する,ちこくする,,chikoku suru,być spóźniony,,
 836,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 1-11,に,留学する,りゅうがくする,ni,ryuugaku suru,uczyć się za granicą,,
-837,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-11,,出身,しゅっしん,,shusshin,miejsce pochodzenia,miejsce no,
+837,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-11,,出身,しゅっしん,,shusshin,miejsce pochodzenia,miejsce no,
 838,WORD,UNKNOWN,,HIRAGANA,Genki 1-11,,-,すごく,,sugoku,bardzo,,
 839,WORD,UNKNOWN,,HIRAGANA,Genki 1-11,,-,だけ,,dake,"właśnie
 tylko",~,
 840,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-11,,点,てん,,ten,punkty,~,
-841,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-11,,久しぶり,ひさしぶり,,hisashiburi,długi okres czasu,,
+841,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 1-11,,久しぶり,ひさしぶり,,hisashiburi,"długi okres czasu
+po długim okresie czasu",,
 842,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-11,,-,まあまあ,,maamaa,tak sobie,,
 843,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-11,,-,もっと,,motto,"więcej
 bardziej
@@ -7664,3 +7673,67 @@ VERB_TRANSITIVITY",HIRAGANA,Inne,,取り替える,とりかえる,,tori kaeru,"w
 zmieniać",,
 4231,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,切り取る,きりとる,,kiritoru,wycinać,,
 4232,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,取って来る,とってくる,,totte kuru,przynosić,,
+4233,WORD,WORD_COUNTERS,COMMON_WORD,HIRAGANA,Inne,,畳,じょう,,jou,"zwijać
+przyrostek stosowany do liczenia mat",,
+4234,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,畳,たたみ,,tatami,mata,słomiana,
+4235,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,畳む,たたむ,,tatamu,"zwijać
+zamykać",,
+4236,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,幸,さち,,sachi,"szczęście
+powodzenie",,
+4237,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,幸い,さいわい,,saiwai,"szczęście
+powodzenie",,
+4238,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,不幸,ふこう,,fukou,nieszczęście,,
+4239,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,幸運,こううん,,kouun,"powodzenie
+szczęśliwa wróżba",,
+4240,WORD,WORD_NOUN,,HIRAGANA,Inne,,幸先,さいさき,,saisaki,dobry znak,,
+4241,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,幸甚,こうじん,,koujin,wielkie szczęście,,
+4242,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,将,しょう,,shou,"dowódca
+generał
+admirał",,
+4243,WORD,WORD_NOUN,,HIRAGANA,Inne,,琵琶湖,びわこ,,biwako,Jezioro Biła (Biwa),,
+4244,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,湖水,こすい,,kosui,jezioro,,
+4245,WORD,WORD_NOUN,,HIRAGANA,Inne,,湖面,こめん,,komen,powierzchnia jeziora,,
+4246,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,湖畔,こはん,,kohan,brzeg jeziora,,
+4247,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,登山,とざん,,tozan,wspinaczka górska,,
+4248,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,登録,とうろく,,touroku,"rejestracja
+zapis",,
+4249,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,登用,とうよう,,touyou,"promocja
+mianowanie",,
+4250,WORD,WORD_NOUN,,HIRAGANA,Inne,,登り坂,のぼりざか,,noborizaka,"podjazd
+wzniesienie",,
+4251,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,登場,とうじょう,,toujou,"pojawienie się
+wejście",np. na scenę,
+4252,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,刻,こく,,koku,"czas
+rzeźbienie
+grawerowanie
+cięcie",,
+4253,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,刻む,きざむ,,kizamu,"rąbać
+rzeźbić
+grawerować",,
+4254,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,刻み,きざみ,,kizami,"nacięcie
+poszatkowany tytoń",,
+4255,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,身,み,,mi,"ciało
+osoba",,
+4256,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,自身,じしん,,jishin,"osobiście
+we własnej osobie",,
+4257,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,身体,しんたい,,shintai,ciało,,
+4258,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,身体,からだ,,karada,ciało,,
+4259,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,身分証明書,みぶんしょうめいしょ,,mibun shoumeisho,dowód tożsamości,,
+4260,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,身長,しんちょう,,shinchou,wzrost,,
+4261,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,受け身的,うけみてき,,ukemiteki,pasywny,,
+4262,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,永久,えいきゅう,,eikyuu,"wieczność
+stałość",,
+4263,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,持久,じきゅう,,jikyuu,"wytrzymałość
+cierpliwość",,
+4264,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,長久,ちょうきゅう,,choukyuu,"ciągłość
+wieczność",,
+4265,WORD,WORD_NOUN,,HIRAGANA,Inne,,久遠,くおん,,kuon,wieczność,,
+4266,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,警める,いましめる,,imashimeru,"ostrzegać
+zwracać uwagę",,
