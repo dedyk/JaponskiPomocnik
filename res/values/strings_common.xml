@@ -30,7 +30,7 @@
     <string name="main_menu_word_test_text">Test ze słówek</string>
     <string name="main_menu_word_test_kanji">言葉</string>
     
-    <string name="main_menu_word_test_sm2_text">Test ze słówek metodą SM2 (beta)</string>
+    <string name="main_menu_word_test_sm2_text">Nauka słówek metodą SuperMemo 2 (beta)</string>
     <string name="main_menu_word_test_sm2_kanji">言葉</string>
     
     <string name="main_menu_kanji_test_text">Test ze znaków kanji</string>

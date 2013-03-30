@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="word_test_sm2_options_view_label">Opcje testu SM2</string>
+    <string name="word_test_sm2_options_view_label">Opcje nauki</string>
     
     <string name="word_test_sm2_options_max_new_words">Maksymalna liczba nowy słów na dzień</string>
 
