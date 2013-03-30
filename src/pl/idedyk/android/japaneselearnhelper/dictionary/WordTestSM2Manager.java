@@ -8,7 +8,7 @@ import java.util.Locale;
 import java.util.Random;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DateStat;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DayStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 
@@ -186,26 +186,26 @@ public class WordTestSM2Manager {
 		sqliteDatabase.execSQL(SQLiteStatic.insertOrReplaceConfigSql, new Object[] { name, value });
 	}
 	
-	public WordTestSM2DateStat getCurrentDateStat() {
+	public WordTestSM2DayStat getCurrentDayStat() {
 		
-		WordTestSM2DateStat currentDateStat = getCurrentDateStatPriv();
+		WordTestSM2DayStat currentDayStat = getCurrentDayStatPriv();
 		
-		if (currentDateStat != null) {
-			return currentDateStat;			
+		if (currentDayStat != null) {
+			return currentDayStat;			
 		}
 		
 		sqliteDatabase.execSQL(SQLiteStatic.insertNewCurrentDateStatSql);
 		
-		currentDateStat = getCurrentDateStatPriv();
+		currentDayStat = getCurrentDayStatPriv();
 		
-		if (currentDateStat == null) {
-			throw new RuntimeException("Empty: " + currentDateStat);
+		if (currentDayStat == null) {
+			throw new RuntimeException("Empty: " + currentDayStat);
 		}
 		
-		return currentDateStat;
+		return currentDayStat;
 	}
 	
-	private WordTestSM2DateStat getCurrentDateStatPriv() {
+	private WordTestSM2DayStat getCurrentDayStatPriv() {
 		
 		Cursor cursor = null;
 				
@@ -218,7 +218,7 @@ public class WordTestSM2Manager {
 				return null;
 			}
 			
-			WordTestSM2DateStat result = new WordTestSM2DateStat();
+			WordTestSM2DayStat result = new WordTestSM2DayStat();
 			
 			int id = cursor.getInt(0);
 			String dateStatString = cursor.getString(1);
@@ -314,7 +314,7 @@ public class WordTestSM2Manager {
 		return countNextNewWordSize(maxNewWordsLimit) + countNextRepeatWordSize();
 	}
 	
-	private int countNextNewWordSize(int maxNewWordsLimit) {
+	public int countNextNewWordSize(int maxNewWordsLimit) {
 		
 		boolean canGetNextWordStat = canGetNextWordStat(maxNewWordsLimit);
 		
@@ -322,7 +322,7 @@ public class WordTestSM2Manager {
 			return 0;
 		}
 		
-		WordTestSM2DateStat currentDateStat = getCurrentDateStat();
+		WordTestSM2DayStat currentDayStat = getCurrentDayStat();
 		
 		Cursor cursor = null;
 		
@@ -333,8 +333,8 @@ public class WordTestSM2Manager {
 			
 			int resultFromCount = cursor.getInt(0);
 			
-			if (resultFromCount > (maxNewWordsLimit - currentDateStat.getNewWords())) {
-				return maxNewWordsLimit - currentDateStat.getNewWords();
+			if (resultFromCount > (maxNewWordsLimit - currentDayStat.getNewWords())) {
+				return maxNewWordsLimit - currentDayStat.getNewWords();
 				
 			} else {
 				return resultFromCount;
@@ -347,7 +347,7 @@ public class WordTestSM2Manager {
 		}
 	}
 	
-	private int countNextRepeatWordSize() {
+	public int countNextRepeatWordSize() {
 		
 		Cursor cursor = null;
 		
@@ -367,9 +367,9 @@ public class WordTestSM2Manager {
 	
 	private boolean canGetNextWordStat(int maxNewWordsLimit) {
 		
-		WordTestSM2DateStat currentDateStat = getCurrentDateStat();
+		WordTestSM2DayStat currentDateStat = getCurrentDayStat();
 		
-		if (currentDateStat.getNewWords() >= maxNewWordsLimit) {
+		if (currentDateStat.getNewWords() == -1 || currentDateStat.getNewWords() >= maxNewWordsLimit) {
 			return false;
 		}
 		
@@ -459,6 +459,10 @@ public class WordTestSM2Manager {
 		}
 	}
 	
+	public void updateCurrentDayStat(WordTestSM2DayStat dayStat) {		
+		sqliteDatabase.execSQL(SQLiteStatic.updateDayStatSql, new Object[] { dayStat.getNewWords() } );		
+	}
+	
 	public void reverseWordStatNextRepetionsOneDay() {
 		sqliteDatabase.execSQL(SQLiteStatic.reverseWordStatNextRepetionsOneDaySql);
 		
@@ -532,7 +536,13 @@ public class WordTestSM2Manager {
 				dayStatTable_newWords + " = " + dayStatTable_newWords + " + ? " +
 				" where " +
 				dayStatTable_dateStat + " = date('now');";
-		
+
+		public static final String updateDayStatSql =
+				"update " + dayStatTableName + " set " +
+				dayStatTable_newWords + " = ? " +
+				" where " +
+				dayStatTable_dateStat + " = date('now');";
+
 		public static final String countObjectSql = 
 				"select count(*) from sqlite_master where type = ? and name = ?";
 		

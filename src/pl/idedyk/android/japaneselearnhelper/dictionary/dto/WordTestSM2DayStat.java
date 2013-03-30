@@ -2,7 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
 import java.util.Date;
 
-public class WordTestSM2DateStat {
+public class WordTestSM2DayStat {
 	
 	private int id;
 	
