@@ -33,9 +33,8 @@ public class WordTestSM2Options extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		
-		menu.add(Menu.NONE, 342342343, Menu.NONE, "Reset"); // FIXME !!!!!!!!!!!!!!!
-		
-		int fixme = 1;
+		// tylko do testow
+		menu.add(Menu.NONE, R.id.word_test_sm2_options_reset, Menu.NONE, getString(R.string.word_test_sm2_options_reset));
 		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
@@ -46,10 +45,8 @@ public class WordTestSM2Options extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
 		
-		if (item.getItemId() == 342342343) { // FIXME !!!!! 
-			
-			int fixme = 1;
-			
+		if (item.getItemId() == R.id.word_test_sm2_options_reset) { 
+						
 			final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 			
 			final WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
@@ -300,7 +297,7 @@ public class WordTestSM2Options extends Activity {
 							
 							int countNextRepeatWordSize = wordTestSM2Manager.countNextRepeatWordSize();
 							
-							if (countNextRepeatWordSize >= 80) {
+							if (countNextRepeatWordSize >= (4 * wordTestSM2Config.getMaxNewWords())) {
 								currentDateStat.setNewWords(-1);
 							}
 							

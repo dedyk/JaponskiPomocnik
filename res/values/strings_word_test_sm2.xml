@@ -24,11 +24,14 @@
     <string name="word_test_sm2_options_all_kanji_kana_translate">Proszę odznaczyć pokazywanie znaków kanji, kana lub tłumaczeń</string>
     
     <string name="word_test_sm2_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
-    <string name="word_test_sm2_options_report_problem_email_subject">Japoński pomocnik - opcje testu sm2 ze słów: Sugestia</string>
+    <string name="word_test_sm2_options_report_problem_email_subject">Japoński pomocnik - opcje nauki słowek metodą SM2: Sugestia</string>
     <string name="word_test_sm2_options_report_problem_email_body">Treść sugestii:\n\n\n***\n\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s</string>
     
     <string name="word_test_sm2_options_prepare1">Przygotowywanie testu</string>
     <string name="word_test_sm2_options_prepare2">Proszę czekać</string>
+    
+    <item name="word_test_sm2_options_reset" type="id" />
+    <string name="word_test_sm2_options_reset">Resetuj bazę</string>
     
     <string name="word_test_sm2_quit_question">Czy na pewno chcesz zrezygnować z testu?</string>
     <string name="word_test_sm2_quit_question_yes">Tak</string>
@@ -63,5 +66,8 @@
     <string name="word_test_sm2_correct_sm2_buttons_quality5">5 Bardzo łatwo</string>
     
     <string name="word_test_sm2_no_more_words">Na chwilę obecną nie ma żadnych nowych słów do przetestowania. Spróbuj ponownie jutro, bądź zwiększ limit nowych słów na dzień.</string>
+    
+    <string name="word_test_sm2_report_problem_email_subject">Japoński pomocnik - nauka słówek metodą SM2: Sugestia</string>
+    <string name="word_test_sm2_report_problem_email_body">Treść sugestii:\n\n\n***\n\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s</string>
     
 </resources>

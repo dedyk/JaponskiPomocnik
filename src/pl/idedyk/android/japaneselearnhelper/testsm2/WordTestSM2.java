@@ -12,10 +12,14 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.ListUtil;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -61,11 +65,54 @@ public class WordTestSM2 extends Activity {
 		
 		// report problem
 		if (item.getItemId() == R.id.report_problem_menu_item) {
+			
+			final WordTestSM2Config wordTestSM2Config = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(WordTestSM2.this).getWordTestSM2Config();
+			
+			// config
+			WordTestSM2Mode wordTestSM2Mode = wordTestSM2Config.getWordTestSM2Mode();
+						
+			Integer maxNewWords = wordTestSM2Config.getMaxNewWords();
+			
+			Boolean showKanji = wordTestSM2Config.getShowKanji();
+			Boolean showKana = wordTestSM2Config.getShowKana();
+			Boolean showTranslate = wordTestSM2Config.getShowTranslate();
+			Boolean showAdditionalInfo = wordTestSM2Config.getShowAdditionalInfo();
+						
+			// details report
+			StringBuffer detailsSb = new StringBuffer();
+			
+			detailsSb.append(" *** config ***\n\n");
+			detailsSb.append("maxNewWords: " + maxNewWords).append("\n\n");
+			detailsSb.append("wordTestSM2Mode: " + wordTestSM2Mode).append("\n\n");
+			detailsSb.append("showKanji: " + showKanji).append("\n\n");
+			detailsSb.append("showKana: " + showKana).append("\n\n");
+			detailsSb.append("showTranslate: " + showTranslate).append("\n\n");
+			detailsSb.append("showAdditionalInfo: " + showAdditionalInfo).append("\n\n");
+						
+			String chooseEmailClientTitle = getString(R.string.choose_email_client);
 
-			// FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			String mailSubject = getString(R.string.word_test_sm2_report_problem_email_subject);
+
+			String mailBody = getString(R.string.word_test_sm2_report_problem_email_body,
+					detailsSb.toString());
+
+			String versionName = "";
+			int versionCode = 0;
+
+			try {
+				PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+				versionName = packageInfo.versionName;
+				versionCode = packageInfo.versionCode;
+
+			} catch (NameNotFoundException e) {        	
+			}
+
+			Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+
+			startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			
-			
-			return false;
+			return true;
 			
 		} else {
 			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
