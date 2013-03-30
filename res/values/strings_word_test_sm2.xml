@@ -54,11 +54,11 @@
     <string name="word_test_sm2_correct">Prawidłowa odpowiedź</string>
     <string name="word_test_sm2_incorrect">Niepoprawna odpowiedź</string>
     
-    <string name="word_test_sm2_incorrect_sm2_buttons_quality0">0 Zapomnij</string>
+    <string name="word_test_sm2_incorrect_sm2_buttons_quality0">0 Niemożliwe</string>
     <string name="word_test_sm2_incorrect_sm2_buttons_quality1">1 Bardzo trudno</string>
     <string name="word_test_sm2_incorrect_sm2_buttons_quality2">2 Trudno</string>
 
-    <string name="word_test_sm2_correct_sm2_buttons_quality3">3 Trudno</string>
+    <string name="word_test_sm2_correct_sm2_buttons_quality3">3 Średnio</string>
     <string name="word_test_sm2_correct_sm2_buttons_quality4">4 Łatwo</string>
     <string name="word_test_sm2_correct_sm2_buttons_quality5">5 Bardzo łatwo</string>
     

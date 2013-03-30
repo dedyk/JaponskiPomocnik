@@ -110,16 +110,16 @@ public class WordTestSM2WordStat {
 		}
 
 		Calendar calendar = Calendar.getInstance();
+		
+		Random random = new Random();
 
 		if (interval != 0) {
 			calendar.add(Calendar.DAY_OF_MONTH, interval);	
 			
-			calendar.set(Calendar.HOUR_OF_DAY, 0);
-			calendar.set(Calendar.MINUTE, 0);
-			calendar.set(Calendar.SECOND, 0);
+			calendar.set(Calendar.HOUR_OF_DAY, random.nextInt(24));
+			calendar.set(Calendar.MINUTE, random.nextInt(60));
+			calendar.set(Calendar.SECOND, random.nextInt(60));
 		} else {
-			
-			Random random = new Random();
 			
 			int randomSecond = random.nextInt(5 * 60);
 			
