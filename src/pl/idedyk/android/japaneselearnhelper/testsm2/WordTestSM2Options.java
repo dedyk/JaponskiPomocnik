@@ -10,7 +10,9 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DayStat;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -377,5 +379,21 @@ public class WordTestSM2Options extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		
+		// show alert
+		AlertDialog alertDialog = new AlertDialog.Builder(WordTestSM2Options.this).create();
+		
+		alertDialog.setMessage(getString(R.string.word_test_sm2_options_alert_into));
+		
+		alertDialog.setCancelable(false);
+		alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				// noop
+			}
+		});
+		
+		alertDialog.show();
+
 	}	
 }

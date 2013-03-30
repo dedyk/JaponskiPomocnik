@@ -33,6 +33,8 @@
     <item name="word_test_sm2_options_reset" type="id" />
     <string name="word_test_sm2_options_reset">Resetuj bazę</string>
     
+    <string name="word_test_sm2_options_alert_into">Uwaga. Powyższa funkcja ma status eksperymentalny.\n\nProszę zgłaszać wszelkie uwagi i błędy w działaniu.</string>
+    
     <string name="word_test_sm2_quit_question">Czy na pewno chcesz zrezygnować z testu?</string>
     <string name="word_test_sm2_quit_question_yes">Tak</string>
     <string name="word_test_sm2_quit_question_no">Nie</string>
