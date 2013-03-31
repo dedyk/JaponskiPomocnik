@@ -30,8 +30,12 @@
     <string name="word_test_sm2_options_prepare1">Przygotowywanie testu</string>
     <string name="word_test_sm2_options_prepare2">Proszę czekać</string>
     
-    <item name="word_test_sm2_options_reset" type="id" />
-    <string name="word_test_sm2_options_reset">Resetuj bazę</string>
+    <item name="word_test_sm2_options_set_next_day" type="id" />
+    <string name="word_test_sm2_options_set_next_day">Ustaw następny dzień nauki</string>
+    
+    <string name="word_test_sm2_options_set_next_day_alert_info">Uwaga. Powyższa funkcja spowoduje ustawienie daty nauki na następny dzień, w wyniku czego zakres materiału do nauki będzie odpowiadał zakresowi dnia następnego. Powoduje to dodatkowe obciążenie pamięci krótkotrwałej.\n\nCzy na pewno chcesz to zrobić?</string>
+    <string name="word_test_sm2_options_set_next_day_question_yes">Tak</string>
+    <string name="word_test_sm2_options_set_next_day_question_no">Nie</string>
     
     <string name="word_test_sm2_options_alert_into">Uwaga. Powyższa funkcja ma status eksperymentalny.\n\nProszę zgłaszać wszelkie uwagi i błędy w działaniu.</string>
     

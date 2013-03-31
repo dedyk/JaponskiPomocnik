@@ -121,10 +121,7 @@ public class WordTestSM2WordStat {
 			calendar.set(Calendar.SECOND, random.nextInt(60));
 			
 		} else {
-			
-			int randomSecond = random.nextInt(5 * 60);
-
-			calendar.add(Calendar.SECOND, randomSecond);
+			calendar.add(Calendar.SECOND, 60);
 		}		
 
 		nextRepetitions = calendar.getTime();

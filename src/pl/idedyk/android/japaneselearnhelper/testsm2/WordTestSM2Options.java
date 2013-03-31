@@ -35,8 +35,7 @@ public class WordTestSM2Options extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		
-		// tylko do testow
-		// menu.add(Menu.NONE, R.id.word_test_sm2_options_reset, Menu.NONE, getString(R.string.word_test_sm2_options_reset));
+		menu.add(Menu.NONE, R.id.word_test_sm2_options_set_next_day, Menu.NONE, getString(R.string.word_test_sm2_options_set_next_day));
 		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
@@ -47,13 +46,36 @@ public class WordTestSM2Options extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
 		
-		if (item.getItemId() == R.id.word_test_sm2_options_reset) { 
-						
-			final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+		if (item.getItemId() == R.id.word_test_sm2_options_set_next_day) { 
 			
-			final WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
-		
-			wordTestSM2Manager.reverseWordStatNextRepetionsOneDay();
+			DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+				
+			    @Override
+			    public void onClick(DialogInterface dialog, int which) {
+			        switch (which){
+			        case DialogInterface.BUTTON_POSITIVE:
+			        	
+						final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this);
+						
+						final WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
+					
+						wordTestSM2Manager.setNextDay();			        	
+			        	
+			            break;
+
+			        case DialogInterface.BUTTON_NEGATIVE:
+			        	
+			        	// noop
+			        	
+			            break;
+			        }
+			    }
+			};
+
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			
+			builder.setMessage(getString(R.string.word_test_sm2_options_set_next_day_alert_info)).setPositiveButton(getString(R.string.word_test_sm2_options_set_next_day_question_yes), dialogClickListener)
+			    .setNegativeButton(getString(R.string.word_test_sm2_options_set_next_day_question_no), dialogClickListener).show();		
 			
 			return true;
 		

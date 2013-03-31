@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Random;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DayStat;
@@ -281,27 +280,14 @@ public class WordTestSM2Manager {
 	}
 	
 	public WordTestSM2WordStat getNextWordStat(int maxNewWordsLimit) {
-		
-		Random random = new Random();
-		
+				
 		boolean canGetNextWordStat = canGetNextWordStat(maxNewWordsLimit);
 		
 		WordTestSM2WordStat wordStat = null;
 		
 		if (canGetNextWordStat == true) {
 			
-			int getNew = random.nextInt(10);
-						
-			if (getNew > 1) {
-				wordStat = getNextNewWordStat(maxNewWordsLimit);
-				
-			} else {
-				wordStat = getNextRepeatWordStat();
-				
-				if (wordStat == null) {
-					wordStat = getNextNewWordStat(maxNewWordsLimit);
-				}
-			}			
+			wordStat = getNextNewWordStat(maxNewWordsLimit);
 			
 		} else {			
 			wordStat = getNextRepeatWordStat();
@@ -463,7 +449,7 @@ public class WordTestSM2Manager {
 		sqliteDatabase.execSQL(SQLiteStatic.updateDayStatSql, new Object[] { dayStat.getNewWords() } );		
 	}
 	
-	public void reverseWordStatNextRepetionsOneDay() {
+	public void setNextDay() {
 		sqliteDatabase.execSQL(SQLiteStatic.reverseWordStatNextRepetionsOneDaySql);
 		
 		sqliteDatabase.execSQL(SQLiteStatic.resetDayStatSql);
