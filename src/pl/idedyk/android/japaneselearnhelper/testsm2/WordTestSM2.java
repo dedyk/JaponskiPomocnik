@@ -187,11 +187,16 @@ public class WordTestSM2 extends Activity {
 			int correctAnswersNo = getCorrectAnswersNo();
 			
 			List<String> kanaList = currentWordDictionaryEntry.getKanaList();
-						
+			
+			View stateInfoView = findViewById(R.id.word_test_sm2_state_info);
+			
+			int[] stateInfoLocation = new int[2];			
+			stateInfoView.getLocationOnScreen(stateInfoLocation);
+									
 			if (correctAnswersNo == kanaList.size()) {
 				Toast toast = Toast.makeText(WordTestSM2.this, getString(R.string.word_test_sm2_correct), Toast.LENGTH_SHORT);
 				
-				toast.setGravity(Gravity.TOP, 0, 110);
+				toast.setGravity(Gravity.TOP, 0, stateInfoLocation[1] + stateInfoView.getHeight() + 40);
 				
 				toast.show();
 				
@@ -205,7 +210,7 @@ public class WordTestSM2 extends Activity {
 								
 				Toast toast = Toast.makeText(WordTestSM2.this, getString(R.string.word_test_sm2_incorrect), Toast.LENGTH_SHORT);
 				
-				toast.setGravity(Gravity.TOP, 0, 110);
+				toast.setGravity(Gravity.TOP, 0,  stateInfoLocation[1] + stateInfoView.getHeight() + 40);
 				
 				toast.show();
 				
