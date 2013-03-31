@@ -119,17 +119,18 @@ public class WordTestSM2WordStat {
 			calendar.set(Calendar.HOUR_OF_DAY, random.nextInt(24));
 			calendar.set(Calendar.MINUTE, random.nextInt(60));
 			calendar.set(Calendar.SECOND, random.nextInt(60));
+			
 		} else {
 			
 			int randomSecond = random.nextInt(5 * 60);
-			
+
 			calendar.add(Calendar.SECOND, randomSecond);
 		}		
 
 		nextRepetitions = calendar.getTime();
 		lastStudied = new Date();
 	}
-
+	
 	private float calculate_easiness_factor(float easinessFactor, int quality) {
 		return Math.max(1.3f, easinessFactor + (0.1f -(5.0f - quality) * (0.08f + (5.0f - quality) * 0.02f)));
 	}

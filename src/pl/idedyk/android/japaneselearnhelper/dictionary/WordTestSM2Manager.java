@@ -290,9 +290,9 @@ public class WordTestSM2Manager {
 		
 		if (canGetNextWordStat == true) {
 			
-			boolean getNew = random.nextBoolean();
-			
-			if (getNew == true) {
+			int getNew = random.nextInt(10);
+						
+			if (getNew > 1) {
 				wordStat = getNextNewWordStat(maxNewWordsLimit);
 				
 			} else {
