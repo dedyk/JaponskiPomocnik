@@ -716,8 +716,8 @@ Genki kanji 1-9",,古い,ふるい,,furui,stary,do przedmiotów,
 418,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-5,,難しい,むずかしい,,muzukashii,"trudny
 problematyczny
 kłopotliwy",,
-419,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-5,,-,やさしい,,yasashii,"łatwy
-miły",problem / człowiek,
+419,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-5,,易しい,やさしい,,yasashii,"łatwy
+prosty",problem / człowiek,
 420,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 1-5,,嫌い,きらい,,kirai,nie lubić,,
 421,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Genki 1-5,,-,きれい,,kirei,"ładne
 czyste",,
@@ -7737,3 +7737,57 @@ wieczność",,
 4265,WORD,WORD_NOUN,,HIRAGANA,Inne,,久遠,くおん,,kuon,wieczność,,
 4266,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,警める,いましめる,,imashimeru,"ostrzegać
 zwracać uwagę",,
+4267,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,優,ゆう,,yuu,"wyższość
+łagodność
+aktor (rzeczownik)",,
+4268,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,優れる,すぐれる,,sugureru,"być lepszym
+przewyższać",,
+4269,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,優る,まさる,,masaru,"być lepszym
+przewyższać",,
+4270,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,優しい,やさしい,,yasashii,"łagodny
+życzliwy
+miły",,
+4271,WORD,WORD_NOUN,,HIRAGANA,Inne,,易,えき,,eki,wróżenie,,
+4272,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,貿易,ぼうえき,,boueki,handel,zagraniczny,
+4273,WORD,WORD_NOUN,,HIRAGANA,Inne,,易者,えきしゃ,,ekisha,"wróżbiarz
+wróżbita",,
+4274,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,容易,ようい,,youi,łatwy,,
+4275,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,統べる,すべる,,suberu,"kontrolować
+nadzorować
+doglądać",,
+4276,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,統一,とういつ,,touitsu,"jedność
+zjednoczenie
+konsolidacja",,
+4277,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,統制,とうせい,,tousei,"kontrola
+regulowanie",,
+4278,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,統計,とうけい,,toukei,statystyka,,
+4279,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,統括,とうかつ,,toukatsu,"uogólnienie
+podsumowanie",,
+4280,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,領土,りょうど,,ryoudo,posiadłość ziemska,,
+4281,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,領域,りょういき,,ryouiki,"terytorium
+strefa
+posiadłość",,
+4282,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,領海,りょうかい,,ryoukai,wody terytorialne,,
+4283,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,領事,りょうじ,,ryouji,konsul,,
+4284,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,領収書,りょうしゅうしょ,,ryoushuusho,"kwit
+rachunek",formalnie,
+4285,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,防ぐ,ふせぐ,,fusegu,"bronić
+ochraniać
+strzec",,
+4286,WORD,WORD_NOUN,,HIRAGANA,Inne,,自己防衛,じこぼうえい,,jikobouei,samoobrona,,
+4287,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,防御,ぼうぎょ,,bougyo,"ochrona
+obrona",,
+4288,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,防止,ぼうし,,boushi,"zapobieganie
+ochrona",,
+4289,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,防水,ぼうすい,,bousui,wodoszczelny,,
+4290,WORD,WORD_NOUN,,HIRAGANA,Inne,,防臭剤,ぼうしゅうざい,,boushuuzai,dezodorant,,
