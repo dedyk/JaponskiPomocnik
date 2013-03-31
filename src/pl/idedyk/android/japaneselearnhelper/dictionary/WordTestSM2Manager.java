@@ -285,8 +285,7 @@ public class WordTestSM2Manager {
 		
 		WordTestSM2WordStat wordStat = null;
 		
-		if (canGetNextWordStat == true) {
-			
+		if (canGetNextWordStat == true) {			
 			wordStat = getNextNewWordStat(maxNewWordsLimit);
 			
 		} else {			
@@ -583,8 +582,7 @@ public class WordTestSM2Manager {
 				" datetime( " + wordStatTable_nextRepetitions + " ) , " +
 				" datetime( " + wordStatTable_lastStudied + " ) from " + wordStatTableName + " " +
 				" where " + wordStatTable_nextRepetitions + " IS NOT NULL and " +
-				wordStatTable_nextRepetitions + " < date('now', '+1 day') order by " + wordStatTable_nextRepetitions + " , " +
-				wordStatTable_power + " , " + wordStatTable_id + " limit 1 ";
+				wordStatTable_nextRepetitions + " < date('now', '+1 day') order by random() limit 1 ";
 		
 		public static final String countNextRepeatWordStatSql = 
 				"select count(*) from " + wordStatTableName + " " +
