@@ -319,6 +319,9 @@ public class DictionaryManager {
 			}
 			
 		} catch (IOException e) {
+			return version;
+			
+		} finally {
 			
 			if (reader != null) {
 				try {
@@ -326,8 +329,6 @@ public class DictionaryManager {
 				} catch (IOException e1) {
 				}
 			}
-			
-			return version;
 		}
 		
 		// testing open database
