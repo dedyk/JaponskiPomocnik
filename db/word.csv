@@ -1556,7 +1556,8 @@ ratować",,
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-16,,見せる,みせる,,miseru,pokazywać,,
 857,WORD,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Genki 2-15,,-,けど,,kedo,"..., ale
 ..., więc",~,
-858,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,犯人,はんにん,,hannin,przestępca,,
+858,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,犯人,はんにん,,hannin,"przestępca
+kryminalista",,
 859,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 2-15,が,見える,みえる,ga,mieru,oglądać się,,
 860,WORD,WORD_VERB_RU,"COMMON_WORD
@@ -1601,7 +1602,8 @@ Genki 2-15",,番,ばん,,ban,numer,~,
 Genki kanji 2-14",,彼,かれ,,kare,"on
 narzeczony",,
 883,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-12,,気温,きおん,,kion,temperatura,tylko do pogody,
-884,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-12,,曇り,くもり,,kumori,pochmurna pogoda,,
+884,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-12,,曇り,くもり,,kumori,"pochmurna pogoda
+zachmurzenie",,
 885,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-12
 Genki kanji 2-18",,試合,しあい,,shiai,"mecz
 gra
@@ -1634,7 +1636,9 @@ ranny",,
 901,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki 1-12
 Genki kanji 2-19",,多い,おおい,,ooi,dużo,,
 902,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-12,,狭い,せまい,,semai,"wąski
-nieprzestronny",,
+nieprzestronny
+mały
+ciasny",,
 903,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-12,,都合,つごう,,tsugou,"okoliczność
 warunki
 okazja",,
@@ -1707,7 +1711,8 @@ rozpogadzać się",czasownik,
 942,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-12
 Genki dodatkowe 2-17",,雲,くも,,kumo,chmura,,
 943,WORD,WORD_VERB_U,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Genki 1-12,,曇る,くもる,,kumoru,chmurzyć się,,
+VERB_INTRANSITIVITY",HIRAGANA,Genki 1-12,,曇る,くもる,,kumoru,"chmurzyć się
+mglić się",,
 944,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-12,,風,かぜ,,kaze,wiatr,,
 945,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-12,,風が吹く,かぜがふく,,kaze ga fuku,wiatr wieje,,
 946,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,大事,だいじ,,daiji,ważny,,
@@ -7791,3 +7796,76 @@ ochrona",,
 4289,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,防水,ぼうすい,,bousui,wodoszczelny,,
 4290,WORD,WORD_NOUN,,HIRAGANA,Inne,,防臭剤,ぼうしゅうざい,,boushuuzai,dezodorant,,
+4291,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,犯す,おかす,,okasu,"popełniać (przestępstwo)
+łamać (prawo)
+gwałcić
+napadać
+przeciwstawiać się
+lekceważ",,
+4292,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,犯行,はんこう,,hankou,"przestępstwo
+wykroczenie",,
+4293,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,犯罪,はんざい,,hanzai,"przestępstwo
+wykroczenie",,
+4294,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,防犯,ぼうはん,,bouhan,"walka z przestępczością
+zapobieganie przestępczości",,
+4295,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,共犯,きょうはん,,kyouhan,współudział w przestępstwie,,
+4296,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,締める,しめる,,shimeru,"związywać
+zaciskać
+zamykać
+dodawać
+sumować",,
+4297,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,締まる,しまる,,shimaru,"być zamkniętym
+być zawiązanym
+być zaciśniętym
+być stałym
+trzeźwieć",,
+4298,WORD,WORD_NOUN,,HIRAGANA,Inne,,標,しるし,,shirushi,znak,,
+4299,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,目標,もくひょう,,mokuhyou,cel,,
+4300,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,標準,ひょうじゅん,,hyoujun,"norma
+standard
+kryterium
+poziom",,
+4301,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,標識,ひょうしき,,hyoushiki,"znak
+tablica",np. drogowy,
+4302,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,標語,ひょうご,,hyougo,"slogan
+motto",,
+4303,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,邪,よこしま,,yokoshima,"niesprawiedliwość
+nieuczciwość
+zło",,
+4304,WORD,WORD_NOUN,,HIRAGANA,Inne,,成績表,せいせきひょう,,seisekihyou,"świadectwo
+wykaz ocen
+wykaz wyników
+wykaz rezultatów",,
+4305,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,業績,ぎょうせき,,gyouseki,"praca
+osiągnięcie",,
+4306,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,実績,じっせき,,jisseki,"rzeczywiste wyniki
+zapis osiągnięć",,
+4307,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,酔う,よう,,you,"upijać się
+mieć zawroty głowy
+być zatrutym",,
+4308,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,甘やかす,あまやかす,,amayakasu,"rozpieszczać
+pobłażać
+folgować",,
+4309,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,甘える,あまえる,,amaeru,"zachowywać się jak rozpieszczone dziecko
+wykorzystywać",,
+4310,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,狭める,せばめる,,sebameru,"zwężać
+zmniejszać",,
+4311,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,狭まる,せばまる,,sebamaru,"zwężać się
+zmniejszać się",,
+4312,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,敵意,てきい,,tekii,"wrogość
+złość",,
+4313,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,敵対,てきたい,,tekitai,"wrogość
+niechęć
+sprzeciw",,
+4314,WORD,WORD_NOUN,,HIRAGANA,Inne,,敵軍,てきぐん,,tekigun,wroga armia,,
+4315,WORD,WORD_NOUN,,HIRAGANA,Inne,,敵側,てきがわ,,tekigawa,strona wroga,,
+4316,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,強敵,きょうてき,,kyouteki,silny przeciwnik,,
