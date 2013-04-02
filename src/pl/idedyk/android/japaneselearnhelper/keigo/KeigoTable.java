@@ -200,95 +200,9 @@ public class KeigoTable extends Activity {
 			}
 
 			addRowValue(tableLayout, getString(R.string.keigo_high_entry_list_keigo_verb_masu), addTilde == false ? keigoVerbMasu : "~" + keigoVerbMasu);
-			
-			
-
-			
-			
-			// spacer
-			TableRow spacerTableRow = new TableRow();			
-			spacerTableRow.addScreenItem(new StringValue("", 8.0f, 1));
-			tableLayout.addTableRow(spacerTableRow);
-
-			
-			/*
-			TableRow keigoEntryVerbTableRow = new TableRow();
-			
-			// verb title
-			StringValue verbTitleStringValue = new StringValue(, 14.0f, 1);
-			keigoEntryVerbTableRow.addScreenItem(verbTitleStringValue);
-			
-
-			
-			
-			StringValue verbStringValue = new StringValue(verb, 13.5f, 1);
-			keigoEntryVerbTableRow.addScreenItem(verbStringValue);
-						
-			tableLayout.addTableRow(keigoEntryVerbTableRow);
-			
-			TableRow keigoEntryKeigoVerbTableRow = new TableRow();
-			
-			// keigo verb title
-			StringValue keigoVerbTitleStringValue = new StringValue(getString(R.string.keigo_high_entry_list_keigo_verb), 14.0f, 1);
-			keigoEntryKeigoVerbTableRow.addScreenItem(keigoVerbTitleStringValue);
-			
-			// keigo verb value
-
-
-			StringValue keigoVerbKeigoVerbStringValue = new StringValue(keigoVerb, 14.0f, 1);
-			keigoEntryKeigoVerbTableRow.addScreenItem(keigoVerbKeigoVerbStringValue);
-			
-			
-			tableLayout.addTableRow(keigoEntryKeigoVerbTableRow);
-			
-			
-			report.add(tableLayout);
-			*/
-			
-			/*
-			
-			
-
-			
-			verbStringValue.setMarginLeft(5);
-			verbStringValue.setMarginTop(0);
-			verbStringValue.setMarginRight(0);
-			verbStringValue.setMarginBottom(0);
-			
-			keigoEntryTableRow.addScreenItem(verbStringValue);
-			
-			
-			keigoVerbStringValue.setMarginLeft(2);
-			keigoVerbStringValue.setMarginTop(0);
-			keigoVerbStringValue.setMarginRight(2);
-			keigoVerbStringValue.setMarginBottom(0);
-			
-			keigoEntryTableRow.addScreenItem(keigoVerbStringValue);
-			
-			
-			tableLayout.addTableRow(keigoEntryTableRow);
-			
-			TableRow spacerTableRow = new TableRow();			
-			spacerTableRow.addScreenItem(new StringValue("", 8.0f, 1));
-			tableLayout.addTableRow(spacerTableRow);
-			*/
 		}
 		
 		report.add(tableLayout);
-		
-		/*
-		
-		
-		StringValue keigoVerbMaseInfo = new StringValue(getString(R.string.keigo_high_entry_list_keigo_verb_masu_info), 13.0f, 1);
-		
-		keigoVerbMaseInfo.setMarginLeft(5);
-		keigoVerbMaseInfo.setMarginTop(0);
-		keigoVerbMaseInfo.setMarginRight(0);
-		keigoVerbMaseInfo.setMarginBottom(0);
-		
-		report.add(new StringValue("", 12.0f, 2));
-		report.add(keigoVerbMaseInfo);
-		*/
 	}
 	
 	private void addRowValue(TableLayout tableLayout, String title, String value) {
