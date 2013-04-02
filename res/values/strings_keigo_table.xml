@@ -9,10 +9,18 @@
     <string name="keigo_title">Keigo</string>
     
     <string name="keigo_high_entry_list_title">Forma honoryfikatywna (wywyższająca)</string>
+    <string name="keigo_low_entry_list_title">Forma modestywna (uniżająca)</string>
     
     <string name="keigo_high_entry_list_verb">Czasownik</string>
     <string name="keigo_high_entry_list_keigo_verb">Forma honoryfikatywna</string>
     <string name="keigo_high_entry_list_keigo_verb_masu">Nieregularna forma masu</string>
     
     <string name="keigo_high_entry_list_verb_regular">Pozostałe czasowniki</string>
+
+    <string name="keigo_low_entry_list_verb">Czasownik</string>
+    <string name="keigo_low_entry_list_keigo_verb">Forma modestywna</string>
+    <string name="keigo_low_entry_list_keigo_verb_masu">Nieregularna forma masu</string>
+    
+    <string name="keigo_low_entry_list_verb_regular">Pozostałe czasowniki\n\n(Uwaga na dużą nieregularność)</string>
+    
 </resources>
