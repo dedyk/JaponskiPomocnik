@@ -1688,7 +1688,8 @@ przewrócić się",,
 929,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,灰,はい,,hai,popiół,,
 930,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,欲張り,よくばり,,yokubari,chciwość,,
 931,WORD,WORD_VERB_RU,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Inne,,枯れる,かれる,,kareru,uschnąć,,
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,枯れる,かれる,,kareru,"usychać
+więdnąć",,
 932,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,"Genki dodatkowe 1-11
 Genki 2-13",,募集,ぼしゅう,,boshuu,rekrutacja,"~, szukanie ...",
 933,WORD,UNKNOWN,,KATAKANA,Genki dodatkowe 1-11,,-,アウトドア,,autodoa,zajęcia na wolnym powietrzu,outdoor activities,
@@ -1722,14 +1723,17 @@ SURU_VERB",HIRAGANA,Inne,,会談,かいだん,,kaidan,konferencja,,
 949,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 2-20,,重い,おもい,,omoi,"ciężki
 masywny
 poważny",,
-950,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,桜,さくら,,sakura,kwiat wiśni,,
+950,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,桜,さくら,,sakura,"kwiat wiśni
+wiśnia",,
 951,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-19,,花見,はなみ,,hanami,"oglądanie kwiatów
 festiwal wiosny",,
 952,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki dodatkowe 1-12
 Genki kanji 1-12
 Genki 2-20",,神様,かみさま,,kamisama,bóg,,
-953,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,娘,むすめ,,musume,córka,,
+953,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,娘,むすめ,,musume,"córka
+panienka
+dziewczyna",,
 954,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,"Genki dodatkowe 1-12
 Genki 2-19",,-,まじめ,,majime,poważny,,
 955,WORD,WORD_VERB_U,,HIRAGANA,Genki dodatkowe 1-12,,はたを織る,はたをおる,,hata o oru,tkać,,
@@ -1741,8 +1745,12 @@ Genki kanji 1-6",,大人,おとな,,otona,dorosły,,
 959,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki dodatkowe 1-12,,見つける,みつける,,mitsukeru,szukać,,
 960,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,天の川,あまのがわ,,ama no gawa,Droga Mleczna,,
-961,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,向こう,むこう,,mukou,po tamtej stronie,,
-962,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,畑,はたけ,,hatake,pole,nieryżowe,
+961,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,向こう,むこう,,mukou,"po tamtej stronie
+po drugiej stronie
+z przeciwnej strony",,
+962,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,畑,はたけ,,hatake,"pole
+plantacja
+ogród",nieryżowe,
 963,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,"Genki dodatkowe 1-12
 Genki 2-19",,怒る,おこる,,okoru,"zezłościć się
@@ -1750,7 +1758,9 @@ denerwować się",,
 964,WORD,WORD_VERB_U,,HIRAGANA,"Genki dodatkowe 1-12
 Genki kanji 1-12",,連れて帰る,つれてかえる,,tsurete kaeru,wracać do domu,,
 965,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,"Genki dodatkowe 1-12
-Genki 2-13",,泣く,なく,,naku,płakać,,
+Genki 2-13",,泣く,なく,,naku,"płakać
+opłakiwać
+lamentować",,
 966,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,可哀相,かわいそう,,kawai sou,"żałosny
 biedak
 godny politowania
@@ -7869,3 +7879,72 @@ sprzeciw",,
 4314,WORD,WORD_NOUN,,HIRAGANA,Inne,,敵軍,てきぐん,,tekigun,wroga armia,,
 4315,WORD,WORD_NOUN,,HIRAGANA,Inne,,敵側,てきがわ,,tekigawa,strona wroga,,
 4316,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,強敵,きょうてき,,kyouteki,silny przeciwnik,,
+4317,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,興,きょう,,kyou,"zainteresowanie
+rozrywka
+bogactwo",,
+4318,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,興る,おこる,,okoru,"prosperować
+kwitnąć",,
+4319,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,興す,おこす,,okosu,"wzbudzać
+wskrzeszać",,
+4320,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,興行,こうぎょう,,kougyou,przedsiębiorstwo rozrywkowe,,
+4321,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,興業,こうぎょう,,kougyou,przedsięwzięcie przemysłowe,,
+4322,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,興信所,こうしんじょ,,koushinjo,"prywatne dochodzenie
+biuro detektywistyczne",,
+4323,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,興奮,こうふん,,koufun,"podniecenie
+pobudzenie
+zdenerwowanie
+trema
+obawa",,
+4324,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,枯らす,からす,,karasu,"zasuszać
+niszczyć (rośliny)",,
+4325,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,募る,つのる,,tsunoru,"zbierać
+wzywać
+zapisywać (na listę)
+nasilać się",,
+4326,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,趣,おもむき,,omomuki,"zawartość
+sens
+znaczenie
+treść
+smak
+gust
+wygląd
+elegancja",,
+4327,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,雨雲,あまぐも,,amagumo,chmura deszczowa,,
+4328,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,暗雲,あんうん,,an'un,ciemna chmura,,
+4329,WORD,WORD_NOUN,,HIRAGANA,Inne,,雲海,うんかい,,unkai,morze chmur,,
+4330,WORD,WORD_NOUN,,HIRAGANA,Inne,,雲母,うんも,,unmo,"mika
+łyszczyk (minerał)",,
+4331,WORD,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Inne,,雲泥の差,うんでいのさ,,undei no sa,olbrzymia różnica,,
+4332,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,談話,だんわ,,danwa,rozmowa,,
+4333,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,談笑,だんしょう,,danshou,przyjacielska pogawędka,,
+4334,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,談判,だんぱん,,danpan,"negocjacje
+konferencja",,
+4335,WORD,WORD_NOUN,,HIRAGANA,Inne,,談義,だんぎ,,dangi,konsultacja,,
+4336,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,レモン,,remon,cytryna,,
+4337,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,向く,むく,,muku,skręcać,,
+4338,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,向ける,むける,,mukeru,skręcać,,
+4339,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,向かう,むかう,,mukau,być zwróconym,,
+4340,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,方向,ほうこう,,houkou,kierunek,,
+4341,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,意向,いこう,,ikou,"intencja
+zamiar",,
+4342,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,子供向け,こどもむけ,,kodomo muke,"dla dzieci
+z myślą o dzieciach",,
+4343,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,向上,こうじょう,,koujou,podwyższenie,,
+4344,WORD,WORD_NOUN,,HIRAGANA,Inne,,向学,こうがく,,kougaku,chęć do nauki,,
+4345,WORD,WORD_NOUN,,HIRAGANA,Inne,,畑,はた,,hata,"pole
+plantacja
+ogród",nieryżowe,
+4346,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,田畑,たはた,,tahata,pole,,
+4347,WORD,WORD_NOUN,,HIRAGANA,Inne,,畑作,はたさく,,hatasaku,uprawa pól,,
+4348,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,怒る,いかる,,ikaru,"zezłościć się
+denerwować się",,
