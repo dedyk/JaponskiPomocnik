@@ -112,8 +112,9 @@ public class KeigoTable extends Activity {
 		
 		report.add(new TitleItem(getString(R.string.keigo_high_entry_list_title), 1));
 		
-		TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, true);
+		report.add(new StringValue("", 5.0f, 1));
 		
+		/*
 		TableRow titleTableRow = new TableRow();
 		
 		StringValue titleTableRowVerb = new StringValue(getString(R.string.keigo_high_entry_list_verb), 13.5f, 1);
@@ -140,20 +141,16 @@ public class KeigoTable extends Activity {
 		titleTableRow.addScreenItem(titleTableRowKeigoVerbMasu);
 		
 		tableLayout.addTableRow(titleTableRow);
+		*/
+		
+		TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, true);
 		
 		for (KeigoEntry currentKeigoEntry : keigoHighEntryList) {
 			
-			TableRow keigoEntryTableRow = new TableRow();
-			
 			String keigoEntryKanji = currentKeigoEntry.getKanji();
 			String keigoEntryKana = currentKeigoEntry.getKana();
-			
-			String keigoEntryKeigoKanji = currentKeigoEntry.getKeigoKanji(true);
-			String keigoEntryKeigoKana = currentKeigoEntry.getKeigoKana(true);
-			
-			String keigoEntryKeigoKanjiMasu = currentKeigoEntry.getKeigoLongFormWithoutMasuKanji();
-			String keigoEntryKeigoKanaMasu = currentKeigoEntry.getKeigoLongFormWithoutMasuKana();
-			
+
+			// verb value
 			String verb = null;
 			
 			if (keigoEntryKanji != null) {
@@ -163,18 +160,17 @@ public class KeigoTable extends Activity {
 				verb = keigoEntryKana;
 			}
 			
-			if (verb.equals("ている") == true) {
-				verb = "~" + verb;
+			boolean addTilde = false;
+			
+			if (verb.equals("ている") == true) {				
+				addTilde = true;
 			}
+
+			addRowValue(tableLayout, getString(R.string.keigo_high_entry_list_verb), addTilde == false ? verb : "~" + verb);
 			
-			StringValue verbStringValue = new StringValue(verb, 13.5f, 1);
-			
-			verbStringValue.setMarginLeft(5);
-			verbStringValue.setMarginTop(0);
-			verbStringValue.setMarginRight(0);
-			verbStringValue.setMarginBottom(0);
-			
-			keigoEntryTableRow.addScreenItem(verbStringValue);
+			// keigo verb
+			String keigoEntryKeigoKanji = currentKeigoEntry.getKeigoKanji(true);
+			String keigoEntryKeigoKana = currentKeigoEntry.getKeigoKana(true);
 			
 			String keigoVerb = null;
 			
@@ -184,15 +180,12 @@ public class KeigoTable extends Activity {
 			} else {
 				keigoVerb = keigoEntryKeigoKana;
 			}
-
-			StringValue keigoVerbStringValue = new StringValue(keigoVerb, 13.5f, 1);
 			
-			keigoVerbStringValue.setMarginLeft(2);
-			keigoVerbStringValue.setMarginTop(0);
-			keigoVerbStringValue.setMarginRight(2);
-			keigoVerbStringValue.setMarginBottom(0);
+			addRowValue(tableLayout, getString(R.string.keigo_high_entry_list_keigo_verb), addTilde == false ? keigoVerb : "~" + keigoVerb);
 			
-			keigoEntryTableRow.addScreenItem(keigoVerbStringValue);
+			// keigo verb masu
+			String keigoEntryKeigoKanjiMasu = currentKeigoEntry.getKeigoLongFormWithoutMasuKanji();
+			String keigoEntryKeigoKanaMasu = currentKeigoEntry.getKeigoLongFormWithoutMasuKana();
 			
 			String keigoVerbMasu = null;
 			
@@ -201,28 +194,90 @@ public class KeigoTable extends Activity {
 				
 			} else if (keigoEntryKeigoKanaMasu != null) {
 				keigoVerbMasu = keigoEntryKeigoKanaMasu + "ます";
+				
+			} else {
+				keigoVerbMasu = "-";
 			}
 
-			if (keigoVerbMasu != null) {
+			addRowValue(tableLayout, getString(R.string.keigo_high_entry_list_keigo_verb_masu), addTilde == false ? keigoVerbMasu : "~" + keigoVerbMasu);
+			
+			
 
-				StringValue keigoEntryKeigoKanjiMasuStringValue = new StringValue(keigoVerbMasu + "ます", 13.5f, 1);
-				
-				keigoVerbStringValue.setMarginLeft(0);
-				keigoVerbStringValue.setMarginTop(0);
-				keigoVerbStringValue.setMarginRight(5);
-				keigoVerbStringValue.setMarginBottom(0);
-				
-				keigoEntryTableRow.addScreenItem(keigoEntryKeigoKanjiMasuStringValue);
-			}			
+			
+			
+			// spacer
+			TableRow spacerTableRow = new TableRow();			
+			spacerTableRow.addScreenItem(new StringValue("", 8.0f, 1));
+			tableLayout.addTableRow(spacerTableRow);
+
+			
+			/*
+			TableRow keigoEntryVerbTableRow = new TableRow();
+			
+			// verb title
+			StringValue verbTitleStringValue = new StringValue(, 14.0f, 1);
+			keigoEntryVerbTableRow.addScreenItem(verbTitleStringValue);
+			
+
+			
+			
+			StringValue verbStringValue = new StringValue(verb, 13.5f, 1);
+			keigoEntryVerbTableRow.addScreenItem(verbStringValue);
+						
+			tableLayout.addTableRow(keigoEntryVerbTableRow);
+			
+			TableRow keigoEntryKeigoVerbTableRow = new TableRow();
+			
+			// keigo verb title
+			StringValue keigoVerbTitleStringValue = new StringValue(getString(R.string.keigo_high_entry_list_keigo_verb), 14.0f, 1);
+			keigoEntryKeigoVerbTableRow.addScreenItem(keigoVerbTitleStringValue);
+			
+			// keigo verb value
+
+
+			StringValue keigoVerbKeigoVerbStringValue = new StringValue(keigoVerb, 14.0f, 1);
+			keigoEntryKeigoVerbTableRow.addScreenItem(keigoVerbKeigoVerbStringValue);
+			
+			
+			tableLayout.addTableRow(keigoEntryKeigoVerbTableRow);
+			
+			
+			report.add(tableLayout);
+			*/
+			
+			/*
+			
+			
+
+			
+			verbStringValue.setMarginLeft(5);
+			verbStringValue.setMarginTop(0);
+			verbStringValue.setMarginRight(0);
+			verbStringValue.setMarginBottom(0);
+			
+			keigoEntryTableRow.addScreenItem(verbStringValue);
+			
+			
+			keigoVerbStringValue.setMarginLeft(2);
+			keigoVerbStringValue.setMarginTop(0);
+			keigoVerbStringValue.setMarginRight(2);
+			keigoVerbStringValue.setMarginBottom(0);
+			
+			keigoEntryTableRow.addScreenItem(keigoVerbStringValue);
+			
 			
 			tableLayout.addTableRow(keigoEntryTableRow);
 			
 			TableRow spacerTableRow = new TableRow();			
 			spacerTableRow.addScreenItem(new StringValue("", 8.0f, 1));
 			tableLayout.addTableRow(spacerTableRow);
+			*/
 		}
-				
+		
 		report.add(tableLayout);
+		
+		/*
+		
 		
 		StringValue keigoVerbMaseInfo = new StringValue(getString(R.string.keigo_high_entry_list_keigo_verb_masu_info), 13.0f, 1);
 		
@@ -233,6 +288,28 @@ public class KeigoTable extends Activity {
 		
 		report.add(new StringValue("", 12.0f, 2));
 		report.add(keigoVerbMaseInfo);
+		*/
+	}
+	
+	private void addRowValue(TableLayout tableLayout, String title, String value) {
+		
+		TableRow tableRow = new TableRow();
+		
+		StringValue titleStringValue = new StringValue(title, 14.0f, 0);
+		
+		titleStringValue.setMarginTop(0);
+		titleStringValue.setMarginLeft(5);
+		titleStringValue.setMarginRight(5);
+		titleStringValue.setMarginBottom(0);
+		
+		titleStringValue.setBackgroundColor(getResources().getColor(R.color.title_background));
+		
+		StringValue valueStringValue = new StringValue(value, 14.0f, 0);
+		
+		tableRow.addScreenItem(titleStringValue);
+		tableRow.addScreenItem(valueStringValue);
+		
+		tableLayout.addTableRow(tableRow);
 	}
 
 	private void fillMainLayout(List<IScreenItem> generatedDetails, LinearLayout mainLayout) {

@@ -11,7 +11,6 @@
     <string name="keigo_high_entry_list_title">Forma honoryfikatywna (wywyższająca)</string>
     
     <string name="keigo_high_entry_list_verb">Czasownik</string>
-    <string name="keigo_high_entry_list_keigo_verb">Forma keigo</string>
-    <string name="keigo_high_entry_list_keigo_verb_masu">Forma masu *</string>
-    <string name="keigo_high_entry_list_keigo_verb_masu_info">* - Tylko, gdy różna od formy regularnej</string>
+    <string name="keigo_high_entry_list_keigo_verb">Forma honoryfikatywna</string>
+    <string name="keigo_high_entry_list_keigo_verb_masu">Nieregularna forma masu</string>
 </resources>
