@@ -12,6 +12,10 @@
     <string name="main_menu_counters_text">Tablica klasyfikatorów</string>
     <string name="main_menu_counters_text_short">Klasyfikatory</string>
     <string name="main_menu_counters_kanji">助数詞</string>
+
+    <string name="main_menu_keigo_table_text">Tablica keigo</string>
+    <string name="main_menu_keigo_table_text_short">Keigo</string>
+    <string name="main_menu_keigo_table_kanji">敬語</string>    
     
     <string name="main_menu_dictionary_text">Słowniczek</string>
     <string name="main_menu_dictionary_kanji">辞書</string>

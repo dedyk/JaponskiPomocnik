@@ -12,6 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.kana.KanaTestOptions;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestOptionsActivity;
+import pl.idedyk.android.japaneselearnhelper.keigo.KeigoTable;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestOptions;
 import pl.idedyk.android.japaneselearnhelper.testsm2.WordTestSM2Options;
@@ -58,6 +59,10 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				getString(R.string.main_menu_counters_kanji),
 				getString(R.string.main_menu_counters_text)));    	
 
+		mainMenuListItems.add(new MainMenuItem(
+				getString(R.string.main_menu_keigo_table_kanji),
+				getString(R.string.main_menu_keigo_table_text)));
+		
 		mainMenuListItems.add(new MainMenuItem(
 				getString(R.string.main_menu_dictionary_kanji),
 				getString(R.string.main_menu_dictionary_text)));
@@ -127,6 +132,12 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_counters_text)) == true) { // counter
 					
 					Intent intent = new Intent(getApplicationContext(), CountersActivity.class);
+
+					startActivity(intent);
+					
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_keigo_table_text)) == true) { // keigo table
+					
+					Intent intent = new Intent(getApplicationContext(), KeigoTable.class);
 
 					startActivity(intent);
 					

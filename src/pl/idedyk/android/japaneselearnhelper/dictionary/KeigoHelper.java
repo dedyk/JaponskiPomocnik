@@ -65,6 +65,9 @@ public class KeigoHelper {
 		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_RU, "寝る", "ねる", "neru",
 				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, "お休み", "になる", "おやすみ", "になる", "oyasumi", "ni naru", null, null, null);
 		
+		addKeigoHighEntry(DictionaryEntryType.WORD_VERB_RU, null, "ている", "te iru",
+				KeigoEntryFindMatchType.END_WITH, DictionaryEntryType.WORD_VERB_U, null, null, "ていらっしゃる", null, "te irassharu", null, null, "ていらっしゃい", "te irasshai");
+		
 		// *** low ***
 		
 		// iru
@@ -143,8 +146,16 @@ public class KeigoHelper {
 		return wordToKeigoEntryHighMap.get(getKey(kanji, null, kana, null));
 	}
 
+	public List<KeigoEntry> getKeigoHighEntryList() {
+		return keigoHighEntryList;
+	}
+
 	public KeigoEntry getKeigoHighEntryFromKeigoWord(String keigoKanji, String keigoKanjiPostfix, String keigoKana, String keigoKanaPostfix) {
 		return keigoWordToKeigoEntryHighMap.get(getKey(keigoKanji, keigoKanjiPostfix, keigoKana, keigoKanaPostfix));
+	}
+	
+	public List<KeigoEntry> getKeigoLowEntryList() {
+		return keigoLowEntryList;
 	}
 
 	public KeigoEntry findKeigoHighEntry(DictionaryEntryType dictionaryEntryType, String kanji, List<String> kanaList, List<String> romajiList) {

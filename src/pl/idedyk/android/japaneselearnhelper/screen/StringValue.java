@@ -23,7 +23,10 @@ public class StringValue implements IScreenItem {
 	
 	private int level;
 	
-	private boolean nullMargins = false;
+	private Integer marginLeft = null;
+	private Integer marginTop = null;
+	private Integer marginRight = null;
+	private Integer marginBottom = null;
 	
 	private Integer layoutWeight;
 	
@@ -72,7 +75,19 @@ public class StringValue implements IScreenItem {
 	}
 	
 	public void setNullMargins(boolean nullMargins) {
-		this.nullMargins = nullMargins;
+		
+		if (nullMargins == true) {		
+			this.marginLeft = 0;
+			this.marginTop = 0;
+			this.marginRight = 0;
+			this.marginBottom = 0;
+			
+		} else {
+			this.marginLeft = null;
+			this.marginTop = null;
+			this.marginRight = null;
+			this.marginBottom = null;			
+		}
 	}
 	
 	public void setTypeface(Typeface typeface) {
@@ -89,8 +104,9 @@ public class StringValue implements IScreenItem {
 		if (layout instanceof android.widget.TableRow) {
 			android.widget.TableRow.LayoutParams layoutParam = new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.WRAP_CONTENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT);
 			
-			if (nullMargins == true) {
-				layoutParam.setMargins(0, 0, 0, 0);
+			if (marginLeft != null || marginTop != null || marginRight != null || marginBottom != null) {
+				layoutParam.setMargins(marginLeft != null ? marginLeft : 0, marginTop != null ? marginTop : 0,
+						marginRight != null ? marginRight : 0, marginRight != null ? marginRight : 0);
 			} else {
 				layoutParam.setMargins(20 + level * 20, 5, 0, 0);
 			}
@@ -107,7 +123,7 @@ public class StringValue implements IScreenItem {
 		} else if (layout instanceof LinearLayout) {
 			LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 			
-			if (nullMargins == false) {
+			if (marginLeft == null && marginTop == null && marginRight == null && marginBottom == null) {
 				layoutParam.setMargins(20 + level * 20, 5, 0, 0);
 			}
 			
@@ -147,6 +163,22 @@ public class StringValue implements IScreenItem {
 		layout.addView(textView);			
 	}
 	
+	public void setMarginLeft(Integer marginLeft) {
+		this.marginLeft = marginLeft;
+	}
+
+	public void setMarginTop(Integer marginTop) {
+		this.marginTop = marginTop;
+	}
+
+	public void setMarginRight(Integer marginRight) {
+		this.marginRight = marginRight;
+	}
+
+	public void setMarginBottom(Integer marginBottom) {
+		this.marginBottom = marginBottom;
+	}
+
 	public String toString() {
 		if (value != null) {
 			return value.toString();
