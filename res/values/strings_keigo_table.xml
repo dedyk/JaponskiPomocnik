@@ -13,4 +13,6 @@
     <string name="keigo_high_entry_list_verb">Czasownik</string>
     <string name="keigo_high_entry_list_keigo_verb">Forma honoryfikatywna</string>
     <string name="keigo_high_entry_list_keigo_verb_masu">Nieregularna forma masu</string>
+    
+    <string name="keigo_high_entry_list_verb_regular">Pozostałe czasowniki</string>
 </resources>

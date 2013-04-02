@@ -113,36 +113,7 @@ public class KeigoTable extends Activity {
 		report.add(new TitleItem(getString(R.string.keigo_high_entry_list_title), 1));
 		
 		report.add(new StringValue("", 5.0f, 1));
-		
-		/*
-		TableRow titleTableRow = new TableRow();
-		
-		StringValue titleTableRowVerb = new StringValue(getString(R.string.keigo_high_entry_list_verb), 13.5f, 1);
-		StringValue titleTableRowKeigoVerb = new StringValue(getString(R.string.keigo_high_entry_list_keigo_verb), 13.5f, 1);
-		StringValue titleTableRowKeigoVerbMasu = new StringValue(getString(R.string.keigo_high_entry_list_keigo_verb_masu), 13.5f, 1);
-		
-		titleTableRowVerb.setMarginLeft(5);
-		titleTableRowVerb.setMarginTop(0);
-		titleTableRowVerb.setMarginRight(0);
-		titleTableRowVerb.setMarginBottom(0);
-
-		titleTableRowKeigoVerb.setMarginLeft(2);
-		titleTableRowKeigoVerb.setMarginTop(0);
-		titleTableRowKeigoVerb.setMarginRight(2);
-		titleTableRowKeigoVerb.setMarginBottom(0);
-
-		titleTableRowKeigoVerbMasu.setMarginLeft(0);
-		titleTableRowKeigoVerbMasu.setMarginTop(0);
-		titleTableRowKeigoVerbMasu.setMarginRight(5);
-		titleTableRowKeigoVerbMasu.setMarginBottom(0);
 				
-		titleTableRow.addScreenItem(titleTableRowVerb);
-		titleTableRow.addScreenItem(titleTableRowKeigoVerb);
-		titleTableRow.addScreenItem(titleTableRowKeigoVerbMasu);
-		
-		tableLayout.addTableRow(titleTableRow);
-		*/
-		
 		TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, true);
 		
 		for (KeigoEntry currentKeigoEntry : keigoHighEntryList) {
@@ -200,7 +171,15 @@ public class KeigoTable extends Activity {
 			}
 
 			addRowValue(tableLayout, getString(R.string.keigo_high_entry_list_keigo_verb_masu), addTilde == false ? keigoVerbMasu : "~" + keigoVerbMasu);
+			
+			// spacer
+			TableRow spacerTableRow = new TableRow();      
+			spacerTableRow.addScreenItem(new StringValue("", 8.0f, 1));
+			tableLayout.addTableRow(spacerTableRow); 
 		}
+		
+		// regular
+		addRowValue(tableLayout, getString(R.string.keigo_high_entry_list_verb_regular), "お + [czasownik bez masu] + になる");		
 		
 		report.add(tableLayout);
 	}
