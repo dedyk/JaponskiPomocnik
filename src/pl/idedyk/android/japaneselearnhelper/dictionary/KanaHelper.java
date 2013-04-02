@@ -58,7 +58,7 @@ public class KanaHelper {
 				
 				lastN = false;
 				
-			} else if (lastN == true && (kana.startsWith("y") == true || kana.equals("i") == true || kana.equals("a") == true)) {				
+			} else if (lastN == true && (kana.startsWith("y") == true || kana.equals("i") == true || kana.equals("a") == true || kana.equals("u") == true)) {
 				sb.append("'");
 
 				lastN = true;	
@@ -88,6 +88,8 @@ public class KanaHelper {
 
 			if (kana.equals("n") == true) {
 				lastN = true; 
+			} else {
+				lastN = false;
 			}
 		}
 

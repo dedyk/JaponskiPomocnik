@@ -648,7 +648,15 @@ public class WordTestSM2 extends Activity {
 		TextView wordLabel6 = (TextView)findViewById(R.id.word_test_sm2_word_label6);
 		EditText wordPrefix6 = (EditText)findViewById(R.id.word_test_sm2_word_prefix6);
 		EditText wordInput6 = (EditText)findViewById(R.id.word_test_sm2_word_input6);
-		
+
+		TextView wordLabel7 = (TextView)findViewById(R.id.word_test_sm2_word_label7);
+		EditText wordPrefix7 = (EditText)findViewById(R.id.word_test_sm2_word_prefix7);
+		EditText wordInput7 = (EditText)findViewById(R.id.word_test_sm2_word_input7);
+
+		TextView wordLabel8 = (TextView)findViewById(R.id.word_test_sm2_word_label8);
+		EditText wordPrefix8 = (EditText)findViewById(R.id.word_test_sm2_word_prefix8);
+		EditText wordInput8 = (EditText)findViewById(R.id.word_test_sm2_word_input8);
+
 		textViewAndEditTextForWordAsArray = new TextViewAndEditText[Utils.MAX_LIST_SIZE];
 		
 		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordPrefix1, wordInput1);
@@ -657,6 +665,8 @@ public class WordTestSM2 extends Activity {
 		textViewAndEditTextForWordAsArray[3] = new TextViewAndEditText(wordLabel4, wordPrefix4, wordInput4);
 		textViewAndEditTextForWordAsArray[4] = new TextViewAndEditText(wordLabel5, wordPrefix5, wordInput5);
 		textViewAndEditTextForWordAsArray[5] = new TextViewAndEditText(wordLabel6, wordPrefix6, wordInput6);
+		textViewAndEditTextForWordAsArray[6] = new TextViewAndEditText(wordLabel7, wordPrefix7, wordInput7);
+		textViewAndEditTextForWordAsArray[7] = new TextViewAndEditText(wordLabel8, wordPrefix8, wordInput8);
 		
 		for (int idx = 0; idx < textViewAndEditTextForWordAsArray.length; ++idx) {
 			
