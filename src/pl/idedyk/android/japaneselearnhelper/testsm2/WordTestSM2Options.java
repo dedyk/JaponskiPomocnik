@@ -322,10 +322,11 @@ public class WordTestSM2Options extends Activity {
 							int countNextRepeatWordSize = wordTestSM2Manager.countNextRepeatWordSize();
 							
 							if (countNextRepeatWordSize >= (4 * wordTestSM2Config.getMaxNewWords())) {
-								currentDateStat.setNewWords(-1);
+								currentDateStat.setNewWords(wordTestSM2Config.getMaxNewWords());
 							}
 							
 							wordTestSM2Manager.updateCurrentDayStat(currentDateStat);
+							
 						}
 
 						return null;

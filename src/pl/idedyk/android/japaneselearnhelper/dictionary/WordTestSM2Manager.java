@@ -354,7 +354,7 @@ public class WordTestSM2Manager {
 		
 		WordTestSM2DayStat currentDateStat = getCurrentDayStat();
 		
-		if (currentDateStat.getNewWords() == -1 || currentDateStat.getNewWords() >= maxNewWordsLimit) {
+		if (currentDateStat.getNewWords() >= maxNewWordsLimit) {
 			return false;
 		}
 		
