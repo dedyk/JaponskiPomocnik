@@ -4,6 +4,7 @@
     
     <item name="main_menu_kana_text_menu_item" type="id"/>
     <item name="main_menu_counters_text_menu_item" type="id"/>
+    <item name="main_menu_keigo_table_text_menu_item" type="id"/>
     <item name="main_menu_dictionary_text_menu_item" type="id"/>
     <item name="main_menu_kanji_text_menu_item" type="id"/>
     <item name="main_menu_kanji_recognizer_text_menu_item" type="id"/>

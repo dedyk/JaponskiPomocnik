@@ -5,6 +5,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
+import pl.idedyk.android.japaneselearnhelper.keigo.KeigoTable;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +17,7 @@ public class MenuShorterHelper {
 	public static void onCreateOptionsMenu(Menu menu) {
 		menu.add(Menu.NONE, R.id.main_menu_kana_text_menu_item, Menu.NONE, R.string.main_menu_kana_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_counters_text_menu_item, Menu.NONE, R.string.main_menu_counters_text_short);
+		menu.add(Menu.NONE, R.id.main_menu_keigo_table_text_menu_item, Menu.NONE, R.string.main_menu_keigo_table_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_dictionary_text_menu_item, Menu.NONE, R.string.main_menu_dictionary_text);
 		menu.add(Menu.NONE, R.id.main_menu_kanji_text_menu_item, Menu.NONE, R.string.main_menu_kanji_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_kanji_recognizer_text_menu_item, Menu.NONE, R.string.main_menu_kanji_recognizer_text_short);		
@@ -35,6 +37,13 @@ public class MenuShorterHelper {
 		} else if (itemId == R.id.main_menu_counters_text_menu_item) { // counter table
 			
 			Intent intent = new Intent(applicationContext, CountersActivity.class);
+
+			activity.startActivity(intent);
+			
+			return true;
+		} else if (itemId == R.id.main_menu_keigo_table_text_menu_item) { // keigo table
+			
+			Intent intent = new Intent(applicationContext, KeigoTable.class);
 
 			activity.startActivity(intent);
 			
