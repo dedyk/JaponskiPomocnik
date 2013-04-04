@@ -193,7 +193,7 @@ public class SQLiteStatic {
 	public static final String listEntriesTableSelectValues =
 			"select " + listEntriesTable_subType + ", " + listEntriesTable_value + " from " + listEntriesTableName + " " + 
 			"where " + listEntriesTable_type + " = ? and " +
-			listEntriesTable_key + " = ? and " + listEntriesTable_special + " = ? ";
+			listEntriesTable_key + " match ? and " + listEntriesTable_special + " = ? ";
 	
 	public static final String dictionaryEntriesTableIdElement = 
 			"select " + 
@@ -242,28 +242,28 @@ public class SQLiteStatic {
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_kanaList + "' and " +
-			listEntriesTable_value + " like ?) ";
+			listEntriesTable_value + " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_romaji =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_romajiList + "' and " +
-			" " + listEntriesTable_value + " like ?) ";
+			" " + listEntriesTable_value + " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_translate =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_translates + "' and " +
-			" " + listEntriesTable_value + " like ?) ";
+			" " + listEntriesTable_value + " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_info =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_info + "' and " +
-			" " + listEntriesTable_value + " like ?) ";
+			" " + listEntriesTable_value + " match ?) ";
 	
 	public static final String dictionaryEntriesTableSelectElements_limit = 
 			" limit " + MAX_SEARCH_RESULT;

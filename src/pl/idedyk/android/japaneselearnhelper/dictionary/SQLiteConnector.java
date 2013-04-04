@@ -160,22 +160,22 @@ public class SQLiteConnector {
 		findWordResult.result = new ArrayList<ResultItem>();
 		
 		String wordWithPercent = null; 
-		String wordLowerCaseWithPercent = null;
+		String wordWithStar = null;
 		
 		if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
 			
 			wordWithPercent = "%" + findWordRequest.word + "%"; 
-			wordLowerCaseWithPercent = "%" + findWordRequest.word.toLowerCase(Locale.getDefault()) + "%";
+			wordWithStar = "*" + findWordRequest.word + "*";
 			
 		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.START_WITH) {
 			
 			wordWithPercent = findWordRequest.word + "%"; 
-			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase(Locale.getDefault()) + "%";
+			wordWithStar = findWordRequest.word + "*";
 			
 		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.EXACT) {
 			
 			wordWithPercent = findWordRequest.word; 
-			wordLowerCaseWithPercent = findWordRequest.word.toLowerCase(Locale.getDefault());
+			wordWithStar = findWordRequest.word;
 			
 		} else {
 			throw new RuntimeException(String.valueOf(findWordRequest.wordPlaceSearch));
@@ -211,7 +211,7 @@ public class SQLiteConnector {
 			
 			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_kana);
 			
-			arguments.add(wordWithPercent);
+			arguments.add(wordWithStar);
 		}
 		
 		if (findWordRequest.searchRomaji == true) {
@@ -226,7 +226,7 @@ public class SQLiteConnector {
 			
 			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_romaji);
 			
-			arguments.add(wordLowerCaseWithPercent);
+			arguments.add(wordWithStar);
 		}
 
 		if (findWordRequest.searchTranslate == true) {
@@ -241,7 +241,7 @@ public class SQLiteConnector {
 			
 			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_translate);
 			
-			arguments.add(wordLowerCaseWithPercent);
+			arguments.add(wordWithStar);
 		}
 		
 		if (findWordRequest.searchInfo == true) {
@@ -256,7 +256,7 @@ public class SQLiteConnector {
 			
 			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_info);
 			
-			arguments.add(wordLowerCaseWithPercent);
+			arguments.add(wordWithStar);
 		}
 		
 		if (addedWhere == true) {
@@ -345,7 +345,7 @@ public class SQLiteConnector {
 				cursor.close();
 			}
 		}
-	    
+			    
 		if (findWordResult.result.size() >= SQLiteStatic.MAX_SEARCH_RESULT) {
 			findWordResult.moreElemetsExists = true;
 			

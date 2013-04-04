@@ -356,6 +356,12 @@ public class WordDictionary extends Activity {
 		// search from other activity
 		String inputFindWord = (String)getIntent().getSerializableExtra("find");
 		
+		if (inputFindWord != null) { // dla wyszukiwanie kanji
+			searchOptionsAnyPlaceRadioButton.setChecked(true);
+			searchValueEditText.setEnabled(false);
+			searchButton.setEnabled(false);
+		}
+		
 		searchValueEditText.setText(inputFindWord);
 		
 		if (seachOptionsEachChangeCheckBox.isChecked() == false) {
