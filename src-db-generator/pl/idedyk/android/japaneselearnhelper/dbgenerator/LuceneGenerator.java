@@ -8,7 +8,8 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.cjk.CJKAnalyzer;
+import org.apache.lucene.analysis.ja.JapaneseAnalyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.IntField;
 import org.apache.lucene.document.TextField;
@@ -52,12 +53,12 @@ public class LuceneGenerator {
 		new File(dbOutputFilePath).delete();
 		
 		// open db
-		Analyzer analyzer = new CJKAnalyzer(Version.LUCENE_40);
+		Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_42);
 
 		// 1. create the index
 		Directory index = new RAMDirectory(); // MMapDirectory(new File("lucene-db-test"));
 
-		IndexWriterConfig indexWriterConfig = new IndexWriterConfig(Version.LUCENE_40, analyzer);
+		IndexWriterConfig indexWriterConfig = new IndexWriterConfig(Version.LUCENE_42, analyzer);
 
 		IndexWriter indexWriter = new IndexWriter(index, indexWriterConfig);
 
@@ -81,7 +82,8 @@ public class LuceneGenerator {
 			// the "title" arg specifies the default field to use
 			// when no field is explicitly specified in the query.
 			
-			Query q = new QueryParser(Version.LUCENE_40,  "", analyzer).parse("kana:くるま"); 
+			Query q = new QueryParser(Version.LUCENE_42,  "", analyzer).parse("kana:にほ");
+			//Query q = new QueryParser(Version.LUCENE_42,  "", analyzer).parse("translate:man*");
 					
 			//
 
