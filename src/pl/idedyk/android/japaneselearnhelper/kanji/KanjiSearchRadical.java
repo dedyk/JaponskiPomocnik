@@ -58,7 +58,7 @@ public class KanjiSearchRadical extends Activity {
 		
 		setContentView(R.layout.kanji_search_radical);
 		
-		List<RadicalInfo> radicalList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getRadicalList();
+		List<RadicalInfo> radicalList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchRadical.this).getRadicalList();
 		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_radical_main_layout);
 		
@@ -237,7 +237,7 @@ public class KanjiSearchRadical extends Activity {
 				
 				selectedRadicals.toArray(selectedRadicalsArray);
 				
-				DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
+				DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchRadical.this);
 				
 				return dictionaryManager.findAllAvailableRadicals(selectedRadicalsArray);
 			}

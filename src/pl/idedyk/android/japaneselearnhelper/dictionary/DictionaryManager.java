@@ -21,6 +21,7 @@ import java.util.TreeSet;
 
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.database.SQLException;
 import android.os.Environment;
 import android.util.Log;
 
@@ -36,6 +37,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
@@ -50,9 +52,7 @@ public class DictionaryManager {
 	private static final String RADICAL_FILE = "radical.csv";
 
 	private static final String KANA_FILE = "kana.csv";
-	
-	private static final String OLD_DATABASE_FILE = "JapaneseAndroidLearnHelperDb";
-	
+		
 	private static final String DATABASE_FILE = "dictionary.db";
 
 	private SQLiteConnector sqliteConnector;
@@ -64,67 +64,97 @@ public class DictionaryManager {
 	private KanaHelper kanaHelper;
 	
 	private KeigoHelper keigoHeper;
+	
+	private WordTestSM2Manager wordTestSM2Manager;
 
-	public DictionaryManager(SQLiteConnector sqliteConnector) {
-		this.sqliteConnector = sqliteConnector;
+	public DictionaryManager() {
+		
+		sqliteConnector = new SQLiteConnector();
 		
 		keigoHeper = new KeigoHelper();
 	}
 
 	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
-
-		if (loadWithProgress == null) {
-			
-			// create fake
-			loadWithProgress = new ILoadWithProgress() {
-				
-				public void setMaxValue(int maxValue) {					
-				}
-				
-				public void setDescription(String desc) {
-				}
-				
-				public void setCurrentPos(int currentPos) {
-				}
-			};
-		}
 		
 		try {			
 			// init
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
 			
-			String baseDir = Environment.getDataDirectory().getAbsolutePath() + "/data/" + packageName;
-
-			// check if database path exists
-			String databaseDir = baseDir + "/databases/";
-			
-			File databaseDirFile = new File(databaseDir);
-			
-			if (databaseDirFile.isDirectory() == false) {
-				databaseDirFile.mkdirs();
+			try {
+				// delete old database file
+				deleteOldDatabaseFile(packageName);
+				
+			} catch (IOException e) {
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+				
+				return;
 			}
 			
-			// delete old database file
-			new File(databaseDir + OLD_DATABASE_FILE).delete();
-			new File(databaseDir + OLD_DATABASE_FILE + "-journal").delete();
+			// check external storage state
+			if (checkExternalStorageState(loadWithProgress, resources) == false) {
+				return;
+			}
 			
-			final String databaseFile = databaseDir + DATABASE_FILE;
+			// create base dir in external storage
+			File externalStorageDirectory = Environment.getExternalStorageDirectory();
+			
+			// create base dir
+			File baseDir = new File(externalStorageDirectory, "JaponskiPomocnik");
+			
+			if (baseDir.isDirectory() == false) {
+				
+				if (baseDir.mkdirs() == false) {
+					loadWithProgress.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
+					
+					return;					
+				}
+			}
+			
+			// create directory dir
+			File databaseDir = new File(baseDir, "db");
+
+			if (databaseDir.isDirectory() == false) {
+				
+				if (databaseDir.mkdirs() == false) {
+					loadWithProgress.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
+					
+					return;					
+				}
+			}
+			
+			File databaseFile = new File(databaseDir, DATABASE_FILE);
+			File databaseVersionFile = new File(databaseFile.getAbsolutePath() + "-version");
+			
+			File databaseRecognizeModelFile = new File(databaseDir, KANJI_RECOGNIZE_MODEL_DB_FILE);
 			
 			// get database version
-			String databaseVersionFile = databaseFile + "-version";
-			
 			int databaseVersion = getDatabaseVersion(databaseFile, databaseVersionFile);
 			
 			if (versionCode != databaseVersion) {
 				
-				// copy dictionary file
-				copyDatabaseFileToDatabaseDir(assets.open(DATABASE_FILE), databaseFile);
+				try {
+					// copy dictionary file
+					copyDatabaseFileToDatabaseDir(assets.open(DATABASE_FILE), databaseFile);
 
-				// save database version
-				saveDatabaseVersion(databaseVersionFile, versionCode);
+					// save database version
+					saveDatabaseVersion(databaseVersionFile, versionCode);
+					
+				} catch (IOException e) {
+					loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
+					
+					return;
+				}
 			}			
+			
+			// open databaase
+			try {
+				sqliteConnector.open(databaseFile.getAbsolutePath());
 				
-			sqliteConnector.open(databaseFile);
+			} catch (SQLException e) {
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
+				
+				return;
+			}
 
 			// wczytywanie slow
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_words));
@@ -136,60 +166,121 @@ public class DictionaryManager {
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kana));
 			loadWithProgress.setCurrentPos(0);
 
-			InputStream kanaFileInputStream = assets.open(KANA_FILE);
+			try {
+				InputStream kanaFileInputStream = assets.open(KANA_FILE);
+				int kanaFileSize = getWordSize(kanaFileInputStream);
+				loadWithProgress.setMaxValue(kanaFileSize);
 
-			int kanaFileSize = getWordSize(kanaFileInputStream);
-
-			loadWithProgress.setMaxValue(kanaFileSize);
-
-			kanaFileInputStream = assets.open(KANA_FILE);
-
-			readKanaFile(kanaFileInputStream, loadWithProgress);
+				kanaFileInputStream = assets.open(KANA_FILE);
+				readKanaFile(kanaFileInputStream, loadWithProgress);
+				
+			} catch (IOException e) {
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+				
+				return;
+			}
 
 			// wczytywanie informacji o znakach podstawowych
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_radical));
 			loadWithProgress.setCurrentPos(0);
 
-			InputStream radicalInputStream = assets.open(RADICAL_FILE);
+			try {
+				InputStream radicalInputStream = assets.open(RADICAL_FILE);
+				int radicalFileSize = getWordSize(radicalInputStream);
+				loadWithProgress.setMaxValue(radicalFileSize);			
 
-			int radicalFileSize = getWordSize(radicalInputStream);
-
-			loadWithProgress.setMaxValue(radicalFileSize);			
-
-			radicalInputStream = assets.open(RADICAL_FILE);
-
-			readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);			
+				radicalInputStream = assets.open(RADICAL_FILE);
+				readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);
+				
+			} catch (IOException e) {
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+				
+				return;
+			}
 
 			// wczytywanie kanji
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji));
 			loadWithProgress.setCurrentPos(0);
 
 			fakeProgress(loadWithProgress);
-			
-			// delete old kanji recognize mode db data
-			new File(baseDir + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE).delete();
-						
+									
 			// copy kanji recognize model db data
-			zinniaManager = new ZinniaManager(new File(databaseDir + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE));
+			zinniaManager = new ZinniaManager(databaseRecognizeModelFile);
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji_recognize));
 			loadWithProgress.setCurrentPos(0);
 			loadWithProgress.setMaxValue(1);
 
-			InputStream kanjiRecognizeModelInputStream = assets.open(KANJI_RECOGNIZE_MODEL_DB_FILE);
-
-			zinniaManager.copyKanjiRecognizeModelToData(kanjiRecognizeModelInputStream, loadWithProgress);			
-
+			try {
+				InputStream kanjiRecognizeModelInputStream = assets.open(KANJI_RECOGNIZE_MODEL_DB_FILE);
+				
+				zinniaManager.copyKanjiRecognizeModelToData(kanjiRecognizeModelInputStream, loadWithProgress);
+			} catch (IOException e) {
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
+				
+				return;
+			}
+			
+			// create word test sm2 manager
+			wordTestSM2Manager = new WordTestSM2Manager(databaseDir);
+			
+			// open word test sm2 manager
+			try {
+				wordTestSM2Manager.open();
+			}  catch (TestSM2ManagerException e) {
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
+				
+				return;
+			}
+			
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
+			
+			return;
 
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
 		}
 	}
+
+	private void deleteOldDatabaseFile(String packageName) throws IOException {
+		
+		String packageBaseDir = Environment.getDataDirectory().getAbsolutePath() + "/data/" + packageName;
+				
+		//  delete old kanji recognize mode db data
+		new File(packageBaseDir + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE).delete();
+		
+		// delete all from database directory
+		
+		String databaseDir = packageBaseDir + "/databases/";
+		
+		File databaseDirFile = new File(databaseDir);
+		
+		if (databaseDirFile.isDirectory() == true) {
+			
+			File[] databaseDirListFiles = databaseDirFile.listFiles();
+			
+			for (File currentDatabaseDirListFiles : databaseDirListFiles) {
+				currentDatabaseDirListFiles.delete();
+			}
+			
+			databaseDirFile.delete();
+		}
+	}
 	
-	private void saveDatabaseVersion(String databaseVersionFile, int versionCode) throws IOException {
+	private boolean checkExternalStorageState(ILoadWithProgress loadWithProgress, Resources resources) {
+		
+		String state = Environment.getExternalStorageState();
+
+		if (Environment.MEDIA_MOUNTED.equals(state) == false) {
+			loadWithProgress.setError(resources.getString(R.string.dictionary_manager_bad_external_storage_state));
+			
+			return false;
+		}
+		
+		return true;
+	}
+
+	private void saveDatabaseVersion(File databaseVersionFile, int versionCode) throws IOException {
 		
 		BufferedWriter writer = new BufferedWriter(new FileWriter(databaseVersionFile));
 		
@@ -198,15 +289,15 @@ public class DictionaryManager {
 		writer.close();		
 	}
 	
-	private int getDatabaseVersion(String databaseFile, String databaseVersionFile) {
+	private int getDatabaseVersion(File databaseFile, File databaseVersionFile) {
 		
 		int version = 0;
 
-		if (new File(databaseFile).exists() == false) {
+		if (databaseFile.exists() == false) {
 			return version;
 		}
 		
-		if (new File(databaseVersionFile).exists() == false) {
+		if (databaseVersionFile.exists() == false) {
 			return version;
 		}
 		
@@ -227,9 +318,10 @@ public class DictionaryManager {
 				return version;
 			}
 			
+		} catch (IOException e) {
 			return version;
 			
-		} catch (IOException e) {
+		} finally {
 			
 			if (reader != null) {
 				try {
@@ -237,12 +329,21 @@ public class DictionaryManager {
 				} catch (IOException e1) {
 				}
 			}
-			
-			return version;
 		}
+		
+		// testing open database
+		try {
+			sqliteConnector.open(databaseFile.getAbsolutePath());			
+		} catch (SQLException e) {
+			return 0;			
+		} finally {
+			sqliteConnector.close();
+		}	
+		
+		return version;
 	}
 
-	private void copyDatabaseFileToDatabaseDir(InputStream databaseInputStream, String databaseOutputFile) throws IOException {
+	private void copyDatabaseFileToDatabaseDir(InputStream databaseInputStream, File databaseOutputFile) throws IOException {
 		
 		BufferedOutputStream databaseOutputStream = null;
 
@@ -376,6 +477,18 @@ public class DictionaryManager {
 		});
 
 		return findWordResult;
+	}
+	
+	public int getDictionaryEntriesSize() {
+		return sqliteConnector.getDictionaryEntriesSize();
+	}
+	
+	public DictionaryEntry getDictionaryEntryById(int id) {
+		try {
+			return sqliteConnector.getDictionaryEntryById(String.valueOf(id));
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void countForm(ILoadWithProgress loadWithProgress, Resources resources) throws DictionaryException {
@@ -1015,6 +1128,10 @@ public class DictionaryManager {
 	public ZinniaManager getZinniaManager() {
 		return zinniaManager;
 	}
+	
+	public WordTestSM2Manager getWordTestSM2Manager() {
+		return wordTestSM2Manager;
+	}
 
 	public KanaHelper getKanaHelper() {
 		return kanaHelper;
@@ -1027,6 +1144,8 @@ public class DictionaryManager {
 	@Override
 	protected void finalize() throws Throwable {
 		super.finalize();
+		
+		wordTestSM2Manager.close();
 
 		close();
 	}

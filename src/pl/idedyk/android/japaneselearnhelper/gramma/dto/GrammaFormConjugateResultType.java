@@ -14,6 +14,8 @@ public enum GrammaFormConjugateResultType {
 	
 	ADJECTIVE_I_VIRTUAL("Wirtualny typ", false),
 	
+	ADJECTIVE_I_KEIGO_LOW("Forma modestywna (skromna)", true),
+	
 	ADJECTIVE_NA_INFORMAL_PRESENT("Twierdzenie, czas teraźniejszy", true),
 	ADJECTIVE_NA_INFORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy", true),	
 	ADJECTIVE_NA_INFORMAL_PAST("Twierdzenie, czas przeszły", true),
@@ -22,7 +24,9 @@ public enum GrammaFormConjugateResultType {
 	ADJECTIVE_NA_FORMAL_PRESENT("Twierdzenie, czas teraźniejszy", true),
 	ADJECTIVE_NA_FORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy", true),
 	ADJECTIVE_NA_FORMAL_PAST("Twierdzenie, czas przeszły", true),
-	ADJECTIVE_NA_FORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły", true),	
+	ADJECTIVE_NA_FORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły", true),
+	
+	ADJECTIVE_NA_KEIGO_LOW("Forma modestywna (skromna)", true),
 
 	NOUN_INFORMAL_PRESENT("Twierdzenie, czas teraźniejszy", true),
 	NOUN_INFORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy", true),	
@@ -33,6 +37,8 @@ public enum GrammaFormConjugateResultType {
 	NOUN_FORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy", true),
 	NOUN_FORMAL_PAST("Twierdzenie, czas przeszły", true),
 	NOUN_FORMAL_PAST_NEGATIVE("Przeczenie, czas przeszły", true),
+	
+	NOUN_KEIGO_LOW("Forma modestywna (skromna)", true),
 
 	VERB_FORMAL_PRESENT("Twierdzenie, czas teraźniejszy", true),
 	VERB_FORMAL_PRESENT_NEGATIVE("Przeczenie, czas teraźniejszy", true),
@@ -70,7 +76,8 @@ public enum GrammaFormConjugateResultType {
 	VERB_BA_AFFIRMATIVE("Twierdzenie", true),
 	VERB_BA_NEGATIVE("Przeczenie", true),
 	
-	VERB_KEIGO_HIGH("Wywyższająca", true);
+	VERB_KEIGO_HIGH("Forma honoryfikatywna (wywyższająca)", true),
+	VERB_KEIGO_LOW("Forma modestywna (skromna)", true);
 	
 	private String name;
 	

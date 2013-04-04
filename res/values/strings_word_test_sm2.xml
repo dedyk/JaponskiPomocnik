@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="word_test_sm2_options_view_label">Opcje nauki</string>
+    
+    <string name="word_test_sm2_options_max_new_words">Maksymalna liczba nowy słów na dzień</string>
+
+    <string name="word_test_sm2_options_test_mode">Tryb testu</string>
+    <string name="word_test_sm2_options_test_mode_radiogroup_input">Wpisywanie słów</string>
+    <string name="word_test_sm2_options_test_mode_radiogroup_choose">Wybór stopnia znajomości słowa</string>
+    <string name="word_test_sm2_options_start">Start</string>
+    
+    <string name="word_test_sm2_options_show">Pokazuj</string>
+    
+    <string name="word_test_sm2_options_show_kanji">Znaki kanji</string>
+    <string name="word_test_sm2_options_show_kana">Znaki kana</string>
+    <string name="word_test_sm2_options_show_translate">Tumaczenia</string>
+    <string name="word_test_sm2_options_show_additional_info">Informacje dodatkowe</string>
+    
+    <string name="word_test_sm2_options_max_new_words_number_invalid">Niepoprawna liczba maksymalnej liczby nowy słów na dzień</string>
+    
+    <string name="word_test_sm2_options_no_kanji_translate">Proszę wybrać pokazywanie znaków kanji lub tłumaczeń</string>
+    <string name="word_test_sm2_options_no_kanji_kana_translate">Proszę wybrać pokazywanie znaków kanji, kana lub tłumaczeń</string>
+    <string name="word_test_sm2_options_all_kanji_kana_translate">Proszę odznaczyć pokazywanie znaków kanji, kana lub tłumaczeń</string>
+    
+    <string name="word_test_sm2_options_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="word_test_sm2_options_report_problem_email_subject">Japoński pomocnik - opcje nauki słowek metodą SM2: Sugestia</string>
+    <string name="word_test_sm2_options_report_problem_email_body">Treść sugestii:\n\n\n***\n\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s</string>
+    
+    <string name="word_test_sm2_options_prepare1">Przygotowywanie nauki</string>
+    <string name="word_test_sm2_options_prepare2">Proszę czekać</string>
+    
+    <item name="word_test_sm2_options_set_next_day" type="id" />
+    <string name="word_test_sm2_options_set_next_day">Ustaw następny dzień nauki</string>
+    
+    <string name="word_test_sm2_options_set_next_day_alert_info">Uwaga. Powyższa funkcja spowoduje ustawienie daty nauki na następny dzień, w wyniku czego zakres materiału do nauki będzie odpowiadał zakresowi dnia następnego. Powoduje to dodatkowe obciążenie pamięci krótkotrwałej.\n\nCzy na pewno chcesz to zrobić?</string>
+    <string name="word_test_sm2_options_set_next_day_question_yes">Tak</string>
+    <string name="word_test_sm2_options_set_next_day_question_no">Nie</string>
+    
+    <string name="word_test_sm2_options_alert_into">Uwaga. Powyższa funkcja ma status eksperymentalny.\n\nProszę zgłaszać wszelkie uwagi i błędy w działaniu.</string>
+    
+    <string name="word_test_sm2_quit_question">Czy na pewno chcesz zrezygnować z testu?</string>
+    <string name="word_test_sm2_quit_question_yes">Tak</string>
+    <string name="word_test_sm2_quit_question_no">Nie</string>
+    
+    <string name="word_test_sm2_kanji_label">Kanji</string>
+    <string name="word_test_sm2_word_label">Słowo</string>
+    <string name="word_test_sm2_translate_label">Tłumaczenie</string>
+    <string name="word_test_sm2_additional_info_label">Dodatkowe informacje</string>
+    
+    <string name="word_test_sm2_remaining_label">Pozostało</string>
+    <string name="word_test_sm2_state">%1$d element(y/ów)</string>
+    <string name="word_test_sm2_next_button">Sprawdź</string>
+    
+    <string name="word_test_sm2_view_input_label">Proszę wpisać słowo w puste miejsce</string>
+    <string name="word_test_sm2_view_choose_think_label">Pomyśl, czy znasz słowo</string>
+    
+    <string name="word_test_sm2_view_input_incorrect_label">Jak oceniasz swoją niepoprawną odpowiedź</string>
+    <string name="word_test_sm2_view_input_correct_label">Jak oceniasz swoją poprawną odpowiedź</string>
+    
+    <string name="word_test_sm2_view_choose_think_result_label">Jak oceniasz swoją odpowiedź</string>
+    
+    <string name="word_test_sm2_correct">Prawidłowa odpowiedź</string>
+    <string name="word_test_sm2_incorrect">Niepoprawna odpowiedź</string>
+    
+    <string name="word_test_sm2_incorrect_sm2_buttons_quality0">0 Niemożliwe</string>
+    <string name="word_test_sm2_incorrect_sm2_buttons_quality1">1 Bardzo trudno</string>
+    <string name="word_test_sm2_incorrect_sm2_buttons_quality2">2 Trudno</string>
+
+    <string name="word_test_sm2_correct_sm2_buttons_quality3">3 Średnio</string>
+    <string name="word_test_sm2_correct_sm2_buttons_quality4">4 Łatwo</string>
+    <string name="word_test_sm2_correct_sm2_buttons_quality5">5 Bardzo łatwo</string>
+    
+    <string name="word_test_sm2_no_more_words">Na chwilę obecną nie ma żadnych nowych słów do przetestowania. Spróbuj ponownie jutro, bądź zwiększ limit nowych słów na dzień.</string>
+    
+    <string name="word_test_sm2_report_problem_email_subject">Japoński pomocnik - nauka słówek metodą SM2: Sugestia</string>
+    <string name="word_test_sm2_report_problem_email_body">Treść sugestii:\n\n\n***\n\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s</string>
+    
+</resources>

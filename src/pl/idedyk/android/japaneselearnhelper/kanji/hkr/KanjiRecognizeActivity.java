@@ -110,7 +110,7 @@ public class KanjiRecognizeActivity extends Activity {
 					@Override
 					protected List<KanjiEntry> doInBackground(Void... arg0) {
 						
-						DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
+						DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiRecognizeActivity.this);
 						
 						ZinniaManager zinniaManager = dictionaryManager.getZinniaManager();
 						

@@ -58,7 +58,7 @@ public class KanaHelper {
 				
 				lastN = false;
 				
-			} else if (lastN == true && (kana.startsWith("y") == true || kana.equals("i") == true || kana.equals("a") == true)) {				
+			} else if (lastN == true && (kana.startsWith("y") == true || kana.equals("i") == true || kana.equals("a") == true || kana.equals("u") == true)) {
 				sb.append("'");
 
 				lastN = true;	
@@ -88,6 +88,8 @@ public class KanaHelper {
 
 			if (kana.equals("n") == true) {
 				lastN = true; 
+			} else {
+				lastN = false;
 			}
 		}
 
@@ -335,7 +337,7 @@ public class KanaHelper {
 		
 		katakanaEntries.add(new KanaEntry("ダ", "da", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		katakanaEntries.add(new KanaEntry("ヂ", "di", "ji (di)", KanaType.KATAKANA, KanaGroup.DAKUTEN));
-		katakanaEntries.add(new KanaEntry("づ", "du", "zu (du)", KanaType.KATAKANA, KanaGroup.DAKUTEN));
+		katakanaEntries.add(new KanaEntry("ヅ", "du", "zu (du)", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		katakanaEntries.add(new KanaEntry("デ", "de", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		katakanaEntries.add(new KanaEntry("ド", "do", KanaType.KATAKANA, KanaGroup.DAKUTEN));
 		

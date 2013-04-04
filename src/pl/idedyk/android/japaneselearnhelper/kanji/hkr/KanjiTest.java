@@ -263,7 +263,7 @@ public class KanjiTest extends Activity {
 
 				public void onClick(View v) {
 
-					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
+					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTest.this);
 
 					final String correctKanji = getCurrentTestPosCorrectKanji();
 
@@ -373,7 +373,7 @@ public class KanjiTest extends Activity {
 
 	private void processAnswer(boolean correctAnswer, final String correctKanji, TestAnswer testAnswer) {
 
-		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
+		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 
 		kanjiTestContext.getTestAnswers().add(testAnswer);
 
@@ -719,7 +719,7 @@ public class KanjiTest extends Activity {
 
 			DictionaryEntryWithRemovedKanji dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji().getNext();
 
-			return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findKanji(dictionaryEntryWithRemovedKanji.getRemovedKanji()).getStrokePaths().size();
+			return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).findKanji(dictionaryEntryWithRemovedKanji.getRemovedKanji()).getStrokePaths().size();
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
 		}		

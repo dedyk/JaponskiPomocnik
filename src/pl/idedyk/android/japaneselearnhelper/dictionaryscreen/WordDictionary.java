@@ -403,7 +403,7 @@ public class WordDictionary extends Activity {
 		// sprawdzic, czy nalezy przliczyc wszystkie formy i je zapisac do bazy danych
 		if (searchOptionsGrammaExampleSearchCheckbox.isChecked() == true) {
 			
-			final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
+			final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 			
 			int grammaFormAndExamplesEntriesSize = dictionaryManager.getGrammaFormAndExamplesEntriesSize();
 			
@@ -432,6 +432,7 @@ public class WordDictionary extends Activity {
 		        	        	
 		        	class LoadWithProgress implements ILoadWithProgress {
 
+		        		@Override
 						public void setMaxValue(int maxValue) {					
 							ProgressInfo progressInfo = new ProgressInfo();
 							
@@ -440,6 +441,7 @@ public class WordDictionary extends Activity {
 							publishProgress(progressInfo);
 						}
 						
+						@Override
 						public void setCurrentPos(int currentPos) {
 							ProgressInfo progressInfo = new ProgressInfo();
 							
@@ -448,7 +450,12 @@ public class WordDictionary extends Activity {
 							publishProgress(progressInfo);
 						}
 
+						@Override
 						public void setDescription(String desc) {
+						}
+
+						@Override
+						public void setError(String errorMessage) {
 						}
 		        	}
 		        	
@@ -581,7 +588,7 @@ public class WordDictionary extends Activity {
 				@Override
 				protected FindWordResult doInBackground(Void... params) {
 					
-					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets());
+					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
 					
 					return dictionaryManager.findWord(findWordRequest);
 				}

@@ -142,7 +142,7 @@ public class WordTestOptions extends Activity {
 		// loading word groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 		
-		final List<GroupEnum> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getDictionaryEntryGroupTypes();
+		final List<GroupEnum> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getDictionaryEntryGroupTypes();
 		
 		Set<String> chosenWordGroups = wordTestConfig.getChosenWordGroups();
 				
@@ -286,7 +286,7 @@ public class WordTestOptions extends Activity {
 					
 					if (currentWordGroupCheckBox.isChecked() == true) {
 						
-						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestOptions.this).
 								getGroupDictionaryEntries(groupsNames.get(wordGroupCheckBoxListIdx));
 												
 						for (int repeatIdx = 0; repeatIdx < repeatNumber; ++repeatIdx) {
@@ -377,25 +377,25 @@ public class WordTestOptions extends Activity {
 				TextView optionsOther = (TextView)findViewById(R.id.word_test_options_other);
 				TextView optionsGroup = (TextView)findViewById(R.id.word_test_options_group);
 
-				detailsSb.append("***" + optionsRepeat.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsRepeat.getText() + " ***\n\n");
 				detailsSb.append(repeatNumberEditText.getText().toString()).append("\n\n");
 
-				detailsSb.append("***" + optionsTestMode.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsTestMode.getText() + " ***\n\n");
 				detailsSb.append(testModeInputRadioButton.isChecked() + " - " + testModeInputRadioButton.getText()).append("\n\n");
 				detailsSb.append(testModeOverviewRadioButton.isChecked() + " - " + testModeOverviewRadioButton.getText()).append("\n\n");
 				
-				detailsSb.append("***" + optionsShow.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsShow.getText() + " ***\n\n");
 				detailsSb.append(showKanjiCheckBox.isChecked() + " - " + showKanjiCheckBox.getText()).append("\n\n");
 				detailsSb.append(showKanaCheckBox.isChecked() + " - " + showKanaCheckBox.getText()).append("\n\n");
 				detailsSb.append(showTranslateCheckBox.isChecked() + " - " + showTranslateCheckBox.getText()).append("\n\n");
 				detailsSb.append(showAdditionalInfoCheckBox.isChecked() + " - " + showAdditionalInfoCheckBox.getText()).append("\n\n");
 				
-				detailsSb.append("***" + optionsOther.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsOther.getText() + " ***\n\n");
 				detailsSb.append(randomCheckBox.isChecked() + " - " + randomCheckBox.getText()).append("\n\n");
 				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
 				detailsSb.append(untilSuccessNewWordLimitCheckBox.isChecked() + " - " + untilSuccessNewWordLimitCheckBox.getText()).append("\n\n");
 
-				detailsSb.append("***" + optionsGroup.getText() + "***\n\n");
+				detailsSb.append("*** " + optionsGroup.getText() + " ***\n\n");
 		
 				for (CheckBox currentWordGroupCheckBox : wordGroupCheckBoxList) {
 

@@ -30,10 +30,13 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -42,6 +45,109 @@ import android.widget.Toast;
 
 public class KanjiTestOptionsActivity extends Activity {
 
+	private List<CheckBox> kanjiGroupList;
+	private List<CheckBox> kanjiCheckBoxListWithoutDetails;
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+
+		menu.add(Menu.NONE, R.id.kanji_test_options_input_kanji_to_test, Menu.NONE, R.string.kanji_test_options_input_kanji_to_test);
+		menu.add(Menu.NONE, R.id.kanji_test_options_clear_selected_kanji, Menu.NONE, R.string.kanji_test_options_clear_selected_kanji);
+
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		
+		if (item.getItemId() == R.id.kanji_test_options_input_kanji_to_test) {
+			
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+			alert.setTitle(getString(R.string.kanji_test_options_input_kanji_to_test));
+			alert.setMessage(getString(R.string.kanji_test_options_input_kanji_to_test2));
+
+			// Set an EditText view to get user input 
+			final EditText input = new EditText(this);
+			alert.setView(input);
+
+			alert.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+				
+				public void onClick(DialogInterface dialog, int whichButton) {
+					
+					String kanjiValue = input.getText().toString();
+					
+					List<KanjiEntry> knownKanjiList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findKnownKanji(kanjiValue);
+					
+					Set<String> allKanjisInGroup = new HashSet<String>();
+					
+					StringBuffer allKanjiTest = new StringBuffer();
+					
+					for (KanjiEntry currentKanjiEntry : knownKanjiList) {
+						
+						if (currentKanjiEntry.isGenerated() == false) {
+							allKanjisInGroup.add(currentKanjiEntry.getKanji());
+							
+							allKanjiTest.append(currentKanjiEntry.getKanji());
+						}
+					}
+					
+					if (allKanjisInGroup.size() == 0) {
+						Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_input_no_kanji), Toast.LENGTH_SHORT).show();
+						
+						return;
+					}
+					
+					for (CheckBox currentCheckBox : kanjiGroupList) {
+						currentCheckBox.setChecked(false);
+					}	
+					
+					for (CheckBox currentKanjiCheckBox : kanjiCheckBoxListWithoutDetails) {
+						
+						KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentKanjiCheckBox.getTag();
+						
+						String currentCheckBoxKanjiEntryKanji = currentCheckBoxKanjiEntry.getKanji();
+						
+						if (currentKanjiCheckBox.isChecked() == false && allKanjisInGroup.contains(currentCheckBoxKanjiEntryKanji) == true) {
+							currentKanjiCheckBox.setChecked(true);
+						}
+					}
+					
+					Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_input_detected_kanji, allKanjiTest.toString()), Toast.LENGTH_SHORT).show();
+				}
+			});
+
+			alert.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+				
+				public void onClick(DialogInterface dialog, int whichButton) {
+					// noop
+				}
+			});
+
+			alert.show();
+			
+			return true;
+			
+		} else if (item.getItemId() == R.id.kanji_test_options_clear_selected_kanji) {
+			
+			for (CheckBox currentCheckBox : kanjiGroupList) {
+				currentCheckBox.setChecked(false);
+			}
+
+			for (CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
+				currentCheckBox.setChecked(false);
+			}
+			
+			Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_clear_selected_kanji_all), Toast.LENGTH_SHORT).show();
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -105,9 +211,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
 
-		final List<CheckBox> kanjiCheckBoxListWithoutDetails = new ArrayList<CheckBox>();
-		
-		final List<CheckBox> kanjiGroupList = new ArrayList<CheckBox>();
+		kanjiCheckBoxListWithoutDetails = new ArrayList<CheckBox>();
+		kanjiGroupList = new ArrayList<CheckBox>();
 			
 		Button startTestButton = (Button)findViewById(R.id.kanji_test_options_start_test);
 
@@ -144,7 +249,7 @@ public class KanjiTestOptionsActivity extends Activity {
 						KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
 
 						// get kanji with details
-						currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findKanji(currentCheckBoxKanjiEntry.getKanji());
+						currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findKanji(currentCheckBoxKanjiEntry.getKanji());
 
 						chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
 						kanjiEntryList.add(currentCheckBoxKanjiEntry);						
@@ -189,7 +294,7 @@ public class KanjiTestOptionsActivity extends Activity {
 					for (String currentKanjiGroup : chosenKanjiGroupList) {
 						
 						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = 
-								JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+								JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
 									getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
 						
 						dictionaryEntrySize += currentWordsGroupDictionaryEntryList.size();
@@ -256,7 +361,7 @@ public class KanjiTestOptionsActivity extends Activity {
 									findWordRequest.word = currentKanjiEntry.getKanji();
 
 									// find word with this kanji
-									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findWord(findWordRequest);
+									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findWord(findWordRequest);
 
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
@@ -272,7 +377,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
 
 									// find word with this kanji
-									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findWord(findWordRequest);
+									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findWord(findWordRequest);
 
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
@@ -299,7 +404,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								for (String currentKanjiGroup : chosenKanjiGroupList) {
 									
 									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = 
-											JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).
+											JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
 												getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
 									
 									for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
@@ -451,7 +556,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			@Override
 			protected List<KanjiEntry> doInBackground(Void... arg) {
 
-				return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getAllKanjis(false, false);
+				return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, false);
 			}
 
 			@Override

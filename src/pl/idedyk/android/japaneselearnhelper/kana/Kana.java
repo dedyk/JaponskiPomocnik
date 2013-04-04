@@ -57,7 +57,7 @@ public class Kana extends Activity {
 		
 		final List<IScreenItem> screenItems = new ArrayList<IScreenItem>();
 		
-		Map<String, KanaEntry> kanaCache = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getKanaHelper().getKanaCache();
+		Map<String, KanaEntry> kanaCache = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(Kana.this).getKanaHelper().getKanaCache();
 		
 		generateHiraganaTable(screenItems, kanaCache);
 		generateKatakanaTable(screenItems, kanaCache);
@@ -518,7 +518,7 @@ public class Kana extends Activity {
 
 		addKanaItem(d_tableRow, kanaCache, "ダ");
 		addKanaItem(d_tableRow, kanaCache, "ヂ");
-		addKanaItem(d_tableRow, kanaCache, "づ");
+		addKanaItem(d_tableRow, kanaCache, "ヅ");
 		addKanaItem(d_tableRow, kanaCache, "デ");
 		addKanaItem(d_tableRow, kanaCache, "ド");
 		

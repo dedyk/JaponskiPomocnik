@@ -12,6 +12,10 @@
     <string name="main_menu_counters_text">Tablica klasyfikatorów</string>
     <string name="main_menu_counters_text_short">Klasyfikatory</string>
     <string name="main_menu_counters_kanji">助数詞</string>
+
+    <string name="main_menu_keigo_table_text">Tablica keigo</string>
+    <string name="main_menu_keigo_table_text_short">Keigo</string>
+    <string name="main_menu_keigo_table_kanji">敬語</string>    
     
     <string name="main_menu_dictionary_text">Słowniczek</string>
     <string name="main_menu_dictionary_kanji">辞書</string>
@@ -30,6 +34,9 @@
     <string name="main_menu_word_test_text">Test ze słówek</string>
     <string name="main_menu_word_test_kanji">言葉</string>
     
+    <string name="main_menu_word_test_sm2_text">Nauka słówek metodą SuperMemo 2 (beta)</string>
+    <string name="main_menu_word_test_sm2_kanji">言葉</string>
+    
     <string name="main_menu_kanji_test_text">Test ze znaków kanji</string>
     <string name="main_menu_kanji_test_kanji">漢字</string>
     
@@ -41,6 +48,11 @@
     
     <string name="main_menu_email_subject">Japoński pomocnik - sugestia</string>
     <string name="main_menu_email_body">Treść sugestii:\n\n</string>
+    
+    <string name="ok">OK</string>
+    <string name="cancel">Anuluj</string>
+    
+    <string name="init_dictionary_error">Błąd inicjalizacji bazy danych:\n\n%1$s</string>
     
     <string name="report_problem">Zgłoś sugestię</string>
     

@@ -4,12 +4,18 @@ public enum GrammaFormConjugateGroupType {
 	
 	ADJECTIVE_I_INFORMAL("Forma nieformalna (prosta)"),
 	ADJECTIVE_I_FORMAL("Forma formalna"),
+	
+	ADJECTIVE_I_KEIGO("Keigo"),
 
 	ADJECTIVE_NA_INFORMAL("Forma nieformalna (prosta)"),
 	ADJECTIVE_NA_FORMAL("Forma formalna"),
+	
+	ADJECTIVE_NA_KEIGO("Keigo"),
 
 	NOUN_INFORMAL("Forma nieformalna (prosta)"),
 	NOUN_FORMAL("Forma formalna"),
+	
+	NOUN_KEIGO("Keigo"),
 	
 	VERB_FORMAL("Forma formalna (długa)"),
 	VERB_INFORMAL("Forma nieformalna (prosta)"),
@@ -33,7 +39,7 @@ public enum GrammaFormConjugateGroupType {
 	
 	VERB_BA("Forma ba"),
 	
-	VERB_KEIGO("Forma honoryfikatywna");
+	VERB_KEIGO("Keigo");
 	
 	private String name;
 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -59,10 +60,7 @@ public class WordDictionaryDetails extends Activity {
 
 	private TtsConnector ttsConnector;
 	
-	@Override
-	public void onBackPressed() {
-		super.onBackPressed();
-	}
+	private Stack<Integer> backScreenPositionStack = new Stack<Integer>();
 
 	@Override
 	protected void onDestroy() {
@@ -116,6 +114,22 @@ public class WordDictionaryDetails extends Activity {
 	}
 	
 	@Override
+	public void onBackPressed() {
+		
+		if (backScreenPositionStack.isEmpty() == true) {
+			super.onBackPressed();
+			
+			return;
+		}
+		
+		Integer backPostion = backScreenPositionStack.pop();
+
+		final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.word_dictionary_details_main_layout_scroll);
+		
+		scrollMainLayout.scrollTo(0, backPostion);
+	}
+	
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
@@ -127,7 +141,7 @@ public class WordDictionaryDetails extends Activity {
 		final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.word_dictionary_details_main_layout_scroll);
 		final LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.word_dictionary_details_main_layout);
 		
-		final List<IScreenItem> generatedDetails = generateDetails(dictionaryEntry);
+		final List<IScreenItem> generatedDetails = generateDetails(dictionaryEntry, scrollMainLayout);
 		
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 		
@@ -168,17 +182,6 @@ public class WordDictionaryDetails extends Activity {
 			}
 		});
 		
-		final int counterPos = getIntent().getIntExtra("counterPos", -1);
-		
-		if (counterPos != -1) {	
-			detailsMainLayout.post(new Runnable() {
-				
-				public void run() {
-					scrollMainLayout.scrollTo(0, counterPos - 10);
-				}
-			});
-		}
-		
 		if (ttsConnector != null) {
 			ttsConnector.stop();
 		}
@@ -186,7 +189,7 @@ public class WordDictionaryDetails extends Activity {
 		ttsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
 	}
 
-	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry) {
+	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry, final ScrollView scrollMainLayout) {
 		
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 				
@@ -222,7 +225,7 @@ public class WordDictionaryDetails extends Activity {
 		OnClickListener kanjiDrawOnClickListener = new OnClickListener() {
 			
 			public void onClick(View v) {
-				List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getStrokePathsForWord(kanjiSb.toString());
+				List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(kanjiSb.toString());
 				
 				StrokePathInfo strokePathInfo = new StrokePathInfo();
 				
@@ -240,7 +243,7 @@ public class WordDictionaryDetails extends Activity {
 		List<String> kanaList = dictionaryEntry.getKanaList();
 		
 		// check furigana
-		List<FuriganaEntry> furiganaEntries = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getFurigana(dictionaryEntry);
+		List<FuriganaEntry> furiganaEntries = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getFurigana(dictionaryEntry);
 				
 		if (furiganaEntries != null && furiganaEntries.size() > 0 && addKanjiWrite == true) {
 			
@@ -381,7 +384,7 @@ public class WordDictionaryDetails extends Activity {
 			readingStringValue.setOnClickListener(new OnClickListener() {
 				
 				public void onClick(View v) {
-					List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getStrokePathsForWord(sb.toString());
+					List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(sb.toString());
 					
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 					
@@ -483,7 +486,7 @@ public class WordDictionaryDetails extends Activity {
 		List<KanjiEntry> knownKanji = null;
 		
 		if (dictionaryEntry.isKanjiExists() == true) {
-			knownKanji = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).findKnownKanji(dictionaryEntry.getKanji());
+			knownKanji = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).findKnownKanji(dictionaryEntry.getKanji());
 		}
 		
 		if (knownKanji != null && knownKanji.size() > 0) {
@@ -534,7 +537,7 @@ public class WordDictionaryDetails extends Activity {
 		
 		// Conjugater
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = 
-				GrammaConjugaterManager.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
+				GrammaConjugaterManager.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this), dictionaryEntry, grammaCache);
 		
 		if (grammaFormConjugateGroupTypeElementsList != null) {
 			report.add(new StringValue("", 15.0f, 2));
@@ -561,7 +564,7 @@ public class WordDictionaryDetails extends Activity {
 		}	
 		
 		// Exampler
-		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()), dictionaryEntry, grammaCache);
+		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this), dictionaryEntry, grammaCache);
 		
 		if (exampleGroupTypeElementsList != null) {
 			
@@ -612,17 +615,16 @@ public class WordDictionaryDetails extends Activity {
 				
 				final TitleItem currentReportScreenItemAsTitle = (TitleItem)currentReportScreenItem;
 				
-				StringValue titleStringValue = new StringValue(currentReportScreenItemAsTitle.getTitle(), 15.0f, currentReportScreenItemAsTitle.getLevel() + 2);
+				final StringValue titleStringValue = new StringValue(currentReportScreenItemAsTitle.getTitle(), 15.0f, currentReportScreenItemAsTitle.getLevel() + 2);
 				
 				titleStringValue.setOnClickListener(new OnClickListener() {
 					
-					public void onClick(View v) {					
-						Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
-
-						intent.putExtra("counterPos", currentReportScreenItemAsTitle.getY());
-						intent.putExtra("item", dictionaryEntry);
+					public void onClick(View v) {
 						
-						startActivity(intent);	
+						backScreenPositionStack.push(scrollMainLayout.getScrollY());
+						
+						int counterPos = currentReportScreenItemAsTitle.getY();						
+						scrollMainLayout.scrollTo(0, counterPos - 3);
 					}
 				});
 				

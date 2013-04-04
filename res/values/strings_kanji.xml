@@ -72,6 +72,12 @@
     <string name="kanji_test_options_info_title">Informacja</string>
     <string name="kanji_test_options_info_message">Test ze znaków kanji w swoim działaniu opiera się na mechanizmie rozpoznawania znaków kanji. Mechanizm ten wykorzystuje specjalne algorytmy, które z pewnym prawdopodobieństwem identyfikują wpisany przez użytkownika znak.\n\nDo prawidłowego działania konieczne jest prawidłowe wpisywanie znaku kanji, tj. liczba kresek, kolejność, kierunek oraz ogólny wygląd znaku. Czasami jednak pomimo zachowania tych zasad, mechanizm może zwrócić nieoczekiwany wynik.\n\nProszę o tym pamiętać w trakcie korzystania z testu.\n\n</string>
     <string name="kanji_test_options_info_ok">OK</string>
+    <string name="kanji_test_options_clear_selected_kanji">Usuń znaki kanji</string>
+    <string name="kanji_test_options_clear_selected_kanji_all">Usunięto wszystkie znaki kanji</string>
+    <string name="kanji_test_options_input_kanji_to_test">Wpisz znaki kanji</string>
+    <string name="kanji_test_options_input_kanji_to_test2">Aby je zaznaczyć na liście kanji</string>
+    <string name="kanji_test_options_input_no_kanji">Nie znaleziono żadnych znanych znaków kanji</string>
+    <string name="kanji_test_options_input_detected_kanji">Dodano następujące znaki kanji:\n\n%1$s</string>
     <string name="kanji_test_label">Test ze znaków kanji</string>
     <string name="kanji_test_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_test_info_draw_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>

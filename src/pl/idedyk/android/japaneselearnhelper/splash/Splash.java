@@ -7,7 +7,6 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.SplashConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
-import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteConnector;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -64,17 +63,17 @@ public class Splash extends Activity {
         
         JapaneseAndroidLearnHelperApplication.getInstance().setConfigManager(configManager);
         
-        SQLiteConnector sqliteConnector = new SQLiteConnector();
-        
         // create dictionary manager
-        final DictionaryManager dictionaryManager = new DictionaryManager(sqliteConnector);
+        final DictionaryManager dictionaryManager = new DictionaryManager();
         
     	class ProgressInfo {
     		Integer progressBarMaxValue;
     		
     		Integer progressBarValue;
     		
-    		String description;    		
+    		String description;    
+    		
+    		String errorMessage;
     	}
         
         class InitJapaneseAndroidLearnHelperContextAsyncTask extends AsyncTask<Void, ProgressInfo, Void> {
@@ -104,7 +103,19 @@ public class Splash extends Activity {
 					
 					publishProgress(progressInfo);
 				}
+
+				@Override
+				public void setError(String errorMessage) {
+					
+					ProgressInfo progressInfo = new ProgressInfo();
+					
+					progressInfo.errorMessage = errorMessage;
+					
+					publishProgress(progressInfo);
+				}
         	}
+        	
+        	private String errorMessage;
 
 			@Override
 			protected Void doInBackground(Void... params) {
@@ -134,11 +145,35 @@ public class Splash extends Activity {
 
 				if (progressInfo.progressBarValue != null) {
 					progressBar.setProgress(progressInfo.progressBarValue);
-				}				
+				}
+				
+				if (progressInfo.errorMessage != null) {
+					this.errorMessage = progressInfo.errorMessage;
+				}
 			}
 
 			@Override
 			protected void onPostExecute(Void result) {
+				
+				if (errorMessage != null) {
+					
+					AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
+					
+					alertDialog.setMessage(getString(R.string.init_dictionary_error, errorMessage));					
+					alertDialog.setCancelable(false);
+					
+					alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+
+						public void onClick(DialogInterface dialog, int which) {
+							finish();							
+						}
+					});	
+					
+					alertDialog.show();
+					
+					return;
+				}
+				
 				
 				final SplashConfig splashConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(Splash.this).getSplashConfig();
 				

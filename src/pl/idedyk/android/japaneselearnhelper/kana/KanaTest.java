@@ -180,7 +180,7 @@ public class KanaTest extends Activity {
 		
 		RangeTest rangeTest = kanaTestConfig.getRangeTest();
 		
-		KanaHelper kanaHelper = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(getResources(), getAssets()).getKanaHelper();
+		KanaHelper kanaHelper = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanaTest.this).getKanaHelper();
 		
 		if (rangeTest == RangeTest.HIRAGANA) {
 			allKanaEntries = kanaHelper.getAllHiraganaKanaEntries();

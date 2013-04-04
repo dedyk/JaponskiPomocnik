@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="keigo_table_label">Tablica keigo</string>
+    <string name="keigo_table_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    
+    <string name="keigo_table_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w tablicy keigo</string>
+    <string name="keigo_table_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    
+    <string name="keigo_title">Keigo</string>
+    
+    <string name="keigo_high_entry_list_title">Forma honoryfikatywna (wywyższająca)</string>
+    <string name="keigo_low_entry_list_title">Forma modestywna (uniżająca)</string>
+    
+    <string name="keigo_high_entry_list_verb">Czasownik</string>
+    <string name="keigo_high_entry_list_keigo_verb">Forma honoryfikatywna</string>
+    <string name="keigo_high_entry_list_keigo_verb_masu">Nieregularna forma masu</string>
+    
+    <string name="keigo_high_entry_list_verb_regular">Pozostałe czasowniki</string>
+
+    <string name="keigo_low_entry_list_verb">Czasownik</string>
+    <string name="keigo_low_entry_list_keigo_verb">Forma modestywna</string>
+    <string name="keigo_low_entry_list_keigo_verb_masu">Nieregularna forma masu</string>
+    
+    <string name="keigo_low_entry_list_verb_regular">Pozostałe czasowniki\n\n(Uwaga na dużą nieregularność)</string>
+    
+</resources>

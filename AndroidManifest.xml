@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.idedyk.android.japaneselearnhelper"
-    android:versionCode="239"
-    android:versionName="20130313"
+    android:versionCode="264"
+    android:versionName="20130404"
     android:installLocation="auto" >
 
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="17" />
+    
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:icon="@drawable/japan"
@@ -24,9 +27,11 @@
             android:name=".JapaneseAndroidLearnHelperMainActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name=".test.WordTest" android:label="" ></activity>
+        <activity android:name=".test.WordTest" android:label=""></activity>
         <activity android:name=".test.WordTestSummary" android:label="@string/word_test_summary_view_label"></activity>
         <activity android:name=".test.WordTestOptions" android:label="@string/word_test_options_view_label"></activity>
+        <activity android:name=".testsm2.WordTestSM2Options" android:label="@string/word_test_sm2_options_view_label"></activity>
+        <activity android:name=".testsm2.WordTestSM2" android:label=""></activity>
         <activity android:name=".dictionaryscreen.WordDictionary" android:label="@string/word_dictionary_view_label" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".dictionaryscreen.WordDictionaryTab" android:label="@string/word_dictionary_view_label" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".dictionaryscreen.WordDictionaryDetails" android:label="@string/word_dictionary_details_label"></activity>
@@ -48,6 +53,7 @@
         <activity android:name=".kanji.hkr.KanjiTest" android:label="@string/kanji_test_label"></activity>
         <activity android:name=".kanji.hkr.KanjiTestSummary" android:label="@string/kanji_test_summary_label"></activity>
         <activity android:name=".counters.CountersActivity" android:label="@string/counters_label"></activity>
+        <activity android:name=".keigo.KeigoTable" android:label="@string/keigo_table_label"></activity>
         <activity android:name=".dictionaryhear.DictionaryHearOptions" android:label="@string/dictionary_hear_options_label" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".dictionaryhear.DictionaryHear" android:label="@string/dictionary_hear_label"></activity>
     </application>
