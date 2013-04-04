@@ -7,7 +7,6 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Con
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DayStat;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -180,7 +179,7 @@ public class WordTestSM2Options extends Activity {
 					}
 				}
 				
-				if (maxNewWordsNumberError == false && maxNewWordsNumber <= 0) {
+				if (maxNewWordsNumberError == false && maxNewWordsNumber < 0) {
 					maxNewWordsNumberError = true;
 				}
 				
@@ -313,20 +312,6 @@ public class WordTestSM2Options extends Activity {
 							} finally {
 								wordTestSM2Manager.endTransaction();
 							}							
-						}
-						
-						WordTestSM2DayStat currentDateStat = wordTestSM2Manager.getCurrentDayStat();
-						
-						if (currentDateStat.getNewWords() == 0) {
-							
-							int countNextRepeatWordSize = wordTestSM2Manager.countNextRepeatWordSize();
-							
-							if (countNextRepeatWordSize >= (4 * wordTestSM2Config.getMaxNewWords())) {
-								currentDateStat.setNewWords(wordTestSM2Config.getMaxNewWords());
-							}
-							
-							wordTestSM2Manager.updateCurrentDayStat(currentDateStat);
-							
 						}
 
 						return null;
