@@ -95,7 +95,7 @@ public class SQLiteStatic {
 	};
 	
 	public static final String listEntriesTableCreate =
-			"create table " + listEntriesTableName + "(" +
+			"create virtual table " + listEntriesTableName + " using fts3(" +
 			listEntriesTable_id + " integer primary key autoincrement, " +
 			listEntriesTable_type + " text not null, " +
 			listEntriesTable_subType + " text not null, " +

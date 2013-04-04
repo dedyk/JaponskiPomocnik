@@ -60,8 +60,8 @@ public class DBGenerator {
 
 			// create db objects
 			statement.execute(SQLiteStatic.listEntriesTableCreate);
-			statement.execute(SQLiteStatic.listEntriesTableCreateAllIndex);
-			statement.execute(SQLiteStatic.listEntriesTableCreateTypeKeyIndex);
+			// statement.execute(SQLiteStatic.listEntriesTableCreateAllIndex);
+			// statement.execute(SQLiteStatic.listEntriesTableCreateTypeKeyIndex);
 			// statement.execute(SQLiteStatic.listEntriesTableCreateTypeIndex);
 			// statement.execute(SQLiteStatic.listEntriesTableCreateSubTypeIndex);
 			// statement.execute(SQLiteStatic.listEntriesTableCreateKeyIndex);
