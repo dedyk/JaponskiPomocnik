@@ -1060,8 +1060,9 @@ VERB_INTRANSITIVITY",HIRAGANA,"Genki 1-7
 Genki kanji 1-10",に,住む,すむ,ni,sumu,"mieszkać
 żyć",,
 588,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 1-7,に,住んでいます,すんでいます,ni,sunde imasu,mieszkać,,
-589,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-7,,-,はく,,haku,"zakładać
-nosić","ubranie, poniżej pasa",
+589,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Genki 1-7,,履く,はく,,haku,"zakładać
+nosić","ubranie, poniżej pasa, np. obuwie, skarpetki, spodnie, spódnicę",
 590,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 1-7,,太る,ふとる,,futoru,"zyskiwać na wadze
 grubieć
@@ -1887,8 +1888,14 @@ kwiat jeszcze nie otwarty",,
 Genki 2-18",,夕方,ゆうがた,,yuugata,"wieczór
 wieczorem",,
 1031,WORD,WORD_VERB_RU,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Inne,,倒れる,たおれる,,taoreru,spadać,,
-1032,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,像,ぞう,,zou,pomnik,,
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,倒れる,たおれる,,taoreru,"spadać
+upadać
+przewracać się
+być zrujnowanym",,
+1032,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,像,ぞう,,zou,"pomnik
+statua
+posąg
+podobizna",,
 1033,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,数学,すうがく,,suugaku,matematyka,,
 1034,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,"Genki dodatkowe 2-13
@@ -1987,7 +1994,8 @@ podwieźć (kogoś)
 odprowadzać (kogoś)
 podrzucać (kogoś)",,
 1079,WORD,WORD_VERB_U,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Genki 2-14,,似合う,にあう,,niau,pasować,rzecz ga,
+VERB_INTRANSITIVITY",HIRAGANA,Genki 2-14,,似合う,にあう,,niau,"pasować
+być do twarzy",rzecz ga,
 1080,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-14,,諦める,あきらめる,,akirameru,poddać się,,
 1081,WORD,WORD_VERB_RU,,HIRAGANA,Genki 2-14,,-,あげる,,ageru,dać,"komuś, rzecz o osoba ni",
@@ -3711,7 +3719,8 @@ robić make up",,
 2166,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,里子,さとご,,satogo,adoptowane dziecko,,
 2167,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,似る,にる,,niru,"przypominać
-być podobnym",,
+być podobnym do
+być jak",,
 2168,WORD,WORD_VERB_U,,HIRAGANA,Inne,に,-,よる,ni,yoru,"opierać się
 wynikać (z czegoś)",,
 2169,WORD,WORD_VERB_U,,HIRAGANA,Inne,,新聞による,しんぶんによる,,shinbun ni yoru,"opierać się na gazecie
@@ -7200,7 +7209,7 @@ składać sprawozdanie",wiadomość,
 3974,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-20,,生活する,せいかつする,,seikatsu suru,żyć,,
 3975,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-20,,返品する,へんぴんする,,henpin suru,zwracać,,
 3976,WORD,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Genki 2-20,,-,おや,,oya,O!,,
-3977,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-20,,-,かしこまりました,,kashikomarimashita,rozumiem,,
+3977,WORD,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Genki 2-20,,畏まりました,かしこまりました,,kashikomarimashita,rozumiem,,
 3978,WORD,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Genki 2-20,,-,さあ,,saa,nie jestem pewny,,
 3979,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 2-20,,失礼しました,しつれいしました,,shitsurei shimashita,"przepraszam, że przeszkadzałem
 przepraszam, że przerwałem","używa się do tego, co robimy, np. podczas wychodzenia z pokoju",
@@ -8049,3 +8058,66 @@ skrawać",,
 4389,WORD,WORD_NOUN,,HIRAGANA,Inne,,夕陽,せきよう,,sekiyou,zachodzące słońce,,
 4390,WORD,WORD_NOUN,,HIRAGANA,Inne,,夕陽,ゆうひ,,yuuhi,zachodzące słońce,,
 4391,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,夕日,ゆうひ,,yuuhi,zachodzące słońce,,
+4392,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,倒す,たおす,,taosu,"powalać
+przewracać
+pokonywać",,
+4393,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,自画像,じがぞう,,jigazou,autoportret,,
+4394,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,現像,げんぞう,,genzou,wywoływanie,filmu,
+4395,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,想像,そうぞう,,souzou,wyobrażenie,,
+4396,WORD,WORD_NOUN,,HIRAGANA,Inne,,想像力,そうぞうりょく,,souzou ryoku,wyobraźnia,,
+4397,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,偶像,ぐうぞう,,guuzou,bożek,,
+4398,WORD,WORD_NOUN,,HIRAGANA,Inne,,満,まん,,man,"pełnia
+dość
+duma",,
+4399,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,満たす,みたす,,mitasu,"napełniać
+zaspokajać
+realizować",,
+4400,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,満ちる,みちる,,michiru,"napełniać się
+wypełniać się
+realizować się",,
+4401,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,満足,まんぞく,,manzoku,"zaspokojenie
+satysfakcja",,
+4402,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,満席,まんせき,,manseki,wszystkie miejsca zajęte,,
+4403,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,満月,まんげつ,,mangetsu,pełnia księżyca,,
+4404,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,満腹,まんぷく,,manpuku,"być najedzonym
+mieć pełny brzuch",,
+4405,WORD,WORD_NOUN,,HIRAGANA,Inne,,満州,まんしゅう,,manshuu,Mandżuria,,
+4406,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,第一,だいいち,,daiichi,pierwszy,,
+4407,WORD,UNKNOWN,,HIRAGANA,Inne,,第一種,だいいっしゅ,,dai isshu,pierwsza klasa,,
+4408,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,第三者,だいさんしゃ,,dai san sha,trzecia osoba,,
+4409,WORD,WORD_NOUN,,HIRAGANA,Inne,,第六感,だいろっかん,,dai rokkan,sześć zmysłów,,
+4410,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,第二次世界大戦,だいにじせかいたいせん,,dai niji sekai taisen,druga wojna światowa,,
+4411,WORD,WORD_NOUN,,HIRAGANA,Inne,,印,いん,,in,pieczęć,,
+4412,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,印,しるし,,shirushi,znak,,
+4413,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,印刷,いんさつ,,insatsu,druk,,
+4414,WORD,WORD_NOUN,,HIRAGANA,Inne,,印刷物,いんさつぶつ,,insatsubutsu,druki,,
+4415,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,矢印,やじるし,,yajirushi,strzałka,kierunkowa,
+4416,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,印鑑,いんかん,,inkan,"stempel
+pieczątka",,
+4417,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,漫ろ,そぞろ,,sozoro,"bezcelowo
+wbrew sobie
+jakoś tak",,
+4418,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,蜜,みつ,,mitsu,"nektar
+miód",,
+4419,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,蜂蜜,はちみつ,,hachimitsu,miód,,
+4420,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,輪,わ,,wa,"koło
+okrąg
+obręcz",,
+4421,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,車輪,しゃりん,,sharin,koło,np. samochodu,
+4422,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,輪転,りんてん,,rinten,rotacja,,
+4423,WORD,WORD_NOUN,,HIRAGANA,Inne,,五輪大会,ごりんたいかい,,gorintaikai,Igrzyska Olimpijskie,,
+4424,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,競輪,けいりん,,keirin,wyścigi kolarskie,,
+4425,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,似せる,にせる,,niseru,"naśladować
+kopiować
+robić na wzór",,
+4426,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,似顔,にがお,,nigao,podobieństwo twarzy,,
+4427,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,似顔絵,にがおえ,,nigaoe,portret,,
+4428,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,相似,そうじ,,souji,podobieństwo,,
