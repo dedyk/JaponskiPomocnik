@@ -99,7 +99,6 @@
                     android:id="@+id/word_dictionary_search_options_search_any_place_radiobutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:enabled="false"
                     android:text="@string/word_dictionary_search_options_search_any_place_radiobutton"
                     android:textSize="12sp" />
 

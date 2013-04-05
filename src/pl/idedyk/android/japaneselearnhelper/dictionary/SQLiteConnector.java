@@ -158,25 +158,25 @@ public class SQLiteConnector {
 		FindWordResult findWordResult = new FindWordResult();
 		
 		findWordResult.result = new ArrayList<ResultItem>();
-		
-		String wordWithPercent = null; 
-		String wordWithStar = null;
-		
+				
+		String wordArgument = null;
+		String wordKanjiArgument = null;
+				
 		if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
 			
-			wordWithPercent = "%" + findWordRequest.word + "%"; 
-			wordWithStar = "*" + findWordRequest.word + "*";
-			
+			wordArgument = "%" + findWordRequest.word + "%";
+			wordKanjiArgument = wordArgument;
+						
 		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.START_WITH) {
-			
-			wordWithPercent = findWordRequest.word + "%"; 
-			wordWithStar = findWordRequest.word + "*";
-			
+			 
+			wordArgument = findWordRequest.word + "*";
+			wordKanjiArgument =  findWordRequest.word + "%";
+						
 		} else if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.EXACT) {
 			
-			wordWithPercent = findWordRequest.word; 
-			wordWithStar = findWordRequest.word;
-			
+			wordArgument = findWordRequest.word; 
+			wordKanjiArgument =  findWordRequest.word;
+						
 		} else {
 			throw new RuntimeException(String.valueOf(findWordRequest.wordPlaceSearch));
 		}
@@ -196,7 +196,7 @@ public class SQLiteConnector {
 			
 			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_kanji);
 			
-			arguments.add(wordWithPercent);
+			arguments.add(wordKanjiArgument);
 		}
 		
 		if (findWordRequest.searchKana == true) {
@@ -209,9 +209,13 @@ public class SQLiteConnector {
 				sql.append(" or ");
 			}
 			
-			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_kana);
+			if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
+				sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_like_kana);
+			} else {
+				sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_match_kana);
+			}
 			
-			arguments.add(wordWithStar);
+			arguments.add(wordArgument);
 		}
 		
 		if (findWordRequest.searchRomaji == true) {
@@ -224,9 +228,14 @@ public class SQLiteConnector {
 				sql.append(" or ");
 			}
 			
-			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_romaji);
+			if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
+				sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_like_romaji);
+			} else {
+				sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_match_romaji);
+			}
 			
-			arguments.add(wordWithStar);
+			//arguments.add(operation);
+			arguments.add(wordArgument);
 		}
 
 		if (findWordRequest.searchTranslate == true) {
@@ -239,9 +248,14 @@ public class SQLiteConnector {
 				sql.append(" or ");
 			}
 			
-			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_translate);
+			if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
+				sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_like_translate);
+			} else {
+				sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_match_translate);
+			}
 			
-			arguments.add(wordWithStar);
+			// arguments.add(operation);
+			arguments.add(wordArgument);
 		}
 		
 		if (findWordRequest.searchInfo == true) {
@@ -254,9 +268,14 @@ public class SQLiteConnector {
 				sql.append(" or ");
 			}
 			
-			sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_info);
+			if (findWordRequest.wordPlaceSearch == FindWordRequest.WordPlaceSearch.ANY_PLACE) {
+				sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_like_info);
+			} else {
+				sql.append(SQLiteStatic.dictionaryEntriesTableSelectElements_match_info);
+			}
 			
-			arguments.add(wordWithStar);
+			//arguments.add(operation);
+			arguments.add(wordArgument);
 		}
 		
 		if (addedWhere == true) {

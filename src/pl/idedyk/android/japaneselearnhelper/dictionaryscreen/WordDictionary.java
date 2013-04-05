@@ -358,8 +358,6 @@ public class WordDictionary extends Activity {
 		
 		if (inputFindWord != null) { // dla wyszukiwanie kanji
 			searchOptionsAnyPlaceRadioButton.setChecked(true);
-			searchValueEditText.setEnabled(false);
-			searchButton.setEnabled(false);
 		}
 		
 		searchValueEditText.setText(inputFindWord);
