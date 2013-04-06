@@ -10,6 +10,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest.WordPlaceSearch;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
@@ -354,10 +355,35 @@ public class WordDictionary extends Activity {
 				searchOptionsLinearLayout.getChildCount() - 1);
 		
 		// search from other activity
-		String inputFindWord = (String)getIntent().getSerializableExtra("find");
+		FindWordRequest findWordRequest = (FindWordRequest)getIntent().getSerializableExtra("findWordRequest");
 		
-		if (inputFindWord != null) { // dla wyszukiwanie kanji
-			searchOptionsAnyPlaceRadioButton.setChecked(true);
+		String inputFindWord = null;
+		
+		if (findWordRequest != null) { // dla parametrow wyszukiwania
+			
+			WordPlaceSearch wordPlaceSearch = findWordRequest.wordPlaceSearch;
+			
+			if (wordPlaceSearch == WordPlaceSearch.START_WITH) {
+				searchOptionsStartWithPlaceRadioButton.setChecked(true);
+				
+			} else if (wordPlaceSearch == WordPlaceSearch.ANY_PLACE) {
+				searchOptionsAnyPlaceRadioButton.setChecked(true);
+				
+			} else if (wordPlaceSearch == WordPlaceSearch.EXACT) {
+				searchOptionsExactPlaceRadioButton.setChecked(true);
+				
+			} else {
+				throw new RuntimeException("Unknown wordplaceSearch: " + wordPlaceSearch);
+			}
+			
+			searchOptionsKanjiCheckbox.setChecked(findWordRequest.searchKanji);
+			searchOptionsKanaCheckbox.setChecked(findWordRequest.searchKana);
+			searchOptionsRomajiCheckbox.setChecked(findWordRequest.searchRomaji);
+			searchOptionsTranslateCheckbox.setChecked(findWordRequest.searchTranslate);
+			searchOptionsInfoCheckbox.setChecked(findWordRequest.searchInfo);
+			searchOptionsGrammaExampleSearchCheckbox.setChecked(findWordRequest.searchGrammaFormAndExamples);
+			
+			inputFindWord = findWordRequest.word;
 		}
 		
 		searchValueEditText.setText(inputFindWord);

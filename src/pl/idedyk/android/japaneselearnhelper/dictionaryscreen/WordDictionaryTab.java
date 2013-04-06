@@ -68,7 +68,7 @@ public class WordDictionaryTab extends TabActivity {
 		Intent wordDictionary = new Intent(getApplicationContext(), WordDictionary.class);
 		
 		if (addFindExtra == true) {
-			wordDictionary.putExtra("find", (String)getIntent().getSerializableExtra("find"));
+			wordDictionary.putExtra("findWordRequest", getIntent().getSerializableExtra("findWordRequest"));
 		}
 
 		TabSpec wordDictionaryTabSpec = tabHost.newTabSpec("WordDictionaryTabSpec." + counter)

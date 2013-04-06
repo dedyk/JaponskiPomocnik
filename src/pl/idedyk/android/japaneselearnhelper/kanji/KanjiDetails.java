@@ -5,6 +5,8 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest.WordPlaceSearch;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
@@ -232,7 +234,21 @@ public class KanjiDetails extends Activity {
 
 				Intent intent = new Intent(getApplicationContext(), WordDictionaryTab.class);
 				
-				intent.putExtra("find", kanjiEntry.getKanji());
+				FindWordRequest findWordRequest = new FindWordRequest();
+				
+				findWordRequest.word = kanjiEntry.getKanji();
+				findWordRequest.searchKanji = true;
+				findWordRequest.searchKana = false;
+				findWordRequest.searchRomaji = false;
+				findWordRequest.searchTranslate = false;
+				findWordRequest.searchInfo = false;
+				findWordRequest.searchGrammaFormAndExamples = false;
+				
+				findWordRequest.wordPlaceSearch = WordPlaceSearch.ANY_PLACE;
+				
+				findWordRequest.dictionaryEntryList = null;
+				
+				intent.putExtra("findWordRequest", findWordRequest);
 				
 				startActivity(intent);
 			}

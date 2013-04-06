@@ -1,11 +1,14 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
+import java.io.Serializable;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 
-public class FindWordRequest {
+public class FindWordRequest implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	public String word;
 	
 	public boolean searchKanji = true;
