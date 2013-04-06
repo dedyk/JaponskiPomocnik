@@ -2244,9 +2244,12 @@ Genki dodatkowe 2-15",,走る,はしる,,hashiru,biegać,,
 cienki
 szczupły",,
 1236,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,薄い,うすい,,usui,"cienki
+słaby
 jasny kolor","np. materiał, np. pastelowy",
 1237,WORD,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Inne,,掛ける,かける,,kakeru,powiesić coś na czymś,,
+VERB_TRANSITIVITY",HIRAGANA,Inne,,掛ける,かける,,kakeru,"wieszać
+powiesić coś na czymś
+mnożyć",,
 1238,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-20,,角,かど,,kado,róg,,
 1239,WORD,WORD_VERB_U,,HIRAGANA,Inne,,に気がつく,にきがつく,,niki ga tsuku,zauważyć,,
 1240,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,美,び,,bi,piękno,,
@@ -2276,21 +2279,24 @@ VERB_TRANSITIVITY",HIRAGANA,Inne,,見下ろす,みおろす,,mi orosu,patrzeć w
 1256,WORD,WORD_NOUN,,HIRAGANA,Inne,,霞み,かすみ,,kasumi,"mgła
 zamglenie
 zamazany
+nieprzejrzysty
 zamglony (np. obraz)",,
 1257,WORD,WORD_NOUN,,HIRAGANA,Inne,,前髪,まえがみ,,maegami,grzywka,,
 1258,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,-,まま,,mama,"stan taki, jaki jest",~ no,
 1259,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,今のまま,いまのまま,,ima no mama,"stan taki, jaki jest dzisiaj",,
 1260,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,励ます,はげます,,hagemasu,"zachęcać kogoś
-podnosić na duchu",,
+podnosić na duchu
+dodawać otuchy
+pobudzać",,
 1261,WORD,WORD_VERB_U,,HIRAGANA,Inne,,気に入る,きにはいる,,ki ni hairu,spodobać się,,
 1262,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,-,やすい,,yasui,łatwość robienia czegoś,+ czasownik bez masu,
 1263,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,食べやすい,たべやすい,,tabe yasui,łatwość jedzenia,,
 1264,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,本物,ほんもの,,honmono,prawdziwy,,
 1265,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,贅沢,ぜいたく,,zeitaku,luksus,,
 1266,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,お腹がすいた,おなかがすいた,,onaka ga suita,być głodnym,,
-1267,WORD,WORD_VERB_U,,HIRAGANA,Inne,,腹減る,はらへる,,hara heru,być głodnym,,
-1268,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,腹減った,はらへった,,hara hetta,być głodnym,,
+1267,WORD,WORD_VERB_U,,HIRAGANA,Inne,,腹減る,はらへる,,haraheru,być głodnym,,
+1268,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,腹減った,はらへった,,harahetta,być głodnym,,
 1269,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,小腹,こばら,,kobara,mały głodek,,
 1270,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,小腹がすいた,こばらがすいた,,kobara ga suita,być troszeczkę głodny,,
 1271,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,立派,りっぱ,,rippa,"wspaniały
@@ -8267,3 +8273,55 @@ sztuka
 umiejętność",,
 4488,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,細心,さいしん,,saishin,ostrożność,,
 4489,WORD,WORD_NOUN,,HIRAGANA,Inne,,細則,さいそく,,saisoku,szczegółowy regulamin,,
+4490,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,薄まる,うすまる,,usumaru,"stawać się cienkim
+stawać się słabym",,
+4491,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,薄める,うすめる,,usumeru,"robić cienkim
+rozcieńczać",,
+4492,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,薄らぐ,うすらぐ,,usuragu,"chudnąć
+blednąć",,
+4493,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,掛かる,かかる,,kakaru,"wisieć
+być zawieszonym
+kosztować
+wymagać",,
+4494,WORD,WORD_NOUN,,HIRAGANA,Inne,,掛かり,かかり,,kakari,"koszt
+obowiązek
+interes
+podatek
+zależność",,
+4495,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,健やか,すこやか,,sukoyaka,zdrowy,,
+4496,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,健勝,けんしょう,,kenshou,zdrowy,,
+4497,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,健在,けんざい,,kenzai,zdrowy,,
+4498,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,保健,ほけん,,hoken,"higiena
+troska o zdrowie",,
+4499,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,強健,きょうけん,,kyouken,"w bardzo dobrym stanie zdrowia
+w dobrej kondycji",,
+4500,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,小康,しょうこう,,shoukou,"chwilowa cisza
+zastój",,
+4501,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,梅,うめ,,ume,śliwa,,
+4502,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,励む,はげむ,,hagemu,"przykładać się
+być pilnym",,
+4503,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,励み,はげみ,,hagemi,"stymulacja
+zachęta
+poparcie",,
+4504,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,沢,さわ,,sawa,"bagno
+moczary",,
+4505,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,減る,へる,,heru,"zmniejszać się
+maleć",,
+4506,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,減らす,へらす,,herasu,"zmniejszać
+ograniczać",,
+4507,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,減少,げんしょう,,genshou,"redukcja
+ograniczanie
+zmniejszanie",,
+4508,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,半減,はんげん,,hangen,zmniejszać o połowę,,
+4509,WORD,WORD_NOUN,,HIRAGANA,Inne,,減法,げんぽう,,genpou,odejmowanie,,
+4510,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,減刑,げんけい,,genkei,redukowanie kary,,
+4511,WORD,WORD_NOUN,,HIRAGANA,Inne,,減価,げんか,,genka,"obniżka cen
+przecena",,
