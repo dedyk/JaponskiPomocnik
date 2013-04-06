@@ -30,13 +30,16 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -116,6 +119,8 @@ public class KanjiTestOptionsActivity extends Activity {
 					}
 					
 					Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_input_detected_kanji, allKanjiTest.toString()), Toast.LENGTH_SHORT).show();
+					
+					showSelectedKanji();
 				}
 			});
 
@@ -207,7 +212,7 @@ public class KanjiTestOptionsActivity extends Activity {
 		
 		final TextView chooseKanjiGroupTextView = (TextView)findViewById(R.id.kanji_test_options_choose_kanji_group);
 
-		final TextView chooseKanjiTextView = (TextView)findViewById(R.id.kanji_test_options_choose_kanji);
+		final TextView chosenKanjiTextView = (TextView)findViewById(R.id.kanji_test_options_chosen_kanji);		
 
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
 
@@ -278,7 +283,7 @@ public class KanjiTestOptionsActivity extends Activity {
 					return;
 				}
 				
-				if (dedicateExampleCheckBox.isChecked() == true) {
+				if ((kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD || kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD) && dedicateExampleCheckBox.isChecked() == true) {
 					
 					if (chosenKanjiGroupList.size() == 0) {
 						
@@ -511,13 +516,15 @@ public class KanjiTestOptionsActivity extends Activity {
 					detailsSb.append(currentKanjiGroupList.isChecked() + " - " + currentKanjiGroupListText).append("\n");
 				}			
 				
-				detailsSb.append("\n***" + chooseKanjiTextView.getText() + "***\n\n");
+				detailsSb.append("\n***" + chosenKanjiTextView.getText() + "***\n\n");
 
 				for (CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
 
 					KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
-
-					detailsSb.append(currentCheckBox.isChecked() + " - " + currentCheckBoxKanjiEntry.getKanji() + " - " + currentCheckBoxKanjiEntry.getPolishTranslates()).append("\n");
+					
+					if (currentCheckBox.isChecked() == true) {
+						detailsSb.append(currentCheckBox.isChecked() + " - " + currentCheckBoxKanjiEntry.getKanji() + " - " + currentCheckBoxKanjiEntry.getPolishTranslates()).append("\n");
+					}
 				}
 
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
@@ -645,7 +652,7 @@ public class KanjiTestOptionsActivity extends Activity {
 					
 					kanjiGroupList.add(currentKanjiGroupCheckBox);
 					
-					mainLayout.addView(currentKanjiGroupCheckBox, mainLayout.getChildCount() - 1);
+					mainLayout.addView(currentKanjiGroupCheckBox, mainLayout.getChildCount() - 2);
 					
 					currentKanjiGroupCheckBox.setOnClickListener(new OnClickListener() {
 						
@@ -673,19 +680,111 @@ public class KanjiTestOptionsActivity extends Activity {
 								
 								currentKanjiCheckBox.setChecked(allKanjisInGroup.contains(currentCheckBoxKanjiEntryKanji));								
 							}
+							
+							showSelectedKanji();
 						}
 					});
 				}
 				
-				for (CheckBox currentKanjiCheckBox : kanjiCheckBoxListWithoutDetails) {
-					mainLayout.addView(currentKanjiCheckBox);
-				}
-
+				showSelectedKanji();
+				
 				progressDialog.dismiss();
 			}
 		}
 
 		new PrepareAsyncTask().execute();
+	}
+	
+	private void showSelectedKanji() {
+		
+		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
+		final TextView chosenKanjiInfoTextView = (TextView)findViewById(R.id.kanji_test_options_chosen_kanji_info);
+		
+		boolean startDelete = false;
+		
+		// clear end of main layout
+		for (int idx = 0; idx < mainLayout.getChildCount(); ++idx) {
+			
+			View currentMainLayoutChildView = mainLayout.getChildAt(idx);
+			
+			if (currentMainLayoutChildView == chosenKanjiInfoTextView) { 
+				startDelete = true;
+				
+				continue;
+			}
+			
+			if (startDelete == true) {
+				mainLayout.removeView(currentMainLayoutChildView);
+				
+				idx--;
+			}
+		}
+		
+		for (final CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
+			
+			if (currentCheckBox.isChecked() == true) {
+				
+				KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
+				
+				LinearLayout linearLayout = new LinearLayout(this);
+				
+				LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+				linearLayout.setLayoutParams(layoutParams);
+				
+				// kanji
+				TextView kanjiTextView = new TextView(this);
+				
+				LinearLayout.LayoutParams kanjiLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				
+				kanjiLayoutParams.leftMargin = 10;
+				
+				kanjiTextView.setLayoutParams(kanjiLayoutParams);
+				
+				StringBuffer currentKanjiEntryText = new StringBuffer();
+
+				currentKanjiEntryText.append("<big>").append(currentCheckBoxKanjiEntry.getKanji()).append("</big> - ").
+					append(currentCheckBoxKanjiEntry.getPolishTranslates().toString()).append("\n\n");
+				
+				kanjiTextView.setTextSize(15.0f);
+				kanjiTextView.setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
+				
+				// delete icon
+				ImageView deleteImageView = new ImageView(this);
+				
+				LinearLayout.LayoutParams imageLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+				imageLayoutParams.gravity = Gravity.CENTER;
+				
+				imageLayoutParams.leftMargin = 10;
+				
+				deleteImageView.setLayoutParams(imageLayoutParams);
+				
+				deleteImageView.setImageDrawable(getResources().getDrawable(R.drawable.delete));
+				
+				linearLayout.addView(kanjiTextView);
+				linearLayout.addView(deleteImageView);
+				
+				// actions: delete
+				View.OnClickListener deleteOnClickListener = new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						
+						for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
+							currentKanjiGroupListCheckBox.setChecked(false);
+						}
+						
+						currentCheckBox.setChecked(false);
+						
+						showSelectedKanji();						
+					}
+				};
+				
+				kanjiTextView.setOnClickListener(deleteOnClickListener);
+				deleteImageView.setOnClickListener(deleteOnClickListener);				
+				
+				mainLayout.addView(linearLayout);
+			}
+		}		
 	}
 	
 	private void setUntilSuccessNewWordLimitCheckBoxEnabled(CheckBox untilSuccessCheckBox, CheckBox untilSuccessNewWordLimitCheckBox) {
