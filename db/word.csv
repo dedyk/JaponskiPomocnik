@@ -2365,7 +2365,7 @@ Genki dodatkowe 2-15",,一年中,いちねんじゅう,,ichinenjuu,cały rok,,
 1311,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-4,,三時半,さんじはん,,sanji han,3:30,,
 1312,KANJI,UNKNOWN,COMMON_WORD,HIRAGANA,"Genki kanji 1-4
 Genki kanji 1-6",,半分,はんぶん,,hanbun,połowa,,
-1313,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-5,,富士山,ふじさん,,Fuji san,Góra Fuji,,
+1313,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-5,,富士山,ふじさん,,Fuji san,góra Fuji,,
 1314,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-5,,川,かわ,,kawa,rzeka,,
 1315,KANJI,WORD_NOUN,,HIRAGANA,Genki kanji 1-5,,小川さん,おがわさん,,Ogawa san,Pan Ogawa,,
 1316,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-5,,天国,てんごく,,tengoku,niebo,,
@@ -2408,7 +2408,9 @@ Genki kanji 1-10",,北海道,ほっかいどう,,hokkaidou,Hokkaido,Jedna z japo
 1344,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-6,,北西,ほくせい,,hokusei,północny zachód,,
 1345,KANJI,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-6,,人口,じんこう,,jinkou,populacja,,
 1346,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-6,,出口,でぐち,,deguchi,wyjście,,
-1347,KANJI,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-6,,出席,しゅっせき,,shusseki,nadzór,,
+1347,KANJI,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-6,,出席,しゅっせき,,shusseki,"nadzór
+dozór
+obecność",,
 1348,KANJI,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-6,,輸出,ゆしゅつ,,yushutsu,eksport,,
 1349,KANJI,UNKNOWN,,HIRAGANA,Genki kanji 1-6,,右折,うせつ,,usetsu,skręcić w prawo,,
 1350,KANJI,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-6,,左右,さゆう,,sayuu,prawo i lewo,,
@@ -5429,7 +5431,9 @@ SURU_VERB",HIRAGANA,Inne,,定義,ていぎ,,teigi,definicja,,
 ustalona przerwa",,
 3029,WORD,WORD_NOUN,,HIRAGANA,Inne,,定住地,ていじゅうち,,teijuuchi,miejsce stałego zamieszkania,,
 3030,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,席,せき,,seki,"miejsce
-miejsce siedzące","np. w pociągu, w teatrze",
+miejsce siedzące
+siedzenie
+mata","np. w pociągu, w teatrze",
 3031,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,難い,かたい,,katai,"trudny
 ciężki",,
 3032,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,困難,こんなん,,konnan,"trudność
@@ -8104,7 +8108,8 @@ wypełniać się
 realizować się",,
 4400,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,満足,まんぞく,,manzoku,"zaspokojenie
 satysfakcja",,
-4401,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,満席,まんせき,,manseki,wszystkie miejsca zajęte,,
+4401,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,満席,まんせき,,manseki,"wszystkie miejsca zajęte
+brak wolnych miejsc",,
 4402,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,満月,まんげつ,,mangetsu,pełnia księżyca,,
 4403,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,満腹,まんぷく,,manpuku,"być najedzonym
 mieć pełny brzuch",,
@@ -8325,3 +8330,57 @@ SURU_VERB",HIRAGANA,Inne,,半減,はんげん,,hangen,zmniejszać o połowę,,
 4510,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,減刑,げんけい,,genkei,redukowanie kary,,
 4511,WORD,WORD_NOUN,,HIRAGANA,Inne,,減価,げんか,,genka,"obniżka cen
 przecena",,
+4512,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,旧,きゅう,,kyuu,"stary
+poprzedni",prefiks do określania starych rzeczy,
+4513,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,旧式,きゅうしき,,kyuushiki,"stary typ
+staromodny",,
+4514,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,新旧,しんきゅう,,shinkyuu,nowy i stary,,
+4515,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,復旧,ふっきゅう,,fukkyuu,"naprawa
+przywracanie do pierwotnego stanu",,
+4516,WORD,WORD_NOUN,,HIRAGANA,Inne,,旧悪,きゅうあく,,kyuuaku,"przeszłe przekroczenie
+poprzednie przekroczenie",,
+4517,WORD,WORD_NOUN,,HIRAGANA,Inne,,旧約聖書,きゅうやくせいしょ,,kyuuyakuseisho,Stary Testament,,
+4518,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,街,がい,,gai,"ulica
+centrum (miasta)",,
+4519,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,派,は,,ha,"grupa
+partia
+klika
+sekta
+szkoła",,
+4520,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,派遣,はけん,,haken,"wysyłka
+wysłanie
+ekspediowanie",,
+4521,WORD,WORD_NOUN,,HIRAGANA,Inne,,派別,はべつ,,habetsu,podział,"na sekty, szkoły itp.",
+4522,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宗派,しゅうは,,shuuha,sekta religijna,,
+4523,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,派生,はせい,,hasei,podział,rozmnażanie przez podział,
+4524,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,派出所,はしゅつじょ,,hashutsujo,"oddział
+budka policyjna",,
+4525,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,萩,はぎ,,hagi,lespedeza,rodzaj kwiatu,
+4526,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,泥,どろ,,doro,"błoto
+bagno
+muł",,
+4527,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,棒,ぼう,,bou,"drążek
+kij
+laska
+palik
+tyczka
+słupek",,
+4528,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,富,とみ,,tomi,bogactwo,,
+4529,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,富む,とむ,,tomu,"być bogatym
+obfitować",,
+4530,WORD,WORD_NOUN,,HIRAGANA,Inne,,富国,ふこく,,fukoku,bogate państwo,,
+4531,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,富強,ふきょう,,fukyou,bogactwo i siła,,
+4532,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,富裕,ふゆう,,fuyuu,"bogactwo
+obfitość",,
+4533,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,富豪,ふごう,,fugou,"bogaty człowiek
+milioner",,
+4534,WORD,WORD_NOUN,,HIRAGANA,Inne,,席,むしろ,,mushiro,słomiana mata,,
+4535,WORD,WORD_NOUN,,HIRAGANA,Inne,,席次,せきじ,,sekiji,"kolejność miejsc
+kolejność siedzeń
+pierwszeństwo",,
+4536,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,欠席,けっせき,,kesseki,nieobecność,,
