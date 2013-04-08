@@ -49,7 +49,7 @@ import android.widget.Toast;
 public class KanjiTestOptionsActivity extends Activity {
 
 	private List<CheckBox> kanjiGroupList;
-	private List<CheckBox> kanjiCheckBoxListWithoutDetails;
+	private KanjiList kanjiList;
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -84,13 +84,13 @@ public class KanjiTestOptionsActivity extends Activity {
 					
 					List<KanjiEntry> knownKanjiList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findKnownKanji(kanjiValue);
 					
-					Set<String> allKanjisInGroup = new HashSet<String>();
+					List<String> allKanjisInGroup = new ArrayList<String>();
 					
 					StringBuffer allKanjiTest = new StringBuffer();
 					
 					for (KanjiEntry currentKanjiEntry : knownKanjiList) {
 						
-						if (currentKanjiEntry.isGenerated() == false) {
+						if (currentKanjiEntry.isGenerated() == false && allKanjisInGroup.contains(currentKanjiEntry.getKanji()) == false) {
 							allKanjisInGroup.add(currentKanjiEntry.getKanji());
 							
 							allKanjiTest.append(currentKanjiEntry.getKanji());
@@ -105,17 +105,10 @@ public class KanjiTestOptionsActivity extends Activity {
 					
 					for (CheckBox currentCheckBox : kanjiGroupList) {
 						currentCheckBox.setChecked(false);
-					}	
+					}
 					
-					for (CheckBox currentKanjiCheckBox : kanjiCheckBoxListWithoutDetails) {
-						
-						KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentKanjiCheckBox.getTag();
-						
-						String currentCheckBoxKanjiEntryKanji = currentCheckBoxKanjiEntry.getKanji();
-						
-						if (currentKanjiCheckBox.isChecked() == false && allKanjisInGroup.contains(currentCheckBoxKanjiEntryKanji) == true) {
-							currentKanjiCheckBox.setChecked(true);
-						}
+					for (String currentInputedKanji : allKanjisInGroup) {
+						kanjiList.setKanjiChecked(currentInputedKanji, true);
 					}
 					
 					Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_input_detected_kanji, allKanjiTest.toString()), Toast.LENGTH_SHORT).show();
@@ -140,10 +133,10 @@ public class KanjiTestOptionsActivity extends Activity {
 			for (CheckBox currentCheckBox : kanjiGroupList) {
 				currentCheckBox.setChecked(false);
 			}
-
-			for (CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
-				currentCheckBox.setChecked(false);
-			}
+			
+			kanjiList.cleatUserSelectedKanjiList();
+			
+			showSelectedKanji();
 			
 			Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_clear_selected_kanji_all), Toast.LENGTH_SHORT).show();
 			
@@ -216,7 +209,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
 
-		kanjiCheckBoxListWithoutDetails = new ArrayList<CheckBox>();
+		kanjiList = new KanjiList();
 		kanjiGroupList = new ArrayList<CheckBox>();
 			
 		Button startTestButton = (Button)findViewById(R.id.kanji_test_options_start_test);
@@ -247,18 +240,14 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				List<String> chosenKanjiList = new ArrayList<String>();
 
-				for (CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
+				for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
 
-					if (currentCheckBox.isChecked() == true) {
+					// get kanji with details
+					currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findKanji(currentCheckBoxKanjiEntry.getKanji());
 
-						KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
+					chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
+					kanjiEntryList.add(currentCheckBoxKanjiEntry);						
 
-						// get kanji with details
-						currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findKanji(currentCheckBoxKanjiEntry.getKanji());
-
-						chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
-						kanjiEntryList.add(currentCheckBoxKanjiEntry);						
-					}
 				}
 
 				kanjiTestConfig.setChosenKanji(chosenKanjiList);
@@ -518,12 +507,10 @@ public class KanjiTestOptionsActivity extends Activity {
 				
 				detailsSb.append("\n***" + chosenKanjiTextView.getText() + "***\n\n");
 
-				for (CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
-
-					KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
+				for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getAllKanjiList()) {
 					
-					if (currentCheckBox.isChecked() == true) {
-						detailsSb.append(currentCheckBox.isChecked() + " - " + currentCheckBoxKanjiEntry.getKanji() + " - " + currentCheckBoxKanjiEntry.getPolishTranslates()).append("\n");
+					if (kanjiList.isChecked(currentCheckBoxKanjiEntry) == true) {
+						detailsSb.append("true - " + currentCheckBoxKanjiEntry.getKanji() + " - " + currentCheckBoxKanjiEntry.getPolishTranslates()).append("\n");
 					}
 				}
 
@@ -576,35 +563,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				for (int allKanjisIdx = 0; allKanjisIdx < allKanjis.size(); ++allKanjisIdx) {
 
 					KanjiEntry currentKanjiEntry = allKanjis.get(allKanjisIdx);
-
-					CheckBox currentKanjiCheckBox = new CheckBox(KanjiTestOptionsActivity.this);
-
-					currentKanjiCheckBox.setChecked(chosenKanji.contains(currentKanjiEntry.getKanji()));
-
-					currentKanjiCheckBox.setLayoutParams(new LinearLayout.LayoutParams(
-							LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-
-					currentKanjiCheckBox.setTextSize(12);
-
-					StringBuffer currentKanjiEntryText = new StringBuffer();
-
-					currentKanjiEntryText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
-
-					currentKanjiCheckBox.setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
-
-					currentKanjiCheckBox.setTag(currentKanjiEntry);
 					
-					currentKanjiCheckBox.setOnClickListener(new OnClickListener() {
-						
-						public void onClick(View v) {
-							
-							for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
-								currentKanjiGroupListCheckBox.setChecked(false);
-							}
-						}
-					});
-
-					kanjiCheckBoxListWithoutDetails.add(currentKanjiCheckBox);
+					kanjiList.addKanjiEntry(currentKanjiEntry, chosenKanji.contains(currentKanjiEntry.getKanji()));
 
 					List<GroupEnum> currentKanjiEntryGroups = currentKanjiEntry.getGroups();
 					
@@ -670,15 +630,13 @@ public class KanjiTestOptionsActivity extends Activity {
 								Set<String> currentKanjiGroupListCheckBoxTag = (Set<String>)currentKanjiGroupListCheckBox.getTag();
 								
 								allKanjisInGroup.addAll(currentKanjiGroupListCheckBoxTag);
-							}
+							}							
 							
-							for (CheckBox currentKanjiCheckBox : kanjiCheckBoxListWithoutDetails) {
-								
-								KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentKanjiCheckBox.getTag();
+							for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getAllKanjiList()) {
 								
 								String currentCheckBoxKanjiEntryKanji = currentCheckBoxKanjiEntry.getKanji();
 								
-								currentKanjiCheckBox.setChecked(allKanjisInGroup.contains(currentCheckBoxKanjiEntryKanji));								
+								kanjiList.setKanjiChecked(currentCheckBoxKanjiEntry, allKanjisInGroup.contains(currentCheckBoxKanjiEntryKanji));								
 							}
 							
 							showSelectedKanji();
@@ -720,71 +678,67 @@ public class KanjiTestOptionsActivity extends Activity {
 			}
 		}
 		
-		for (final CheckBox currentCheckBox : kanjiCheckBoxListWithoutDetails) {
-			
-			if (currentCheckBox.isChecked() == true) {
-				
-				KanjiEntry currentCheckBoxKanjiEntry = (KanjiEntry)currentCheckBox.getTag();
-				
-				LinearLayout linearLayout = new LinearLayout(this);
-				
-				LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-				linearLayout.setLayoutParams(layoutParams);
-				
-				// kanji
-				TextView kanjiTextView = new TextView(this);
-				
-				LinearLayout.LayoutParams kanjiLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-				
-				kanjiLayoutParams.leftMargin = 10;
-				
-				kanjiTextView.setLayoutParams(kanjiLayoutParams);
-				
-				StringBuffer currentKanjiEntryText = new StringBuffer();
+		for (final KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
 
-				currentKanjiEntryText.append("<big>").append(currentCheckBoxKanjiEntry.getKanji()).append("</big> - ").
-					append(currentCheckBoxKanjiEntry.getPolishTranslates().toString()).append("\n\n");
-				
-				kanjiTextView.setTextSize(15.0f);
-				kanjiTextView.setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
-				
-				// delete icon
-				ImageView deleteImageView = new ImageView(this);
-				
-				LinearLayout.LayoutParams imageLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-				imageLayoutParams.gravity = Gravity.CENTER;
-				
-				imageLayoutParams.leftMargin = 10;
-				
-				deleteImageView.setLayoutParams(imageLayoutParams);
-				
-				deleteImageView.setImageDrawable(getResources().getDrawable(R.drawable.delete));
-				
-				linearLayout.addView(kanjiTextView);
-				linearLayout.addView(deleteImageView);
-				
-				// actions: delete
-				View.OnClickListener deleteOnClickListener = new View.OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						
-						for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
-							currentKanjiGroupListCheckBox.setChecked(false);
-						}
-						
-						currentCheckBox.setChecked(false);
-						
-						showSelectedKanji();						
+			LinearLayout linearLayout = new LinearLayout(this);
+
+			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			linearLayout.setLayoutParams(layoutParams);
+
+			// kanji
+			TextView kanjiTextView = new TextView(this);
+
+			LinearLayout.LayoutParams kanjiLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+
+			kanjiLayoutParams.leftMargin = 10;
+
+			kanjiTextView.setLayoutParams(kanjiLayoutParams);
+
+			StringBuffer currentKanjiEntryText = new StringBuffer();
+
+			currentKanjiEntryText.append("<big>").append(currentCheckBoxKanjiEntry.getKanji()).append("</big> - ").
+			append(currentCheckBoxKanjiEntry.getPolishTranslates().toString()).append("\n\n");
+
+			kanjiTextView.setTextSize(15.0f);
+			kanjiTextView.setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
+
+			// delete icon
+			ImageView deleteImageView = new ImageView(this);
+
+			LinearLayout.LayoutParams imageLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			imageLayoutParams.gravity = Gravity.CENTER;
+
+			imageLayoutParams.leftMargin = 10;
+
+			deleteImageView.setLayoutParams(imageLayoutParams);
+
+			deleteImageView.setImageDrawable(getResources().getDrawable(R.drawable.delete));
+
+			linearLayout.addView(kanjiTextView);
+			linearLayout.addView(deleteImageView);
+
+			// actions: delete
+			View.OnClickListener deleteOnClickListener = new View.OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+
+					for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
+						currentKanjiGroupListCheckBox.setChecked(false);
 					}
-				};
-				
-				kanjiTextView.setOnClickListener(deleteOnClickListener);
-				deleteImageView.setOnClickListener(deleteOnClickListener);				
-				
-				mainLayout.addView(linearLayout);
-			}
-		}		
+
+					kanjiList.setKanjiChecked(currentCheckBoxKanjiEntry, false);
+
+					showSelectedKanji();						
+				}
+			};
+
+			kanjiTextView.setOnClickListener(deleteOnClickListener);
+			deleteImageView.setOnClickListener(deleteOnClickListener);				
+
+			mainLayout.addView(linearLayout);
+		}
+
 	}
 	
 	private void setUntilSuccessNewWordLimitCheckBoxEnabled(CheckBox untilSuccessCheckBox, CheckBox untilSuccessNewWordLimitCheckBox) {
@@ -793,6 +747,64 @@ public class KanjiTestOptionsActivity extends Activity {
 			untilSuccessNewWordLimitCheckBox.setEnabled(true);
 		} else {
 			untilSuccessNewWordLimitCheckBox.setEnabled(false);
+		}
+	}
+	
+	private static class KanjiList {
+		
+		private List<KanjiEntry> allKanjiList = new ArrayList<KanjiEntry>();
+				
+		private List<KanjiEntry> userSelectedKanjiList = new ArrayList<KanjiEntry>();
+		
+		public List<KanjiEntry> getAllKanjiList() {
+			return allKanjiList;
+		}
+
+		public List<KanjiEntry> getUserSelectedKanjiList() {
+			return userSelectedKanjiList;
+		}
+		
+		public void cleatUserSelectedKanjiList() {
+			userSelectedKanjiList.clear();
+		}
+
+		public void addKanjiEntry(KanjiEntry kanjiEntry, boolean checked) {
+			allKanjiList.add(kanjiEntry);
+			
+			setKanjiChecked(kanjiEntry, checked);
+		}
+		
+		public void setKanjiChecked(String kanji, boolean checked) {
+			
+			KanjiEntry foundKanjiEntry = null; 
+			
+			for (KanjiEntry currentKanjiEntry : allKanjiList) {
+				
+				if (currentKanjiEntry.getKanji().equals(kanji) == true) {
+					
+					foundKanjiEntry = currentKanjiEntry;
+					
+					break;
+				}
+			}
+			
+			if (foundKanjiEntry != null) {
+				setKanjiChecked(foundKanjiEntry, checked);
+			}
+		}
+		
+		public void setKanjiChecked(KanjiEntry kanjiEntry, boolean checked) {
+			
+			if (checked == false) {
+				userSelectedKanjiList.remove(kanjiEntry);
+				
+			} else if (userSelectedKanjiList.contains(kanjiEntry) == false ) {
+				userSelectedKanjiList.add(kanjiEntry);
+			}
+		}
+		
+		public boolean isChecked(KanjiEntry kanjiEntry) {			
+			return userSelectedKanjiList.contains(kanjiEntry);			
 		}
 	}
 }
