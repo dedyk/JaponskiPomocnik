@@ -2618,15 +2618,20 @@ krajobraz",,
 1481,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 2-13
 Genki kanji 2-16",,動物,どうぶつ,,doubutsu,zwierze,,
 1482,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-13,,鳥,とり,,tori,ptak,,
-1483,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-13,,焼き鳥,やきとり,,yakitori,grillowany kurczak,japońska potrawa,
+1483,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-13,,焼き鳥,やきとり,,yakitori,"grillowany kurczak
+smażony kurczak
+pieczony kurczak",japońska potrawa,
 1484,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-13,,白鳥,はくちょう,,hakuchou,łabędź,,
 1485,KANJI,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-13,,料理,りょうり,,ryouri,potrawa,,
 1486,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-13,,料金,りょうきん,,ryoukin,opłata,,
 1487,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-13,,授業料,じゅぎょうりょう,,jugyouryou,czesne,,
 1488,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 2-13
-Genki 2-17",,給料,きゅうりょう,,kyuuryou,pensja,,
-1489,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-13,,理由,りゆう,,riyuu,powód,,
+Genki 2-17",,給料,きゅうりょう,,kyuuryou,"pensja
+zapłata
+wypłata",,
+1489,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-13,,理由,りゆう,,riyuu,"powód
+przyczyna",,
 1490,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-13
 Genki kanji 2-14",,特急電車,とっきゅうでんしゃ,,tokkyuu densha,super express,pociąg,
 1491,KANJI,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki kanji 2-13
@@ -3155,7 +3160,8 @@ wstrętny",,
 1840,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,深い,ふかい,,fukai,głęboki,,
 1841,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,柔らかい,やわらかい,,yawarakai,"miękki
 łagodny
-delikatny",,
+delikatny
+czuły",,
 1842,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,浅い,あさい,,asai,płytki,,
 1843,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-16,,弱い,よわい,,yowai,"słaby
 niezdolny",,
@@ -8384,3 +8390,85 @@ kolejność siedzeń
 pierwszeństwo",,
 4536,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,欠席,けっせき,,kesseki,nieobecność,,
+4537,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,運輸,うんゆ,,un'yu,transport,,
+4538,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,輸送,ゆそう,,yusou,transport,,
+4539,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,輸血,ゆけつ,,yuketsu,transfuzja krwi,,
+4540,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,柔らか,やわらか,,yawaraka,"miękki
+łagodny
+delikatny
+czuły",,
+4541,WORD,WORD_NOUN,,HIRAGANA,Inne,,役,えき,,eki,"walka
+bitwa
+wojna
+kampania",,
+4542,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,役,やく,,yaku,"rola
+pozycja
+obowiązek
+obsługa
+pomoc",,
+4543,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,役人,やくにん,,yakunin,"człowiek na stanowisku
+przedstawiciel rządu
+oficer",,
+4544,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,役者,やくしゃ,,yakusha,aktor,,
+4545,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,役割,やくわり,,yakuwari,"rola
+odpowiedzialność
+zadanie",,
+4546,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,使役,しえき,,shieki,"zatrudnianie
+używanie
+stosowanie",,
+4547,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,役に立つ,やくにたつ,,yakunitatsu,"być pożytecznym
+być użytecznym",,
+4548,WORD,WORD_NOUN,,HIRAGANA,Inne,,合気道,あいきどう,,aikidou,Aikido,japońska sztuka walki,
+4549,WORD,WORD_NOUN,,HIRAGANA,Inne,,合氣道,あいきどう,,aikidou,Aikido,"japońska sztuka walki, dawny zapis",
+4550,WORD,WORD_NOUN,,HIRAGANA,Inne,,積木,つみき,,tsumiki,klocki,zabawka,
+4551,WORD,WORD_NOUN,,HIRAGANA,Inne,,積み木,つみき,,tsumiki,klocki,zabawka,
+4552,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,乳,ちち,,chichi,"mleko
+pierś",,
+4553,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,共,とも,,tomo,"razem
+dwoje
+wszyscy",,
+4554,WORD,WORD_NOUN,,HIRAGANA,Inne,,共通点,きょうつうてん,,kyoutsuuten,wspólny punkt,,
+4555,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,共学,きょうがく,,kyougaku,koedukacja,,
+4556,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,共和国,きょうわこく,,kyouwakoku,republika,,
+4557,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,共産主義,きょうさんしゅぎ,,kyousanshugi,komunizm,,
+4558,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,公共,こうきょう,,koukyou,"publiczność
+ogół
+wspólnota",,
+4559,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,焼く,やく,,yaku,"palić
+piec
+smażyć",,
+4560,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,焼ける,やける,,yakeru,"palić się
+spiec się",,
+4561,WORD,WORD_NOUN,,HIRAGANA,Inne,,焼き物,やきもの,,yakimono,"ceramika
+porcelana",,
+4562,WORD,WORD_NOUN,,HIRAGANA,Inne,,焼却炉,しょうきゃくろ,,shoukyakuro,krematorium,,
+4563,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,焼肉,やきにく,,yakiniku,"smażone mięso
+pieczone mięso",,
+4564,WORD,WORD_VERB_U,,HIRAGANA,Inne,,焼き尽くす,やきつくす,,yakitsukusu,spalić się,,
+4565,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,月給,げっきゅう,,gekkyuu,miesięczna pensja,,
+4566,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,支給,しきゅう,,shikyuu,"dostawa
+zaopatrzenie
+fundusz",,
+4567,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,供給,きょうきゅう,,kyoukyuu,dostawa,,
+4568,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,給水,きゅうすい,,kyuusui,zaopatrzenie w wodę,,
+4569,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,由る,よる,,yoru,zależeć od,,
+4570,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,由,よし,,yoshi,"przyczyna
+środek
+sposób",,
+4571,WORD,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Inne,,自由,じゆう,,jiyuu,wolność,,
+4572,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,由来,ゆらい,,yurai,"pochodzenie
+historia
+źródło",,
+4573,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,由緒,ゆいしょ,,yuisho,"historia
+rodowód",,
+4574,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,経由,けいゆ,,keiyu,"przez
+via",,
