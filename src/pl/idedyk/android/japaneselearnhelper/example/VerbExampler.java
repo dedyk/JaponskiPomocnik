@@ -176,6 +176,9 @@ public class VerbExampler {
 		// hazu desu
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_HAZU_DESU, makeHazuDesu(dictionaryEntry, grammaFormCache));
 		
+		// nai de
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NAI_DE, makeNaiDe(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1418,5 +1421,17 @@ public class VerbExampler {
 		exampleResult1.setAlternative(alternative1);
 		
 		return exampleResult1;
+	}
+	
+	private static ExampleResult makeNaiDe(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "%sで、...";
+		final String templateKana = "%sで、...";
+		final String templateRomaji = "%s de, ...";
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
+		
+		return GrammaExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true);
 	}
 }
