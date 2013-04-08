@@ -220,21 +220,6 @@ public class ConfigManager {
 			editor.commit();
 		}
 		
-		public Set<String> getChosenKanji() {
-			
-			Set<String> result = new HashSet<String>();
-			
-			String chosenKanjiString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenKanjiPostfix, "");
-			
-			String[] chosenKanjiSplited = chosenKanjiString.split(",");
-			
-			for (String currentChosenKanji : chosenKanjiSplited) {
-				result.add(currentChosenKanji);
-			}
-			
-			return result;
-		}
-
 		public List<String> getChosenKanjiAsList() {
 			
 			List<String> result = new ArrayList<String>();

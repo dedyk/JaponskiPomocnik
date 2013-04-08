@@ -78,7 +78,7 @@
     <string name="kanji_test_options_input_kanji_to_test">Wpisz znaki kanji</string>
     <string name="kanji_test_options_input_kanji_to_test2">Aby je dodać do listy</string>
     <string name="kanji_test_options_input_no_kanji">Nie znaleziono żadnych znanych znaków kanji</string>
-    <string name="kanji_test_options_input_detected_kanji">Dodano następujące znaki kanji:\n\n%1$s</string>
+    <string name="kanji_test_options_input_detected_kanji">Wykryto następujące znaki kanji:\n\n%1$s</string>
     <string name="kanji_test_label">Test ze znaków kanji</string>
     <string name="kanji_test_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_test_info_draw_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>

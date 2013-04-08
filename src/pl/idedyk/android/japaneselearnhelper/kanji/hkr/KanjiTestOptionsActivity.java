@@ -81,7 +81,7 @@ public class KanjiTestOptionsActivity extends Activity {
 				public void onClick(DialogInterface dialog, int whichButton) {
 					
 					String kanjiValue = input.getText().toString();
-					
+										
 					List<KanjiEntry> knownKanjiList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findKnownKanji(kanjiValue);
 					
 					List<String> allKanjisInGroup = new ArrayList<String>();
@@ -556,15 +556,13 @@ public class KanjiTestOptionsActivity extends Activity {
 			@Override
 			protected void onPostExecute(List<KanjiEntry> allKanjis) {
 
-				Set<String> chosenKanji = kanjiTestConfig.getChosenKanji();
-
 				Map<GroupEnum, Set<String>> kanjiGroups = new TreeMap<GroupEnum, Set<String>>();
 				
 				for (int allKanjisIdx = 0; allKanjisIdx < allKanjis.size(); ++allKanjisIdx) {
 
 					KanjiEntry currentKanjiEntry = allKanjis.get(allKanjisIdx);
 					
-					kanjiList.addKanjiEntry(currentKanjiEntry, chosenKanji.contains(currentKanjiEntry.getKanji()));
+					kanjiList.addKanjiEntry(currentKanjiEntry);
 
 					List<GroupEnum> currentKanjiEntryGroups = currentKanjiEntry.getGroups();
 					
@@ -584,6 +582,12 @@ public class KanjiTestOptionsActivity extends Activity {
 						}
 					}
 				}
+				
+				List<String> chosenKanji = kanjiTestConfig.getChosenKanjiAsList();
+				
+				for (String currentChoosenKanji : chosenKanji) {
+					kanjiList.setKanjiChecked(currentChoosenKanji, true);
+				}				
 				
 				GroupEnum[] kanjiGroupsKeysArray = new GroupEnum[kanjiGroups.size()]; 
 				
@@ -768,10 +772,8 @@ public class KanjiTestOptionsActivity extends Activity {
 			userSelectedKanjiList.clear();
 		}
 
-		public void addKanjiEntry(KanjiEntry kanjiEntry, boolean checked) {
+		public void addKanjiEntry(KanjiEntry kanjiEntry) {
 			allKanjiList.add(kanjiEntry);
-			
-			setKanjiChecked(kanjiEntry, checked);
 		}
 		
 		public void setKanjiChecked(String kanji, boolean checked) {
