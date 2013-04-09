@@ -1191,9 +1191,8 @@ Genki kanji 2-15",を,運転する,うんてんする,o,unten suru,prowadzić,po
 niestety
 trudno
 szkoda",... desu ne,
-661,WORD,UNKNOWN,,HIRAGANA,"Genki 1-8
-Genki 1-9
-Genki 2-19",,-,まだ,,mada,jeszcze nie,+ czasownik w formie te negatywnej,
+661,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-8,,未だ,まだ,,mada,"jak do tej pory
+jeszcze nie",+ czasownik w formie te negatywnej,
 662,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,"Genki 1-8
 Genki 1-9",,皆,みんな,,minna,"wszyscy
 wszystko",,
@@ -2774,13 +2773,17 @@ poszerzać
 urządzać (np. przyjęcie)","np. konto w banku, pączek kwiatu lub parasolkę; odstęp, dystans, szerokość",
 1575,WORD,WORD_NOUN,,HIRAGANA,Inne,,武士道,ぶしどう,,bushidou,bushido,kodeks samurajski,
 1576,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,硬い,かたい,,katai,"twardy
-solidny",,
+solidny
+mocny
+trwały",,
 1577,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,トイレ,,toire,toaleta,,
 1578,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,専攻,せんこう,,senkou,specjalizacja,,
 1579,WORD,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Inne,,放送,ほうそう,,housou,transmisja,,
-1580,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,放送する,ほうそうする,,housou suru,transmitować,,
+SURU_VERB",HIRAGANA,Inne,,放送,ほうそう,,housou,"transmisja
+nadawanie","programu radiowego, telewizyjnego",
+1580,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,放送する,ほうそうする,,housou suru,"transmitować
+nadawać","program radiowy, telewizyjny",
 1581,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,掲げる,かかげる,,kakageru,publikować,,
 1582,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,剣道,けんどう,,kendou,kendo,sztuka walki wywodząca się z szermierki japońskich samurajów,
@@ -4627,7 +4630,10 @@ uzyskać pomoc
 być uratowany",,
 2644,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 2-18,,頼む,たのむ,,tanomu,"prosić o przysługę
 prosić","prosić o przysługę
-prosić",
+prosić
+życzyć sobie
+powierzać
+zlecać",
 2645,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-18,が,-,つく,ga,tsuku,włączyć się,,
 2646,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-18,を,汚す,よごす,o,yogosu,"pobrudzić się
@@ -8472,3 +8478,97 @@ historia
 rodowód",,
 4574,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,経由,けいゆ,,keiyu,"przez
 via",,
+4575,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,魔,ま,,ma,"demon
+diabeł
+zły duch",,
+4576,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,操る,あやつる,,ayatsuru,"manipulować
+operować
+sterować
+pociągać za sznurki",,
+4577,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,操,みさお,,misao,"czystość
+dziewictwo
+stałość
+wierność
+honor",,
+4578,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,雄,おす,,osu,"płci męskiej
+samiec",,
+4579,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,過ぎる,すぎる,,sugiru,"przekraczać
+omijać
+za dużo",,
+4580,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,過ごす,すごす,,sugosu,spędzać (czas),,
+4581,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,過つ,あやまつ,,ayamatsu,mylić się,,
+4582,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,過ち,あやまち,,ayamachi,pomyłka,,
+4583,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,通過,つうか,,tsuuka,"przejście
+tranzyt",,
+4584,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,過半数,かはんすう,,kahansuu,"większość
+więcej niż połowa",,
+4585,WORD,WORD_NOUN,,HIRAGANA,Inne,,過労死,かろうし,,karoushi,śmierć z przepracowania,,
+4586,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,過言,かごん,,kagon,"przesada
+wyolbrzymienie",,
+4587,WORD,UNKNOWN,,HIRAGANA,Inne,,未,み,,mi,jeszcze nie,prefiks,
+4588,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,未だ,いまだ,,imada,"jak do tej pory
+jeszcze nie",,
+4589,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,未解決,みかいけつ,,mikaiketsu,nie rozwiązany,problem,
+4590,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,未亡人,みぼうじん,,miboujin,wdowa,,
+4591,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,未成年,みせいねん,,miseinen,niepełnoletni,,
+4592,WORD,WORD_NOUN,,HIRAGANA,Inne,,未開発,みかいはつ,,mikaihatsu,"nierozwinięty
+zacofany",,
+4593,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,妖怪,ようかい,,youkai,"duch
+zjawa
+widmo
+upiór
+demon
+potwór",,
+4594,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,妖精,ようせい,,yousei,"wróżka
+krasnoludek
+elf",,
+4595,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,提げる,さげる,,sageru,"brać ze sobą
+nieść w ręce",,
+4596,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,提出する,ていしゅつする,,teishutsu suru,"proponować
+przedstawiać
+wnosić (prośbę)",,
+4597,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,提言,ていげん,,teigen,"propozycja
+wniosek",,
+4598,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,提起する,ていきする,,teiki suru,"przedstawiać problem
+wnosić petycję
+rościć prawo",,
+4599,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,頼る,たよる,,tayoru,"polegać (na kimś)
+zależeć (od kogoś/czegoś)",,
+4600,WORD,WORD_NOUN,,HIRAGANA,Inne,,武,ぶ,,bu,"broń
+sprawy wojskowe
+sztuka wojenna",,
+4601,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,武器,ぶき,,buki,broń,,
+4602,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,武装解除,ぶそうかいじょ,,busoukaijo,rozbrojenie,,
+4603,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,武士,ぶし,,bushi,"samuraj
+wojownik",,
+4604,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,武力,ぶりょく,,buryoku,siła wojskowa,,
+4605,WORD,WORD_NOUN,,HIRAGANA,Inne,,武断政府,ぶだんせいふ,,budanseifu,"rząd wojskowych
+junta wojskowa",,
+4606,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,放つ,はなつ,,hanatsu,"uwalniać
+wypuszczać",,
+4607,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,放す,はなす,,hanasu,"uwalniać
+wypuszczać",,
+4608,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,解放,かいほう,,kaihou,"wyzwolenie
+oswobodzenie
+uwolnienie",,
+4609,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,放射,ほうしゃ,,housha,"radiacja
+emisja
+emanacja",,
+4610,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,放棄,ほうき,,houki,"porzucenie
+rezygnacja
+wyrzeczenie się",,
+4611,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,放題,ほうだい,,houdai,"do woli
+bez ograniczenia
+bez ograniczeń",,
