@@ -54,24 +54,25 @@ public enum GroupEnum {
 	GENKI_ADDITIONAL_2_17("Genki dodatkowe 2-17", 40),
 	GENKI_ADDITIONAL_2_18("Genki dodatkowe 2-18", 41),
 	GENKI_ADDITIONAL_2_19("Genki dodatkowe 2-19", 42),
+	GENKI_ADDITIONAL_2_20("Genki dodatkowe 2-20", 43),
 
-	GENKI_KANJI_2_13("Genki kanji 2-13", 43),
-	GENKI_KANJI_2_14("Genki kanji 2-14", 44),
-	GENKI_KANJI_2_15("Genki kanji 2-15", 45),
-	GENKI_KANJI_2_16("Genki kanji 2-16", 46),
-	GENKI_KANJI_2_17("Genki kanji 2-17", 47),
-	GENKI_KANJI_2_18("Genki kanji 2-18", 48),
-	GENKI_KANJI_2_19("Genki kanji 2-19", 49),
-	GENKI_KANJI_2_20("Genki kanji 2-20", 50),
+	GENKI_KANJI_2_13("Genki kanji 2-13", 44),
+	GENKI_KANJI_2_14("Genki kanji 2-14", 45),
+	GENKI_KANJI_2_15("Genki kanji 2-15", 46),
+	GENKI_KANJI_2_16("Genki kanji 2-16", 47),
+	GENKI_KANJI_2_17("Genki kanji 2-17", 48),
+	GENKI_KANJI_2_18("Genki kanji 2-18", 49),
+	GENKI_KANJI_2_19("Genki kanji 2-19", 50),
+	GENKI_KANJI_2_20("Genki kanji 2-20", 51),
 
-	COUNTERS("Klasyfikatory", 51),
-	OTHER("Inne", 52),
+	COUNTERS("Klasyfikatory", 52),
+	OTHER("Inne", 53),
 	
-	JLPT_1("JLPT 1", 53),
-	JLPT_2("JLPT 2", 54),
-	JLPT_3("JLPT 3", 55),
-	JLPT_4("JLPT 4", 56),
-	JLPT_5("JLPT 5", 57);
+	JLPT_1("JLPT 1", 54),
+	JLPT_2("JLPT 2", 55),
+	JLPT_3("JLPT 3", 56),
+	JLPT_4("JLPT 4", 57),
+	JLPT_5("JLPT 5", 58);
 
 	private String value;
 
