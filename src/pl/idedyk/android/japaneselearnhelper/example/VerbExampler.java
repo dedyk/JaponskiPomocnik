@@ -179,6 +179,9 @@ public class VerbExampler {
 		// nai de
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NAI_DE, makeNaiDe(dictionaryEntry, grammaFormCache));
 		
+		// questions with larger sentences
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_QUESTIONS_WITH_LARGER_SENTENCES, makeQuestionsWithLargerSentences(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1433,5 +1436,24 @@ public class VerbExampler {
 		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
 		
 		return GrammaExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeQuestionsWithLargerSentences(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji1 = "[słówko pytające] ... %s か 知っています, 覚えていません, わかりません, etc";
+		final String templateKana1 = "[słówko pytające] ... %s か しっています, おぼえていません, わかりません, etc";
+		final String templateRomaji1 = "[słówko pytające] ... %s ka shitte imasu, oboete imasen, wakarimasen, etc";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, false);
+		
+		final String templateKanji2 = "%s か (どうか) 知っています, 覚えていません, わかりません, etc";
+		final String templateKana2 = "%s か (どうか) しっています, おぼえていません, わかりません, etc";
+		final String templateRomaji2 = "%s ka (douka) shitte imasu, oboete imasen, wakarimasen, etc";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, false);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
 	}
 }

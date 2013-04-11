@@ -73,6 +73,9 @@ public class AdjectiveNaExampler {
 		// hazu desu
 		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_HAZU_DESU, makeHazuDesu(dictionaryEntry, grammaFormCache));
 		
+		// questions with larger sentences
+		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_QUESTIONS_WITH_LARGER_SENTENCES, makeQuestionsWithLargerSentences(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -347,6 +350,17 @@ public class AdjectiveNaExampler {
 		ExampleResult alternative1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, true);
 		
 		exampleResult1.setAlternative(alternative1);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeQuestionsWithLargerSentences(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji1 = "%s か (どうか) 知っています, 覚えていません, わかりません, etc";
+		final String templateKana1 = "%s か (どうか) しっています, おぼえていません, わかりません, etc";
+		final String templateRomaji1 = "%s ka (douka) shitte imasu, oboete imasen, wakarimasen, etc";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, false);
 		
 		return exampleResult1;
 	}

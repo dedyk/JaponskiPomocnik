@@ -38,6 +38,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_HAZU_DESU("Powinno być / Miało być"),
 	
+	ADJECTIVE_I_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach"),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -73,6 +75,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_TO("Kiedy A staje się, wtedy również B staje się", "Mówi o rzeczach oczywistych, z której druga wynika z pierwszej"),
 	
 	ADJECTIVE_NA_HAZU_DESU("Powinno być / Miało być"),
+	
+	ADJECTIVE_NA_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach"),
 	
 	NOUN_NI_NARU("Stawać się"),
 	
@@ -112,6 +116,8 @@ public enum ExampleGroupType {
 	NOUN_TO("Kiedy A staje się, wtedy również B staje się", "Mówi o rzeczach oczywistych, z której druga wynika z pierwszej"),
 	
 	NOUN_HAZU_DESU("Powinnien być / Miał być"),
+	
+	NOUN_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach"),
 		
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -214,7 +220,9 @@ public enum ExampleGroupType {
 	
 	VERB_HAZU_DESU("Powinnien / Miał"),
 	
-	VERB_NAI_DE("Nie robiąc, ...");
+	VERB_NAI_DE("Nie robiąc, ..."),
+	
+	VERB_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach");
 	
 	private String name;
 	
