@@ -7737,6 +7737,7 @@ KRLD",,
 4220,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,駐まる,とどまる,,todomaru,"zatrzymywać się
 stać",,
 4221,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,蔵,くら,,kura,"magazyn
+przechowalnia
 komórka
 schowek",,
 4222,WORD,WORD_NOUN,"COMMON_WORD
@@ -8669,3 +8670,103 @@ wiele razy",,
 4655,WORD,WORD_VERB_U,,HIRAGANA,Genki dodatkowe 2-20,,-,ひっかく,,hikkaku,"trzeć
 drapać
 rysować",,
+4656,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,算数,さんすう,,sansuu,arytmetyka,,
+4657,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,算出,さんしゅつ,,sanshutsu,"liczenie
+kalkulacja",,
+4658,WORD,WORD_NOUN,,HIRAGANA,Inne,,計算機,けいさんき,,keisanki,kalkulator,,
+4659,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,予算,よさん,,yosan,budżet,,
+4660,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,公算,こうさん,,kousan,prawdopodobieństwo,,
+4661,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,盤,ばん,,ban,"płyta
+tabliczka
+taca
+dysk
+tablica",,
+4662,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,沖,おき,,oki,"pełne morze
+otwarte morze",,
+4663,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,縄,なわ,,nawa,"lina
+sznurek",,
+4664,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,干る,ひる,,hiru,"schnąć
+cofać się",,
+4665,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,換わる,かわる,,kawaru,zmieniać się,,
+4666,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,顧みる,かえりみる,,kaerimiru,"spoglądać wstecz
+przeglądać
+wspominać
+przypominać (sobie)",,
+4667,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,芋,いも,,imo,"ziemniak
+kartofel
+bulwa",,
+4668,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,横,よこ,,yoko,"strona
+bok
+poziomo",,
+4669,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,横道,よこみち,,yokomichi,"boczna uliczka
+dygresja",,
+4670,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,横着,おうちゃく,,ouchaku,"nieuczciwość
+oszukiwanie
+lenistwo",,
+4671,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,横断,おうだん,,oudan,skrzyżowanie,,
+4672,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,横断歩道,おうだんほどう,,oudan hodou,przejście dla pieszych,,
+4673,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,横顔,よこがお,,yokogao,profil twarzy,,
+4674,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,浜,はま,,hama,"plaża
+wybrzeże",,
+4675,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,札,さつ,,satsu,banknot,,
+4676,WORD,WORD_NOUN,,HIRAGANA,Inne,,札,ぶだ,,buda,"etykietka
+tabliczka
+kartka
+plakietka",,
+4677,WORD,WORD_NOUN,,HIRAGANA,Inne,,仙,せん,,sen,"pustelnik
+czarownik
+guślarz",,
+4678,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,潟,かた,,kata,"laguna
+zalew
+mała zatoka
+plaża",,
+4679,WORD,WORD_NOUN,,HIRAGANA,Inne,,橋梁,きょうりょう,,kyouryou,most,,
+4680,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,石橋,いしばし,,ishibashi,kamienny most,,
+4681,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鉄橋,てっきょう,,tekkyou,"stalowy most
+kolejowy most",,
+4682,WORD,WORD_NOUN,,HIRAGANA,Inne,,吊橋,つりばし,,tsuribashi,wiszący most,,
+4683,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,橋脚,きょうきゃく,,kyoukyaku,molo,,
+4684,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,姫,ひめ,,hime,"księżniczka
+szlachetnie urodzona panienka",,
+4685,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,道路,どうろ,,douro,"droga
+ulica",,
+4686,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,路線,ろせん,,rosen,"droga
+szlak",,
+4687,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,路面,ろめん,,romen,powierzchnia drogi,,
+4688,WORD,WORD_NOUN,,HIRAGANA,Inne,,路傍,ろぼう,,robou,pobocze,,
+4689,WORD,WORD_NOUN,,HIRAGANA,Inne,,路銀,ろぎん,,rogin,koszty podróży,,
+4690,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,倉,くら,,kura,"magazyn
+przechowalnia
+komórka
+schowek",,
+4691,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,倉庫,そうこ,,souko,"magazyn
+składnica",,
+4692,WORD,WORD_NOUN,,HIRAGANA,Inne,,倉荷,くらに,,kurani,magazynowane materiały,,
+4693,WORD,WORD_NOUN,,HIRAGANA,Inne,,倉敷料,くらしきりょう,,kurashikiryou,opłata za magazynowanie,,
+4694,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,倉皇,そうこう,,soukou,pośpiech,,
+4695,WORD,WORD_NOUN,,HIRAGANA,Inne,,倉主,くらぬし,,kuranushi,właściciel magazynu,,
+4696,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,敷く,しく,,shiku,"rozprzestrzeniać
+wykładać
+kłaść",,
+4697,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,尼,あま,,ama,"zakonnica
+siostra",,
+4698,WORD,WORD_NOUN,,HIRAGANA,Inne,,賀,が,,ga,gratulacje,,
+4699,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,賀状,がじょう,,gajou,"kartka z pozdrowieniami
+kartka z życzeniami",,
+4700,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,年賀状,ねんがじょう,,nengajou,kartka noworoczna,,
+4701,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,賀正,がしょう,,gashou,życzenia noworoczne,,
+4702,WORD,WORD_NOUN,,HIRAGANA,Inne,,祝賀会,しゅくがかい,,shukugakai,przyjęcie,"z okazji uroczystości, święta",
+4703,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,慶賀,けいが,,keiga,gratulacje,,
+4704,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,豊年,ほうねん,,hounen,urodzajny rok,,
+4705,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,豊作,ほうさく,,housaku,obfity plon,,
+4706,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,豊富,ほうふ,,houfu,"obfitość
+bogactwo",,
+4707,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,豊満,ほうまん,,houman,"pulchny
+korpulentny
+tęgi",,
+4708,WORD,WORD_SURNAME_NAME,,HIRAGANA,Inne,,豊田,とよた,,toyota,Toyota,,
