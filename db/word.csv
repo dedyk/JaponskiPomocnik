@@ -621,8 +621,8 @@ VERB_TRANSITIVITY",HIRAGANA,Genki 1-4,を,撮る,とる,o,toru,robić zdjęcie,,
 367,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 1-4,を,待つ,まつ,o,matsu,czekać,,
 368,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-4,が,-,わかる,ga,wakaru,rozumieć,,
-369,WORD,WORD_VERB_RU,,HIRAGANA,"Genki 1-4
-Genki 1-8",が,-,いる,ga,iru,"być
+369,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Genki 1-4,が,居る,いる,ga,iru,"być
 istnieć","miejsce ni, do rzeczy żywych",
 370,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-4,,-,ぐらい,,gurai,około,ogólne,
 371,WORD,WORD_EXPRESSION,,HIRAGANA,Genki 1-4,,-,ごめんなさい,,gomen nasai,przepraszam,,
@@ -1160,8 +1160,7 @@ Genki kanji 1-11",,有名,ゆうめい,,yuumei,sławny,,
 VERB_TRANSITIVITY",HIRAGANA,Genki 1-8,,洗う,あらう,,arau,"myć
 badać
 sondować",,
-645,WORD,WORD_VERB_U,,HIRAGANA,"Genki 1-4
-Genki 1-8",が,-,いる,ga,iru,potrzebować,,
+645,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-8,が,-,いる,ga,iru,potrzebować,,
 646,WORD,WORD_VERB_U,,HIRAGANA,Genki 1-8,に,遅くなる,おそくなる,ni,osoku naru,być spóźniony,na,
 647,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-8
@@ -2987,7 +2986,8 @@ tenis stołowy",,
 1730,WORD,WORD_NOUN,,KATAKANA,Inne,,-,イタリア,,itaria,Włochy,,
 1731,WORD,WORD_NOUN,,KATAKANA,Inne,,-,アルゼンチン,,aruzenchin,Argentyna,,
 1732,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,涙,なみだ,,namida,"łza
-łzy",,
+łzy
+współczucie",,
 1733,WORD,WORD_NOUN,,KATAKANA,Inne,,-,イグルー,,iguruu,iglo,,
 1734,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,三角,さんかく,,sankaku,trójkąt,,
 1735,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,振り仮名,ふりがな,,furigana,furigana,małe pomocnicze czytanie umieszczane tuż obok znaku kanji,
@@ -3021,7 +3021,8 @@ SURU_VERB",HIRAGANA,Inne,,刺繍,ししゅう,,shishuu,haft,,
 1759,WORD,WORD_NOUN,,HIRAGANA,Inne,,刺繍の絵,ししゅうのえ,,shishuu no e,haftowany obraz,,
 1760,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ネックレース,,nekkureesu,naszyjnik,,
 1761,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,十人十色,じゅうにんといろ,,juu nin to iro,"wiele ludzi, wiele opinii","dosł. 10 osób, 10 kolorów",
-1762,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,瓶,びん,,bin,butelka,,
+1762,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,瓶,びん,,bin,"butelka
+słoik",,
 1763,WORD,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-16,,-,そんな,,sonna,"jak tak
 taki
 takiego rodzaju",blisko osoby docelowej,
@@ -8770,3 +8771,108 @@ bogactwo",,
 korpulentny
 tęgi",,
 4708,WORD,WORD_SURNAME_NAME,,HIRAGANA,Inne,,豊田,とよた,,toyota,Toyota,,
+4709,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,河,かわ,,kawa,rzeka,,
+4710,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,河川,かせん,,kasen,rzeki,,
+4711,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,銀河,ぎんが,,ginga,Droga Mleczna,,
+4712,WORD,WORD_NOUN,,HIRAGANA,Inne,,河岸,かし,,kashi,brzeg rzeki,,
+4713,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,卓,たく,,taku,"stół
+biurko",,
+4714,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,振る,ふる,,furu,"trząść się
+falować
+skręcać się
+porzucać
+odrzucać",,
+4715,WORD,WORD_VERB_U,,HIRAGANA,Inne,,振う,ふるう,,furuu,"wykonywać
+przedstawiać
+pokazywać",,
+4716,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,振り,ふり,,furi,"wygląd
+pozór
+gest",,
+4717,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,仮,かり,,kari,"tymczasowy
+przejściowy",,
+4718,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,仮説,かせつ,,kasetsu,"hipoteza
+przypuszczenie",,
+4719,WORD,WORD_NOUN,,HIRAGANA,Inne,,仮病,けびょう,,kebyou,symulowana choroba,,
+4720,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,仮想,かそう,,kasou,"wyobrażenie
+przypuszczenie",,
+4721,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,仮住まい,かりずまい,,karizumai,"miejsce tymczasowego zamieszkania
+miejsce tymczasowego pobytu",,
+4722,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,仮定,かてい,,katei,"przypuszczenie
+hipoteza",,
+4723,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,居間,いま,,ima,pokój,w stylu zachodnim,
+4724,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,長居,ながい,,nagai,długi pobyt,,
+4725,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,住居,じゅうきょ,,juukyo,"mieszkanie
+miejsce pobytu",,
+4726,WORD,WORD_NOUN,,HIRAGANA,Inne,,居住地,きょじゅうち,,kyojuuchi,miejsce zamieszkania,,
+4727,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,居眠り,いねむり,,inemuri,drzemka,,
+4728,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,恐れる,おそれる,,osoreru,"bać się
+lękać się",,
+4729,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,恐らく,おそらく,,osoraku,"chyba
+prawdopodobnie",,
+4730,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,恐れ,おそれ,,osore,"strach
+lęk",,
+4731,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,恐ろしい,おそろしい,,osoroshii,"straszliwy
+przerażający
+ogromny",,
+4732,WORD,WORD_NOUN,,HIRAGANA,Inne,,竜,たつ,,tatsu,smok,chiński,
+4733,WORD,WORD_NOUN,,HIRAGANA,Inne,,壁,へき,,heki,"ściana
+płot
+ogrodzenie",,
+4734,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,設ける,もうける,,moukeru,"przygotowywać
+zaopatrywać
+zakładać
+organizować",,
+4735,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,設立,せつりつ,,setsuritsu,"założenie
+organizacja",,
+4736,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,設置,せっち,,secchi,"założenie
+fundacja",,
+4737,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,設計,せっけい,,sekkei,"plan
+projekt",,
+4738,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,設問,せつもん,,setsumon,pytanie,,
+4739,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,設営,せつえい,,setsuei,"konstrukcja
+przygotowania",,
+4740,WORD,WORD_VERB_IRREGULAR,COMMON_WORD,HIRAGANA,Inne,,接する,せっする,,sessuru,"dotykać
+kontaktować się
+zbliżać się
+spotykać się",,
+4741,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,接ぐ,つぐ,,tsugu,"łączyć
+sklejać
+cementować",,
+4742,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,直接,ちょくせつ,,chokusetsu,bezpośredni,,
+4743,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,間接,かんせつ,,kansetsu,pośredni,,
+4744,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,接骨,せっこつ,,sekkotsu,składanie kości,,
+4745,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,接吻,せっぷん,,seppun,pocałunek,,
+4746,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,接待,せったい,,settai,"przyjęcie
+poczęstunek
+gościna",,
+4747,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,演じる,えんじる,,enjiru,"występować (na scenie)
+wykonywać (utwór muzyczny)
+grać (na scenie)",,
+4748,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,演劇,えんげき,,engeki,przedstawienie,,
+4749,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,演奏,えんそう,,ensou,występ,np. muzyczny,
+4750,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,演出,えんしゅつ,,enshutsu,inscenizacja,,
+4751,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,演芸,えんげい,,engei,"przedstawienie
+widowisko",,
+4752,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,演習,えんしゅう,,enshuu,"próba
+szkolenie
+ćwiczenia praktyczne",,
+4753,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,劇しい,はげしい,,hageshii,"gwałtowny
+wściekły
+niepohamowany",,
