@@ -3135,7 +3135,7 @@ operator kamery",,
 żeń-szeń",,
 1819,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-15,,島,しま,,shima,wyspa,,
 1820,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,年下,としした,,toshi shita,młodszy wiekiem,,
-1821,WORD,WORD_NOUN,,HIRAGANA,Inne,,お墓,おはか,,ohaka,"grób
+1821,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,墓,はか,,haka,"grób
 grobowiec",,
 1822,WORD,UNKNOWN,,HIRAGANA,Inne,,その他,そのた,,sonota,inny,,
 1823,WORD,WORD_NOUN,,KATAKANA,Inne,,-,タンポポ,,tanpopo,"mlecz
@@ -3144,7 +3144,8 @@ mniszek pospolity",,
 1824,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,溜める,ためる,,tameru,"gromadzić
 zbierać",,
-1825,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,貯める,ためる,,tameru,oszczędzać,np. w banku,
+1825,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,貯める,ためる,,tameru,"oszczędzać
+gromadzić",np. w banku,
 1826,WORD,UNKNOWN,,KATAKANA,Inne,,-,マーケティングコミュニケーション,,maaketingu komyunikeeshon,komunikacja marketingowa,,
 1827,WORD,UNKNOWN,,KATAKANA,Inne,,-,ベジタリアン,,bejitarian,wegetarianin,,
 1828,WORD,WORD_VERB_U,"COMMON_WORD
@@ -3178,7 +3179,12 @@ czuły",,
 1842,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,浅い,あさい,,asai,płytki,,
 1843,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-16,,弱い,よわい,,yowai,"słaby
 niezdolny",,
-1844,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,鈍い,にぶい,,nibui,tępy,,
+1844,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,鈍い,にぶい,,nibui,"tępy
+matowy
+ciemny
+powolny
+gruby
+gęsty",,
 1845,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,葬式,そうしき,,soushiki,pogrzeb,,
 1846,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,着陸,ちゃくりく,,chakuriku,lądowanie,,
@@ -6044,7 +6050,8 @@ rozdawać",,
 3352,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-18,,事務,じむ,,jimu,praca biurowa,,
 3353,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-18,,生活のゆとり,せいかつのゆとり,,seikatsu no yutori,dodatkowe pieniądze zaoszczędzone na kosztach życia,,
 3354,WORD,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Genki dodatkowe 2-18,,貯金,ちょきん,,chokin,oszczędności,,
+SURU_VERB",HIRAGANA,Genki dodatkowe 2-18,,貯金,ちょきん,,chokin,"oszczędności
+wkład",,
 3355,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Genki dodatkowe 2-18,,-,ワンルームマンション,,wanruumu manshon,jednopokojowe mieszkanie,,
 3356,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-18,,食費,しょくひ,,shokuhi,koszty jedzenia,,
 3357,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-18,,代,だい,,dai,"koszt
@@ -7745,7 +7752,9 @@ schowek",,
 SURU_VERB",HIRAGANA,Inne,,蔵書,ぞうしょ,,zousho,"księgozbiór
 prywatna biblioteka",,
 4223,WORD,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Inne,,貯蔵,ちょぞう,,chozou,"magazynowanie
+SURU_VERB",HIRAGANA,Inne,,貯蔵,ちょぞう,,chozou,"skład
+rezerwa
+magazynowanie
 przechowywanie",,
 4224,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,大蔵省,おおくらしょう,,ookurashou,ministerstwo finansów,forma przestarzała,
 4225,WORD,WORD_NOUN,,HIRAGANA,Inne,,財務省,ざいむしょう,,zaimushou,ministerstwo finansów,,
@@ -8876,3 +8885,116 @@ szkolenie
 4753,WORD,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,劇しい,はげしい,,hageshii,"gwałtowny
 wściekły
 niepohamowany",,
+4754,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,砂,すな,,suna,piasek,,
+4755,WORD,WORD_NUMBER,,HIRAGANA,Inne,,参,さん,,san,trzy,w dokumentach,
+4756,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,参加,さんか,,sanka,uczestnictwo,,
+4757,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,参与,さんよ,,san'yo,"uczestnictwo
+radca",w sprawach publicznych,
+4758,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,参列,さんれつ,,sanretsu,"udział
+obecność",,
+4759,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,参考書,さんこうしょ,,sankousho,książka informacyjna,,
+4760,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,参議院,さんぎいん,,sangiin,Izba Radców,japońska,
+4761,WORD,WORD_NOUN,,HIRAGANA,Inne,,墓場,はかば,,hakaba,cmentarz,,
+4762,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,墓穴,ぼけつ,,boketsu,dół grobowy,,
+4763,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,墓石,ぼせき,,boseki,"nagrobek
+kamień nagrobny",,
+4764,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,墓参り,はかまいり,,hakamairi,odwiedzanie grobu,,
+4765,WORD,UNKNOWN,,HIRAGANA,Inne,,他,ほか,,hoka,"inny
+pozostały",,
+4766,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,他人,たにん,,tanin,inny człowiek,,
+4767,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,他方,たほう,,tahou,z innej (drugiej) strony,,
+4768,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,他国,たこく,,takoku,obce państwo,,
+4769,WORD,WORD_NOUN,,HIRAGANA,Inne,,他力,たりき,,tariki,"pomoc z zewnątrz
+zewnętrzna siła",,
+4770,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,他殺,たさつ,,tasatsu,"morderstwo
+zabójstwo",,
+4771,WORD,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,貯える,たくわえる,,takuwaeru,"oszczędzać
+gromadzić",,
+4772,WORD,WORD_NOUN,,HIRAGANA,Inne,,貯金通帳,ちょきんつうちょう,,chokin tsuuchou,książeczka oszczędnościowa,,
+4773,WORD,WORD_NOUN,,HIRAGANA,Inne,,貯金箱,ちょきんばこ,,chokin bako,skarbonka,,
+4774,WORD,WORD_NOUN,,HIRAGANA,Inne,,貯水塔,ちょすいとう,,chosuitou,wieża ciśnień,,
+4775,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,預ける,あずける,,azukeru,"powierzać
+umieszczać
+deponować",,
+4776,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,預かる,あずかる,,azukaru,"przyjmować
+brać pod opiekę",,
+4777,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,預金,よきん,,yokin,"depozyt
+konto bankowe",,
+4778,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,預貯金,よちょきん,,yochokin,"depozyt
+konto bankowe",,
+4779,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,預言,よげん,,yogen,"proroctwo
+przepowiednia",,
+4780,WORD,WORD_NOUN,,HIRAGANA,Inne,,預言者,よげんしゃ,,yogensha,prorok,,
+4781,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,軽やか,かろやか,,karoyaka,lekki,,
+4782,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軽工業,けいこうぎょう,,keikougyou,przemysł lekki,,
+4783,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軽食,けいしょく,,keishoku,"przekąska
+lekkie jedzenie",,
+4784,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軽音楽,けいおんがく,,kei ongaku,muzyka lekka,,
+4785,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,気軽,きがる,,kigaru,"czuć się lekko
+czuć się radośnie
+czuć się swobodnie",,
+4786,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,手軽,てがる,,tegaru,"łatwy
+prosty
+tani",,
+4787,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,深める,ふかめる,,fukameru,pogłębiać,,
+4788,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,深夜,しんや,,shin'ya,"środek nocy
+głębia nocy",,
+4789,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,深海,しんかい,,shinkai,głębokie morze,,
+4790,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,深度,しんど,,shindo,głębokość,,
+4791,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,震度,しんど,,shindo,japońska skala trzęsień ziemi,,
+4792,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,興味深い,きょうみぶかい,,kyoumi bukai,"ciekawy
+interesujący",,
+4793,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,深遠,しんえん,,shin'en,"głębia (myśli)
+wspaniałość (teorii)
+wielkość (teorii)",,
+4794,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,浅学,せんがく,,sengaku,powierzchowna wiedza,,
+4795,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,浅見,せんけん,,senken,powierzchowny pogląd,,
+4796,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,浅薄,せんぱく,,senpaku,"płytkość
+powierzchowność",,
+4797,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,浅黒い,あさぐろい,,asaguroi,"przyciemniony
+brunet",,
+4798,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,弱る,よわる,,yowaru,słabnąć,,
+4799,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,弱点,じゃくてん,,jakuten,"słaby punkt
+słabość",,
+4800,WORD,WORD_NOUN,,HIRAGANA,Inne,,弱視,じゃくし,,jakushi,słaby wzrok,,
+4801,WORD,WORD_NOUN,,HIRAGANA,Inne,,弱肉強食,じゃくにくきょうしょく,,jakuni kukyoushoku,przetrwanie najbardziej dostosowanych,,
+4802,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,弱体,じゃくたい,,jakutai,słaby,fizycznie,
+4803,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,弱気,よわき,,yowaki,"nieśmiałość
+bojaźliwość",,
+4804,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,鈍,どん,,don,"tępota
+powolność",,
+4805,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,鈍る,にぶる,,niburu,"tępieć
+matowieć
+gęstnieć",,
+4806,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,葬る,ほうむる,,houmuru,"grzebać (zmarłego)
+chować (zmarłego)
+zasypywać",,
+4807,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,食塩,しょくえん,,shokuen,sól stołowa,,
+4808,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,塩分,えんぶん,,enbun,słoność,,
+4809,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,塩辛い,しおからい,,shiokarai,słony,,
+4810,WORD,WORD_NOUN,,HIRAGANA,Inne,,塩水,えんすい,,ensui,słona woda,,
+4811,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,塩水,しおみず,,shio mizu,słona woda,,
+4812,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,句,く,,ku,"zdanie
+fraza
+wers",,
+4813,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,文句,もんく,,monku,"słowa
+wyrażenie
+sprzeciw
+skarga
+narzekanie",,
+4814,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,語句,ごく,,goku,słowa i wyrażenia,,
+4815,WORD,WORD_NOUN,,HIRAGANA,Inne,,引用句,いんようく,,in'youku,cytat,,
+4816,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,句読点,くとうてん,,kutouten,znak interpunkcyjny,,
+4817,WORD,WORD_NOUN,,HIRAGANA,Inne,,句点,くてん,,kuten,kropka,,
