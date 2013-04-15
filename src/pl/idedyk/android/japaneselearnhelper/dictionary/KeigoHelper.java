@@ -21,7 +21,7 @@ public class KeigoHelper {
 	private Map<String, KeigoEntry> wordToKeigoEntryLowMap = new HashMap<String, KeigoEntry>();
 	private Map<String, KeigoEntry> keigoWordToKeigoEntryLowMap = new HashMap<String, KeigoEntry>();	
 
-	KeigoHelper() {
+	public KeigoHelper() {
 		
 		// *** high ***
 

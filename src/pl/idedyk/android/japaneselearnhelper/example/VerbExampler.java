@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper.KeigoEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
@@ -18,7 +17,7 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 import pl.idedyk.android.japaneselearnhelper.grammaexample.GrammaExampleHelper;
 
 public class VerbExampler {
-	public static List<ExampleGroupTypeElements> makeAll(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, 
+	public static List<ExampleGroupTypeElements> makeAll(KeigoHelper keigoHelper, DictionaryEntry dictionaryEntry, 
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		List<ExampleGroupTypeElements> result = new ArrayList<ExampleGroupTypeElements>();
@@ -171,7 +170,7 @@ public class VerbExampler {
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_BA_NEGATIVE_YOKATTA, makeBaNegativeYokatta(dictionaryEntry, grammaFormCache));
 		
 		// keigo kudasai
-		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_KEIGO_KUDASAI, makeKeigoKudasai(dictionaryManager, dictionaryEntry, grammaFormCache));
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_KEIGO_KUDASAI, makeKeigoKudasai(keigoHelper, dictionaryEntry, grammaFormCache));
 		
 		// hazu desu
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_HAZU_DESU, makeHazuDesu(dictionaryEntry, grammaFormCache));
@@ -1125,7 +1124,7 @@ public class VerbExampler {
 		return GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
 	}
 	
-	private static ExampleResult makeKeigoKudasai(DictionaryManager dictionaryManager, DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+	private static ExampleResult makeKeigoKudasai(KeigoHelper keigoHelper, DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		// check		
 		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
@@ -1245,8 +1244,6 @@ public class VerbExampler {
 			}
 			
 		} else {
-			
-			KeigoHelper keigoHelper = dictionaryManager.getKeigoHelper();
 			
 			if (isKeigoHigh == true) {
 				

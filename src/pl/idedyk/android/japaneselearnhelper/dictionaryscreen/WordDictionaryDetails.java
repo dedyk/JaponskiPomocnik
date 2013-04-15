@@ -537,7 +537,7 @@ public class WordDictionaryDetails extends Activity {
 		
 		// Conjugater
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = 
-				GrammaConjugaterManager.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this), dictionaryEntry, grammaCache);
+				GrammaConjugaterManager.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getKeigoHelper(), dictionaryEntry, grammaCache);
 		
 		if (grammaFormConjugateGroupTypeElementsList != null) {
 			report.add(new StringValue("", 15.0f, 2));
@@ -564,7 +564,7 @@ public class WordDictionaryDetails extends Activity {
 		}	
 		
 		// Exampler
-		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this), dictionaryEntry, grammaCache);
+		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getKeigoHelper(), dictionaryEntry, grammaCache);
 		
 		if (exampleGroupTypeElementsList != null) {
 			

@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteStatic;
 import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
@@ -25,6 +26,12 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
+import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
+import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
+import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 
 import com.csvreader.CsvReader;
 
@@ -121,6 +128,8 @@ public class DBGenerator {
 		
 	private static void readDictionaryFile(Statement statement, InputStream dictionaryInputStream) throws IOException, DictionaryException, SQLException {
 
+		KeigoHelper keigoHelper = new KeigoHelper();
+		
 		CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
 
 		while(csvReader.readRecord()) {
@@ -142,6 +151,31 @@ public class DBGenerator {
 			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributesString, groupsString,
 					prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
 					romajiListString, translateListString, infoString);
+			
+			// count form for dictionary entry
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
+			
+			List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = GrammaConjugaterManager.getGrammaConjufateResult(keigoHelper, entry, grammaFormCache);
+
+			if (grammaConjufateResult != null) {
+				
+				/*
+				for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : grammaConjufateResult) {
+					System.out.println(grammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults().get(0).getKanji());
+				}
+				*/					
+			}
+
+			List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(keigoHelper, entry, grammaFormCache);
+
+			if (examples != null) {
+				
+				/*
+				for (ExampleGroupTypeElements exampleGroupTypeElements : examples) {
+					System.out.println(exampleGroupTypeElements.getExampleResults().get(0).getKanji());
+				}
+				*/
+			}
 			
 			insertDictionaryEntry(statement, entry);
 		}
