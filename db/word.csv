@@ -3334,7 +3334,9 @@ dać klapsa",,
 1933,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-15,,態度,たいど,,taido,"postawa
 poza
 stanowisko
-zachowanie",,
+zachowanie
+ustosunkowanie
+nastawienie",,
 1934,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-15,,示す,しめす,,shimesu,"pokazywać
 wykazywać
@@ -3432,10 +3434,13 @@ iść do szkoły",,
 iść do pracy
 dojazd do szkoły
 dojazd do pracy",,
-1984,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,蛇,へび,,hebi,wąż,,
+1984,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,蛇,へび,,hebi,"wąż
+żmija",,
 1985,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,航空母艦,こうくうぼかん,,koukuubokan,lotniskowiec,,
-1986,WORD,WORD_NOUN,,HIRAGANA,Inne,,鰐,わに,,wani,krokodyl,,
-1987,WORD,WORD_NOUN,,HIRAGANA,Inne,,貝殻,かいがら,,kaigara,muszla,,
+1986,WORD,WORD_NOUN,,HIRAGANA,Inne,,鰐,わに,,wani,"krokodyl
+aligator",,
+1987,WORD,WORD_NOUN,,HIRAGANA,Inne,,貝殻,かいがら,,kaigara,"muszla
+muszelka",morska,
 1988,WORD,WORD_NOUN,,HIRAGANA,Inne,,案内所,あんないじょ,,annaijo,"punkt informacyjny
 informacja
 biuro informacyjne",,
@@ -3498,7 +3503,8 @@ największy
 najlepszy
 maksymalny",,
 2019,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,兵士,へいし,,heishi,żołnierz,,
-2020,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軍隊,ぐんたい,,guntai,armia,,
+2020,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軍隊,ぐんたい,,guntai,"armia
+wojsko",,
 2021,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,襲う,おそう,,osou,"atakować
 szturmować
 napadać",,
@@ -5928,7 +5934,8 @@ warunki
 sytuacja
 stan",,
 3277,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,状態,じょうたい,,joutai,"sytuacja
-stan",,
+stan
+warunki",,
 3278,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,現状,げんじょう,,genjou,obecna sytuacja,,
 3279,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,礼状,れいじょう,,reijou,dziękczynny list,,
 3280,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,賞状,しょうじょう,,shoujou,dyplom,nagroda,
@@ -7623,7 +7630,8 @@ samotny",,
 dojrzały
 elegancja
 wdzięk",,
-4155,WORD,WORD_NOUN,,HIRAGANA,Inne,,弾,たま,,tama,kula,,
+4155,WORD,WORD_NOUN,,HIRAGANA,Inne,,弾,たま,,tama,"piłka
+kula",,
 4156,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,弾む,はずむ,,hazumu,"sprężynować
 odbijać się",,
@@ -9115,3 +9123,123 @@ obsługa",,
 4855,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,立ち寄る,たちよる,,tachiyoru,"wpaść (na moment)
 zatrzymywać się",,
+4856,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,添える,そえる,,soeru,"dodawać
+doczepiać
+uzupełniać
+towarzyszyć
+naśladować
+mieć pod ręką",,
+4857,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,添う,そう,,sou,"dodawać
+uczestniczyć
+poślubić (kogoś)",,
+4858,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,製,せい,,sei,"produkować
+robić
+wyprodukowane w
+wykonane z",,
+4859,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,製作,せいさく,,seisaku,produkcja,,
+4860,WORD,WORD_NOUN,,HIRAGANA,Inne,,日本製,にほんせい,,nihonsei,"produkt japoński
+wyprodukowane w Japonii",,
+4861,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,木製,もくせい,,mokusei,"produkt drzewny
+zrobione z drzewa",,
+4862,WORD,WORD_NOUN,,HIRAGANA,Inne,,製紙工場,せいしこうじょう,,seishikoujou,fabryka papieru,,
+4863,WORD,WORD_NOUN,,HIRAGANA,Inne,,製本屋,せいほんや,,seihon'ya,introligator,,
+4864,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,剃る,そる,,soru,golić się,,
+4865,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,獣,けだもの,,kedamono,"bestia
+zwierzę",,
+4866,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,獣,けもの,,kemono,"bestia
+zwierzę",,
+4867,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,博,はく,,haku,"rozległy
+szeroki
+dużo
+doktor (sufiks, stopień naukowy)",,
+4868,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,博覧会,はくらんかい,,hakurankai,"wystawa
+ekspozycja",,
+4869,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,博学,はくがく,,hakugaku,"szeroka wiedza
+rozległa wiedza",,
+4870,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,博愛,はくあい,,hakuai,filantropia,,
+4871,WORD,WORD_NOUN,,HIRAGANA,Inne,,態,たい,,tai,"sytuacja
+wygląd",,
+4872,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,事態,じたい,,jitai,"sytuacja
+stan",,
+4873,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,実態,じったい,,jittai,rzeczywista sytuacja,,
+4874,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,生態,せいたい,,seitai,"tryb życia
+ekologia",,
+4875,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,握る,にぎる,,nigiru,"trzymać
+łapać
+ściskać w dłoni",,
+4876,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,貝,かい,,kai,"muszla
+skorupiak",,
+4877,WORD,WORD_NOUN,,HIRAGANA,Inne,,貝類,かいるい,,kairui,"skorupiaki
+mięczaki",,
+4878,WORD,WORD_NOUN,,HIRAGANA,Inne,,貝塚,かいづか,,kaiduka,stos muszelek,,
+4879,WORD,WORD_NOUN,,HIRAGANA,Inne,,貝細工,かいざいく,,kaizaiku,ozdoby z muszelek,,
+4880,WORD,WORD_NOUN,,HIRAGANA,Inne,,殻,かく,,kaku,muszla,,
+4881,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,殻,から,,kara,"muszla
+skorupa
+wylina
+łuska",,
+4882,WORD,WORD_NOUN,,HIRAGANA,Inne,,竹材,ちくざい,,chikuzai,bambus,,
+4883,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,竹林,ちくりん,,chikurin,las bambusowy,,
+4884,WORD,WORD_NOUN,,HIRAGANA,Inne,,竹屋,たけや,,takeya,handlarz bambusem,,
+4885,WORD,WORD_NOUN,,HIRAGANA,Inne,,竹製,たけせい,,takesei,produkt bambusowy,,
+4886,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,争う,あらそう,,arasou,"walczyć
+kłócić się",,
+4887,WORD,WORD_NOUN,,HIRAGANA,Inne,,争乱,そうらん,,souran,"zamieszki
+rozruchy",,
+4888,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,争論,そうろん,,souron,"dyskusja
+kłótnia
+kontrowersja",,
+4889,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,争議,そうぎ,,sougi,"dyskusja
+konflikt",,
+4890,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,争点,そうてん,,souten,"problem
+przedmiot dyskusji
+temat dyskusji",,
+4891,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,脈,みゃく,,myaku,"żyła
+krew
+puls",,
+4892,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,脈打つ,みゃくうつ,,myakuutsu,"puls
+bicie serca",,
+4893,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,動脈,どうみゃく,,doumyaku,"arteria
+tętnica",,
+4894,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,文脈,ぶんみゃく,,bunmyaku,kontekst,,
+4895,WORD,WORD_NOUN,,HIRAGANA,Inne,,球,たま,,tama,piłka,"dekoracyjna, np. z origami",
+4896,WORD,WORD_NOUN,,KATAKANA,Inne,,-,ラムネ,,ramune,woda gazowana,z kuleczką,
+4897,WORD,UNKNOWN,,KATAKANA,Inne,,-,ポチ,,pochi,pochi,najpopularniejsze imię dla psa w Japonii,
+4898,WORD,WORD_NOUN,,HIRAGANA,Inne,,文化科学宮殿,ぶんかかがくきゅうでん,,bunka kagaku kyuuden,Pałac Kultury i Nauki,,
+4899,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,骨,ほね,,hone,"kość
+ość (u ryby)",,
+4900,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,資本,しほん,,shihon,kapitał,,
+4901,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,資金,しきん,,shikin,fundusze,,
+4902,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,資源,しげん,,shigen,"środki
+zasoby",,
+4903,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,物資,ぶっし,,busshi,"towar
+materiał (surowy)",,
+4904,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,資格,しかく,,shikaku,"kwalifikacje
+kompetencja",,
+4905,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,列,れつ,,retsu,"rząd
+ranga
+kolumna
+linia
+procesja",,
+4906,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,列車,れっしゃ,,ressha,"pociąg
+kolej",,
+4907,WORD,WORD_NOUN,,HIRAGANA,Inne,,列伝,れつでん,,retsuden,seria biograficzna,,
+4908,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,列島,れっとう,,rettou,archipelag,,
+4909,WORD,WORD_NOUN,,HIRAGANA,Inne,,列強,れっきょう,,rekkyou,wielkie potęgi,,
+4910,WORD,WORD_NOUN,,HIRAGANA,Inne,,列聖式,れっせいしき,,ressei shiki,kanonizacja,,
+4911,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,兵隊,へいたい,,heitai,żołnierz,,
+4912,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,兵役,へいえき,,heieki,służba wojskowa,,
+4913,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,核兵器,かくへいき,,kakuheiki,broń nuklearna,,
+4914,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,兵舎,へいしゃ,,heisha,koszary,,
+4915,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軍,ぐん,,gun,"armia
+oddziały
+wojna",,
+4916,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軍事,ぐんじ,,gunji,sprawy wojskowe,,
+4917,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軍人,ぐんじん,,gunjin,żołnierz,,
+4918,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軍備,ぐんび,,gunbi,uzbrojenie,,
+4919,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軍国主義,ぐんこくしゅぎ,,gunkokushugi,militaryzm,,
