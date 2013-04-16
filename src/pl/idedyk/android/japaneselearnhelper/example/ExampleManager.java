@@ -1,8 +1,10 @@
 package pl.idedyk.android.japaneselearnhelper.example;
 
+import java.text.Collator;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
@@ -41,8 +43,10 @@ public class ExampleManager {
 			
 			Collections.sort(result, new Comparator<ExampleGroupTypeElements>() {
 
+				private Collator collator = Collator.getInstance(Locale.getDefault());
+				
 				public int compare(ExampleGroupTypeElements lhs, ExampleGroupTypeElements rhs) {
-					return lhs.getExampleGroupType().getName().compareTo(rhs.getExampleGroupType().getName());
+					return collator.compare(lhs.getExampleGroupType().getName(), rhs.getExampleGroupType().getName());
 				}
 			});		
 		}

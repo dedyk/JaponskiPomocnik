@@ -181,6 +181,12 @@ public class VerbExampler {
 		// questions with larger sentences
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_QUESTIONS_WITH_LARGER_SENTENCES, makeQuestionsWithLargerSentences(dictionaryEntry, grammaFormCache));
 		
+		// yasui
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_YASUI, makeYasui(dictionaryEntry, grammaFormCache));
+		
+		// nikui
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NIKUI, makeNikui(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1448,6 +1454,48 @@ public class VerbExampler {
 		final String templateRomaji2 = "%s ka (douka) shitte imasu, oboete imasen, wakarimasen, etc";
 		
 		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, false);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeYasui(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
+		
+		String templateKanji1 = "%sやすいです";
+		String templateKana1 = "%sやすいです";
+		String templateRomaji1 = "%s yasui desu";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji1, templateKana1, templateRomaji1, false);
+
+		String templateKanji2 = "%sやすかったです";
+		String templateKana2 = "%sやすかったです";
+		String templateRomaji2 = "%s yasukatta desu";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji2, templateKana2, templateRomaji2, false);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeNikui(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
+		
+		String templateKanji1 = "%sにくいです";
+		String templateKana1 = "%sにくいです";
+		String templateRomaji1 = "%s nikui desu";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji1, templateKana1, templateRomaji1, false);
+
+		String templateKanji2 = "%sにくかったです";
+		String templateKana2 = "%sにくかったです";
+		String templateRomaji2 = "%s nikukatta desu";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji2, templateKana2, templateRomaji2, false);
 		
 		exampleResult1.setAlternative(exampleResult2);
 		

@@ -81,9 +81,12 @@ public class NounExampler {
 		// questions with larger sentences
 		GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_QUESTIONS_WITH_LARGER_SENTENCES, makeQuestionsWithLargerSentences(dictionaryEntry, grammaFormCache));
 		
+		// to iu
+		GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_TO_IU, makeToIu(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
-
+	
 	private static ExampleResult makeSukiExample(DictionaryEntry dictionaryEntry) {
 		
 		final String templateKanji = "%sが好き";
@@ -377,5 +380,16 @@ public class NounExampler {
 		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, false);
 		
 		return exampleResult1;
+	}
+	
+	private static ExampleResult makeToIu(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "[nazwa] という%s";
+		final String templateKana = "[nazwa] という%s";
+		final String templateRomaji = "[nazwa] to iu %s";
+		
+		ExampleResult exampleResult = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, false);
+		
+		return exampleResult;
 	}
 }

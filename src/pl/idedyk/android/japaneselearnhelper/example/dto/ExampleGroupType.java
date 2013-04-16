@@ -118,6 +118,8 @@ public enum ExampleGroupType {
 	NOUN_HAZU_DESU("Powinnien być / Miał być"),
 	
 	NOUN_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach"),
+	
+	NOUN_TO_IU("Nazywanie przedmiotu"),
 		
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -222,7 +224,11 @@ public enum ExampleGroupType {
 	
 	VERB_NAI_DE("Nie robiąc, ..."),
 	
-	VERB_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach");
+	VERB_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach"),
+	
+	VERB_YASUI("Łatwo coś zrobić"),
+	
+	VERB_NIKUI("Trudno coś zrobić");
 	
 	private String name;
 	
