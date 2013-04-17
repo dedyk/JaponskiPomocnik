@@ -34,6 +34,12 @@ public enum GrammaFormConjugateGroupType {
 	VERB_POTENTIAL_FORMAL("Forma potencjalna (formalna)"),
 	
 	VERB_POTENTIAL_TE("Forma potencjalna, forma te"),
+
+	VERB_PASSIVE_INFORMAL("Forma bierna (prosta)"),
+	
+	VERB_PASSIVE_FORMAL("Forma bierna (formalna)"),
+	
+	VERB_PASSIVE_TE("Forma bierna, forma te"),
 	
 	VERB_VOLITIONAL("Forma wolicjonalna"),
 	
