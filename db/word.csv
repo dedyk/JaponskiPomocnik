@@ -1478,7 +1478,7 @@ Genki kanji 1-11",,歌手,かしゅ,,kashu,piosenkarz,,
 SURU_VERB",KATAKANA,Genki 1-11,,-,キャンプ,,kyanpu,obóz,,
 811,WORD,WORD_NOUN,,HIRAGANA,"Genki 1-11
 Genki 2-19",,-,こちら,,kochira,"ta osoba
-tutaj","uprzejmie, grzecznie",
+tutaj","uprzejmie, grzecznie, blisko mówcy",
 812,WORD,UNKNOWN,,HIRAGANA,Genki 1-11,,今学期,こんがっき,,kongakki,aktualny semestr,,
 813,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-11,,社長,しゃちょう,,shachou,prezes,firmy,
 814,WORD,WORD_NOUN,"COMMON_WORD
@@ -7299,7 +7299,7 @@ zimna pogoda",,
 chłód",,
 3949,WORD,WORD_NOUN,,HIRAGANA,Inne,,寒風,かんぷう,,kanpuu,"zimny wiatr
 mroźny wiatr",,
-3950,WORD,WORD_NOUN,,HIRAGANA,Genki 2-20,,-,あちら,,achira,tam,"uprzejmie, grzecznie",
+3950,WORD,WORD_NOUN,,HIRAGANA,Genki 2-20,,-,あちら,,achira,tam,"uprzejmie, grzecznie, daleko od mówcy i osoby docelowej",
 3951,WORD,WORD_NOUN,,HIRAGANA,Genki 2-20,,係の者,かかりのもの,,kakari no mono,osoba odpowiedzialna,,
 3952,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-20,,字,じ,,ji,"litera
 znak",,
@@ -9786,3 +9786,70 @@ cylinder",,
 5118,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,電柱,でんちゅう,,denchuu,słup telefoniczny,,
 5119,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,支柱,しちゅう,,shichuu,"podpora
 tyczka",,
+5120,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,解く,とく,,toku,"rozwiązywać
+odwiązywać
+zwalniać",,
+5121,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,解かす,とかす,,tokasu,"topić
+rozpuszczać",,
+5122,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,解ける,とける,,tokeru,"topnieć
+luzować się
+rozwiązywać się",,
+5123,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,解く,ほどく,,hodoku,odwiązywać,,
+5124,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,解決,かいけつ,,kaiketsu,rozwiązanie,problemu,
+5125,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,解釈,かいしゃく,,kaishaku,"interpretacja
+objaśnienie",,
+5126,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,解説,かいせつ,,kaisetsu,"wytłumaczenie
+komentarz",,
+5127,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,解任,かいにん,,kainin,zwolnienie,ze stanowiska,
+5128,WORD,WORD_NOUN,,HIRAGANA,Inne,,-,そちら,,sochira,tam,"uprzejmie, grzecznie, blisko osoby docelowej",
+5129,WORD,WORD_NOUN,,HIRAGANA,Inne,,数独,すうどく,,suudoku,sudoku,matematyczno-logiczna gra,
+5130,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,霜,しも,,shimo,"mróz
+szron",,
+5131,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,占める,しめる,,shimeru,"zajmować
+okupywać
+trzymać
+brać",,
+5132,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,占う,うらなう,,uranau,"wróżyć
+przepowiadać",,
+5133,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,占い,うらない,,uranai,"wróżenie
+przepowiadanie",,
+5134,WORD,WORD_NOUN,,HIRAGANA,Inne,,識,しき,,shiki,"znać
+odróżniać",,
+5135,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,知識,ちしき,,chishiki,wiedza,,
+5136,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,意識,いしき,,ishiki,świadomość,,
+5137,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,無意識,むいしき,,muishiki,"podświadomość
+nieświadomość",,
+5138,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,識別,しきべつ,,shikibetsu,rozpoznawanie,,
+5139,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,証,あかし,,akashi,"świadectwo
+dowód",,
+5140,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,証拠,しょうこ,,shouko,dowód,,
+5141,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,証明書,しょうめいしょ,,shoumeisho,świadectwo,,
+5142,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,証人,しょうにん,,shounin,świadek,,
+5143,WORD,WORD_NOUN,,HIRAGANA,Inne,,証券会社,しょうけんがいしゃ,,shouken gaisha,firma maklerska,,
+5144,WORD,WORD_NOUN,,HIRAGANA,Inne,,内証,ないしょう,,naishou,"tajemnica
+sekret",,
+5145,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,独り,ひとり,,hitori,sam,,
+5146,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,独立,どくりつ,,dokuritsu,niezależność,,
+5147,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,独身,どくしん,,dokushin,"niezamężna
+panna
+nieżonaty
+kawaler",,
+5148,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,孤独,こどく,,kodoku,samotność,,
+5149,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,独裁,どくさい,,dokusai,"tyrania
+dyktatura",,
+5150,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,独自,どくじ,,dokuji,"oryginalny
+wyjątkowy
+charakterystyczny",,
