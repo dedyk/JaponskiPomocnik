@@ -234,8 +234,12 @@ public class SQLiteStatic {
 			dictionaryEntriesTable_info + " " +
 			"from " + dictionaryEntriesTableName + " ";
 	
+	// kanji
+	
 	public static final String dictionaryEntriesTableSelectElements_kanji =
 			dictionaryEntriesTable_kanji + " like ? ";
+	
+	// kana
 	
 	public static final String dictionaryEntriesTableSelectElements_match_kana =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
@@ -243,6 +247,14 @@ public class SQLiteStatic {
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_kanaList + "' and " +
 			listEntriesTable_value + " match ?) ";
+	
+	public static final String dictionaryEntriesTableSelectElements_match_exact_kana =
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + dictionaryEntriesTable_kanaList + "' and " +
+			listEntriesTable_value + " like ? and " + listEntriesTable_value + " match ?) ";	
+	
 	public static final String dictionaryEntriesTableSelectElements_like_kana =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
@@ -250,25 +262,45 @@ public class SQLiteStatic {
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_kanaList + "' and " +
 			listEntriesTable_value + " like ?) ";
 	
+	// romaji
+	
 	public static final String dictionaryEntriesTableSelectElements_match_romaji =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_romajiList + "' and " +
 			" " + listEntriesTable_value + " match ?) ";
+	
+	public static final String dictionaryEntriesTableSelectElements_match_exact_romaji =
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + dictionaryEntriesTable_romajiList + "' and " +
+			listEntriesTable_value + " like ? and " + listEntriesTable_value + " match ?) ";
+	
 	public static final String dictionaryEntriesTableSelectElements_like_romaji =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_romajiList + "' and " +
 			" " + listEntriesTable_value + " like ?) ";
-
+	
+	// translate 
+	
 	public static final String dictionaryEntriesTableSelectElements_match_translate =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_translates + "' and " +
 			" " + listEntriesTable_value + " match ?) ";
+	
+	public static final String dictionaryEntriesTableSelectElements_match_exact_translate =
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + dictionaryEntriesTable_translates + "' and " +
+			listEntriesTable_value + " like ? and " + listEntriesTable_value + " match ?) ";
+	
 	public static final String dictionaryEntriesTableSelectElements_like_translate =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
@@ -276,12 +308,22 @@ public class SQLiteStatic {
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_translates + "' and " +
 			" " + listEntriesTable_value + " like ?) ";
 
+	// info
+	
 	public static final String dictionaryEntriesTableSelectElements_match_info =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + dictionaryEntriesTable_info + "' and " +
 			" " + listEntriesTable_value + " match ?) ";
+	
+	public static final String dictionaryEntriesTableSelectElements_match_exact_info =
+			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + dictionaryEntriesTable_info + "' and " +
+			listEntriesTable_value + " like ? and " + listEntriesTable_value + " match ?) ";
+	
 	public static final String dictionaryEntriesTableSelectElements_like_info =
 			dictionaryEntriesTableName + "." + dictionaryEntriesTable_id + " in ( " +
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
