@@ -40,8 +40,8 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:focusable="false"
                 android:textColor="@android:color/white" />
 
@@ -51,8 +51,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:focusable="false"
                 android:textColor="@android:color/white" />
         </TableRow>
@@ -80,8 +80,8 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:textColor="@android:color/white" />
 
             <EditText
@@ -90,8 +90,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:textColor="@android:color/white" />
         </TableRow>
 
@@ -119,8 +119,8 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
 
@@ -130,8 +130,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
         </TableRow>
@@ -160,8 +160,8 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
 
@@ -171,8 +171,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
         </TableRow>
@@ -201,8 +201,8 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
 
@@ -212,8 +212,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
         </TableRow>
@@ -242,8 +242,8 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
 
@@ -253,8 +253,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
         </TableRow>
@@ -283,8 +283,8 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
 
@@ -294,8 +294,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
         </TableRow>
@@ -324,8 +324,8 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
 
@@ -335,8 +335,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
         </TableRow>
@@ -365,8 +365,8 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
 
@@ -376,8 +376,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:singleLine="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
                 android:visibility="gone"
                 android:textColor="@android:color/white" />
         </TableRow>
