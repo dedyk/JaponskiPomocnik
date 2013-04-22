@@ -51,8 +51,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-                android:inputType="textNoSuggestions"
-                android:singleLine="true"
+				android:inputType="textMultiLine"
+				android:singleLine="false"
                 android:focusable="false"
                 android:textColor="@android:color/white" />
         </TableRow>
