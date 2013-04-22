@@ -7405,6 +7405,8 @@ w przypadku",,
 albo",,
 4001,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,包む,つつむ,,tsutsumu,"owijać
+zwijać
+zawijać
 pakować
 pokrywać",,
 4002,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,包み紙,つつみがみ,,tsutsumi gami,papier do pakowania,,
@@ -9698,22 +9700,26 @@ wystąpienie",,
 lubieżny człowiek
 człowiek, który molestuje",,
 5070,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-21,,同僚,どうりょう,,douryou,"kolega
-koleżanka",,
+koleżanka",z pracy,
 5071,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",KATAKANA,Genki 2-21,,-,バイト,,baito,praca w niepełnym wymiarze godzin,skrót od arubaito,
-5072,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 2-21,,-,ポスター,,posutaa,plakat,,
-5073,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-21,,文句を言う,もんくをいう,,monku o iu,składać reklamację,,
+5072,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 2-21,,-,ポスター,,posutaa,"plakat
+afisz",,
+5073,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-21,,文句を言う,もんくをいう,,monku o iu,"składać reklamację
+skarżyć się
+narzekać",,
 5074,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 2-21,,遠い,とおい,,tooi,daleki,,
 5075,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 2-21,,酷い,ひどい,,hidoi,"obrzydliwy
 okropny
 straszny",,
 5076,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 2-21,,目茶苦茶,めちゃくちゃ,,mechakucha,"źle zorganizowany
 bałaganiarski
-niechlujny",,
+niechlujny
+chaotyczny",,
 5077,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-21,,気が付く,きがつく,,kigatsuku,"zauważyć
 dostrzegać",,
 5078,WORD,WORD_VERB_U,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,蹴る,ける,,keru,kopać,,
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,蹴る,ける,,keru,kopać,"np, piłkę",
 5079,WORD,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 2-21,,捕まる,つかまる,,tsukamaru,"być aresztowany
 być złapany",,
@@ -9726,7 +9732,7 @@ ukraść
 okraść
 obrabować",,
 5082,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 2-21,,貼る,はる,,haru,wbijać,,
-5083,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-21,,遣る,やる,,yaru,???,???,
+5083,WORD,WORD_VERB_U,,HIRAGANA,Genki 2-21,,-,やる,,yaru,dawać,"zwierzętom, kwiatom (podlewać), młodszemu rodzeństwu i etc",
 5084,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,苛める,いじめる,,ijimeru,"znęcać się
 prześladować
@@ -9735,12 +9741,16 @@ torturować",,
 5085,WORD,WORD_VERB_RU,COMMON_WORD,HIRAGANA,Genki 2-21,,着替える,きがえる,,kigaeru,zmieniać ubranie,,
 5086,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,褒める,ほめる,,homeru,"pochwalać
+komplementować
+chwalić
 podziwiać
 mówić miłe rzeczy",,
 5087,WORD,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,間違える,まちがえる,,machigaeru,mylić się,,
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,間違える,まちがえる,,machigaeru,"mylić się
+popełnić błąd",,
 5088,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,を,馬鹿にする,ばかにする,o,baka ni suru,"obrażać
-wyśmiewać się z",,
+wyśmiewać się z
+żartować sobie",,
 5089,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,,昼寝をする,ひるねをする,,hirune o suru,robić sobie drzemkę,,
 5090,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,に,連絡する,れんらくする,ni,renraku suru,kontaktować się z,,
 5091,WORD,WORD_ADVERB,,HIRAGANA,Genki 2-21,,間に,あいだに,,aida ni,w czasie,,
@@ -10216,3 +10226,43 @@ transportowanie",,
 5318,WORD,WORD_NOUN,,HIRAGANA,Inne,,積載量,せきさいりょう,,sekisairyou,ładowność,,
 5319,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,積み重なる,つみかさなる,,tsumikasanaru,"zbierać się
 gromadzić się",,
+5320,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,掘る,ほる,,horu,kopać,dół,
+5321,WORD,WORD_NOUN,,HIRAGANA,Inne,,威,い,,i,"godność
+powaga
+autorytet",,
+5322,WORD,WORD_NOUN,,HIRAGANA,Inne,,条,じょう,,jou,"gałąź
+rozumowanie
+logika
+paragraf
+punkt",,
+5323,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,条件,じょうけん,,jouken,warunek,,
+5324,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,条約,じょうやく,,jouyaku,"traktat
+porozumienie
+układ",,
+5325,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,条理,じょうり,,jouri,logika,,
+5326,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,条文,じょうぶん,,joubun,"tekst
+zastrzeżenie
+postulaty",,
+5327,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,条項,じょうこう,,joukou,"paragraf
+punkt
+klauzula",,
+5328,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,臨む,のぞむ,,nozomu,"spotykać
+konfrontować
+stawać twarzą w twarz
+pomagać
+obsługiwać",,
+5329,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,臨床,りんしょう,,rinshou,kliniczny,,
+5330,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,臨時,りんじ,,rinji,"tymczasowy
+specjalny
+wyjątkowy",,
+5331,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,臨終,りんじゅう,,rinjuu,"godzina śmierci
+ostatnia chwila",,
+5332,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,臨席,りんせき,,rinseki,"obecność
+udział",,
+5333,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,臨界,りんかい,,rinkai,"ograniczenie
+krytyczny (np. stan)",,
+5334,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,謡う,うたう,,utau,"śpiewać (monotonnie, bez akompaniamentu)
+śpiewać psalmy",,
