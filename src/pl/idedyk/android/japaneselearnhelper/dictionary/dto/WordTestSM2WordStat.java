@@ -87,13 +87,14 @@ public class WordTestSM2WordStat {
 	
 	public void processRecallResult(int qualityOfRecall) {
 
+		easinessFactor = calculate_easiness_factor(easinessFactor, qualityOfRecall);
+		
 		if (qualityOfRecall < 3) {
 
 			repetitions = 0;
 			interval = 0;
 
 		} else {
-			easinessFactor = calculate_easiness_factor(easinessFactor, qualityOfRecall);
 
 			repetitions += 1;
 
