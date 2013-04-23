@@ -4894,7 +4894,8 @@ amator",,
 2723,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,茶道,さどう,,sadou,ceremonia picia herbaty,dosł. droga herbaty,
 2724,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,茶室,ちゃしつ,,chashitsu,pokój do ceremonii picia herbaty,,
 2725,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,麦茶,むぎちゃ,,mugicha,herbata zbożowa (jęczmienna),,
-2726,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,著者,ちょしゃ,,chosha,autor,,
+2726,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,著者,ちょしゃ,,chosha,"autor
+pisarz",,
 2727,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,信者,しんじゃ,,shinja,"wierny
 wyznawca
 wierzący",,
@@ -4918,11 +4919,15 @@ lśnienie",,
 2739,WORD,WORD_NOUN,,HIRAGANA,Inne,,鴨南蛮,かもなんばん,,kamo nanban,pieczona kaczka,japońska potrawa,
 2740,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,損ねる,そこねる,,sokoneru,"zaszkodzić
+uszkadzać
 zranić
+ranić
 wyrządzić krzywdę
 przegapić",,
 2741,WORD,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Inne,,責める,せめる,,semeru,"ganić
+VERB_TRANSITIVITY",HIRAGANA,Inne,,責める,せめる,,semeru,"winić
+potępiać
+ganić
 krytykować
 oskarżać
 obwiniać",,
@@ -5013,7 +5018,8 @@ wzmocnienie",,
 wspierać",,
 2782,WORD,WORD_NOUN,,HIRAGANA,Inne,,積集合,せきしゅうごう,,sekishuugou,"część wspólna zbiorów
 przecięcie zbiorów",,
-2783,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,旗,はた,,hata,flaga,,
+2783,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,旗,はた,,hata,"flaga
+bandera",,
 2784,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,夫妻,ふさい,,fusai,"mąż i żona
 para małżeńska",,
 2785,WORD,WORD_NOUN,,HIRAGANA,Inne,,夫婦生活,ふうふせいかつ,,fuufuseikatsu,życie małżeńskie,,
@@ -10266,3 +10272,160 @@ udział",,
 krytyczny (np. stan)",,
 5334,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,謡う,うたう,,utau,"śpiewać (monotonnie, bez akompaniamentu)
 śpiewać psalmy",,
+5335,WORD,WORD_NOUN,,HIRAGANA,Inne,,貞,てい,,tei,"czystość
+stałość
+prawość",,
+5336,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,因,いん,,in,przyczyna,,
+5337,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,因る,よる,,yoru,zależeć od,,
+5338,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,原因,げんいん,,gen'in,przyczyna,,
+5339,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,因果,いんが,,inga,przyczyna i skutek,,
+5340,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,因縁,いんねん,,innen,przyczyna i skutek,,
+5341,WORD,WORD_NOUN,,HIRAGANA,Inne,,因習,いんしゅう,,inshuu,"zwyczaj
+tradycja",,
+5342,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,因子,いんし,,inshi,"element
+okoliczność
+czynnik",,
+5343,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,麦,むぎ,,mugi,"zboże
+pszenica
+owiec
+żyto
+jęczmień",,
+5344,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,小麦,こむぎ,,komugi,pszenica,,
+5345,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,大麦,おおむぎ,,oomugi,jęczmień,,
+5346,WORD,WORD_NOUN,,HIRAGANA,Inne,,麦藁,むぎわら,,mugiwara,słoma,,
+5347,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,麦畑,むぎばたけ,,mugibatake,pole ze zbożem,,
+5348,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,著,ちょ,,cho,"autor
+praca
+dzieło literackie",,
+5349,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,著す,あらわす,,arawasu,"pisać
+publikować",,
+5350,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,著しい,いちじるしい,,ichijirushii,"znaczny
+wyjątkowy
+uderzający",,
+5351,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,著作,ちょさく,,chosaku,dzieło literackie,,
+5352,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,著述,ちょじゅつ,,chojutsu,dzieło literackie,,
+5353,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,名著,めいちょ,,meicho,"wielkie dzieło literackie
+sławne dzieło literackie",,
+5354,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,著名,ちょめい,,chomei,"dobrze znany
+wybitny
+sławny",,
+5355,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,並べる,ならべる,,naraberu,"ustawiać
+porządkować
+porównywać",,
+5356,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,並ぶ,ならぶ,,narabu,"ustawiać się
+stawać w szeregu
+rywalizować",,
+5357,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,並み,なみ,,nami,pospolity,,
+5358,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,並びに,ならびに,,narabini,"i
+również",,
+5359,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,苦しむ,くるしむ,,kurushimu,cierpieć,,
+5360,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,苦しめる,くるしめる,,kurushimeru,dręczyć,,
+5361,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,苦しい,くるしい,,kurushii,sprawiający ból,,
+5362,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,苦い,にがい,,nigai,gorzki,,
+5363,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,苦る,にがる,,nigaru,"mieć nachmurzoną minę
+patrzeć wilkiem",,
+5364,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,苦労,くろう,,kurou,"kłopoty
+trudności",,
+5365,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,苦悩,くのう,,kunou,"zmartwienia
+cierpienia",,
+5366,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,苦難,くなん,,kunan,"cierpienia
+zmartwienia",,
+5367,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,苦心,くしん,,kushin,"bóle
+zmagania",,
+5368,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,病苦,びょうく,,byouku,"ból spowodowane chorobą
+cierpienie spowodowane chorobą",,
+5369,WORD,WORD_NOUN,,HIRAGANA,Inne,,蛮人,ばんじん,,banjin,barbarzyńca,,
+5370,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,損,そん,,son,"strata
+kalectwo
+niekorzyść",,
+5371,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,損なう,そこなう,,sokonau,"uszkadzać
+ranić",,
+5372,WORD,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,損なう,そこなう,,sokonau,"zrobić błąd
+mylić się",w połączeniu z czasownikami w formie bez masu,
+5373,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,損失,そんしつ,,sonshitsu,"zguba
+strata",,
+5374,WORD,WORD_NOUN,,HIRAGANA,Inne,,損金,そんきん,,sonkin,zgubione pieniądze,,
+5375,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,損害,そんがい,,songai,"zniszczenie
+uszkodzenie
+strata
+zguba",,
+5376,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,損傷,そんしょう,,sonshou,"uszkodzenie
+rana
+strata",,
+5377,WORD,WORD_VERB_U,,HIRAGANA,Inne,,書き損なう,かきそこなう,,kakisokonau,"źle napisać
+pomylić się w pisaniu",,
+5378,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,責任,せきにん,,sekinin,odpowiedzialność,,
+5379,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,責務,せきむ,,sekimu,obowiązek,,
+5380,WORD,WORD_NOUN,,HIRAGANA,Inne,,責苦,せめく,,semeku,tortury,,
+5381,WORD,WORD_NOUN,,HIRAGANA,Inne,,責め道具,せめどうぐ,,semedougu,narzędzia tortur,,
+5382,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,打つ,うつ,,utsu,uderzać,,
+5383,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,打楽器,だがっき,,dagakki,instrumenty perkusyjne,,
+5384,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,打算的,ださんてき,,dasanteki,"wyrachowany
+egoistyczny",,
+5385,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,打ち倒す,うちたおす,,uchitaosu,powalić,,
+5386,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,打ち殺す,うちころす,,uchikorosu,"zastrzelić
+zatłuc",na śmierć,
+5387,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,打ち消し,うちけし,,uchikeshi,"zaprzeczenie
+negacja",,
+5388,WORD,WORD_NOUN,,HIRAGANA,Inne,,帳,ちょう,,chou,"notatnik
+księga rachunkowa
+album",,
+5389,WORD,WORD_NOUN,,HIRAGANA,Inne,,帳,とばり,,tobari,zasłona,,
+5390,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,電話帳,でんわちょう,,denwachou,książka telefoniczna,,
+5391,WORD,WORD_NOUN,,HIRAGANA,Inne,,帳面,ちょうめん,,choumen,"notatnik
+księga rachunkowa",,
+5392,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,帳簿,ちょうぼ,,choubo,"księga rachunkowa
+rejestr",,
+5393,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,手帳,てちょう,,techou,notatnik,kieszonkowy,
+5394,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,玉,たま,,tama,"kula
+sfera
+klejnot
+biżuteria",,
+5395,WORD,WORD_NOUN,,HIRAGANA,Inne,,玉子,たまご,,tamago,jajko,,
+5396,WORD,WORD_NOUN,,HIRAGANA,Inne,,玉石,ぎょくせき,,gyokuseki,dobry i zły,,
+5397,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,水玉,みずたま,,mizutama,kropelka wody,,
+5398,WORD,WORD_NOUN,,HIRAGANA,Inne,,百円玉,ひゃくえんだま,,hyakuendama,moneta stujenowa,,
+5399,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,唱える,となえる,,tonaeru,"recytować
+nucić
+wołać (kogoś)
+krzyczeć",,
+5400,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,唱歌,しょうか,,shouka,"piosenka
+śpiewanie",,
+5401,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,独唱,どくしょう,,dokushou,solo,,
+5402,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,提唱,ていしょう,,teishou,adwokat,,
+5403,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,主唱,しゅしょう,,shushou,"adwokatura
+promowanie
+polecanie
+żądanie
+sugestia",,
+5404,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,国旗,こっき,,kokki,flaga państwowa,,
+5405,WORD,WORD_NOUN,,HIRAGANA,Inne,,半旗,はんき,,hanki,flaga spuszczona do połowy masztu,,
+5406,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,校旗,こうき,,kouki,sztandar szkolny,,
+5407,WORD,WORD_VERB_U,,HIRAGANA,Inne,,旗を巻く,はたをまく,,hata o maku,poddawać się,dosł. zwijać chorągiewkę,
+5408,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,旗色,はたいろ,,hatairo,"sytuacja
+stan",,
+5409,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,柄,え,,e,"uchwyt
+rękojeść",,
+5410,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,紋,もん,,mon,"herb
+wzór",,
+5411,WORD,WORD_VERB_U,,HIRAGANA,Inne,,契る,ちぎる,,chigiru,"przysięgać
+ślubować
+obiecywać",,
