@@ -23,6 +23,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -269,6 +270,9 @@ public class WordTestSM2 extends Activity {
 				
 				currentTextViewAndEditText.editText.setText(currentKana);
 				currentTextViewAndEditText.editText.setEnabled(false);
+				
+				currentTextViewAndEditText.editText.setSingleLine(false);
+				currentTextViewAndEditText.editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
 			}
 		}
 		
@@ -450,6 +454,9 @@ public class WordTestSM2 extends Activity {
 						
 						currentTextViewAndEditText.editText.setEnabled(true);
 						
+						currentTextViewAndEditText.editText.setSingleLine(true);
+						currentTextViewAndEditText.editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+						
 						if (kanaListIdx == 0) {
 							currentTextViewAndEditText.editText.requestFocus(); 
 						}
@@ -462,7 +469,11 @@ public class WordTestSM2 extends Activity {
 						
 						currentTextViewAndEditText.editText.setText(currentKana);
 						
-						currentTextViewAndEditText.editText.setEnabled(false);						
+						currentTextViewAndEditText.editText.setEnabled(false);
+						
+						currentTextViewAndEditText.editText.setSingleLine(false);
+						currentTextViewAndEditText.editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+
 					} else {
 						throw new RuntimeException("Unknown wordTestSM2Mode: " + wordTestSM2Config.getWordTestSM2Mode());
 					}					

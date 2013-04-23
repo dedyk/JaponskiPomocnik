@@ -24,6 +24,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -502,7 +503,11 @@ public class WordTest extends Activity {
 						
 						currentTextViewAndEditText.editText.setText(currentKana);
 						
-						currentTextViewAndEditText.editText.setEnabled(false);						
+						currentTextViewAndEditText.editText.setEnabled(false);
+						
+						currentTextViewAndEditText.editText.setSingleLine(false);
+						currentTextViewAndEditText.editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+
 					} else {
 						throw new RuntimeException("Unknown wordTestMode: " + wordTestConfig.getWordTestMode());
 					}					
