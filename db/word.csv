@@ -3772,7 +3772,7 @@ ciągnąć się (np. dni)",,
 2150,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-16,,売れる,うれる,,ureru,sprzedawać,forma potencjalna,
 2151,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-16,,-,すると,,suruto,"... wtedy, ...",,
 2152,WORD,WORD_EXPRESSION,,HIRAGANA,"Genki dodatkowe 2-16
-Genki 2-20",,-,また,,mata,"znów
+Genki 2-20",,復,また,,mata,"znów
 znowu
 dodatkowo",,
 2153,WORD,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-16,,-,こと,,koto,"rzecz
@@ -4155,7 +4155,7 @@ jastrząb",,
 2347,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,処女,しょじょ,,shojo,"panienka
 dziewczynka
 dziewica",,
-2348,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,処する,しょする,,shosuru,"radzić sobie
+2348,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,処する,しょする,,sho suru,"radzić sobie
 zajmować się (czymś)
 skazywać
 potępiać
@@ -5216,7 +5216,9 @@ przekazywać",,
 ilość razy",,
 2877,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,回心,かいしん,,kaishin,nawrócenie,,
 2878,WORD,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Inne,,回復,かいふく,,kaifuku,powrót do zdrowia,,
+SURU_VERB",HIRAGANA,Inne,,回復,かいふく,,kaifuku,"powrót do zdrowia
+powrót do sił
+wyzdrowienie",,
 2879,WORD,WORD_NOUN,,HIRAGANA,Inne,,回教,かいきょう,,kaikyou,"islam
 mahometanizm",,
 2880,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,王国,おうこく,,oukoku,królestwo,,
@@ -5304,7 +5306,10 @@ miejsce na",np. świecie,
 2924,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,物置,ものおき,,monooki,schowek,,
 2925,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,位置,いち,,ichi,"pozycja
-lokalizacja",,
+lokalizacja
+sytuacja
+lokacja
+miejsce",,
 2926,WORD,WORD_VERB_RU,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 2-19,,遅れる,おくれる,,okureru,być spóźniony,,
 2927,WORD,WORD_VERB_U,"COMMON_WORD
@@ -6043,7 +6048,8 @@ publiczna sala",np. miejsca kulturalne,
 3299,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,聖堂,せいどう,,seidou,"miejsce kultu
 duża świątynia
 kaplica",,
-3300,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,聖書,せいしょ,,seisho,Biblia,,
+3300,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,聖書,せいしょ,,seisho,"Biblia
+Pismo Święte",,
 3301,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-18,,職業,しょくぎょう,,shokugyou,"zawód
 zatrudnienie",,
 3302,KANJI,WORD_NOUN,COMMON_WORD,KATAKANA_HIRAGANA,Genki kanji 2-18,,サービス業,サービスぎょう,,saabisu gyou,przemysł usługowy,,
@@ -8233,7 +8239,8 @@ pokonywać",,
 4393,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,現像,げんぞう,,genzou,wywoływanie,filmu,
 4394,WORD,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Inne,,想像,そうぞう,,souzou,wyobrażenie,,
+SURU_VERB",HIRAGANA,Inne,,想像,そうぞう,,souzou,"wyobrażenie
+przypuszczenie",,
 4395,WORD,WORD_NOUN,,HIRAGANA,Inne,,想像力,そうぞうりょく,,souzou ryoku,wyobraźnia,,
 4396,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,偶像,ぐうぞう,,guuzou,bożek,,
 4397,WORD,WORD_NOUN,,HIRAGANA,Inne,,満,まん,,man,"pełnia
@@ -10429,3 +10436,83 @@ wzór",,
 5411,WORD,WORD_VERB_U,,HIRAGANA,Inne,,契る,ちぎる,,chigiru,"przysięgać
 ślubować
 obiecywać",,
+5412,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,祈る,いのる,,inoru,"modlić się
+życzyć sobie",,
+5413,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,いつもと同じ,いつもとおなじ,,itsumo to onaji,tak jak zwykle,,
+5414,WORD,WORD_NOUN,,HIRAGANA,Inne,,聖,せい,,sei,"świętość
+święty",,
+5415,WORD,WORD_NOUN,,HIRAGANA,Inne,,聖霊,せいれい,,seirei,Duch Święty,,
+5416,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,聖人,せいじん,,seijin,święty,,
+5417,WORD,WORD_NOUN,,HIRAGANA,Inne,,聖水,せいすい,,seisui,woda święcona,,
+5418,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,想,そう,,sou,"koncepcja
+pomysł
+myśl",,
+5419,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,思想,しそう,,shisou,"pogląd
+myśl
+koncepcja",,
+5420,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,想定,そうてい,,soutei,"hipoteza
+teoria",,
+5421,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,理想的,りそうてき,,risouteki,idealny,,
+5422,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,黙想,もくそう,,mokusou,"rozmyślanie
+medytacja",,
+5423,WORD,WORD_NOUN,,HIRAGANA,Inne,,署,しょ,,sho,"biuro rządowe
+komisariat (policji)",skrót,
+5424,WORD,WORD_VERB_IRREGULAR,VERB_TRANSITIVITY,HIRAGANA,Inne,,署する,しょする,,sho suru,"podpisywać się
+składać podpis",,
+5425,WORD,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,極,ごく,,goku,"bardzo
+wyjątkowo",,
+5426,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,極める,きわめる,,kiwameru,"nosić
+prowadzić do",,
+5427,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,極まる,きわまる,,kiwamaru,osiągać swój koniec,,
+5428,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,極み,きわみ,,kiwami,koniec,,
+5429,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,極端,きょくたん,,kyokutan,"kraniec
+ekstremum",,
+5430,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,北極,ほっきょく,,hokkyoku,biegun północny,,
+5431,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,南極,なんきょく,,nankyoku,biegun południowy,,
+5432,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,極東,きょくとう,,kyokutou,Daleki Wschód,,
+5433,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,見極める,みきわめる,,mikiwameru,"patrzeć przez
+spoglądać wnikliwie",,
+5434,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,極上,ごくじょう,,gokujou,najwyższa jakość,,
+5435,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,壇,だん,,dan,"ołtarz
+scena
+platforma",,
+5436,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,反復,はんぷく,,hanpuku,powtórka,,
+5437,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,復習,ふくしゅう,,fukushuu,"ćwiczenie
+powtarzanie",,
+5438,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,復活,ふっかつ,,fukkatsu,zmartwychwstanie,,
+5439,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,復興,ふっこう,,fukkou,"rekonstrukcja
+rehabilitacja
+ponowienie",,
+5440,WORD,WORD_NOUN,,HIRAGANA,Inne,,仏,ぶつ,,butsu,Budda,,
+5441,WORD,WORD_NOUN,,HIRAGANA,Inne,,仏,ふつ,,futsu,Francja,skrót,
+5442,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,仏,ほとけ,,hotoke,"Budda
+zmarły",,
+5443,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,仏教,ぶっきょう,,bukkyou,buddyzm,,
+5444,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,仏像,ぶつぞう,,butsuzou,"status Buddy
+posąg Buddy",,
+5445,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,仏壇,ぶつだん,,butsudan,domowy ołtarzyk buddyjski,,
+5446,WORD,WORD_NOUN,,HIRAGANA,Inne,,仏僧,ぶっそう,,bussou,buddyjski kapłan,,
+5447,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,仏文,ふつぶん,,futsubun,literatura francuska,,
+5448,WORD,WORD_COUNTERS,COMMON_WORD,HIRAGANA,Inne,,位,い,,i,"ranga
+pozycja",,
+5449,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,地位,ちい,,chii,pozycja,,
+5450,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,学位,がくい,,gakui,wykształcenie,,
+5451,WORD,WORD_NOUN,,HIRAGANA,Inne,,位相,いそう,,isou,faza,w nauce,
+5452,WORD,WORD_NOUN,,HIRAGANA,Inne,,三位,さんい,,san'i,"trzecie miejsce
+trzecia pozycja",,
+5453,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,仰ぐ,あおぐ,,aogu,"patrzeć
+oglądać
+prosić o
+polegać na
+szukać",,
+5454,WORD,WORD_VERB_RU,,HIRAGANA,Inne,,仰せられる,おおせられる,,ooserareru,mówić,czasownik honoryfikatywny,
