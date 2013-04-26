@@ -5505,7 +5505,8 @@ SURU_VERB",HIRAGANA,Genki kanji 2-18,,努力,どりょく,,doryoku,"wysiłek
 trud
 praca",,
 2997,WORD,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Genki kanji 2-18,,協力,きょうりょく,,kyouryoku,współpraca,,
+SURU_VERB",HIRAGANA,Genki kanji 2-18,,協力,きょうりょく,,kyouryoku,"współpraca
+współdziałanie",,
 2998,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,力一杯,ちからいっぱい,,chikaraippai,"ze wszystkich sił
 z całej mocy",,
 2999,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,自力,じりき,,jiriki,własna siła,,
@@ -5764,7 +5765,8 @@ Pacyfik",,
 czarny człowiek",,
 3139,WORD,WORD_NOUN,,HIRAGANA,Inne,,黒表,こくひょう,,kokuhyou,czarna lista,,
 3140,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,黒白,くろしろ,,kuroshiro,czarno-biały,,
-3141,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,粉,こな,,kona,mąka,,
+3141,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,粉,こな,,kona,"mąka
+proszek",,
 3142,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,正式,せいしき,,seishiki,"formalny
 oficjalny",,
 3143,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,公式,こうしき,,koushiki,"formuła (matematyczna)
@@ -6061,7 +6063,9 @@ punkt","fizyczny, np. cel tarczy",
 3287,KANJI,WORD_NOUN,,HIRAGANA,"Genki kanji 2-18
 Genki dodatkowe 2-18",,力仕事,ちからしごと,,chikara shigoto,praca fizyczna,,
 3288,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-18,,力士,りきし,,rikishi,zawodnik sumo,,
-3289,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,協会,きょうかい,,kyoukai,stowarzyszenie,,
+3289,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,協会,きょうかい,,kyoukai,"stowarzyszenie
+towarzystwo
+organizacja",,
 3290,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 2-18
 Genki dodatkowe 2-18",,洋服,ようふく,,youfuku,ubranie,w zachodnim stylu,
 3291,KANJI,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-18,,東洋,とうよう,,touyou,Azja,nazwa tradycyjna,
@@ -9352,7 +9356,9 @@ tętnica",,
 4897,WORD,UNKNOWN,,KATAKANA,Inne,,-,ポチ,,pochi,pochi,najpopularniejsze imię dla psa w Japonii,
 4898,WORD,WORD_NOUN,,HIRAGANA,Inne,,文化科学宮殿,ぶんかかがくきゅうでん,,bunka kagaku kyuuden,Pałac Kultury i Nauki,,
 4899,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,骨,ほね,,hone,"kość
-ość (u ryby)",,
+ość (u ryby)
+szkielet
+kręgosłup",,
 4900,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,資本,しほん,,shihon,kapitał,,
 4901,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,資金,しきん,,shikin,fundusze,,
 4902,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,資源,しげん,,shigen,"środki
@@ -9500,7 +9506,8 @@ obserwowany przedmiot",,
 VERB_TRANSITIVITY",HIRAGANA,Inne,,限る,かぎる,,kagiru,ograniczać,,
 4964,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,制限,せいげん,,seigen,"ograniczenie
-restrykcja",,
+restrykcja
+limit",,
 4965,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,限度,げんど,,gendo,granica,np. wytrzymałości,
 4966,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,期限,きげん,,kigen,"okres
 ograniczenie czasowe
@@ -10638,3 +10645,176 @@ awans",,
 VERB_TRANSITIVITY",HIRAGANA,Inne,,努める,つとめる,,tsutomeru,"wysilać się
 starać się ze wszystkich sił",,
 5498,WORD,WORD_NOUN,,HIRAGANA,Inne,,努力家,どりょくか,,doryokuka,ciężko pracujący,,
+5499,WORD,WORD_NOUN,,HIRAGANA,Inne,,協力者,きょうりょくしゃ,,kyouryokusha,współpracownik,,
+5500,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,協同,きょうどう,,kyoudou,"partnerstwo
+współpraca
+współdziałanie",,
+5501,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,協奏曲,きょうそうきょく,,kyousoukyoku,koncert,"na fortepian, skrzypce z orkiestrą",
+5502,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,厚い,あつい,,atsui,gruby,,
+5503,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,厚生,こうせい,,kousei,"opieka społeczna
+troska o zdrowie",,
+5504,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,厚生省,こうせいしょう,,kouseishou,ministerstwo opieki społecznej,,
+5505,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,厚紙,あつがみ,,atsugami,"gruby papier
+tektura",,
+5506,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,厚意,こうい,,koui,"dobroć
+życzliwość",,
+5507,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,厚着,あつぎ,,atsugi,noszenie ciepłej odzieży,,
+5508,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,権,けん,,ken,"autorytet
+władza
+prawo
+uprawnienie",,
+5509,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,権利,けんり,,kenri,"prawo
+uprawnienie",,
+5510,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,権限,けんげん,,kengen,"prawo
+uprawnienie
+kompetencja",,
+5511,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,人権,じんけん,,jinken,prawa człowieka,,
+5512,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,特権,とっけん,,tokken,specjalne uprawnienie,,
+5513,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,主権,しゅけん,,shuken,suwerenność,,
+5514,WORD,WORD_NOUN,,HIRAGANA,Inne,,律,りつ,,ritsu,"prawo
+regulamin
+rytm",,
+5515,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,規律,きりつ,,kiritsu,"prawo
+porządek
+dyscyplina",,
+5516,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,律動,りつどう,,ritsudou,rytm,,
+5517,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,律義,りちぎ,,richigi,uczciwość,,
+5518,WORD,WORD_NOUN,,HIRAGANA,Inne,,律法,りっぽう,,rippou,prawo,w Starym Testamencie,
+5519,WORD,WORD_NOUN,,HIRAGANA,Inne,,省,しょう,,shou,"ministerstwo
+departament",,
+5520,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,省く,はぶく,,habuku,"pomijać
+eliminować
+oszczędzać",,
+5521,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,省みる,かえりみる,,kaerimiru,reflektować,,
+5522,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,省略,しょうりゃく,,shouryaku,skrót,,
+5523,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,文部省,もんぶしょう,,monbushou,ministerstwo edukacji,,
+5524,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,省令,しょうれい,,shourei,zarządzenie ministerialne,,
+5525,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,内省,ないせい,,naisei,introspekcja,,
+5526,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,反省,はんせい,,hansei,"refleksja
+samoocena",,
+5527,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,請う,こう,,kou,"prosić
+życzyć sobie
+zapraszać",,
+5528,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,請ける,うける,,ukeru,"prosić
+życzyć sobie
+zapraszać",,
+5529,WORD,WORD_NOUN,,HIRAGANA,Inne,,骨,こつ,,kotsu,"kości
+popiół
+pozostałości",,
+5530,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,朗らか,ほがらか,,hogaraka,"jasny
+czysty
+pogodny",,
+5531,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,幼い,おさない,,osanai,niemowlęcy,,
+5532,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,制,せい,,sei,"system
+organizacja
+prawa
+regulacje",,
+5533,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,制度,せいど,,seido,"system
+instytucja",,
+5534,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,制作,せいさく,,seisaku,dzieło,"np. malarskie, literackie",
+5535,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,制御,せいぎょ,,seigyo,"kontrola
+zarządzanie
+represja
+panowanie",,
+5536,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,競う,きそう,,kisou,"konkurować
+współzawodniczyć",,
+5537,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,競る,せる,,seru,"konkurować
+współzawodniczyć",,
+5538,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,競争,きょうそう,,kyousou,współzawodnictwo,,
+5539,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,競技,きょうぎ,,kyougi,"zawody sportowe
+turniej
+wyścig",,
+5540,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,競走,きょうそう,,kyousou,wyścig,,
+5541,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,競売,きょうばい,,kyoubai,aukcja,,
+5542,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,尾,お,,o,"ogon
+koniec",,
+5543,WORD,WORD_NOUN,,HIRAGANA,Inne,,根,こん,,kon,"korzeń
+wytrwałość",,
+5544,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,根,ね,,ne,"korzeń
+podstawa
+geneza
+źródło",,
+5545,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,根気,こんき,,konki,"wytrwałość
+cierpliwość",,
+5546,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,根拠,こんきょ,,konkyo,"podstawa
+powód
+przyczyna
+podłoże
+uzasadnienie",,
+5547,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,根本的,こんぽんてき,,konponteki,"fundamentalny
+radykalny",,
+5548,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,根源,こんげん,,kongen,"pochodzenie
+źródło",,
+5549,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,根幹,こんかん,,konkan,"podstawa
+korzeń
+jądro",,
+5550,WORD,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ゴールデンウィーク,,gooruden wiiku,złoty tydzień,dni wolne od pracy w okresie 29.04 - 05.05,
+5551,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,管,かん,,kan,"rura
+tuba",,
+5552,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,管,くだ,,kuda,"rura
+tuba",,
+5553,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,管区,かんく,,kanku,"prowincja
+dystrykt",,
+5554,WORD,WORD_NOUN,,HIRAGANA,Inne,,管区長,かんくちょう,,kankuchou,"przełożony prowincji
+prowincjał",,
+5555,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,管制,かんせい,,kansei,kontrola,,
+5556,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,管理,かんり,,kanri,zarządzanie,,
+5557,WORD,WORD_NOUN,,HIRAGANA,Inne,,管楽器,かんがっき,,kangakki,instrument dęty,,
+5558,WORD,WORD_NOUN,,HIRAGANA,Inne,,草,そう,,sou,"szkic
+brulion",,
+5559,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,草,くさ,,kusa,"trawa
+chwasty
+zioła",,
+5560,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,草木,そうもく,,soumoku,"roślinność
+drzewa i trawy",,
+5561,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,草食,そうしょく,,soushoku,roślinożerne,zwierzęta,
+5562,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,草取り,くさとり,,kusatori,plewienie,,
+5563,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,草刈り,くさかり,,kusakari,koszenie trawy,,
+5564,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,草案,そうあん,,souan,"szkic
+zarys
+brulion",,
+5565,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,麻,あさ,,asa,"len
+konopie",,
+5566,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,悔いる,くいる,,kuiru,żałować,,
+5567,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,悔やむ,くやむ,,kuyamu,żałować,,
+5568,WORD,WORD_NOUN,,HIRAGANA,Inne,,悔やみ,くやみ,,kuyami,żal,,
+5569,WORD,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,悔しい,くやしい,,kuyashii,"godny pożałowania
+dokuczliwy
+irytujący
+upokarzający",,
+5570,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鼓,つづみ,,tsudumi,bębenek,,
+5571,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,陽光,ようこう,,youkou,światło słoneczne,,
+5572,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,陽性,ようせい,,yousei,"pozytywny
+plus",,
+5573,WORD,WORD_NOUN,,HIRAGANA,Inne,,陽極,ようきょく,,youkyoku,biegun dodatni,,
+5574,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,陽子,ようし,,youshi,proton,,
+5575,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,粉末,ふんまつ,,funmatsu,proszek,,
+5576,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,粉砕,ふんさい,,funsai,"proszkowanie
+mielenie",,
+5577,WORD,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,粉々,こなごな,,konagona,w drobnych kawałkach,,
+5578,WORD,UNKNOWN,,HIRAGANA,Inne,,粉骨,ふんこつ,,funkotsu,"szczerość
+pilność",,
+5579,WORD,WORD_NOUN,,HIRAGANA,Inne,,粉薬,こなぐすり,,konagusuri,lekarstwo w proszku,,
