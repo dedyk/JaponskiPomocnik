@@ -6251,7 +6251,8 @@ opracowanie (czegoś)",,
 3377,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,案件,あんけん,,anken,"artykuł
 sprawa
 przedmiot
-wniosek",,
+wniosek
+przypadek",,
 3378,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,礼儀,れいぎ,,reigi,"zachowanie
 maniery
 etykieta",,
@@ -6562,7 +6563,8 @@ VERB_TRANSITIVITY",HIRAGANA,Genki kanji 2-19,,問う,とう,,tou,pytać,bardziej
 3540,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,景気,けいき,,keiki,sytuacja ekonomiczna,,
 3541,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,検査,けんさ,,kensa,"badanie
-dochodzenie",,
+dochodzenie
+inspekcja",,
 3542,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,検事,けんじ,,kenji,prokurator publiczny,,
 3543,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,検定,けんてい,,kentei,"oficjalne potwierdzenie
@@ -6651,8 +6653,10 @@ SURU_VERB",HIRAGANA,Inne,,失恋,しつれん,,shitsuren,"zawiedziona miłość
 złamane serce",,
 3576,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,準決勝,じゅんけっしょう,,junkesshou,półfinał,,
 3577,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,基準,きじゅん,,kijun,"standard
+podstawa
 norma
-kryterium",,
+kryterium
+miara",,
 3578,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,準拠,じゅんきょ,,junkyo,"dostosowanie
 przystosowanie
@@ -8426,7 +8430,9 @@ regulować",,
 organizować się
 dostosowywać się",,
 4465,WORD,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Inne,,調査,ちょうさ,,chousa,dochodzenie,,
+SURU_VERB",HIRAGANA,Inne,,調査,ちょうさ,,chousa,"dochodzenie
+przesłuchanie
+obserwacja",,
 4466,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,調子,ちょうし,,choushi,"stan
 kondycja
 ton
@@ -8556,7 +8562,8 @@ SURU_VERB",HIRAGANA,Inne,,派遣,はけん,,haken,"wysyłka
 wysłanie
 ekspediowanie",,
 4521,WORD,WORD_NOUN,,HIRAGANA,Inne,,派別,はべつ,,habetsu,podział,"na sekty, szkoły itp.",
-4522,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宗派,しゅうは,,shuuha,sekta religijna,,
+4522,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宗派,しゅうは,,shuuha,"sekta religijna
+wyznanie",,
 4523,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,派生,はせい,,hasei,podział,rozmnażanie przez podział,
 4524,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,派出所,はしゅつじょ,,hashutsujo,"oddział
@@ -9827,7 +9834,10 @@ wyśmiewać się z
 wtedy",,
 5093,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 2-21,,兎に角,とにかく,,tonikaku,"w każdym razie
 tak czy inaczej",,
-5094,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-21,,事件,じけん,,jiken,wypadek,,
+5094,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-21,,事件,じけん,,jiken,"wypadek
+wydarzenie
+sprawa
+przypadek",,
 5095,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-21,,強盗,ごうとう,,goutou,"kradzież
 rabunek",,
 5096,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-21,,詐欺,さぎ,,sagi,"oszustwo
@@ -10305,7 +10315,8 @@ rozumowanie
 logika
 paragraf
 punkt",,
-5323,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,条件,じょうけん,,jouken,warunek,,
+5323,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,条件,じょうけん,,jouken,"warunek
+zastrzeżenie",,
 5324,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,条約,じょうやく,,jouyaku,"traktat
 porozumienie
 układ",,
@@ -11033,3 +11044,217 @@ miejscowa kapituła",,
 5673,WORD,WORD_NOUN,"COMMON_WORD
 SURU_VERB",KATAKANA,Inne,,-,セックス,,sekkusu,"seks
 sex",,
+5674,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,膳,ぜん,,zen,mały niski stół,,
+5675,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,件,けん,,ken,"sprawa
+wydarzenie
+przypadek",,
+5676,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,要件,ようけん,,youken,ważna sprawa,,
+5677,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,用件,ようけん,,youken,"sprawa
+interes",,
+5678,WORD,WORD_NOUN,,HIRAGANA,Inne,,拝,はい,,hai,"cześć
+uwielbienie
+kult",,
+5679,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,拝む,おがむ,,ogamu,"wielbić
+czcić
+ubóstwiać",,
+5680,WORD,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,拝見する,はいけんする,,haiken suru,"patrzeć
+oglądać",z szacunkiem,
+5681,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,拝啓,はいけい,,haikei,"Droga Pani
+Drogi Panie",na początku listu,
+5682,WORD,WORD_EXPRESSION,,HIRAGANA,Inne,,拝復,はいふく,,haifuku,"w odpowiedzi na Pana list
+w odpowiedzi na Pani list",,
+5683,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,拝辞,はいじ,,haiji,"rezygnować
+zaprzeczać",,
+5684,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,巧み,たくみ,,takumi,"sprawny
+sprawność
+zdolność",,
+5685,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,進む,すすむ,,susumu,"posuwać się
+postępować",,
+5686,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,進める,すすめる,,susumeru,"przesuwać (do przodu)
+promować
+przyspieszać",,
+5687,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,進歩,しんぽ,,shinpo,postęp,,
+5688,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,進化,しんか,,shinka,ewolucja,,
+5689,WORD,WORD_NOUN,,HIRAGANA,Inne,,進化論,しんかろん,,shinkaron,teoria ewolucji,,
+5690,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,進学,しんがく,,shingaku,przejście na kolejny poziom edukacji,np. pójście na studia wyższe,
+5691,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,進駐,しんちゅう,,shinchuu,"okupacja
+zabór",,
+5692,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,忍ぶ,しのぶ,,shinobu,"wytrzymywać
+znosić",,
+5693,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,絆,きずな,,kizuna,"związanie (emocjonalne, pomiędzy ludźmi)
+więź (emocjonalna, pomiędzy ludźmi)
+relacje
+papiery wartościowe",,
+5694,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,創造,そうぞう,,souzou,stworzenie,,
+5695,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,創立,そうりつ,,souritsu,"zakładanie
+tworzenie
+fundowanie",,
+5696,WORD,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,創案,そうあん,,souan,oryginalny pomysł,,
+5697,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,創作,そうさく,,sousaku,"produkt
+praca
+dzieło",,
+5698,WORD,WORD_NOUN,,HIRAGANA,Inne,,創世記,そうせいき,,souseiki,Księga Rodzaju,,
+5699,WORD,WORD_NOUN,,HIRAGANA,Inne,,膏,あぶら,,abura,"tłuszcz
+słonina
+smalec",,
+5700,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,恩,おん,,on,łaska,,
+5701,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,恩恵,おんけい,,onkei,łaska,,
+5702,WORD,WORD_NOUN,,HIRAGANA,Inne,,恩寵,おんちょう,,onchou,łaska,,
+5703,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,恩人,おんじん,,onjin,"dobrodziej
+opiekun
+patron",,
+5704,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,恩赦,おんしゃ,,onsha,"amnestia
+ułaskawienie",,
+5705,WORD,WORD_NOUN,,HIRAGANA,Inne,,恩義,おんぎ,,ongi,"dług wdzięczności
+zobowiązanie",,
+5706,WORD,WORD_NOUN,,HIRAGANA,Inne,,衛星放送,えいせいほうそう,,eiseihousou,transmisja satelitarna,,
+5707,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,防衛,ぼうえい,,bouei,obrona,,
+5708,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,自衛隊,じえいたい,,jieitai,Japońskie Siły Samoobrony,,
+5709,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,衛生,えいせい,,eisei,higiena,,
+5710,WORD,WORD_NOUN,,HIRAGANA,Inne,,衛兵,えいへい,,eihei,strażnik,,
+5711,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,植える,うえる,,ueru,sadzić,,
+5712,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,植物,しょくぶつ,,shokubutsu,"roślina
+flora",,
+5713,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,植樹,しょくじゅ,,shokuju,sadzenie drzew,,
+5714,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,植木,うえき,,ueki,"roślina ogrodowa
+roślina doniczkowa",,
+5715,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,植民地,しょくみんち,,shokuminchi,kolonia,,
+5716,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,田植え,たうえ,,taue,sadzenie ryżu,,
+5717,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,許す,ゆるす,,yurusu,"pozwalać
+przebaczać",,
+5718,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,免許,めんきょ,,menkyo,"licencja
+pozwolenie",,
+5719,WORD,WORD_NOUN,,HIRAGANA,Inne,,運転免許,うんてんめんきょ,,unten menkyo,prawo jazdy,,
+5720,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,特許,とっきょ,,tokkyo,"specjalne pozwolenie
+patent",,
+5721,WORD,WORD_NOUN,,HIRAGANA,Inne,,特許法,とっきょほう,,tokkyohou,prawo patentowe,,
+5722,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宗,しゅう,,shuu,"religia
+sekta
+wyznanie",,
+5723,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宗教,しゅうきょう,,shuukyou,religia,,
+5724,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,改宗,かいしゅう,,kaishuu,"nawrócenie się
+przyjęcie religii",,
+5725,WORD,WORD_NOUN,,HIRAGANA,Inne,,宗徒,しゅうと,,shuuto,"wierzący
+wyznawca",,
+5726,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宗家,そうけ,,souke,głowa rodziny,,
+5727,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,滴,しずく,,shizuku,"kapanie
+spadanie",wody,
+5728,WORD,WORD_NOUN,,HIRAGANA,Inne,,灯,とう,,tou,lampa,,
+5729,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,灯,ひ,,hi,światło,,
+5730,WORD,WORD_NOUN,,HIRAGANA,Inne,,灯,ともしび,,tomoshibi,światło,,
+5731,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,灯火,とうか,,touka,lampa,,
+5732,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,灯台,とうだい,,toudai,"latarnia
+podstawa lampy",,
+5733,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,電灯,でんとう,,dentou,latarka,elektryczna,
+5734,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,街灯,がいとう,,gaitou,światło uliczne,,
+5735,WORD,WORD_NOUN,,HIRAGANA,Inne,,灯心,とうしん,,toushin,knot,,
+5736,WORD,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,症,しょう,,shou,"choroba
+stan chorego
+objawy choroby",,
+5737,WORD,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,修まる,おさまる,,osamaru,"panować nad sobą
+prowadzić się dobrze",,
+5738,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,修める,おさめる,,osameru,"studiować
+ukończyć kurs
+opanowywać
+naprawiać",,
+5739,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,修士,しゅうし,,shuushi,magister,,
+5740,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,修正,しゅうせい,,shuusei,"poprawa
+modyfikacja
+zmiana
+dodatek",,
+5741,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,修理,しゅうり,,shuuri,"naprawa
+reperacja",,
+5742,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,修道院,しゅうどういん,,shuudouin,klasztor,,
+5743,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,修練,しゅうれん,,shuuren,"ćwiczenie
+praktyka
+trening
+nowicjat",,
+5744,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,訪ねる,たずねる,,tazuneru,"wizytować
+odwiedzać",,
+5745,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,訪れる,おとずれる,,otozureru,"wizytować
+odwiedzać",,
+5746,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,勝つ,かつ,,katsu,wygrywać,,
+5747,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,勝る,まさる,,masaru,"być lepszym
+być wyjątkowym",,
+5748,WORD,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,勝れる,すぐれる,,sugureru,"być lepszym
+być wyjątkowym",,
+5749,WORD,WORD_ADVERB,,HIRAGANA,Inne,,勝手に,かってに,,katte ni,"samowolnie
+egoistycznie",,
+5750,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,勝率,しょうりつ,,shouritsu,szanse na zwycięstwo,,
+5751,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,勝訴,しょうそ,,shouso,wygrać proces sądowy,,
+5752,WORD,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,勝ち取る,かちとる,,kachitoru,odnieść zwycięstwo,,
+5753,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,査察,ささつ,,sasatsu,"inspekcja
+obserwacja",,
+5754,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,査問,さもん,,samon,"przesłuchanie
+obserwacja",,
+5755,WORD,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,査定,さてい,,satei,szacowanie,,
+5756,WORD,WORD_NOUN,,HIRAGANA,Inne,,徳,とく,,toku,"cnota
+dobroć",,
+5757,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,道徳,どうとく,,doutoku,"etyka
+moralność",,
+5758,WORD,WORD_NOUN,,HIRAGANA,Inne,,徳義,とくぎ,,tokugi,"moralność
+prawość
+uczciwość",,
+5759,WORD,WORD_NOUN,,HIRAGANA,Inne,,仁徳,じんとく,,jintoku,dobroć,,
+5760,WORD,WORD_NOUN,,HIRAGANA,Inne,,人徳,じんとく,,jintoku,"naturalna cnota
+urok osobisty",,
+5761,WORD,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,不徳,ふとく,,futoku,niemoralność,,
+5762,WORD,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,蓄える,たくわえる,,takuwaeru,"magazynować
+zbierać
+akumulować",,
+5763,WORD,WORD_NOUN,,HIRAGANA,Inne,,房,ぼう,,bou,"dom
+pokój
+kita",,
+5764,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,房,ふさ,,fusa,"kitka
+pępka
+lok (włosów)",,
+5765,WORD,WORD_NOUN,,HIRAGANA,Inne,,基,もと,,moto,"fundament
+podstawa",,
+5766,WORD,WORD_NOUN,,HIRAGANA,Inne,,基,もとい,,motoi,"fundament
+podstawa",,
+5767,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,基づく,もとづく,,motoduku,"opierać się na
+wspierać się na",,
+5768,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,基礎,きそ,,kiso,"fundament
+podstawa",,
+5769,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,基本,きほん,,kihon,"podstawa
+standard
+fundament",,
+5770,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,基地,きち,,kichi,baza,wojskowa,
+5771,WORD,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,基金,ききん,,kikin,"fundusz
+kasa
+posag",,
+5772,WORD,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,拠る,よる,,yoru,"zależeć (od czegoś)
+opierać się (na czymś)",,
