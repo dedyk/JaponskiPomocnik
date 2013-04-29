@@ -187,6 +187,11 @@ public class VerbExampler {
 		// nikui
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NIKUI, makeNikui(dictionaryEntry, grammaFormCache));
 		
+		// te aru
+		if (dictionaryEntry.getAttributeList().contains(AttributeType.VERB_TRANSITIVITY) == true || dictionaryEntry.getDictionaryEntryType() == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_TE_ARU, makeTeAruExample(dictionaryEntry, grammaFormCache));
+		}
+		
 		return result;
 	}
 
@@ -1500,5 +1505,23 @@ public class VerbExampler {
 		exampleResult1.setAlternative(exampleResult2);
 		
 		return exampleResult1;
+	}
+	
+	private static ExampleResult makeTeAruExample(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "%sある";
+		final String templateKana = "%sある";
+		final String templateRomaji = "%s aru";
+		
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
+		
+		ExampleResult exampleResult = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
+		
+		if (dictionaryEntry.getPrefixKana() != null && dictionaryEntry.getPrefixKana().equals("を") == true) {
+			exampleResult.setPrefixKana("が");
+			exampleResult.setPrefixRomaji("ga");
+		}
+		
+		return exampleResult;
 	}
 }

@@ -168,7 +168,7 @@ public enum ExampleGroupType {
 	
 	VERB_OU_TO_OMOTTE_IRU("Wola (decyzja podjęta wcześniej)"),
 	
-	VERB_TE_OKU("Przygotować się"),
+	VERB_TE_OKU("Przygotować się / Zrobić coś wcześniej / Zostawić coś (w danym stanie)", "Aspekt preparatywny"),
 	
 	VERB_TE_AGERU("Dać czynność (od siebie, ktoś komuś)"),
 	
@@ -228,7 +228,9 @@ public enum ExampleGroupType {
 	
 	VERB_YASUI("Łatwo coś zrobić"),
 	
-	VERB_NIKUI("Trudno coś zrobić");
+	VERB_NIKUI("Trudno coś zrobić"),
+	
+	VERB_TE_ARU("Być wprowadzone w pewien stan", "Aspekt rezultatywny");
 	
 	private String name;
 	
