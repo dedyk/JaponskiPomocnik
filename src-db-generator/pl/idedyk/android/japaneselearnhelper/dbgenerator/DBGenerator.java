@@ -135,18 +135,18 @@ public class DBGenerator {
 		while(csvReader.readRecord()) {
 
 			String idString = csvReader.get(0);
-			String dictionaryEntryTypeString = csvReader.get(2);
-			String attributesString = csvReader.get(3);
-			String groupsString = csvReader.get(5);
-			String prefixKanaString = csvReader.get(6);
-			String kanjiString = csvReader.get(7);
+			String dictionaryEntryTypeString = csvReader.get(1);
+			String attributesString = csvReader.get(2);
+			String groupsString = csvReader.get(4);
+			String prefixKanaString = csvReader.get(5);
+			String kanjiString = csvReader.get(6);
 
-			String kanaListString = csvReader.get(8);
-			String prefixRomajiString = csvReader.get(9);
+			String kanaListString = csvReader.get(7);
+			String prefixRomajiString = csvReader.get(8);
 
-			String romajiListString = csvReader.get(10);
-			String translateListString = csvReader.get(11);
-			String infoString = csvReader.get(12);
+			String romajiListString = csvReader.get(9);
+			String translateListString = csvReader.get(10);
+			String infoString = csvReader.get(11);
 
 			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributesString, groupsString,
 					prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
