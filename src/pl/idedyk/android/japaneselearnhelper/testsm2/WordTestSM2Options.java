@@ -388,6 +388,7 @@ public class WordTestSM2Options extends Activity {
 			}
 		});
 		
+		/*
 		// show alert
 		AlertDialog alertDialog = new AlertDialog.Builder(WordTestSM2Options.this).create();
 		
@@ -402,6 +403,6 @@ public class WordTestSM2Options extends Activity {
 		});
 		
 		alertDialog.show();
-
+		*/
 	}	
 }

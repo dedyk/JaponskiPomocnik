@@ -535,7 +535,7 @@ public class DictionaryManager {
 
 				transactionCounter++;
 
-				if (transactionCounter >= 400) {
+				if (transactionCounter >= 200) {
 					transactionCounter = 0;
 
 					try {
