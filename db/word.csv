@@ -2519,7 +2519,8 @@ godzina",okres,
 1395,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-9
 Genki 2-19",,話,はなし,,hanashi,rozmowa,,
 1396,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-9,,会話,かいわ,,kaiwa,"rozmowa
-dialog",,
+dialog
+konwersacja",,
 1397,WORD_ADVERB,COMMON_WORD,HIRAGANA,"Genki 1-4
 Genki kanji 1-9
 Genki 2-21",,少し,すこし,,sukoshi,mało,,
@@ -2605,7 +2606,8 @@ Genki dodatkowe 2-15
 Genki 2-21",,昔,むかし,,mukashi,"dawno temu
 stare dni
 przeszłość",,
-1453,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-12,,昔話,むかしばなし,,mukashi banashi,bajka,,
+1453,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-12,,昔話,むかしばなし,,mukashi banashi,"bajka
+legenda",,
 1454,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-12,,神道,しんとう,,shintou,shinto,,
 1455,WORD_VERB_IRREGULAR,,HIRAGANA,Genki kanji 1-12,,早起きする,はやおきする,,hayaoki suru,wcześnie wstawać,,
 1456,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-12,,早朝,そうちょう,,souchou,wcześnie rano,,
@@ -9846,7 +9848,8 @@ popełnić błąd",,
 5088,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,を,馬鹿にする,ばかにする,o,baka ni suru,"obrażać
 wyśmiewać się z
 żartować sobie",,
-5089,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,,昼寝をする,ひるねをする,,hirune o suru,robić sobie drzemkę,,
+5089,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,,昼寝をする,ひるねをする,,hirune o suru,"robić sobie drzemkę
+zdrzemną się",,
 5090,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,に,連絡する,れんらくする,ni,renraku suru,kontaktować się z,,
 5091,WORD_ADVERB,,HIRAGANA,Genki 2-21,,間に,あいだに,,aida ni,w czasie,,
 5092,UNKNOWN,,HIRAGANA,Genki 2-21,,-,ころ,,koro,"około
@@ -12669,3 +12672,90 @@ trzy wymiary",,
 6376,WORD_NOUN,,HIRAGANA,Inne,,六角,ろっかく,,rokkaku,"sześciobok
 heksagon",,
 6377,WORD_NOUN,,HIRAGANA,Inne,,六年生,ろくねんせい,,rokunensei,uczeń szóstej klasy,,
+6378,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,燃やす,もやす,,moyasu,palić,,
+6379,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,燃える,もえる,,moeru,"płonąć
+palić się",,
+6380,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,燃料,ねんりょう,,nenryou,paliwo,,
+6381,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,燃え易い,もえやすい,,moeyasui,łatwopalny,,
+6382,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,燃焼,ねんしょう,,nenshou,"spalanie
+zapłon",,
+6383,WORD_VERB_U,,HIRAGANA,Inne,,燃え尽くす,もえつくす,,moetsukusu,spalić się,,
+6384,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,燃え出す,もえだす,,moedasu,"zapalić się
+zaczął płonąć",,
+6385,WORD_EXPRESSION,,HIRAGANA,Inne,,その時,そのとき,,sono toki,wtedy,,
+6386,WORD_NOUN,,HIRAGANA,Inne,,七面鳥,しちめんちょう,,shichimenchou,indyk,,
+6387,WORD_NOUN,,HIRAGANA,Inne,,八面,はちめん,,hachimen,osiem kierunków,,
+6388,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,八方,はっぽう,,happou,wszystkie kierunki,,
+6389,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,八百屋,やおや,,yaoya,sklep warzywniczy,,
+6390,WORD_NOUN,,HIRAGANA,Inne,,九々,くく,,kuku,tabliczka mnożenia,,
+6391,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,十字架,じゅうじか,,juujika,krzyż,,
+6392,WORD_NOUN,,HIRAGANA,Inne,,架,か,,ka,"rama
+podstawa
+półka",,
+6393,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,架ける,かける,,kakeru,wieszać,,
+6394,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,両面,りょうめん,,ryoumen,obie strony,,
+6395,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,両者,りょうしゃ,,ryousha,obie osoby,,
+6396,WORD_NOUN,,HIRAGANA,Inne,,両議員,りょうぎいん,,ryougiin,obie izby,parlamentu,
+6397,WORD_NOUN,,HIRAGANA,Inne,,雨,あま,,ama,deszcz,,
+6398,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,雨季,うき,,uki,pora deszczowa,,
+6399,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,雨水,あまみず,,amamizu,deszczówka,,
+6400,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,雨天,うてん,,uten,deszczowa pogoda,,
+6401,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,雨量,うりょう,,uryou,opad deszczu,ilość,
+6402,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,雨漏り,あまもり,,amamori,przeciek,w dachu,
+6403,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,対話,たいわ,,taiwa,dialog,,
+6404,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,出会い,であい,,deai,spotkanie,,
+6405,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,会場,かいじょう,,kaijou,miejsce spotkania,"przyjęcia, koncertu itd.",
+6406,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,会得,えとく,,etoku,"zrozumienie
+pojęcie",,
+6407,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,悪,あく,,aku,zło,,
+6408,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,悪人,あくにん,,akunin,zły człowiek,,
+6409,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,悪口,わるぐち,,waruguchi,"plotka
+obmowa",,
+6410,WORD_NOUN,,HIRAGANA,Inne,,悪友,あくゆう,,akuyuu,złe towarzystwo,,
+6411,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,悪戯,いたずら,,itazura,"żart
+figiel
+psota",,
+6412,WORD_NOUN,,HIRAGANA,Inne,,朝,ちょう,,chou,"rano
+dynastia
+panowanie
+okres
+epoka",sufiks,
+6413,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,朝刊,ちょうかん,,choukan,poranne wydanie,gazety,
+6414,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,朝鮮,ちょうせん,,chousen,Korea,,
+6415,WORD_NOUN,,HIRAGANA,Inne,,朝廷,ちょうてい,,choutei,dwór królewski,,
+6416,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,朝日,あさひ,,asahi,poranne słońce,,
+6417,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,急,きゅう,,kyuu,"pilny
+nagły",,
+6418,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,救急車,きゅうきゅうしゃ,,kyuukyuusha,karetka pogotowia,,
+6419,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,急用,きゅうよう,,kyuuyou,"nagła sprawa
+niespodziewana sprawa
+nagły interes",,
+6420,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,急性,きゅうせい,,kyuusei,"ostry
+dotkliwy",ból,
+6421,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,戯れる,たわむれる,,tawamureru,"grać
+uprawiać sport
+żartować
+flirtować",,
+6422,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,救う,すくう,,sukuu,"ratować
+zbawiać
+pomagać",,
+6423,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,救急,きゅうきゅう,,kyuukyuu,pierwsza pomoc,,
+6424,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,救済,きゅうさい,,kyuusai,"pomoc
+ratunek
+zbawienie
+odkupienie",,
+6425,WORD_NOUN,,HIRAGANA,Inne,,救い主,すくいぬし,,sukuinushi,"Zbawiciel
+ratownik",,
+6426,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,救助,きゅうじょ,,kyuujo,"ratunek
+pomoc",,
+6427,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,救命ボート,きゅうめいボート,,kyuumei bouto,łódź ratunkowa,,
