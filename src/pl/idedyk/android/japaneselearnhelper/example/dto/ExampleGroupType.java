@@ -40,6 +40,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach"),
 	
+	ADJECTIVE_I_SURU("Sprawiać, że coś jest ..."),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -77,6 +79,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_HAZU_DESU("Powinno być / Miało być"),
 	
 	ADJECTIVE_NA_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach"),
+	
+	ADJECTIVE_NA_SURU("Sprawiać, że coś jest ..."),
 	
 	NOUN_NI_NARU("Stawać się"),
 	
@@ -120,6 +124,8 @@ public enum ExampleGroupType {
 	NOUN_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach"),
 	
 	NOUN_TO_IU("Nazywanie przedmiotu"),
+	
+	NOUN_NO_AIDA_NI("Podczas"),
 		
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -230,7 +236,9 @@ public enum ExampleGroupType {
 	
 	VERB_NIKUI("Trudno coś zrobić"),
 	
-	VERB_TE_ARU("Być wprowadzone w pewien stan", "Aspekt rezultatywny");
+	VERB_TE_ARU("Być wprowadzone w pewien stan", "Aspekt rezultatywny"),
+	
+	VERB_TE_IRU_AIDA_NI("Podczas");
 	
 	private String name;
 	

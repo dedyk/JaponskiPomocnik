@@ -76,6 +76,9 @@ public class AdjectiveIExampler {
 		// questions with larger sentences
 		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_QUESTIONS_WITH_LARGER_SENTENCES, makeQuestionsWithLargerSentences(dictionaryEntry, grammaFormCache));
 		
+		// ku suru
+		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SURU, makeAdjectiveISuru(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -383,5 +386,17 @@ public class AdjectiveIExampler {
 		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, false);
 		
 		return exampleResult1;
+	}
+	
+	private static ExampleResult makeAdjectiveISuru(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult virtualForm = grammaFormCache.get(GrammaFormConjugateResultType.ADJECTIVE_I_VIRTUAL);
+		
+		final String templateKanji = "%sくする";
+		final String templateKana = "%sくする";
+		final String templateRomaji = "%sku suru";
+		
+		return GrammaExampleHelper.makeSimpleTemplateExample(virtualForm, templateKanji, templateKana, templateRomaji, true);
 	}
 }

@@ -192,6 +192,9 @@ public class VerbExampler {
 			GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_TE_ARU, makeTeAruExample(dictionaryEntry, grammaFormCache));
 		}
 		
+		// te iru aida ni
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_TE_IRU_AIDA_NI, makeTeIruAidaNi(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1523,5 +1526,27 @@ public class VerbExampler {
 		}
 		
 		return exampleResult;
+	}
+	
+	private static ExampleResult makeTeIruAidaNi(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
+		
+		final String templateKanji1 = "%sいる間に, ...";
+		final String templateKana1 = "%sいるあいだに, ...";
+		final String templateRomaji1 = "%s iru aida ni, ...";
+
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		final String templateKanji2 = "%sいる間, ...";
+		final String templateKana2 = "%sいるあいだ, ...";
+		final String templateRomaji2 = "%s iru aida, ...";
+
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji2, templateKana2, templateRomaji2, true);
+		exampleResult2.setInfo("Czynność wykonywana przez dłuższy okres czasu");
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
 	}
 }

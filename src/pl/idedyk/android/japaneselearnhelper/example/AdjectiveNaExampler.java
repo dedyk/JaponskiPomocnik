@@ -76,6 +76,9 @@ public class AdjectiveNaExampler {
 		// questions with larger sentences
 		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_QUESTIONS_WITH_LARGER_SENTENCES, makeQuestionsWithLargerSentences(dictionaryEntry, grammaFormCache));
 		
+		// ni suru
+		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_SURU, makeAdjectiveNaSuru(dictionaryEntry));
+		
 		return result;
 	}
 	
@@ -363,5 +366,14 @@ public class AdjectiveNaExampler {
 		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, false);
 		
 		return exampleResult1;
+	}
+	
+	private static ExampleResult makeAdjectiveNaSuru(DictionaryEntry dictionaryEntry) {
+		
+		final String templateKanji = "%sにする";
+		final String templateKana = "%sにする";
+		final String templateRomaji = "%s ni suru";
+		
+		return GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 	}
 }

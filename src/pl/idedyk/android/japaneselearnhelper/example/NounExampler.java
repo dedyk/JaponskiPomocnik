@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
@@ -83,6 +84,11 @@ public class NounExampler {
 		
 		// to iu
 		GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_TO_IU, makeToIu(dictionaryEntry, grammaFormCache));
+		
+		// no aida ni
+		if (dictionaryEntry.getAttributeList().contains(AttributeType.SURU_VERB) == true) {
+			GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_NO_AIDA_NI, makeNoAidaNi(dictionaryEntry, grammaFormCache));
+		}
 		
 		return result;
 	}
@@ -391,5 +397,25 @@ public class NounExampler {
 		ExampleResult exampleResult = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, false);
 		
 		return exampleResult;
+	}
+	
+	private static ExampleResult makeNoAidaNi(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+				
+		final String templateKanji1 = "%sの間に, ...";
+		final String templateKana1 = "%sのあいだに, ...";
+		final String templateRomaji1 = "%s no aida ni, ...";
+
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		final String templateKanji2 = "%sの間, ...";
+		final String templateKana2 = "%sのあいだ, ...";
+		final String templateRomaji2 = "%s no aida, ...";
+
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, true);
+		exampleResult2.setInfo("Czynność wykonywana przez dłuższy okres czasu");
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
 	}
 }

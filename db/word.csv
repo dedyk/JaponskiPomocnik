@@ -12759,3 +12759,30 @@ ratownik",,
 SURU_VERB",HIRAGANA,Inne,,救助,きゅうじょ,,kyuujo,"ratunek
 pomoc",,
 6427,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,救命ボート,きゅうめいボート,,kyuumei bouto,łódź ratunkowa,,
+6428,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,入院,にゅういん,,nyuuin,hospitalizacja,,
+6429,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,洪水,こうずい,,kouzui,powódź,,
+6430,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,届く,とどく,,todoku,"przybywać
+docierać",,
+6431,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,届ける,とどける,,todokeru,"zgłaszać
+powiadamiać
+przesyłać
+przekazywać",,
+6432,WORD_NOUN,,HIRAGANA,Inne,,届け先,とどけさき,,todokesaki,"adres
+cel",,
+6433,WORD_NOUN,,HIRAGANA,Inne,,欠席届,けっせきとどけ,,kessekitodoke,powiadomienie o niebraniu udziału,,
+6434,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,無届け,むとどけ,,mutodoke,nieobecność bez powiadomienia,,
+6435,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,銭,せん,,sen,sen,"jednostka monetarna, jedna setna jena",
+6436,WORD_NOUN,,HIRAGANA,Inne,,銭,ぜに,,zeni,pieniądze,,
+6437,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,銭湯,せんとう,,sentou,łaźnia publiczna,,
+6438,WORD_NOUN,,HIRAGANA,Inne,,無銭,むせん,,musen,"bez grosza
+bez pieniędzy",,
+6439,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,表,ひょう,,hyou,"wór
+torba",,
+6440,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,俵,たわら,,tawara,koszyk,,
+6441,WORD_NOUN,,HIRAGANA,Inne,,米俵,こめだわら,,komedawara,"worek ryżu
+worek na ryż",,
+6442,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,土俵,どひょう,,dohyou,ring,w sumo,
+6443,WORD_NOUN,,HIRAGANA,Inne,,炭俵,すみだわら,,sumidawara,worek na węgiel,,
