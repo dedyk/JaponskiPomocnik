@@ -238,7 +238,11 @@ public enum ExampleGroupType {
 	
 	VERB_TE_ARU("Być wprowadzone w pewien stan", "Aspekt rezultatywny"),
 	
-	VERB_TE_IRU_AIDA_NI("Podczas");
+	VERB_TE_IRU_AIDA_NI("Podczas"),
+	
+	VERB_TE_HOSHII("Chceć czegoś od kogoś"),
+	
+	VERB_NEGATIVE_TE_HOSHII("Chceć, aby ktoś czegoś nie zrobił");
 	
 	private String name;
 	

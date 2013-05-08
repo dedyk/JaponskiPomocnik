@@ -4778,7 +4778,8 @@ VERB_INTRANSITIVITY",HIRAGANA,Genki 2-18,が,汚れる,よごれる,ga,yogoreru,
 w tej chwili
 natychmiast",,
 2651,WORD_EXPRESSION,,HIRAGANA,Genki 2-18,,-,おかげで,,okagede,"podziękowania dla ciebie
-dzięki tobie",~ no,
+dzięki tobie
+dzięki czemuś",~ no,
 2652,WORD_EXPRESSION,,HIRAGANA,Genki 2-18,,お先に失礼します,おさきにしつれいします,,osaki ni shitsurei shimasu,do zobaczenia,,
 2653,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Genki 2-18,,お疲れ様,おつかれさま,,otsukaresama,musisz być zmęczony pracując tak ciężko,,
 2654,WORD_EXPRESSION,,HIRAGANA,Genki 2-18,,お疲れ様でした,おつかれさまでした,,otsukaresama deshita,musisz być zmęczony pracując tak ciężko,forma deshita,
@@ -12852,3 +12853,34 @@ z wyjątkiem",,
 jednostka
 legion",,
 6469,WORD_NOUN,,HIRAGANA,Inne,,文学部,ぶんがくぶ,,bungakubu,wydział literatury,,
+6470,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,明明後日,しあさって,,shiasatte,po pojutrze,,
+6471,WORD_VERB_U,,HIRAGANA,Inne,,放っとく,ほっとく,,hottoku,zostawić kogoś w spokoju,,
+6472,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,稼ぐ,かせぐ,,kasegu,"zarabiać
+pracować
+zarabiać na życie
+zarabiać pieniądze",,
+6473,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,汗,あせ,,ase,pot,,
+6474,WORD_VERB_U,,HIRAGANA,Inne,,汗をかく,あせをかく,,ase o kaku,pocić się,,
+6475,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,玉蜀黍,とうもろこし,,toumorokoshi,kukurydza,,
+6476,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,族,ぞく,,zoku,"rodzina
+krewni
+szczep
+rasa
+klan",,
+6477,WORD_NOUN,,HIRAGANA,Inne,,族,やから,,yakara,"rodzina
+krewni
+partia
+towarzysze",,
+6478,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,親族,しんぞく,,shinzoku,krewny,,
+6479,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,部族,ぶぞく,,buzoku,szczep,,
+6480,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,遺族,いぞく,,izoku,rodzina zmarłego,,
+6481,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,中央,ちゅうおう,,chuuou,centrum,,
+6482,WORD_NOUN,,HIRAGANA,Inne,,中央郵便局,ちゅうおうゆうびんきょく,,chuuou yuubinkyoku,Poczta Głowna,,
+6483,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,遺伝,いでん,,iden,dziedzictwo,,
+6484,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,遺伝子,いでんし,,idenshi,gen,,
+6485,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,遺産,いさん,,isan,spadek,,
+6486,WORD_NOUN,,HIRAGANA,Inne,,遺言書,ゆいごんしょ,,yuigonsho,testament,,
+6487,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,遺骨,いこつ,,ikotsu,"zwłoki
+prochy",po zmarłym,

@@ -195,6 +195,12 @@ public class VerbExampler {
 		// te iru aida ni
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_TE_IRU_AIDA_NI, makeTeIruAidaNi(dictionaryEntry, grammaFormCache));
 		
+		// te hoshii
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_TE_HOSHII, makeTeHoshii(dictionaryEntry, grammaFormCache));
+		
+		// negative te hoshii
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NEGATIVE_TE_HOSHII, makeNegativeTeHoshii(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1544,6 +1550,42 @@ public class VerbExampler {
 
 		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji2, templateKana2, templateRomaji2, true);
 		exampleResult2.setInfo("Czynność wykonywana przez dłuższy okres czasu");
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeTeHoshii(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
+		
+		final String templateKanji1 = "[osoba に] ... %sほしいです";
+		final String templateKana1 = "[osoba に] ... %sほしいです";
+		final String templateRomaji1 = "[osoba ni] ... %s hoshii desu";
+
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji1, templateKana1, templateRomaji1, false);
+				
+		return exampleResult1;
+	}
+
+	private static ExampleResult makeNegativeTeHoshii(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
+		
+		final String templateKanji1 = "[osoba に] ... %sほしくないです";
+		final String templateKana1 = "[osoba に] ... %sほしくないです";
+		final String templateRomaji1 = "[osoba ni] ... %s hoshikunai desu";
+
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji1, templateKana1, templateRomaji1, false);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
+		
+		final String templateKanji2 = "[osoba に] ... %sでほしいです";
+		final String templateKana2 = "[osoba に] ... %sでほしいです";
+		final String templateRomaji2 = "[osoba ni] ... %s de hoshii desu";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, false);
 		
 		exampleResult1.setAlternative(exampleResult2);
 		
