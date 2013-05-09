@@ -768,7 +768,9 @@ Genki 1-6
 Genki 1-9",,-,から,,kara,od,"miejsce, czasu",
 442,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-5
 Genki 1-6
-Genki kanji 1-8",,電車,でんしゃ,,densha,pociąg,,
+Genki kanji 1-8",,電車,でんしゃ,,densha,"pociąg
+kolejka elektryczna
+tramwaj",,
 443,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,"Genki 1-5
 Genki 1-9
@@ -1937,7 +1939,7 @@ lęk
 niepokój",,
 1040,WORD_ADJECTIVE_I,,HIRAGANA,"Genki dodatkowe 2-13
 Genki kanji 2-13
-Genki 2-18",,気分が悪い,きぷんがわるい,,kipun ga warui,"czuć się źle
+Genki 2-18",,気分が悪い,きぶんがわるい,,kibun ga warui,"czuć się źle
 być w złym nastroju",,
 1041,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki dodatkowe 2-13
 Genki kanji 2-13",,体,からだ,,karada,ciało,,
@@ -2546,17 +2548,21 @@ prawidłowy
 słuszny",,
 1407,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,年,とし,,toshi,rok,,
 1408,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-10
-Genki kanji 2-14",,売店,ばいてん,,baiten,kiosk,,
+Genki kanji 2-14",,売店,ばいてん,,baiten,"kiosk
+sklepik
+stragan",,
 1409,WORD_NOUN,,HIRAGANA,Genki kanji 1-10,,北山町,きたやまちょう,,kitayama chou,Kitayama,miasto w Japonii,
 1410,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,町長,ちょうちょう,,chouchou,burmistrz,małego miasta,
-1411,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,長男,ちょうなん,,chounan,pierwszy syn,,
+1411,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,長男,ちょうなん,,chounan,"pierwszy syn
+najstarszy syn",,
 1412,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,書道,しょどう,,shodou,kaligrafia,,
 1413,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,柔道,じゅうどう,,juudou,judo,,
 1414,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,新雪,しんせつ,,shinsetsu,nowy śnieg,,
 1415,WORD_NOUN,,HIRAGANA,Genki kanji 1-10,,国立大学,こくりつだいがく,,kokuritsudaigaku,uniwersytet narodowy,,
 1416,WORD_NOUN,,HIRAGANA,Genki kanji 1-10,,私立高校,しりつこうこう,,shiritsukoukou,prywatne liceum,,
 1417,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-10
-Genki kanji 2-16",,自動車,じどうしゃ,,jidousha,automobil,,
+Genki kanji 2-16",,自動車,じどうしゃ,,jidousha,"automobil
+samochód",,
 1418,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,夜中,よなか,,yonaka,północ,,
 1419,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,今夜,こんや,,kon'ya,dziś wieczorem,,
 1420,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,朝食,ちょうしょく,,choushoku,śniadanie,,
@@ -2994,7 +3000,9 @@ Kitakyushu",miasto w Japonii,
 1685,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,蟻,あり,,ari,mrówka,,
 1686,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-13,,店長,てんちょう,,tenchou,"kierownik sklepu
 zarządca sklepu",,
-1687,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-13,,気分,きぷん,,kipun,nastrój,,
+1687,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-13,,気分,きぶん,,kibun,"nastrój
+samopoczucie
+stan (zdrowia)",,
 1688,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-13,,一生,いっしょう,,isshou,życie,,
 1689,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-13,,海苔,のり,,nori,nori,japońska potrawa,
 1690,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-13,,すき焼き,すきやき,,sukiyaki,sukiyaki,japońska potrawa,
@@ -3665,7 +3673,8 @@ poprzednio",,
 Genki 2-20",,失礼します,しつれいします,,shitsurei shimasu,"przepraszam, że przeszkadzam
 przepraszam, że przerywam","używa się do tego, co robimy, np. podczas wchodzenia do pokoju",
 2075,UNKNOWN,,HIRAGANA,Genki 2-16,,自分で,じぶんで,,jibun de,"sam
-samodzielnie",robić coś,
+samodzielnie
+osobiście",robić coś,
 2076,UNKNOWN,,HIRAGANA,Genki 2-16,,授業中に,じゅぎょうちゅうに,,jugyou chuu ni,"w klasie
 w trakcie zajęć",,
 2077,UNKNOWN,,HIRAGANA,Genki 2-16,,外の,ほかの,,hoka no,inny,,
@@ -3727,7 +3736,8 @@ Genki 2-19",,部長,ぶちょう,,buchou,kierownik działu,,
 2112,UNKNOWN,,HIRAGANA,Genki kanji 2-16,,二週目,にしゅうめ,,nishuume,drugi tydzień,,
 2113,UNKNOWN,COMMON_WORD,HIRAGANA,"Genki kanji 2-16
 Genki dodatkowe 2-16",,以上,いじょう,,ijou,"powyżej
-więcej niż",,
+więcej niż
+ponad",,
 2114,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,以下,いか,,ika,"poniżej
 mniej niż",,
 2115,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,以前,いぜん,,izen,"poprzednio
@@ -6186,6 +6196,7 @@ fatum",,
 3343,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,女子,じょし,,joshi,"dziewczyna
 kobieta",,
 3344,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,男子,だんし,,danshi,"chłopiec
+chłopak
 mężczyzna",,
 3345,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki dodatkowe 2-18
 Genki dodatkowe 2-21",,楽しみ,たのしみ,,tanoshimi,"przyjemność
@@ -6557,11 +6568,16 @@ Genki kanji 2-21",,姉妹,しまい,,shimai,siostry,,
 3525,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-19,,大工,だいく,,daiku,"cieśla
 stolarz",,
 3526,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Genki kanji 2-19,,研究,けんきゅう,,kenkyuu,badania,,
+SURU_VERB",HIRAGANA,Genki kanji 2-19,,研究,けんきゅう,,kenkyuu,"badania naukowe
+studia",,
 3527,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Genki kanji 2-19,,研修,けんしゅう,,kenshuu,trening,,
+SURU_VERB",HIRAGANA,Genki kanji 2-19,,研修,けんしゅう,,kenshuu,"trening
+studiowanie
+ćwiczenie
+szkolenie",,
 3528,WORD_VERB_U,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki kanji 2-19,,研ぐ,とぐ,,togu,ostrzyć,,
+VERB_TRANSITIVITY",HIRAGANA,Genki kanji 2-19,,研ぐ,とぐ,,togu,"polerować
+ostrzyć",,
 3529,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-19,,探究,たんきゅう,,tankyuu,poszukiwanie,,
 3530,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Genki kanji 2-19,,究める,きわめる,,kiwameru,"badać
@@ -12884,3 +12900,67 @@ SURU_VERB",HIRAGANA,Inne,,遺伝,いでん,,iden,dziedzictwo,,
 6486,WORD_NOUN,,HIRAGANA,Inne,,遺言書,ゆいごんしょ,,yuigonsho,testament,,
 6487,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,遺骨,いこつ,,ikotsu,"zwłoki
 prochy",po zmarłym,
+6488,WORD_NOUN,,HIRAGANA,Inne,,発電所,はつでんじょ,,hatsudenjo,elektrownia,,
+6489,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,照る,てる,,teru,"świecić
+błyszczeć",,
+6490,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,照らす,てらす,,terasu,oświecać,,
+6491,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,照れる,てれる,,tereru,"być zażenowanym
+być zawstydzonym",,
+6492,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,照会,しょうかい,,shoukai,"dochodzenie
+badanie
+informowanie się",,
+6493,UNKNOWN,,HIRAGANA,Inne,,照会中,しょうかいちゅう,,shoukai chuu,być w kontakcie z,,
+6494,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,照明,しょうめい,,shoumei,"oświetlenie
+iluminacja",,
+6495,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,照準,しょうじゅん,,shoujun,"cel
+widok",,
+6496,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,照合,しょうごう,,shougou,"porównanie
+skonfrontowanie
+zestawienie
+kontrola",,
+6497,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,自ら,みずから,,mizukara,"sam
+osobiście",,
+6498,WORD_NOUN,,HIRAGANA,Inne,,自由市場,じゆうしじょう,,jiyuushijou,wolny rynek,,
+6499,WORD_NOUN,,HIRAGANA,Inne,,圧,あつ,,atsu,ciśnienie,,
+6500,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,圧力,あつりょく,,atsuryoku,ciśnienie,,
+6501,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,圧迫,あっぱく,,appaku,opresja,,
+6502,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,圧倒,あっとう,,attou,"pokonywać
+opanowywać
+zgniatać",,
+6503,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,気圧,きあつ,,kiatsu,ciśnienie atmosferyczne,,
+6504,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,血圧,けつあつ,,ketsuatsu,ciśnienie krwi,,
+6505,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,人気,にんき,,ninki,popularność,,
+6506,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,気体,きたい,,kitai,"gaz
+substancja gazowa
+substancja lotna",,
+6507,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,気持ち,きもち,,kimochi,uczucie,,
+6508,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,本気,ほんき,,honki,"prawdziwe uczucie
+powaga",,
+6509,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,研究者,けんきゅうしゃ,,kenkyuusha,"naukowiec
+badacz naukowy",,
+6510,WORD_NOUN,,HIRAGANA,Inne,,研究所,けんきゅうじょ,,kenkyuujo,instytut naukowy,,
+6511,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,研究所,けんきゅうしょ,,kenkyuusho,instytut naukowy,,
+6512,WORD_NOUN,,HIRAGANA,Inne,,研磨紙,けんまし,,kenmashi,papier ścierny,,
+6513,WORD_NOUN,,HIRAGANA,Inne,,男女共学,だんじょきょうがく,,danjokyougaku,koedukacja,,
+6514,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,売り手,うりて,,urite,sprzedawca,,
+6515,WORD_NOUN,,HIRAGANA,Inne,,売価,ばいか,,baika,cena sprzedaży,,
+6516,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,売買,ばいばい,,baibai,"handel
+sprzedaż i kupno",,
+6517,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,売春,ばいしゅん,,baishun,prostytucja,,
+6518,UNKNOWN,,HIRAGANA,Inne,,以って,もって,,motte,"ponieważ
+ze względu na
+z
+przez
+poprzez",,
+6519,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,以内,いない,,inai,w granicach,wewnątrz,
+6520,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,以降,いこう,,ikou,"od pewnego czasu
+od pewnego wydarzenia",,
