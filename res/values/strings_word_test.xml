@@ -11,8 +11,10 @@
     <string name="word_test_view_input_label">Proszę wpisać słowo w puste miejsce</string>
     <string name="word_test_view_overview_think_label">Pomyśl, czy znasz słowo</string>
     <string name="word_test_view_overview_full_label">Przegląd słów</string>
-    <string name="word_test_correct">Prawidłowa odpowiedź</string>
-    <string name="word_test_incorrect">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n</string>
+    <string name="word_test_correct_without_translate">Prawidłowa odpowiedź</string>
+    <string name="word_test_correct_with_translate">Prawidłowa odpowiedź\n\nTłumaczenie:\n\n%1$s</string>
+    <string name="word_test_incorrect_without_translate">Niepoprawna odpowiedź\n\nPrawidłowa odpowiedź to:\n\n%1$s</string>
+    <string name="word_test_incorrect_with_translate">Niepoprawna odpowiedź\n\nPrawidłowa odpowiedź to:\n\n%1$s\n\nTłumaczenie:\n\n%2$s</string>
     <string name="word_test_incorrect_ok">OK</string>
     <string name="word_test_report_problem_email_subject">Japoński pomocnik - test ze słów: Sugestia</string>
     <string name="word_test_report_problem_email_body">Treść sugestii:\n\n\n***\n\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s</string>

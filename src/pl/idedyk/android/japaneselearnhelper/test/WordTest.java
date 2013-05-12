@@ -204,8 +204,10 @@ public class WordTest extends Activity {
 		final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
 		
 		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+		List<String> translateList = currentWordDictionaryEntry.getTranslates();
 		
 		WordTestMode wordTestMode = wordTestConfig.getWordTestMode();
+		Boolean showTranslate = wordTestConfig.getShowTranslate();
 		
 		if (wordTestMode == WordTestMode.INPUT) {
 			
@@ -215,9 +217,16 @@ public class WordTest extends Activity {
 			wordTestContext.addWordTestAnswers(kanaList.size());
 			wordTestContext.addWordTestCorrectAnswers(correctAnswersNo);
 			wordTestContext.addWordTestIncorrentAnswers(kanaList.size() - correctAnswersNo);
-			
+						
 			if (correctAnswersNo == kanaList.size()) {
-				Toast toast = Toast.makeText(WordTest.this, getString(R.string.word_test_correct), Toast.LENGTH_SHORT);
+								
+				Toast toast = null;
+				
+				if (showTranslate == true) {
+					toast = Toast.makeText(WordTest.this, getString(R.string.word_test_correct_without_translate), Toast.LENGTH_SHORT);	
+				} else {
+					toast = Toast.makeText(WordTest.this, getString(R.string.word_test_correct_with_translate, ListUtil.getListAsString(translateList, "\n")), Toast.LENGTH_SHORT);
+				}				
 				
 				toast.setGravity(Gravity.TOP, 0, 110);
 				
@@ -232,8 +241,11 @@ public class WordTest extends Activity {
 				
 				AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
 				
-				alertDialog.setMessage(getString(R.string.word_test_incorrect) + 
-						ListUtil.getListAsString(kanaList, "\n"));
+				if (showTranslate == true) {
+					alertDialog.setMessage(getString(R.string.word_test_incorrect_without_translate, ListUtil.getListAsString(kanaList, "\n")));	
+				} else {
+					alertDialog.setMessage(getString(R.string.word_test_incorrect_with_translate, ListUtil.getListAsString(kanaList, "\n"), ListUtil.getListAsString(translateList, "\n")));
+				}				
 				
 				alertDialog.setCancelable(false);
 				alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {

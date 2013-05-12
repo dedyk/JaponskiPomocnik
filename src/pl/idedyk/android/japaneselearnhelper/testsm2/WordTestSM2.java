@@ -545,6 +545,15 @@ public class WordTestSM2 extends Activity {
 		
 		WordTestSM2Mode wordTestSM2Mode = wordTestSM2Config.getWordTestSM2Mode();
 		
+		// buttons
+		Button incorrectSM2ButtonQuality0 = (Button)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons_quality0);
+		Button incorrectSM2ButtonQuality1 = (Button)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons_quality1);
+		Button incorrectSM2ButtonQuality2 = (Button)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons_quality2);
+
+		Button correctSM2ButtonQuality3 = (Button)findViewById(R.id.word_test_sm2_correct_sm2_buttons_quality3);
+		Button correctSM2ButtonQuality4 = (Button)findViewById(R.id.word_test_sm2_correct_sm2_buttons_quality4);
+		Button correctSM2ButtonQuality5 = (Button)findViewById(R.id.word_test_sm2_correct_sm2_buttons_quality5);
+		
 		if (wordTestSM2Mode == WordTestSM2Mode.INPUT) {
 			
 			if (inputWasCorrectAnswer == false) {
@@ -552,14 +561,20 @@ public class WordTestSM2 extends Activity {
 				qualityTitleTextView.setText(getString(R.string.word_test_sm2_view_input_incorrect_label));
 				
 				sm2IncorrectButtonsTableRow.setVisibility(View.VISIBLE);
-				sm2CorrectButtonsTableRow.setVisibility(View.GONE);
+				sm2CorrectButtonsTableRow.setVisibility(View.VISIBLE);
+				
+				correctSM2ButtonQuality4.setEnabled(false);
+				correctSM2ButtonQuality5.setEnabled(false);
 				
 			} else {
 				
 				qualityTitleTextView.setText(getString(R.string.word_test_sm2_view_input_correct_label));
 				
-				sm2IncorrectButtonsTableRow.setVisibility(View.GONE);
+				sm2IncorrectButtonsTableRow.setVisibility(View.VISIBLE);
 				sm2CorrectButtonsTableRow.setVisibility(View.VISIBLE);
+				
+				correctSM2ButtonQuality4.setEnabled(true);
+				correctSM2ButtonQuality5.setEnabled(true);
 			}
 			
 		} else if (wordTestSM2Mode == WordTestSM2Mode.CHOOSE) {
@@ -574,14 +589,6 @@ public class WordTestSM2 extends Activity {
 		}
 		
 		// actions
-		Button incorrectSM2ButtonQuality0 = (Button)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons_quality0);
-		Button incorrectSM2ButtonQuality1 = (Button)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons_quality1);
-		Button incorrectSM2ButtonQuality2 = (Button)findViewById(R.id.word_test_sm2_incorrect_sm2_buttons_quality2);
-
-		Button correctSM2ButtonQuality3 = (Button)findViewById(R.id.word_test_sm2_correct_sm2_buttons_quality3);
-		Button correctSM2ButtonQuality4 = (Button)findViewById(R.id.word_test_sm2_correct_sm2_buttons_quality4);
-		Button correctSM2ButtonQuality5 = (Button)findViewById(R.id.word_test_sm2_correct_sm2_buttons_quality5);
-
 		incorrectSM2ButtonQuality0.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
