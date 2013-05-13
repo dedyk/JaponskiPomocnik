@@ -40,6 +40,12 @@ public enum GrammaFormConjugateGroupType {
 	VERB_PASSIVE_FORMAL("Forma bierna (formalna)"),
 	
 	VERB_PASSIVE_TE("Forma bierna, forma te"),
+
+	VERB_CAUSATIVE_INFORMAL("Forma sprawcza (prosta)"),
+	
+	VERB_CAUSATIVE_FORMAL("Forma sprawcza (formalna)"),
+	
+	VERB_CAUSATIVE_TE("Forma sprawcza, forma te"),
 	
 	VERB_VOLITIONAL("Forma wolicjonalna"),
 	

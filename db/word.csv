@@ -1033,7 +1033,8 @@ Genki kanji 1-7",,会社,かいしゃ,,kaisha,firma,,
 Genki kanji 1-9
 Genki kanji 2-14",,家族,かぞく,,kazoku,rodzina,,
 566,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-7
-Genki kanji 1-6",,国,くに,,kuni,kraj,,
+Genki kanji 1-6",,国,くに,,kuni,"kraj
+państwo",,
 567,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-7
 Genki kanji 1-8",,車,くるま,,kuruma,samochód,,
 568,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 1-7,,-,コンビニ,,konbini,kombini,Rodzaj japońskich sklepów całodobowych,
@@ -1776,7 +1777,7 @@ Genki 2-13
 Genki kanji 1-6",,大人,おとな,,otona,dorosły,,
 959,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki dodatkowe 1-12
-Genki 2-21",,見つける,みつける,,mitsukeru,szukać,,
+Genki 2-21",,見つける,みつける,,mitsukeru,znaleźć,,
 960,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,天の川,あまのがわ,,ama no gawa,Droga Mleczna,,
 961,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 1-12,,向こう,むこう,,mukou,"po tamtej stronie
 po drugiej stronie
@@ -2606,7 +2607,8 @@ VERB_INTRANSITIVITY",HIRAGANA,Genki kanji 1-11,,映る,うつる,,utsuru,odbija�
 1437,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,画家,がか,,gaka,malarz,,
 1438,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 1-11,,計画,けいかく,,keikaku,plan,,
-1439,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,国歌,こっか,,kokka,hymn narodowy,,
+1439,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,国歌,こっか,,kokka,"hymn narodowy
+hymn państwowy",,
 1440,WORD_NOUN,,HIRAGANA,Genki kanji 1-11,,川口市,かわぐちし,,kawaguchi shi,Kawaguchi,miasto w Japonii,
 1441,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,市役所,しやくしょ,,shiyakusho,ratusz,,
 1442,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,市長,しちょう,,shichou,burmistrz,miasta,
@@ -2649,7 +2651,8 @@ Genki kanji 2-13",,牛肉,ぎゅうにく,,gyuuniku,wołowina,,
 SURU_VERB",HIRAGANA,Genki kanji 1-12,,共働き,ともばたらき,,tomobataraki,oboje pracują,mąż i żona,
 1464,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 1-12,,労働,ろうどう,,roudou,praca fizyczna,,
-1465,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-12,,国連,こくれん,,kokuren,ONZ,,
+1465,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-12,,国連,こくれん,,kokuren,"Organizacja Narodów Zjednoczonych
+ONZ",,
 1466,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-12,,連休,れんきゅう,,renkyuu,powiązane święta,święta jedno po drugim,
 1467,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki kanji 1-12
 Genki kanji 2-13",,特別,とくべつ,,tokubetsu,"specjalny
@@ -5656,7 +5659,8 @@ SURU_VERB",HIRAGANA,Inne,,再会,さいかい,,saikai,ponowne spotkanie,,
 3045,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,民,たみ,,tami,"lud
 naród
 poddani",,
-3046,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,国民,こくみん,,kokumin,naród,,
+3046,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,国民,こくみん,,kokumin,"naród
+obywatele",,
 3047,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,民主主義,みんしゅしゅぎ,,minshushugi,demokracja,,
 3048,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,民法,みんぽう,,minpou,prawo cywilne,,
 3049,WORD_NOUN,,HIRAGANA,Inne,,民権,みんけん,,minken,"prawa cywilne
@@ -9848,7 +9852,8 @@ mowa
 wystąpienie",,
 5069,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-21,,痴漢,ちかん,,chikan,"seksualny przestępca
 lubieżny człowiek
-człowiek, który molestuje",,
+człowiek, który molestuje
+zboczeniec",,
 5070,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-21,,同僚,どうりょう,,douryou,"kolega
 koleżanka",z pracy,
 5071,WORD_NOUN,"COMMON_WORD
@@ -9882,7 +9887,9 @@ VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,盗む,ぬすむ,,nusumu,"kraść
 ukraść
 okraść
 obrabować",,
-5082,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 2-21,,貼る,はる,,haru,wbijać,,
+5082,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 2-21,,貼る,はる,,haru,"przyklejać
+naklejać
+nalepiać",,
 5083,WORD_VERB_U,,HIRAGANA,Genki 2-21,,-,やる,,yaru,dawać,"zwierzętom, kwiatom (podlewać), młodszemu rodzeństwu i etc",
 5084,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,苛める,いじめる,,ijimeru,"znęcać się
@@ -9924,7 +9931,7 @@ naciągacz",,
 natręt
 zboczeniec
 dewiant",,
-5099,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-21,,掏摸,すり,,suri,kieszonkowiec,,
+5099,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,掏摸,すり,,suri,kieszonkowiec,,
 5100,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki 2-21,,万引き,まんびき,,manbiki,kradzież dokonana w sklepie,,
 5101,WORD_NOUN,"COMMON_WORD
@@ -13339,3 +13346,49 @@ SURU_VERB",HIRAGANA,Inne,,開票,かいひょう,,kaihyou,liczenie głosów,,
 zaświadczenie
 rachunek",,
 6726,WORD_NOUN,,HIRAGANA,Inne,,婆,ばば,,baba,starsza kobieta,,
+6727,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ボタン,,botan,guzik,,
+6728,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,服飾,ふくしょく,,fukushoku,część garderoby,,
+6729,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,飾り,かざり,,kazari,"dekoracja
+wystrój
+ozdoba",,
+6730,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,飾る,かざる,,kazaru,"dekorować
+stroić",,
+6731,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-21,,掏る,する,,suru,kraść komuś portfel,,
+6732,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,小山,こやま,,koyama,"pagórek
+górka",,
+6733,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,山頂,さんちょう,,sanchou,szczyt góry,,
+6734,WORD_NOUN,,HIRAGANA,Inne,,山水,さんすい,,sansui,"widok
+krajobraz",,
+6735,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,国家,こっか,,kokka,państwo,,
+6736,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,英知,えいち,,eichi,mądrość,,
+6737,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,英気,えいき,,eiki,entuzjazm,,
+6738,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,確か,たしか,,tashika,pewny,,
+6739,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,確かめる,たしかめる,,tashikameru,"potwierdzać
+upewniać się",,
+6740,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,確認,かくにん,,kakunin,potwierdzenie,,
+6741,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,明確,めいかく,,meikaku,"pewny
+jasny",,
+6742,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,確信,かくしん,,kakushin,przekonanie,,
+6743,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,確率,かくりつ,,kakuritsu,prawdopodobieństwo,,
+6744,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,確実,かくじつ,,kakujitsu,"pewność
+autentyczność",,
+6745,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,勧める,すすめる,,susumeru,"radzić
+polecać
+proponować
+zachęcać",,
+6746,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,勧告,かんこく,,kankoku,rada,,
+6747,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,勧誘,かんゆう,,kan'yuu,"zaproszenie
+zachęta
+przekonywanie",,
+6748,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,勧学,かんがく,,kangaku,zachęta do nauki,,
+6749,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,勧業,かんぎょう,,kangyou,"popieranie przemysłu
+wspieranie przemysłu",,
+6750,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,勧進,かんじん,,kanjin,prośba o datki,,
