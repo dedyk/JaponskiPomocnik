@@ -201,6 +201,12 @@ public class VerbExampler {
 		// negative te hoshii
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NEGATIVE_TE_HOSHII, makeNegativeTeHoshii(dictionaryEntry, grammaFormCache));
 		
+		// make let verb
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_MAKE_LET, makeMakeLet(dictionaryEntry, grammaFormCache));
+		
+		// let verb
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_LET, makeLet(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1586,6 +1592,54 @@ public class VerbExampler {
 		final String templateRomaji2 = "[osoba ni] ... %s de hoshii desu";
 		
 		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, false);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeMakeLet(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult verbCausativeInFormalPresentGrammaFormConjugateResult1 = grammaFormCache.get(GrammaFormConjugateResultType.VERB_CAUSATIVE_INFORMAL_PRESENT);
+		GrammaFormConjugateResult verbCausativeFormalPastGrammaFormConjugateResult2 = grammaFormCache.get(GrammaFormConjugateResultType.VERB_CAUSATIVE_FORMAL_PAST);
+		
+		final String templateKanji = "[osoba zmuszająca] は/が [osoba zmuszana] に ... %s";
+		final String templateKana = "[osoba zmuszająca] は/が [osoba zmuszana] に ... %s";
+		final String templateRomaji = "[osoba zmuszająca] wa/ga [osoba zmuszana] ni ... %s";
+
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(verbCausativeInFormalPresentGrammaFormConjugateResult1, templateKanji, templateKana, templateRomaji, false);
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(verbCausativeFormalPastGrammaFormConjugateResult2, templateKanji, templateKana, templateRomaji, false);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeLet(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult verbCausativeTeGrammaFormConjugateResult = grammaFormCache.get(GrammaFormConjugateResultType.VERB_CAUSATIVE_TE);
+		
+		final String templateKanji1 = "[osoba pozwalająca] は/が [osoba otrzymujące pozwolenie] に ... %sあげる";
+		final String templateKana1 = "[osoba pozwalająca] は/が [osoba otrzymujące pozwolenie] に ... %sあげる";
+		final String templateRomaji1 = "[osoba pozwalająca] wa/ga [osoba otrzymujące pozwolenie] ni ... %s ageru";
+
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(verbCausativeTeGrammaFormConjugateResult, templateKanji1, templateKana1, templateRomaji1, false);
+		
+		final String templateKanji2 = "[osoba pozwalająca] は/が  ... %sくれる";
+		final String templateKana2 = "[osoba pozwalająca] は/が  ... %sくれる";
+		final String templateRomaji2 = "[osoba pozwalająca] wa/ga ... %s kureru";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(verbCausativeTeGrammaFormConjugateResult, templateKanji2, templateKana2, templateRomaji2, false);
+		exampleResult2.setInfo("Do mnie");
+		
+		final String templateKanji3 = "私に ... %sください";
+		final String templateKana3 = "私に ... %sください";
+		final String templateRomaji3 = "watashi ni ... %s kudasai";
+
+		ExampleResult exampleResult3 = GrammaExampleHelper.makeSimpleTemplateExample(verbCausativeTeGrammaFormConjugateResult, templateKanji3, templateKana3, templateRomaji3, false);
+		exampleResult3.setInfo("Pozwól mi");
+		
+		exampleResult2.setAlternative(exampleResult3);
 		
 		exampleResult1.setAlternative(exampleResult2);
 		

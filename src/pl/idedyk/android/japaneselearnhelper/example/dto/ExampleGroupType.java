@@ -242,7 +242,11 @@ public enum ExampleGroupType {
 	
 	VERB_TE_HOSHII("Chceć czegoś od kogoś"),
 	
-	VERB_NEGATIVE_TE_HOSHII("Chceć, aby ktoś czegoś nie zrobił");
+	VERB_NEGATIVE_TE_HOSHII("Chceć, aby ktoś czegoś nie zrobił"),
+	
+	VERB_MAKE_LET("Zmuszać kogoś do zrobienia czegoś / Sprawić, że ktoś coś zrobi"),
+	
+	VERB_LET("Pozwalać komuś na zrobienie czegoś");
 	
 	private String name;
 	
