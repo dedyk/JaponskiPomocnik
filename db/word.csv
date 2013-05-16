@@ -1066,7 +1066,8 @@ Genki kanji 2-14",,親切,しんせつ,,shinsetsu,miły,,
 581,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 1-7,,便利,べんり,,benri,"przydatny
 wygodny
 pożyteczny
-łatwy",,
+łatwy
+dogodny",,
 582,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-7
 Genki kanji 1-11",,歌う,うたう,,utau,śpiewać,,
@@ -1288,7 +1289,8 @@ rozpoczynać się",coś,
 VERB_TRANSITIVITY",HIRAGANA,Genki 1-9,,弾く,ひく,,hiku,grać,"np. instrument klawiszowy, strunowy",
 699,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 1-9,,敲く,たたく,,tataku,grać,na bębnie,
 700,WORD_VERB_U,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki 1-9,,吹く,ふく,,fuku,"dmuchać
+VERB_TRANSITIVITY",HIRAGANA,"Genki 1-9
+Genki 2-22",,吹く,ふく,,fuku,"dmuchać
 wiać
 oddychać
 grać (na instrumencie dętym)",,
@@ -1585,7 +1587,8 @@ bardziej
 853,UNKNOWN,,HIRAGANA,Inne,,-,なるほど,,naruhodo,"racja
 zgadza się",,
 854,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki dodatkowe 2-16,,助ける,たすける,,tasukeru,"pomagać
+VERB_TRANSITIVITY",HIRAGANA,"Genki dodatkowe 2-16
+Genki 2-22",,助ける,たすける,,tasukeru,"pomagać
 ratować",,
 855,WORD_EXPRESSION,,HIRAGANA,Inne,,助けて,たすけて,,tasukete,pomocy,,
 856,WORD_VERB_RU,"COMMON_WORD
@@ -1757,11 +1760,12 @@ Genki dodatkowe 2-17",,雲,くも,,kumo,chmura,,
 VERB_INTRANSITIVITY",HIRAGANA,Genki 1-12,,曇る,くもる,,kumoru,"chmurzyć się
 mglić się",,
 944,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-12
-Genki kanji 2-21",,風,かぜ,,kaze,wiatr,,
+Genki kanji 2-21
+Genki 2-22",,風,かぜ,,kaze,wiatr,,
 945,WORD_VERB_U,,HIRAGANA,Genki 1-12,,風が吹く,かぜがふく,,kaze ga fuku,wiatr wieje,,
 946,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,大事,だいじ,,daiji,"ważna rzecz
 ważna sprawa",,
-947,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,書類,しょるい,,shorui,dokument,,
+947,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,書類,しょるい,,shorui,dokument,,
 948,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,会談,かいだん,,kaidan,konferencja,,
 949,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki 2-20
@@ -2150,7 +2154,8 @@ senior",,
 1168,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki dodatkowe 2-14
 Genki kanji 2-14",,時代,じだい,,jidai,"wiek
 era",,
-1169,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-14,,先輩,せんぱい,,senpai,starszy (wiekiem lub stażem) członek grupy,,
+1169,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki dodatkowe 2-14
+Genki 2-22",,先輩,せんぱい,,senpai,starszy (wiekiem lub stażem) członek grupy,,
 1170,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-14,,年間,ねんかん,,nenkan,przez ... lat,~,
 1171,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki dodatkowe 2-14,,愛す,あいす,,aisu,kochać,,
@@ -2286,7 +2291,9 @@ migrować
 być importowanym",,
 1233,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,"Genki kanji 2-15
-Genki dodatkowe 2-15",,走る,はしる,,hashiru,biegać,,
+Genki dodatkowe 2-15
+Genki 2-22",,走る,はしる,,hashiru,"biegać
+biec",,
 1234,WORD_EXPRESSION,,HIRAGANA,Inne,,車を走る,くるまをはしる,,kuruma o hashiru,samochody jeżdżą,dosł. biegają,
 1235,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,細い,ほそい,,hosoi,"wąski
 cienki
@@ -2405,7 +2412,8 @@ Genki kanji 1-7",,日本語,にほんご,,nihongo,język japoński,,
 1304,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-4
 Genki 2-20",,月,つき,,tsuki,księżyc,,
 1305,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-4,,火,ひ,,hi,ogień,,
-1306,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-4,,木,き,,ki,drzewo,,
+1306,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-4
+Genki 2-22",,木,き,,ki,drzewo,,
 1307,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-4,,土,つち,,tsuchi,ziemia,,
 1308,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-4
 Genki kanji 2-16",,屋上,おくじょう,,okujou,dach,,
@@ -2780,7 +2788,9 @@ Genki 2-21",,大切,たいせつ,,taisetsu,"ważny
 cenny
 wartościowy",,
 1521,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,英国,えいこく,,eikoku,Anglia,,
-1522,UNKNOWN,,HIRAGANA,Genki kanji 2-14,,英会話,えいかいわ,,eikaiwa,angielska rozmowa,,
+1522,WORD_NOUN,,HIRAGANA,"Genki kanji 2-14
+Genki 2-22",,英会話,えいかいわ,,eikaiwa,"angielska rozmowa
+angielska konwersacja",,
 1523,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,英雄,えいゆう,,eiyuu,bohater,,
 1524,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,書店,しょてん,,shoten,księgarnia,,
 1525,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,過去,かこ,,kako,przeszłość,,
@@ -2805,8 +2815,10 @@ VERB_INTRANSITIVITY",HIRAGANA,Genki kanji 2-14,,当たる,あたる,,ataru,trafi
 Genki 2-20",,音,おと,,oto,dźwięk,,
 1536,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,本音,ほんね,,honne,"prawdziwe myślenie
 emocje",,
-1537,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,楽,らく,,raku,"komfortowy
-łatwy",,
+1537,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki kanji 2-14
+Genki 2-22",,楽,らく,,raku,"komfortowy
+łatwy
+wygodne",,
 1538,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,医学,いがく,,igaku,medycyna,,
 1539,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,医院,いいん,,iin,klinika,,
 1540,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,学者,がくしゃ,,gakusha,"naukowiec
@@ -2822,7 +2834,7 @@ SURU_VERB",KATAKANA,Inne,,-,キス,,kisu,pocałunek,,
 1546,UNKNOWN,,HIRAGANA,Inne,,虹色,にじいろ,,niji iro,kolor tęczowy,,
 1547,WORD_NOUN,,KATAKANA,Inne,,-,ポーランド,,poorando,Polska,,
 1548,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,卵,たまご,,tamago,jajko,,
-1549,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,後輩,こうはい,,kouhai,młodszy wiekiem lub stażem członek grupy,,
+1549,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,後輩,こうはい,,kouhai,młodszy wiekiem lub stażem członek grupy,,
 1550,WORD_NOUN,,HIRAGANA,Inne,,同輩,どうはい,,douhai,równy wiekiem lub stażem członek grupy,,
 1551,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,コンテスト,,kontesuto,konkurs,,
 1552,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,羊,ひつじ,,hitsuji,owca,,
@@ -2925,7 +2937,7 @@ ogród zoologiczny",,
 ukochana
 sympatia
 kochanek",,
-1604,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,受付,うけつけ,,uketsuke,"recepcja
+1604,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,受付,うけつけ,,uketsuke,"recepcja
 punkt informacyjny
 portiernia
 przyjmowanie",,
@@ -3585,7 +3597,7 @@ poddawać się
 ulegać",,
 2002,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,山脈,さんみゃく,,sanmyaku,pasmo górskie,,
 2003,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,火山,かざん,,kazan,wulkan,,
-2004,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,猿,さる,,saru,małpa,,
+2004,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,猿,さる,,saru,małpa,,
 2005,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,枝,えだ,,eda,"gałąź
 gałązka",,
 2006,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,初,はつ,,hatsu,"pierwszy
@@ -3685,7 +3697,7 @@ naprawiać
 poprawiać",,
 2059,WORD_VERB_U,,HIRAGANA,Genki 2-16,,道に迷う,みちにまよう,,michi ni mayou,zgubić się,,
 2060,WORD_VERB_U,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki 2-16,,訳す,やくす,,yakusu,tłumaczyć,źródło o cel ni,
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-16,,訳す,やくす,,yakusu,tłumaczyć,"źródło o cel ni, ogólnie",
 2061,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,"Genki 2-16
 Genki kanji 2-20",,笑う,わらう,,warau,śmiać się,,
@@ -3731,8 +3743,8 @@ pinceta
 szczypczyki",,
 2084,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,熊,くま,,kuma,niedźwiedź,,
 2085,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,-,くまのプーさん,,kuma no puu san,Kubuś Puchatek,,
-2086,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,相手,あいて,,aite,"towarzysz
-partner
+2086,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,相手,あいて,,aite,"towarzysz
+partner (np. w rozmowie, biznesie)
 przeciwnik (w sporcie)",,
 2087,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-19,,性格,せいかく,,seikaku,"charakter
 osobowość",,
@@ -3831,9 +3843,10 @@ kierowanie",pojazdem,
 2135,WORD_EXPRESSION,,HIRAGANA,Genki kanji 2-16,,運がいい,うんがいい,,un ga ii,szczęśliwy,"w znaczeniu zrządzenia losu, trafu",
 2136,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,運命,うんめい,,unmei,"los
 przeznaczenie",,
-2137,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,運ぶ,はこぶ,,hakobu,"transportować
+2137,WORD_VERB_U,COMMON_WORD,HIRAGANA,"Genki kanji 2-16
+Genki 2-22",,運ぶ,はこぶ,,hakobu,"transportować
 przewozić
-nosić",,
+nosić",coś cięższego,
 2138,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki kanji 2-16,,動く,うごく,,ugoku,"poruszać się
 ruszać się",,
@@ -3917,7 +3930,8 @@ wiek (prostszy odpowiednik)",,
 2173,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,天才,てんさい,,tensai,geniusz,,
 2174,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,忘年会,ぼうねんかい,,bounenkai,przyjęcie na zakończenie roku,,
 2175,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ビザ,,biza,wiza,,
-2176,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-7,,塾,じゅく,,juku,szkoła prywatna,korepetycje i dodatkowe nauczanie,
+2176,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-7
+Genki 2-22",,塾,じゅく,,juku,szkoła prywatna,korepetycje i dodatkowe nauczanie,
 2177,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,重要,じゅうよう,,juuyou,"ważny
 poważny",,
 2178,WORD_NOUN,,HIRAGANA,Inne,,茸,きのこ,,kinoko,"grzyb
@@ -4570,7 +4584,7 @@ perwersja",,
 2517,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,吸血鬼,きゅうけつき,,kyuuketsuki,"wampir
 krwiopijca",,
 2518,WORD_VERB_RU,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Inne,,負ける,まける,,makeru,"przegrać
+VERB_INTRANSITIVITY",HIRAGANA,Genki 2-22,に,負ける,まける,ni,makeru,"przegrać
 ponieść porażkę
 opuścić cenę",,
 2519,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,患者,かんじゃ,,kanja,pacjent,,
@@ -5135,7 +5149,8 @@ balonik",,
 2795,WORD_NOUN,,HIRAGANA,Inne,,心柄,こころがら,,kokorogara,"stan ducha
 stan umysłu",,
 2796,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Genki dodatkowe 2-21,,心配,しんぱい,,shinpai,"niepokój
+SURU_VERB",HIRAGANA,"Genki dodatkowe 2-21
+Genki 2-22",,心配,しんぱい,,shinpai,"niepokój
 troska
 obawa",,
 2797,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,真心,まごころ,,magokoro,"szczerość
@@ -6077,7 +6092,7 @@ prowadzący spotkanie",,
 3251,WORD_NOUN,,HIRAGANA,Inne,,司法大臣,しほうだいじん,,shihoudaijin,minister sprawiedliwości,,
 3252,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,司書,ししょ,,shisho,"bibliotekarz
 bibliotekarka",,
-3253,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,上司,じょうし,,joushi,przełożony,,
+3253,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,上司,じょうし,,joushi,przełożony,,
 3254,UNKNOWN,,HIRAGANA,Inne,,類,たぐい,,tagui,"rodzaj
 taki sam
 jednakowy
@@ -6516,7 +6531,9 @@ postawa pasywna",,
 3470,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,育つ,そだつ,,sodatsu,wychowywać się,,
 3471,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Inne,,育てる,そだてる,,sodateru,wychowywać,,
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-22,,育てる,そだてる,,sodateru,"wychowywać
+hodować
+uprawiać","np. roślinę, zwięrzęta",
 3472,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,教育,きょういく,,kyouiku,edukacja,,
 3473,WORD_NOUN,,HIRAGANA,Inne,,体育館,たいいくかん,,taiikukan,sala gimnastyczna,,
@@ -7054,7 +7071,7 @@ taktyka",,
 SURU_VERB",HIRAGANA,Inne,,戦闘,せんとう,,sentou,"bitwa
 walka",,
 3730,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,爪切り,つめきり,,tsumekiri,obcinacz do paznokci,,
-3731,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,プロジェクト,,purojekuto,projekt,,
+3731,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 2-22,,-,プロジェクト,,purojekuto,projekt,,
 3732,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,勇気,ゆうき,,yuuki,"odwaga
 śmiałość",,
 3733,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,始め,はじめ,,hajime,"początek
@@ -7089,7 +7106,8 @@ ranking
 pozycja",w rankingu,
 3752,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,計,けい,,kei,suma,,
 3753,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,膝,ひざ,,hiza,kolano,,
-3754,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,-,ずっと,,zutto,cały czas,,
+3754,WORD_ADVERB,COMMON_WORD,HIRAGANA,Genki 2-22,,-,ずっと,,zutto,"cały czas
+przez cały czas",,
 3755,WORD_NOUN,,HIRAGANA,Inne,,卒業論文,そつぎょうろんぶん,,sotsugyou ronbun,praca dyplomowa,,
 3756,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,論争,ろんそう,,ronsou,dyskusja,,
@@ -7802,9 +7820,12 @@ SURU_VERB",HIRAGANA,Genki kanji 2-20,,払い戻し,はらいもどし,,haraimodo
 VERB_INTRANSITIVITY",HIRAGANA,Genki kanji 2-20,,微笑む,ほほえむ,,hohoemu,uśmiechać się,,
 4119,WORD_VERB_IRREGULAR,,HIRAGANA,Genki kanji 2-20,,爆笑する,ばくしょうする,,bakushou suru,wybuchnąć śmiechem,,
 4120,WORD_ADVERB,COMMON_WORD,HIRAGANA,"Genki kanji 2-20
-Genki dodatkowe 2-20",,絶対に,ぜったいに,,zettaini,"absolutnie
+Genki dodatkowe 2-20
+Genki 2-22",,絶対に,ぜったいに,,zettaini,"absolutnie
 na pewno
-kategorycznie",,
+kategorycznie
+zdecydowanie
+na pewno",,
 4121,WORD_VERB_RU,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki kanji 2-20,,絶える,たえる,,taeru,"wyginąć
 wymierać
@@ -7815,7 +7836,8 @@ tracić przytomność",,
 SURU_VERB",HIRAGANA,Genki kanji 2-20,,絶望,ぜつぼう,,zetsubou,"tracić nadzieję
 rozpacz
 beznadziejny stan",,
-4124,WORD_VERB_IRREGULAR,,HIRAGANA,Genki kanji 2-20,,反対する,はんたいする,,hantai suru,przeciwstawić się,,
+4124,WORD_VERB_IRREGULAR,,HIRAGANA,"Genki kanji 2-20
+Genki 2-22",,反対する,はんたいする,,hantai suru,przeciwstawić się,,
 4125,UNKNOWN,,HIRAGANA,Genki kanji 2-20,,日本対中国,にほんたいちゅうごく,,nihon tai chuugoku,Japonia kontra Chiny,,
 4126,WORD_NOUN,,HIRAGANA,Genki kanji 2-20,,一対,いっつい,,ittsui,para,,
 4127,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-20,,鎮痛剤,ちんつうざい,,chintsuuzai,środek przeciwbólowy,,
@@ -8764,7 +8786,7 @@ SURU_VERB",HIRAGANA,Inne,,給水,きゅうすい,,kyuusui,zaopatrzenie w wodę,,
 4570,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,由,よし,,yoshi,"przyczyna
 środek
 sposób",,
-4571,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Inne,,自由,じゆう,,jiyuu,wolność,,
+4571,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,自由,じゆう,,jiyuu,wolność,,
 4572,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,由来,ゆらい,,yurai,"pochodzenie
 historia
@@ -8950,7 +8972,8 @@ brać na ręce",,
 4651,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-20,,嬉しそうに,うれしそうに,,ureshisouni,"wesoło
 szczęśliwie",,
 4652,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-20,,-,やった,,yatta,zrobiłem to,radośnie,
-4653,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-20,,何度も,なんども,,nandomo,"parę razy
+4653,UNKNOWN,,HIRAGANA,"Genki dodatkowe 2-20
+Genki 2-22",,何度も,なんども,,nandomo,"parę razy
 ileś razy
 wiele razy",,
 4654,WORD_VERB_IRREGULAR,,HIRAGANA,Genki dodatkowe 2-20,,-,がっかりする,,gakkari suru,być rozczarowanym,,
@@ -10667,7 +10690,7 @@ platforma",,
 5436,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,反復,はんぷく,,hanpuku,powtórka,,
 5437,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Inne,,復習,ふくしゅう,,fukushuu,"ćwiczenie
+SURU_VERB",HIRAGANA,Genki 2-22,,復習,ふくしゅう,,fukushuu,"ćwiczenie
 powtarzanie",,
 5438,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,復活,ふっかつ,,fukkatsu,zmartwychwstanie,,
@@ -11260,7 +11283,7 @@ roślina doniczkowa",,
 VERB_TRANSITIVITY",HIRAGANA,Inne,,許す,ゆるす,,yurusu,"pozwalać
 przebaczać",,
 5719,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Inne,,免許,めんきょ,,menkyo,"licencja
+SURU_VERB",HIRAGANA,Genki 2-22,,免許,めんきょ,,menkyo,"licencja
 pozwolenie",,
 5720,WORD_NOUN,,HIRAGANA,Inne,,運転免許,うんてんめんきょ,,unten menkyo,prawo jazdy,,
 5721,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,特許,とっきょ,,tokkyo,"specjalne pozwolenie
@@ -11321,7 +11344,7 @@ odwiedzać",,
 VERB_TRANSITIVITY",HIRAGANA,Inne,,訪れる,おとずれる,,otozureru,"wizytować
 odwiedzać",,
 5747,WORD_VERB_U,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Inne,,勝つ,かつ,,katsu,wygrywać,,
+VERB_INTRANSITIVITY",HIRAGANA,Genki 2-22,に,勝つ,かつ,ni,katsu,wygrywać,,
 5748,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,勝る,まさる,,masaru,"być lepszym
 być wyjątkowym",,
@@ -12708,7 +12731,8 @@ wsparcie",,
 6349,WORD_NOUN,,HIRAGANA,Inne,,貧,びん,,bin,ubóstwo,,
 6350,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,貧しい,まずしい,,mazushii,"ubogi
 biedny",,
-6351,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,貧乏,びんぼう,,binbou,ubóstwo,wulgarnie,
+6351,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 2-22,,貧乏,びんぼう,,binbou,"biednie
+ubóstwo (wydźwięk negatywny)",,
 6352,WORD_NOUN,,HIRAGANA,Inne,,貧民,ひんみん,,hinmin,biedni ludzie,,
 6353,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,貧血,ひんけつ,,hinketsu,anemia,,
 6354,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,貧相,ひんそう,,hinsou,"biednie wyglądający
@@ -12898,7 +12922,8 @@ rzadko",,
 6455,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-21,,所が,ところが,,tokoro ga,"jednak
 jednakże
 w przeciwieństwie",,
-6456,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-21,,心配,しんぱい,,shinpai,"zaniepokojony
+6456,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki dodatkowe 2-21
+Genki 2-22",,心配,しんぱい,,shinpai,"zaniepokojony
 przejęty",,
 6457,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-21,,お守り,おまもり,,omamori,"talizman
 amulet",,
@@ -13430,7 +13455,8 @@ przestrzeń
 przerwa
 czas
 harmonia",,
-6755,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,間に合う,まにあう,,ma ni au,"mieścić się w czasie
+6755,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 2-22,,間に合う,まにあう,,ma ni au,"zdążyć na czas
+mieścić się w czasie
 wystarczać",,
 6756,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,間も無く,まもなく,,mamonaku,"wkrótce
 w tej chwili",,
@@ -13580,3 +13606,61 @@ SURU_VERB",HIRAGANA,Inne,,持続,じぞく,,jizoku,"kontynuacja
 stałość",,
 6821,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,支持,しじ,,shiji,wsparcie,,
+6822,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,お嬢さん,おじょうさん,,ojousan,"córka (czyjaś)
+młoda kobieta (zawołanie młodej kobiety przez osobę starszą)",grzecznie,
+6823,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,家事,かじ,,kaji,"zajęcia domowe
+obowiązki domowe",,
+6824,WORD_NOUN,,HIRAGANA,Genki 2-22,,期末試験,きまつしけん,,kimatsu shiken,"egzamin końcowy
+test semestralny",,
+6825,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,一人暮らし,ひとりぐらし,,hitori gurashi,"żyć samodzielnie
+żyć w pojedynkę",,
+6826,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-22,,部下,ぶか,,buka,podwładny,,
+6827,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 2-22,,-,ボール,,booru,piłka,,
+6828,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Genki 2-22,,無駄遣い,むだづかい,,mudadukai,"strata pieniędzy
+marnotrawienie pieniędzy",,
+6829,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Genki 2-22,,予習,よしゅう,,yoshuu,powtarzać coś przed lekcją,,
+6830,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 2-22,,煩い,うるさい,,urusai,"głośny
+denerwujący
+wkurzający
+zamknij się",,
+6831,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 2-22,,-,ぺらぺら,,perapera,być biegłym w języku,język ga,
+6832,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 2-22,,変,へん,,hen,dziwny,,
+6833,WORD_VERB_U,,HIRAGANA_KATAKANA,Genki 2-22,,コピーを取る,コピーをとる,,kopii o toru,kopiować,,
+6834,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-22,,拾う,ひろう,,hirou,"podnieść (coś)
+zbierać
+znaleźć",np. grzyby,
+6835,WORD_VERB_U,,HIRAGANA,Genki 2-22,,放って置く,ほうっておく,,houtte oku,zostawić,"coś, kogoś, np. w spokoju",
+6836,WORD_VERB_U,,HIRAGANA,Genki 2-22,,放って置く,ほっておく,,hotte oku,zostawić,"coś, kogoś, np. w spokoju",
+6837,WORD_VERB_U,,HIRAGANA,Genki 2-22,,迎えに行く,むかえにいく,,mukaeni iku,"odebrać kogoś
+wyjść po kogoś",,
+6838,WORD_VERB_RU,,HIRAGANA,Genki 2-22,,計画を立てる,けいかくをたてる,,keikaku o tateru,planować,,
+6839,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-22,,お願いする,おねがいする,,onegai suru,prosić o pomoc,,
+6840,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-22,に,賛成する,さんせいする,ni,sansei suru,zgodzić się,,
+6841,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-22,,失敗する,しっぱいする,,shippai suru,podnieść porażkę,,
+6842,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-22,,徹夜する,てつやする,,tetsuya suru,nie spać całą noc,coś robiąc,
+6843,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-22,,翻訳する,ほんやくする,,hon'yaku suru,"przekładać
+tłumaczyć",pisemne,
+6844,WORD_ADVERB,,HIRAGANA,Genki 2-22,,こんな風に,こんなふう,,konna fuu,"w ten sposób
+robić coś w ten sposób",,
+6845,UNKNOWN,,HIRAGANA_EXCEPTION,Genki 2-22,,-,そんなことはない,,sonna koto wa nai,"nie sądzę
+nic z tych rzeczy",zaprzeczanie przedmówcy,
+6846,UNKNOWN,,HIRAGANA,Genki 2-22,,-,そんなことない,,sonna koto nai,"nie sądzę
+nic z tych rzeczy","zaprzeczanie przedmówcy, wersja lekko skrócona",
+6847,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 2-22,,-,とか,,toka,na przykład,"~, używane do rzeczowników i czasowników",
+6848,WORD_ADVERB,COMMON_WORD,HIRAGANA,Genki 2-22,,-,のんびり,,nonbiri,"leniwie
+powolnie",,
+6849,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-22,,-,のんびりする,,nonbiri suru,obijać się,wydźwięk pozytywny,
+6850,WORD_EXPRESSION,,HIRAGANA,Genki 2-22,,もう少し,もうすこし,,mou sukoshi,jeszcze trochę,,
+6851,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,嬢,じょう,,jou,"niezamężna kobieta
+panienka",,
+6852,WORD_NUMBER,,HIRAGANA,Inne,,拾,じゅう,,juu,dziesięć,używane w dokumentach,
+6853,WORD_NOUN,,HIRAGANA,Inne,,拾い主,ひろいぬし,,hiroinushi,znalazca,,
+6854,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,拾い物,ひろいもの,,hiroi mono,rzecz znaleziona,,
+6855,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,習得する,しゅうとくする,,shuutoku suru,"znaleźć
+podnieść",,
+6856,WORD_VERB_RU,,HIRAGANA,Inne,,拾い集める,ひろいあつめる,,hiroi atsumeru,zbierać,,
+6857,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,収拾,しゅうしゅう,,shuushuu,kontrola,,
