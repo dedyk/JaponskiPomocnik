@@ -459,7 +459,8 @@ w ogóle (nie)",+ czasownik w formie negatywnej,
 260,WORD_ADVERB,,HIRAGANA,Genki 1-3,,-,ちょっと,,chotto,trochę,,
 261,WORD_ADVERB,COMMON_WORD,HIRAGANA,"Genki 1-3
 Genki kanji 1-3
-Genki kanji 1-12",,時々,ときどき,,tokidoki,czasami,,
+Genki kanji 1-12",,時々,ときどき,,tokidoki,"czasami
+od czasu do czasu",,
 262,WORD_ADVERB,,HIRAGANA,"Genki 1-3
 Genki 2-14",,-,よく,,yoku,"często
 wiele",,
@@ -603,7 +604,8 @@ Genki 2-14
 Genki kanji 1-9",,時間,じかん,,jikan,"czas
 godzina",okres,
 356,UNKNOWN,,HIRAGANA,Genki 1-4,,一時間,いちじかん,,ichijikan,jedna godzina,,
-357,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-4,,時,とき,,toki,kiedy,"wskazanie jakiegoś momentu w czasie, ~ no ...",
+357,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-4,,時,とき,,toki,"kiedy
+czas","wskazanie jakiegoś momentu w czasie, ~ no ...",
 358,WORD_DAY_WEEK,COMMON_WORD,HIRAGANA,"Genki 1-4
 Genki kanji 1-4",,月曜日,げつようび,,getsuyoubi,poniedziałek,księżyc,
 359,WORD_DAY_WEEK,COMMON_WORD,HIRAGANA,"Genki 1-4
@@ -1257,7 +1259,9 @@ proch",,
 682,WORD_VERB_U,,HIRAGANA,Genki 1-9,,薬を飲む,くすりをのむ,,kusuri o nomu,brać lekarstwo,,
 683,WORD_NOUN,,KATAKANA,Genki 1-9,,-,コンセート,,konseeto,koncert,,
 684,UNKNOWN,COMMON_WORD,HIRAGANA,"Genki 1-9
-Genki kanji 1-12",,今度,こんど,,kondo,następnym razem,,
+Genki kanji 1-12",,今度,こんど,,kondo,"następnym razem
+tym razem
+niedługo",,
 685,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,"Genki 1-9
 Genki kanji 1-7
@@ -1719,7 +1723,10 @@ chyba
 prawdopodobnie",,
 921,UNKNOWN,,HIRAGANA,Genki 1-12,,-,できるだけ,,dekirudake,w miarę możliwości,,
 922,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-12,,-,でしょう,,deshou,prawdopodobnie,"~, pewność 60%, używane m.in do prognozy pogody",
-923,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-12,,度,ど,,do,stopnie,temperatura,
+923,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-12,,度,ど,,do,"stopień
+limit
+miara
+skala",np. temperatura,
 924,UNKNOWN,,HIRAGANA,Genki 1-12,,二三日,にさんにち,,ni san nichi,"2,3 dni",,
 925,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-12,,-,ので,,node,ponieważ,~,
 926,WORD_ADVERB,,HIRAGANA,Genki 1-12,,始めて,はじめて,,hajimete,pierwszy raz,,
@@ -1962,6 +1969,8 @@ Genki kanji 2-19",,不安,ふあん,,fuan,"niespokojny
 zaniepokojony
 obawa
 lęk
+niepokój
+niepewność
 niepokój",,
 1040,WORD_ADJECTIVE_I,,HIRAGANA,"Genki dodatkowe 2-13
 Genki kanji 2-13
@@ -2153,7 +2162,9 @@ SURU_VERB",KATAKANA,Genki dodatkowe 2-14,,-,アドバイス,,adobaisu,rada,,
 senior",,
 1168,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki dodatkowe 2-14
 Genki kanji 2-14",,時代,じだい,,jidai,"wiek
-era",,
+era
+epoka
+czas",,
 1169,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki dodatkowe 2-14
 Genki 2-22",,先輩,せんぱい,,senpai,starszy (wiekiem lub stażem) członek grupy,,
 1170,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-14,,年間,ねんかん,,nenkan,przez ... lat,~,
@@ -2721,7 +2732,9 @@ przyczyna",,
 Genki kanji 2-14",,特急電車,とっきゅうでんしゃ,,tokkyuu densha,super express,pociąg,
 1491,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki kanji 2-13
 Genki kanji 2-20",,安心,あんしん,,anshin,"spokój
-ukojenie",,
+ukojenie
+uczucie spokoju
+uczucie bezpieczeństwa",,
 1492,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki kanji 2-13
 Genki kanji 2-16
 Genki 2-21",,安全,あんぜん,,anzen,"bezpieczny
@@ -3540,7 +3553,7 @@ VERB_INTRANSITIVITY",HIRAGANA,"Genki kanji 2-15
 Genki 2-17",,足りる,たりる,,tariru,wystarczać,,
 1978,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-15,,一足,いっそく,,issoku,jedna para,np. butów,
 1979,UNKNOWN,,HIRAGANA,"Genki kanji 2-15
-Genki kanji 2-19",,水不足,みずぶそく,,mizu bu soku,brakowanie wody,,
+Genki kanji 2-19",,水不足,みずぶそく,,mizu bu soku,brak wody,,
 1980,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,"Genki kanji 2-15
 Genki dodatkowe 2-15",,通る,とおる,,tooru,"przejechać
@@ -3779,6 +3792,7 @@ granica (np. możliwości)",,
 2107,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,全国,ぜんこく,,zen koku,"na całym świecie
 cały świat",,
 2108,WORD_ADVERB,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,全く,まったく,,mattaku,"zupełnie
+całkowicie
 kompletnie
 absolutnie
 faktycznie",,
@@ -10239,7 +10253,9 @@ koniec",,
 5223,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,完成,かんせい,,kansei,"zakończenie
 wykończenie",,
-5224,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,完全,かんぜん,,kanzen,doskonały,,
+5224,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,完全,かんぜん,,kanzen,"doskonałość
+całkowitość
+kompletność",,
 5225,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,完璧,かんぺき,,kanpeki,"doskonały
 bez zarzutu",,
 5226,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,完敗,かんぱい,,kanpai,całkowita porażka,,
@@ -10733,7 +10749,7 @@ początkowo
 pierwszy",,
 5461,WORD_ADVERB,COMMON_WORD,HIRAGANA,Genki kanji 2-21,,初めて,はじめて,,hajimete,pierwszy raz,,
 5462,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-21,,初雪,はつゆき,,hatsuyuki,pierwszy śnieg,,
-5463,WORD_NOUN,,HIRAGANA,Genki kanji 2-21,,回送電車,かいそうでんしゃ,,kaisou densha,uszkodzony pociąg,,
+5463,WORD_NOUN,,HIRAGANA,Genki kanji 2-21,,回送電車,かいそうでんしゃ,,kaisou densha,techniczny przejazd pociągu,,
 5464,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,時刻,じこく,,jikoku,rozkład jazdy,,
 5465,WORD_NOUN,,HIRAGANA,Inne,,時刻表,じこくひょう,,jikokuhyou,rozkład jazdy,wiszący na ścianie,
 5466,WORD_VERB_U,"COMMON_WORD
@@ -13664,3 +13680,74 @@ podnieść",,
 6856,WORD_VERB_RU,,HIRAGANA,Inne,,拾い集める,ひろいあつめる,,hiroi atsumeru,zbierać,,
 6857,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,収拾,しゅうしゅう,,shuushuu,kontrola,,
+6858,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,足る,たる,,taru,wystarczać,,
+6859,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,足跡,あしあと,,ashi ato,"ślad
+odcisk buta
+odcisk stopy",,
+6860,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,不足,ふそく,,fusoku,"nie wystarczać
+brakować
+brak",,
+6861,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,寝不足,ねぶそく,,nebusoku,"być niewyspanym
+brak snu",,
+6862,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,足音,あしおと,,ashi oto,kroki,dźwięk,
+6863,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,思考,しこう,,shikou,"myśl
+myślenie",,
+6864,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,考え方,かんがえかた,,kangaekata,sposób myślenia,,
+6865,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,考証,こうしょう,,koushou,badania historyczne,,
+6866,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,考案,こうあん,,kouan,pomysł,,
+6867,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,全能,ぜんのう,,zennou,"wszechmocny
+wszechmoc",,
+6868,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,全世界,ぜんせかい,,zensekai,cały świat,,
+6869,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,全体主義,ぜんたいしゅぎ,,zentaishugi,totalitaryzm,,
+6870,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,安価,あんか,,anka,niska cena,,
+6871,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,度,たび,,tabi,"czas
+okazja
+powtórka",,
+6872,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,年度,ねんど,,nendo,rok,"np. finansowy, szkolny",
+6873,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,度々,たびたび,,tabitabi,od czasu do czasu,,
+6874,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,孫,まご,,mago,"wnuk
+wnuczka",,
+6875,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,子孫,しそん,,shison,potomek,,
+6876,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,孫引き,まごびき,,magobiki,odwoływanie się do drugorzędnych źródeł,,
+6877,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,俗,ぞく,,zoku,"zwyczaje
+maniery
+świat
+światowość
+wulgarność",,
+6878,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,俗語,ぞくご,,zokugo,język kolokwialny,,
+6879,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,世俗化,せぞくか,,sezokuka,"sekularyzacja
+zeświecczenie
+laicyzacja",,
+6880,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,俗悪,ぞくあく,,zokuaku,"wulgarność
+trywialność",,
+6881,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,民俗,みんぞく,,minzoku,"lud
+naród",,
+6882,WORD_NOUN,,HIRAGANA,Inne,,通俗文学,つうぞくぶんがく,,tsuuzoku bungaku,literatura popularna,,
+6883,WORD_NOUN,,HIRAGANA,Inne,,歓,かん,,kan,"radość
+przyjemność",,
+6884,WORD_NOUN,,HIRAGANA,Inne,,歓迎会,かんげいかい,,kangeikai,przyjęcie powitalne,,
+6885,WORD_NOUN,,HIRAGANA,Inne,,歓送会,かんそうかい,,kansoukai,przyjęcie pożegnalne,,
+6886,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,歓声,かんせい,,kansei,"okrzyk radości
+okrzyk pochwały
+owacja",,
+6887,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,歓喜,かんき,,kanki,"radość
+zadowolenie",,
+6888,WORD_NOUN,,HIRAGANA,Inne,,歓楽,かんらく,,kanraku,"przyjemność
+rozrywka",,
+6889,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,諸,しょ,,sho,"wiele
+dużo
+kilka
+różne
+rozmaite
+wszystkie",prefiks,
+6890,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,諸国,しょこく,,shokoku,"różne kraje
+wszystkie kraje",,
+6891,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,諸君,しょくん,,shokun,"Panie i Panowie!
+Koledzy!",,
+6892,WORD_NOUN,,HIRAGANA,Inne,,諸派,しょは,,shoha,mniejszościowe partie w parlamencie,,
+6893,WORD_NOUN,,HIRAGANA,Inne,,諸事,しょじ,,shoji,różne sprawy,,
