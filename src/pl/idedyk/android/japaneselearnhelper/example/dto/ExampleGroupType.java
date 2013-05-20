@@ -246,7 +246,9 @@ public enum ExampleGroupType {
 	
 	VERB_MAKE_LET("Zmuszać kogoś do zrobienia czegoś / Sprawić, że ktoś coś zrobi"),
 	
-	VERB_LET("Pozwalać komuś na zrobienie czegoś");
+	VERB_LET("Pozwalać komuś na zrobienie czegoś"),
+	
+	VERB_NASAI("Rozkaz");
 	
 	private String name;
 	

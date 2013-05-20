@@ -1076,7 +1076,8 @@ Genki kanji 1-10",,長い,ながい,,nagai,długi,,
 prędki",,
 579,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-7,,短い,みじかい,,mijikai,krótki,,
 580,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki 1-7
-Genki kanji 2-14",,親切,しんせつ,,shinsetsu,miły,,
+Genki kanji 2-14",,親切,しんせつ,,shinsetsu,"miły
+serdeczny",,
 581,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 1-7,,便利,べんり,,benri,"przydatny
 wygodny
 pożyteczny
@@ -2677,8 +2678,10 @@ hymn państwowy",,
 1444,UNKNOWN,,HIRAGANA,Genki kanji 1-11,,色々な所,いろいろなところ,,iroiro na tokoro,różne miejsca,,
 1445,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-11
 Genki kanji 2-21",,台所,だいどころ,,daidokoro,kuchnia,,
-1446,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Genki kanji 1-11,,勉める,つとめる,,tsutomeru,starać się,,
-1447,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,勤勉,きんべん,,kinben,pilny,,
+1446,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Genki kanji 1-11,,勉める,つとめる,,tsutomeru,"starać się
+wysilać się",,
+1447,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,勤勉,きんべん,,kinben,"pilny
+pracowity",,
 1448,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki kanji 1-11
 Genki 2-17",,強い,つよい,,tsuyoi,silny,,
 1449,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,強情,ごうじょう,,goujou,"konserwatywny
@@ -2821,7 +2824,8 @@ grupa etniczna",,
 Genki dodatkowe 2-18",,親しい,したしい,,shitashii,"zaprzyjaźniony
 przyjazny
 bliski
-poufały",,
+poufały
+intymny",,
 1520,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki kanji 2-14
 Genki 2-21",,大切,たいせつ,,taisetsu,"ważny
 cenny
@@ -3375,7 +3379,8 @@ gruszka",,
 1867,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 2-17,,-,ストーブ,,sutoobu,"ogrzewanie
 kuchenka",,
 1868,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Genki kanji 2-16,,運動,うんどう,,undou,ćwiczenia,fizyczne,
+SURU_VERB",HIRAGANA,Genki kanji 2-16,,運動,うんどう,,undou,"ćwiczenia
+ruch",fizyczne/y,
 1869,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,騒がしい,さわがしい,,sawagashii,"głośny
 hałaśliwy",,
 1870,WORD_VERB_U,"COMMON_WORD
@@ -3881,7 +3886,8 @@ obie
 obie strony",,
 2134,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-16,,運転,うんてん,,unten,"jazda
-kierowanie",pojazdem,
+kierowanie
+prowadzenie",pojazdem,
 2135,WORD_EXPRESSION,,HIRAGANA,Genki kanji 2-16,,運がいい,うんがいい,,un ga ii,szczęśliwy,"w znaczeniu zrządzenia losu, trafu",
 2136,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,運命,うんめい,,unmei,"los
 przeznaczenie",,
@@ -13933,3 +13939,41 @@ precyzyjny",,
 typowy
 przeciętny
 wspólny",,
+6971,WORD_NOUN,,HIRAGANA,Inne,,運転者,うんてんしゃ,,untensha,kierowca,,
+6972,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,手作り,てづくり,,tedukuri,"produkt wykonany ręcznie
+ręcznie wykonane",,
+6973,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,手荷物,てにもつ,,tenimotsu,ręczny bagaż,,
+6974,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,勉強,べんきょう,,benkyou,"uczenie się
+studiowanie",,
+6975,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,勉学,べんがく,,bengaku,"studia
+nauka",,
+6976,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,勉励,べんれい,,benrei,"pilność
+pracowitość",,
+6977,WORD_NOUN,,HIRAGANA,Inne,,親,しん,,shin,"intymność
+bliskie relacje",,
+6978,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,親しむ,したしむ,,shitashimu,"utrzymywać bliskie stosunki
+utrzymywać przyjacielskie stosunki",,
+6979,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,親指,おやゆび,,oyayubi,kciuk,,
+6980,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,親密,しんみつ,,shinmitsu,"intymność
+bliska przyjaźń",,
+6981,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,運,うん,,un,"przeznaczenie
+szczęście",,
+6982,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,運送,うんそう,,unsou,transport,,
+6983,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,不運,ふうん,,fuun,"nieszczęście
+zły los",,
+6984,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,講座,こうざ,,kouza,kurs,,
+6985,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,講義,こうぎ,,kougi,wykład,,
+6986,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,講演,こうえん,,kouen,"wykład
+odczyt",,
+6987,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,講師,こうし,,koushi,"wykładowca
+instruktor",,
+6988,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,講堂,こうどう,,koudou,"sala wykładowa
+audytorium",,
+6989,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,実習,じっしゅう,,jisshuu,praktyka,,

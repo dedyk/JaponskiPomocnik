@@ -207,6 +207,9 @@ public class VerbExampler {
 		// let verb
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_LET, makeLet(dictionaryEntry, grammaFormCache));
 		
+		// nasai
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NASAI, makeNasai(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1642,6 +1645,19 @@ public class VerbExampler {
 		exampleResult2.setAlternative(exampleResult3);
 		
 		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeNasai(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
+		
+		String templateKanji1 = "%sなさい";
+		String templateKana1 = "%sなさい";
+		String templateRomaji1 = "%snasai";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji1, templateKana1, templateRomaji1, true);
 		
 		return exampleResult1;
 	}
