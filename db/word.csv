@@ -234,7 +234,9 @@ Genki 1-2",,-,あの,,ano,tam,daleko od mówcy i osoby docelowej (z rzeczownikie
 Genki kanji 2-15",,魚,さかな,,sakana,ryba,,
 139,WORD_NOUN,COMMON_WORD,HIRAGANA_KATAKANA,Genki 1-2,,豚カツ,とんカツ,,tonkatsu,kotlet wieprzowy,,
 140,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-2
-Genki kanji 2-13",,肉,にく,,niku,mięso,,
+Genki kanji 2-13",,肉,にく,,niku,"mięso
+muskuły
+ciało",,
 141,WORD_NOUN,COMMON_WORD,KATAKANA,Genki 1-2,,-,メニュー,,menyuu,menu,,
 142,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-2
 Genki kanji 2-17",,野菜,やさい,,yasai,warzywa,,
@@ -638,7 +640,10 @@ Genki kanji 1-10",を,買う,かう,o,kau,kupować,,
 VERB_TRANSITIVITY",HIRAGANA,Genki 1-4,を,撮る,とる,o,toru,robić zdjęcie,,
 367,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 1-4,を,待つ,まつ,o,matsu,czekać,,
-368,WORD_VERB_U,,HIRAGANA,Genki 1-4,が,-,わかる,ga,wakaru,rozumieć,,
+368,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Genki 1-4,が,判る,わかる,ga,wakaru,"rozumieć
+znać
+poznać",,
 369,WORD_VERB_RU,,HIRAGANA,Genki 1-4,が,-,いる,ga,iru,"być
 istnieć","miejsce ni, do rzeczy żywych",
 370,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-4,,-,ぐらい,,gurai,około,ogólne,
@@ -1484,7 +1489,9 @@ VERB_INTRANSITIVITY",HIRAGANA,Inne,を,上がる,あがる,o,agaru,iść pod gó
 klatka schodowa",,
 787,WORD_VERB_RU,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Inne,を,下りる,おりる,o,oriru,schodzić,,
-788,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-15,,駐車場,ちゅうしゃじょう,,chuushajou,miejsce parkingowe,,
+788,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-15,,駐車場,ちゅうしゃじょう,,chuushajou,"miejsce parkingowe
+parking
+postój",,
 789,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki kanji 1-6,,学ぶ,まなぶ,,manabu,uczyć się,ogólnie,
 790,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-11
@@ -2531,7 +2538,8 @@ VERB_INTRANSITIVITY",HIRAGANA,"Genki 1-4
 Genki kanji 1-7",に,会う,あう,ni,au,"spotykać
 widzieć osobę","osoba ni, spotkanie przypadkowe",
 1363,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-7,,社会,しゃかい,,shakai,społeczeństwo,,
-1364,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-7,,父母,ふぼ,,fubo,ojciec i matka,,
+1364,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-7,,父母,ふぼ,,fubo,"ojciec i matka
+rodzice",,
 1365,UNKNOWN,,HIRAGANA,Genki kanji 1-7,,母語,ぼご,,bogo,język ojczysty,,
 1366,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-7,,中学校,ちゅうがっこう,,chuugakkou,gimnazjum,,
 1367,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-7
@@ -3567,18 +3575,23 @@ SURU_VERB",HIRAGANA,Genki kanji 2-15,,走り書き,はしりがき,,hashirigaki,
 1969,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-15,,脱走,だっそう,,dassou,ucieczka,z więzienia,
 1970,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Genki kanji 2-15,,建てる,たてる,,tateru,budować,,
+VERB_TRANSITIVITY",HIRAGANA,Genki kanji 2-15,,建てる,たてる,,tateru,"budować
+podnosić
+wznosić",,
 1971,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-15,,建つ,たつ,,tatsu,"być zbudowanym
 stać",,
 1972,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-15,,建国,けんこく,,kenkoku,"ugruntowanie narodu
-fundamenty narodu",,
+fundamenty narodu
+założenia państwa",,
 1973,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 2-15
 Genki dodatkowe 2-15",,地下,ちか,,chika,pod ziemią,,
 1974,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 2-15
 Genki dodatkowe 2-16",,場所,ばしょ,,basho,"miejsce
 miejsce w świecie (do osób)",fizyczne,
 1975,WORD_NOUN,,HIRAGANA,Genki kanji 2-15,,道場,どうば,,douba,miejsce,gdzie odbywają się sztuki walki,
-1976,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-15,,場,ば,,ba,[miejsce ~ ba],"miejsce, gdzie ma miejsce jakaś akcja",
+1976,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-15,,場,ば,,ba,"[miejsce ~ ba]
+plac
+przestrzeń","miejsce, gdzie ma miejsce jakaś akcja",
 1977,WORD_VERB_RU,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,"Genki kanji 2-15
 Genki 2-17",,足りる,たりる,,tariru,wystarczać,,
@@ -3899,7 +3912,8 @@ nosić",coś cięższego,
 VERB_INTRANSITIVITY",HIRAGANA,Genki kanji 2-16,,動く,うごく,,ugoku,"poruszać się
 ruszać się",,
 2139,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 2-16
-Genki dodatkowe 2-16",,教室,きょうしつ,,kyoushitsu,sala,szkolna,
+Genki dodatkowe 2-16",,教室,きょうしつ,,kyoushitsu,"sala
+klasa","szkolna, wykładowa",
 2140,WORD_NOUN,COMMON_WORD,HIRAGANA_KATAKANA,Genki kanji 2-16,,キリスト教,キリストきょう,,kirisuto kyou,chrześcijaństwo,,
 2141,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,研究室,けんきゅうしつ,,kenkyuushitsu,gabinet profesora,,
 2142,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,地下室,ちかしつ,,chikashitsu,piwnica,,
@@ -6591,7 +6605,8 @@ VERB_TRANSITIVITY",HIRAGANA,Genki 2-22,,育てる,そだてる,,sodateru,"wychow
 hodować
 uprawiać","np. roślinę, zwięrzęta",
 3472,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Inne,,教育,きょういく,,kyouiku,edukacja,,
+SURU_VERB",HIRAGANA,Inne,,教育,きょういく,,kyouiku,"edukacja
+wychowanie",,
 3473,WORD_NOUN,,HIRAGANA,Inne,,体育館,たいいくかん,,taiikukan,sala gimnastyczna,,
 3474,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,育成,いくせい,,ikusei,"wychowanie
@@ -13977,3 +13992,118 @@ instruktor",,
 audytorium",,
 6989,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,実習,じっしゅう,,jisshuu,praktyka,,
+6990,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,字,あざ,,aza,dzielnica,miasteczka,
+6991,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,字幕,じまく,,jimaku,napisy,w filmie obcojęzycznym,
+6992,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,字引,じびき,,jibiki,słownik,,
+6993,WORD_NOUN,,HIRAGANA,Inne,,字句,じく,,jiku,"terminy
+określenia
+wyrażenia",,
+6994,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,字体,じたい,,jitai,"forma znaku chińskiego
+styl znaku chińskiego",,
+6995,WORD_NOUN,,HIRAGANA,Inne,,父権,ふけん,,fuken,"prawo ojcowskie
+ojcostwo",,
+6996,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,神父,しんぷ,,shinpu,"ksiądz
+ojciec (duchowny)",,
+6997,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ジェスチャー,,jesuchaa,"gest
+gesty",,
+6998,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,入場,にゅうじょう,,nyuujou,wejście,"do teatru, kina, itp.",
+6999,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,劇場,げきじょう,,gekijou,teatr,,
+7000,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,教わる,おそわる,,osowaru,pobierać naukę,,
+7001,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,死者,ししゃ,,shisha,zmarły,,
+7002,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,死体,したい,,shitai,"zwłoki
+ciało zmarłego",,
+7003,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,水死,すいし,,suishi,utonięcie,,
+7004,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,死亡,しぼう,,shibou,śmierć,,
+7005,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,死刑,しけい,,shikei,kara śmierci,,
+7006,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,物語,ものがたり,,monogatari,opowiadanie,,
+7007,WORD_NOUN,,HIRAGANA,Inne,,底,てい,,tei,"dno
+podstawa
+rodzaj",,
+7008,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,底,そこ,,soko,"dno
+głębokość",,
+7009,WORD_NOUN,,HIRAGANA,Inne,,底本,ていほん,,teihon,oryginalny tekst,,
+7010,WORD_NOUN,,HIRAGANA,Inne,,底無し,そこなし,,sokonashi,"bez dna
+bezdenny",,
+7011,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,底辺,ていへん,,teihen,podstawa,w geometrii,
+7012,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,底値,そこね,,sokone,najniższa cena,,
+7013,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,底力,そこぢから,,sokodikara,ukryta energia,,
+7014,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,建築学,けんちくがく,,kenchikugaku,architektura,nauka,
+7015,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,建材,けんざい,,kenzai,materiały budowlane,,
+7016,WORD_NOUN,,HIRAGANA,Inne,,建設工事,けんせつこうじ,,kensetsukouji,roboty budowlane,,
+7017,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,築く,きずく,,kizuku,"budować
+konstruować
+wznosić",,
+7018,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,建築,けんちく,,kenchiku,"architektura
+konstrukcja",,
+7019,WORD_NOUN,,HIRAGANA,Inne,,建築家,けんちくか,,kenchikuka,architekt,,
+7020,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,改築,かいちく,,kaichiku,rekonstrukcja,,
+7021,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,築城,ちくじょう,,chikujou,"budowa zamku
+fortyfikacja
+umocnienie",,
+7022,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,築山,つきやま,,tsukiyama,sztuczny pagórek,,
+7023,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,飯,めし,,meshi,"pożywienie
+jedzenie
+gotowany ryż",,
+7024,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,夕飯,ゆうめし,,yuumeshi,kolacja,,
+7025,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,夕飯,ゆうはん,,yuuhan,kolacja,,
+7026,WORD_NOUN,,HIRAGANA,Inne,,飯台,はんだい,,handai,stół,,
+7027,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,赤飯,せきはん,,sekihan,gotowany ryż z czerwoną fasolą,potrawa świąteczna,
+7028,WORD_NUMBER,,HIRAGANA,Inne,,京,けい,,kei,dziesięć kwadrylionów,,
+7029,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,京阪,けいはん,,keihan,Kioto i Osaka,,
+7030,WORD_NOUN,,HIRAGANA,Inne,,京浜,けいひん,,keihin,Tokio i Yokohama,,
+7031,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,分,ふん,,fun,minuta,,
+7032,WORD_NOUN,,HIRAGANA,Inne,,分,ぶ,,bu,"część
+procent",,
+7033,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,分かる,わかる,,wakaru,"rozumieć
+znać
+poznać",,
+7034,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,分ける,わける,,wakeru,"dzielić
+odłączać",,
+7035,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,分割,ぶんかつ,,bunkatsu,"podział
+rozbiór",,
+7036,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,分析,ぶんせき,,bunseki,analiza,,
+7037,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,分解,ぶんかい,,bunkai,"analiza
+rozbijać
+rozbierać
+rozdrabniać
+rozwiązywać",,
+7038,WORD_NOUN,,HIRAGANA,Inne,,三分の一,さんぶんのいち,,sanbun no ichi,jedna trzecia,,
+7039,WORD_VERB_U,,HIRAGANA,Inne,,分かち合う,わかちあう,,wakachi au,dzielić się,"np. jedzeniem, wrażeniami",
+7040,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,毎に,ごとに,,goto ni,za każdym razem,,
+7041,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,毎回,まいかい,,maikai,za każdym razem,,
+7042,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,毎度,まいど,,maido,"za każdym razem
+często
+zawsze",,
+7043,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,肉体,にくたい,,nikutai,ciało,,
+7044,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,筋肉,きんにく,,kinniku,muskuły,,
+7045,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,肉親,にくしん,,nikushin,krewni,,
+7046,WORD_NOUN,,HIRAGANA,Inne,,肉欲,にくよく,,nikuyoku,cielesne pożądanie,,
+7047,WORD_NUMBER,COMMON_WORD,HIRAGANA,Inne,,億,おく,,oku,sto milionów,,
+7048,WORD_NUMBER,COMMON_WORD,HIRAGANA,Inne,,一億,いちおく,,ichi oku,sto milionów,,
+7049,WORD_NOUN,,HIRAGANA,Inne,,億万長者,おくまんちょうじゃ,,okumanchouja,multimilioner,,
+7050,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,億劫,おっくう,,okkuu,kłopotliwy,,
+7051,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,幕,まく,,maku,"kurtyna
+akt",,
+7052,WORD_NOUN,,HIRAGANA,Inne,,幕,ばく,,baku,japoński rząd feudalny,,
+7053,UNKNOWN,,HIRAGANA,Inne,,析,せき,,seki,"dzielić
+drzeć
+analizować",,
+7054,WORD_NOUN,,HIRAGANA,Inne,,筋,きん,,kin,"mięsień
+ścięgno",,
+7055,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,筋,すじ,,suji,"mięsień
+ścięgno
+żyła
+linia
+kreska",,
