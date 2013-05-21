@@ -210,6 +210,9 @@ public class VerbExampler {
 		// nasai
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NASAI, makeNasai(dictionaryEntry, grammaFormCache));
 		
+		// eba
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_EBA, makeEba(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1110,24 +1113,24 @@ public class VerbExampler {
 
 	private static ExampleResult makeBaYokatta(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_BA_AFFIRMATIVE);
+		GrammaFormConjugateResult baForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_BA_AFFIRMATIVE);
 
 		final String templateKanji = "%sよかった";
 		final String templateKana = "%sよかった";
 		final String templateRomaji = "%s yokatta";
 		
-		return GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+		return GrammaExampleHelper.makeSimpleTemplateExample(baForm, templateKanji, templateKana, templateRomaji, true);
 	}
 
 	private static ExampleResult makeTeYokatta(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
 
 		final String templateKanji = "%sよかった";
 		final String templateKana = "%sよかった";
 		final String templateRomaji = "%s yokatta";
 		
-		return GrammaExampleHelper.makeSimpleTemplateExample(stemForm, templateKanji, templateKana, templateRomaji, true);
+		return GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji, templateKana, templateRomaji, true);
 	}
 	
 	private static ExampleResult makeNakuteYokatta(DictionaryEntry dictionaryEntry,
@@ -1661,4 +1664,22 @@ public class VerbExampler {
 		
 		return exampleResult1;
 	}
+	
+	private static ExampleResult makeEba(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		GrammaFormConjugateResult baForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_BA_AFFIRMATIVE);
+		GrammaFormConjugateResult baNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_BA_NEGATIVE);
+
+		final String templateKanji = "%s, ...";
+		final String templateKana = "%s, ...";
+		final String templateRomaji = "%s, ...";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(baForm, templateKanji, templateKana, templateRomaji, true);
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(baNegativeForm, templateKanji, templateKana, templateRomaji, true);
+		
+		exampleResult1.setAlternative(exampleResult2);		
+		
+		return exampleResult1;
+	}
+
 }

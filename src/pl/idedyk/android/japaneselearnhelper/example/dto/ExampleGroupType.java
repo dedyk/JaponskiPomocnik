@@ -248,7 +248,9 @@ public enum ExampleGroupType {
 	
 	VERB_LET("Pozwalać komuś na zrobienie czegoś"),
 	
-	VERB_NASAI("Rozkaz");
+	VERB_NASAI("Rozkaz"),
+	
+	VERB_EBA("Jeśli ..., wtedy ...");
 	
 	private String name;
 	
