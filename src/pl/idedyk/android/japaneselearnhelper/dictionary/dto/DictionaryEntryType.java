@@ -87,6 +87,7 @@ public enum DictionaryEntryType {
 		addableDictionaryEntryList.add(WORD_VERB_U);
 		addableDictionaryEntryList.add(WORD_VERB_RU);
 		addableDictionaryEntryList.add(WORD_VERB_IRREGULAR);
+		addableDictionaryEntryList.add(WORD_ADVERB);
 		addableDictionaryEntryList.add(WORD_NAME);
 		addableDictionaryEntryList.add(WORD_MALE_NAME);
 		addableDictionaryEntryList.add(WORD_FEMALE_NAME);
