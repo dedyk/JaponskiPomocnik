@@ -90,6 +90,9 @@ public class NounExampler {
 			GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_NO_AIDA_NI, makeNoAidaNi(dictionaryEntry, grammaFormCache));
 		}
 		
+		// noni
+		GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_NONI, makeNoni(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -413,6 +416,27 @@ public class NounExampler {
 
 		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, true);
 		exampleResult2.setInfo("Czynność wykonywana przez dłuższy okres czasu");
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeNoni(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji1 = "%sなのに, ...";
+		final String templateKana1 = "%sなのに, ...";
+		final String templateRomaji1 = "%s na noni, ...";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.NOUN_INFORMAL_PAST);
+		
+		final String templateKanji2 = "%sのに, ...";
+		final String templateKana2 = "%sのに, ...";
+		final String templateRomaji2 = "%s noni, ...";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji2, templateKana2, templateRomaji2, true);
 		
 		exampleResult1.setAlternative(exampleResult2);
 		

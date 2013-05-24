@@ -42,6 +42,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_SURU("Sprawiać, że coś jest ..."),
 	
+	ADJECTIVE_I_NONI("Mimo, że jest ..., to ..."),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -81,6 +83,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_QUESTIONS_WITH_LARGER_SENTENCES("Pytania w zdaniach"),
 	
 	ADJECTIVE_NA_SURU("Sprawiać, że coś jest ..."),
+	
+	ADJECTIVE_NA_NONI("Mimo, że jest ..., to ..."),
 	
 	NOUN_NI_NARU("Stawać się"),
 	
@@ -126,6 +130,8 @@ public enum ExampleGroupType {
 	NOUN_TO_IU("Nazywanie przedmiotu"),
 	
 	NOUN_NO_AIDA_NI("Podczas"),
+	
+	NOUN_NONI("Mimo, że jest ..., to ..."),
 		
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -250,7 +256,9 @@ public enum ExampleGroupType {
 	
 	VERB_NASAI("Rozkaz"),
 	
-	VERB_EBA("Jeśli ..., wtedy ...");
+	VERB_EBA("Jeśli ..., wtedy ..."),
+	
+	VERB_NONI("Mimo, że ..., to ...");
 	
 	private String name;
 	

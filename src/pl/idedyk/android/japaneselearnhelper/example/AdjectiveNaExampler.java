@@ -79,6 +79,9 @@ public class AdjectiveNaExampler {
 		// ni suru
 		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_SURU, makeAdjectiveNaSuru(dictionaryEntry));
 		
+		// noni
+		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_NA_NONI, makeNoni(dictionaryEntry, grammaFormCache));
+
 		return result;
 	}
 	
@@ -375,5 +378,26 @@ public class AdjectiveNaExampler {
 		final String templateRomaji = "%s ni suru";
 		
 		return GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeNoni(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji1 = "%sなのに, ...";
+		final String templateKana1 = "%sなのに, ...";
+		final String templateRomaji1 = "%s na noni, ...";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.ADJECTIVE_NA_INFORMAL_PAST);
+		
+		final String templateKanji2 = "%sのに, ...";
+		final String templateKana2 = "%sのに, ...";
+		final String templateRomaji2 = "%s noni, ...";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji2, templateKana2, templateRomaji2, true);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
 	}
 }

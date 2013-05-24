@@ -213,6 +213,9 @@ public class VerbExampler {
 		// eba
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_EBA, makeEba(dictionaryEntry, grammaFormCache));
 		
+		// noni
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NONI, makeNoni(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1681,5 +1684,20 @@ public class VerbExampler {
 		
 		return exampleResult1;
 	}
-
+	
+	private static ExampleResult makeNoni(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "%sのに, ...";
+		final String templateKana = "%sのに, ...";
+		final String templateRomaji = "%s noni, ...";
+		
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PAST);
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
 }

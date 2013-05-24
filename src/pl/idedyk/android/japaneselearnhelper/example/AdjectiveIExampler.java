@@ -79,6 +79,9 @@ public class AdjectiveIExampler {
 		// ku suru
 		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_SURU, makeAdjectiveISuru(dictionaryEntry, grammaFormCache));
 		
+		// noni
+		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_NONI, makeNoni(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -398,5 +401,21 @@ public class AdjectiveIExampler {
 		final String templateRomaji = "%sku suru";
 		
 		return GrammaExampleHelper.makeSimpleTemplateExample(virtualForm, templateKanji, templateKana, templateRomaji, true);
+	}
+	
+	private static ExampleResult makeNoni(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "%sのに, ...";
+		final String templateKana = "%sのに, ...";
+		final String templateRomaji = "%s noni, ...";
+		
+		GrammaFormConjugateResult informalPastForm = grammaFormCache.get(GrammaFormConjugateResultType.ADJECTIVE_I_INFORMAL_PAST);
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
 	}
 }
