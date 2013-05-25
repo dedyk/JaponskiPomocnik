@@ -68,6 +68,15 @@ public class TableLayout implements IScreenItem {
 		layout.addView(tableLayout);		
 	}
 	
+	public int getY() {
+		
+		if (tableRows != null && tableRows.size() > 0) {
+			return tableRows.get(0).getY();
+		}
+		
+		throw new RuntimeException("tableRows is null");
+	}
+	
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		

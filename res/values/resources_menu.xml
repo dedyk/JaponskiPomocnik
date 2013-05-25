@@ -11,6 +11,9 @@
     <item name="main_menu_word_dictionary_tab_add_tab" type="id" />
     <item name="main_menu_word_dictionary_tab_del_tab" type="id" />
     
+    <item name="word_dictionary_details_search" type="id" />
+    <item name="word_dictionary_details_search_next" type="id" />
+    
     <item name="kanji_test_options_clear_selected_kanji" type="id" />
     <item name="kanji_test_options_input_kanji_to_test" type="id" />
 </resources>

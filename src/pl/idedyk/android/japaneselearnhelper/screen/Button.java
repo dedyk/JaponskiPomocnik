@@ -74,6 +74,15 @@ public class Button implements IScreenItem {
 		
 		layout.addView(button);		
 	}
+	
+	public int getY() {
+		
+		if (button != null) {
+			return button.getTop();
+		}
+		
+		throw new RuntimeException("button is null");
+	}
 
 	public String toString() {
 		return "***" + text + "***";

@@ -34,6 +34,15 @@ public class CheckBox implements IScreenItem {
 		layout.addView(checkBox);
 	}
 	
+	public int getY() {
+		
+		if (checkBox != null) {
+			return checkBox.getTop();
+		}
+		
+		throw new RuntimeException("checkBox is null");
+	}
+	
 	public String toString() {
 		return checkBox.getText() + " - " + checkBox.isChecked();
 	}

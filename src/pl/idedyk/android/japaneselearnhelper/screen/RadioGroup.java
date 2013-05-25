@@ -48,6 +48,15 @@ public class RadioGroup implements IScreenItem {
 		return radioGroup.getCheckedRadioButtonId();
 	}
 	
+	public int getY() {
+		
+		if (radioGroup != null) {
+			return radioGroup.getTop();
+		}
+		
+		throw new RuntimeException("radioGroup is null");
+	}
+	
 	public String toString() {
 		
 		StringBuffer sb = new StringBuffer(" *** \n\n");

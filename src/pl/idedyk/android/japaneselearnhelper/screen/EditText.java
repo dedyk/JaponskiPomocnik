@@ -56,6 +56,15 @@ public class EditText implements IScreenItem {
 		return editText.getText().toString();
 	}
 	
+	public int getY() {
+		
+		if (editText != null) {
+			return editText.getTop();
+		}
+		
+		throw new RuntimeException("editText is null");
+	}
+	
 	public String toString() {
 		
 		String value = "";

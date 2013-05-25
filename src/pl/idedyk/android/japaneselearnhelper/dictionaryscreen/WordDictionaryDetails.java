@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Stack;
 
@@ -52,15 +53,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
 public class WordDictionaryDetails extends Activity {
+	
+	private List<IScreenItem> generatedDetails;
 
 	private TtsConnector ttsConnector;
 	
 	private Stack<Integer> backScreenPositionStack = new Stack<Integer>();
+	
+	private List<IScreenItem> searchScreenItemList = null;
+	
+	private Integer searchScreenItemCurrentPos = null;
 
 	@Override
 	protected void onDestroy() {
@@ -101,6 +109,9 @@ public class WordDictionaryDetails extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		
+		menu.add(Menu.NONE, R.id.word_dictionary_details_search, Menu.NONE, R.string.word_dictionary_details_search);
+		menu.add(Menu.NONE, R.id.word_dictionary_details_search_next, Menu.NONE, R.string.word_dictionary_details_search_next);
+		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
 		return true;
@@ -109,8 +120,110 @@ public class WordDictionaryDetails extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
+		
+		if (item.getItemId() == R.id.word_dictionary_details_search) {
+			
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
+			
+			alert.setTitle(getString(R.string.word_dictionary_details_search_title));
+			
+			final EditText input = new EditText(this);
+			
+			input.setSingleLine(true);
+			
+			alert.setView(input);
+			
+			alert.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+				
+				public void onClick(DialogInterface dialog, int whichButton) {
+					
+					String userInputSearchText = input.getText().toString().toLowerCase(Locale.getDefault());
+					
+					searchScreenItemList = new ArrayList<IScreenItem>();
+					searchScreenItemCurrentPos = 0;
+					
+					TitleItem lastTitleItem = null;
+					
+					for (IScreenItem currentScreenItem : generatedDetails) {
+						
+						if (currentScreenItem instanceof TitleItem) {
+							lastTitleItem = (TitleItem)currentScreenItem;
+						}
+						
+						String currentScreenItemToString = currentScreenItem.toString();
+						
+						if (currentScreenItemToString.toLowerCase(Locale.getDefault()).indexOf(userInputSearchText) != -1) {	
+							
+							if (lastTitleItem != null) {
+								
+								if (searchScreenItemList.contains(lastTitleItem) == false) {
+									searchScreenItemList.add(lastTitleItem);	
+								}
+								
+							} else {
+								
+								if (searchScreenItemList.contains(currentScreenItem) == false) {
+									searchScreenItemList.add(currentScreenItem);	
+								}
+							}
+						}
+					}
+					
+					if (searchScreenItemList.size() == 0) {
+						Toast.makeText(WordDictionaryDetails.this, getString(R.string.word_dictionary_details_search_no_result), Toast.LENGTH_SHORT).show();
+						
+						return;
+					}
+					
+					final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.word_dictionary_details_main_layout_scroll);
+					
+					backScreenPositionStack.push(scrollMainLayout.getScrollY());
+					
+					int counterPos = searchScreenItemList.get(searchScreenItemCurrentPos).getY();						
+					scrollMainLayout.scrollTo(0, counterPos - 3);
+				}
+			});
+			
+			alert.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+				
+				public void onClick(DialogInterface dialog, int whichButton) {
+					// noop
+				}
+			});
 
-		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+			alert.show();
+			
+			return true;
+			
+		} else if (item.getItemId() == R.id.word_dictionary_details_search_next) {
+			
+			if (searchScreenItemList == null || searchScreenItemList.size() == 0) {
+				Toast.makeText(WordDictionaryDetails.this, getString(R.string.word_dictionary_details_search_no_result), Toast.LENGTH_SHORT).show();
+				
+				return false;
+			}
+			
+			searchScreenItemCurrentPos = searchScreenItemCurrentPos + 1;
+			
+			if (searchScreenItemCurrentPos >= searchScreenItemList.size()) {				
+				Toast.makeText(WordDictionaryDetails.this, getString(R.string.word_dictionary_details_search_no_more_result), Toast.LENGTH_SHORT).show();
+				
+				return false;
+			}
+			
+			final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.word_dictionary_details_main_layout_scroll);
+			
+			backScreenPositionStack.push(scrollMainLayout.getScrollY());
+			
+			int counterPos = searchScreenItemList.get(searchScreenItemCurrentPos).getY();						
+			scrollMainLayout.scrollTo(0, counterPos - 3);
+			
+			return true;
+			
+		} else {
+			
+			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		}
 	}
 	
 	@Override
@@ -141,7 +254,7 @@ public class WordDictionaryDetails extends Activity {
 		final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.word_dictionary_details_main_layout_scroll);
 		final LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.word_dictionary_details_main_layout);
 		
-		final List<IScreenItem> generatedDetails = generateDetails(dictionaryEntry, scrollMainLayout);
+		generatedDetails = generateDetails(dictionaryEntry, scrollMainLayout);
 		
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 		

@@ -222,6 +222,15 @@ public class StringValue implements IScreenItem {
 			textView.setTextColor(textColor.intValue());
 		}
 	}
+	
+	public int getY() {
+		
+		if (textView != null) {
+			return textView.getTop();
+		}
+		
+		throw new RuntimeException("textview is null");
+	}
 
 	public Integer getDefaultTextColor() {
 		return defaultTextColor;

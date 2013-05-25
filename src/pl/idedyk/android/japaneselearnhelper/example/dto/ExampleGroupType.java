@@ -246,9 +246,9 @@ public enum ExampleGroupType {
 	
 	VERB_TE_IRU_AIDA_NI("Podczas"),
 	
-	VERB_TE_HOSHII("Chceć czegoś od kogoś"),
+	VERB_TE_HOSHII("Chcieć czegoś od kogoś"),
 	
-	VERB_NEGATIVE_TE_HOSHII("Chceć, aby ktoś czegoś nie zrobił"),
+	VERB_NEGATIVE_TE_HOSHII("Chcieć, aby ktoś czegoś nie zrobił"),
 	
 	VERB_MAKE_LET("Zmuszać kogoś do zrobienia czegoś / Sprawić, że ktoś coś zrobi"),
 	

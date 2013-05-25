@@ -80,6 +80,15 @@ public class Image implements IScreenItem {
 
 		layout.addView(imageView);
 	}
+	
+	public int getY() {
+		
+		if (imageView != null) {
+			return imageView.getTop();
+		}
+		
+		throw new RuntimeException("imageView is null");
+	}
 
 	@Override
 	public String toString() {

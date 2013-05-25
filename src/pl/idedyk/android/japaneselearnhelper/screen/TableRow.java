@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 public class TableRow implements IScreenItem {
 	
+	private android.widget.TableRow tableRow = null;
+	
 	private List<IScreenItem> screenItems = new ArrayList<IScreenItem>();
 	
 	public void addScreenItem(IScreenItem item) {
@@ -22,7 +24,7 @@ public class TableRow implements IScreenItem {
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		
 		if (screenItems.size() > 0) {
-			android.widget.TableRow tableRow = new android.widget.TableRow(context);
+			tableRow = new android.widget.TableRow(context);
 						
 			for (IScreenItem currentScreenItem : screenItems) {
 				currentScreenItem.generate(context, resources, tableRow);
@@ -30,6 +32,15 @@ public class TableRow implements IScreenItem {
 			
 			layout.addView(tableRow);			
 		}
+	}
+	
+	public int getY() {
+		
+		if (tableRow != null) {
+			return tableRow.getTop();
+		}
+		
+		throw new RuntimeException("tableRow is null");
 	}
 	
 	public String toString() {
