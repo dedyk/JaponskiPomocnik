@@ -82,6 +82,9 @@ public class AdjectiveIExampler {
 		// noni
 		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_NONI, makeNoni(dictionaryEntry, grammaFormCache));
 		
+		// you ni
+		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_YOUNI, makeYouni(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -415,6 +418,17 @@ public class AdjectiveIExampler {
 		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji, templateKana, templateRomaji, true);
 		
 		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeYouni(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+				
+		final String templateKanji = "[rzeczownik] のように%s";
+		final String templateKana = "[rzeczownik] のように%s";
+		final String templateRomaji = "[rzeczownik] no you ni %s";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 		
 		return exampleResult1;
 	}

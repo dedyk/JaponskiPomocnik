@@ -93,6 +93,9 @@ public class NounExampler {
 		// noni
 		GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_NONI, makeNoni(dictionaryEntry, grammaFormCache));
 		
+		// you na
+		GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_YOUNA, makeYouna(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -437,6 +440,25 @@ public class NounExampler {
 		final String templateRomaji2 = "%s noni, ...";
 		
 		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPastForm, templateKanji2, templateKana2, templateRomaji2, true);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeYouna(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji1 = "%sのような [inny rzeczownik]";
+		final String templateKana1 = "%sのような [inny rzeczownik]";
+		final String templateRomaji1 = "%s no you na [inny rzeczownik]";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		final String templateKanji2 = "%sのように [i-przymiotnik lub na-przymiotnik]";
+		final String templateKana2 = "%sのように [i-przymiotnik lub na-przymiotnik]";
+		final String templateRomaji2 = "%s no you ni [i-przymiotnik lub na-przymiotnik]";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2, templateKana2, templateRomaji2, true);
 		
 		exampleResult1.setAlternative(exampleResult2);
 		

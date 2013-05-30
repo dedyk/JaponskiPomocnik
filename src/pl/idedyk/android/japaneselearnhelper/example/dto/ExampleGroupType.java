@@ -44,6 +44,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_NONI("Mimo, że jest ..., to ..."),
 	
+	ADJECTIVE_I_YOUNI("Podobny do ..., jak ..."),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -85,6 +87,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_SURU("Sprawiać, że coś jest ..."),
 	
 	ADJECTIVE_NA_NONI("Mimo, że jest ..., to ..."),
+	
+	ADJECTIVE_NA_YOUNI("Podobny do ..., jak ..."),
 	
 	NOUN_NI_NARU("Stawać się"),
 	
@@ -132,6 +136,8 @@ public enum ExampleGroupType {
 	NOUN_NO_AIDA_NI("Podczas"),
 	
 	NOUN_NONI("Mimo, że jest ..., to ..."),
+	
+	NOUN_YOUNA("Podobny do ..., jak ..."),
 		
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
