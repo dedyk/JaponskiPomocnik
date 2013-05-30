@@ -487,7 +487,7 @@ public class KanjiTest extends Activity {
 
 			StringBuffer kanjiInfoSb = new StringBuffer();
 
-			kanjiInfoSb.append("<b><big>").append(polishTranslates.toString()).append("</big></b>");
+			kanjiInfoSb.append("<b>").append(polishTranslates.toString()).append("</b>");
 
 			if (info != null && info.equals("") == false) {
 				kanjiInfoSb.append(" - ").append(info);

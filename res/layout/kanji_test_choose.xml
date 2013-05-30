@@ -1,184 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- UWAGA NA BLIZNIAKA! -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
     <LinearLayout
-        android:id="@+id/kanji_test_info_linearlayout"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"
-        android:layout_marginBottom="4dip"
-        android:layout_marginLeft="2dip"
-        android:layout_marginRight="2dip"
-        android:layout_marginTop="4dip"
-        android:orientation="vertical"
-        android:visibility="visible" >
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/kanji_test_info_linearlayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginBottom="4dip"
+            android:layout_marginLeft="2dip"
+            android:layout_marginRight="2dip"
+            android:layout_marginTop="4dip"
+            android:orientation="vertical"
+            android:visibility="visible" >
+
+            <TextView
+                android:id="@+id/kanji_test_info_textview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="0dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/kanji_test_recognizer_lineaylayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer1"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer2"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer3"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer4"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer5"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer6"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer7"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer8"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer9"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer10"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer11"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/kanji_test_choose_answer12"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0px"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textSize="30sp" />
+            </TableRow>
+        </TableLayout>
 
         <TextView
-            android:id="@+id/kanji_test_info_textview"
+            android:id="@+id/kanji_test_state"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/kanji_test_state" />
     </LinearLayout>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="0dp"
-        android:background="@android:color/darker_gray" />
-
-    <LinearLayout
-        android:id="@+id/kanji_test_recognizer_lineaylayout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-    </LinearLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer1"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer2"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer3"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer4"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer5"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer6"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer7"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer8"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer9"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer10"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer11"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-
-            <Button
-                android:id="@+id/kanji_test_choose_answer12"
-                style="@android:style/Widget.Button"
-                android:layout_width="0px"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:textSize="30sp"
-                android:text="" />
-        </TableRow>
-    </TableLayout>
-
-    <TextView
-        android:id="@+id/kanji_test_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:text="@string/kanji_test_state" />
-
-</LinearLayout>
+</ScrollView>
