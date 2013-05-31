@@ -756,7 +756,7 @@ przyjemny
 Genki kanji 1-7",,小さい,ちいさい,,chiisai,mały,,
 416,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-5,,-,つまらない,,tsumaranai,nudny,,
 417,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki 1-5
-Genki kanji 1-9",,古い,ふるい,,furui,stary,do przedmiotów,
+Genki kanji 1-9",,古い,ふるい,,furui,stary,używane do przedmiotów,
 418,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 1-5,,難しい,むずかしい,,muzukashii,"trudny
 problematyczny
 kłopotliwy",,
@@ -1170,7 +1170,8 @@ Genki kanji 1-12",,別に,べつに,,betsuni,nieszczególnie,+ czasownik w formi
 603,UNKNOWN,,HIRAGANA,Genki 1-7,,-,もちろん,,mochiron,oczywiście,,
 604,UNKNOWN,,HIRAGANA,Genki 1-7,,-,よかったら,,yokattara,jeśli chcesz,,
 605,WORD_VERB_U,COMMON_WORD,HIRAGANA,"Genki 1-8
-Genki kanji 1-8",,言う,いう,,iu,mówić,,
+Genki kanji 1-8",,言う,いう,,iu,"mówić
+nazywać",,
 606,WORD_NOUN,,HIRAGANA,Inne,,箸置,はしおき,,hashioki,miejsce na pałeczki,,
 607,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 2-21,,置く,おく,,oku,"kłaść
 umieszczać
@@ -2474,7 +2475,9 @@ doskonały",,
 1273,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-17,,選ぶ,えらぶ,,erabu,"wybierać
 selekcjonować",,
-1274,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Inne,,一言,ひとこと,,hitokoto,prosić o wypowiedź,,
+1274,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Inne,,一言,ひとこと,,hitokoto,"prosić o wypowiedź
+słowo
+krótka przemowa (komentarz)",,
 1275,WORD_EXPRESSION,COMMON_WORD,KATAKANA,Inne,,-,ポイント,,pointo,na co zwracać uwagę,,
 1276,WORD_EXPRESSION,,HIRAGANA,Inne,,楽々,らくらく,,raku raku,łatwe,troszeczkę kombinowane,
 1277,WORD_EXPRESSION,,HIRAGANA,Inne,,-,おすすめ,,osusume,polecane,,
@@ -2623,7 +2626,7 @@ rodzice",,
 Genki kanji 2-17
 Genki dodatkowe 2-17",,文字,もじ,,moji,"litera
 znak",,
-1368,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-7,,帰国,きこく,,kikoku,wracać do kraju,,
+1368,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-7,,帰国,きこく,,kikoku,wracać do własnego kraju,,
 1369,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-7,,入口,いりぐち,,iriguchi,wejście,,
 1370,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki kanji 1-7
@@ -2713,7 +2716,9 @@ Genki kanji 1-10",,お正月,おしょうがつ,,oshougatsu,Nowy Rok,dosł: wła
 1406,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki kanji 1-10
 Genki dodatkowe 2-17",,正しい,ただしい,,tadashii,"właściwy
 prawidłowy
-słuszny",,
+słuszny
+prawy
+sprawiedliwy",,
 1407,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-10,,年,とし,,toshi,rok,,
 1408,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-10
 Genki kanji 2-14",,売店,ばいてん,,baiten,"kiosk
@@ -3350,7 +3355,9 @@ konstrukcja",,
 SURU_VERB",HIRAGANA,Genki kanji 2-19,,工事,こうじ,,kouji,"budownictwo
 budynek
 konstrukcja
-prace budowlane",,
+prace budowlane
+remont
+roboty",,
 1792,WORD_EXPRESSION,,HIRAGANA,Inne,,うまく行った,うまくいった,,umaku itta,"dobrze
 dobrze poszło",,
 1793,WORD_EXPRESSION,,HIRAGANA,Inne,,うまくいきました,うまくいきました,,umaku ikimashita,"dobrze
@@ -3801,7 +3808,8 @@ najeżdżać",,
 2025,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,嵐,あらし,,arashi,"burza
 sztorm",,
 2026,WORD_NOUN,,KATAKANA,Inne,,-,スマートフォン,,sumaato fon,smart phone,,
-2027,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,言語,げんご,,gengo,język,mowa,
+2027,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,言語,げんご,,gengo,"język
+mowa",,
 2028,WORD_NOUN,,HIRAGANA_KATAKANA,Genki dodatkowe 2-15,,原爆ドーム,げんばくドーム,,genbaku doomu,Kopuła Bomby Atomowej,"znajdujący się w Hiroshimie budynek-pomnik, upamiętniający zrzucenie bomb atomowych na Hiroszimę i Nagasaki",
 2029,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-15,,宮島,みやじま,,miyajima,Miyajima,"wyspa znajdująca się na Wewnętrznym Morzu Japońskim, na zachód od Hiroszimy",
 2030,WORD_NOUN,,KATAKANA,Genki dodatkowe 2-15,,-,エメラルドグリーン,,emerarudoguriin,zieleń szmaragdowa,,
@@ -9788,7 +9796,8 @@ osobiście",,
 bezpośrednio po",,
 4938,WORD_NOUN,,HIRAGANA,Inne,,直面する,ちょくめんする,,chokumen suru,"stanąć twarzą w twarz
 stanąć przed obliczem",,
-4939,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,正直,しょうじき,,shoujiki,szczerość,,
+4939,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,正直,しょうじき,,shoujiki,"szczerość
+prawdomówność",,
 4940,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,迷う,まよう,,mayou,"gubić się
 mylić drogę
@@ -14892,3 +14901,78 @@ pełny (księżyc)",,
 VERB_TRANSITIVITY",HIRAGANA,Inne,,丸める,まるめる,,marumeru,"zaokrąglać
 zwijać",,
 7366,WORD_NOUN,,HIRAGANA,Inne,,丸,たま,,tama,tabletka,,
+7367,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,正に,まさに,,masani,"słusznie
+bez wątpienia",,
+7368,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,正義,せいぎ,,seigi,sprawiedliwość,,
+7369,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,正反対,せいはんたい,,seihantai,dokładnie na odwrót,,
+7370,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,正確,せいかく,,seikaku,"dokładność
+prawdziwość
+akuratność",,
+7371,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,古す,ふるす,,furusu,starzeć się,o rzeczy,
+7372,WORD_NOUN,,HIRAGANA,Inne,,古本屋,ふるほんや,,furuhon'ya,antykwariat,,
+7373,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,中古車,ちゅうこしゃ,,chuukosha,"używany samochód
+samochód z drugiej ręki",,
+7374,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,古語,こご,,kogo,archaiczne słowa,,
+7375,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,古風,こふう,,kofuu,stare zwyczaje,,
+7376,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,古文,こぶん,,kobun,"literatura klasyczna
+literatura starożytna",,
+7377,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,人工的,じんこうてき,,jinkouteki,sztuczny,,
+7378,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,工作,こうさく,,kousaku,konstrukcja,,
+7379,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,西欧,せいおう,,seiou,Zachodnia Europa,,
+7380,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,西暦,せいれき,,seireki,Era Chrześcijańska,kalendarz,
+7381,WORD_NOUN,,HIRAGANA,Inne,,店,たな,,tana,sklep,,
+7382,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,店主,てんしゅ,,tenshu,właściciel sklepu,,
+7383,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,本店,ほんてん,,honten,główny sklep,,
+7384,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,帰す,かえす,,kaesu,"zwrócić
+zwracać
+oddawać",osoba ni rzecz,
+7385,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,帰宅,きたく,,kitaku,powrót do domu,,
+7386,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,日帰り,ひがえり,,higaeri,jednodniowy wyjazd,,
+7387,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,帰化,きか,,kika,naturalizacja,,
+7388,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,帰還,きかん,,kikan,repatriacja,,
+7389,WORD_NOUN,,HIRAGANA,Inne,,言,こと,,koto,słowo,,
+7390,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,宣言,せんげん,,sengen,"orzeczenie
+deklaracja
+proklamacja",,
+7391,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,適当,てきとう,,tekitou,"odpowiedni
+stosowny",,
+7392,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,適切,てきせつ,,tekisetsu,"stosowny
+adekwatny",,
+7393,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,適応,てきおう,,tekiou,"adaptacja
+akomodacja
+dopasowywanie",,
+7394,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,適性,てきせい,,tekisei,"zdolność adaptacji
+umiejętność przystosowywania się",,
+7395,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,適合,てきごう,,tekigou,"ugodowość
+dostosowanie się",,
+7396,WORD_NOUN,,HIRAGANA,Inne,,孝心,こうしん,,koushin,synowskie oddanie,,
+7397,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,親孝行,おやこうこう,,oyakoukou,posłuszeństwo wobec rodziców,,
+7398,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,親不孝,おやふこう,,oyafukou,niewypełnianie obowiązków wobec rodziców,,
+7399,WORD_NOUN,,HIRAGANA,Inne,,需用,じゅよう,,juyou,używanie,rzeczy,
+7400,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,需要,じゅよう,,juyou,zapotrzebowanie,,
+7401,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,必需品,ひつじゅひん,,hitsujuhin,niezbędne rzeczy,,
+7402,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,需給,じゅきゅう,,jukyuu,pobyt i podaż,,
+7403,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,暦,こよみ,,koyomi,kalendarz,,
+7404,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,還る,かえる,,kaeru,wracać,,
+7405,WORD_VERB_U,,HIRAGANA,Inne,,宣う,のたまう,,notamau,"proklamować
+ogłaszać
+mówić",,
+7406,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,宣伝,せんでん,,senden,"propaganda
+reklama",,
+7407,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,宣戦,せんせん,,sensen,"wypowiedzenie wojny
+deklaracja wojny",,
+7408,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,宣教,せんきょう,,senkyou,"misja
+głoszenie nauki
+ewangelizacja",,
+7409,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宣教師,せんきょうし,,senkyoushi,misjonarz,,
