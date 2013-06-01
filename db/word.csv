@@ -209,7 +209,8 @@ Genki 1-7
 Genki kanji 1-7",,お父さん,おとうさん,,otousan,ojciec,spoza swojej rodziny lub własna rodzina - nieformalnie,
 120,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-1
 Genki 1-7
-Genki kanji 2-19",,お姉さん,おねえさん,,oneesan,siostra,"spoza swojej rodziny lub własna rodzina, nieformalnie, starsza",
+Genki kanji 2-19",,お姉さん,おねえさん,,oneesan,"siostra
+panienka","spoza swojej rodziny lub własna rodzina, nieformalnie, starsza",
 121,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-1
 Genki 1-7
 Genki kanji 2-19",,お兄さん,おにいさん,,oniisan,brat,"spoza swojej rodziny lub własna rodzina, nieformalnie, starszy",
@@ -790,8 +791,10 @@ VERB_TRANSITIVITY",HIRAGANA,Genki 1-5,に,聞く,きく,ni,kiku,pytać,osobę,
 432,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,"Genki 1-5
 Genki kanji 2-14",に,乗る,のる,ni,noru,"podróżować
-wsiadać
-jechać",czymś,
+wsiadać (do pojazdu)
+jechać
+jeździć
+być w (np. słowniku)",czymś,
 433,WORD_VERB_U,,HIRAGANA,Genki 1-5,を,-,やる,o,yaru,wykonywać,,
 434,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 1-5,,出かける,でかける,,dekakeru,wychodzić,,
 435,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-5,,一緒に,いっしょに,,isshoni,razem,,
@@ -1269,6 +1272,7 @@ zanosić",coś,
 652,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-8
 Genki kanji 2-16",を,始める,はじめる,o,hajimeru,"zaczynać
+rozpocząć
 rozpoczynać",,
 653,WORD_VERB_IRREGULAR,,HIRAGANA,"Genki 1-8
 Genki kanji 2-15",を,運転する,うんてんする,o,unten suru,prowadzić,pojazd,
@@ -2961,7 +2965,10 @@ upływać",,
 1528,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-14,,急行,きゅうこう,,kyuukou,pociąg ekspresowy,,
 1529,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,乗り物,のりもの,,norimono,pojazd,,
-1530,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,乗車,じょうしゃ,,jousha,podróżować samochodem,,
+1530,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,乗車,じょうしゃ,,jousha,"podróżować samochodem
+podróżować pociągiem
+wsiadać do samochodu
+wsiadać do pociągu",,
 1531,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,乗馬,じょうば,,jouba,jeździć konno,,
 1532,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,当時,とうじ,,touji,w tym czasie,,
 1533,WORD_VERB_U,"COMMON_WORD
@@ -3963,7 +3970,8 @@ faktycznie",,
 2109,WORD_NOUN,,HIRAGANA_KATAKANA,Genki kanji 2-16,,テニス部,テニスぶ,,tenisu bu,klub tenisowy,,
 2110,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 2-16
 Genki 2-19",,部長,ぶちょう,,buchou,kierownik działu,,
-2111,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,始発,しはつ,,shihatsu,pierwszy pociąg,,
+2111,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-16,,始発,しはつ,,shihatsu,"pierwszy pociąg
+pierwszy odjazd pociągu",,
 2112,UNKNOWN,,HIRAGANA,Genki kanji 2-16,,二週目,にしゅうめ,,nishuume,drugi tydzień,,
 2113,UNKNOWN,COMMON_WORD,HIRAGANA,"Genki kanji 2-16
 Genki dodatkowe 2-16",,以上,いじょう,,ijou,"powyżej
@@ -4054,6 +4062,7 @@ szczęśliwy",,
 VERB_INTRANSITIVITY",HIRAGANA,"Genki dodatkowe 2-16
 Genki dodatkowe 2-19",,続く,つづく,,tsuduku,"kontynuować
 wznawiać
+trwać
 ciągnąć się (np. dni)",,
 2150,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-16,,売れる,うれる,,ureru,sprzedawać,forma potencjalna,
 2151,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-16,,-,すると,,suruto,"... wtedy, ...",,
@@ -8007,15 +8016,22 @@ obie stopy",liczba mnoga,
 4108,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-20,,両替,りょうがえ,,ryougae,wymieniać,,
 4109,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki kanji 2-20
-Genki dodatkowe 2-20",,無理,むり,,muri,niemożliwy,,
+Genki dodatkowe 2-20",,無理,むり,,muri,"niemożliwy
+ponad siły
+nierozsądny
+na siłę",,
 4110,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki kanji 2-20,,無駄,むだ,,muda,"bezużyteczny
 daremny",,
 4111,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-20,,無料,むりょう,,muryou,"za darmo
-bez opłaty",,
+bez opłaty
+bezpłatnie
+darmowo
+gratis",,
 4112,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki kanji 2-20,,無礼,ぶれい,,burei,"nieuprzejmy
 niegrzeczny",,
 4113,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki kanji 2-20,,無い,ない,,nai,"nie być
-nie istnieć",forma przecząca czasownika aru,
+nie istnieć
+nie ma",forma przecząca czasownika aru,
 4114,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-20,,払い戻し,はらいもどし,,haraimodoshi,zwrot,,
 4115,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-20,,分割払い,ぶんかつばらい,,bunkatsubarai,opłata w ratach,,
@@ -8047,9 +8063,11 @@ Genki 2-22",,反対する,はんたいする,,hantai suru,przeciwstawić się,,
 4126,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-20,,鎮痛剤,ちんつうざい,,chintsuuzai,środek przeciwbólowy,,
 4127,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki kanji 2-20
-Genki 2-21",,続ける,つづける,,tsudukeru,kontynuować,,
+Genki 2-21",,続ける,つづける,,tsudukeru,"kontynuować
+ciągnąć",,
 4128,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Genki kanji 2-20,,手続き,てつづき,,tetsuduki,procedura,,
+SURU_VERB",HIRAGANA,Genki kanji 2-20,,手続き,てつづき,,tetsuduki,"procedura
+formalności",,
 4129,WORD_VERB_IRREGULAR,,HIRAGANA,Genki kanji 2-20,,相続する,そうぞくする,,souzoku suru,dziedziczyć,,
 4130,WORD_NOUN,,HIRAGANA_KATAKANA,Genki kanji 2-20,,連続ドラマ,れんぞくドラマ,,renzoku dorama,serial telewizyjny,,
 4131,WORD_VERB_RU,"COMMON_WORD
@@ -14976,3 +14994,80 @@ deklaracja wojny",,
 głoszenie nauki
 ewangelizacja",,
 7409,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宣教師,せんきょうし,,senkyoushi,misjonarz,,
+7410,UNKNOWN,,HIRAGANA,Inne,,乗,じょう,,jou,potęga,w matematyce,
+7411,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,乗せる,のせる,,noseru,"wsadzić
+załadować",,
+7412,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,乗客,じょうきゃく,,joukyaku,pasażer,,
+7413,WORD_NOUN,,HIRAGANA,Inne,,乗法,じょうほう,,jouhou,mnożenie,w matematyce,
+7414,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,乗り換え,のりかえ,,norikae,przesiadka,,
+7415,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,開始,かいし,,kaishi,"początek
+otwarcie",,
+7416,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,原始的,げんしてき,,genshiteki,"prymitywny
+pierwotny",,
+7417,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,始終,しじゅう,,shijuu,"od początku do końca
+zawsze",,
+7418,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,始末,しまつ,,shimatsu,"okoliczności
+zarządzanie
+posługiwanie się",,
+7419,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,学界,がっかい,,gakkai,"świat akademicki
+świat nauki",,
+7420,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,下界,げかい,,gekai,ten świat,,
+7421,WORD_NOUN,,HIRAGANA,Inne,,界隈,かいわい,,kaiwai,"sąsiedztwo
+okolica",,
+7422,UNKNOWN,,HIRAGANA,Inne,,病める,やめる,,yameru,chorować,,
+7423,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,病む,やむ,,yamu,"zachorować
+chorować",,
+7424,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,病人,びょうにん,,byounin,"chory
+pacjent",,
+7425,WORD_NOUN,,HIRAGANA,Inne,,病歴,びょうれき,,byoureki,historia choroby,,
+7426,WORD_NOUN,,HIRAGANA,Inne,,病原,びょうげん,,byougen,przyczyna choroby,,
+7427,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,買い手,かいて,,kaite,"kupujący
+kupiec",,
+7428,WORD_NOUN,,HIRAGANA,Inne,,買い主,かいぬし,,kainushi,"kupujący
+kupiec",,
+7429,WORD_NOUN,,HIRAGANA,Inne,,買値,かいね,,kaine,"wysokość kosztów
+koszty zakupów",,
+7430,WORD_NOUN,,HIRAGANA,Inne,,野,や,,ya,"pole
+równina
+opozycja
+cywilne życie",,
+7431,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,野,の,,no,"pole
+równina",,
+7432,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,野党,やとう,,yatou,partia opozycyjna,,
+7433,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,野心,やしん,,yashin,ambicje,,
+7434,WORD_NOUN,,HIRAGANA,Inne,,野生動物,やせいどうぶつ,,yasei doubutsu,dzikie zwierzęta,,
+7435,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,義姉,ぎし,,gishi,żona starszego brata,,
+7436,UNKNOWN,,HIRAGANA,Inne,,続,ぞく,,zoku,"kontynuacja
+ciągłość",,
+7437,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,続行,ぞっこう,,zokkou,kontynuacja,,
+7438,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,相続,そうぞく,,souzoku,"sukcesja
+dziedziczenie",,
+7439,WORD_NOUN,,HIRAGANA,Inne,,続き番号,つづきばんごう,,tsuduki bangou,numer seryjny,,
+7440,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,快い,こころよい,,kokoroyoi,"przyjemny
+radosny",,
+7441,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,快適,かいてき,,kaiteki,"wygodny
+ugodowy",,
+7442,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,全快,ぜんかい,,zenkai,całkowite wyzdrowienie,,
+7443,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,快楽,かいらく,,kairaku,"wygoda
+przyjemność",,
+7444,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,快速,かいそく,,kaisoku,duża prędkość,,
+7445,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,快活,かいかつ,,kaikatsu,"radosny
+wesoły",,
+7446,UNKNOWN,,HIRAGANA,Inne,,無,ぶ,,bu,nicość,,
+7447,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,無条件,むじょうけん,,mujouken,bezwarunkowy,,
+7448,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,無視,むし,,mushi,"lekceważenie
+ignorowanie",,
+7449,WORD_ADVERB,,HIRAGANA,Inne,,無事に,ぶじに,,buji ni,"bezpiecznie
+cało",,
+7450,WORD_NOUN,,HIRAGANA,Inne,,隈,くま,,kuma,"róg
+zaułek
+zakątek
+wnęka",,
