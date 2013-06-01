@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash_dialogbox_scrollview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="15dp" >
+    android:layout_height="match_parent" >
 
-    <CheckBox
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/splash_dialogbox_skipCheckBox"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/splash_dialogbox_skip" />
+        android:orientation="vertical"
+        android:paddingLeft="15dp" >
+        
+        <TextView 
+            android:id="@+id/splash_dialogbox_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:text="@string/splash_message_box_info"
+			android:textSize="16sp" />
 
-</LinearLayout>
+        <CheckBox
+            android:id="@+id/splash_dialogbox_skipCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/splash_dialogbox_skip"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</ScrollView>

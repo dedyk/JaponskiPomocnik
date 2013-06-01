@@ -187,6 +187,7 @@ public class Splash extends Activity {
 					
 					View alertDialogView = layoutInflater.inflate(R.layout.splash_dialogbox, null);
 					
+					final TextView messageTextView = (TextView)alertDialogView.findViewById(R.id.splash_dialogbox_message);
 					final CheckBox skipCheckBox = (CheckBox)alertDialogView.findViewById(R.id.splash_dialogbox_skipCheckBox);
 					
 					alertDialog.setView(alertDialogView);
@@ -194,7 +195,7 @@ public class Splash extends Activity {
 					alertDialog.setCancelable(false);
 					
 					alertDialog.setTitle(getString(R.string.splash_message_box_title));
-					alertDialog.setMessage(getString(R.string.splash_message_box_info));
+					messageTextView.setText(getString(R.string.splash_message_box_info));
 					
 					alertDialog.setButton(getString(R.string.word_test_incorrect_ok), new DialogInterface.OnClickListener() {
 
@@ -211,6 +212,7 @@ public class Splash extends Activity {
 					});
 					
 					alertDialog.show();
+										
 				} else {
 
 					Intent intent = new Intent(getApplicationContext(), JapaneseAndroidLearnHelperMainActivity.class);
