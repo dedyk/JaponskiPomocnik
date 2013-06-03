@@ -680,7 +680,9 @@ Genki kanji 1-4",,中,なか,,naka,środek,,
 383,WORD_LOCATION,COMMON_WORD,HIRAGANA,"Genki 1-4
 Genki kanji 1-4",,上,うえ,,ue,"na
 góra
-górna część",,
+górna część
+szczyt
+powierzchnia",,
 384,WORD_LOCATION,COMMON_WORD,HIRAGANA,"Genki 1-4
 Genki kanji 1-4",,下,した,,shita,"pod
 dół
@@ -1058,7 +1060,10 @@ Genki kanji 2-19",,兄,あに,,ani,starszy brat,"własna rodzina, formalnie",
 Genki kanji 2-19",,姉,あね,,ane,starsza siostra,"własna rodzina, formalnie",
 549,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-7
 Genki dodatkowe 2-20",,主人,しゅじん,,shujin,"mąż
-właściciel","własna rodzina, formalnie, w dzisiejszym świecie raczej już nie używane",
+właściciel
+pan
+mistrz
+zwierzchnik","własna rodzina, formalnie, w dzisiejszym świecie raczej już nie używane",
 550,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-7,,夫,おっと,,otto,mąż,"własna rodzina, formalnie",
 551,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-7
 Genki kanji 2-22",,家内,かない,,kanai,żona,"własna rodzina, formalnie, w dzisiejszym świecie raczej już nie używane",
@@ -1234,7 +1239,10 @@ Genki kanji 2-16",,毎週,まいしゅう,,maishuu,w każdym tygodniu,,
 639,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-8,,来月,らいげつ,,raigetsu,następny miesiąc,,
 640,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki 1-8
 Genki kanji 1-4
-Genki kanji 1-11",,上手,じょうず,,jouzu,dobry w,,
+Genki kanji 1-11",,上手,じょうず,,jouzu,"umiejętny
+sprawny
+sprytny
+dobry w",,
 641,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki 1-8
 Genki kanji 1-4",,下手,へた,,heta,"słaby w
 łamaga
@@ -1539,7 +1547,11 @@ szybko",zrobić coś,
 SURU_VERB",HIRAGANA,Inne,,交番,こうばん,,kouban,posterunek policji,,
 784,WORD_NOUN,,HIRAGANA,Inne,,お巡り,おまわり,,omawari,policjant,patrolujący ulice,
 785,WORD_VERB_U,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Inne,を,上がる,あがる,o,agaru,iść pod górę,,
+VERB_INTRANSITIVITY",HIRAGANA,Inne,を,上がる,あがる,o,agaru,"podnosić się
+wpisać się
+iść pod górę
+postępować
+skończyć się",,
 786,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,階段,かいだん,,kaidan,"schody
 klatka schodowa",,
 787,WORD_VERB_RU,"COMMON_WORD
@@ -1632,6 +1644,7 @@ trzymać",zwierzęta,
 VERB_INTRANSITIVITY",KATAKANA_HIRAGANA,Genki 1-11,,-,サボる,,saboru,opuszczać zajęcia,,
 827,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 1-11,に,登る,のぼる,ni,noboru,"wspinać się
+wnosić się
 piąć się
 podnosić się",na górę,
 828,WORD_VERB_U,"COMMON_WORD
@@ -2323,7 +2336,9 @@ rozkład jazdy
 program",,
 1195,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 2-15
 Genki kanji 1-11
-Genki kanji 2-18",,旅館,りょかん,,ryokan,zajazd,w stylu japońskim,
+Genki kanji 2-18",,旅館,りょかん,,ryokan,"zajazd
+hotel
+motel",w stylu japońskim,
 1196,WORD_NOUN,,HIRAGANA,Genki 2-15,,割引券,わりびきけん,,waribikiken,bilet ulgowy,,
 1197,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki 2-15
 Genki kanji 2-15",,広い,ひろい,,hiroi,"przestronny
@@ -2987,7 +3002,7 @@ emocje",,
 1537,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki kanji 2-14
 Genki 2-22",,楽,らく,,raku,"komfortowy
 łatwy
-wygodne",,
+wygodny",,
 1538,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,医学,いがく,,igaku,medycyna,,
 1539,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,医院,いいん,,iin,klinika,,
 1540,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,学者,がくしゃ,,gakusha,"naukowiec
@@ -9667,7 +9682,8 @@ SURU_VERB",HIRAGANA,Inne,,製作,せいさく,,seisaku,produkcja,,
 4859,WORD_NOUN,,HIRAGANA,Inne,,日本製,にほんせい,,nihonsei,"produkt japoński
 wyprodukowane w Japonii",,
 4860,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,木製,もくせい,,mokusei,"produkt drzewny
-zrobione z drzewa",,
+zrobione z drzewa
+wykonane z drzewa",,
 4861,WORD_NOUN,,HIRAGANA,Inne,,製紙工場,せいしこうじょう,,seishikoujou,fabryka papieru,,
 4862,WORD_NOUN,,HIRAGANA,Inne,,製本屋,せいほんや,,seihon'ya,introligator,,
 4863,WORD_VERB_U,"COMMON_WORD
@@ -13865,7 +13881,7 @@ test semestralny",,
 SURU_VERB",HIRAGANA,Genki 2-22,,無駄遣い,むだづかい,,mudadukai,"strata pieniędzy
 marnotrawienie pieniędzy",,
 6828,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Genki 2-22,,予習,よしゅう,,yoshuu,powtarzać coś przed lekcją,,
+SURU_VERB",HIRAGANA,Genki 2-22,,予習,よしゅう,,yoshuu,powtarzać,np. materiał przed lekcją,
 6829,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Genki 2-22,,煩い,うるさい,,urusai,"głośny
 denerwujący
 wkurzający
@@ -15169,3 +15185,59 @@ powstanie",,
 7494,WORD_NOUN,,HIRAGANA,Inne,,暴言,ぼうげん,,bougen,ostre słowa,,
 7495,WORD_NOUN,,HIRAGANA,Inne,,暴君,ぼうくん,,boukun,"tyran
 despota",,
+7496,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,上,じょう,,jou,"góra
+najlepszy
+pierwszy tom",prefiks,
+7497,UNKNOWN,,HIRAGANA,Inne,,上,しょう,,shou,"górna część
+rząd",,
+7498,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,上げる,あげる,,ageru,"podnieść
+powiększyć
+podarować
+skończyć
+usmażyć",,
+7499,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,上,かみ,,kami,"góra
+szczyt",,
+7500,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,上手,かみて,,kamite,"umiejętny
+sprawny
+sprytny
+dobry w",,
+7501,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,上映,じょうえい,,jouei,projekcja filmu,,
+7502,WORD_NOUN,,HIRAGANA,Inne,,木工所,もっこうじょ,,mokkoujo,tartak,,
+7503,WORD_NOUN,,HIRAGANA,Inne,,木工場,もっこうじょう,,mokkoujou,tartak,,
+7504,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,木材,もくざい,,mokuzai,"surowiec drzewny
+budulec
+belka
+deska",,
+7505,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,主,しゅ,,shu,"Pan
+pan
+mistrz
+główna rzecz",,
+7506,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,主,ぬし,,nushi,"właściciel
+pan
+gospodarz
+mistrz
+mąż
+duch opiekuńczy",,
+7507,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,主任,しゅにん,,shunin,osoba odpowiedzialna,,
+7508,WORD_NOUN,,HIRAGANA,Inne,,主の祈り,しゅのいのり,,shu no inori,Modlitwa Pańska,Ojcze Nasz,
+7509,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,主食,しゅしょく,,shushoku,główne pożywienie,,
+7510,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,旅,たび,,tabi,podróż,,
+7511,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,旅人,たびびと,,tabi bito,"podróżnik
+wędrownik",,
+7512,WORD_NOUN,,HIRAGANA,Inne,,院,いん,,in,"budynek
+instytucja",,
+7513,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,議院,ぎいん,,giin,parlament,,
+7514,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,院内,いんない,,innai,"wewnątrz parlamentu
+wewnątrz szpitala",,
+7515,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,院長,いんちょう,,inchou,"dyrektor szpitala
+rektor (w klasztorze)",,
+7516,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,漁,りょう,,ryou,"rybołówstwo
+łowienie ryb",,
+7517,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,漁業,ぎょぎょう,,gyogyou,"rybołówstwo
+przemysł rybny",,
+7518,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,漁船,ぎょせん,,gyosen,statek rybacki,,
+7519,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,漁師,りょうし,,ryoushi,rybak,,
+7520,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,漁村,ぎょそん,,gyoson,wioska rybacka,,
+7521,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,漁場,ぎょじょう,,gyojou,łowiska,,
