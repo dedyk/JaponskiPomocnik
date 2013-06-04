@@ -70,15 +70,16 @@ public enum GroupEnum {
 	GENKI_KANJI_2_20("Genki kanji 2-20", 55),
 	GENKI_KANJI_2_21("Genki kanji 2-21", 56),
 	GENKI_KANJI_2_22("Genki kanji 2-22", 57),
+	GENKI_KANJI_2_23("Genki kanji 2-23", 58),
 
-	COUNTERS("Klasyfikatory", 58),
-	OTHER("Inne", 59),
+	COUNTERS("Klasyfikatory", 59),
+	OTHER("Inne", 60),
 	
-	JLPT_1("JLPT 1", 60),
-	JLPT_2("JLPT 2", 61),
-	JLPT_3("JLPT 3", 62),
-	JLPT_4("JLPT 4", 63),
-	JLPT_5("JLPT 5", 64);
+	JLPT_1("JLPT 1", 61),
+	JLPT_2("JLPT 2", 62),
+	JLPT_3("JLPT 3", 63),
+	JLPT_4("JLPT 4", 64),
+	JLPT_5("JLPT 5", 65);
 
 	private String value;
 
