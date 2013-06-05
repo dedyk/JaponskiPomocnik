@@ -46,6 +46,8 @@ public enum ExampleGroupType {
 	
 	ADJECTIVE_I_YOUNI("Podobny do ..., jak ..."),
 	
+	ADJECTIVE_I_TE_MO("Nawet, jeśli"),
+	
 	ADJECTIVE_NA_II_GRADATION("Stopniowanie (II poziom, bardziej)"),
 	
 	ADJECTIVE_NA_III_GRADATION("Stopniowanie (III poziom, najbardziej)"),
@@ -89,6 +91,8 @@ public enum ExampleGroupType {
 	ADJECTIVE_NA_NONI("Mimo, że jest ..., to ..."),
 	
 	ADJECTIVE_NA_YOUNI("Podobny do ..., jak ..."),
+	
+	ADJECTIVE_NA_TE_MO("Nawet, jeśli"),
 	
 	NOUN_NI_NARU("Stawać się"),
 	
@@ -138,6 +142,10 @@ public enum ExampleGroupType {
 	NOUN_NONI("Mimo, że jest ..., to ..."),
 	
 	NOUN_YOUNA("Podobny do ..., jak ..."),
+	
+	NOUN_TE_MO("Nawet, jeśli"),
+	
+	NOUN_NI_SURU("Decydować się na"),
 		
 	VERB_TAI("Chcieć (I i II osoba)"),
 	
@@ -154,7 +162,7 @@ public enum ExampleGroupType {
 	
 	VERB_TE_KUDASAI("Prośba"),
 	
-	VERB_TE_MO_II("Pozwolenie"),
+	VERB_TE_MO_II("Pozwolenie", "Dosłowne: nawet jeśli coś zrobisz, będzie dobrze"),
 	
 	VERB_TE_HA_IKEMASEN("Zakaz 1"),
 	
@@ -264,7 +272,13 @@ public enum ExampleGroupType {
 	
 	VERB_EBA("Jeśli ..., wtedy ..."),
 	
-	VERB_NONI("Mimo, że ..., to ...");
+	VERB_NONI("Mimo, że ..., to ..."),
+	
+	VERB_TE_MO("Nawet, jeśli"),
+	
+	VERB_KOTO_NI_SURU("Decydować się na"),
+	
+	VERB_KOTO_NI_SHITE_IRU("Starać się regularnie wykonywać");
 	
 	private String name;
 	

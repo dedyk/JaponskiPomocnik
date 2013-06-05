@@ -96,6 +96,12 @@ public class NounExampler {
 		// you na
 		GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_YOUNA, makeYouna(dictionaryEntry, grammaFormCache));
 		
+		// te mo
+		GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_TE_MO, makeTeMoExample(dictionaryEntry, grammaFormCache));
+		
+		// ni suru
+		GrammaExampleHelper.addExample(result, ExampleGroupType.NOUN_NI_SURU, makeNiSuruExample(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -462,6 +468,40 @@ public class NounExampler {
 		
 		exampleResult1.setAlternative(exampleResult2);
 		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeTeMoExample(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji1 = "%sも";
+		final String templateKana1 = "%sも";
+		final String templateRomaji1 = "%s mo";
+		
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.NOUN_TE);
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.NOUN_INFORMAL_PRESENT_NEGATIVE);
+		
+		final String templateKanji2 = "%sくても";
+		final String templateKana2 = "%sくても";
+		final String templateRomaji2 = "%skute mo";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true);
+
+		exampleResult1.setAlternative(exampleResult2);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeNiSuruExample(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "%sにする";
+		final String templateKana = "%sにする";
+		final String templateRomaji = "%s ni suru";
+				
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+
 		return exampleResult1;
 	}
 }

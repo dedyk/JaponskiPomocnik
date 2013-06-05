@@ -85,6 +85,9 @@ public class AdjectiveIExampler {
 		// you ni
 		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_YOUNI, makeYouni(dictionaryEntry, grammaFormCache));
 		
+		// te mo
+		GrammaExampleHelper.addExample(result, ExampleGroupType.ADJECTIVE_I_TE_MO, makeTeMoExample(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 	
@@ -429,6 +432,29 @@ public class AdjectiveIExampler {
 		final String templateRomaji = "[rzeczownik] no you ni %s";
 		
 		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeTeMoExample(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji1 = "%sも";
+		final String templateKana1 = "%sも";
+		final String templateRomaji1 = "%s mo";
+		
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.ADJECTIVE_I_TE);
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji1, templateKana1, templateRomaji1, true);
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.ADJECTIVE_I_INFORMAL_PRESENT_NEGATIVE);
+		
+		final String templateKanji2 = "%sくても";
+		final String templateKana2 = "%sくても";
+		final String templateRomaji2 = "%skute mo";
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templateKanji2, templateKana2, templateRomaji2, true);
+
+		exampleResult1.setAlternative(exampleResult2);
 		
 		return exampleResult1;
 	}
