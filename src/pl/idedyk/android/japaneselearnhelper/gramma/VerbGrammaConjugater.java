@@ -377,6 +377,42 @@ public class VerbGrammaConjugater {
 			result.add(causativeTeForm);	
 		}
 		
+		// forma sprawczo-bierna
+		{
+			GrammaFormConjugateGroupTypeElements causativePassiveInformalForm = new GrammaFormConjugateGroupTypeElements();
+			causativePassiveInformalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_CAUSATIVE_PASSIVE_INFORMAL);
+			
+			GrammaFormConjugateResult causativePassiveFormInformalPresentForm = makeCausativePassiveFormInformalPresentForm(dictionaryEntry);
+
+			// prosta
+			causativePassiveInformalForm.getGrammaFormConjugateResults().add(causativePassiveFormInformalPresentForm);
+			causativePassiveInformalForm.getGrammaFormConjugateResults().add(makeCausativePassiveFormInformalPresentNegativeForm(causativePassiveFormInformalPresentForm));
+			causativePassiveInformalForm.getGrammaFormConjugateResults().add(makeCausativePassiveFormInformalPastForm(causativePassiveFormInformalPresentForm));
+			causativePassiveInformalForm.getGrammaFormConjugateResults().add(makeCausativePassiveFormInformalPastNegativeForm(causativePassiveFormInformalPresentForm));
+			
+			result.add(causativePassiveInformalForm);
+
+			GrammaFormConjugateGroupTypeElements causativePassiveFormalForm = new GrammaFormConjugateGroupTypeElements();
+			causativePassiveFormalForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_CAUSATIVE_PASSIVE_FORMAL);
+				
+			// formalna
+			causativePassiveFormalForm.getGrammaFormConjugateResults().add(makeCausativePassiveFormFormalPresentForm(keigoHelper, causativePassiveFormInformalPresentForm));
+			causativePassiveFormalForm.getGrammaFormConjugateResults().add(makeCausativePassiveFormFormalPresentNegativeForm(keigoHelper, causativePassiveFormInformalPresentForm));
+			causativePassiveFormalForm.getGrammaFormConjugateResults().add(makeCausativePassiveFormFormalPastForm(keigoHelper, causativePassiveFormInformalPresentForm));
+			causativePassiveFormalForm.getGrammaFormConjugateResults().add(makeCausativePassiveFormFormalPastNegativeForm(keigoHelper, causativePassiveFormInformalPresentForm));
+			
+			result.add(causativePassiveFormalForm);
+			
+			// forma te
+			GrammaFormConjugateGroupTypeElements causativePassiveTeForm = new GrammaFormConjugateGroupTypeElements();
+			
+			causativePassiveTeForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.VERB_CAUSATIVE_PASSIVE_TE);
+			
+			causativePassiveTeForm.getGrammaFormConjugateResults().add(makeCausativePassiveTeForm(causativePassiveFormInformalPresentForm));
+			
+			result.add(causativePassiveTeForm);
+		}		
+		
 		// forma ba
 		GrammaFormConjugateGroupTypeElements baForm = new GrammaFormConjugateGroupTypeElements();
 		
@@ -2614,7 +2650,234 @@ public class VerbGrammaConjugater {
 		causativeTeForm.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_TE);
 		
 		return causativeTeForm;
-	}	
+	}
+	
+	private static GrammaFormConjugateResult makeCausativePassiveFormInformalPresentForm(DictionaryEntry dictionaryEntry) {
+				
+		// make common
+		GrammaFormConjugateResult result = makeCommon(dictionaryEntry);
+		
+		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+		
+		result.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_PASSIVE_INFORMAL_PRESENT);
+				
+		String kanji = dictionaryEntry.getKanji();
+		
+		if (kanji != null) { 			
+			result.setKanji(makeCausativePassiveFormForKanjiOrKana(kanji, dictionaryEntryType));
+		}
+		
+		List<String> kanaList = dictionaryEntry.getKanaList();
+			
+		List<String> kanaListResult = new ArrayList<String>();
+		
+		for (String currentKanaList : kanaList) {			
+			kanaListResult.add(makeCausativePassiveFormForKanjiOrKana(currentKanaList, dictionaryEntryType));
+		}
+		
+		result.setKanaList(kanaListResult);
+				
+		List<String> romajiList = dictionaryEntry.getRomajiList();
+		
+		List<String> romajiListResult = new ArrayList<String>();
+		
+		for (String currentRomajiList : romajiList) {			
+			romajiListResult.add(makeCausativePassiveFormForRomaji(currentRomajiList, dictionaryEntryType));
+		}
+		
+		result.setRomajiList(romajiListResult);
+		
+		return result;
+	}
+	
+	private static String makeCausativePassiveFormForKanjiOrKana(String kana, DictionaryEntryType dictionaryEntryType) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU || (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && kana.endsWith("す") == true)) {
+			return removeLastChar(kana) + "させられる";
+			
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && kana.endsWith("す") == false) {
+			
+			String kanaWithoutLastChar = removeLastChar(kana);
+			String lastChar = getLastChars(kana, 1);
+			
+			String lastCharMappedToA = lastKanaCharsMapperToAChar.get(lastChar);
+			
+			if (lastCharMappedToA == null) {
+				throw new RuntimeException("lastCharMappedToA == null: " + kana);
+			}
+			
+			return kanaWithoutLastChar + lastCharMappedToA + "される";
+			
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
+			if (kana.endsWith("来る") == true) {
+				return removeChars(kana, 1) + "させられる";
+				
+			} else if (kana.endsWith("くる") == true) {
+				return removeChars(kana, 2) + "こさせられる";
+				
+			} else if (kana.endsWith("する") == true) {
+				return removeChars(kana, 2) + "させられる";
+			} else {
+				throw new RuntimeException("makeCausativePassiveFormForKanjiOrKana 1: " + kana);	
+			}
+		}
+		
+		throw new RuntimeException("makeCausativePassiveFormForKanjiOrKana 2: " + dictionaryEntryType);
+	}
+	
+	private static String makeCausativePassiveFormForRomaji(String romaji, DictionaryEntryType dictionaryEntryType) {
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU || (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && romaji.endsWith("su") == true)) {
+			return removeChars(romaji, 2) + "saserareru";
+			
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && romaji.endsWith("su") == false) {
+			
+			String romajiLastThreeChars = getLastChars(romaji, 3);
+			
+			if (romajiLastThreeChars != null && lastRomajiCharsMapperToAChar.containsKey(romajiLastThreeChars) == true) {
+				return removeChars(romaji, 3) + lastRomajiCharsMapperToAChar.get(romajiLastThreeChars) + "sareru";
+			}
+			
+			String romajiLastTwoChars = getLastChars(romaji, 2);
+			
+			if (romajiLastTwoChars != null && lastRomajiCharsMapperToAChar.containsKey(romajiLastTwoChars) == true) {
+				return removeChars(romaji, 2) + lastRomajiCharsMapperToAChar.get(romajiLastTwoChars) + "sareru";
+			}
+			
+			String romajiLastOneChar = getLastChars(romaji, 1);
+			
+			if (romajiLastOneChar != null && lastRomajiCharsMapperToAChar.containsKey(romajiLastOneChar) == true) {
+				return removeChars(romaji, 1) + lastRomajiCharsMapperToAChar.get(romajiLastOneChar) + "sareru";
+			}
+			
+			throw new RuntimeException("makeCausativePassiveFormForRomaji 1: " + romaji);
+			
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
+			if (romaji.endsWith("kuru") == true) {
+				return removeChars(romaji, 4) + "ko" + "saserareru";
+			} else if (romaji.endsWith("suru") == true) {
+				return removeChars(romaji, 4) + "saserareru";
+			} else {
+				throw new RuntimeException("makeCausativePassiveFormForRomaji 2: " + romaji);
+			}
+		}
+		
+		throw new RuntimeException("makeCausativePassiveFormForRomaji 3: " + dictionaryEntryType);
+	}
+	
+	private static GrammaFormConjugateResult makeCausativePassiveFormInformalPresentNegativeForm(GrammaFormConjugateResult causativePassiveFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry causativePassiveFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(causativePassiveFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult causativePassiveFormInformalPresentNegativeForm = makeInformalPresentNegativeForm(causativePassiveFormInformalPresentFormAsDictionaryEntry);
+		
+		// replace result type
+		causativePassiveFormInformalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_PASSIVE_INFORMAL_PRESENT_NEGATIVE);
+		
+		return causativePassiveFormInformalPresentNegativeForm;
+	}
+	
+	private static GrammaFormConjugateResult makeCausativePassiveFormInformalPastForm(GrammaFormConjugateResult causativePassiveFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry causativePassiveFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(causativePassiveFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult causativePassiveFormInformalPastForm = makeInformalPastForm(causativePassiveFormInformalPresentFormAsDictionaryEntry);
+		
+		// replace result type
+		causativePassiveFormInformalPastForm.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_PASSIVE_INFORMAL_PAST);
+		
+		return causativePassiveFormInformalPastForm;
+	}
+	
+	private static GrammaFormConjugateResult makeCausativePassiveFormInformalPastNegativeForm(GrammaFormConjugateResult causativePassiveFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry causativePassiveFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(causativePassiveFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult causativePassiveFormInformalPastNegativeForm = makeInformalPastNegativeForm(causativePassiveFormInformalPresentFormAsDictionaryEntry);
+		
+		// replace result type
+		causativePassiveFormInformalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_PASSIVE_INFORMAL_PAST_NEGATIVE);
+		
+		return causativePassiveFormInformalPastNegativeForm;
+	}
+	
+	private static GrammaFormConjugateResult makeCausativePassiveFormFormalPresentForm(KeigoHelper keigoHelper, GrammaFormConjugateResult causativePassiveFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry causativePassiveFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(causativePassiveFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult causativePassiveFormFormalPresentForm = makeFormalPresentForm(keigoHelper, causativePassiveFormInformalPresentFormAsDictionaryEntry, false, false);
+		
+		// replace result type
+		causativePassiveFormFormalPresentForm.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_PASSIVE_FORMAL_PRESENT);
+				
+		return causativePassiveFormFormalPresentForm;
+	}
+
+	private static GrammaFormConjugateResult makeCausativePassiveFormFormalPresentNegativeForm(KeigoHelper keigoHelper, GrammaFormConjugateResult causativePassiveFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry causativePassiveFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(causativePassiveFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult causativePassiveFormFormalPresentNegativeForm = makeFormalPresentNegativeForm(keigoHelper, causativePassiveFormInformalPresentNegativeFormAsDictionaryEntry, false, false);
+		
+		// replace result type
+		causativePassiveFormFormalPresentNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_PASSIVE_FORMAL_PRESENT_NEGATIVE);
+				
+		return causativePassiveFormFormalPresentNegativeForm;
+	}
+
+	private static GrammaFormConjugateResult makeCausativePassiveFormFormalPastForm(KeigoHelper keigoHelper, GrammaFormConjugateResult causativePassiveFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry causativePassiveFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(causativePassiveFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult causativePassiveFormFormalPastForm = makeFormalPastForm(keigoHelper, causativePassiveFormInformalPresentNegativeFormAsDictionaryEntry, false, false);
+		
+		// replace result type
+		causativePassiveFormFormalPastForm.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_PASSIVE_FORMAL_PAST);
+		
+		return causativePassiveFormFormalPastForm;
+	}
+
+	private static GrammaFormConjugateResult makeCausativePassiveFormFormalPastNegativeForm(KeigoHelper keigoHelper, GrammaFormConjugateResult causativePassiveFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry causativePassiveFormInformalPresentNegativeFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(causativePassiveFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult causativePassiveFormFormalPastNegativeForm = makeFormalPastNegativeForm(keigoHelper, causativePassiveFormInformalPresentNegativeFormAsDictionaryEntry, false, false);
+		
+		// replace result type
+		causativePassiveFormFormalPastNegativeForm.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_PASSIVE_FORMAL_PAST_NEGATIVE);
+				
+		return causativePassiveFormFormalPastNegativeForm;
+	}
+	
+	private static GrammaFormConjugateResult makeCausativePassiveTeForm(GrammaFormConjugateResult causativePassiveFormInformalPresentForm) {
+		
+		// convert to dictionary entry
+		DictionaryEntry causativePassiveFormInformalPresentFormAsDictionaryEntry = convertGrammaFormConjugateResultToDictionaryEntry(causativePassiveFormInformalPresentForm, DictionaryEntryType.WORD_VERB_RU);
+		
+		// make form
+		GrammaFormConjugateResult causativeTeForm = makeTeForm(causativePassiveFormInformalPresentFormAsDictionaryEntry);
+		
+		// replace result type
+		causativeTeForm.setResultType(GrammaFormConjugateResultType.VERB_CAUSATIVE_PASSIVE_TE);
+		
+		return causativeTeForm;
+	}
 	
 	private static String replaceEndWith(String word, String wordEndWithToReplace, String replacement) {
 		return word.substring(0, word.length() - wordEndWithToReplace.length()) + replacement; 
