@@ -225,6 +225,9 @@ public class VerbExampler {
 		// koto ni shite iru
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_KOTO_NI_SHITE_IRU, makeKotoNiShiteIruExample(dictionaryEntry, grammaFormCache));
 		
+		// made
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_MADE, makeMadeExample(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1740,7 +1743,13 @@ public class VerbExampler {
 		final String templateRomaji = "%s koto ni suru";
 				
 		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
-
+		
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true);
+		
+		exampleResult1.setAlternative(exampleResult2);
+		
 		return exampleResult1;
 	}
 	
@@ -1752,6 +1761,24 @@ public class VerbExampler {
 				
 		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
+		
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(informalPresentNegativeForm, templateKanji, templateKana, templateRomaji, true);
+		
+		exampleResult1.setAlternative(exampleResult2);
+
+		
+		return exampleResult1;
+	}
+	
+	private static ExampleResult makeMadeExample(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+		
+		final String templateKanji = "%sまで, ...";
+		final String templateKana = "%sまで, ...";
+		final String templateRomaji = "%s made, ...";
+		
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
+		
 		return exampleResult1;
 	}
 }

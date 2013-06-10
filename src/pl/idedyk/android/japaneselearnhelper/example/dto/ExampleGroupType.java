@@ -278,7 +278,9 @@ public enum ExampleGroupType {
 	
 	VERB_KOTO_NI_SURU("Decydować się na"),
 	
-	VERB_KOTO_NI_SHITE_IRU("Starać się regularnie wykonywać");
+	VERB_KOTO_NI_SHITE_IRU("Starać się regularnie wykonywać"),
+	
+	VERB_MADE("Dopóki nie zrobię", "Czasownik przed made określa coś pozytywnego");
 	
 	private String name;
 	
