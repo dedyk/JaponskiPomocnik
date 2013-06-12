@@ -280,7 +280,10 @@ public enum ExampleGroupType {
 	
 	VERB_KOTO_NI_SHITE_IRU("Starać się regularnie wykonywać"),
 	
-	VERB_MADE("Dopóki nie zrobię", "Czasownik przed made określa coś pozytywnego");
+	VERB_MADE("Dopóki nie zrobię", "Czasownik przed made określa coś pozytywnego"),
+	
+	VERB_KATA("Sposób robienia / Sposób użycia / Jak coś zrobić", "Uwaga: (1) aplikacja nie uwzględnia zmiany partykuły に na の w złożonych czasownikach; (2) aplikacja nie uwzględnia zmiany " +
+			"partykuły に lub へ na への stojącej przed czasownikiem w czasownikach określających ruch.");
 	
 	private String name;
 	

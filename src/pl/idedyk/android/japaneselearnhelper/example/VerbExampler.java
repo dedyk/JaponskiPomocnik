@@ -228,6 +228,9 @@ public class VerbExampler {
 		// made
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_MADE, makeMadeExample(dictionaryEntry, grammaFormCache));
 		
+		// kata
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_KATA, makeKataExample(dictionaryEntry, grammaFormCache));
+		
 		return result;
 	}
 
@@ -1780,5 +1783,57 @@ public class VerbExampler {
 		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji, templateKana, templateRomaji, true);
 		
 		return exampleResult1;
+	}
+	
+	private static ExampleResult makeKataExample(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+				
+		GrammaFormConjugateResult stemForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_STEM);
+		
+		String prefixKana = stemForm.getPrefixKana();
+		String prefixRomaji = stemForm.getPrefixRomaji();
+		
+		if (prefixKana != null && prefixKana.equals("を") == true) {
+			prefixKana = "の";
+			prefixRomaji = "no";
+		}
+		
+		String kanji = stemForm.getKanji();
+		
+		if (kanji != null) { 
+			kanji = kanji.replaceAll("を", "の");
+		}
+		
+		List<String> kanaList = stemForm.getKanaList();
+		
+		if (kanaList != null) {
+			
+			List<String> newKanaList = new ArrayList<String>();
+			
+			for (String currentKana : kanaList) {
+				newKanaList.add(currentKana.replaceAll("を", "の"));
+			}
+			
+			kanaList = newKanaList;
+		}
+		
+		List<String> romajiList = stemForm.getRomajiList();
+		
+		if (romajiList != null) {
+			
+			List<String> newRomajiList = new ArrayList<String>();
+			
+			for (String currentRomaji : romajiList) {
+				newRomajiList.add(currentRomaji.replaceAll(" o ", " no "));
+			}
+			
+			romajiList = newRomajiList;
+		}
+		
+		final String templateKanji = "%s方";
+		final String templateKana = "%sかた";
+		final String templateRomaji = "%skata";
+				
+		return GrammaExampleHelper.makeSimpleTemplateExample(
+				prefixKana, kanji, kanaList, prefixRomaji, romajiList, templateKanji, templateKana, templateRomaji, true);
 	}
 }
