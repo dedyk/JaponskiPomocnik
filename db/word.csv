@@ -2837,7 +2837,9 @@ wytłumaczenie",,
 Genki 2-16",,大学院,だいがくいん,,daigakuin,"studia magisterskie
 studia podyplomowe",,
 1436,WORD_VERB_U,"COMMON_WORD
-VERB_INTRANSITIVITY",HIRAGANA,Genki kanji 1-11,,映る,うつる,,utsuru,odbijać się,,
+VERB_INTRANSITIVITY",HIRAGANA,Genki kanji 1-11,,映る,うつる,,utsuru,"odbijać się
+pasować
+być zrobionym",,
 1437,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,画家,がか,,gaka,malarz,,
 1438,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 1-11,,計画,けいかく,,keikaku,plan,,
@@ -10297,7 +10299,8 @@ VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,苛める,いじめる,,ijimeru,"znęca�
 prześladować
 dręczyć
 torturować",,
-5084,WORD_VERB_RU,COMMON_WORD,HIRAGANA,Genki 2-21,,着替える,きがえる,,kigaeru,zmieniać ubranie,,
+5084,WORD_VERB_RU,COMMON_WORD,HIRAGANA,Genki 2-21,,着替える,きがえる,,kigaeru,"przebierać się
+zmieniać ubranie",,
 5085,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,褒める,ほめる,,homeru,"pochwalać
 komplementować
@@ -15975,3 +15978,39 @@ ograniczenie",,
 poprawiać
 korygować
 prostować",,
+7854,WORD_NOUN,,HIRAGANA,Inne,,璽,じ,,ji,pieczęć cesarska,,
+7855,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,盾,たて,,tate,"tarcza
+ochrona
+pretekst",,
+7856,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,侯,こう,,kou,"markiz
+pan
+magnat",,
+7857,WORD_NOUN,,HIRAGANA,Inne,,峽,きょう,,kyou,"wąwóz
+gardziel
+wąska dolina",,
+7858,WORD_NOUN,,HIRAGANA,Inne,,峽,はざま,,hazama,"przerwa
+parów
+jar",,
+7859,WORD_NOUN,,HIRAGANA,Inne,,弧,こ,,ko,"łuk
+sklepienie łukowe",,
+7860,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,憶う,おもう,,omou,"myśleć
+zgadywać",,
+7861,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,憶える,おぼえる,,oboeru,"zapamiętywać
+uczyć się",,
+7862,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,映える,はえる,,haeru,"błyszczeć
+wyglądać atrakcyjnie",,
+7863,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,映す,うつす,,utsusu,"robić zdjęcia
+kopiować",,
+7864,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,謀る,はかる,,hakaru,"planować
+zmawiać się
+obmyślać
+zwodzić",,
+7865,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,酢,す,,su,ocet,,
+7866,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,岬,みさき,,misaki,"przylądek
+cypel
+punkt",,
+7867,WORD_NOUN,,HIRAGANA,Inne,,俊,しゅん,,shun,"doskonałość
+genialność",,
