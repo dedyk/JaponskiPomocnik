@@ -792,7 +792,9 @@ cichy
 spokój
 bierność",,
 424,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,"Genki 1-5
-Genki kanji 1-11",,好き,すき,,suki,lubić,,
+Genki kanji 1-11",,好き,すき,,suki,"lubić
+ulubiony
+ukochany",,
 425,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 1-5,,大嫌い,だいきらい,,daikirai,nienawidzić,,
 426,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Genki 1-5,,大好き,だいすき,,daisuki,"kochać
 bardzo lubić",,
@@ -2818,8 +2820,9 @@ Genki kanji 1-10",を,持ってくる,もってくる,o,motte kuru,przynosić,,
 Genki 2-17",,紙,かみ,,kami,papier,,
 1425,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,和紙,わし,,washi,japoński papier,,
 1426,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,好意,こうい,,koui,dobra wola,,
-1427,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,好み,このみ,,konomi,"upodobanie
-hobby",,
+1427,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,好み,このみ,,konomi,"upodobanie
+hobby
+smak",,
 1428,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,近く,ちかく,,chikaku,pobliski,,
 1429,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 1-11,,近所,きんじょ,,kinjo,"bliska okolica
 sąsiedztwo
@@ -4986,7 +4989,7 @@ pułap
 szczyt (cen)",,
 2571,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-17,,-,のための,,no tame no,dla,~ ... X,
 2572,UNKNOWN,,HIRAGANA_KATAKANA,Genki dodatkowe 2-17,,大ヒット,だいひっと,,dai hitto,wielki hit,"np. film, muzyka i etc",
-2573,UNKNOWN,,HIRAGANA,Genki dodatkowe 2-17,,-,しかし,,shikashi,"jednak
+2573,UNKNOWN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-17,,併し,しかし,,shikashi,"jednak
 jednakże
 ale
 lecz",,
@@ -16014,3 +16017,59 @@ cypel
 punkt",,
 7867,WORD_NOUN,,HIRAGANA,Inne,,俊,しゅん,,shun,"doskonałość
 genialność",,
+7868,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,噴く,ふく,,fuku,"wydzielać
+wydalać
+chlustać
+spłukiwać",,
+7869,UNKNOWN,,HIRAGANA,Inne,,翌,よく,,yoku,następny,,
+7870,UNKNOWN,,HIRAGANA,Inne,,即,そく,,soku,"natychmiast
+od razu
+obejmować (urząd)
+wstępować (na tron)
+czyli
+innymi słowami",,
+7871,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,即ち,すなわち,,sunawachi,"czyli
+innymi słowami
+od razu",,
+7872,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,茎,くき,,kuki,"łodyga
+gałąź",,
+7873,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,好む,このむ,,konomu,"lubić
+mieć upodobanie w",,
+7874,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,好く,すく,,suku,"lubić
+mieć upodobanie w",,
+7875,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,摘む,つむ,,tsumu,"wyrywać
+wyciągać
+zbierać",,
+7876,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,胆,きも,,kimo,wątroba,,
+7877,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,躍る,おどる,,odoru,"podskakiwać
+skakać",,
+7878,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,唇,くちびる,,kuchibiru,"usta
+wargi",,
+7879,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,併せる,あわせる,,awaseru,"zbierać
+gromadzić",,
+7880,WORD_EXPRESSION,,HIRAGANA,Inne,,併せて,あわせて,,awasete,"razem
+grupowo
+ponadto
+dodatkowo
+w tym samym czasie",,
+7881,WORD_VERB_RU,COMMON_WORD,HIRAGANA,Inne,,控える,ひかえる,,hikaeru,"zapisywać
+notować
+powstrzymywać się
+czekać",,
+7882,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,控え,ひかえ,,hikae,"zapis
+notatka
+czekanie
+powstrzymywanie się",,
+7883,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,疎む,うとむ,,utomu,"zaniedbywać
+unikać
+odstręczać",,
+7884,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,疎い,うとい,,utoi,"mało znany
+odległy
+wyobcowany",,
+7885,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,疎か,おろそか,,orosoka,"niedbały
+nieuważny",,
+7886,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,泡,あわ,,awa,"piana
+bańka (mydlana, powietrzna)",,
