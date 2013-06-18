@@ -9359,7 +9359,8 @@ wspominać
 przypominać (sobie)",,
 4666,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,芋,いも,,imo,"ziemniak
 kartofel
-bulwa",,
+bulwa
+kolokasja",,
 4667,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 2-23
 Genki dodatkowe 2-23",,横,よこ,,yoko,"strona
 bok
@@ -16073,3 +16074,56 @@ wyobcowany",,
 nieuważny",,
 7886,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,泡,あわ,,awa,"piana
 bańka (mydlana, powietrzna)",,
+7887,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,腐る,くさる,,kusaru,"gnić
+butwieć
+rdzewieć",,
+7888,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,腐れる,くされる,,kusareru,"gnić
+butwieć
+rdzewieć",,
+7889,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,恭しい,うやうやしい,,uyauyashii,"szacowny
+godny powagi
+godny respektu",,
+7890,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,拘る,かかわる,,kakawaru,"zajmować się
+mieć wzgląd",,
+7891,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,蒸す,むす,,musu,"parować
+duszno
+parno",,
+7892,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,蒸らす,むらす,,murasu,odparowywać,,
+7893,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,蒸れる,むれる,,mureru,"być zaparowanym
+być wilgotnym
+być spoconym
+stawać się lepkim",,
+7894,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,塀,へい,,hei,"ściana
+mur
+płot",,
+7895,WORD_VERB_U,,HIRAGANA,Inne,,憂う,うれう,,ureu,"żałować
+lamentować
+być zaniepokojonym",,
+7896,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,憂える,うれえる,,ureeru,"żałować
+lamentować
+być zaniepokojonym",,
+7897,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,憂い,うれい,,urei,"rozpacz
+żałość",,
+7898,UNKNOWN,,HIRAGANA,Inne,,層,そう,,sou,"klasa (społeczna)
+warstwa",,
+7899,WORD_NOUN,,HIRAGANA,Inne,,爵,しゃく,,shaku,"baron
+godność para",,
+7900,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,窯,かま,,kama,piec,"do wypalania cegły, porcelany itp.",
+7901,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,畝,せ,,se,se,"jednostka miary ok. 99,3 m2",
+7902,WORD_NOUN,,HIRAGANA,Inne,,畝,うね,,une,"grządka
+rowek
+fałda",,
+7903,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,嫁ぐ,とつぐ,,totsugu,wychodzić za mąż,,
+7904,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,嫁,よめ,,yome,"panna młoda
+synowa",,
+7905,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,浄い,きよい,,kiyoi,czysty,,
+7906,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,浸す,ひたす,,hitasu,moczyć,,
+7907,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,浸る,ひたる,,hitaru,"nasiąkać
+być zalewanym",,
+7908,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鐘,かね,,kane,dzwon,,
