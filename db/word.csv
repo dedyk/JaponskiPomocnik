@@ -16127,3 +16127,97 @@ VERB_TRANSITIVITY",HIRAGANA,Inne,,浸す,ひたす,,hitasu,moczyć,,
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,浸る,ひたる,,hitaru,"nasiąkać
 być zalewanym",,
 7908,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鐘,かね,,kane,dzwon,,
+7909,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,斗,と,,to,"to (jednostka pojemności ok 18 litrów)
+chochla
+czerpak",,
+7910,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,沿う,そう,,sou,"leżeć
+biec wzdłuż
+leżeć równolegle",,
+7911,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,栓,せん,,sen,korek,,
+7912,WORD_NOUN,,HIRAGANA,Inne,,刃,やいば,,yaiba,"żyletka
+miecz",,
+7913,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,刃,は,,ha,"ostrze
+żyletka",,
+7914,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,矛,ほこ,,hoko,"halabarda
+włócznia",,
+7915,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,賄う,まかなう,,makanau,"nabywać
+zaopatrywać (w żywność)
+nansować",,
+7916,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鋼,はがね,,hagane,stal,,
+7917,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宵,よい,,yoi,wczesny wieczór,,
+7918,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,伴う,ともなう,,tomonau,"towarzyszyć
+przyprowadzać",,
+7919,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,崩す,くずす,,kuzusu,"demolować
+niszczyć
+kruszyć",,
+7920,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,崩れる,くずれる,,kuzureru,"rozpadać się
+upadać
+pogarszać się",,
+7921,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,襟,えり,,eri,"kołnierz
+klapa (marynarki)
+obroża",,
+7922,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,丘,おか,,oka,"pagórek
+wzniesienie",,
+7923,UNKNOWN,,HIRAGANA,Inne,,某,ぼう,,bou,"pewien
+jeden
+ta osoba
+ta rzecz",,
+7924,WORD_PRONOUN,,HIRAGANA,Inne,,朕,ちん,,chin,"ja
+my",używane jedynie przez casarza,
+7925,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,卑しい,いやしい,,iyashii,"pokorny
+podły
+wulgarny
+chciwy",,
+7926,WORD_VERB_U,,HIRAGANA,Inne,,卑しむ,いやしむ,,iyashimu,"pogardzać
+potępiać",,
+7927,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,卑しめる,いやしめる,,iyashimeru,"pogardzać
+potępiać",,
+7928,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,旬,じゅん,,jun,okres dziesięciodniowy,,
+7929,WORD_NOUN,,HIRAGANA,Inne,,旬,しゅん,,shun,sezon,"na określone produkty, np. owoce, ryby i etc.",
+7930,WORD_NOUN,,HIRAGANA,Inne,,勺,しゃく,,shaku,shaku,jednostka pojemności ok. 18 ml,
+7931,WORD_NOUN,,HIRAGANA,Inne,,坑,こう,,kou,"dziura
+szyb",,
+7932,WORD_NOUN,,HIRAGANA,Inne,,悦,えつ,,etsu,"radość
+ekstaza
+zachwyt",,
+7933,WORD_VERB_U,,HIRAGANA,Inne,,悦ぶ,よろこぶ,,yorokobu,"radować się
+cieszyć się",,
+7934,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,猟,りょう,,ryou,"polowanie
+strzelanie",,
+7935,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,粘る,ねばる,,nebaru,"kleić się
+lepić się",,
+7936,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,縮まる,ちぢまる,,chidimaru,"kurczyć się
+maleć",,
+7937,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,縮む,ちぢむ,,chidimu,"kurczyć się
+maleć
+marszczyć się",,
+7938,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,縮める,ちぢめる,,chidimeru,"zmniejszać
+skracać
+ciąć",,
+7939,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,縮れる,ちぢれる,,chidireru,marszczyć się,,
+7940,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,肺,はい,,hai,płuca,,
+7941,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,豆,まめ,,mame,"fasola
+ziarno grochu",,
+7942,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,逸らす,そらす,,sorasu,"wypuszczać
+przepuszczać
+opuszczać
+tracić",,
+7943,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,逸れる,それる,,soreru,"zbaczać
+odchylać się",,
+7944,WORD_NOUN,,HIRAGANA,Inne,,郭,かく,,kaku,"ogrodzenie
+kontur",,
+7945,WORD_NOUN,,HIRAGANA,Inne,,郭,くるわ,,kuruwa,"rejon
+dzielnica",,
+7946,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,渦,うず,,uzu,"wir
+odmęt",,
