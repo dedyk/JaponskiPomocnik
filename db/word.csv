@@ -7849,7 +7849,8 @@ VERB_KEIGO_LOW
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-20,,頂く,いただく,,itadaku,"[modestywna forma od taberu, nomu, morau]",,
 3962,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-20,,伺う,うかがう,,ukagau,"odwiedzać
-pytać","kogoś, grzecznie",
+pytać
+słyszeć","kogoś, grzecznie",
 3963,WORD_VERB_U,VERB_KEIGO_LOW,HIRAGANA,Genki 2-20,,-,おる,,oru,[modestywna forma od iru],,
 3964,WORD_VERB_U,VERB_KEIGO_LOW,HIRAGANA,Genki 2-20,,-,ござる,,gozaru,[modestywna forma od aru],,
 3965,WORD_VERB_U,VERB_KEIGO_LOW,HIRAGANA,Genki 2-20,,-,ておる,,te oru,[modestywna forma od te iru],,
@@ -11664,8 +11665,7 @@ przyjęcie religii",,
 wyznawca",,
 5726,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,宗家,そうけ,,souke,głowa rodziny,,
 5727,WORD_NOUN,"COMMON_WORD
-SURU_VERB",HIRAGANA,Inne,,滴,しずく,,shizuku,"kapanie
-spadanie",wody,
+SURU_VERB",HIRAGANA,Inne,,滴,しずく,,shizuku,kropla,wody,
 5728,WORD_NOUN,,HIRAGANA,Inne,,灯,とう,,tou,lampa,,
 5729,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,灯,ひ,,hi,światło,,
 5730,WORD_NOUN,,HIRAGANA,Inne,,灯,ともしび,,tomoshibi,światło,,
@@ -16221,3 +16221,62 @@ kontur",,
 dzielnica",,
 7946,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,渦,うず,,uzu,"wir
 odmęt",,
+7947,WORD_NOUN,,HIRAGANA,Inne,,匁,もんめ,,monme,monme,jednostka wagi ok. 3.75g,
+7948,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,伸びる,のびる,,nobiru,"rozciągać się
+rozszerzać się
+wydłużać się",,
+7949,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,伸ばす,のばす,,nobasu,"wydłużać
+przedłużać
+rozciągać",,
+7950,WORD_NOUN,,HIRAGANA,Inne,,匿,とく,,toku,"schronienie
+schowek
+tarcza",,
+7951,WORD_NOUN,,HIRAGANA,Inne,,虞,おそれ,,osore,"obawa
+niepokój",,
+7952,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,厄,やく,,yaku,"nieszczęście
+katastrofa",,
+7953,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,弔う,とむらう,,tomurau,"opłakiwanie
+opłakiwać
+odprawiać nabożeństwo (za zmarłego)",,
+7954,WORD_NOUN,,HIRAGANA,Inne,,弔い,とむらい,,tomurai,"pogrzeb
+kondolencje",,
+7955,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,瞬く,またたく,,matataku,"mrugać
+błyskać",,
+7956,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,瞬き,またたき,,matataki,"błysk
+mrugnięcie",,
+7957,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,隅,すみ,,sumi,"róg
+narożnik",,
+7958,WORD_NOUN,,HIRAGANA,Inne,,貢,こう,,kou,datek,,
+7959,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,貢ぐ,みつぐ,,mitsugu,"wspierać
+finansować",,
+7960,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,滞る,とどこおる,,todokooru,"być w zastoju
+być opóźnionym
+być pozostawionym w niedokończonym stanie",,
+7961,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,茂る,しげる,,shigeru,"rosnąć gęsto
+rosnąć bujnie",,
+7962,WORD_NOUN,,HIRAGANA,Inne,,朱,しゅ,,shu,"cynober
+wermut",,
+7963,WORD_NOUN,,HIRAGANA,Inne,,朱,あか,,aka,"szkarłatny
+czerwony
+krwisty",,
+7964,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,但し,ただし,,tadashi,"jednakże
+lecz",,
+7965,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,肝,きも,,kimo,"wątroba
+serce",,
+7966,WORD_NOUN,,HIRAGANA,Inne,,幣,へい,,hei,"ofiara sintoistyczna (na specjalnie zwiniętym papierze)
+zły nawyk
+przedrostek wyrażający pokorę
+dar",,
+7967,WORD_NOUN,,HIRAGANA,Inne,,幣,ぬさ,,nusa,ofiara sintoistyczna,,
+7968,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,欄,らん,,ran,"kolumna (w gazecie)
+przestrzeń
+ogrodzenie",,
+7969,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,滴る,したたる,,shitataru,"kapać
+ściekać",,
+7970,WORD_NOUN,,HIRAGANA,Inne,,滴り,したたり,,shitatari,"kapanie
+ściekanie",,
