@@ -663,7 +663,7 @@ Genki kanji 2-22",を,待つ,まつ,o,matsu,czekać,,
 VERB_INTRANSITIVITY",HIRAGANA,Genki 1-4,が,判る,わかる,ga,wakaru,"rozumieć
 znać
 poznać",,
-369,WORD_VERB_RU,,HIRAGANA,Genki 1-4,が,-,いる,ga,iru,"być
+369,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 1-4,が,-,いる,ga,iru,"być
 istnieć","miejsce ni, do rzeczy żywych",
 370,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-4,,-,ぐらい,,gurai,około,ogólne,
 371,WORD_EXPRESSION,,HIRAGANA,Genki 1-4,,-,ごめんなさい,,gomen nasai,przepraszam,,
@@ -813,7 +813,7 @@ wsiadać (do pojazdu)
 jechać
 jeździć
 być w (np. słowniku)",czymś,
-433,WORD_VERB_U,,HIRAGANA,Genki 1-5,を,-,やる,o,yaru,wykonywać,,
+433,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 1-5,を,-,やる,o,yaru,wykonywać,,
 434,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 1-5,,出かける,でかける,,dekakeru,wychodzić,,
 435,UNKNOWN,COMMON_WORD,HIRAGANA,Genki 1-5,,一緒に,いっしょに,,isshoni,razem,,
 436,UNKNOWN,,HIRAGANA,Genki 1-5,,-,それから,,sorekara,"i wtedy
@@ -1183,7 +1183,7 @@ VERB_TRANSITIVITY",HIRAGANA,"Genki 1-7
 Genki 1-11",に,勤める,つとめる,ni,tsutomeru,"pracować dla
 być zatrudnionym",niefizycznie,
 595,WORD_EXPRESSION,,HIRAGANA,Genki 1-7,に,勤めています,つとめています,ni,tsutomete imasu,pracować dla,,
-596,WORD_VERB_RU,,HIRAGANA,Genki 1-7,,-,やせる,,yaseru,tracić na wadze,,
+596,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 1-7,,-,やせる,,yaseru,tracić na wadze,,
 597,WORD_EXPRESSION,,HIRAGANA,Genki 1-7,,-,やせています,,yasete imasu,być chudym,,
 598,WORD_VERB_IRREGULAR,,HIRAGANA,"Genki 1-7
 Genki kanji 2-17",を,結婚する,けっこんする,o,kekkon suru,żenić się,,
@@ -1396,7 +1396,7 @@ Genki 2-22",,吹く,ふく,,fuku,"dmuchać
 wiać
 oddychać
 grać (na instrumencie dętym)",,
-701,WORD_VERB_U,,HIRAGANA,"Genki 1-9
+701,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,"Genki 1-9
 Genki 2-14",を,-,もらう,o,morau,"dostać
 otrzymać","coś, osoba ni rzecz",
 702,WORD_VERB_RU,"COMMON_WORD
@@ -1779,7 +1779,8 @@ narzeczony",,
 883,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-12,,気温,きおん,,kion,temperatura,tylko do pogody,
 884,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 1-12,,曇り,くもり,,kumori,"pochmurna pogoda
 zachmurzenie",,
-885,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-12
+885,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,"Genki 1-12
 Genki kanji 2-18",,試合,しあい,,shiai,"mecz
 gra
 zawody",,
@@ -2030,7 +2031,8 @@ robić na drutach",,
 VERB_TRANSITIVITY",HIRAGANA,"Genki 2-13
 Genki kanji 2-18",,貸す,かす,,kasu,"pożyczać
 wynajmować","komuś, rzecz o osoba ni",
-1002,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 2-13,,頑張る,がんばる,,ganbaru,starać się,,
+1002,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Genki 2-13,,頑張る,がんばる,,ganbaru,starać się,,
 1003,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-13,,磨く,みがく,,migaku,"myć zęby
 szczotkować
@@ -2205,8 +2207,8 @@ być do twarzy",rzecz ga,
 1080,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-14,,諦める,あきらめる,,akirameru,poddać się,,
 1081,WORD_VERB_RU,,HIRAGANA,Genki 2-14,,-,あげる,,ageru,dać,"komuś, rzecz o osoba ni",
-1082,WORD_VERB_RU,,HIRAGANA,Genki 2-14,,-,くれる,,kureru,dać,"mnie, rzecz o osoba ni",
-1083,WORD_VERB_RU,,HIRAGANA,Genki 2-14,が,-,できる,ga,dekiru,"zaistnieć
+1082,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Genki 2-14,,-,くれる,,kureru,dać,"mnie, rzecz o osoba ni",
+1083,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Genki 2-14,が,-,できる,ga,dekiru,"zaistnieć
 być zrobiony",,
 1084,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-14,,相談する,そうだんする,,soudan suru,konsultować,osoba ni,
 1085,WORD_VERB_IRREGULAR,,KATAKANA_HIRAGANA,Genki 2-14,,-,プロポーズする,,puropoozu suru,oświadczyć się,,
@@ -2405,7 +2407,8 @@ Genki 2-15",と,付き合う,つきあう,to,tsukiau,"chodzić z kimś
 iść na randkę",narzeczeństwo,
 1204,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 2-15,に,付き合う,つきあう,ni,tsukiau,dotrzymać towarzystwa,~ w celu,
-1205,WORD_VERB_U,COMMON_WORD,HIRAGANA,"Genki dodatkowe 2-13
+1205,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,"Genki dodatkowe 2-13
 Genki 2-15
 Genki kanji 2-13",に,着く,つく,ni,tsuku,"przybyć
 przybywać
@@ -3008,7 +3011,7 @@ Genki kanji 2-22",,留守,るす,,rusu,"nieobecny w domu
 nieobecność
 bycie poza domem
 bycie poza mieszkaniem",,
-1516,WORD_NOUN,,HIRAGANA,Genki kanji 2-14,,書き留め,かきとめ,,kakitome,list polecony,,
+1516,WORD_NOUN,SURU_VERB,HIRAGANA,Genki kanji 2-14,,書き留め,かきとめ,,kakitome,list polecony,,
 1517,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,王族,おうぞく,,ouzoku,członek rodziny królewskiej,,
 1518,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,民族,みんぞく,,minzoku,"rasa
 naród
@@ -3959,7 +3962,7 @@ mieć trudności
 być zakłopotanym
 być zawstydzonym
 być zaniepokojonym",,
-2057,WORD_VERB_U,,HIRAGANA,Genki 2-16,,連れていく,つれていく,,tsurete iku,zabrać,"kogoś, osoba o miejsce ni",
+2057,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 2-16,,連れていく,つれていく,,tsurete iku,zabrać,"kogoś, osoba o miejsce ni",
 2058,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-16,,直す,なおす,,naosu,"leczyć
 naprawiać
@@ -4201,7 +4204,7 @@ robić make up",,
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,似る,にる,,niru,"przypominać
 być podobnym do
 być jak",,
-2168,WORD_VERB_U,,HIRAGANA,Inne,に,-,よる,ni,yoru,"opierać się
+2168,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,に,-,よる,ni,yoru,"opierać się
 wynikać (z czegoś)",,
 2169,WORD_VERB_U,,HIRAGANA,Inne,,新聞による,しんぶんによる,,shinbun ni yoru,"opierać się na gazecie
 według gazety",,
@@ -6320,7 +6323,8 @@ mieć z kimś dobry kontakt",,
 3207,WORD_VERB_U,"COMMON_WORD
 VERB_KEIGO_HIGH
 VERB_INTRANSITIVITY",HIRAGANA,Genki 2-19,,-,いらっしゃる,,irassharu,"[honoryfikatywna forma od iku, kuru, iru]",,
-3208,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,-,おっしゃる,,ossharu,[honoryfikatywna forma od iu],,
+3208,WORD_VERB_U,"VERB_KEIGO_HIGH
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-19,,-,おっしゃる,,ossharu,[honoryfikatywna forma od iu],,
 3209,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,お休みになる,おやすみになる,,oyasumi ni naru,[honoryfikatywna forma od neru],,
 3210,WORD_VERB_U,"COMMON_WORD
 VERB_KEIGO_HIGH",HIRAGANA,Genki 2-19,,下さる,くださる,,kudasaru,[honoryfikatywna forma od kureru],,
@@ -6329,7 +6333,8 @@ VERB_KEIGO_HIGH",HIRAGANA,Genki 2-19,,ご覧になる,ごらんになる,,goran 
 3212,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 2-19,と,知り合う,しりあう,to,shiriau,"poznawać kogoś
 poznawać się",,
-3213,WORD_VERB_U,VERB_KEIGO_HIGH,HIRAGANA,Genki 2-19,,-,なさる,,nasaru,[honoryfikatywna forma od suru],,
+3213,WORD_VERB_U,"VERB_KEIGO_HIGH
+VERB_TRANSITIVITY",HIRAGANA,Genki 2-19,,-,なさる,,nasaru,[honoryfikatywna forma od suru],,
 3214,WORD_VERB_U,"COMMON_WORD
 VERB_INTRANSITIVITY",HIRAGANA,Genki 2-19,に,引っ越す,ひっこす,ni,hikkosu,przeprowadzać się,,
 3215,WORD_VERB_U,"COMMON_WORD
@@ -6349,7 +6354,7 @@ wpadać (do sąsiada, sklepu i etc)
 zbliżać się
 zbierać się
 spotykać się",,
-3218,WORD_VERB_RU,,HIRAGANA,Genki 2-19,,-,かける,,kakeru,siadać,,
+3218,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Genki 2-19,,-,かける,,kakeru,siadać,,
 3219,WORD_VERB_RU,,HIRAGANA,Genki 2-19,,-,もてる,,moteru,"podobać się (osobie)
 być zainteresowany (osobą)","cel romantyczny, osoba ni",
 3220,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-19,,遠慮する,えんりょする,,enryo suru,"zachować rezerwę
@@ -7151,7 +7156,7 @@ w takim razie",tylko na początku zdania,
 3604,WORD_EXPRESSION,,HIRAGANA,Genki dodatkowe 2-19,,ことを思い出す,ことをおもいだす,,koto o omoidasu,~ wspominać,jakąś czynność,
 3605,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,経,きょう,,kyou,sutra,,
 3606,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Inne,,経る,へる,,heru,"przechodzić przez
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,経る,へる,,heru,"przechodzić przez
 doświadczenie",,
 3607,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,経理,けいり,,keiri,"zarządzanie
@@ -7851,7 +7856,8 @@ VERB_TRANSITIVITY",HIRAGANA,Genki 2-20,,頂く,いただく,,itadaku,"[modestywn
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-20,,伺う,うかがう,,ukagau,"odwiedzać
 pytać
 słyszeć","kogoś, grzecznie",
-3963,WORD_VERB_U,VERB_KEIGO_LOW,HIRAGANA,Genki 2-20,,-,おる,,oru,[modestywna forma od iru],,
+3963,WORD_VERB_U,"VERB_KEIGO_LOW
+VERB_INTRANSITIVITY",HIRAGANA,Genki 2-20,,-,おる,,oru,[modestywna forma od iru],,
 3964,WORD_VERB_U,VERB_KEIGO_LOW,HIRAGANA,Genki 2-20,,-,ござる,,gozaru,[modestywna forma od aru],,
 3965,WORD_VERB_U,VERB_KEIGO_LOW,HIRAGANA,Genki 2-20,,-,ておる,,te oru,[modestywna forma od te iru],,
 3966,WORD_VERB_U,VERB_KEIGO_LOW,HIRAGANA,Genki 2-20,,-,でござる,,de gozaru,[modestywna forma od desu],,
@@ -9448,7 +9454,7 @@ porzucać (ukochanego, ukochaną)
 trząść się
 falować
 skręcać się",często występuje w formie biernej,
-4714,WORD_VERB_U,,HIRAGANA,Inne,,振う,ふるう,,furuu,"wykonywać
+4714,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,振う,ふるう,,furuu,"wykonywać
 przedstawiać
 pokazywać",,
 4715,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,振り,ふり,,furi,"wygląd
@@ -9509,7 +9515,8 @@ projekt",,
 SURU_VERB",HIRAGANA,Inne,,設問,せつもん,,setsumon,pytanie,,
 4738,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,設営,せつえい,,setsuei,"konstrukcja
 przygotowania",,
-4739,WORD_VERB_IRREGULAR,COMMON_WORD,HIRAGANA,Inne,,接する,せっする,,sessuru,"dotykać
+4739,WORD_VERB_IRREGULAR,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,接する,せっする,,sessuru,"dotykać
 kontaktować się
 zbliżać się
 spotykać się",,
@@ -10298,7 +10305,7 @@ obrabować",,
 5081,WORD_VERB_U,COMMON_WORD,HIRAGANA,Genki 2-21,,貼る,はる,,haru,"przyklejać
 naklejać
 nalepiać",,
-5082,WORD_VERB_U,,HIRAGANA,Genki 2-21,,-,やる,,yaru,dawać,"zwierzętom, kwiatom (podlewać), młodszemu rodzeństwu i etc",
+5082,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Genki 2-21,,-,やる,,yaru,dawać,"zwierzętom, kwiatom (podlewać), młodszemu rodzeństwu i etc",
 5083,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-21,,苛める,いじめる,,ijimeru,"znęcać się
 prześladować
@@ -11864,7 +11871,7 @@ letnie kimono",,
 5815,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,浴室,よくしつ,,yokushitsu,łazienka,,
 5816,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,浴場,よくじょう,,yokujou,łazienka,,
 5817,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,浴槽,よくそう,,yokusou,wanna,,
-5818,WORD_VERB_U,,HIRAGANA,Inne,,択ぶ,えらぶ,,erabu,wybierać,słowo przestarzałe,
+5818,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,択ぶ,えらぶ,,erabu,wybierać,słowo przestarzałe,
 5819,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,災い,わざわい,,wazawai,"nieszczęście
 katastrofa",,
 5820,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,天災,てんさい,,tensai,klęska żywiołowa,,
@@ -14025,7 +14032,9 @@ powolnie",,
 6848,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-22,,-,のんびりする,,nonbiri suru,obijać się,wydźwięk pozytywny,
 6849,WORD_EXPRESSION,,HIRAGANA,Genki 2-22,,もう少し,もうすこし,,mou sukoshi,jeszcze trochę,,
 6850,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,嬢,じょう,,jou,"niezamężna kobieta
-panienka",,
+panienka
+dziewczyna
+Panna",,
 6851,WORD_NUMBER,,HIRAGANA,Inne,,拾,じゅう,,juu,dziesięć,używane w dokumentach,
 6852,WORD_NOUN,,HIRAGANA,Inne,,拾い主,ひろいぬし,,hiroinushi,znalazca,,
 6853,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,拾い物,ひろいもの,,hiroi mono,rzecz znaleziona,,
@@ -14105,7 +14114,7 @@ wszystkie kraje",,
 Koledzy!",,
 6891,WORD_NOUN,,HIRAGANA,Inne,,諸派,しょは,,shoha,mniejszościowe partie w parlamencie,,
 6892,WORD_NOUN,,HIRAGANA,Inne,,諸事,しょじ,,shoji,różne sprawy,,
-6893,WORD_VERB_U,,HIRAGANA,Inne,,来たる,きたる,,kitaru,"przybyć
+6893,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,来たる,きたる,,kitaru,"przybyć
 przychodzić
 nadchodzić",,
 6894,WORD_NOUN,"COMMON_WORD
@@ -14702,7 +14711,8 @@ sięgać do",,
 7200,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,広げる,ひろげる,,hirogeru,"rozszerzać
 powiększać",,
-7201,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,広報,こうほう,,kouhou,"reklama
+7201,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,広報,こうほう,,kouhou,"reklama
 propaganda
 rozgłos
 public relations",,
@@ -16280,3 +16290,116 @@ ogrodzenie",,
 ściekać",,
 7970,WORD_NOUN,,HIRAGANA,Inne,,滴り,したたり,,shitatari,"kapanie
 ściekanie",,
+7971,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,塊,かたまり,,katamari,"gruda
+bryła
+masa",,
+7972,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,帆,ほ,,ho,żagiel,,
+7973,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,凸,とつ,,totsu,wypukły,,
+7974,WORD_NOUN,,HIRAGANA,Inne,,酌,しゃく,,shaku,"podawać sake
+nalewać sake",,
+7975,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,酌む,くむ,,kumu,"podawać sake
+nalewać sake",,
+7976,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,垂らす,たらす,,tarasu,"wieszać
+zawieszać
+zanurzać",,
+7977,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,垂れる,たれる,,tareru,"wisieć
+ściekać",,
+7978,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,繕う,つくろう,,tsukurou,naprawiać,,
+7979,WORD_NOUN,,HIRAGANA,Inne,,苗,びょう,,byou,"sadzonka
+szczepka
+kiełek
+młode drzewko",,
+7980,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,苗,なえ,,nae,"młoda roślina
+sadzonka (ryżu)",,
+7981,WORD_NOUN,,HIRAGANA,Inne,,苗,なわ,,nawa,"młoda roślina
+sadzonka (ryżu)",,
+7982,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,閥,ばつ,,batsu,"powiązanie
+klika
+klan
+frakcja",,
+7983,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,据える,すえる,,sueru,"kłaść
+umieszczać
+ustawiać",,
+7984,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,据わる,すわる,,suwaru,"siedzieć
+być ustawionym",,
+7985,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,烈しい,はげしい,,hageshii,"gwałtowny
+brutalny
+intensywny",,
+7986,WORD_NOUN,,HIRAGANA,Inne,,溪,たに,,tani,"przełęcz
+dolina
+parów
+wąwóz
+jar",,
+7987,WORD_NOUN,,HIRAGANA,Inne,,斎,とき,,toki,posiłek,spożywany podczas nabożeństw buddyjskich,
+7988,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,倣う,ならう,,narau,"naśladować
+iść za",,
+7989,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,廉,れん,,ren,"czystość
+uczciwość
+niska cena",,
+7990,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,廉い,やすい,,yasui,tani,,
+7991,WORD_NOUN,,HIRAGANA,Inne,,廉,かど,,kado,"oskarżenie
+podejrzenie",,
+7992,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,拒む,こばむ,,kobamu,"odmawiać
+zaprzeczać
+wyrzekać się
+sprzeciwiać się
+oponować",,
+7993,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,拒ぐ,ふせぐ,,fusegu,bronić,,
+7994,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,擬える,なぞらえる,,nazoraeru,"naśladować
+upodabniać się
+porównywać",,
+7995,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,恨み,うらみ,,urami,"niechęć
+nienawiść
+złość",,
+7996,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,恨む,うらむ,,uramu,"żywić urazę
+żywić niechęć
+żałować",,
+7997,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,擦る,こする,,kosuru,"trzeć
+drapać
+skrobać",,
+7998,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,擦る,する,,suru,"trzeć
+drapać
+skrobać",,
+7999,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,擦れる,すれる,,sureru,"wycierać się
+szeleścić
+docierać się
+stawać się bystrym",,
+8000,UNKNOWN,,HIRAGANA,Inne,,片,へん,,hen,"część
+fragment
+okruch
+skrawek",,
+8001,UNKNOWN,,HIRAGANA,Inne,,片,かた,,kata,"jeden (z dwóch)
+jedna strona
+pojedynczy",,
+8002,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,堪える,たえる,,taeru,"wytrzymywać
+przetrzymywać
+popierać
+opierać się",,
+8003,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,碑,いしぶみ,,ishibumi,"nagrobek
+kamienny pomnik",,
+8004,UNKNOWN,,HIRAGANA,Inne,,該,がい,,gai,"ten (o którym mowa)
+odnosić się
+korespondować",,
+8005,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,褒めちぎる,ほめちぎる,,homechigiru,"pochwalać
+komplementować
+chwalić
+podziwiać
+mówić miłe rzeczy",,
+8006,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,没,ぼつ,,botsu,"tonąć
+ginąć
+umierać",,
+8007,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,逐う,おう,,ou,"rozpędzać
+wyganiać
+ścigać
+tropić
+iść śladem",,
