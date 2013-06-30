@@ -2877,6 +2877,7 @@ płatny",,
 1452,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 1-12
 Genki dodatkowe 2-15
 Genki 2-21",,昔,むかし,,mukashi,"dawno temu
+dawne czasy
 stare dni
 przeszłość",,
 1453,UNKNOWN,COMMON_WORD,HIRAGANA,Genki kanji 1-12,,昔話,むかしばなし,,mukashi banashi,"bajka
@@ -16546,3 +16547,254 @@ wrzeciono",,
 8062,WORD_NOUN,,HIRAGANA,Inne,,錘,つむ,,tsumu,wrzeciono,,
 8063,WORD_VERB_U,,HIRAGANA,Inne,,附く,つく,,tsuku,"przyczepiać się
 być dodanym",,
+8064,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,喪,も,,mo,"opłakiwanie
+żałoba",,
+8065,UNKNOWN,,HIRAGANA,Inne,,劣,れつ,,retsu,"gorszy
+niższy",,
+8066,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,劣る,おとる,,otoru,"być gorszym
+być niżej",,
+8067,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,裏,うら,,ura,"tył
+odwrotna strona
+wnętrze",,
+8068,WORD_NOUN,,HIRAGANA,Inne,,奴,やっこ,,yakko,"sługa
+giermek
+chłopak",,
+8069,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,奴,やつ,,yatsu,"facet
+kumpel",,
+8070,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,廃する,はいする,,haisuru,"znosić
+porzucać
+unieważniać",,
+8071,WORD_VERB_U,,HIRAGANA,Inne,,廃る,すたる,,sutaru,stać się nieużytecznym,,
+8072,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,廃れる,すたれる,,sutareru,stać się nieużytecznym,,
+8073,WORD_VERB_U,,HIRAGANA,Inne,,措く,おく,,oku,"zaprzestawać
+odkładać
+pomijać
+wykluczać",,
+8074,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,稿,こう,,kou,"kopia
+manuskrypt
+słoma",,
+8075,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,誇る,ほこる,,hokoru,"szczycić się
+być dumnym",,
+8076,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,誇り,ほこり,,hokori,duma,,
+8077,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,錠,じょう,,jou,"zamek
+kłódka",,
+8078,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,韻,いん,,in,"dźwięk
+rym",,
+8079,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,肌,はだ,,hada,"skóra
+ciało
+ziarno
+charakter
+natura
+powierzchnia",,
+8080,WORD_VERB_U,,HIRAGANA,Inne,,愉しむ,たのしむ,,tanoshimu,"cieszyć się
+być uradowanym",,
+8081,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,企てる,くわだてる,,kuwadateru,"planować
+układać
+proponować
+próbować",,
+8082,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,企む,たくらむ,,takuramu,"planować
+wymyślać
+robić sztuczkę
+intrygować
+konspirować",,
+8083,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,催す,もよおす,,moyoosu,"organizować (przyjęcie, spotkanie)
+objawiać
+dawać znaki
+czuć
+odczuwać",,
+8084,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,尺,しゃく,,shaku,shaku,"jednostka miary ok 30,3 cm",
+8085,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,芝,しば,,shiba,"trawnik
+darnina
+darń",,
+8086,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,謹む,つつしむ,,tsutsushimu,"dyskrecja
+skromność
+być dyskretnym
+być skromnym
+być roztropnym",,
+8087,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,超,ちょう,,chou,"przekraczać
+przewyższać
+ultra-
+super-",,
+8088,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,超える,こえる,,koeru,"przekraczać
+prześcigać",,
+8089,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,超す,こす,,kosu,"przebierać miarę
+dopuszczać się ekscesów
+iść ponad",,
+8090,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鈴,すず,,suzu,dzwon,,
+8091,WORD_NOUN,,HIRAGANA,Inne,,鈴,りん,,rin,dzwon,,
+8092,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,溝,みぞ,,mizo,"rów
+kanał
+rynsztok",,
+8093,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,膜,まく,,maku,"membrana
+błona",,
+8094,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,激しい,はげしい,,hageshii,"ekstremalny
+ostry
+intensywny
+brutalny",,
+8095,WORD_NOUN,,HIRAGANA,Inne,,艇,てい,,tei,łódka,,
+8096,WORD_VERB_U,,HIRAGANA,Inne,,錬る,ねる,,neru,"hartować
+kuć
+rafinować
+oczyszczać",,
+8097,WORD_NOUN,,HIRAGANA,Inne,,陣,じん,,jin,"szyk bojowy
+pozycja (armii)",,
+8098,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,飽く,あく,,aku,"mieć dosyć
+być zmęczonym czymś",,
+8099,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,飽かす,あかす,,akasu,"męczyć
+zanudzać",,
+8100,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,飽きる,あきる,,akiru,"mieć dosyć
+pozbywać się",,
+8101,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,顕す,あらわす,,arawasu,"objawiać
+rozjaśniać",,
+8102,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,顕れる,あらわれる,,arawareru,"ukazywać się
+pojawiać się",,
+8103,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,岳,たけ,,take,"szczyt
+góra",,
+8104,WORD_NOUN,,HIRAGANA,Inne,,倹,けん,,ken,"ekonomiczny
+oszczędny",,
+8105,UNKNOWN,,HIRAGANA,Inne,,准,じゅん,,jun,"jakby-
+niemal-
+pół-
+towarzyszący",prefiks,
+8106,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,准える,なぞらえる,,nazoraeru,"upodabniać do
+kształtować na wzór
+naśladować",,
+8107,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,准える,なずらえる,,nazuraeru,"upodabniać do
+kształtować na wzór
+naśladować",,
+8108,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,吐く,はく,,haku,"wymiotować
+zwracać
+wydalać",,
+8109,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,奔る,はしる,,hashiru,biegać,,
+8110,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,峰,みね,,mine,szczyt,,
+8111,WORD_NOUN,,HIRAGANA,Inne,,忌,き,,ki,"żal
+żałoba
+nienawidzić",,
+8112,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,忌む,いむ,,imu,"czuć wstręt do czegoś
+nienawidzić
+unikać
+tabu",,
+8113,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,忌まわしい,いまわしい,,imawashii,"wstrętny
+obrzydliwy",,
+8114,WORD_NOUN,,HIRAGANA,Inne,,衝,しょう,,shou,"impet
+siła
+zderzenie
+szok",,
+8115,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,懇ろ,ねんごろ,,nengoro,"uprzejmy
+gościnny",,
+8116,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,狩る,かる,,karu,polować,,
+8117,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,狩り,かり,,kari,polowanie,,
+8118,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,篤い,あつい,,atsui,"gościnny
+uprzejmy",,
+8119,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鶏,にわとり,,niwatori,"kurczak
+kura
+kogut",,
+8120,WORD_NOUN,,HIRAGANA,Inne,,戒,かい,,kai,"upomnienie
+przykazanie",,
+8121,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,戒める,いましめる,,imashimeru,"upominać
+ostrzegać
+zakazywać",,
+8122,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,戒め,いましめ,,imashime,"nakaz
+ostrzeżenie
+napomnienie
+instrukcja",,
+8123,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,穏やか,おだやか,,odayaka,"łagodny
+chłodny
+spokojny",,
+8124,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,詔,みことのり,,mikotonori,edykt cesarski,,
+8125,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,侮る,あなどる,,anadoru,"gardzić
+lekceważyć",,
+8126,WORD_NOUN,,HIRAGANA,Inne,,嘆,たん,,tan,westchnienie,,
+8127,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,嘆く,なげく,,nageku,"wzdychać
+lamentować
+żalić się
+żałować",,
+8128,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,淡い,あわい,,awai,"lekki
+słaby
+prosty",,
+8129,WORD_NOUN,,HIRAGANA,Inne,,雅,が,,ga,"elegancja
+gust",,
+8130,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,雅やか,みやびやか,,miyabiyaka,"gustowny
+wdzięczny
+rafinowany",,
+8131,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,紡ぐ,つむぐ,,tsumugu,"kręcić
+prząść",,
+8132,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,網,あみ,,ami,"sieć
+siatka",,
+8133,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,胴,どう,,dou,"tors
+tułów",,
+8134,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,贈る,おくる,,okuru,"wysyłać
+dawać
+nagradzać",,
+8135,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,摩る,さする,,sasuru,"głaskać
+pocierać",,
+8136,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,洞,ほら,,hora,jaskinia,,
+8137,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,丙,へい,,hei,trzeci,,
+8138,UNKNOWN,,HIRAGANA,Inne,,丙,ひのえ,,hinoe,trzeci znak w kalendarzu lunarnym,,
+8139,UNKNOWN,,HIRAGANA,Inne,,乙,いつ,,itsu,"drugi
+duplikat
+szyk
+elegancja",,
+8140,UNKNOWN,,HIRAGANA,Inne,,乙,きのと,,kinoto,drugi znak w kalendarzu lunarnym,,
+8141,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,偽る,いつわる,,itsuwaru,"oszukiwać
+kłamać
+podrabiać
+udawać",,
+8142,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,偽,にせ,,nise,"sztuczny
+podrobiony",,
+8143,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,旨い,うまい,,umai,"smaczny
+apetyczny
+dobry
+sprawny",,
+8144,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,旨,むね,,mune,"serce
+stan ducha
+znaczenie
+istota
+sens
+cel",,
+8145,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,憎む,にくむ,,nikumu,"nienawidzić
+nie lubić",,
+8146,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,憎い,にくい,,nikui,"obrzydliwy
+wstrętny
+ohydny",,
+8147,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,憎らしい,にくらしい,,nikurashii,"wstrętny
+nienawistny
+odpychający
+straszny",,
+8148,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,潮,しお,,shio,"pływ
+prąd
+słona woda
+okazja
+szansa",,
+8149,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,狂う,くるう,,kuruu,"wariować
+głupieć
+tracić głowę",,
+8150,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,狂おしい,くるおしい,,kuruoshii,"zwariowany
+wściekły",,
+8151,UNKNOWN,,HIRAGANA,Inne,,遍,へん,,hen,ilość razy,,
+8152,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,漬ける,つける,,tsukeru,"maczać
+nasycać
+solić
+zaprawiać
+marynować",,
+8153,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,漬かる,つかる,,tsukaru,"namoknąć
+zamoczyć się
+nasiąkać",,
