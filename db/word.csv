@@ -15318,11 +15318,12 @@ pierwszy tom",prefiks,
 7497,UNKNOWN,,HIRAGANA,Inne,,上,しょう,,shou,"górna część
 rząd",,
 7498,WORD_VERB_RU,"COMMON_WORD
-VERB_TRANSITIVITY",HIRAGANA,Inne,,上げる,あげる,,ageru,"podnieść
-powiększyć
+VERB_TRANSITIVITY",HIRAGANA,Inne,,上げる,あげる,,ageru,"podnosić
+przenosić
+podwyższać
+dawać
 podarować
-skończyć
-usmażyć",,
+ofiarować",,
 7499,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,上,かみ,,kami,"góra
 szczyt",,
 7500,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,上手,かみて,,kamite,"umiejętny
@@ -16471,6 +16472,8 @@ VERB_TRANSITIVITY",HIRAGANA,Inne,,卸す,おろす,,orosu,sprzedawać hurtem,,
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,揚がる,あがる,,agaru,podnosić się,,
 8035,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,揚げる,あげる,,ageru,"podnosić
+podciągać
+udźwignąć
 smażyć",,
 8036,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,漸く,ようやく,,youyaku,"stopniowo
 ostatecznie
@@ -16798,3 +16801,54 @@ marynować",,
 8153,WORD_VERB_U,VERB_INTRANSITIVITY,HIRAGANA,Inne,,漬かる,つかる,,tsukaru,"namoknąć
 zamoczyć się
 nasiąkać",,
+8154,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,桑,くわ,,kuwa,morwa,drzewo,
+8155,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,嗣ぐ,つぐ,,tsugu,"dziedziczyć
+otrzymywać w spadku
+następować",,
+8156,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,塗る,ぬる,,nuru,"malować
+lakierować
+smarować",,
+8157,WORD_NOUN,,HIRAGANA,Inne,,塗り,ぬり,,nuri,"malowanie
+lakierowanie
+smarowanie",,
+8158,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,妃,ひ,,hi,"królowa
+księżniczka",,
+8159,WORD_NOUN,,HIRAGANA,Inne,,妃,きさき,,kisaki,królowa,,
+8160,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,患う,わずらう,,wazurau,"być chorym
+cierpieć na",,
+8161,WORD_NOUN,,HIRAGANA,Inne,,患い,うれい,,urei,"kłopot
+ból",,
+8162,WORD_NOUN,,HIRAGANA,Inne,,糧,かて,,kate,"żywność
+pożywienie
+zaopatrzenie",,
+8163,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軒,のき,,noki,"okap
+podstrzesze",,
+8164,UNKNOWN,,HIRAGANA,Inne,,隔,かく,,kaku,"oddzielny
+co drugi",prefiks,
+8165,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,隔てる,へだてる,,hedateru,"oddzielać
+zasłaniać (parawanem, tarczą)",,
+8166,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,隔たる,へだたる,,hedataru,"być odległym
+być oddzielonym
+wyobcować się",,
+8167,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,菌,きん,,kin,"grzyb
+bakteria",,
+8168,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,繭,まゆ,,mayu,"kokon
+oprzęd",,
+8169,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,荒い,あらい,,arai,"brutalny
+gwałtowny
+dziki",,
+8170,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,荒らす,あらす,,arasu,"dewastować
+niszczyć
+marnować",,
+8171,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,荒れる,あれる,,areru,"stawać się brutalnym
+dziczeć
+marnować się",,
+8172,WORD_NOUN,,HIRAGANA,Inne,,虜,とりこ,,toriko,"więzień
+niewolnik
+barbarzyńca",,
