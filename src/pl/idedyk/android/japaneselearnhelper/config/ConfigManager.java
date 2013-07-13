@@ -41,6 +41,10 @@ public class ConfigManager {
 	public WordDictionarySearchConfig getWordDictionarySearchConfig() {
 		return new WordDictionarySearchConfig();
 	}
+
+	public KanjiSearchMeaningConfig getKanjiSearchMeaningConfig() {
+		return new KanjiSearchMeaningConfig();
+	}
 	
 	public DictionaryHearConfig getDictionaryHearConfig() {
 		return new DictionaryHearConfig();
@@ -365,6 +369,26 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, eachChangeSearch);
+			
+			editor.commit();			
+		}
+	}
+
+	public class KanjiSearchMeaningConfig {
+		
+		private final String kanjiSearchMeaningConfigPrefix = "kanjiSearchMeaningConfig_";
+		
+		private final String eachChangeSearchPostfix = "eachChangeSearch";
+		
+		public Boolean getEachChangeSearch() {
+			return preferences.getBoolean(kanjiSearchMeaningConfigPrefix + eachChangeSearchPostfix, false);
+		}
+		
+		public void setEachChangeSearch(boolean eachChangeSearch) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(kanjiSearchMeaningConfigPrefix + eachChangeSearchPostfix, eachChangeSearch);
 			
 			editor.commit();			
 		}

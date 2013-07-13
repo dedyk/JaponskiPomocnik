@@ -145,4 +145,6 @@
     <string name="kanji_search_meaning_options_search_any_place_radiobutton">w dowolnym miejscu w słowie</string>
     <string name="kanji_search_meaning_options_search_startwith_radiobutton">od pierwszego znaku w słowie</string>
     <string name="kanji_search_meaning_options_search_exact_radiobutton">dokładnego</string>
+    <string name="kanji_search_meaning_elements_no">Liczba elementów: %1$s</string>
+    <string name="kanji_search_meaning_options_button_hide">Schowaj</string>
 </resources>

@@ -162,12 +162,12 @@
             android:text="@string/report_problem" />
 
         <TextView
-            android:id="@+id/word_dictionary_elements_no"
+            android:id="@+id/kanji_search_meaning_elements_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:text="@string/word_dictionary_elements_no" />
+            android:text="@string/kanji_search_meaning_elements_no" />
     </RelativeLayout>
 
 </LinearLayout>
