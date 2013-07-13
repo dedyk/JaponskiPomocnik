@@ -34,6 +34,15 @@ public class KanjiSearch extends TabActivity {
 		
 		tabHost.addTab(kanjiSearchStrokeCountTabSpec);
 		
+		// kanji search meaning
+		Intent kanjiSearchMeaningIntent = new Intent().setClass(this, KanjiSearchMeaning.class);
+		
+		TabSpec kanjiSearchMeaningTabSpec = tabHost.newTabSpec("KanjiSearchStrokeCount")
+				.setIndicator(getString(R.string.kanji_search_meaning))
+				.setContent(kanjiSearchMeaningIntent);
+		
+		tabHost.addTab(kanjiSearchMeaningTabSpec);		
+		
 		tabHost.setCurrentTab(0);
 	}
 }

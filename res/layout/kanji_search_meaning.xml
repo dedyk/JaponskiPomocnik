@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="right"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/kanji_search_meaning_search_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="@string/kanji_search_meaning_search_label" >
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/kanji_search_meaning_search_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.66"
+            android:inputType="text" >
+        </EditText>
+
+        <Button
+            android:id="@+id/kanji_search_meaning_search_button"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kanji_search_meaning_search_button"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/kanji_search_meaning_options_button"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kanji_search_meaning_options_button" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/kanji_search_meaning_options_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:id="@+id/kanji_search_meaning_options_scrollview_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/kanji_search_meaning_options_search_mode_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/kanji_search_meaning_options_search_mode_label" />
+
+            <CheckBox
+                android:id="@+id/kanji_search_meaning_options_search_each_change_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/kanji_search_meaning_options_search_each_change"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/kanji_search_meaning_options_search_place_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/kanji_search_meaning_options_search_place_label" />
+
+            <RadioGroup
+                android:id="@+id/kanji_search_meaning_options_search_place_radiogroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/kanji_search_meaning_options_search_startwith_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/kanji_search_meaning_options_search_startwith_radiobutton"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/kanji_search_meaning_options_search_any_place_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kanji_search_meaning_options_search_any_place_radiobutton"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/kanji_search_meaning_options_search_exact_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kanji_search_meaning_options_search_exact_radiobutton"
+                    android:textSize="12sp" />
+            </RadioGroup>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@android:color/darker_gray" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/kanji_search_meaning_result_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </ListView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/kanji_search_meaning_report_problem_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="@string/kanji_search_report_problem"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/kanji_search_meaning_report_problem_button"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/report_problem" />
+
+        <TextView
+            android:id="@+id/word_dictionary_elements_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:text="@string/word_dictionary_elements_no" />
+    </RelativeLayout>
+
+</LinearLayout>

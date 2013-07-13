@@ -84,7 +84,7 @@ public class KanjiSearchRadical extends Activity {
 				
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
 				
-				String mailSubject = getString(R.string.kanji_search_report_problem_email_subject);
+				String mailSubject = getString(R.string.kanji_search_radicals_report_problem_email_subject);
 				
 				String mailBody = getString(R.string.kanji_search_report_problem_email_body,
 						detailsSb.toString());

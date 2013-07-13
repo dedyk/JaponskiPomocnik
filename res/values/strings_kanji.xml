@@ -21,7 +21,9 @@
     <string name="kanji_search_stroke_count_from">Od</string>
     <string name="kanji_search_stroke_count_to">Do</string>
     <string name="kanji_search_kanji">Szukaj kanji</string>
-    <string name="kanji_search_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu elementów podstawowych kanji</string>
+    <string name="kanji_search_radicals_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu elementów podstawowych kanji</string>
+    <string name="kanji_search_stroke_count_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu liczby kresek kanji</string>
+    <string name="kanji_search_meaning_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu znaczenia kanji</string>
     <string name="kanji_search_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kanji_entry_search_label">Wybrane elementy podstawowe</string>
     <string name="kanji_entry_elements_no">Liczba elementów: %1$s</string>
@@ -133,4 +135,14 @@
     <string name="kanji_search_stroke_count_result_elements_no">Liczba elementów: %1$s</string>
     <string name="kanji_search_stroke_count_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu znaków kanji</string>
     <string name="kanji_search_stroke_count_result_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kanji_search_meaning">Znaczenie</string>
+    <string name="kanji_search_meaning_search_label">Szukana fraza</string>
+    <string name="kanji_search_meaning_options_button">Opcje</string>
+    <string name="kanji_search_meaning_search_button">Szukaj</string>
+    <string name="kanji_search_meaning_options_search_mode_label">Sposób wyszukiwania</string>
+    <string name="kanji_search_meaning_options_search_each_change">Szukaj z każdą zmianą frazy</string>
+    <string name="kanji_search_meaning_options_search_place_label">Szukaj ciągu:</string>
+    <string name="kanji_search_meaning_options_search_any_place_radiobutton">w dowolnym miejscu w słowie</string>
+    <string name="kanji_search_meaning_options_search_startwith_radiobutton">od pierwszego znaku w słowie</string>
+    <string name="kanji_search_meaning_options_search_exact_radiobutton">dokładnego</string>
 </resources>
