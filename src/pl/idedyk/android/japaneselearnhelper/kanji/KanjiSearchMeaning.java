@@ -2,27 +2,23 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiSearchMeaningConfig;
-import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
-import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
-import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest.WordPlaceSearch;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindKanjiRequest;
+import pl.idedyk.android.japaneselearnhelper.dictionary.FindKanjiResult;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
-import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryListItem;
-import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryListItemAdapter;
-import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
-import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +28,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
@@ -97,19 +92,14 @@ public class KanjiSearchMeaning extends Activity {
 		searchResultListView.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+								
+				KanjiEntryListItem kanjiEntryListItem = searchResultArrayAdapter.getItem(position);
 				
-				int fixme = 1;
+				Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 				
-				/*
-				
-				WordDictionaryListItem wordDictionaryListItem = searchResultArrayAdapter.getItem(position);
-				
-				Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
-				
-				intent.putExtra("item", wordDictionaryListItem.getDictionaryEntry());
+				intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
 				
 				startActivity(intent);
-				*/
 			}
 		});
 		
@@ -304,8 +294,148 @@ public class KanjiSearchMeaning extends Activity {
 	}
 	
 	private void performSearch(final String findWord) {
+			
+		searchResultList.clear();
+						
+		final FindKanjiRequest findKanjiRequest = new FindKanjiRequest();
 		
-		int fixme = 1;
-		
+		findKanjiRequest.word = findWord;
+				
+		if (searchOptionsAnyPlaceRadioButton.isChecked() == true) {
+			findKanjiRequest.wordPlaceSearch = FindKanjiRequest.WordPlaceSearch.ANY_PLACE;
+		} else if (searchOptionsStartWithPlaceRadioButton.isChecked() == true) {
+			findKanjiRequest.wordPlaceSearch = FindKanjiRequest.WordPlaceSearch.START_WITH;
+		} else if (searchOptionsExactPlaceRadioButton.isChecked() == true) {
+			findKanjiRequest.wordPlaceSearch = FindKanjiRequest.WordPlaceSearch.EXACT;
+		}
+				
+		if (findWord != null && findWord.length() > 0) {
+			
+			final ProgressDialog progressDialog = ProgressDialog.show(KanjiSearchMeaning.this, 
+					getString(R.string.kanji_search_meaning_searching1),
+					getString(R.string.kanji_search_meaning_searching2));
+			
+			class FindWordAsyncTask extends AsyncTask<Void, Void, FindKanjiResult> {
+				
+				@Override
+				protected FindKanjiResult doInBackground(Void... params) {
+					
+					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchMeaning.this);
+					
+					return dictionaryManager.findKanji(findKanjiRequest);
+				}
+				
+			    @Override
+			    protected void onPostExecute(FindKanjiResult findKanjiResult) {
+			    	
+			        super.onPostExecute(findKanjiResult);
+			        
+			        kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "" + findKanjiResult.result.size() +
+							(findKanjiResult.moreElemetsExists == true ? "+" : "" )));
+					
+					for (KanjiEntry currentKanjiEntry : findKanjiResult.result) {
+						
+						String currentFoundKanjiFullTextWithMarks = getKanjiFullTextWithMark(currentKanjiEntry, findWord);
+																				
+						searchResultList.add(new KanjiEntryListItem(currentKanjiEntry, Html.fromHtml(currentFoundKanjiFullTextWithMarks.replaceAll("\n", "<br/>"))));								
+					}
+
+					searchResultArrayAdapter.notifyDataSetChanged();
+			        
+			        progressDialog.dismiss();
+			    }
+			    
+			    private String getKanjiFullTextWithMark(KanjiEntry kanjiEntry, String findWord) {
+
+			    	
+			    	String kanji = kanjiEntry.getKanji();
+			    	List<String> polishTranslates = kanjiEntry.getPolishTranslates();
+			    	List<String> radicals = kanjiEntry.getKanjiDic2Entry().getRadicals();
+			    	String info = kanjiEntry.getInfo();
+			    	
+			    	StringBuffer result = new StringBuffer();
+			    	
+					result.append("<big>").append(getStringWithMark(kanji, findWord)).append("</big> - ");
+					result.append(getStringWithMark(toString(polishTranslates, null), findWord));
+					
+					if (info != null && info.equals("") == false) {
+						
+						int fixme = 1; // sprawdzic, jak to wyglada
+						
+						result.append("\n");
+						
+						result.append(getStringWithMark(info, findWord));
+					}
+					
+					result.append("\n\n");
+					
+					result.append(getStringWithMark(toString(radicals, null), findWord));
+
+			    	return result.toString();
+			    }
+			    
+			    private String getStringWithMark(String text, String findWord) {
+			    				    	
+			    	String findWordLowerCase = findWord.toLowerCase(Locale.getDefault());
+			    	
+					StringBuffer texStringBuffer = new StringBuffer(text);								
+					StringBuffer textLowerCaseStringBuffer = new StringBuffer(text.toLowerCase(Locale.getDefault()));
+													
+					int idxStart = 0;
+					
+					final String fontBegin = "<font color='red'>";
+					final String fontEnd = "</font>";
+					
+					while(true) {
+						
+						int idx1 = textLowerCaseStringBuffer.indexOf(findWordLowerCase, idxStart);
+						
+						if (idx1 == -1) {
+							break;
+						}
+						
+						texStringBuffer.insert(idx1, fontBegin);
+						textLowerCaseStringBuffer.insert(idx1, fontBegin);
+						
+						texStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
+						textLowerCaseStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
+
+						idxStart = idx1 + findWordLowerCase.length() + fontBegin.length() + fontEnd.length();
+					}
+					
+					return texStringBuffer.toString();
+			    }
+			    
+				private String toString(List<String> listString, String prefix) {
+					
+					StringBuffer sb = new StringBuffer();
+					
+					sb.append("[");
+					
+					for (int idx = 0; idx < listString.size(); ++idx) {
+						if (prefix != null) {
+							sb.append("(").append(prefix).append(") ");
+						}
+						
+						sb.append(listString.get(idx));
+						
+						if (idx != listString.size() - 1) {
+							sb.append(", ");
+						}
+					}
+					
+					sb.append("]");
+					
+					return sb.toString();
+				}
+			}
+			
+			new FindWordAsyncTask().execute();
+			
+		} else {					
+			searchResultArrayAdapter.notifyDataSetChanged();
+			
+			kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, 0));
+		}		
 	}
 }

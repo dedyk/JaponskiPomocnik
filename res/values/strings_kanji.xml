@@ -147,4 +147,6 @@
     <string name="kanji_search_meaning_options_search_exact_radiobutton">dokładnego</string>
     <string name="kanji_search_meaning_elements_no">Liczba elementów: %1$s</string>
     <string name="kanji_search_meaning_options_button_hide">Schowaj</string>
+    <string name="kanji_search_meaning_searching1">Szukanie</string>
+    <string name="kanji_search_meaning_searching2">Proszę czekać</string>
 </resources>

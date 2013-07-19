@@ -597,6 +597,8 @@ public class DictionaryManager {
 			throw new RuntimeException(e);
 		}
 	}
+	
+
 
 	private void readRadicalEntriesFromCsv(InputStream radicalInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
 
@@ -713,6 +715,13 @@ public class DictionaryManager {
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	public FindKanjiResult findKanji(FindKanjiRequest findKanjiRequest) {
+		
+		int fixme = 1;
+		
+		return findKanjisFromStrokeCount(5, 6);		
 	}
 
 	private void fakeProgress(ILoadWithProgress loadWithProgress) {
