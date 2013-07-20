@@ -11,6 +11,7 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiSearchMea
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindKanjiRequest;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindKanjiResult;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -350,7 +351,15 @@ public class KanjiSearchMeaning extends Activity {
 			    	
 			    	String kanji = kanjiEntry.getKanji();
 			    	List<String> polishTranslates = kanjiEntry.getPolishTranslates();
-			    	List<String> radicals = kanjiEntry.getKanjiDic2Entry().getRadicals();
+			    	
+			    	KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
+			    	
+			    	List<String> radicals = null;
+			    	
+			    	if (kanjiDic2Entry != null) {
+			    		radicals = kanjiDic2Entry.getRadicals();
+			    	}
+			    	
 			    	String info = kanjiEntry.getInfo();
 			    	
 			    	StringBuffer result = new StringBuffer();
@@ -369,7 +378,9 @@ public class KanjiSearchMeaning extends Activity {
 					
 					result.append("\n\n");
 					
-					result.append(getStringWithMark(toString(radicals, null), findWord));
+					if (radicals != null) {
+						result.append(getStringWithMark(toString(radicals, null), findWord));
+					}
 
 			    	return result.toString();
 			    }

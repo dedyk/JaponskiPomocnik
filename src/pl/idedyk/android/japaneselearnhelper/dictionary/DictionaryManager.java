@@ -719,9 +719,12 @@ public class DictionaryManager {
 	
 	public FindKanjiResult findKanji(FindKanjiRequest findKanjiRequest) {
 		
-		int fixme = 1;
-		
-		return findKanjisFromStrokeCount(5, 6);		
+		try {
+			return sqliteConnector.findKanji(findKanjiRequest);
+		} catch (DictionaryException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 	private void fakeProgress(ILoadWithProgress loadWithProgress) {

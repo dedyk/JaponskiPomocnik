@@ -1202,4 +1202,135 @@ public class SQLiteConnector {
 	public void vacuum() {
 		sqliteDatabase.execSQL("vacuum");
 	}
+
+	public FindKanjiResult findKanji(FindKanjiRequest findKanjiRequest) throws DictionaryException {
+		
+		FindKanjiResult findKanjiResult = new FindKanjiResult();
+		
+		findKanjiResult.result = new ArrayList<KanjiEntry>();
+		
+		String wordArgument = Utils.removePolishChars(findKanjiRequest.word.toLowerCase(Locale.getDefault()));
+				
+		Cursor cursor = null;
+		
+		try {
+			cursor = sqliteDatabase.query(SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTableAllColumns, null, null, null, null, null);
+			
+		    cursor.moveToFirst();
+		    
+		    while (!cursor.isAfterLast()) {
+
+				String idString = cursor.getString(0);
+
+				String kanjiString = cursor.getString(1);
+
+				String strokeCountString = cursor.getString(2);
+
+				String radicalsString = cursor.getString(3);
+
+				String onReadingString = cursor.getString(4);
+
+				String kunReadingString = cursor.getString(5);
+
+				String strokePathString = cursor.getString(6);
+
+				String polishTranslateListString = cursor.getString(7);
+				String infoString = cursor.getString(8);
+				
+				String generated = cursor.getString(9);
+				
+				String groups = cursor.getString(10);
+
+				KanjiEntry kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
+						radicalsString, onReadingString, kunReadingString, strokePathString, 
+						polishTranslateListString, infoString, generated, groups);
+				
+				boolean addKanjiEntry = false;
+				
+				List<String> polishTranslates = kanjiEntry.getPolishTranslates();
+				
+				if (polishTranslates != null) {
+					
+					for (String currentPolishTranslate : polishTranslates) {
+						
+						String currentPolishTranslate2 = Utils.removePolishChars(currentPolishTranslate.toLowerCase(Locale.getDefault()));						
+						
+						if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.ANY_PLACE) {
+							
+							if (currentPolishTranslate2.indexOf(wordArgument) != -1) {
+								addKanjiEntry = true;
+								
+								break;
+							}
+										
+						} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.START_WITH) {
+							
+							if (currentPolishTranslate2.startsWith(wordArgument) == true) {
+								addKanjiEntry = true;
+								
+								break;
+							}
+																	
+						} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.EXACT) {
+							
+							if (currentPolishTranslate2.equals(wordArgument) == true) {
+								addKanjiEntry = true;
+								
+								break;								
+							}
+										
+						} else {
+							throw new RuntimeException(String.valueOf(findKanjiRequest.wordPlaceSearch));
+						}
+					}
+				}
+				
+				if (addKanjiEntry == false && kanjiEntry.getKanji().equals(findKanjiRequest.word)) {
+					addKanjiEntry = true;
+					
+				}
+				
+				KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
+				
+				if (addKanjiEntry == false && kanjiDic2Entry != null) {
+					
+					List<String> radicals = kanjiDic2Entry.getRadicals();
+					
+					if (radicals != null) {
+						
+						for (String currentRadical : radicals) {
+							
+							if (currentRadical.equals(findKanjiRequest.word) == true) {
+								addKanjiEntry = true;
+								
+								break;
+							}
+						}
+					}					
+				}				
+				
+				if (addKanjiEntry == true) {
+					findKanjiResult.result.add(kanjiEntry);
+				}
+				
+				if (findKanjiResult.result.size() >= SQLiteStatic.MAX_SEARCH_RESULT - 1) {					
+					findKanjiResult.moreElemetsExists = true;
+					
+					break;
+				}
+		    	
+				cursor.moveToNext();
+		    }
+			
+		
+		} finally {
+			if (cursor != null) {
+				cursor.close();
+			}
+		}
+
+		
+		
+		return findKanjiResult;
+	}
 }
