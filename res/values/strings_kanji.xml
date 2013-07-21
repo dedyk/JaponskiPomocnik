@@ -24,7 +24,7 @@
     <string name="kanji_search_radicals_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu elementów podstawowych kanji</string>
     <string name="kanji_search_stroke_count_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu liczby kresek kanji</string>
     <string name="kanji_search_meaning_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu znaczenia kanji</string>
-    <string name="kanji_search_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
+    <string name="kanji_search_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\nWpisana fraza: %1$s\n\n--\nAktualna zawartość listy:\n\n%2$s\n</string>
     <string name="kanji_entry_search_label">Wybrane elementy podstawowe</string>
     <string name="kanji_entry_elements_no">Liczba elementów: %1$s</string>
     <string name="kanji_entry_search_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>

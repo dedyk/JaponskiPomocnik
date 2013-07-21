@@ -1285,9 +1285,37 @@ public class SQLiteConnector {
 					}
 				}
 				
+				String info = kanjiEntry.getInfo();
+				
+				if (addKanjiEntry == false && info != null) {
+					
+					String info2 = Utils.removePolishChars(info.toLowerCase(Locale.getDefault()));
+					
+					if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.ANY_PLACE) {
+						
+						if (info2.indexOf(wordArgument) != -1) {
+							addKanjiEntry = true;
+						}
+									
+					} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.START_WITH) {
+						
+						if (info2.startsWith(wordArgument) == true) {
+							addKanjiEntry = true;
+						}
+																
+					} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.EXACT) {
+						
+						if (info2.equals(wordArgument) == true) {
+							addKanjiEntry = true;							
+						}
+									
+					} else {
+						throw new RuntimeException(String.valueOf(findKanjiRequest.wordPlaceSearch));
+					}					
+				}
+				
 				if (addKanjiEntry == false && kanjiEntry.getKanji().equals(findKanjiRequest.word)) {
 					addKanjiEntry = true;
-					
 				}
 				
 				KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();

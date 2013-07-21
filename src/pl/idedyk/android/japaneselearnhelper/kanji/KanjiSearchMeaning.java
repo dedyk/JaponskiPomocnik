@@ -13,9 +13,12 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.FindKanjiRequest;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindKanjiResult;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -75,12 +78,8 @@ public class KanjiSearchMeaning extends Activity {
 	public void onCreate(Bundle savedInstanceState) {	
 		super.onCreate(savedInstanceState);
 		
-		int fixme2 = 1;
-		// FIXME: wyszukac word dictionary
-		
 		setContentView(R.layout.kanji_search_meaning);
 		
-		//////////
 		kanjiSearchMeaningElementsNoTextView = (TextView)findViewById(R.id.kanji_search_meaning_elements_no);
 		
 		searchResultListView = (ListView)findViewById(R.id.kanji_search_meaning_result_list);
@@ -169,15 +168,8 @@ public class KanjiSearchMeaning extends Activity {
 		reportProblemButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View view) {
-				
-				int fixme = 1;
-				
-				/*
-				
-				EditText searchValueEditText = (EditText)findViewById(R.id.word_dictionary_search_value);
-				ListView searchResultListView = (ListView)findViewById(R.id.word_dictionary_search_result_list);
-				
-				WordDictionaryListItemAdapter searchResultListViewAdapter = (WordDictionaryListItemAdapter)searchResultListView.getAdapter();				
+								
+				KanjiEntryListItemAdapter searchResultListViewAdapter = (KanjiEntryListItemAdapter)searchResultListView.getAdapter();				
 				
 				StringBuffer searchListText = new StringBuffer();
 				
@@ -187,9 +179,9 @@ public class KanjiSearchMeaning extends Activity {
 				
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
 				
-				String mailSubject = getString(R.string.word_dictionary_search_report_problem_email_subject);
+				String mailSubject = getString(R.string.kanji_search_meaning_report_problem_email_subject);
 				
-				String mailBody = getString(R.string.word_dictionary_search_report_problem_email_body,
+				String mailBody = getString(R.string.kanji_search_report_problem_email_body,
 						searchValueEditText.getText(), searchListText.toString());
 				
 		        String versionName = "";
@@ -207,7 +199,6 @@ public class KanjiSearchMeaning extends Activity {
 				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
 				
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
-				*/
 			}
 		});
 		
@@ -234,50 +225,7 @@ public class KanjiSearchMeaning extends Activity {
 		});
 		
 		setSearchButtonVisible();
-		
-		///////////
-		
-		//Button reportProblemButton = (Button)findViewById(R.id.kanji_search_meaning_report_problem_button);
-		
-		reportProblemButton.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View view) {
-				
-				int fixme = 1;
-				
-				/*
-				
-				StringBuffer detailsSb = new StringBuffer();
-				
-				int fixme = 1;
-				
-				
-				String chooseEmailClientTitle = getString(R.string.choose_email_client);
-				
-				String mailSubject = getString(R.string.kanji_search_meaning_report_problem_email_subject);
-				
-				String mailBody = getString(R.string.kanji_search_report_problem_email_body,
-						detailsSb.toString());
-				
-		        String versionName = "";
-		        int versionCode = 0;
-		        
-		        try {
-		        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-		        	
-		            versionName = packageInfo.versionName;
-		            versionCode = packageInfo.versionCode;
-
-		        } catch (NameNotFoundException e) {        	
-		        }
-								
-				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
-				
-				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
-				*/
-			}
-		});
-	}	
+	}
 	
 	private void setSearchButtonVisible() {
 		
@@ -368,8 +316,6 @@ public class KanjiSearchMeaning extends Activity {
 					result.append(getStringWithMark(toString(polishTranslates, null), findWord));
 					
 					if (info != null && info.equals("") == false) {
-						
-						int fixme = 1; // sprawdzic, jak to wyglada
 						
 						result.append("\n");
 						
