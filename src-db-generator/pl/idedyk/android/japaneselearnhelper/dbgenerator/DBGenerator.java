@@ -419,6 +419,9 @@ public class DBGenerator {
 	}
 	
 	public static void insertKanjiEntry(Statement statement, KanjiEntry kanjiEntry) throws SQLException {
+		
+		int fixme = 1;
+		// sprawdzicz, jak zachowuje sie szukanie przy kanjiDic2Entry == null 
 				
 		Map<String, String> values = new TreeMap<String, String>();
 		
@@ -428,24 +431,51 @@ public class DBGenerator {
 		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
 		
 		if (kanjiDic2Entry != null) {
-			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, String.valueOf(kanjiDic2Entry.getStrokeCount()));
-			values.put(SQLiteStatic.kanjiEntriesTable_radicals, Utils.convertListToString(kanjiDic2Entry.getRadicals()));
-			values.put(SQLiteStatic.kanjiEntriesTable_onReading, Utils.convertListToString(kanjiDic2Entry.getOnReading()));
-			values.put(SQLiteStatic.kanjiEntriesTable_kunReading, Utils.convertListToString(kanjiDic2Entry.getKunReading()));
+			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, String.valueOf(kanjiDic2Entry.getStrokeCount()));			
 		} else {
 			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, "");
-			values.put(SQLiteStatic.kanjiEntriesTable_radicals, "");
-			values.put(SQLiteStatic.kanjiEntriesTable_onReading, "");
-			values.put(SQLiteStatic.kanjiEntriesTable_kunReading, "");			
 		}
 		
 		values.put(SQLiteStatic.kanjiEntriesTable_strokePaths, Utils.convertListToString(kanjiEntry.getStrokePaths()));
-		values.put(SQLiteStatic.kanjiEntriesTable_polishTranslates, Utils.convertListToString(kanjiEntry.getPolishTranslates()));
-		values.put(SQLiteStatic.kanjiEntriesTable_info, emptyIfNull(kanjiEntry.getInfo()));
 		values.put(SQLiteStatic.kanjiEntriesTable_generated, String.valueOf(kanjiEntry.isGenerated()));
-		values.put(SQLiteStatic.kanjiEntriesTable_groups, Utils.convertListToString(GroupEnum.convertToValues(kanjiEntry.getGroups())));
 		
 		insert(statement, SQLiteStatic.kanjiEntriesTableName, values);
+		
+		if (kanjiDic2Entry != null) {
+			
+			insertListEntry(statement, kanjiDic2Entry.getRadicals(), SQLiteStatic.kanjiEntriesTableName, 
+					SQLiteStatic.kanjiEntriesTable_radicals, String.valueOf(kanjiEntry.getId()));
+
+			insertListEntry(statement, kanjiDic2Entry.getOnReading(), SQLiteStatic.kanjiEntriesTableName, 
+					SQLiteStatic.kanjiEntriesTable_onReading, String.valueOf(kanjiEntry.getId()));
+
+			insertListEntry(statement, kanjiDic2Entry.getKunReading(), SQLiteStatic.kanjiEntriesTableName, 
+					SQLiteStatic.kanjiEntriesTable_kunReading, String.valueOf(kanjiEntry.getId()));			
+		}
+		
+		insertListEntry(statement, kanjiEntry.getPolishTranslates(), SQLiteStatic.kanjiEntriesTableName, 
+				SQLiteStatic.kanjiEntriesTable_polishTranslates, String.valueOf(kanjiEntry.getId()));			
+
+		insertListEntryWithPolishCharsRemove(statement, kanjiEntry.getPolishTranslates(), SQLiteStatic.kanjiEntriesTableName, 
+				SQLiteStatic.kanjiEntriesTable_polishTranslates, String.valueOf(kanjiEntry.getId()));		
+		
+		String info = kanjiEntry.getInfo();
+		
+		if (info != null && info.equals("") == false) {
+			
+			List<String> infoList = new ArrayList<String>();
+			
+			infoList.add(info);
+
+			insertListEntry(statement, infoList, SQLiteStatic.kanjiEntriesTableName, 
+					SQLiteStatic.kanjiEntriesTable_info, String.valueOf(kanjiEntry.getId()));
+			
+			insertListEntryWithPolishCharsRemove(statement, infoList, SQLiteStatic.kanjiEntriesTableName, 
+					SQLiteStatic.kanjiEntriesTable_info, String.valueOf(kanjiEntry.getId()));					
+		}
+		
+		insertListEntry(statement, GroupEnum.convertToValues(kanjiEntry.getGroups()), SQLiteStatic.kanjiEntriesTableName, 
+				SQLiteStatic.kanjiEntriesTable_groups, String.valueOf(kanjiEntry.getId()));
 	}
 	
 	private static String emptyIfNull(String text) {

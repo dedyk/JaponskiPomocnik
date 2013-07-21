@@ -84,14 +84,14 @@ public class SQLiteStatic {
 			SQLiteStatic.kanjiEntriesTable_id,
 			SQLiteStatic.kanjiEntriesTable_kanji,
 			SQLiteStatic.kanjiEntriesTable_strokeCount,
-			SQLiteStatic.kanjiEntriesTable_radicals,
-			SQLiteStatic.kanjiEntriesTable_onReading,
-			SQLiteStatic.kanjiEntriesTable_kunReading,
+			//SQLiteStatic.kanjiEntriesTable_radicals,
+			//SQLiteStatic.kanjiEntriesTable_onReading,
+			//SQLiteStatic.kanjiEntriesTable_kunReading,
 			SQLiteStatic.kanjiEntriesTable_strokePaths,
-			SQLiteStatic.kanjiEntriesTable_polishTranslates,
-			SQLiteStatic.kanjiEntriesTable_info,
+			//SQLiteStatic.kanjiEntriesTable_polishTranslates,
+			//SQLiteStatic.kanjiEntriesTable_info,
 			SQLiteStatic.kanjiEntriesTable_generated,
-			SQLiteStatic.kanjiEntriesTable_groups
+			//SQLiteStatic.kanjiEntriesTable_groups
 	};
 	
 	public static final String listEntriesTableCreate =
@@ -146,14 +146,14 @@ public class SQLiteStatic {
 			kanjiEntriesTable_id + " integer primary key, " +
 			kanjiEntriesTable_kanji + " text unique not null, " +
 			kanjiEntriesTable_strokeCount + " int not null, " +
-			kanjiEntriesTable_radicals + " text not null, " +
-			kanjiEntriesTable_onReading + " text not null, " +
-			kanjiEntriesTable_kunReading + " text not null, " +
+			//kanjiEntriesTable_radicals + " text not null, " +
+			//kanjiEntriesTable_onReading + " text not null, " +
+			//kanjiEntriesTable_kunReading + " text not null, " +
 			kanjiEntriesTable_strokePaths + " text not null, " +
-			kanjiEntriesTable_polishTranslates + " text not null, " +
-			kanjiEntriesTable_info + " text not null, " +
-			kanjiEntriesTable_generated + " text not null, " +
-			kanjiEntriesTable_groups + " text null);";
+			//kanjiEntriesTable_polishTranslates + " text not null, " +
+			//kanjiEntriesTable_info + " text not null, " +
+			kanjiEntriesTable_generated + " text not null);";
+			//kanjiEntriesTable_groups + " text null);";
 	
 	public static final String grammaFormConjugateGroupTypeEntriesTableCreate =
 			"create table " + grammaFormConjugateGroupTypeEntriesTableName + "(" +

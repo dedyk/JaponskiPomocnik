@@ -564,6 +564,12 @@ public class SQLiteConnector {
 	
 	public List<KanjiEntry> findKanjiFromRadicals(String[] radicals) throws DictionaryException {
 		
+		int fixme = 1;
+		
+		return new ArrayList<KanjiEntry>();
+		
+		/*
+		
 		KanjiEntry kanjiEntry = null;
 				
 		Cursor cursor = null;
@@ -632,10 +638,18 @@ public class SQLiteConnector {
 		}
 		
 		return result;
+		*/
+		
+		
 	}
 
 	public Set<String> findAllAvailableRadicals(String[] radicals) throws DictionaryException {
 		
+		int fixme = 1;
+		
+		return new HashSet<String>();
+		
+		/*
 		KanjiEntry kanjiEntry = null;
 				
 		Cursor cursor = null;
@@ -708,6 +722,7 @@ public class SQLiteConnector {
 		}
 		
 		return result;
+		*/
 	}
 	
 	public void insertGrammaFormConjugateGroupTypeElements(DictionaryEntry dictionaryEntry, GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements) {
