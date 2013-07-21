@@ -326,6 +326,13 @@ public class WordTestSM2 extends Activity {
 		
 		fillScreen();
 	}
+	
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+	    super.onRestoreInstanceState(savedInstanceState);
+	    
+	    fillScreen();
+	}
 
 	private void fillScreen() {
 		
