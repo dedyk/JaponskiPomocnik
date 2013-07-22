@@ -476,7 +476,7 @@ public class SQLiteStatic {
 			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
 			listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " +
 			listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals + "' and " +
-			" " + listEntriesTable_value + " = ?) ";
+			" " + listEntriesTable_value + " like ?) ";
 	
 	public static final String kanjiEntriesTableFindKanjiElements_limit = 
 			" limit " + MAX_SEARCH_RESULT;
