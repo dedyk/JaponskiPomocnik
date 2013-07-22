@@ -467,39 +467,45 @@ public class SQLiteConnector {
 		    cursor.moveToFirst();
 		    
 		    while (!cursor.isAfterLast()) {
-				
+		    	
 				String idString = cursor.getString(0);
 
 				String kanjiString = cursor.getString(1);
 				
 				String strokeCountString = null;
-				String radicalsString = null;
-				String onReadingString = null;
-				String kunReadingString = null;
+				List<String> radicalsList = null;
+				List<String> onReadingList = null;
+				List<String> kunReadingList = null;
 				String strokePathString = null;
+				
+				Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.kanjiEntriesTableName, idString);
 				
 				if (withDetails == true) {
 					strokeCountString = cursor.getString(2);
 
-					radicalsString = cursor.getString(3);
+					radicalsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_radicals);
+					onReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_onReading);
+					kunReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_kunReading);
 
-					onReadingString = cursor.getString(4);
-
-					kunReadingString = cursor.getString(5);
-
-					strokePathString = cursor.getString(6);
+					strokePathString = cursor.getString(3);
 				}
 
-				String polishTranslateListString = cursor.getString(7);
-				String infoString = cursor.getString(8);
+				String generated = cursor.getString(4);
 				
-				String generated = cursor.getString(9);
+				List<String> polishTranslateList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_polishTranslates);
+				List<String> groupsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_groups);
+
+				List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_info);
+							
+				String infoString = null;
 				
-				String groups = cursor.getString(10);
+				if (infoStringList != null && infoStringList.size() > 0) {
+					infoString = infoStringList.get(0);
+				}
 
 				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
-						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated, groups);	
+						radicalsList, onReadingList, kunReadingList, strokePathString, 
+						polishTranslateList, infoString, generated, groupsList);	
 				
 				result.add(kanjiEntry);
 				
@@ -517,6 +523,9 @@ public class SQLiteConnector {
 	
 	public KanjiEntry getKanjiEntry(String kanji) throws DictionaryException {
 		
+		int fixme = 1;
+		// zakomentowac kanjiEntriesTableAllColumns
+		
 		KanjiEntry kanjiEntry = null;
 				
 		Cursor cursor = null;
@@ -532,25 +541,30 @@ public class SQLiteConnector {
 				String kanjiString = cursor.getString(1);
 
 				String strokeCountString = cursor.getString(2);
-
-				String radicalsString = cursor.getString(3);
-
-				String onReadingString = cursor.getString(4);
-
-				String kunReadingString = cursor.getString(5);
-
-				String strokePathString = cursor.getString(6);
-
-				String polishTranslateListString = cursor.getString(7);
-				String infoString = cursor.getString(8);
 				
-				String generated = cursor.getString(9);
+				String strokePathString = cursor.getString(3);
 				
-				String groups = cursor.getString(10);
+				String generated = cursor.getString(4);
+				
+				Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.kanjiEntriesTableName, idString);
+				
+				List<String> radicalsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_radicals);
+				List<String> onReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_onReading);
+				List<String> kunReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_kunReading);
+				List<String> polishTranslateList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_polishTranslates);
+				List<String> groupsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_groups);
 
+				List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_info);
+							
+				String infoString = null;
+				
+				if (infoStringList != null && infoStringList.size() > 0) {
+					infoString = infoStringList.get(0);
+				}
+				
 				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
-						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated, groups);				
+						radicalsList, onReadingList, kunReadingList, strokePathString, 
+						polishTranslateList, infoString, generated, groupsList);				
 			}
 		
 		} finally {
@@ -1057,7 +1071,7 @@ public class SQLiteConnector {
 	}
 
 	public FindKanjiResult findKanjisFromStrokeCount(int from, int to) throws DictionaryException {
-		
+				
 		KanjiEntry kanjiEntry = null;
 		
 		Cursor cursor = null;
@@ -1072,31 +1086,36 @@ public class SQLiteConnector {
 		    cursor.moveToFirst();
 		    
 		    while (!cursor.isAfterLast()) {
-				
+								
 				String idString = cursor.getString(0);
 
 				String kanjiString = cursor.getString(1);
 
 				String strokeCountString = cursor.getString(2);
-
-				String radicalsString = cursor.getString(3);
-
-				String onReadingString = cursor.getString(4);
-
-				String kunReadingString = cursor.getString(5);
-
-				String strokePathString = cursor.getString(6);
-
-				String polishTranslateListString = cursor.getString(7);
-				String infoString = cursor.getString(8);
 				
-				String generated = cursor.getString(9);
+				String strokePathString = cursor.getString(3);
 				
-				String groups = cursor.getString(10);
+				String generated = cursor.getString(4);
+				
+				Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.kanjiEntriesTableName, idString);
+				
+				List<String> radicalsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_radicals);
+				List<String> onReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_onReading);
+				List<String> kunReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_kunReading);
+				List<String> polishTranslateList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_polishTranslates);
+				List<String> groupsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_groups);
 
+				List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_info);
+							
+				String infoString = null;
+				
+				if (infoStringList != null && infoStringList.size() > 0) {
+					infoString = infoStringList.get(0);
+				}
+				
 				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
-						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated, groups);	
+						radicalsList, onReadingList, kunReadingList, strokePathString, 
+						polishTranslateList, infoString, generated, groupsList);
 				
 				resultList.add(kanjiEntry);
 				
@@ -1219,6 +1238,11 @@ public class SQLiteConnector {
 	}
 
 	public FindKanjiResult findKanji(FindKanjiRequest findKanjiRequest) throws DictionaryException {
+		
+		int fixme = 1;
+		return null;
+		
+		/*
 		
 		FindKanjiResult findKanjiResult = new FindKanjiResult();
 		
@@ -1371,9 +1395,8 @@ public class SQLiteConnector {
 				cursor.close();
 			}
 		}
-
-		
 		
 		return findKanjiResult;
+		*/
 	}
 }

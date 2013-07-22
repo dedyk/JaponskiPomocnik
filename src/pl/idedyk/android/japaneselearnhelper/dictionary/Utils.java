@@ -138,14 +138,14 @@ public class Utils {
 	public static KanjiEntry parseKanjiEntry(String idString,
 			String kanjiString,
 			String strokeCountString,
-			String radicalsString,
-			String onReadingString,
-			String kunReadingString,
+			List<String> radicalsList,
+			List<String> onReadingList,
+			List<String> kunReadingList,
 			String strokePathString,
-			String polishTranslateListString,
+			List<String> polishTranslateList,
 			String infoString,
 			String generatedString,
-			String groupString) throws DictionaryException {
+			List<String> groupsList) throws DictionaryException {
 		
 		int id = Integer.parseInt(idString);
 		
@@ -160,18 +160,12 @@ public class Utils {
 			kanjiDic2Entry = new KanjiDic2Entry();
 			
 			int strokeCount = Integer.parseInt(strokeCountString);
-			
-			List<String> radicals = parseStringIntoList(radicalsString, false);
-		
-			List<String> onReading = parseStringIntoList(onReadingString, false);
-		
-			List<String> kunReading = parseStringIntoList(kunReadingString, false);
-			
+						
 			kanjiDic2Entry.setKanji(kanjiString);
 			kanjiDic2Entry.setStrokeCount(strokeCount);
-			kanjiDic2Entry.setRadicals(radicals);
-			kanjiDic2Entry.setKunReading(kunReading);
-			kanjiDic2Entry.setOnReading(onReading);
+			kanjiDic2Entry.setRadicals(radicalsList);
+			kanjiDic2Entry.setKunReading(kunReadingList);
+			kanjiDic2Entry.setOnReading(onReadingList);
 		}
 				
 		KanjiEntry entry = new KanjiEntry();
@@ -179,12 +173,12 @@ public class Utils {
 		entry.setId(id);
 		entry.setKanji(kanjiString);
 		entry.setStrokePaths(parseStringIntoList(strokePathString, false));
-		entry.setPolishTranslates(parseStringIntoList(polishTranslateListString, false));
+		entry.setPolishTranslates(polishTranslateList);
 		entry.setInfo(infoString);
 		
 		entry.setGenerated(Boolean.parseBoolean(generatedString));
 		
-		entry.setGroups(GroupEnum.convertToListGroupEnum(parseStringIntoList(groupString, false)));
+		entry.setGroups(GroupEnum.convertToListGroupEnum(groupsList));
 					
 		entry.setKanjiDic2Entry(kanjiDic2Entry);
 		

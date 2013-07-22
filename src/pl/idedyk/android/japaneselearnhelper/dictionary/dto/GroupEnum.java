@@ -121,6 +121,10 @@ public enum GroupEnum {
 
 	public static List<String> convertToValues(List<GroupEnum> groups) {
 
+		if (groups == null) {
+			return null;
+		}
+		
 		List<String> values = new ArrayList<String>();
 
 		for (GroupEnum currentGroup : groups) {
@@ -131,6 +135,10 @@ public enum GroupEnum {
 	}
 
 	public static List<GroupEnum> convertToListGroupEnum(List<String> values) {
+		
+		if (values == null) {
+			return null;
+		}
 
 		List<GroupEnum> groupEnumList = new ArrayList<GroupEnum>();
 
@@ -167,6 +175,10 @@ public enum GroupEnum {
 	}
 	
 	public static void sortGroups(GroupEnum[] groups) {
+		
+		if (groups == null) {
+			return;
+		}
 		
 		Arrays.sort(groups, new Comparator<GroupEnum>() {
 

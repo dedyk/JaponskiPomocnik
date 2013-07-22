@@ -389,8 +389,8 @@ public class DBGenerator {
 			String groupString = csvReader.get(10);
 
 			KanjiEntry entry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
-					radicalsString, onReadingString, kunReadingString, strokePathString, 
-					polishTranslateListString, infoString, generatedString, groupString);
+					Utils.parseStringIntoList(radicalsString, false), Utils.parseStringIntoList(onReadingString, false), Utils.parseStringIntoList(kunReadingString, false), strokePathString, 
+					Utils.parseStringIntoList(polishTranslateListString, false), infoString, generatedString, Utils.parseStringIntoList(groupString, false));
 
 			// update radical info
 			if (entry.getKanjiDic2Entry() != null) {
