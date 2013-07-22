@@ -15,7 +15,9 @@ public enum AttributeType {
 	
 	SURU_VERB("suru czasownik"),
 	
-	COMMON_WORD("słowo powszechnego użycia");
+	COMMON_WORD("słowo powszechnego użycia"),
+	
+	KANA_ALONE("zwykle pisany przy użyciu kana");
 	
 	private String name;
 	
