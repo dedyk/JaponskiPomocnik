@@ -414,4 +414,70 @@ public class SQLiteStatic {
 			" and ln." + listEntriesTable_key + " in (select ln2." + listEntriesTable_key + " from " + listEntriesTableName + 
 			" ln2 where ln2." + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and ln2." + listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals + 
 			"' and ln2." + listEntriesTable_value + " = ?) ";
+	
+	public static final String kanjiEntriesTableFindKanjiElementsStart = 
+			"select " + kanjiEntriesTable_id + " , " + kanjiEntriesTable_kanji + " , " + kanjiEntriesTable_strokeCount + " , " + kanjiEntriesTable_strokePaths + " , " + 
+			kanjiEntriesTable_generated + " from " + kanjiEntriesTableName + " ";
+	
+	// kanji
+	
+	public static final String kanjiEntriesTableFindKanjiElements_kanji =
+			kanjiEntriesTable_kanji + " like ? ";
+	
+	// translate 
+	
+	public static final String kanjiEntriesTableFindKanjiElements_match_translate =
+			kanjiEntriesTableName + "." + kanjiEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + kanjiEntriesTable_polishTranslates + "' and " +
+			" " + listEntriesTable_value + " match ?) ";
+	
+	public static final String kanjiEntriesTableFindKanjiElements_match_exact_translate =
+			kanjiEntriesTableName + "." + kanjiEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + kanjiEntriesTable_polishTranslates + "' and " +
+			listEntriesTable_value + " like ? and " + listEntriesTable_value + " match ?) ";
+	
+	public static final String kanjiEntriesTableFindKanjiElements_like_translate =
+			kanjiEntriesTableName + "." + kanjiEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + kanjiEntriesTable_polishTranslates + "' and " +
+			" " + listEntriesTable_value + " like ?) ";
+
+	// info
+	
+	public static final String kanjiEntriesTableFindKanjiElements_match_info =
+			kanjiEntriesTableName + "." + kanjiEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + kanjiEntriesTable_info + "' and " +
+			" " + listEntriesTable_value + " match ?) ";
+	
+	public static final String kanjiEntriesTableFindKanjiElements_match_exact_info =
+			kanjiEntriesTableName + "." + kanjiEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + kanjiEntriesTable_info + "' and " +
+			listEntriesTable_value + " like ? and " + listEntriesTable_value + " match ?) ";
+	
+	public static final String kanjiEntriesTableFindKanjiElements_like_info =
+			kanjiEntriesTableName + "." + kanjiEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + kanjiEntriesTable_info + "' and " +
+			" " + listEntriesTable_value + " match ?) ";
+	
+	// radicals
+	public static final String kanjiEntriesTableFindKanjiElements_radicals =
+			kanjiEntriesTableName + "." + kanjiEntriesTable_id + " in ( " +
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " where " +
+			listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " +
+			listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals + "' and " +
+			" " + listEntriesTable_value + " = ?) ";
+	
+	public static final String kanjiEntriesTableFindKanjiElements_limit = 
+			" limit " + MAX_SEARCH_RESULT;
 }

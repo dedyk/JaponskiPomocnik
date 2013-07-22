@@ -1176,22 +1176,97 @@ public class SQLiteConnector {
 	}
 
 	public FindKanjiResult findKanji(FindKanjiRequest findKanjiRequest) throws DictionaryException {
-		
-		int fixme = 1;
-		return null;
-		
-		/*
-		
+
 		FindKanjiResult findKanjiResult = new FindKanjiResult();
 		
 		findKanjiResult.result = new ArrayList<KanjiEntry>();
-		
-		String wordArgument = Utils.removePolishChars(findKanjiRequest.word.toLowerCase(Locale.getDefault()));
+
+		String wordArgument = null;
+		String wordKanjiArgument = null;
 				
+		if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.ANY_PLACE) {
+			
+			wordArgument = "%" + findKanjiRequest.word + "%";
+			wordKanjiArgument = wordArgument;
+						
+		} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.START_WITH) {
+			 
+			wordArgument = findKanjiRequest.word + "*";
+			wordKanjiArgument =  findKanjiRequest.word + "%";
+						
+		} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.EXACT) {
+			
+			wordArgument = findKanjiRequest.word; 
+			wordKanjiArgument =  findKanjiRequest.word;
+						
+		} else {
+			throw new RuntimeException(String.valueOf(findKanjiRequest.wordPlaceSearch));
+		}
+
+		StringBuffer sql = new StringBuffer(SQLiteStatic.kanjiEntriesTableFindKanjiElementsStart);
+		
+		List<String> arguments = new ArrayList<String>();
+		
+		sql.append(" where ( ");
+		
+		sql.append(SQLiteStatic.kanjiEntriesTableFindKanjiElements_kanji);
+		
+		arguments.add(wordKanjiArgument);
+		
+		sql.append(" ) ");
+		sql.append(" or ");
+		
+		if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.ANY_PLACE) {
+			sql.append(SQLiteStatic.kanjiEntriesTableFindKanjiElements_like_translate);
+			
+		} else {
+			
+			if (findKanjiRequest.wordPlaceSearch != FindKanjiRequest.WordPlaceSearch.EXACT) {
+				sql.append(SQLiteStatic.kanjiEntriesTableFindKanjiElements_match_translate);
+				
+			} else {
+				sql.append(SQLiteStatic.kanjiEntriesTableFindKanjiElements_match_exact_translate);
+				
+				arguments.add(wordKanjiArgument);
+			}
+		}
+		
+		arguments.add(wordArgument);
+		
+		sql.append(" or ");
+
+		if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.ANY_PLACE) {
+			sql.append(SQLiteStatic.kanjiEntriesTableFindKanjiElements_like_info);
+			
+		} else {
+			
+			if (findKanjiRequest.wordPlaceSearch != FindKanjiRequest.WordPlaceSearch.EXACT) {
+				sql.append(SQLiteStatic.kanjiEntriesTableFindKanjiElements_match_info);
+				
+			} else {
+				sql.append(SQLiteStatic.kanjiEntriesTableFindKanjiElements_match_exact_info);
+				
+				arguments.add(wordKanjiArgument);
+			}
+		}
+		
+		arguments.add(wordArgument);
+
+		sql.append(" or ");
+
+		sql.append(SQLiteStatic.kanjiEntriesTableFindKanjiElements_radicals);
+		
+		arguments.add(wordKanjiArgument);
+				
+		sql.append(SQLiteStatic.kanjiEntriesTableFindKanjiElements_limit);
+
+		String[] argumentsStringArray = new String[arguments.size()];
+		arguments.toArray(argumentsStringArray);
+		
 		Cursor cursor = null;
 		
 		try {
-			cursor = sqliteDatabase.query(SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTableAllColumns, null, null, null, null, null);
+			cursor = sqliteDatabase.rawQuery(sql.toString(), argumentsStringArray);
 			
 		    cursor.moveToFirst();
 		    
@@ -1202,128 +1277,34 @@ public class SQLiteConnector {
 				String kanjiString = cursor.getString(1);
 
 				String strokeCountString = cursor.getString(2);
-
-				String radicalsString = cursor.getString(3);
-
-				String onReadingString = cursor.getString(4);
-
-				String kunReadingString = cursor.getString(5);
-
-				String strokePathString = cursor.getString(6);
-
-				String polishTranslateListString = cursor.getString(7);
-				String infoString = cursor.getString(8);
 				
-				String generated = cursor.getString(9);
+				String strokePathString = cursor.getString(3);
 				
-				String groups = cursor.getString(10);
+				String generated = cursor.getString(4);
+				
+				Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.kanjiEntriesTableName, idString);
+				
+				List<String> radicalsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_radicals);
+				List<String> onReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_onReading);
+				List<String> kunReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_kunReading);
+				List<String> polishTranslateList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_polishTranslates);
+				List<String> groupsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_groups);
 
+				List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_info);
+							
+				String infoString = null;
+				
+				if (infoStringList != null && infoStringList.size() > 0) {
+					infoString = infoStringList.get(0);
+				}
+				
 				KanjiEntry kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
-						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated, groups);
+						radicalsList, onReadingList, kunReadingList, strokePathString, 
+						polishTranslateList, infoString, generated, groupsList);
 				
-				boolean addKanjiEntry = false;
-				
-				List<String> polishTranslates = kanjiEntry.getPolishTranslates();
-				
-				if (polishTranslates != null) {
-					
-					for (String currentPolishTranslate : polishTranslates) {
-						
-						String currentPolishTranslate2 = Utils.removePolishChars(currentPolishTranslate.toLowerCase(Locale.getDefault()));						
-						
-						if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.ANY_PLACE) {
-							
-							if (currentPolishTranslate2.indexOf(wordArgument) != -1) {
-								addKanjiEntry = true;
 								
-								break;
-							}
-										
-						} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.START_WITH) {
-							
-							if (currentPolishTranslate2.startsWith(wordArgument) == true) {
-								addKanjiEntry = true;
-								
-								break;
-							}
-																	
-						} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.EXACT) {
-							
-							if (currentPolishTranslate2.equals(wordArgument) == true) {
-								addKanjiEntry = true;
-								
-								break;								
-							}
-										
-						} else {
-							throw new RuntimeException(String.valueOf(findKanjiRequest.wordPlaceSearch));
-						}
-					}
-				}
+				findKanjiResult.result.add(kanjiEntry);
 				
-				String info = kanjiEntry.getInfo();
-				
-				if (addKanjiEntry == false && info != null) {
-					
-					String info2 = Utils.removePolishChars(info.toLowerCase(Locale.getDefault()));
-					
-					if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.ANY_PLACE) {
-						
-						if (info2.indexOf(wordArgument) != -1) {
-							addKanjiEntry = true;
-						}
-									
-					} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.START_WITH) {
-						
-						if (info2.startsWith(wordArgument) == true) {
-							addKanjiEntry = true;
-						}
-																
-					} else if (findKanjiRequest.wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.EXACT) {
-						
-						if (info2.equals(wordArgument) == true) {
-							addKanjiEntry = true;							
-						}
-									
-					} else {
-						throw new RuntimeException(String.valueOf(findKanjiRequest.wordPlaceSearch));
-					}					
-				}
-				
-				if (addKanjiEntry == false && kanjiEntry.getKanji().equals(findKanjiRequest.word)) {
-					addKanjiEntry = true;
-				}
-				
-				KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
-				
-				if (addKanjiEntry == false && kanjiDic2Entry != null) {
-					
-					List<String> radicals = kanjiDic2Entry.getRadicals();
-					
-					if (radicals != null) {
-						
-						for (String currentRadical : radicals) {
-							
-							if (currentRadical.equals(findKanjiRequest.word) == true) {
-								addKanjiEntry = true;
-								
-								break;
-							}
-						}
-					}					
-				}				
-				
-				if (addKanjiEntry == true) {
-					findKanjiResult.result.add(kanjiEntry);
-				}
-				
-				if (findKanjiResult.result.size() >= SQLiteStatic.MAX_SEARCH_RESULT - 1) {					
-					findKanjiResult.moreElemetsExists = true;
-					
-					break;
-				}
-		    	
 				cursor.moveToNext();
 		    }
 			
@@ -1334,7 +1315,12 @@ public class SQLiteConnector {
 			}
 		}
 		
+		if (findKanjiResult.result.size() >= SQLiteStatic.MAX_SEARCH_RESULT - 1) {
+			findKanjiResult.result.remove(findKanjiResult.result.size() - 1);
+			
+			findKanjiResult.moreElemetsExists = true;
+		}
+		
 		return findKanjiResult;
-		*/
 	}
 }
