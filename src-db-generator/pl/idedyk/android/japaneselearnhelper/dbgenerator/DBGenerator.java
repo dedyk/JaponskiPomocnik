@@ -419,10 +419,7 @@ public class DBGenerator {
 	}
 	
 	public static void insertKanjiEntry(Statement statement, KanjiEntry kanjiEntry) throws SQLException {
-		
-		int fixme = 1;
-		// sprawdzicz, jak zachowuje sie szukanie przy kanjiDic2Entry == null 
-				
+						
 		Map<String, String> values = new TreeMap<String, String>();
 		
 		values.put(SQLiteStatic.kanjiEntriesTable_id, String.valueOf(kanjiEntry.getId()));
