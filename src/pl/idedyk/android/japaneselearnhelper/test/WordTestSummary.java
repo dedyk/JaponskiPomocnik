@@ -29,6 +29,13 @@ public class WordTestSummary extends Activity {
 		fillScreen();
 	}
 	
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+	    super.onRestoreInstanceState(savedInstanceState);
+	    
+	    fillScreen();
+	}
+	
 	private void fillScreen() {
 		
 		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
