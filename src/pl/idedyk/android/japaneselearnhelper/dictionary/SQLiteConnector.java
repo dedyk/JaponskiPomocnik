@@ -12,7 +12,6 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultIte
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupType;
@@ -523,9 +522,6 @@ public class SQLiteConnector {
 	
 	public KanjiEntry getKanjiEntry(String kanji) throws DictionaryException {
 		
-		int fixme = 1;
-		// zakomentowac kanjiEntriesTableAllColumns
-		
 		KanjiEntry kanjiEntry = null;
 				
 		Cursor cursor = null;
@@ -578,38 +574,23 @@ public class SQLiteConnector {
 	
 	public List<KanjiEntry> findKanjiFromRadicals(String[] radicals) throws DictionaryException {
 		
-		int fixme = 1;
+		StringBuffer sqlQuery = new StringBuffer();
 		
-		return new ArrayList<KanjiEntry>();
+		sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectFindKanjiFromRadicalsElementStart);		
+		sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectFindKanjiFromRadicalsElement);
 		
-		/*
-		
-		KanjiEntry kanjiEntry = null;
-				
-		Cursor cursor = null;
-		
-		StringBuffer selectionArgs = new StringBuffer();
-		
-		for (int radicalsIdx = 0; radicalsIdx < radicals.length; ++radicalsIdx) {
-			selectionArgs.append(SQLiteStatic.kanjiEntriesTable_radicals).append(" like ?");
-			
-			if (radicalsIdx != radicals.length - 1) {
-				selectionArgs.append(" and ");	
-			}
+		for (int idx = 0; idx < radicals.length; ++idx) {
+			sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectFindKanjiFromRadicalsFilter);
 		}
 		
-		String[] radicalsWithPercent = new String[radicals.length];
-		
-		for (int radicalsIdx = 0; radicalsIdx < radicals.length; ++radicalsIdx) {
-			radicalsWithPercent[radicalsIdx] = "%" + radicals[radicalsIdx] + "%";
-		}
+		sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectFindKanjiFromRadicalsElementStop);
 		
 		List<KanjiEntry> result = new ArrayList<KanjiEntry>();
 		
+		Cursor cursor = null;
+		
 		try {
-			cursor = sqliteDatabase.query(SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTableAllColumns, 
-					selectionArgs.toString(),
-					radicalsWithPercent, null, null, null);
+			cursor = sqliteDatabase.rawQuery(sqlQuery.toString(), radicals);
 			
 		    cursor.moveToFirst();
 		    
@@ -620,26 +601,31 @@ public class SQLiteConnector {
 				String kanjiString = cursor.getString(1);
 
 				String strokeCountString = cursor.getString(2);
-
-				String radicalsString = cursor.getString(3);
-
-				String onReadingString = cursor.getString(4);
-
-				String kunReadingString = cursor.getString(5);
-
-				String strokePathString = cursor.getString(6);
-
-				String polishTranslateListString = cursor.getString(7);
-				String infoString = cursor.getString(8);
 				
-				String generated = cursor.getString(9);
+				String strokePathString = cursor.getString(3);
 				
-				String groups = cursor.getString(10);
+				String generated = cursor.getString(4);
+				
+				Map<String, List<String>> mapListEntryValues = getMapListEntryValues(SQLiteStatic.kanjiEntriesTableName, idString);
+				
+				List<String> radicalsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_radicals);
+				List<String> onReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_onReading);
+				List<String> kunReadingList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_kunReading);
+				List<String> polishTranslateList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_polishTranslates);
+				List<String> groupsList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_groups);
 
-				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
-						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated, groups);	
+				List<String> infoStringList = mapListEntryValues.get(SQLiteStatic.kanjiEntriesTable_info);
+							
+				String infoString = null;
 				
+				if (infoStringList != null && infoStringList.size() > 0) {
+					infoString = infoStringList.get(0);
+				}
+				
+				KanjiEntry kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
+						radicalsList, onReadingList, kunReadingList, strokePathString, 
+						polishTranslateList, infoString, generated, groupsList);				
+
 				result.add(kanjiEntry);
 				
 				cursor.moveToNext();
@@ -652,79 +638,32 @@ public class SQLiteConnector {
 		}
 		
 		return result;
-		*/
-		
-		
 	}
 
 	public Set<String> findAllAvailableRadicals(String[] radicals) throws DictionaryException {
-		
-		int fixme = 1;
-		
-		return new HashSet<String>();
-		
-		/*
-		KanjiEntry kanjiEntry = null;
 				
-		Cursor cursor = null;
+		StringBuffer sqlQuery = new StringBuffer();
 		
-		StringBuffer selectionArgs = new StringBuffer();
+		sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectAllAvailableRadicalsElement);
 		
-		for (int radicalsIdx = 0; radicalsIdx < radicals.length; ++radicalsIdx) {
-			selectionArgs.append(SQLiteStatic.kanjiEntriesTable_radicals).append(" like ?");
-			
-			if (radicalsIdx != radicals.length - 1) {
-				selectionArgs.append(" and ");	
-			}
-		}
-		
-		String[] radicalsWithPercent = new String[radicals.length];
-		
-		for (int radicalsIdx = 0; radicalsIdx < radicals.length; ++radicalsIdx) {
-			radicalsWithPercent[radicalsIdx] = "%" + radicals[radicalsIdx] + "%";
+		for (int idx = 0; idx < radicals.length; ++idx) {
+			sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectAllAvailableRadicalsElementFilter);
 		}
 		
 		Set<String> result = new HashSet<String>();
 		
+		Cursor cursor = null;
+		
 		try {
-			cursor = sqliteDatabase.query(SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTableAllColumns, 
-					selectionArgs.toString(),
-					radicalsWithPercent, null, null, null);
+			cursor = sqliteDatabase.rawQuery(sqlQuery.toString(), radicals);
 			
 		    cursor.moveToFirst();
 		    
 		    while (!cursor.isAfterLast()) {
 				
-				String idString = cursor.getString(0);
-
-				String kanjiString = cursor.getString(1);
-
-				String strokeCountString = cursor.getString(2);
-
-				String radicalsString = cursor.getString(3);
-
-				String onReadingString = cursor.getString(4);
-
-				String kunReadingString = cursor.getString(5);
-
-				String strokePathString = cursor.getString(6);
-
-				String polishTranslateListString = cursor.getString(7);
-				String infoString = cursor.getString(8);
+				String radical = cursor.getString(0);
 				
-				String generated = cursor.getString(9);
-				
-				String groups = cursor.getString(10);
-
-				kanjiEntry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
-						radicalsString, onReadingString, kunReadingString, strokePathString, 
-						polishTranslateListString, infoString, generated, groups);	
-				
-				KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
-				
-				if (kanjiDic2Entry != null) {
-					result.addAll(kanjiDic2Entry.getRadicals());
-				}
+				result.add(radical);
 				
 				cursor.moveToNext();
 			}
@@ -736,7 +675,6 @@ public class SQLiteConnector {
 		}
 		
 		return result;
-		*/
 	}
 	
 	public void insertGrammaFormConjugateGroupTypeElements(DictionaryEntry dictionaryEntry, GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements) {

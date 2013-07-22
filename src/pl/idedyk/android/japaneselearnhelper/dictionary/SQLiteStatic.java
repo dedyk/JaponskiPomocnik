@@ -390,5 +390,28 @@ public class SQLiteStatic {
 	
 	public static final String grammaFormExampleSelectElements_limit = 
 			" limit ";
-
+	
+	public static final String kanjiEntriesTableSelectFindKanjiFromRadicalsElementStart = 
+			"select " + kanjiEntriesTable_id + " , " + kanjiEntriesTable_kanji + " , " + kanjiEntriesTable_strokeCount + " , " + kanjiEntriesTable_strokePaths + " , " + 
+			kanjiEntriesTable_generated + " from " + kanjiEntriesTableName + " where " + kanjiEntriesTable_id + " in ( ";
+	
+	public static final String kanjiEntriesTableSelectFindKanjiFromRadicalsElement =
+			"select " + listEntriesTable_key + " from " + listEntriesTableName + " ln where ln." + listEntriesTable_type + " = '" + kanjiEntriesTableName + 
+			"' and ln." + listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals + "' ";
+	
+	public static final String kanjiEntriesTableSelectFindKanjiFromRadicalsFilter = 
+			" and ln." + listEntriesTable_key + " in (select ln2." + listEntriesTable_key + " from " + listEntriesTableName + 
+			" ln2 where ln2." + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and ln2." + listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals + 
+			"' and ln2." + listEntriesTable_value + " = ?) ";
+	
+	public static final String kanjiEntriesTableSelectFindKanjiFromRadicalsElementStop = " ) "; 
+	
+	public static final String kanjiEntriesTableSelectAllAvailableRadicalsElement =
+			"select " + listEntriesTable_value + " from " + listEntriesTableName + " ln where ln." + listEntriesTable_type + " = '" + kanjiEntriesTableName + 
+			"' and ln." + listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals + "' ";
+	
+	public static final String kanjiEntriesTableSelectAllAvailableRadicalsElementFilter = 
+			" and ln." + listEntriesTable_key + " in (select ln2." + listEntriesTable_key + " from " + listEntriesTableName + 
+			" ln2 where ln2." + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and ln2." + listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals + 
+			"' and ln2." + listEntriesTable_value + " = ?) ";
 }
