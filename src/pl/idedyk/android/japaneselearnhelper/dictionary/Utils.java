@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeList;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
@@ -80,9 +80,9 @@ public class Utils {
 		entry.setDictionaryEntryType(dictionaryEntryType);
 
 		if (attributesObject instanceof String) {
-			entry.setAttributeList(AttributeType.convertToListAttributeType(parseStringIntoList((String)attributesObject, false)));
+			entry.setAttributeList(AttributeList.parseAttributesStringList(parseStringIntoList((String)attributesObject, false)));
 		} else {
-			entry.setAttributeList(AttributeType.convertToListAttributeType(convertToListString(attributesObject)));
+			entry.setAttributeList(AttributeList.parseAttributesStringList((convertToListString(attributesObject))));
 		}
 		
 		if (groupsObject instanceof String) {

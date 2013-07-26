@@ -6,6 +6,7 @@ import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper.KeigoEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeList;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
@@ -1177,7 +1178,7 @@ public class VerbExampler {
 	private static ExampleResult makeKeigoKudasai(KeigoHelper keigoHelper, DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
 		// check		
-		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
+		AttributeList attributeList = dictionaryEntry.getAttributeList();
 		
 		String kanji = dictionaryEntry.getKanji();
 		

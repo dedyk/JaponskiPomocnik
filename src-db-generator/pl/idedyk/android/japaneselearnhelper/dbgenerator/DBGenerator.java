@@ -19,7 +19,6 @@ import java.util.TreeMap;
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteStatic;
 import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
@@ -196,7 +195,7 @@ public class DBGenerator {
 		
 		insert(statement, SQLiteStatic.dictionaryEntriesTableName, values);
 		
-		insertListEntry(statement, AttributeType.convertToValues(dictionaryEntry.getAttributeList()), SQLiteStatic.dictionaryEntriesTableName, 
+		insertListEntry(statement, dictionaryEntry.getAttributeList().convertAttributeListToListString(), SQLiteStatic.dictionaryEntriesTableName, 
 				SQLiteStatic.dictionaryEntriesTable_attributeList, String.valueOf(dictionaryEntry.getId()));
 		
 		insertListEntry(statement, GroupEnum.convertToValues(dictionaryEntry.getGroups()), SQLiteStatic.dictionaryEntriesTableName, 

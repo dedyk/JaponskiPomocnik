@@ -13,7 +13,7 @@ public class DictionaryEntry implements Serializable {
 		
 	private DictionaryEntryType dictionaryEntryType;
 	
-	private List<AttributeType> attributeList;
+	private AttributeList attributeList;
 	
 	private List<GroupEnum> groups;
 	
@@ -161,11 +161,11 @@ public class DictionaryEntry implements Serializable {
 		this.groups = groups;
 	}
 
-	public List<AttributeType> getAttributeList() {
+	public AttributeList getAttributeList() {
 		return attributeList;
 	}
 
-	public void setAttributeList(List<AttributeType> attributeList) {
+	public void setAttributeList(AttributeList attributeList) {
 		this.attributeList = attributeList;
 	}
 

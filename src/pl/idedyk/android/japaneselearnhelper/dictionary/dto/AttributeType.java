@@ -1,62 +1,37 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum AttributeType {
 	
-	VERB_TRANSITIVITY("czasownik przechodni"),
+	VERB_TRANSITIVITY("czasownik przechodni", true),
+	VERB_TRANSITIVITY_PAIR("para dla czasownika przechodniego", false),
 	
-	VERB_INTRANSITIVITY("czasownik nieprzechodni"),
+	VERB_INTRANSITIVITY("czasownik nieprzechodni", true),
+	VERB_INTRANSITIVITY_PAIR("para dla czasownika nieprzechodniego", false),
 	
-	VERB_KEIGO_HIGH("czasownik honoryfikatywny (wywyższający)"),
+	VERB_KEIGO_HIGH("czasownik honoryfikatywny (wywyższający)", true),
 	
-	VERB_KEIGO_LOW("czasownik modestywny (uniżający)"),
+	VERB_KEIGO_LOW("czasownik modestywny (uniżający)", true),
 	
-	SURU_VERB("suru czasownik"),
+	SURU_VERB("suru czasownik", true),
 	
-	COMMON_WORD("słowo powszechnego użycia"),
+	COMMON_WORD("słowo powszechnego użycia", true),
 	
-	KANA_ALONE("zwykle pisany przy użyciu kana");
+	KANA_ALONE("zwykle pisany przy użyciu kana", true);
 	
 	private String name;
 	
-	AttributeType(String name) {
+	private boolean show;
+	
+	AttributeType(String name, boolean show) {
 		this.name = name;
+		this.show = show;
 	}
 
 	public String getName() {
 		return name;
 	}
-	
-	// static
-	
-	public static List<AttributeType> convertToListAttributeType(List<String> values) {
 
-		List<AttributeType> attributeTypeList = new ArrayList<AttributeType>();
-
-		for (String currentValue : values) {
-			
-			if (currentValue.equals("") == true) {
-				continue;
-			}
-			
-			AttributeType attributeType = AttributeType.valueOf(currentValue);
-			
-			attributeTypeList.add(attributeType);
-		}
-
-		return attributeTypeList;
-	}
-	
-	public static List<String> convertToValues(List<AttributeType> groups) {
-
-		List<String> values = new ArrayList<String>();
-
-		for (AttributeType currentAttributeType : groups) {
-			values.add(currentAttributeType.toString());
-		}
-
-		return values;		
+	public boolean isShow() {
+		return show;
 	}
 }

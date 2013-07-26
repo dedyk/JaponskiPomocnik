@@ -7,6 +7,7 @@ import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper.KeigoEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeList;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
@@ -168,7 +169,7 @@ public class VerbGrammaConjugater {
 		boolean isAruVerb = false;	
 		boolean isGozaruVerb = false;
 		
-		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
+		AttributeList attributeList = dictionaryEntry.getAttributeList();
 		List<String> kanaList = dictionaryEntry.getKanaList();
 		List<String> romajiList = dictionaryEntry.getRomajiList();
 		

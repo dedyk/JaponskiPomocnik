@@ -10,6 +10,7 @@ import java.util.Stack;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.Attribute;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
@@ -570,13 +571,18 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));
 		}
 		
-		List<AttributeType> attributeList = dictionaryEntry.getAttributeList();
+		List<Attribute> attributeList = dictionaryEntry.getAttributeList().getAttributeList();
 		
 		if (attributeList != null && attributeList.size() > 0) {
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_attributes), 0));
 			
-			for (AttributeType currentAttributeType : attributeList) {
-				report.add(new StringValue(currentAttributeType.getName(), 15.0f, 0));
+			for (Attribute currentAttribute : attributeList) {
+				
+				AttributeType attributeType = currentAttribute.getAttributeType();
+				
+				if (attributeType.isShow() == true) {				
+					report.add(new StringValue(currentAttribute.getAttributeType().getName(), 15.0f, 0));
+				}
 			}
 		}
 		
