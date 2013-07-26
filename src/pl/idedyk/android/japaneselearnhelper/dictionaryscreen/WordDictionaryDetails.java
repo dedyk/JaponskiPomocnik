@@ -581,7 +581,60 @@ public class WordDictionaryDetails extends Activity {
 				AttributeType attributeType = currentAttribute.getAttributeType();
 				
 				if (attributeType.isShow() == true) {				
-					report.add(new StringValue(currentAttribute.getAttributeType().getName(), 15.0f, 0));
+					report.add(new StringValue(attributeType.getName(), 15.0f, 0));
+				}
+				
+				if (attributeType == AttributeType.VERB_TRANSITIVITY_PAIR || attributeType == AttributeType.VERB_INTRANSITIVITY_PAIR) {
+					
+					Integer transitivityIntransitivityPairWordId = Integer.parseInt(currentAttribute.getAttributeValue().get(0));
+					
+					final DictionaryEntry transitivityIntransitivityPairDictionaryEntry = 
+							JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionaryDetails.this).getDictionaryEntryById(transitivityIntransitivityPairWordId);
+					
+					if (transitivityIntransitivityPairDictionaryEntry != null) {
+						
+						StringValue attributeTypeStringValue = new StringValue(attributeType.getName(), 15.0f, 0);
+						
+						OnClickListener goToTransitivityIntransitivityPairDictionaryEntryDetails = 
+								new OnClickListener() {
+									
+									@Override
+									public void onClick(View v) {
+										
+										Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+										
+										intent.putExtra("item", transitivityIntransitivityPairDictionaryEntry);
+										
+										startActivity(intent);
+									}
+								};
+						
+						attributeTypeStringValue.setOnClickListener(goToTransitivityIntransitivityPairDictionaryEntryDetails);
+						
+						report.add(attributeTypeStringValue);
+						
+						List<String> transitivityIntransitivityPairDictionaryEntryKanaList = transitivityIntransitivityPairDictionaryEntry.getKanaList();
+						List<String> transitivityIntransitivityPairDictionaryEntryRomajiList = transitivityIntransitivityPairDictionaryEntry.getRomajiList();
+						
+						for (int transitivityIntransitivityPairDictionaryEntryKanaListIdx = 0; transitivityIntransitivityPairDictionaryEntryKanaListIdx < transitivityIntransitivityPairDictionaryEntryKanaList.size();
+								transitivityIntransitivityPairDictionaryEntryKanaListIdx++) {
+							
+							StringBuffer transitivityIntrasitivitySb = new StringBuffer();
+							
+							if (transitivityIntransitivityPairDictionaryEntry.isKanjiExists() == true) {
+								transitivityIntrasitivitySb.append(transitivityIntransitivityPairDictionaryEntry.getKanji()).append(", ");
+							}
+							
+							transitivityIntrasitivitySb.append(transitivityIntransitivityPairDictionaryEntryKanaList.get(transitivityIntransitivityPairDictionaryEntryKanaListIdx)).append(", ");
+							transitivityIntrasitivitySb.append(transitivityIntransitivityPairDictionaryEntryRomajiList.get(transitivityIntransitivityPairDictionaryEntryKanaListIdx));
+							
+							StringValue transitivityIntransitivityPairDictionaryEntryKanjiKanaRomajiListStringValue = new StringValue(transitivityIntrasitivitySb.toString(), 15.0f, 1);
+							
+							transitivityIntransitivityPairDictionaryEntryKanjiKanaRomajiListStringValue.setOnClickListener(goToTransitivityIntransitivityPairDictionaryEntryDetails);
+							
+							report.add(transitivityIntransitivityPairDictionaryEntryKanjiKanaRomajiListStringValue);
+						}											
+					}					
 				}
 			}
 		}

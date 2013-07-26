@@ -3,10 +3,10 @@ package pl.idedyk.android.japaneselearnhelper.dictionary.dto;
 public enum AttributeType {
 	
 	VERB_TRANSITIVITY("czasownik przechodni", true),
-	VERB_TRANSITIVITY_PAIR("para dla czasownika przechodniego", false),
+	VERB_TRANSITIVITY_PAIR("odpowiadający czasownik przechodni", false),
 	
 	VERB_INTRANSITIVITY("czasownik nieprzechodni", true),
-	VERB_INTRANSITIVITY_PAIR("para dla czasownika nieprzechodniego", false),
+	VERB_INTRANSITIVITY_PAIR("odpowiadający czasownik nieprzechodni", false),
 	
 	VERB_KEIGO_HIGH("czasownik honoryfikatywny (wywyższający)", true),
 	
