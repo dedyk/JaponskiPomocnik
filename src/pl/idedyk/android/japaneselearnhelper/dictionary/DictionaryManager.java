@@ -36,6 +36,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.TransitiveIntransitivePair;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
@@ -50,6 +51,8 @@ public class DictionaryManager {
 	private static final String KANJI_RECOGNIZE_MODEL_DB_FILE = "kanji_recognizer.model.db";
 
 	private static final String RADICAL_FILE = "radical.csv";
+	
+	private static final String TRANSITIVE_INTRANSTIVE_PAIRS_FILE = "transitive_intransitive_pairs.csv";
 
 	private static final String KANA_FILE = "kana.csv";
 		
@@ -60,6 +63,8 @@ public class DictionaryManager {
 	private ZinniaManager zinniaManager;
 
 	private List<RadicalInfo> radicalList = null;
+	
+	private List<TransitiveIntransitivePair> transitiveIntransitivePairsList = null;
 	
 	private KanaHelper kanaHelper;
 	
@@ -191,6 +196,24 @@ public class DictionaryManager {
 
 				radicalInputStream = assets.open(RADICAL_FILE);
 				readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);
+				
+			} catch (IOException e) {
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+				
+				return;
+			}
+			
+			// wczytywanie informacji o parach czasownikow przechodnich i nieprzechodnich
+			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_transitive_intransitive_pairs));
+			loadWithProgress.setCurrentPos(0);
+
+			try {
+				InputStream transitiveIntransitivePairsInputStream = assets.open(TRANSITIVE_INTRANSTIVE_PAIRS_FILE);
+				int transitiveIntransitivePairsFileSize = getWordSize(transitiveIntransitivePairsInputStream);
+				loadWithProgress.setMaxValue(transitiveIntransitivePairsFileSize);
+
+				transitiveIntransitivePairsInputStream = assets.open(TRANSITIVE_INTRANSTIVE_PAIRS_FILE);
+				readTransitiveIntransitivePairsFromCsv(transitiveIntransitivePairsInputStream, loadWithProgress);
 				
 			} catch (IOException e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
@@ -781,6 +804,34 @@ public class DictionaryManager {
 		}
 
 		kanaHelper = new KanaHelper(kanaAndStrokePaths);
+
+		csvReader.close();		
+	}
+	
+	private void readTransitiveIntransitivePairsFromCsv(InputStream transitiveIntransitivePairsInputStream, ILoadWithProgress loadWithProgress) throws IOException {
+		
+		CsvReader csvReader = new CsvReader(new InputStreamReader(transitiveIntransitivePairsInputStream), ',');
+
+		int currentPos = 1;
+		
+		transitiveIntransitivePairsList = new ArrayList<TransitiveIntransitivePair>();
+
+		while(csvReader.readRecord()) {			
+
+			currentPos++;
+
+			loadWithProgress.setCurrentPos(currentPos);
+
+			Integer transitiveId = Integer.valueOf(csvReader.get(0));
+			Integer intransitiveId = Integer.valueOf(csvReader.get(1));
+
+			TransitiveIntransitivePair transitiveIntransitivePair = new TransitiveIntransitivePair();
+			
+			transitiveIntransitivePair.setTransitiveId(transitiveId);
+			transitiveIntransitivePair.setIntransitiveId(intransitiveId);
+			
+			transitiveIntransitivePairsList.add(transitiveIntransitivePair);
+		}
 
 		csvReader.close();		
 	}
