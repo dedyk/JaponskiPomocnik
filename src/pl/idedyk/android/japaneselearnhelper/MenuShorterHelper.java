@@ -6,6 +6,7 @@ import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
 import pl.idedyk.android.japaneselearnhelper.keigo.KeigoTable;
+import pl.idedyk.android.japaneselearnhelper.transivityintransitivity.TransivityIntransitivityPairsTable;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -18,9 +19,10 @@ public class MenuShorterHelper {
 		menu.add(Menu.NONE, R.id.main_menu_kana_text_menu_item, Menu.NONE, R.string.main_menu_kana_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_counters_text_menu_item, Menu.NONE, R.string.main_menu_counters_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_keigo_table_text_menu_item, Menu.NONE, R.string.main_menu_keigo_table_text_short);
+		menu.add(Menu.NONE, R.id.main_menu_transivity_intransivirt_pairs_table_text_menu_item, Menu.NONE, R.string.main_menu_transivity_intransivity_pairs_table_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_dictionary_text_menu_item, Menu.NONE, R.string.main_menu_dictionary_text);
 		menu.add(Menu.NONE, R.id.main_menu_kanji_text_menu_item, Menu.NONE, R.string.main_menu_kanji_text_short);
-		menu.add(Menu.NONE, R.id.main_menu_kanji_recognizer_text_menu_item, Menu.NONE, R.string.main_menu_kanji_recognizer_text_short);		
+		menu.add(Menu.NONE, R.id.main_menu_kanji_recognizer_text_menu_item, Menu.NONE, R.string.main_menu_kanji_recognizer_text_short);	
 	}
 	
 	public static boolean onOptionsItemSelected(MenuItem item, Context applicationContext, Activity activity) {
@@ -48,6 +50,12 @@ public class MenuShorterHelper {
 			activity.startActivity(intent);
 			
 			return true;
+		} else if (itemId == R.id.main_menu_transivity_intransivirt_pairs_table_text_menu_item) { // transivity intransivity pairs table
+			
+			Intent intent = new Intent(applicationContext, TransivityIntransitivityPairsTable.class);
+
+			activity.startActivity(intent);
+			
 		} else if (itemId == R.id.main_menu_dictionary_text_menu_item) { // dictionary
 			
 			Intent intent = new Intent(applicationContext, WordDictionaryTab.class);
