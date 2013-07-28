@@ -17,9 +17,9 @@
     <string name="main_menu_keigo_table_text_short">Keigo</string>
     <string name="main_menu_keigo_table_kanji">敬語</string>   
     
-    <string name="main_menu_transivity_intransivity_pairs_table_text">Tablica wybranych par czasowników przechodnich i nieprzechodnich</string>
-    <string name="main_menu_transivity_intransivity_pairs_table_text_short">Czasowniki przechodnie i nieprzechodnie</string>
-    <string name="main_menu_transivity_intransivity_pairs_table_kanji">動詞</string>
+    <string name="main_menu_transitive_intransitive_pairs_table_text">Tablica wybranych par czasowników przechodnich i nieprzechodnich</string>
+    <string name="main_menu_transitive_intransitive_pairs_table_text_short">Czasowniki przechodnie i nieprzechodnie</string>
+    <string name="main_menu_transitive_intransitive_pairs_table_kanji">動詞</string>
     
     <string name="main_menu_dictionary_text">Słowniczek</string>
     <string name="main_menu_dictionary_kanji">辞書</string>

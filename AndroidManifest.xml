@@ -57,7 +57,7 @@
         <activity android:name=".keigo.KeigoTable" android:label="@string/keigo_table_label"></activity>
         <activity android:name=".dictionaryhear.DictionaryHearOptions" android:label="@string/dictionary_hear_options_label" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".dictionaryhear.DictionaryHear" android:label="@string/dictionary_hear_label"></activity>
-        <activity android:name=".transivityintransitivity.TransivityIntransitivityPairsTable" android:label="@string/transivity_intransivity_pairs_table_label"></activity>
+        <activity android:name=".transitiveintransitive.TransitiveIntransitivePairsTable" android:label="@string/transitive_intransitive_pairs_table_label"></activity>
     </application>
 
 </manifest>

@@ -16,7 +16,7 @@ import pl.idedyk.android.japaneselearnhelper.keigo.KeigoTable;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestOptions;
 import pl.idedyk.android.japaneselearnhelper.testsm2.WordTestSM2Options;
-import pl.idedyk.android.japaneselearnhelper.transivityintransitivity.TransivityIntransitivityPairsTable;
+import pl.idedyk.android.japaneselearnhelper.transitiveintransitive.TransitiveIntransitivePairsTable;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -64,8 +64,8 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				getString(R.string.main_menu_keigo_table_text)));
 
 		mainMenuListItems.add(new MainMenuItem(
-				getString(R.string.main_menu_transivity_intransivity_pairs_table_kanji),
-				getString(R.string.main_menu_transivity_intransivity_pairs_table_text)));
+				getString(R.string.main_menu_transitive_intransitive_pairs_table_kanji),
+				getString(R.string.main_menu_transitive_intransitive_pairs_table_text)));
 		
 		mainMenuListItems.add(new MainMenuItem(
 				getString(R.string.main_menu_dictionary_kanji),
@@ -145,9 +145,9 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 					startActivity(intent);
 					
-				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_transivity_intransivity_pairs_table_text)) == true) { // transivity intransivity pairs table
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_transitive_intransitive_pairs_table_text)) == true) { // transitive intransitive pairs table
 					
-					Intent intent = new Intent(getApplicationContext(), TransivityIntransitivityPairsTable.class);
+					Intent intent = new Intent(getApplicationContext(), TransitiveIntransitivePairsTable.class);
 
 					startActivity(intent);
 					

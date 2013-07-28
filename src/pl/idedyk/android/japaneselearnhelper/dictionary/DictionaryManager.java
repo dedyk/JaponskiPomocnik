@@ -1225,4 +1225,8 @@ public class DictionaryManager {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
+		return transitiveIntransitivePairsList;
+	}
 }
