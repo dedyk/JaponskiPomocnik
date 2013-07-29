@@ -4,7 +4,7 @@
     
     <string name="transitive_intransitive_pairs_table_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     
-    <string name="transitive_intransitive_pairs_table_title">Pary czasowników</string>
+    <string name="transitive_intransitive_pairs_table_title">Para czasowników</string>
     
     <string name="transitive_intransitive_pairs_table_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w tablicy par czasowników przechodnich i nieprzechodnich</string>
     <string name="transitive_intransitive_pairs_table_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
