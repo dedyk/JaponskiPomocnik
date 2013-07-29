@@ -4,6 +4,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 
@@ -14,6 +15,8 @@ public class TitleItem implements IScreenItem {
 	private String title;
 	
 	private int level;
+	
+	private OnClickListener onClickListener;
 	
 	public TitleItem(String title, int level) {
 		this.title = title;
@@ -35,6 +38,8 @@ public class TitleItem implements IScreenItem {
 		titleSb.append(title);
 		
 		textView.setText(titleSb);	
+		
+		textView.setOnClickListener(onClickListener);
 		
 		layout.addView(textView);
 	}
@@ -70,6 +75,10 @@ public class TitleItem implements IScreenItem {
 
 	public int getLevel() {
 		return level;
+	}
+	
+	public void setOnClickListener(OnClickListener onClickListener) {
+		this.onClickListener = onClickListener;		
 	}
 }
 

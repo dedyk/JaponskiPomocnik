@@ -12,5 +12,12 @@
     <string name="transitive_intransitive_pairs_table_index">Indeks</string>
     <string name="transitive_intransitive_pairs_table_index_go">Naciśnij na pozycję, aby przejść do wybranej pary</string>
     
+    <string name="transitive_intransitive_pairs_table_transitive_verb">Czasownik przechodni</string>
+    <string name="transitive_intransitive_pairs_table_intransitive_verb">Czasownik nieprzechodni</string>
+    
+    <string name="transitive_intransitive_pairs_table_kanji">Kanji</string>
+    <string name="transitive_intransitive_pairs_table_kana">Kana</string>
+    <string name="transitive_intransitive_pairs_table_romaji">Romaji</string>
+    <string name="transitive_intransitive_pairs_table_translate">Tłumaczenie</string>
     
 </resources>

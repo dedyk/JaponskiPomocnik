@@ -10,9 +10,12 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.TransitiveIntransitivePair;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
+import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
+import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import android.app.Activity;
 import android.content.Intent;
@@ -162,6 +165,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 			DictionaryEntry transitivityDictionaryEntry = dictionaryManager.getDictionaryEntryById(transitiveId);
 			DictionaryEntry intransitivityDictionaryEntry = dictionaryManager.getDictionaryEntryById(intransitiveId);
 			
+			// title
 			TitleItem titleItem = new TitleItem(transitivityDictionaryEntry.getKanji() + " [" + transitivityDictionaryEntry.getRomajiList().get(0) + "] - " 
 					+ intransitivityDictionaryEntry.getKanji() + " [" + intransitivityDictionaryEntry.getRomajiList().get(0) + "]", 1);
 			
@@ -169,9 +173,104 @@ public class TransitiveIntransitivePairsTable extends Activity {
 			
 			report.add(titleItem);
 			
+			// transitive verb
+			generateVerbBody(report, transitivityDictionaryEntry, getString(R.string.transitive_intransitive_pairs_table_transitive_verb));
+			
+			// intransitve verb
+			generateVerbBody(report, intransitivityDictionaryEntry, getString(R.string.transitive_intransitive_pairs_table_intransitive_verb));
+			
 			// spacer
 			report.add(new StringValue("", 8.0f, 1));
 		}
+	}
+	
+	private void generateVerbBody(List<IScreenItem> report, final DictionaryEntry dictionaryEntry, String title) {
+				
+		OnClickListener goToVerbDictionaryEntryDetails = 
+				new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						
+						Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+						
+						intent.putExtra("item", dictionaryEntry);
+						
+						startActivity(intent);
+					}
+				};
+		
+		// spacer
+		report.add(new StringValue("", 1.5f, 1));
+				
+		TitleItem verbTitle = new TitleItem(title, 2);
+		verbTitle.setOnClickListener(goToVerbDictionaryEntryDetails);
+		
+		report.add(verbTitle);
+		
+		// spacer
+		report.add(new StringValue("", 0.5f, 1));
+		
+		TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, true);
+		
+		if (dictionaryEntry.isKanjiExists() == true) {
+			
+			// kanji
+			addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_kanji), dictionaryEntry.getKanji(), goToVerbDictionaryEntryDetails);
+		}
+		
+		// kana
+		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_kana), listStringToString(dictionaryEntry.getKanaList()), goToVerbDictionaryEntryDetails);
+		
+		// romaji
+		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_romaji), listStringToString(dictionaryEntry.getRomajiList()), goToVerbDictionaryEntryDetails);
+		
+		// translate
+		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_translate), listStringToString(dictionaryEntry.getTranslates()), goToVerbDictionaryEntryDetails);
+		
+		report.add(tableLayout);
+	}
+	
+	private void addRowValue(TableLayout tableLayout, String title, String value, OnClickListener goToVerbDictionaryEntryDetails) {
+		
+		TableRow tableRow = new TableRow();
+		
+		StringValue titleStringValue = new StringValue(title, 14.0f, 0);
+		
+		titleStringValue.setMarginTop(0);
+		titleStringValue.setMarginLeft(5);
+		titleStringValue.setMarginRight(5);
+		titleStringValue.setMarginBottom(0);
+		
+		titleStringValue.setBackgroundColor(getResources().getColor(R.color.title_background));
+		
+		titleStringValue.setOnClickListener(goToVerbDictionaryEntryDetails);
+		
+		StringValue valueStringValue = new StringValue(value, 14.0f, 0);
+		
+		valueStringValue.setOnClickListener(goToVerbDictionaryEntryDetails);
+		
+		tableRow.addScreenItem(titleStringValue);
+		tableRow.addScreenItem(valueStringValue);
+		
+		tableLayout.addTableRow(tableRow);
+	}
+	
+	private String listStringToString(List<String> listString) {
+		
+		StringBuffer sb = new StringBuffer();
+		
+		for (int idx = 0; idx < listString.size(); ++idx) {
+			
+			sb.append(listString.get(idx));
+			
+			if (idx != listString.size() - 1) {
+				
+				sb.append("\n");				
+			}
+		}
+		
+		return sb.toString();
 	}
 
 	private void fillMainLayout(List<IScreenItem> generatedDetails, LinearLayout mainLayout) {
