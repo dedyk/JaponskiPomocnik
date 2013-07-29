@@ -767,7 +767,8 @@ odpoczynek
 nieobecny",,
 405,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,"Genki 1-5
-Genki kanji 1-11",,旅行,りょこう,,ryokou,podróż,,
+Genki kanji 1-11",,旅行,りょこう,,ryokou,"podróż
+wyjazd",,
 406,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,"Genki 1-5
 Genki kanji 1-8",,新しい,あたらしい,,atarashii,"nowy
 świeży",,
@@ -3137,6 +3138,7 @@ bycie poza mieszkaniem",,
 1517,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,王族,おうぞく,,ouzoku,członek rodziny królewskiej,,
 1518,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-14,,民族,みんぞく,,minzoku,"rasa
 naród
+nacja
 lud
 plemię
 szczep
@@ -6449,7 +6451,9 @@ gest",,
 wykres",,
 3160,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,意図,いと,,ito,"intencja
-motywacja",,
+motywacja
+zamiar
+zamierzenie",,
 3161,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-21,,自信,じしん,,jishin,"pewność siebie
 wiara w siebie",,
@@ -13443,7 +13447,8 @@ spuścizna",,
 VERB_INTRANSITIVITY",HIRAGANA,Inne,,陥る,おちいる,,ochiiru,"wpadać
 zanurzać się
 zakopywać się
-upadać",,
+upadać
+spadać",,
 6301,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,陥れる,おとしいれる,,otoshiireru,"chwytać w pułapkę
 chwytać w sidła",,
 6302,WORD_VERB_U,"COMMON_WORD
@@ -19400,3 +19405,33 @@ przeprawiać
 przekraczać",,
 9187,WORD_VERB_U,"VERB_INTRANSITIVITY
 VERB_TRANSITIVITY_PAIR 9124",HIRAGANA,Inne,,燻る,いぶる,,iburu,palić,,
+9188,WORD_NOUN,KANA_ALONE,KATAKANA,Inne,,-,カッコウ,,kakkou,kukułka,,
+9189,WORD_NOUN,KANA_ALONE,HIRAGANA,Inne,,硴,かき,,kaki,ostryga,,
+9190,WORD_NOUN,KANA_ALONE,HIRAGANA,Inne,,牡蛎,かき,,kaki,ostryga,,
+9191,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,段,だん,,dan,"schodek
+stopień",,
+9192,WORD_NOUN,,HIRAGANA,Inne,,天頂,てんちょう,,tenchou,zenit,,
+9193,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,支出,ししゅつ,,shishutsu,"wydatek
+koszt
+nakład
+rozchód",,
+9194,WORD_NOUN,,HIRAGANA,Inne,,植生,しょくせい,,shokusei,"roślinność
+wegetacja",,
+9195,WORD_NOUN,,HIRAGANA,Inne,,欠片,かけら,,kakera,"kawałek
+odłamek
+ułamek
+urywek",,
+9196,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,恐怖症,きょうふしょう,,kyoufushou,fobia,,
+9197,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,盗難,とうなん,,tounan,"kradzież
+złodziejstwo",,
+9198,UNKNOWN,,HIRAGANA,Inne,,索然,さくぜん,,sakuzen,"oschły
+suchy",,
+9199,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,風刺,ふうし,,fuushi,"satyra
+ironia
+sarkazm",,
+9200,WORD_NOUN,,HIRAGANA,Inne,,風刺画,ふうしが,,fuushiga,karykatura,,
+9201,WORD_EXPRESSION,KANA_ALONE,HIRAGANA,Inne,,斯うした,こうした,,koushita,taki,,
+9202,WORD_NOUN,,HIRAGANA,Inne,,船乗り,ふなのり,,funanori,"marynarz
+żeglarz",,
