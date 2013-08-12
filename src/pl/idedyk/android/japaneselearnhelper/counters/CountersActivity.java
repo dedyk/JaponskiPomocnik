@@ -2,6 +2,8 @@ package pl.idedyk.android.japaneselearnhelper.counters;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Stack;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
@@ -28,7 +30,9 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 public class CountersActivity extends Activity {
-
+	
+	private Stack<Integer> backScreenPositionStack = new Stack<Integer>();
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
@@ -73,7 +77,7 @@ public class CountersActivity extends Activity {
 			
 			String description = currentCounter.getDescription();
 						
-			description = description.substring(0, 1).toUpperCase() + description.substring(1);
+			description = description.substring(0, 1).toUpperCase(Locale.getDefault()) + description.substring(1);
 			
 			StringBuffer title = new StringBuffer();
 			
@@ -162,13 +166,11 @@ public class CountersActivity extends Activity {
 			
 			titleStringValue.setOnClickListener(new OnClickListener() {
 				
-				public void onClick(View v) {					
-					Intent intent = new Intent(getApplicationContext(), CountersActivity.class);
-
-					intent.putExtra("counterPos", currentTitle.getY());
+				public void onClick(View v) {
 					
-					startActivity(intent);
+					backScreenPositionStack.push(scrollMainLayout.getScrollY());
 					
+					scrollMainLayout.scrollTo(0, currentTitle.getY() - 3);
 				}
 			});
 			
@@ -218,18 +220,23 @@ public class CountersActivity extends Activity {
 				
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
-		});	
+		});		
+	}
+	
+	@Override
+	public void onBackPressed() {
 		
-		final int counterPos = getIntent().getIntExtra("counterPos", -1);
-		
-		if (counterPos != -1) {	
-			scrollMainLayout.post(new Runnable() {
-				
-				public void run() {
-					scrollMainLayout.scrollTo(0, counterPos - 10);
-				}
-			});
+		if (backScreenPositionStack.isEmpty() == true) {
+			super.onBackPressed();
+			
+			return;
 		}
+		
+		Integer backPostion = backScreenPositionStack.pop();
+
+		final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.counters_main_layout_scroll);
+		
+		scrollMainLayout.scrollTo(0, backPostion);
 	}
 
 	private void fillMainLayout(List<IScreenItem> generatedDetails, LinearLayout mainLayout) {
