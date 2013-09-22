@@ -16,7 +16,13 @@ public enum AttributeType {
 	
 	COMMON_WORD("słowo powszechnego użycia", true),
 	
-	KANA_ALONE("zwykle pisany przy użyciu kana", true);
+	KANA_ALONE("zwykle pisany przy użyciu kana", true),
+	
+	ARCHAISM("archaizm", true),
+	
+	OBSCURE("słowo mało znane, zapomniane", true),
+	
+	OBSOLETE("słowo przestarzałe", true);
 	
 	private String name;
 	
