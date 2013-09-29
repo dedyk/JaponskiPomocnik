@@ -22,7 +22,13 @@ public enum AttributeType {
 	
 	OBSCURE("słowo mało znane, zapomniane", true),
 	
-	OBSOLETE("słowo przestarzałe", true);
+	OBSOLETE("słowo przestarzałe", true),
+	
+	SUFFIX("przyrostek", true),
+	NOUN_SUFFIX("przyrostek do rzeczowników", true),
+	
+	PREFIX("prefiks", true),
+	NOUN_PREFIX("prefiks do rzeczowników", true);
 	
 	private String name;
 	
