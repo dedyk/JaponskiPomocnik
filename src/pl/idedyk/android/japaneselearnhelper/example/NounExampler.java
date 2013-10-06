@@ -197,7 +197,7 @@ public class NounExampler {
 	
 	private static ExampleResult makeMorauExample(DictionaryEntry dictionaryEntry) {
 		
-		final String templateKanji = "[odbiorca] [は/が] [dający] [に/から] %sをもらう";
+		final String templateKanji = "[odbiorca] [は/が] [dający] [に/から] %sを貰う";
 		final String templateKana = "[odbiorca] [は/が] [dający] [に/から] %sをもらう";
 		final String templateRomaji = "[odbiorca] [wa/ga] [dający] [ni/kara] %s o morau";
 		

@@ -678,7 +678,7 @@ public class VerbExampler {
 	private static ExampleResult makeTeMorauExample(DictionaryEntry dictionaryEntry,
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 		
-		final String templateKanji = "[odbiorca] [は/が] [dający] [に/から] %sもらう";
+		final String templateKanji = "[odbiorca] [は/が] [dający] [に/から] %s貰う";
 		final String templateKana = "[odbiorca] [は/が] [dający] [に/から] %sもらう";
 		final String templateRomaji = "[odbiorca] [wa/ga] [dający] [ni/kara] %s morau";
 		
