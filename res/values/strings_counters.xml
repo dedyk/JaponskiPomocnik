@@ -14,6 +14,7 @@
     <string name="counters_examples">Przykłady</string>
     
     <string name="counters_how_many">jak wiele</string>
+    <string name="counters_which">który</string>
     
     <string name="counter_tsu_description">klasyfikator ogólny</string>
     
@@ -79,6 +80,12 @@
     	<item>kartki</item>
     	<item>CD</item>
     	<item>koszulki</item>
+    </string-array>
+    
+    <string name="counter_dan_description">stopnie, rangi, poziomy</string>
+    <string-array name="counter_dan_examples">
+    	<item>w judo</item>
+    	<item>w go</item>
     </string-array>
 
 </resources>
