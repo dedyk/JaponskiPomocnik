@@ -13,8 +13,20 @@ public class CountersHelper {
 
 		List<CounterEntry> result = new ArrayList<CounterEntry>();
 
-		// =ZŁĄCZ.TEKSTY(G1, E1, H1,A1,I1,B1, J1, D1,K1)
-		// counterEntry.getEntries().add(new CounterEntry.Entry("	", "	", "	", "	"));
+		// kolumny:
+		// A1 = counterEntry.getEntries().add(new CounterEntry.Entry("
+		// B1 = ", "
+		// C1 = ");
+
+		// kolumny:
+		// A2 - liczba (numer) 1, 2, 3 ...
+		// B2 - kanji
+		// C2 - kana
+		// D2 - romaji
+		// E2 - liczba (słownie)
+		// F2 - opis
+
+		// wzór dla komorki G2: =ZŁĄCZ.TEKSTY($A$1, A2, $B$1,B2 ,$B$1,C2, $B$1, D2, $C$1)
 
 		// tsu - klasyfikator ogólny
 		result.add(createTsuCounter(resources));
@@ -54,6 +66,9 @@ public class CountersHelper {
 
 		// dan - stopnie, rangi, poziomy
 		result.add(createDanCounter(resources));
+
+		// kai - numer piętra
+		result.add(createKaiCounter(resources));
 
 		return result;
 	}
@@ -427,6 +442,37 @@ public class CountersHelper {
 				new CounterEntry.Entry(resources.getString(R.string.counters_which), "何段", "なんだん", "nandan"));
 
 		String[] examplesArray = resources.getStringArray(R.array.counter_dan_examples);
+
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+
+		return counterEntry;
+	}
+
+	private CounterEntry createKaiCounter(Resources resources) {
+
+		CounterEntry counterEntry = new CounterEntry("階", "かい", "kai",
+				resources.getString(R.string.counter_kai_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一階", "いっかい", "ikkai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二階", "にかい", "nikai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三階", "さんかい", "sankai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三階", "さんがい", "sangai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四階", "よんかい", "yonkai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五階", "ごかい", "gokai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六階", "ろっかい", "rokkai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七階", "ななかい", "nanakai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八階", "はちかい", "hachikai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九階", "きゅうかい", "kyuukai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十階", "じゅっかい", "jukkai"));
+
+		counterEntry.getEntries().add(null);
+
+		counterEntry.getEntries().add(
+				new CounterEntry.Entry(resources.getString(R.string.counters_which2), "何階", "なんかい", "nankai"));
+
+		String[] examplesArray = resources.getStringArray(R.array.counter_kai_examples);
 
 		for (String currentExample : examplesArray) {
 			counterEntry.getExampleUse().add(currentExample);
