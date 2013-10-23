@@ -1,98 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="counters_label">Klasyfikatory</string>
     <string name="counters_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
-    
     <string name="counters_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w klasyfikatorach</string>
     <string name="counters_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
-    
     <string name="counters_index">Indeks</string>
     <string name="counters_index_go">Naciśnij na pozycję, aby przejść do klasyfikatora</string>
-    
     <string name="counters_title">Klasyfikatory</string>
-    
     <string name="counters_examples">Przykłady</string>
-    
     <string name="counters_how_many">jak wiele</string>
     <string name="counters_which">który</string>
     <string name="counters_which2">które</string>
-    
     <string name="counter_tsu_description">klasyfikator ogólny</string>
-    
     <string name="counter_ji_description">godziny</string>
     <string name="counter_ji_which_time">która</string>
-
     <string name="counter_fun_description">minuty</string>
     <string name="counter_fun_which_minute">która</string>
-
     <string name="counter_sai_description">lata</string>
     <string name="counter_sai_howOld">ile</string>
-
     <string name="counter_nichi_description">dzień miesiąca</string>
     <string name="counter_nichi_which">który</string>
-
     <string name="counter_nin_description">ludzi</string>
     <string name="counter_nin_how_many">ilu</string>
-    
     <string name="counter_ko_description">małe przedmioty</string>
+
     <string-array name="counter_ko_examples">
-        <item >cukierki</item>
-        <item >pomidory</item>
-        <item >gumki</item>
-        <item >mały sprzęt</item>
+        <item>cukierki</item>
+        <item>pomidory</item>
+        <item>gumki</item>
+        <item>mały sprzęt</item>
     </string-array>
 
     <string name="counter_satsu_description">wolumeny</string>
+
     <string-array name="counter_satsu_examples">
-    	<item>książki</item>
-    	<item>magazyny</item>
-    	<item>słowniki</item>
+        <item>książki</item>
+        <item>magazyny</item>
+        <item>słowniki</item>
     </string-array>
 
     <string name="counter_hiki_description">małe zwierzęta</string>
+
     <string-array name="counter_hiki_examples">
-    	<item>koty</item>
-    	<item>psy</item>
-    	<item>węże</item>
+        <item>koty</item>
+        <item>psy</item>
+        <item>węże</item>
     </string-array>
 
     <string name="counter_hon_description">długie przedmioty</string>
+
     <string-array name="counter_hon_examples">
-    	<item>ołówki</item>
-    	<item>parasolki</item>
-    	<item>taśmy</item>
-    	<item>butelki</item>
-    	<item>pociągi</item>
-    	<item>kable</item>
-    	<item>sznutki</item>
-    	<item>włosy</item>
+        <item>ołówki</item>
+        <item>parasolki</item>
+        <item>taśmy</item>
+        <item>butelki</item>
+        <item>pociągi</item>
+        <item>kable</item>
+        <item>sznutki</item>
+        <item>włosy</item>
     </string-array>
 
     <string name="counter_dai_description">urządzenia</string>
+
     <string-array name="counter_dai_examples">
-    	<item>komputery</item>
-    	<item>TV</item>
-    	<item>samochody</item>
-    	<item>rowery</item>
+        <item>komputery</item>
+        <item>TV</item>
+        <item>samochody</item>
+        <item>rowery</item>
     </string-array>
 
     <string name="counter_mai_description">płaskie przedmioty</string>
+
     <string-array name="counter_mai_examples">
-    	<item>kartki</item>
-    	<item>CD</item>
-    	<item>koszulki</item>
+        <item>kartki</item>
+        <item>CD</item>
+        <item>koszulki</item>
     </string-array>
-    
+
     <string name="counter_dan_description">stopnie, rangi, poziomy</string>
+
     <string-array name="counter_dan_examples">
-    	<item>w judo</item>
-    	<item>w go</item>
+        <item>w judo</item>
+        <item>w go</item>
     </string-array>
 
     <string name="counter_kai_description">numer piętra</string>
+
     <string-array name="counter_kai_examples">
-    	<item>piętro</item>
+        <item>piętro</item>
     </string-array>
-    
-    
+
+    <string name="counter_ken_description">domy, budynki</string>
+
+    <string-array name="counter_ken_examples">
+        <item>domy</item>
+        <item>budynki</item>
+    </string-array>
+
 </resources>

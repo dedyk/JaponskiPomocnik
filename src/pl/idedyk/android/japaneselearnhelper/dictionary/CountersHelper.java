@@ -16,7 +16,7 @@ public class CountersHelper {
 		// kolumny:
 		// A1 = counterEntry.getEntries().add(new CounterEntry.Entry("
 		// B1 = ", "
-		// C1 = ");
+		// C1 = "));
 
 		// kolumny:
 		// A2 - liczba (numer) 1, 2, 3 ...
@@ -69,6 +69,9 @@ public class CountersHelper {
 
 		// kai - numer piętra
 		result.add(createKaiCounter(resources));
+
+		// ken - numer domu, budynku
+		result.add(createKenCounter(resources));
 
 		return result;
 	}
@@ -473,6 +476,35 @@ public class CountersHelper {
 				new CounterEntry.Entry(resources.getString(R.string.counters_which2), "何階", "なんかい", "nankai"));
 
 		String[] examplesArray = resources.getStringArray(R.array.counter_kai_examples);
+
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+
+		return counterEntry;
+	}
+
+	private CounterEntry createKenCounter(Resources resources) {
+
+		CounterEntry counterEntry = new CounterEntry("軒", "けん", "ken",
+				resources.getString(R.string.counter_ken_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一軒", "いっけん ", "ikken"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二軒", "にけん", "niken"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三軒", "さんげん ", "sangen"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四軒", "よんけん", "yonken"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五軒", "ごけん ", "goken"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六軒", "ろっけん", "rokken"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七軒", "ななけん", "nanaken"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八軒", "はっけん", "hakken"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九軒", "きゅうけん", "kyuuken"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十軒", "じゅっけん", "jukken"));
+		counterEntry.getEntries().add(null);
+
+		counterEntry.getEntries().add(
+				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何軒", "なんけん", "nanken"));
+
+		String[] examplesArray = resources.getStringArray(R.array.counter_ken_examples);
 
 		for (String currentExample : examplesArray) {
 			counterEntry.getExampleUse().add(currentExample);
