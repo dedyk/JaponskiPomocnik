@@ -40,9 +40,9 @@
                 android:layout_weight="1"
                 android:ems="1"
                 android:enabled="false"
+                android:focusable="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:focusable="false"
                 android:textColor="@android:color/white" />
 
             <EditText
@@ -51,9 +51,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
-				android:inputType="textMultiLine"
-				android:singleLine="false"
                 android:focusable="false"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
                 android:textColor="@android:color/white" />
         </TableRow>
 
@@ -121,8 +121,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/word_test_word_input2"
@@ -132,8 +132,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </TableRow>
 
         <TableRow
@@ -162,8 +162,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/word_test_word_input3"
@@ -173,8 +173,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </TableRow>
 
         <TableRow
@@ -203,8 +203,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/word_test_word_input4"
@@ -214,8 +214,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </TableRow>
 
         <TableRow
@@ -244,8 +244,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/word_test_word_input5"
@@ -255,8 +255,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </TableRow>
 
         <TableRow
@@ -285,8 +285,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/word_test_word_input6"
@@ -296,8 +296,8 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </TableRow>
 
         <TableRow
@@ -326,8 +326,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/word_test_word_input7"
@@ -337,10 +337,10 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </TableRow>
-        
+
         <TableRow
             android:id="@+id/word_test_word8_row"
             android:layout_width="wrap_content"
@@ -367,8 +367,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/word_test_word_input8"
@@ -378,11 +378,11 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </TableRow>
 
-		<TableRow
+        <TableRow
             android:id="@+id/word_test_word9_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
@@ -408,8 +408,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/word_test_word_input9"
@@ -419,11 +419,11 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </TableRow>
 
-		<TableRow
+        <TableRow
             android:id="@+id/word_test_word10_row"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
@@ -449,8 +449,8 @@
                 android:enabled="false"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/word_test_word_input10"
@@ -460,10 +460,215 @@
                 android:ems="10"
                 android:inputType="textNoSuggestions"
                 android:singleLine="true"
-                android:visibility="gone"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
         </TableRow>
-		
+
+        <TableRow
+            android:id="@+id/word_test_word11_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label11"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2.5"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_prefix11"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input11"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:ems="10"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word_test_word12_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label12"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2.5"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_prefix12"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input12"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:ems="10"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word_test_word13_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label13"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2.5"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_prefix13"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input13"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:ems="10"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word_test_word14_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label14"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2.5"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_prefix14"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input14"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:ems="10"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/word_test_word15_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/word_test_word_label15"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="2.5"
+                android:background="@color/title_background"
+                android:gravity="center_vertical"
+                android:singleLine="false"
+                android:text="@string/word_test_word_label"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_prefix15"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="1"
+                android:enabled="false"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/word_test_word_input15"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:ems="10"
+                android:inputType="textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:visibility="gone" />
+        </TableRow>
+
         <TableRow
             android:id="@+id/word_test_translate_row"
             android:layout_width="wrap_content"
@@ -476,10 +681,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="2.5"
                 android:background="@color/title_background"
+                android:focusable="false"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_translate_label"
-                android:focusable="false" />
+                android:text="@string/word_test_translate_label" />
 
             <EditText
                 android:id="@+id/word_test_translate_input"
@@ -487,9 +692,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
                 android:ems="10"
+                android:focusable="false"
                 android:inputType="text|textMultiLine"
                 android:singleLine="false"
-                android:focusable="false"
                 android:textColor="@android:color/white" />
         </TableRow>
 
@@ -505,10 +710,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="2.5"
                 android:background="@color/title_background"
+                android:focusable="false"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_additional_info_label"
-                android:focusable="false" />
+                android:text="@string/word_test_additional_info_label" />
 
             <EditText
                 android:id="@+id/word_test_additional_info_input"
@@ -516,9 +721,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
                 android:ems="10"
+                android:focusable="false"
                 android:inputType="text|textMultiLine"
                 android:singleLine="false"
-                android:focusable="false"
                 android:textColor="@android:color/white" />
         </TableRow>
 
@@ -533,10 +738,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:background="@color/title_background"
+                android:focusable="false"
                 android:gravity="center_vertical"
                 android:singleLine="false"
-                android:text="@string/word_test_state_label"
-                android:focusable="false" />
+                android:text="@string/word_test_state_label" />
 
             <TextView
                 android:id="@+id/word_test_state_info"
@@ -545,9 +750,9 @@
                 android:layout_gravity="left"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="6"
+                android:focusable="false"
                 android:singleLine="false"
-                android:text="@string/word_test_state"
-                android:focusable="false" />
+                android:text="@string/word_test_state" />
         </TableRow>
 
         <Button

@@ -14,7 +14,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryExce
 
 public class Utils {
 
-	public static int MAX_LIST_SIZE = 10;
+	public static int MAX_LIST_SIZE = 15;
 
 	public static List<String> parseStringIntoList(String text, boolean limitSize) {
 
