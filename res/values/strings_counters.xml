@@ -97,5 +97,11 @@
         <item>domy</item>
         <item>budynki</item>
     </string-array>
+    
+    <string name="counter_bo_description">kroki</string>
+
+    <string-array name="counter_bo_examples">
+        <item>kroki</item>
+    </string-array>
 
 </resources>

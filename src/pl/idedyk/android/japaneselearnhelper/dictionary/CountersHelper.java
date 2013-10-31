@@ -73,6 +73,9 @@ public class CountersHelper {
 		// ken - numer domu, budynku
 		result.add(createKenCounter(resources));
 
+		// ho - kroki
+		result.add(createHoCounter(resources));
+
 		return result;
 	}
 
@@ -505,6 +508,36 @@ public class CountersHelper {
 				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何軒", "なんけん", "nanken"));
 
 		String[] examplesArray = resources.getStringArray(R.array.counter_ken_examples);
+
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+
+		return counterEntry;
+	}
+
+	private CounterEntry createHoCounter(Resources resources) {
+
+		CounterEntry counterEntry = new CounterEntry("歩", "ぼ", "bo",
+				resources.getString(R.string.counter_bo_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一歩", "いっぽ", "ippo"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二歩", "にほ", "niho"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三歩", "さんぽ", "sanpo"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四歩", "よんほ", "yonho"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五歩", "ごほ", "goho"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六歩", "ろっぽ", "roppo"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七歩", "ななほ", "nanaho"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八歩", "はっぽ", "happo"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九歩", "きゅうほ", "kyuuho"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十歩", "じっぽ ", "jippo"));
+
+		counterEntry.getEntries().add(null);
+
+		counterEntry.getEntries().add(
+				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何歩", "なんぽ", "nanpo"));
+
+		String[] examplesArray = resources.getStringArray(R.array.counter_bo_examples);
 
 		for (String currentExample : examplesArray) {
 			counterEntry.getExampleUse().add(currentExample);
