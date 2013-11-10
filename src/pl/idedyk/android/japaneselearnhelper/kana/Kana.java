@@ -30,124 +30,126 @@ import android.widget.Button;
 import android.widget.TableLayout;
 
 public class Kana extends Activity {
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-		
+
 		MenuShorterHelper.onCreateOptionsMenu(menu);
-		
+
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
 
 		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 	}
-	
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {	
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		setContentView(R.layout.word_kana);
-		
-		TableLayout mainTableLayout = (TableLayout)findViewById(R.id.word_kana_main_layout);
-		
+
+		TableLayout mainTableLayout = (TableLayout) findViewById(R.id.word_kana_main_layout);
+
 		final List<IScreenItem> screenItems = new ArrayList<IScreenItem>();
-		
-		Map<String, KanaEntry> kanaCache = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(Kana.this).getKanaHelper().getKanaCache();
-		
+
+		Map<String, KanaEntry> kanaCache = JapaneseAndroidLearnHelperApplication.getInstance()
+				.getDictionaryManager(Kana.this).getKanaHelper().getKanaCache();
+
 		generateHiraganaTable(screenItems, kanaCache);
 		generateKatakanaTable(screenItems, kanaCache);
 		generateKatakanaAdditionalTable(screenItems, kanaCache);
-		
+
 		fillMainLayout(screenItems, mainTableLayout);
-		
-		Button reportProblemButton = (Button)findViewById(R.id.word_kana_report_problem_button);
-		
+
+		Button reportProblemButton = (Button) findViewById(R.id.word_kana_report_problem_button);
+
 		reportProblemButton.setOnClickListener(new OnClickListener() {
-			
+
+			@Override
 			public void onClick(View view) {
-				
+
 				StringBuffer detailsSb = new StringBuffer();
-				
+
 				for (IScreenItem currentscreenItem : screenItems) {
 					detailsSb.append(currentscreenItem.toString()).append("\n\n");
 				}
-				
-				String chooseEmailClientTitle = getString(R.string.choose_email_client);
-				
-				String mailSubject = getString(R.string.kana_report_problem_email_subject);
-				
-				String mailBody = getString(R.string.kana_report_problem_email_body,
-						detailsSb.toString());
-				
-		        String versionName = "";
-		        int versionCode = 0;
-		        
-		        try {
-		        	PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-		        	
-		            versionName = packageInfo.versionName;
-		            versionCode = packageInfo.versionCode;
 
-		        } catch (NameNotFoundException e) {        	
-		        }
-								
-				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
-				
+				String chooseEmailClientTitle = getString(R.string.choose_email_client);
+
+				String mailSubject = getString(R.string.kana_report_problem_email_subject);
+
+				String mailBody = getString(R.string.kana_report_problem_email_body, detailsSb.toString());
+
+				String versionName = "";
+				int versionCode = 0;
+
+				try {
+					PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+					versionName = packageInfo.versionName;
+					versionCode = packageInfo.versionCode;
+
+				} catch (NameNotFoundException e) {
+				}
+
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(),
+						versionName, versionCode);
+
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
 	}
-	
+
 	private void generateHiraganaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
-		
+
 		screenItems.add(new TitleItem(getString(R.string.kana_hiragana_label), 0));
 		screenItems.add(new StringValue(getString(R.string.kana_info), 12.0f, 0));
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow a_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(a_tableRow, kanaCache, "あ");
 		addKanaItem(a_tableRow, kanaCache, "い");
 		addKanaItem(a_tableRow, kanaCache, "う");
 		addKanaItem(a_tableRow, kanaCache, "え");
 		addKanaItem(a_tableRow, kanaCache, "お");
-		
+
 		screenItems.add(a_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow k_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(k_tableRow, kanaCache, "か");
 		addKanaItem(k_tableRow, kanaCache, "き");
 		addKanaItem(k_tableRow, kanaCache, "く");
 		addKanaItem(k_tableRow, kanaCache, "け");
 		addKanaItem(k_tableRow, kanaCache, "こ");
-				
+
 		screenItems.add(k_tableRow);
 
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow s_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(s_tableRow, kanaCache, "さ");
 		addKanaItem(s_tableRow, kanaCache, "し");
 		addKanaItem(s_tableRow, kanaCache, "す");
 		addKanaItem(s_tableRow, kanaCache, "せ");
 		addKanaItem(s_tableRow, kanaCache, "そ");
-						
+
 		screenItems.add(s_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow t_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(t_tableRow, kanaCache, "た");
 		addKanaItem(t_tableRow, kanaCache, "ち");
 		addKanaItem(t_tableRow, kanaCache, "つ");
 		addKanaItem(t_tableRow, kanaCache, "て");
 		addKanaItem(t_tableRow, kanaCache, "と");
-		
+
 		screenItems.add(t_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow n_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(n_tableRow, kanaCache, "な");
@@ -155,9 +157,9 @@ public class Kana extends Activity {
 		addKanaItem(n_tableRow, kanaCache, "ぬ");
 		addKanaItem(n_tableRow, kanaCache, "ね");
 		addKanaItem(n_tableRow, kanaCache, "の");
-		
+
 		screenItems.add(n_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow h_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(h_tableRow, kanaCache, "は");
@@ -165,9 +167,9 @@ public class Kana extends Activity {
 		addKanaItem(h_tableRow, kanaCache, "ふ");
 		addKanaItem(h_tableRow, kanaCache, "へ");
 		addKanaItem(h_tableRow, kanaCache, "ほ");
-		
+
 		screenItems.add(h_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow m_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(m_tableRow, kanaCache, "ま");
@@ -175,9 +177,9 @@ public class Kana extends Activity {
 		addKanaItem(m_tableRow, kanaCache, "む");
 		addKanaItem(m_tableRow, kanaCache, "め");
 		addKanaItem(m_tableRow, kanaCache, "も");
-		
+
 		screenItems.add(m_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow y_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(y_tableRow, kanaCache, "や");
@@ -185,9 +187,9 @@ public class Kana extends Activity {
 		addKanaItem(y_tableRow, kanaCache, "ゆ");
 		addKanaItem(y_tableRow, kanaCache, null);
 		addKanaItem(y_tableRow, kanaCache, "よ");
-		
+
 		screenItems.add(y_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow r_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(r_tableRow, kanaCache, "ら");
@@ -195,19 +197,19 @@ public class Kana extends Activity {
 		addKanaItem(r_tableRow, kanaCache, "る");
 		addKanaItem(r_tableRow, kanaCache, "れ");
 		addKanaItem(r_tableRow, kanaCache, "ろ");
-		
+
 		screenItems.add(r_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow w_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(w_tableRow, kanaCache, "わ");
 		addKanaItem(w_tableRow, kanaCache, null);
 		addKanaItem(w_tableRow, kanaCache, null);
 		addKanaItem(w_tableRow, kanaCache, null);
 		addKanaItem(w_tableRow, kanaCache, "を");
-		
+
 		screenItems.add(w_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow n2_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(n2_tableRow, kanaCache, "ん");
@@ -215,7 +217,7 @@ public class Kana extends Activity {
 		addKanaItem(n2_tableRow, kanaCache, null);
 		addKanaItem(n2_tableRow, kanaCache, null);
 		addKanaItem(n2_tableRow, kanaCache, null);
-		
+
 		screenItems.add(n2_tableRow);
 
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow g_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
@@ -225,9 +227,9 @@ public class Kana extends Activity {
 		addKanaItem(g_tableRow, kanaCache, "ぐ");
 		addKanaItem(g_tableRow, kanaCache, "げ");
 		addKanaItem(g_tableRow, kanaCache, "ご");
-		
+
 		screenItems.add(g_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow z_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(z_tableRow, kanaCache, "ざ");
@@ -235,9 +237,9 @@ public class Kana extends Activity {
 		addKanaItem(z_tableRow, kanaCache, "ず");
 		addKanaItem(z_tableRow, kanaCache, "ぜ");
 		addKanaItem(z_tableRow, kanaCache, "ぞ");
-		
+
 		screenItems.add(z_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow d_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(d_tableRow, kanaCache, "だ");
@@ -245,9 +247,9 @@ public class Kana extends Activity {
 		addKanaItem(d_tableRow, kanaCache, "づ");
 		addKanaItem(d_tableRow, kanaCache, "で");
 		addKanaItem(d_tableRow, kanaCache, "ど");
-		
+
 		screenItems.add(d_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow b_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(b_tableRow, kanaCache, "ば");
@@ -255,9 +257,9 @@ public class Kana extends Activity {
 		addKanaItem(b_tableRow, kanaCache, "ぶ");
 		addKanaItem(b_tableRow, kanaCache, "べ");
 		addKanaItem(b_tableRow, kanaCache, "ぼ");
-		
+
 		screenItems.add(b_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow p_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(p_tableRow, kanaCache, "ぱ");
@@ -265,9 +267,9 @@ public class Kana extends Activity {
 		addKanaItem(p_tableRow, kanaCache, "ぷ");
 		addKanaItem(p_tableRow, kanaCache, "ぺ");
 		addKanaItem(p_tableRow, kanaCache, "ぽ");
-		
+
 		screenItems.add(p_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow ky_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(ky_tableRow, kanaCache, "きゃ");
@@ -275,9 +277,9 @@ public class Kana extends Activity {
 		addKanaItem(ky_tableRow, kanaCache, "きゅ");
 		addKanaItem(ky_tableRow, kanaCache, null);
 		addKanaItem(ky_tableRow, kanaCache, "きょ");
-		
+
 		screenItems.add(ky_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow shy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(shy_tableRow, kanaCache, "しゃ");
@@ -285,9 +287,9 @@ public class Kana extends Activity {
 		addKanaItem(shy_tableRow, kanaCache, "しゅ");
 		addKanaItem(shy_tableRow, kanaCache, null);
 		addKanaItem(shy_tableRow, kanaCache, "しょ");
-		
+
 		screenItems.add(shy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow chy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(chy_tableRow, kanaCache, "ちゃ");
@@ -295,9 +297,9 @@ public class Kana extends Activity {
 		addKanaItem(chy_tableRow, kanaCache, "ちゅ");
 		addKanaItem(chy_tableRow, kanaCache, null);
 		addKanaItem(chy_tableRow, kanaCache, "ちょ");
-		
+
 		screenItems.add(chy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow ny_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(ny_tableRow, kanaCache, "にゃ");
@@ -305,9 +307,9 @@ public class Kana extends Activity {
 		addKanaItem(ny_tableRow, kanaCache, "にゅ");
 		addKanaItem(ny_tableRow, kanaCache, null);
 		addKanaItem(ny_tableRow, kanaCache, "にょ");
-		
+
 		screenItems.add(ny_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow hy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(hy_tableRow, kanaCache, "ひゃ");
@@ -315,9 +317,9 @@ public class Kana extends Activity {
 		addKanaItem(hy_tableRow, kanaCache, "ひゅ");
 		addKanaItem(hy_tableRow, kanaCache, null);
 		addKanaItem(hy_tableRow, kanaCache, "ひょ");
-		
+
 		screenItems.add(hy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow my_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(my_tableRow, kanaCache, "みゃ");
@@ -325,9 +327,9 @@ public class Kana extends Activity {
 		addKanaItem(my_tableRow, kanaCache, "みゅ");
 		addKanaItem(my_tableRow, kanaCache, null);
 		addKanaItem(my_tableRow, kanaCache, "みょ");
-		
+
 		screenItems.add(my_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow ry_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(ry_tableRow, kanaCache, "りゃ");
@@ -335,9 +337,9 @@ public class Kana extends Activity {
 		addKanaItem(ry_tableRow, kanaCache, "りゅ");
 		addKanaItem(ry_tableRow, kanaCache, null);
 		addKanaItem(ry_tableRow, kanaCache, "りょ");
-		
+
 		screenItems.add(ry_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow gy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(gy_tableRow, kanaCache, "ぎゃ");
@@ -345,9 +347,9 @@ public class Kana extends Activity {
 		addKanaItem(gy_tableRow, kanaCache, "ぎゅ");
 		addKanaItem(gy_tableRow, kanaCache, null);
 		addKanaItem(gy_tableRow, kanaCache, "ぎょ");
-		
+
 		screenItems.add(gy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow jy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(jy_tableRow, kanaCache, "じゃ");
@@ -355,9 +357,9 @@ public class Kana extends Activity {
 		addKanaItem(jy_tableRow, kanaCache, "じゅ");
 		addKanaItem(jy_tableRow, kanaCache, null);
 		addKanaItem(jy_tableRow, kanaCache, "じょ");
-		
+
 		screenItems.add(jy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow by_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(by_tableRow, kanaCache, "びゃ");
@@ -365,9 +367,9 @@ public class Kana extends Activity {
 		addKanaItem(by_tableRow, kanaCache, "びゅ");
 		addKanaItem(by_tableRow, kanaCache, null);
 		addKanaItem(by_tableRow, kanaCache, "びょ");
-		
+
 		screenItems.add(by_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow py_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(py_tableRow, kanaCache, "ぴゃ");
@@ -375,55 +377,65 @@ public class Kana extends Activity {
 		addKanaItem(py_tableRow, kanaCache, "ぴゅ");
 		addKanaItem(py_tableRow, kanaCache, null);
 		addKanaItem(py_tableRow, kanaCache, "ぴょ");
-		
+
 		screenItems.add(py_tableRow);
+
+		pl.idedyk.android.japaneselearnhelper.screen.TableRow dy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
+
+		addKanaItem(dy_tableRow, kanaCache, "ぢゃ");
+		addKanaItem(dy_tableRow, kanaCache, null);
+		addKanaItem(dy_tableRow, kanaCache, "ぢゅ");
+		addKanaItem(dy_tableRow, kanaCache, null);
+		addKanaItem(dy_tableRow, kanaCache, "ぢょ");
+
+		screenItems.add(dy_tableRow);
 	}
 
 	private void generateKatakanaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
-		
+
 		screenItems.add(new TitleItem(getString(R.string.kana_katakana_label), 0));
 		screenItems.add(new StringValue(getString(R.string.kana_info), 12.0f, 0));
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow a_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(a_tableRow, kanaCache, "ア");
 		addKanaItem(a_tableRow, kanaCache, "イ");
 		addKanaItem(a_tableRow, kanaCache, "ウ");
 		addKanaItem(a_tableRow, kanaCache, "エ");
 		addKanaItem(a_tableRow, kanaCache, "オ");
-		
+
 		screenItems.add(a_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow k_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(k_tableRow, kanaCache, "カ");
 		addKanaItem(k_tableRow, kanaCache, "キ");
 		addKanaItem(k_tableRow, kanaCache, "ク");
 		addKanaItem(k_tableRow, kanaCache, "ケ");
 		addKanaItem(k_tableRow, kanaCache, "コ");
-				
+
 		screenItems.add(k_tableRow);
 
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow s_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(s_tableRow, kanaCache, "サ");
 		addKanaItem(s_tableRow, kanaCache, "シ");
 		addKanaItem(s_tableRow, kanaCache, "ス");
 		addKanaItem(s_tableRow, kanaCache, "セ");
 		addKanaItem(s_tableRow, kanaCache, "ソ");
-						
+
 		screenItems.add(s_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow t_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(t_tableRow, kanaCache, "タ");
 		addKanaItem(t_tableRow, kanaCache, "チ");
 		addKanaItem(t_tableRow, kanaCache, "ツ");
 		addKanaItem(t_tableRow, kanaCache, "テ");
 		addKanaItem(t_tableRow, kanaCache, "ト");
-		
+
 		screenItems.add(t_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow n_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(n_tableRow, kanaCache, "ナ");
@@ -431,9 +443,9 @@ public class Kana extends Activity {
 		addKanaItem(n_tableRow, kanaCache, "ヌ");
 		addKanaItem(n_tableRow, kanaCache, "ネ");
 		addKanaItem(n_tableRow, kanaCache, "ノ");
-		
+
 		screenItems.add(n_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow h_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(h_tableRow, kanaCache, "ハ");
@@ -441,9 +453,9 @@ public class Kana extends Activity {
 		addKanaItem(h_tableRow, kanaCache, "フ");
 		addKanaItem(h_tableRow, kanaCache, "ヘ");
 		addKanaItem(h_tableRow, kanaCache, "ホ");
-		
+
 		screenItems.add(h_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow m_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(m_tableRow, kanaCache, "マ");
@@ -451,19 +463,19 @@ public class Kana extends Activity {
 		addKanaItem(m_tableRow, kanaCache, "ム");
 		addKanaItem(m_tableRow, kanaCache, "メ");
 		addKanaItem(m_tableRow, kanaCache, "モ");
-		
+
 		screenItems.add(m_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow y_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(y_tableRow, kanaCache, "ヤ");
 		addKanaItem(y_tableRow, kanaCache, null);
 		addKanaItem(y_tableRow, kanaCache, "ユ");
 		addKanaItem(y_tableRow, kanaCache, null);
 		addKanaItem(y_tableRow, kanaCache, "ヨ");
-		
+
 		screenItems.add(y_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow r_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(r_tableRow, kanaCache, "ラ");
@@ -471,19 +483,19 @@ public class Kana extends Activity {
 		addKanaItem(r_tableRow, kanaCache, "ル");
 		addKanaItem(r_tableRow, kanaCache, "レ");
 		addKanaItem(r_tableRow, kanaCache, "ロ");
-		
+
 		screenItems.add(r_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow w_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(w_tableRow, kanaCache, "ワ");
 		addKanaItem(w_tableRow, kanaCache, null);
 		addKanaItem(w_tableRow, kanaCache, null);
 		addKanaItem(w_tableRow, kanaCache, null);
 		addKanaItem(w_tableRow, kanaCache, "ヲ");
-		
+
 		screenItems.add(w_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow n2_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(n2_tableRow, kanaCache, "ン");
@@ -491,7 +503,7 @@ public class Kana extends Activity {
 		addKanaItem(n2_tableRow, kanaCache, null);
 		addKanaItem(n2_tableRow, kanaCache, null);
 		addKanaItem(n2_tableRow, kanaCache, null);
-		
+
 		screenItems.add(n2_tableRow);
 
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow g_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
@@ -503,7 +515,7 @@ public class Kana extends Activity {
 		addKanaItem(g_tableRow, kanaCache, "ゴ");
 
 		screenItems.add(g_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow z_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(z_tableRow, kanaCache, "ザ");
@@ -511,9 +523,9 @@ public class Kana extends Activity {
 		addKanaItem(z_tableRow, kanaCache, "ズ");
 		addKanaItem(z_tableRow, kanaCache, "ゼ");
 		addKanaItem(z_tableRow, kanaCache, "ゾ");
-		
+
 		screenItems.add(z_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow d_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(d_tableRow, kanaCache, "ダ");
@@ -521,9 +533,9 @@ public class Kana extends Activity {
 		addKanaItem(d_tableRow, kanaCache, "ヅ");
 		addKanaItem(d_tableRow, kanaCache, "デ");
 		addKanaItem(d_tableRow, kanaCache, "ド");
-		
+
 		screenItems.add(d_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow b_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(b_tableRow, kanaCache, "バ");
@@ -531,9 +543,9 @@ public class Kana extends Activity {
 		addKanaItem(b_tableRow, kanaCache, "ブ");
 		addKanaItem(b_tableRow, kanaCache, "ベ");
 		addKanaItem(b_tableRow, kanaCache, "ボ");
-		
+
 		screenItems.add(b_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow p_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(p_tableRow, kanaCache, "パ");
@@ -541,9 +553,9 @@ public class Kana extends Activity {
 		addKanaItem(p_tableRow, kanaCache, "プ");
 		addKanaItem(p_tableRow, kanaCache, "ペ");
 		addKanaItem(p_tableRow, kanaCache, "ポ");
-		
+
 		screenItems.add(p_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow ky_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(ky_tableRow, kanaCache, "キャ");
@@ -551,9 +563,9 @@ public class Kana extends Activity {
 		addKanaItem(ky_tableRow, kanaCache, "キュ");
 		addKanaItem(ky_tableRow, kanaCache, null);
 		addKanaItem(ky_tableRow, kanaCache, "キョ");
-		
+
 		screenItems.add(ky_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow shy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(shy_tableRow, kanaCache, "シャ");
@@ -561,9 +573,9 @@ public class Kana extends Activity {
 		addKanaItem(shy_tableRow, kanaCache, "シュ");
 		addKanaItem(shy_tableRow, kanaCache, null);
 		addKanaItem(shy_tableRow, kanaCache, "ショ");
-		
+
 		screenItems.add(shy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow chy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(chy_tableRow, kanaCache, "チャ");
@@ -571,9 +583,9 @@ public class Kana extends Activity {
 		addKanaItem(chy_tableRow, kanaCache, "チュ");
 		addKanaItem(chy_tableRow, kanaCache, null);
 		addKanaItem(chy_tableRow, kanaCache, "チョ");
-		
+
 		screenItems.add(chy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow ny_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(ny_tableRow, kanaCache, "ニャ");
@@ -581,9 +593,9 @@ public class Kana extends Activity {
 		addKanaItem(ny_tableRow, kanaCache, "ニュ");
 		addKanaItem(ny_tableRow, kanaCache, null);
 		addKanaItem(ny_tableRow, kanaCache, "ニョ");
-		
+
 		screenItems.add(ny_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow hy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(hy_tableRow, kanaCache, "ヒャ");
@@ -591,9 +603,9 @@ public class Kana extends Activity {
 		addKanaItem(hy_tableRow, kanaCache, "ヒュ");
 		addKanaItem(hy_tableRow, kanaCache, null);
 		addKanaItem(hy_tableRow, kanaCache, "ヒョ");
-		
+
 		screenItems.add(hy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow my_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(my_tableRow, kanaCache, "ミャ");
@@ -601,9 +613,9 @@ public class Kana extends Activity {
 		addKanaItem(my_tableRow, kanaCache, "ミュ");
 		addKanaItem(my_tableRow, kanaCache, null);
 		addKanaItem(my_tableRow, kanaCache, "ミョ");
-		
+
 		screenItems.add(my_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow ry_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(ry_tableRow, kanaCache, "リャ");
@@ -611,9 +623,9 @@ public class Kana extends Activity {
 		addKanaItem(ry_tableRow, kanaCache, "リュ");
 		addKanaItem(ry_tableRow, kanaCache, null);
 		addKanaItem(ry_tableRow, kanaCache, "リョ");
-		
+
 		screenItems.add(ry_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow gy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(gy_tableRow, kanaCache, "ギャ");
@@ -621,9 +633,9 @@ public class Kana extends Activity {
 		addKanaItem(gy_tableRow, kanaCache, "ギュ");
 		addKanaItem(gy_tableRow, kanaCache, null);
 		addKanaItem(gy_tableRow, kanaCache, "ギョ");
-		
+
 		screenItems.add(gy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow jy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(jy_tableRow, kanaCache, "ジャ");
@@ -631,9 +643,9 @@ public class Kana extends Activity {
 		addKanaItem(jy_tableRow, kanaCache, "ジュ");
 		addKanaItem(jy_tableRow, kanaCache, null);
 		addKanaItem(jy_tableRow, kanaCache, "ジョ");
-		
+
 		screenItems.add(jy_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow by_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(by_tableRow, kanaCache, "ビャ");
@@ -641,9 +653,9 @@ public class Kana extends Activity {
 		addKanaItem(by_tableRow, kanaCache, "ビュ");
 		addKanaItem(by_tableRow, kanaCache, null);
 		addKanaItem(by_tableRow, kanaCache, "ビョ");
-		
+
 		screenItems.add(by_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow py_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(py_tableRow, kanaCache, "ピャ");
@@ -651,12 +663,22 @@ public class Kana extends Activity {
 		addKanaItem(py_tableRow, kanaCache, "ピュ");
 		addKanaItem(py_tableRow, kanaCache, null);
 		addKanaItem(py_tableRow, kanaCache, "ピョ");
-		
+
 		screenItems.add(py_tableRow);
+
+		pl.idedyk.android.japaneselearnhelper.screen.TableRow dy_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
+
+		addKanaItem(dy_tableRow, kanaCache, "ヂャ");
+		addKanaItem(dy_tableRow, kanaCache, null);
+		addKanaItem(dy_tableRow, kanaCache, "ヂュ");
+		addKanaItem(dy_tableRow, kanaCache, null);
+		addKanaItem(dy_tableRow, kanaCache, "ヂョ");
+
+		screenItems.add(dy_tableRow);
 	}
-	
+
 	private void generateKatakanaAdditionalTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache) {
-		
+
 		screenItems.add(new TitleItem(getString(R.string.kana_katakana_additional_label), 0));
 		screenItems.add(new StringValue(getString(R.string.kana_info), 12.0f, 0));
 
@@ -667,7 +689,7 @@ public class Kana extends Activity {
 		addKanaItem(u_tableRow, kanaCache, null);
 		addKanaItem(u_tableRow, kanaCache, "ウェ");
 		addKanaItem(u_tableRow, kanaCache, "ウォ");
-		
+
 		screenItems.add(u_tableRow);
 
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow v_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
@@ -677,9 +699,9 @@ public class Kana extends Activity {
 		addKanaItem(v_tableRow, kanaCache, "ヴ");
 		addKanaItem(v_tableRow, kanaCache, null);
 		addKanaItem(v_tableRow, kanaCache, null);
-		
+
 		screenItems.add(v_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow s_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(s_tableRow, kanaCache, null);
@@ -687,9 +709,9 @@ public class Kana extends Activity {
 		addKanaItem(s_tableRow, kanaCache, null);
 		addKanaItem(s_tableRow, kanaCache, "シェ");
 		addKanaItem(s_tableRow, kanaCache, null);
-		
+
 		screenItems.add(s_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow j_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(j_tableRow, kanaCache, null);
@@ -697,9 +719,9 @@ public class Kana extends Activity {
 		addKanaItem(j_tableRow, kanaCache, null);
 		addKanaItem(j_tableRow, kanaCache, "ジェ");
 		addKanaItem(j_tableRow, kanaCache, null);
-		
+
 		screenItems.add(j_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow c_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(c_tableRow, kanaCache, null);
@@ -707,9 +729,9 @@ public class Kana extends Activity {
 		addKanaItem(c_tableRow, kanaCache, null);
 		addKanaItem(c_tableRow, kanaCache, "チェ");
 		addKanaItem(c_tableRow, kanaCache, null);
-		
+
 		screenItems.add(c_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow f_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(f_tableRow, kanaCache, "ファ");
@@ -717,9 +739,9 @@ public class Kana extends Activity {
 		addKanaItem(f_tableRow, kanaCache, null);
 		addKanaItem(f_tableRow, kanaCache, "フェ");
 		addKanaItem(f_tableRow, kanaCache, "フォ");
-		
+
 		screenItems.add(f_tableRow);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow t_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
 		addKanaItem(t_tableRow, kanaCache, null);
@@ -727,9 +749,9 @@ public class Kana extends Activity {
 		addKanaItem(t_tableRow, kanaCache, null);
 		addKanaItem(t_tableRow, kanaCache, null);
 		addKanaItem(t_tableRow, kanaCache, null);
-		
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow c2_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-		
+
 		addKanaItem(c2_tableRow, kanaCache, null);
 		addKanaItem(c2_tableRow, kanaCache, "ディ");
 		addKanaItem(c2_tableRow, kanaCache, null);
@@ -737,64 +759,57 @@ public class Kana extends Activity {
 		addKanaItem(c2_tableRow, kanaCache, null);
 
 		screenItems.add(c2_tableRow);
-		
-		pl.idedyk.android.japaneselearnhelper.screen.TableRow d_tableRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-
-		addKanaItem(d_tableRow, kanaCache, null);
-		addKanaItem(d_tableRow, kanaCache, null);
-		addKanaItem(d_tableRow, kanaCache, "ヂュ");
-		addKanaItem(d_tableRow, kanaCache, null);
-		addKanaItem(d_tableRow, kanaCache, null);
-		
-		screenItems.add(d_tableRow);		
 	}
-	
-	private void addKanaItem(pl.idedyk.android.japaneselearnhelper.screen.TableRow tableRow, Map<String, KanaEntry> kanaCache, String kana) {
-		
+
+	private void addKanaItem(pl.idedyk.android.japaneselearnhelper.screen.TableRow tableRow,
+			Map<String, KanaEntry> kanaCache, String kana) {
+
 		StringValue stringValue = null;
-		
+
 		if (kana != null) {
 			final KanaEntry kanaEntry = kanaCache.get(kana);
-			
+
 			if (kanaEntry == null) {
 				throw new RuntimeException(kana);
 			}
-			
-			Spanned spanned = Html.fromHtml("<b>" + kanaEntry.getKanaDisplay() + "</b><br/>" + kanaEntry.getKanaJapanese() + "<br/>");
-			
-			stringValue = new StringValue(spanned, 20, 0);	
-			
+
+			Spanned spanned = Html.fromHtml("<b>" + kanaEntry.getKanaDisplay() + "</b><br/>"
+					+ kanaEntry.getKanaJapanese() + "<br/>");
+
+			stringValue = new StringValue(spanned, 20, 0);
+
 			stringValue.setOnClickListener(new OnClickListener() {
-				
+
+				@Override
 				public void onClick(View v) {
-					
+
 					List<List<String>> allStrokePaths = kanaEntry.getStrokePaths();
-					
+
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 					strokePathInfo.setStrokePaths(allStrokePaths);
 
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
-					
+
 					intent.putExtra("strokePathsInfo", strokePathInfo);
-					
-					startActivity(intent);					
+
+					startActivity(intent);
 				}
 			});
-			
+
 		} else {
 			stringValue = new StringValue("", 20, 0);
 		}
-		
+
 		stringValue.setGravity(Gravity.CENTER);
 		stringValue.setNullMargins(true);
-		
-		tableRow.addScreenItem(stringValue);		
+
+		tableRow.addScreenItem(stringValue);
 	}
-	
+
 	private void fillMainLayout(List<IScreenItem> generatedDetails, TableLayout mainTableLayout) {
-		
+
 		for (IScreenItem currentDetailsReportItem : generatedDetails) {
-			currentDetailsReportItem.generate(this, getResources(), mainTableLayout);			
+			currentDetailsReportItem.generate(this, getResources(), mainTableLayout);
 		}
 	}
 }

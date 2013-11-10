@@ -419,9 +419,9 @@ public class KanaHelper {
 		katakanaEntries.add(new KanaEntry("ティ", "ti", KanaType.KATAKANA, KanaGroup.YOUON));
 		katakanaEntries.add(new KanaEntry("ディ", "di", KanaType.KATAKANA, KanaGroup.YOUON));
 
-		katakanaEntries.add(new KanaEntry("ヂュ", "dya", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ヂャ", "dya", KanaType.KATAKANA, KanaGroup.YOUON));
 		katakanaEntries.add(new KanaEntry("ヂュ", "dyu", KanaType.KATAKANA, KanaGroup.YOUON));
-		katakanaEntries.add(new KanaEntry("ヂュ", "dyo", KanaType.KATAKANA, KanaGroup.YOUON));
+		katakanaEntries.add(new KanaEntry("ヂョ", "dyo", KanaType.KATAKANA, KanaGroup.YOUON));
 
 		katakanaEntries.add(new KanaEntry("ヴ", "vu", KanaType.KATAKANA, KanaGroup.OTHER));
 

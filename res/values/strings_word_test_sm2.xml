@@ -14,7 +14,7 @@
     
     <string name="word_test_sm2_options_show_kanji">Znaki kanji</string>
     <string name="word_test_sm2_options_show_kana">Znaki kana</string>
-    <string name="word_test_sm2_options_show_translate">Tumaczenia</string>
+    <string name="word_test_sm2_options_show_translate">Tłumaczenia</string>
     <string name="word_test_sm2_options_show_additional_info">Informacje dodatkowe</string>
     
     <string name="word_test_sm2_options_max_new_words_number_invalid">Niepoprawna liczba maksymalnej liczby nowy słów na dzień</string>
