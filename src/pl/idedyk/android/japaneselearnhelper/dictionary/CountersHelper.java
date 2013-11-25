@@ -76,6 +76,9 @@ public class CountersHelper {
 		// ho - kroki
 		result.add(createHoCounter(resources));
 
+		// hai - łyżki, kubki, miski, szklanki
+		result.add(createHaiCounter(resources));
+
 		return result;
 	}
 
@@ -538,6 +541,36 @@ public class CountersHelper {
 				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何歩", "なんぽ", "nanpo"));
 
 		String[] examplesArray = resources.getStringArray(R.array.counter_bo_examples);
+
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+
+		return counterEntry;
+	}
+
+	private CounterEntry createHaiCounter(Resources resources) {
+
+		CounterEntry counterEntry = new CounterEntry("杯", "はい", "hai",
+				resources.getString(R.string.counter_hai_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一杯", "いっぱい", "ippai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二杯", "にはい", "nihai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三杯", "さんばい", "sanbai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四杯", "よんはい", "yonhai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五杯", "ごはい", "gohai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六杯", "ろっぱい", "roppai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七杯", "ななはい", "nanahai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八杯", "はっぱい", "happai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九杯", "きゅうはい", "kyuuhai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十杯", "じっぱい", "jippai"));
+
+		counterEntry.getEntries().add(null);
+
+		counterEntry.getEntries().add(
+				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何杯", "なんはい", "nanhai"));
+
+		String[] examplesArray = resources.getStringArray(R.array.counter_hai_examples);
 
 		for (String currentExample : examplesArray) {
 			counterEntry.getExampleUse().add(currentExample);

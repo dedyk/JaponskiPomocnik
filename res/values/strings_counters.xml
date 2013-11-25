@@ -103,5 +103,14 @@
     <string-array name="counter_bo_examples">
         <item>kroki</item>
     </string-array>
+    
+    <string name="counter_hai_description">łyżki, kubki, miski, szklanki</string>
 
+    <string-array name="counter_hai_examples">
+        <item>łyżki</item>
+        <item>kubki</item>
+        <item>miski</item>
+        <item>szklanki</item>
+    </string-array>
+    
 </resources>
