@@ -341,6 +341,7 @@ public class WordTestSM2 extends Activity {
 		fillScreen();
 	}
 
+	@SuppressWarnings("deprecation")
 	private void fillScreen() {
 
 		final WordTestSM2Config wordTestSM2Config = JapaneseAndroidLearnHelperApplication.getInstance()

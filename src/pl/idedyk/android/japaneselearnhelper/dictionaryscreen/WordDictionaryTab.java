@@ -12,10 +12,11 @@ import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
+@SuppressWarnings("deprecation")
 public class WordDictionaryTab extends TabActivity {
-	
-	private List<TabHost.TabSpec> tagHostSpecList = new ArrayList<TabHost.TabSpec>();  
-	
+
+	private final List<TabHost.TabSpec> tagHostSpecList = new ArrayList<TabHost.TabSpec>();
+
 	private int counter = 1;
 
 	@Override
@@ -24,7 +25,7 @@ public class WordDictionaryTab extends TabActivity {
 
 		menu.add(Menu.NONE, R.id.main_menu_word_dictionary_tab_add_tab, Menu.NONE, R.string.word_dictionary_tab_add_tab);
 		menu.add(Menu.NONE, R.id.main_menu_word_dictionary_tab_del_tab, Menu.NONE, R.string.word_dictionary_tab_del_tab);
-		
+
 		return true;
 	}
 
@@ -40,9 +41,9 @@ public class WordDictionaryTab extends TabActivity {
 
 			return true;
 		} else if (itemId == R.id.main_menu_word_dictionary_tab_del_tab) { // del tab
-			
-			delCurrentTab(getTabHost());	
-			
+
+			delCurrentTab(getTabHost());
+
 			return true;
 		}
 
@@ -56,7 +57,7 @@ public class WordDictionaryTab extends TabActivity {
 		setContentView(R.layout.word_dictionary_tab);
 
 		TabHost tabHost = getTabHost();
-		
+
 		addTab(tabHost, true);
 
 		tabHost.setCurrentTab(0);
@@ -66,51 +67,50 @@ public class WordDictionaryTab extends TabActivity {
 
 		// word dictionary
 		Intent wordDictionary = new Intent(getApplicationContext(), WordDictionary.class);
-		
+
 		if (addFindExtra == true) {
 			wordDictionary.putExtra("findWordRequest", getIntent().getSerializableExtra("findWordRequest"));
 		}
 
 		TabSpec wordDictionaryTabSpec = tabHost.newTabSpec("WordDictionaryTabSpec." + counter)
-				.setIndicator(getString(R.string.word_dictionary_tab_tab, counter))
-				.setContent(wordDictionary);
+				.setIndicator(getString(R.string.word_dictionary_tab_tab, counter)).setContent(wordDictionary);
 
-		tabHost.addTab(wordDictionaryTabSpec);	
+		tabHost.addTab(wordDictionaryTabSpec);
 		tagHostSpecList.add(wordDictionaryTabSpec);
-		
+
 		tabHost.setCurrentTab(tagHostSpecList.size() - 1);
-		
+
 		counter++;
 	}
-	
+
 	private void delCurrentTab(TabHost tabHost) {
-		
+
 		int currentTab = tabHost.getCurrentTab();
-		
+
 		tagHostSpecList.remove(currentTab);
-		
+
 		if (tagHostSpecList.size() == 0) {
 			finish();
-			
+
 			return;
 		}
-		
-		tabHost.clearAllTabs();  
-		
-		for(TabHost.TabSpec spec : tagHostSpecList) {  
-			tabHost.addTab(spec); 
+
+		tabHost.clearAllTabs();
+
+		for (TabHost.TabSpec spec : tagHostSpecList) {
+			tabHost.addTab(spec);
 		}
-		
-		if (currentTab >= tagHostSpecList.size()) { 
+
+		if (currentTab >= tagHostSpecList.size()) {
 			currentTab = tagHostSpecList.size();
 		}
-		
+
 		currentTab = currentTab - 1;
-		
+
 		if (currentTab < 0) {
 			currentTab = 0;
 		}
-		
+
 		tabHost.setCurrentTab(currentTab);
 	}
 }

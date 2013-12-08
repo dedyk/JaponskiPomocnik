@@ -197,6 +197,7 @@ public class WordTest extends Activity {
 		});
 	}
 
+	@SuppressWarnings("deprecation")
 	private void checkUserAnswer() {
 
 		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance()

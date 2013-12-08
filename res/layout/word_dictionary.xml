@@ -163,7 +163,8 @@
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/word_dictionary_search_options_search_gramma_examples"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/word_dictionary_search_options_search_gramma_examples_warning_textview"
@@ -171,7 +172,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="@string/word_dictionary_search_options_search_gramma_examples_warning"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/word_dictionary_search_options_search_word_entry_type_label"

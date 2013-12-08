@@ -44,7 +44,7 @@ public class KanjiTest extends Activity {
 	private Button testUndoButton;
 	private Button testClearButton;
 	private Button testCheckButton;
-	
+
 	private Button[] chooseAnswers;
 
 	private KanjiDrawView drawView;
@@ -54,7 +54,6 @@ public class KanjiTest extends Activity {
 	private JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext;
 
 	private KanjiTestConfig kanjiTestConfig;
-
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -80,39 +79,48 @@ public class KanjiTest extends Activity {
 
 			int testCurrentPos = getCurrentTestPos();
 
-			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji)).append(" ").append(kanjiTestConfig.getChosenKanjiAsList()).append("\n\n");
+			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji)).append(" ")
+					.append(kanjiTestConfig.getChosenKanjiAsList()).append("\n\n");
 
-			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanjiTestMode)).append(" ").append(kanjiTestMode).append("\n\n");
+			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanjiTestMode)).append(" ")
+					.append(kanjiTestMode).append("\n\n");
 
-			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_untilSuccess)).append(" ").append(kanjiTestConfig.getUntilSuccess()).append("\n\n");
+			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_untilSuccess)).append(" ")
+					.append(kanjiTestConfig.getUntilSuccess()).append("\n\n");
 
-			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_currentPos)).append(" ").append((testCurrentPos + 1)).append("\n\n");
+			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_currentPos)).append(" ")
+					.append((testCurrentPos + 1)).append("\n\n");
 
 			List<String> kanjiInTestList = new ArrayList<String>();
 
-			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
+					|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 				EntryOrderList<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
-				
+
 				for (int idx = 0; idx < kanjiEntryList.size(); ++idx) {
 					kanjiInTestList.add(kanjiEntryList.getEntry(idx).getKanji());
-				}				
+				}
 
-			} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+			} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
+					|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
-				EntryOrderList<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
+				EntryOrderList<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext
+						.getDictionaryEntryWithRemovedKanji();
 
 				for (int idx = 0; idx < dictionaryEntryWithRemovedKanji.size(); ++idx) {
 					kanjiInTestList.add(dictionaryEntryWithRemovedKanji.getEntry(idx).getDictionaryEntry().getKanji());
 				}
 
 			} else {
-				throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
+				throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
 			}
 
-			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji2)).append(" ").append(kanjiInTestList).append("\n\n");
+			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji2)).append(" ")
+					.append(kanjiInTestList).append("\n\n");
 
-			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_answers)).append("\n\n----------\n\n");
+			detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_answers)).append(
+					"\n\n----------\n\n");
 
 			List<TestAnswer> testAnswers = kanjiTestContext.getTestAnswers();
 
@@ -120,36 +128,47 @@ public class KanjiTest extends Activity {
 
 				TestAnswer currentTestAnswer = testAnswers.get(testAnswersIdx);
 
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_position)).append(" ").append((testAnswersIdx + 1)).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_position)).append(" ")
+						.append((testAnswersIdx + 1)).append("\n\n");
 
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji3)).append(" ").append(currentTestAnswer.getKanji()).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_kanji3)).append(" ")
+						.append(currentTestAnswer.getKanji()).append("\n\n");
 
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_correct_strokeNo)).append(" ").append(currentTestAnswer.getKanjiCorrectStrokeNo()).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_correct_strokeNo)).append(" ")
+						.append(currentTestAnswer.getKanjiCorrectStrokeNo()).append("\n\n");
 
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_width)).append(" ").append(currentTestAnswer.getWidth()).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_width)).append(" ")
+						.append(currentTestAnswer.getWidth()).append("\n\n");
 
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_height)).append(" ").append(currentTestAnswer.getHeight()).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_height)).append(" ")
+						.append(currentTestAnswer.getHeight()).append("\n\n");
 
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_correct_answer)).append(" ").append(currentTestAnswer.isCorrectAnswer()).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_correct_answer)).append(" ")
+						.append(currentTestAnswer.isCorrectAnswer()).append("\n\n");
 
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_user_strokeNo)).append(" ").append(currentTestAnswer.getKanjiUserStrokeNo()).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_user_strokeNo)).append(" ")
+						.append(currentTestAnswer.getKanjiUserStrokeNo()).append("\n\n");
 
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_user_draw)).append("\n\n").append(						
-						currentTestAnswer.getDrawStrokesStrings()).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_user_draw)).append("\n\n")
+						.append(currentTestAnswer.getDrawStrokesStrings()).append("\n\n");
 
 				List<KanjiRecognizerResultItem> recognizeResult = currentTestAnswer.getRecognizeResult();
 
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_recognize_result)).append("\n\n");
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_recognize_result)).append(
+						"\n\n");
 
 				if (recognizeResult != null) {
 					for (KanjiRecognizerResultItem currentRecognizerResultItem : recognizeResult) {
-						detailsSb.append(currentRecognizerResultItem.getKanji() + " - " + currentRecognizerResultItem.getScore()).append("\n");
+						detailsSb
+								.append(currentRecognizerResultItem.getKanji() + " - "
+										+ currentRecognizerResultItem.getScore()).append("\n");
 					}
-					
+
 					detailsSb.append("\n");
 				}
-				
-				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_chosenKanji)).append(" ").append(currentTestAnswer.getChosenKanji()).append("\n\n");
+
+				detailsSb.append(getString(R.string.kanji_test_report_problem_email_body_chosenKanji)).append(" ")
+						.append(currentTestAnswer.getChosenKanji()).append("\n\n");
 
 				detailsSb.append("\n----------\n\n");
 			}
@@ -158,8 +177,7 @@ public class KanjiTest extends Activity {
 
 			String mailSubject = getString(R.string.kanji_test_report_problem_email_subject);
 
-			String mailBody = getString(R.string.kanji_test_report_problem_email_body,
-					detailsSb.toString());
+			String mailBody = getString(R.string.kanji_test_report_problem_email_body, detailsSb.toString());
 
 			String versionName = "";
 			int versionCode = 0;
@@ -170,10 +188,11 @@ public class KanjiTest extends Activity {
 				versionName = packageInfo.versionName;
 				versionCode = packageInfo.versionCode;
 
-			} catch (NameNotFoundException e) {        	
+			} catch (NameNotFoundException e) {
 			}
 
-			Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+			Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(),
+					versionName, versionCode);
 
 			startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 
@@ -182,34 +201,35 @@ public class KanjiTest extends Activity {
 			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 		}
 	}
-	
+
 	@Override
 	public void onBackPressed() {
-		
-		DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-			
-		    @Override
-		    public void onClick(DialogInterface dialog, int which) {
-		        switch (which){
-		        case DialogInterface.BUTTON_POSITIVE:
-		        	
-		        	finish();
-		        	
-		            break;
 
-		        case DialogInterface.BUTTON_NEGATIVE:
-		        	
-		        	// noop
-		        	
-		            break;
-		        }
-		    }
+		DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				switch (which) {
+					case DialogInterface.BUTTON_POSITIVE:
+
+						finish();
+
+						break;
+
+					case DialogInterface.BUTTON_NEGATIVE:
+
+						// noop
+
+						break;
+				}
+			}
 		};
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		
-		builder.setMessage(getString(R.string.kanji_test_quit_question)).setPositiveButton(getString(R.string.kanji_test_quit_question_yes), dialogClickListener)
-		    .setNegativeButton(getString(R.string.kanji_test_quit_question_no), dialogClickListener).show();
+
+		builder.setMessage(getString(R.string.kanji_test_quit_question))
+				.setPositiveButton(getString(R.string.kanji_test_quit_question_yes), dialogClickListener)
+				.setNegativeButton(getString(R.string.kanji_test_quit_question_no), dialogClickListener).show();
 	}
 
 	@Override
@@ -217,19 +237,21 @@ public class KanjiTest extends Activity {
 
 		super.onCreate(savedInstanceState);
 
-		kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanjiTestConfig();
+		kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this)
+				.getKanjiTestConfig();
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
-		
-		if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+
+		if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 			setContentView(R.layout.kanji_test_choose);
 		} else {
 			setContentView(R.layout.kanji_test_draw);
-		}		
+		}
 
 		kanjiTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanjiTestContext();
 
-		kanjiInfoTextView = (TextView)findViewById(R.id.kanji_test_info_textview);
+		kanjiInfoTextView = (TextView) findViewById(R.id.kanji_test_info_textview);
 
 		drawView = (KanjiDrawView) findViewById(R.id.kanji_test_recognizer_draw_view);
 
@@ -242,6 +264,7 @@ public class KanjiTest extends Activity {
 		if (testUndoButton != null) {
 			testUndoButton.setOnClickListener(new View.OnClickListener() {
 
+				@Override
 				public void onClick(View v) {
 					drawView.removeLastStroke();
 				}
@@ -251,6 +274,7 @@ public class KanjiTest extends Activity {
 		if (testClearButton != null) {
 			testClearButton.setOnClickListener(new View.OnClickListener() {
 
+				@Override
 				public void onClick(View v) {
 					drawView.clear();
 				}
@@ -261,9 +285,11 @@ public class KanjiTest extends Activity {
 
 			testCheckButton.setOnClickListener(new View.OnClickListener() {
 
+				@Override
 				public void onClick(View v) {
 
-					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTest.this);
+					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance()
+							.getDictionaryManager(KanjiTest.this);
 
 					final String correctKanji = getCurrentTestPosCorrectKanji();
 
@@ -275,7 +301,8 @@ public class KanjiTest extends Activity {
 
 					if (strokes.size() == 0) {
 
-						Toast toast = Toast.makeText(KanjiTest.this, getString(R.string.kanji_test_recognizer_please_draw), Toast.LENGTH_SHORT);
+						Toast toast = Toast.makeText(KanjiTest.this,
+								getString(R.string.kanji_test_recognizer_please_draw), Toast.LENGTH_SHORT);
 
 						toast.show();
 
@@ -286,7 +313,8 @@ public class KanjiTest extends Activity {
 
 					zinniaManager.open();
 
-					pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager.Character zinniaCharacter = zinniaManager.createNewCharacter();
+					pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager.Character zinniaCharacter = zinniaManager
+							.createNewCharacter();
 
 					currentTestAnswer.setWidth(drawView.getWidth());
 					currentTestAnswer.setHeight(drawView.getHeight());
@@ -306,9 +334,11 @@ public class KanjiTest extends Activity {
 						List<PointF> currentStrokePoints = currentStroke.getPoints();
 
 						for (PointF currentStrokeCurrentPoint : currentStrokePoints) {
-							zinniaCharacter.add(idx, (int)currentStrokeCurrentPoint.x, (int)currentStrokeCurrentPoint.y);
+							zinniaCharacter.add(idx, (int) currentStrokeCurrentPoint.x,
+									(int) currentStrokeCurrentPoint.y);
 
-							strokesStringBuffer.append(currentStrokeCurrentPoint.x).append(" ").append(currentStrokeCurrentPoint.y).append(";");
+							strokesStringBuffer.append(currentStrokeCurrentPoint.x).append(" ")
+									.append(currentStrokeCurrentPoint.y).append(";");
 						}
 
 						strokesStringBuffer.append("\n\n");
@@ -330,13 +360,16 @@ public class KanjiTest extends Activity {
 					currentTestAnswer.setKanjiCorrectStrokeNo(correctKanjiStrokeNo);
 					currentTestAnswer.setKanjiUserStrokeNo(strokes.size());
 
-					for (int recognizeResultIdx = 0; recognizeResultIdx < recognizeResult.size() && recognizeResultIdx < maxRecognizeResult; ++recognizeResultIdx) {
+					for (int recognizeResultIdx = 0; recognizeResultIdx < recognizeResult.size()
+							&& recognizeResultIdx < maxRecognizeResult; ++recognizeResultIdx) {
 
-						KanjiRecognizerResultItem currentKanjiRecognizerResultItem = recognizeResult.get(recognizeResultIdx);
+						KanjiRecognizerResultItem currentKanjiRecognizerResultItem = recognizeResult
+								.get(recognizeResultIdx);
 
 						String currentKanjiRecognizerResultItemKanji = currentKanjiRecognizerResultItem.getKanji();
 
-						if (correctKanji.equals(currentKanjiRecognizerResultItemKanji) == true && strokes.size() == correctKanjiStrokeNo) {
+						if (correctKanji.equals(currentKanjiRecognizerResultItemKanji) == true
+								&& strokes.size() == correctKanjiStrokeNo) {
 							correctAnswer = true;
 						}
 					}
@@ -351,38 +384,42 @@ public class KanjiTest extends Activity {
 		setScreen();
 
 		// set report problem info
-		Toast toast = Toast.makeText(KanjiTest.this, getString(R.string.kanji_test_report_problem_info), Toast.LENGTH_LONG);
+		Toast toast = Toast.makeText(KanjiTest.this, getString(R.string.kanji_test_report_problem_info),
+				Toast.LENGTH_LONG);
 
 		toast.show();
 	}
-	
+
 	private void processChooseAnswer(String chosenKanji) {
-		
+
 		final String correctKanji = getCurrentTestPosCorrectKanji();
 
 		TestAnswer testAnswer = new TestAnswer();
-		
+
 		boolean correctAnswer = chosenKanji.equals(correctKanji);
-		
+
 		testAnswer.setKanji(correctKanji);
 		testAnswer.setCorrectAnswer(correctAnswer);
 		testAnswer.setChosenKanji(chosenKanji);
-		
-		processAnswer(correctAnswer, correctKanji, testAnswer);		
+
+		processAnswer(correctAnswer, correctKanji, testAnswer);
 	}
 
+	@SuppressWarnings("deprecation")
 	private void processAnswer(boolean correctAnswer, final String correctKanji, TestAnswer testAnswer) {
 
-		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance()
+				.getDictionaryManager(this);
 
 		kanjiTestContext.getTestAnswers().add(testAnswer);
 
 		if (correctAnswer == true) { // correct
 
-			Toast toast = Toast.makeText(KanjiTest.this, getString(R.string.kanji_test_recognizer_correct_answer), Toast.LENGTH_SHORT);
+			Toast toast = Toast.makeText(KanjiTest.this, getString(R.string.kanji_test_recognizer_correct_answer),
+					Toast.LENGTH_SHORT);
 
 			toast.show();
-			
+
 			addCurrentPosKanjiTestEntry(true);
 
 			kanjiTestContext.incrementCorrectAnswers();
@@ -401,6 +438,7 @@ public class KanjiTest extends Activity {
 
 			alertDialog.setButton(getString(R.string.kanji_test_incorrect_ok), new DialogInterface.OnClickListener() {
 
+				@Override
 				public void onClick(DialogInterface dialog, int which) {
 
 					Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
@@ -410,41 +448,43 @@ public class KanjiTest extends Activity {
 					} else {
 						addCurrentPosKanjiTestEntry(true);
 					}
-					
+
 					setScreen();
 				}
 			});
 
-			alertDialog.setButton2(getString(R.string.kanji_test_incorrect_show_sod), new DialogInterface.OnClickListener() {
+			alertDialog.setButton2(getString(R.string.kanji_test_incorrect_show_sod),
+					new DialogInterface.OnClickListener() {
 
-				public void onClick(DialogInterface dialog, int which) {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
 
-					StrokePathInfo strokePathInfo = new StrokePathInfo();
+							StrokePathInfo strokePathInfo = new StrokePathInfo();
 
-					List<List<String>> strokePathsList = new ArrayList<List<String>>();
-					strokePathsList.add(dictionaryManager.findKanji(correctKanji).getStrokePaths());
-					strokePathInfo.setStrokePaths(strokePathsList);
+							List<List<String>> strokePathsList = new ArrayList<List<String>>();
+							strokePathsList.add(dictionaryManager.findKanji(correctKanji).getStrokePaths());
+							strokePathInfo.setStrokePaths(strokePathsList);
 
-					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+							Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 
-					intent.putExtra("strokePathsInfo", strokePathInfo);
+							intent.putExtra("strokePathsInfo", strokePathInfo);
 
-					startActivity(intent);
+							startActivity(intent);
 
-					Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
+							Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
 
-					if (untilSuccess == true) {
-						addCurrentPosKanjiTestEntry(false);
-					} else {
-						addCurrentPosKanjiTestEntry(true);
-					}
-					
-					setScreen();							
-				}
-			});
+							if (untilSuccess == true) {
+								addCurrentPosKanjiTestEntry(false);
+							} else {
+								addCurrentPosKanjiTestEntry(true);
+							}
 
-			alertDialog.show();					
-		}		
+							setScreen();
+						}
+					});
+
+			alertDialog.show();
+		}
 	}
 
 	private void setScreen() {
@@ -478,9 +518,10 @@ public class KanjiTest extends Activity {
 
 		kanjiTestState.setText(getString(R.string.kanji_test_state, getCurrentTestPos() + 1, getMaxTestPos()));
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
-			KanjiEntry currentTestKanjiEntry = (KanjiEntry)currentTestPosObject;
+			KanjiEntry currentTestKanjiEntry = (KanjiEntry) currentTestPosObject;
 
 			List<String> polishTranslates = currentTestKanjiEntry.getPolishTranslates();
 			String info = currentTestKanjiEntry.getInfo();
@@ -509,7 +550,8 @@ public class KanjiTest extends Activity {
 						addedSpace = true;
 					}
 
-					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_kunyomi)).append("</b>: ").append(kunReading.toString()).append("</small>");				
+					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_kunyomi))
+							.append("</b>: ").append(kunReading.toString()).append("</small>");
 				}
 
 				List<String> onReading = kanjiDic2Entry.getOnReading();
@@ -524,23 +566,29 @@ public class KanjiTest extends Activity {
 						kanjiInfoSb.append("<br/>");
 					}
 
-					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_onyomi)).append("</b>: ").append(onReading.toString()).append("</small>");		
-				}				
+					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_onyomi))
+							.append("</b>: ").append(onReading.toString()).append("</small>");
+				}
 			}
 
 			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
-				kanjiInfoTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_draw_meaning, kanjiInfoSb.toString())), TextView.BufferType.SPANNABLE);
+				kanjiInfoTextView.setText(
+						Html.fromHtml(getString(R.string.kanji_test_info_draw_meaning, kanjiInfoSb.toString())),
+						TextView.BufferType.SPANNABLE);
 			} else if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
-				kanjiInfoTextView.setText(Html.fromHtml(getString(R.string.kanji_test_info_choose_meaning, kanjiInfoSb.toString())), TextView.BufferType.SPANNABLE);
+				kanjiInfoTextView.setText(
+						Html.fromHtml(getString(R.string.kanji_test_info_choose_meaning, kanjiInfoSb.toString())),
+						TextView.BufferType.SPANNABLE);
 			}
-			
+
 			if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 				generateChooseButtons(currentTestKanjiEntry.getKanji());
 			}
 
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
-			DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = (DictionaryEntryWithRemovedKanji)currentTestPosObject;
+			DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = (DictionaryEntryWithRemovedKanji) currentTestPosObject;
 
 			String kanjiWithRemovedKanji = currentDictionaryEntryWithRemovedKanji.getKanjiWithRemovedKanji();
 			DictionaryEntry dictionaryEntry = currentDictionaryEntryWithRemovedKanji.getDictionaryEntry();
@@ -556,7 +604,7 @@ public class KanjiTest extends Activity {
 			} else if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 				kanjiInfoSb.append(getString(R.string.kanji_test_info_choose_kanji_in_word)).append("<br/><br/>");
 			}
-			
+
 			kanjiInfoSb.append("<b><big>").append(kanjiWithRemovedKanji).append("</big></b>");
 			kanjiInfoSb.append(" ").append(kanaList).append(" - ");
 
@@ -564,172 +612,186 @@ public class KanjiTest extends Activity {
 
 			if (info != null && info.equals("") == false) {
 				kanjiInfoSb.append(" - ").append(info);
-			}					
+			}
 
 			kanjiInfoTextView.setText(Html.fromHtml(kanjiInfoSb.toString()), TextView.BufferType.SPANNABLE);
 
 			if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 				generateChooseButtons(currentDictionaryEntryWithRemovedKanji.getRemovedKanji());
 			}
-			
+
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
 		}
 	}
-	
+
 	private void generateChooseButtons(String correctKanji) {
-		
+
 		// set buttons
-		
+
 		chooseAnswers = new Button[12];
-		
-		chooseAnswers[0] = (Button)findViewById(R.id.kanji_test_choose_answer1);
-		chooseAnswers[1] = (Button)findViewById(R.id.kanji_test_choose_answer2);
-		chooseAnswers[2] = (Button)findViewById(R.id.kanji_test_choose_answer3);
-		chooseAnswers[3] = (Button)findViewById(R.id.kanji_test_choose_answer4);
-		chooseAnswers[4] = (Button)findViewById(R.id.kanji_test_choose_answer5);
-		chooseAnswers[5] = (Button)findViewById(R.id.kanji_test_choose_answer6);
-		chooseAnswers[6] = (Button)findViewById(R.id.kanji_test_choose_answer7);
-		chooseAnswers[7] = (Button)findViewById(R.id.kanji_test_choose_answer8);
-		chooseAnswers[8] = (Button)findViewById(R.id.kanji_test_choose_answer9);
-		chooseAnswers[9] = (Button)findViewById(R.id.kanji_test_choose_answer10);
-		chooseAnswers[10] = (Button)findViewById(R.id.kanji_test_choose_answer11);
-		chooseAnswers[11] = (Button)findViewById(R.id.kanji_test_choose_answer12);
-		
+
+		chooseAnswers[0] = (Button) findViewById(R.id.kanji_test_choose_answer1);
+		chooseAnswers[1] = (Button) findViewById(R.id.kanji_test_choose_answer2);
+		chooseAnswers[2] = (Button) findViewById(R.id.kanji_test_choose_answer3);
+		chooseAnswers[3] = (Button) findViewById(R.id.kanji_test_choose_answer4);
+		chooseAnswers[4] = (Button) findViewById(R.id.kanji_test_choose_answer5);
+		chooseAnswers[5] = (Button) findViewById(R.id.kanji_test_choose_answer6);
+		chooseAnswers[6] = (Button) findViewById(R.id.kanji_test_choose_answer7);
+		chooseAnswers[7] = (Button) findViewById(R.id.kanji_test_choose_answer8);
+		chooseAnswers[8] = (Button) findViewById(R.id.kanji_test_choose_answer9);
+		chooseAnswers[9] = (Button) findViewById(R.id.kanji_test_choose_answer10);
+		chooseAnswers[10] = (Button) findViewById(R.id.kanji_test_choose_answer11);
+		chooseAnswers[11] = (Button) findViewById(R.id.kanji_test_choose_answer12);
+
 		// reset
 		for (int chooseAnswerIdx = 0; chooseAnswerIdx < chooseAnswers.length; ++chooseAnswerIdx) {
 			chooseAnswers[chooseAnswerIdx].setText("");
 		}
-		
+
 		Random random = new Random();
-		
+
 		// set correct kanji
 		int correctAnswerPos = random.nextInt(chooseAnswers.length);
 		chooseAnswers[correctAnswerPos].setText(correctKanji);
-		
+
 		List<String> chosenKanjiSource = kanjiTestConfig.getChosenKanjiAsList();
-		
+
 		// create available kanji list
 		List<String> availableKanji = new ArrayList<String>(chosenKanjiSource);
-		
+
 		availableKanji.remove(correctKanji);
-		
+
 		Collections.shuffle(availableKanji);
-		
+
 		for (int chooseAnswerIdx = 0; chooseAnswerIdx < chooseAnswers.length; ++chooseAnswerIdx) {
-			
+
 			final Button currentChooseAnswerButton = chooseAnswers[chooseAnswerIdx];
-			
+
 			if (availableKanji.size() == 0) {
 				availableKanji = new ArrayList<String>(chosenKanjiSource);
-				
+
 				Collections.shuffle(availableKanji);
 			}
-			
+
 			if (currentChooseAnswerButton.getText().equals("") == true) {
 				currentChooseAnswerButton.setText(availableKanji.get(0));
-				
+
 				availableKanji.remove(0);
 			}
-			
+
 			currentChooseAnswerButton.setOnClickListener(new View.OnClickListener() {
-				
-				public void onClick(View v) {						
+
+				@Override
+				public void onClick(View v) {
 					processChooseAnswer(currentChooseAnswerButton.getText().toString());
 				}
 			});
-		}		
+		}
 	}
 
 	private Object getCurrentTestPosObject() {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			return kanjiTestContext.getKanjiEntryList().getNext();
-		
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
 			return kanjiTestContext.getDictionaryEntryWithRemovedKanji().getNext();
-	
+
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
-		}		
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
+		}
 	}
 
 	private int getCurrentTestPos() {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			return kanjiTestContext.getKanjiEntryList().getCurrentPos();
-		
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
 			return kanjiTestContext.getDictionaryEntryWithRemovedKanji().getCurrentPos();
-	
+
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
-		}		
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
+		}
 	}
-	
+
 	private int getMaxTestPos() {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
-			return kanjiTestContext.getKanjiEntryList().size();			
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+			return kanjiTestContext.getKanjiEntryList().size();
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
 			return kanjiTestContext.getDictionaryEntryWithRemovedKanji().size();
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
-		}		
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
+		}
 	}
 
 	private String getCurrentTestPosCorrectKanji() {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			return kanjiTestContext.getKanjiEntryList().getNext().getKanji();
-	
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
 			return kanjiTestContext.getDictionaryEntryWithRemovedKanji().getNext().getRemovedKanji();
-			
+
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
-		}		
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
+		}
 	}
 
 	private int getCurrentTestPosCorrectStrokeNo() {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			return kanjiTestContext.getKanjiEntryList().getNext().getStrokePaths().size();
 
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
-			DictionaryEntryWithRemovedKanji dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji().getNext();
+			DictionaryEntryWithRemovedKanji dictionaryEntryWithRemovedKanji = kanjiTestContext
+					.getDictionaryEntryWithRemovedKanji().getNext();
 
-			return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).findKanji(dictionaryEntryWithRemovedKanji.getRemovedKanji()).getStrokePaths().size();
+			return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this)
+					.findKanji(dictionaryEntryWithRemovedKanji.getRemovedKanji()).getStrokePaths().size();
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
-		}		
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
+		}
 	}
 
 	private boolean isFinish() {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
 			KanjiEntry kanjiEntry = kanjiTestContext.getKanjiEntryList().getNext();
 
@@ -738,9 +800,11 @@ public class KanjiTest extends Activity {
 			} else {
 				return false;
 			}
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
-			DictionaryEntryWithRemovedKanji dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji().getNext();
+			DictionaryEntryWithRemovedKanji dictionaryEntryWithRemovedKanji = kanjiTestContext
+					.getDictionaryEntryWithRemovedKanji().getNext();
 
 			if (dictionaryEntryWithRemovedKanji == null) {
 				return true;
@@ -749,7 +813,7 @@ public class KanjiTest extends Activity {
 			}
 
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
 		}
 	}
 
@@ -757,28 +821,31 @@ public class KanjiTest extends Activity {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
-		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
-			
+		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
+
 			EntryOrderList<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
-			
+
 			if (ok == true) {
 				kanjiEntryList.currentPositionOk();
 			} else {
 				kanjiEntryList.currentPositionBad();
 			}
 
-		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
+				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
-			EntryOrderList<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext.getDictionaryEntryWithRemovedKanji();
-			
+			EntryOrderList<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji = kanjiTestContext
+					.getDictionaryEntryWithRemovedKanji();
+
 			if (ok == true) {
 				dictionaryEntryWithRemovedKanji.currentPositionOk();
 			} else {
 				dictionaryEntryWithRemovedKanji.currentPositionBad();
 			}
-			
+
 		} else {
-			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);			
-		}		
+			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
+		}
 	}
 }

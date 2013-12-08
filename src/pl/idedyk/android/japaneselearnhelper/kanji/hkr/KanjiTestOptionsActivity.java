@@ -50,13 +50,15 @@ public class KanjiTestOptionsActivity extends Activity {
 
 	private List<CheckBox> kanjiGroupList;
 	private KanjiList kanjiList;
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		menu.add(Menu.NONE, R.id.kanji_test_options_input_kanji_to_test, Menu.NONE, R.string.kanji_test_options_input_kanji_to_test);
-		menu.add(Menu.NONE, R.id.kanji_test_options_clear_selected_kanji, Menu.NONE, R.string.kanji_test_options_clear_selected_kanji);
+		menu.add(Menu.NONE, R.id.kanji_test_options_input_kanji_to_test, Menu.NONE,
+				R.string.kanji_test_options_input_kanji_to_test);
+		menu.add(Menu.NONE, R.id.kanji_test_options_clear_selected_kanji, Menu.NONE,
+				R.string.kanji_test_options_clear_selected_kanji);
 
 		return true;
 	}
@@ -64,9 +66,9 @@ public class KanjiTestOptionsActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
-		
+
 		if (item.getItemId() == R.id.kanji_test_options_input_kanji_to_test) {
-			
+
 			AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
 			alert.setTitle(getString(R.string.kanji_test_options_input_kanji_to_test));
@@ -77,91 +79,100 @@ public class KanjiTestOptionsActivity extends Activity {
 			alert.setView(input);
 
 			alert.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-				
+
+				@Override
 				public void onClick(DialogInterface dialog, int whichButton) {
-					
+
 					String kanjiValue = input.getText().toString();
-										
-					List<KanjiEntry> knownKanjiList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findKnownKanji(kanjiValue);
-					
+
+					List<KanjiEntry> knownKanjiList = JapaneseAndroidLearnHelperApplication.getInstance()
+							.getDictionaryManager(KanjiTestOptionsActivity.this).findKnownKanji(kanjiValue);
+
 					List<String> allKanjisInGroup = new ArrayList<String>();
-					
+
 					StringBuffer allKanjiTest = new StringBuffer();
-					
+
 					for (KanjiEntry currentKanjiEntry : knownKanjiList) {
-						
-						if (currentKanjiEntry.isGenerated() == false && allKanjisInGroup.contains(currentKanjiEntry.getKanji()) == false) {
+
+						if (currentKanjiEntry.isGenerated() == false
+								&& allKanjisInGroup.contains(currentKanjiEntry.getKanji()) == false) {
 							allKanjisInGroup.add(currentKanjiEntry.getKanji());
-							
+
 							allKanjiTest.append(currentKanjiEntry.getKanji());
 						}
 					}
-					
+
 					if (allKanjisInGroup.size() == 0) {
-						Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_input_no_kanji), Toast.LENGTH_SHORT).show();
-						
+						Toast.makeText(KanjiTestOptionsActivity.this,
+								getString(R.string.kanji_test_options_input_no_kanji), Toast.LENGTH_SHORT).show();
+
 						return;
 					}
-					
+
 					for (CheckBox currentCheckBox : kanjiGroupList) {
 						currentCheckBox.setChecked(false);
 					}
-					
+
 					for (String currentInputedKanji : allKanjisInGroup) {
 						kanjiList.setKanjiChecked(currentInputedKanji, true);
 					}
-					
-					Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_input_detected_kanji, allKanjiTest.toString()), Toast.LENGTH_SHORT).show();
-					
+
+					Toast.makeText(KanjiTestOptionsActivity.this,
+							getString(R.string.kanji_test_options_input_detected_kanji, allKanjiTest.toString()),
+							Toast.LENGTH_SHORT).show();
+
 					showSelectedKanji();
 				}
 			});
 
 			alert.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-				
+
+				@Override
 				public void onClick(DialogInterface dialog, int whichButton) {
 					// noop
 				}
 			});
 
 			alert.show();
-			
+
 			return true;
-			
+
 		} else if (item.getItemId() == R.id.kanji_test_options_clear_selected_kanji) {
-			
+
 			for (CheckBox currentCheckBox : kanjiGroupList) {
 				currentCheckBox.setChecked(false);
 			}
-			
+
 			kanjiList.cleatUserSelectedKanjiList();
-			
+
 			showSelectedKanji();
-			
-			Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_clear_selected_kanji_all), Toast.LENGTH_SHORT).show();
-			
+
+			Toast.makeText(KanjiTestOptionsActivity.this,
+					getString(R.string.kanji_test_options_clear_selected_kanji_all), Toast.LENGTH_SHORT).show();
+
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 
-		final KanjiTestConfig kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanjiTestConfig();
+		final KanjiTestConfig kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance()
+				.getConfigManager(this).getKanjiTestConfig();
 
 		setContentView(R.layout.kanji_test_options);
 
-		final TextView testModeTextView = (TextView)findViewById(R.id.kanji_test_options_test_mode);
+		final TextView testModeTextView = (TextView) findViewById(R.id.kanji_test_options_test_mode);
 
-		final RadioButton testModeDrawKanjiFromMeaningRadioButton = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_draw_kanji_from_meaning);
-		final RadioButton testModeChooseKanjiFromMeaningRadioButton = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_choose_kanji_from_meaning);
-		final RadioButton testModeDrawKanjiFromInWord = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_draw_kanji_in_word);
-		final RadioButton testModeChooseKanjiFromInWord = (RadioButton)findViewById(R.id.kanji_test_options_test_mode_choose_kanji_in_word);
-		
+		final RadioButton testModeDrawKanjiFromMeaningRadioButton = (RadioButton) findViewById(R.id.kanji_test_options_test_mode_draw_kanji_from_meaning);
+		final RadioButton testModeChooseKanjiFromMeaningRadioButton = (RadioButton) findViewById(R.id.kanji_test_options_test_mode_choose_kanji_from_meaning);
+		final RadioButton testModeDrawKanjiFromInWord = (RadioButton) findViewById(R.id.kanji_test_options_test_mode_draw_kanji_in_word);
+		final RadioButton testModeChooseKanjiFromInWord = (RadioButton) findViewById(R.id.kanji_test_options_test_mode_choose_kanji_in_word);
+
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
@@ -176,46 +187,48 @@ public class KanjiTestOptionsActivity extends Activity {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
 		}
 
-		final TextView otherOptionsTextView = (TextView)findViewById(R.id.kanji_test_options_other_options);
+		final TextView otherOptionsTextView = (TextView) findViewById(R.id.kanji_test_options_other_options);
 
 		// until success
-		final CheckBox untilSuccessCheckBox = (CheckBox)findViewById(R.id.kanji_test_options_until_success);
+		final CheckBox untilSuccessCheckBox = (CheckBox) findViewById(R.id.kanji_test_options_until_success);
 
 		untilSuccessCheckBox.setChecked(kanjiTestConfig.getUntilSuccess());
 
 		// until success new word limit
-		final CheckBox untilSuccessNewWordLimitCheckBox = (CheckBox)findViewById(R.id.kanji_test_options_until_success_new_word_limit);
+		final CheckBox untilSuccessNewWordLimitCheckBox = (CheckBox) findViewById(R.id.kanji_test_options_until_success_new_word_limit);
 
 		untilSuccessNewWordLimitCheckBox.setChecked(kanjiTestConfig.getUntilSuccessNewWordLimitPostfix());
-		
+
 		setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);
-		
+
 		// actions
 		untilSuccessCheckBox.setOnClickListener(new OnClickListener() {
-			
+
+			@Override
 			public void onClick(View v) {
-				setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);				
+				setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);
 			}
 		});
-		
+
 		// dedicate example
-		final CheckBox dedicateExampleCheckBox = (CheckBox)findViewById(R.id.kanji_test_options_dedicate_example);
-		
+		final CheckBox dedicateExampleCheckBox = (CheckBox) findViewById(R.id.kanji_test_options_dedicate_example);
+
 		dedicateExampleCheckBox.setChecked(kanjiTestConfig.getDedicateExample());
-		
-		final TextView chooseKanjiGroupTextView = (TextView)findViewById(R.id.kanji_test_options_choose_kanji_group);
 
-		final TextView chosenKanjiTextView = (TextView)findViewById(R.id.kanji_test_options_chosen_kanji);		
+		final TextView chooseKanjiGroupTextView = (TextView) findViewById(R.id.kanji_test_options_choose_kanji_group);
 
-		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
+		final TextView chosenKanjiTextView = (TextView) findViewById(R.id.kanji_test_options_chosen_kanji);
+
+		final LinearLayout mainLayout = (LinearLayout) findViewById(R.id.kanji_test_options_main_layout);
 
 		kanjiList = new KanjiList();
 		kanjiGroupList = new ArrayList<CheckBox>();
-			
-		Button startTestButton = (Button)findViewById(R.id.kanji_test_options_start_test);
+
+		Button startTestButton = (Button) findViewById(R.id.kanji_test_options_start_test);
 
 		startTestButton.setOnClickListener(new View.OnClickListener() {
 
+			@Override
 			public void onClick(View v) {
 
 				if (testModeDrawKanjiFromMeaningRadioButton.isChecked() == true) {
@@ -231,9 +244,9 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				kanjiTestConfig.setUntilSuccess(untilSuccessCheckBox.isChecked());
-				
+
 				kanjiTestConfig.setUntilSuccessNewWordLimitPostfix(untilSuccessNewWordLimitCheckBox.isChecked());
-				
+
 				kanjiTestConfig.setDedicateExample(dedicateExampleCheckBox.isChecked());
 
 				final List<KanjiEntry> kanjiEntryList = new ArrayList<KanjiEntry>();
@@ -243,59 +256,66 @@ public class KanjiTestOptionsActivity extends Activity {
 				for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
 
 					// get kanji with details
-					currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findKanji(currentCheckBoxKanjiEntry.getKanji());
+					currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance()
+							.getDictionaryManager(KanjiTestOptionsActivity.this)
+							.findKanji(currentCheckBoxKanjiEntry.getKanji());
 
 					chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
-					kanjiEntryList.add(currentCheckBoxKanjiEntry);						
+					kanjiEntryList.add(currentCheckBoxKanjiEntry);
 
 				}
 
 				kanjiTestConfig.setChosenKanji(chosenKanjiList);
-				
+
 				final List<String> chosenKanjiGroupList = new ArrayList<String>();
-				
+
 				for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
-					
-					if (currentKanjiGroupListCheckBox.isChecked() == true) {						
-						chosenKanjiGroupList.add(currentKanjiGroupListCheckBox.getText().toString());	
+
+					if (currentKanjiGroupListCheckBox.isChecked() == true) {
+						chosenKanjiGroupList.add(currentKanjiGroupListCheckBox.getText().toString());
 					}
 				}
-				
-				kanjiTestConfig.setChosenKanjiGroup(chosenKanjiGroupList);				
+
+				kanjiTestConfig.setChosenKanjiGroup(chosenKanjiGroupList);
 
 				if (chosenKanjiList.size() == 0) {
 
-					Toast toast = Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_choose_kanji_info), Toast.LENGTH_SHORT);
+					Toast toast = Toast.makeText(KanjiTestOptionsActivity.this,
+							getString(R.string.kanji_test_options_choose_kanji_info), Toast.LENGTH_SHORT);
 
 					toast.show();
 
 					return;
 				}
-				
-				if ((kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD || kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD) && dedicateExampleCheckBox.isChecked() == true) {
-					
+
+				if ((kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD || kanjiTestConfig
+						.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD)
+						&& dedicateExampleCheckBox.isChecked() == true) {
+
 					if (chosenKanjiGroupList.size() == 0) {
-						
-						Toast toast = Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_choose_kanji_group_info), Toast.LENGTH_SHORT);
+
+						Toast toast = Toast.makeText(KanjiTestOptionsActivity.this,
+								getString(R.string.kanji_test_options_choose_kanji_group_info), Toast.LENGTH_SHORT);
 
 						toast.show();
 
 						return;
 					}
-					
+
 					int dictionaryEntrySize = 0;
-					
+
 					for (String currentKanjiGroup : chosenKanjiGroupList) {
-						
-						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = 
-								JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
-									getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
-						
+
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
+								.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
+								.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
+
 						dictionaryEntrySize += currentWordsGroupDictionaryEntryList.size();
 					}
-					
+
 					if (dictionaryEntrySize == 0) {
-						Toast toast = Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.kanji_test_options_choose_kanji_group_no_words), Toast.LENGTH_SHORT);
+						Toast toast = Toast.makeText(KanjiTestOptionsActivity.this,
+								getString(R.string.kanji_test_options_choose_kanji_group_no_words), Toast.LENGTH_SHORT);
 
 						toast.show();
 
@@ -304,7 +324,7 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				// prepare test
-				final ProgressDialog progressDialog = ProgressDialog.show(KanjiTestOptionsActivity.this, 
+				final ProgressDialog progressDialog = ProgressDialog.show(KanjiTestOptionsActivity.this,
 						getString(R.string.kanji_test_options_prepare1),
 						getString(R.string.kanji_test_options_prepare2));
 
@@ -314,31 +334,34 @@ public class KanjiTestOptionsActivity extends Activity {
 					protected Void doInBackground(Void... arg) {
 
 						// get kanji test context
-						JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanjiTestContext();
+						JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext = JapaneseAndroidLearnHelperApplication
+								.getInstance().getContext().getKanjiTestContext();
 
 						// reset test
 						kanjiTestContext.resetTest();
 
 						Collections.shuffle(kanjiEntryList);
-						
+
 						EntryOrderList<KanjiEntry> kanjiEntryListEntryOrderList = null;
-						
-						if (untilSuccessCheckBox.isChecked() == true && untilSuccessNewWordLimitCheckBox.isChecked() == true) {
+
+						if (untilSuccessCheckBox.isChecked() == true
+								&& untilSuccessNewWordLimitCheckBox.isChecked() == true) {
 							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList, 10);
 						} else {
-							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList, kanjiEntryList.size());
+							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList,
+									kanjiEntryList.size());
 						}
 
 						// set kanji entry list in context
 						kanjiTestContext.setKanjiEntryList(kanjiEntryListEntryOrderList);
 
-						if (kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD || kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
+						if (kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD
+								|| kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
 
-							List<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanjiList = 
-									new ArrayList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>();
-							
+							List<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanjiList = new ArrayList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>();
+
 							if (dedicateExampleCheckBox.isChecked() == false) {
-								
+
 								FindWordRequest findWordRequest = new FindWordRequest();
 
 								findWordRequest.searchKanji = true;
@@ -355,84 +378,91 @@ public class KanjiTestOptionsActivity extends Activity {
 									findWordRequest.word = currentKanjiEntry.getKanji();
 
 									// find word with this kanji
-									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findWord(findWordRequest);
+									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance()
+											.getDictionaryManager(KanjiTestOptionsActivity.this)
+											.findWord(findWordRequest);
 
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
 
-										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = 
-												new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
+										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
+												currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry
+														.getKanji());
 
 										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
-									}	
+									}
 								}
-								
+
 								for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
 
 									// find word with this kanji
-									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).findWord(findWordRequest);
+									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance()
+											.getDictionaryManager(KanjiTestOptionsActivity.this)
+											.findWord(findWordRequest);
 
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
-										
-										DictionaryEntry currentDictionaryEntry = currentFindWordResultResult.getDictionaryEntry();
-										
+
+										DictionaryEntry currentDictionaryEntry = currentFindWordResultResult
+												.getDictionaryEntry();
+
 										String currentDictionaryEntryKanji = currentDictionaryEntry.getKanji();
-										
+
 										if (currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == false) {
 											continue;
 										}
-										
-										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = 
-												new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
+
+										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
+												currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry
+														.getKanji());
 
 										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
-									
-									}	
-								}								
+
+									}
+								}
 
 							} else {
-								
+
 								for (String currentKanjiGroup : chosenKanjiGroupList) {
-									
-									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = 
-											JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
-												getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
-									
+
+									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
+											.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
+											.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
+
 									for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
-										
+
 										for (DictionaryEntry currentDictionaryEntry : currentWordsGroupDictionaryEntryList) {
-											
+
 											String currentDictionaryEntryKanji = currentDictionaryEntry.getKanji();
-											
+
 											if (currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == false) {
 												continue;
 											}
-											
-											JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = 
-													new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(currentDictionaryEntry, currentKanjiEntry.getKanji());
 
-											dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
+											JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
+													currentDictionaryEntry, currentKanjiEntry.getKanji());
+
+											dictionaryEntryWithRemovedKanjiList
+													.add(currentDictionaryEntryWithRemovedKanji);
 										}
 									}
 								}
-							}	
-							
+							}
+
 							Collections.shuffle(dictionaryEntryWithRemovedKanjiList);
-							
+
 							EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji> entryOrderList = null;
-							
-							if (untilSuccessCheckBox.isChecked() == true && untilSuccessNewWordLimitCheckBox.isChecked() == true) {
-								entryOrderList = 
-										new EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>(
-												dictionaryEntryWithRemovedKanjiList, 10);
+
+							if (untilSuccessCheckBox.isChecked() == true
+									&& untilSuccessNewWordLimitCheckBox.isChecked() == true) {
+								entryOrderList = new EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>(
+										dictionaryEntryWithRemovedKanjiList, 10);
 							} else {
-								entryOrderList = 
-										new EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>(
-												dictionaryEntryWithRemovedKanjiList, dictionaryEntryWithRemovedKanjiList.size());
-							}									
+								entryOrderList = new EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>(
+										dictionaryEntryWithRemovedKanjiList, dictionaryEntryWithRemovedKanjiList.size());
+							}
 
 							kanjiTestContext.setDictionaryEntryWithRemovedKanji(entryOrderList);
 						}
@@ -440,6 +470,7 @@ public class KanjiTestOptionsActivity extends Activity {
 						return null;
 					}
 
+					@SuppressWarnings("deprecation")
 					@Override
 					protected void onPostExecute(Void arg) {
 						super.onPostExecute(arg);
@@ -453,17 +484,19 @@ public class KanjiTestOptionsActivity extends Activity {
 						alertDialog.setTitle(getString(R.string.kanji_test_options_info_title));
 						alertDialog.setMessage(getString(R.string.kanji_test_options_info_message));
 
-						alertDialog.setButton(getString(R.string.kanji_test_options_info_ok), new DialogInterface.OnClickListener() {
+						alertDialog.setButton(getString(R.string.kanji_test_options_info_ok),
+								new DialogInterface.OnClickListener() {
 
-							public void onClick(DialogInterface dialog, int which) {
+									@Override
+									public void onClick(DialogInterface dialog, int which) {
 
-								Intent intent = new Intent(getApplicationContext(), KanjiTest.class);
+										Intent intent = new Intent(getApplicationContext(), KanjiTest.class);
 
-								startActivity(intent);
+										startActivity(intent);
 
-								finish();
-							}
-						});
+										finish();
+									}
+								});
 
 						alertDialog.show();
 					}
@@ -473,44 +506,60 @@ public class KanjiTestOptionsActivity extends Activity {
 			}
 		});
 
-		Button reportProblemButton = (Button)findViewById(R.id.kanji_test_options_report_problem_button);
+		Button reportProblemButton = (Button) findViewById(R.id.kanji_test_options_report_problem_button);
 
 		reportProblemButton.setOnClickListener(new OnClickListener() {
 
+			@Override
 			public void onClick(View view) {
 
 				StringBuffer detailsSb = new StringBuffer();
 
 				detailsSb.append("***" + testModeTextView.getText() + "***\n\n");
 
-				detailsSb.append(testModeDrawKanjiFromMeaningRadioButton.isChecked() + " - " + testModeDrawKanjiFromMeaningRadioButton.getText()).append("\n\n");
-				detailsSb.append(testModeChooseKanjiFromMeaningRadioButton.isChecked() + " - " + testModeChooseKanjiFromMeaningRadioButton.getText()).append("\n\n");
-				detailsSb.append(testModeDrawKanjiFromInWord.isChecked() + " - " + testModeDrawKanjiFromInWord.getText()).append("\n\n");
-				detailsSb.append(testModeChooseKanjiFromInWord.isChecked() + " - " + testModeChooseKanjiFromInWord.getText()).append("\n\n");
+				detailsSb.append(
+						testModeDrawKanjiFromMeaningRadioButton.isChecked() + " - "
+								+ testModeDrawKanjiFromMeaningRadioButton.getText()).append("\n\n");
+				detailsSb.append(
+						testModeChooseKanjiFromMeaningRadioButton.isChecked() + " - "
+								+ testModeChooseKanjiFromMeaningRadioButton.getText()).append("\n\n");
+				detailsSb.append(
+						testModeDrawKanjiFromInWord.isChecked() + " - " + testModeDrawKanjiFromInWord.getText())
+						.append("\n\n");
+				detailsSb.append(
+						testModeChooseKanjiFromInWord.isChecked() + " - " + testModeChooseKanjiFromInWord.getText())
+						.append("\n\n");
 
 				detailsSb.append("***" + otherOptionsTextView.getText() + "***\n\n");
 
-				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
-				
-				detailsSb.append(untilSuccessNewWordLimitCheckBox.isChecked() + " - " + untilSuccessNewWordLimitCheckBox.getText()).append("\n\n");
-				
-				detailsSb.append(dedicateExampleCheckBox.isChecked() + " - " + dedicateExampleCheckBox.getText()).append("\n\n");
+				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append(
+						"\n\n");
+
+				detailsSb.append(
+						untilSuccessNewWordLimitCheckBox.isChecked() + " - "
+								+ untilSuccessNewWordLimitCheckBox.getText()).append("\n\n");
+
+				detailsSb.append(dedicateExampleCheckBox.isChecked() + " - " + dedicateExampleCheckBox.getText())
+						.append("\n\n");
 
 				detailsSb.append("***" + chooseKanjiGroupTextView.getText() + "***\n\n"); // tutaj
-		
+
 				for (CheckBox currentKanjiGroupList : kanjiGroupList) {
 
 					String currentKanjiGroupListText = currentKanjiGroupList.getText().toString();
 
-					detailsSb.append(currentKanjiGroupList.isChecked() + " - " + currentKanjiGroupListText).append("\n");
-				}			
-				
+					detailsSb.append(currentKanjiGroupList.isChecked() + " - " + currentKanjiGroupListText)
+							.append("\n");
+				}
+
 				detailsSb.append("\n***" + chosenKanjiTextView.getText() + "***\n\n");
 
 				for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getAllKanjiList()) {
-					
+
 					if (kanjiList.isChecked(currentCheckBoxKanjiEntry) == true) {
-						detailsSb.append("true - " + currentCheckBoxKanjiEntry.getKanji() + " - " + currentCheckBoxKanjiEntry.getPolishTranslates()).append("\n");
+						detailsSb.append(
+								"true - " + currentCheckBoxKanjiEntry.getKanji() + " - "
+										+ currentCheckBoxKanjiEntry.getPolishTranslates()).append("\n");
 					}
 				}
 
@@ -518,8 +567,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				String mailSubject = getString(R.string.kanji_test_options_report_problem_email_subject);
 
-				String mailBody = getString(R.string.kanji_test_options_report_problem_email_body,
-						detailsSb.toString());
+				String mailBody = getString(R.string.kanji_test_options_report_problem_email_body, detailsSb.toString());
 
 				String versionName = "";
 				int versionCode = 0;
@@ -530,10 +578,11 @@ public class KanjiTestOptionsActivity extends Activity {
 					versionName = packageInfo.versionName;
 					versionCode = packageInfo.versionCode;
 
-				} catch (NameNotFoundException e) {        	
+				} catch (NameNotFoundException e) {
 				}
 
-				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode); 
+				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(),
+						versionName, versionCode);
 
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
@@ -541,8 +590,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		// loading kanji
 
-		final ProgressDialog progressDialog = ProgressDialog.show(this, 
-				getString(R.string.kanji_test_options_loading),
+		final ProgressDialog progressDialog = ProgressDialog.show(this, getString(R.string.kanji_test_options_loading),
 				getString(R.string.kanji_test_options_loading2));
 
 		class PrepareAsyncTask extends AsyncTask<Void, Void, List<KanjiEntry>> {
@@ -550,149 +598,155 @@ public class KanjiTestOptionsActivity extends Activity {
 			@Override
 			protected List<KanjiEntry> doInBackground(Void... arg) {
 
-				return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, false);
+				return JapaneseAndroidLearnHelperApplication.getInstance()
+						.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, false);
 			}
 
 			@Override
 			protected void onPostExecute(List<KanjiEntry> allKanjis) {
 
 				Map<GroupEnum, Set<String>> kanjiGroups = new TreeMap<GroupEnum, Set<String>>();
-				
+
 				for (int allKanjisIdx = 0; allKanjisIdx < allKanjis.size(); ++allKanjisIdx) {
 
 					KanjiEntry currentKanjiEntry = allKanjis.get(allKanjisIdx);
-					
+
 					kanjiList.addKanjiEntry(currentKanjiEntry);
 
 					List<GroupEnum> currentKanjiEntryGroups = currentKanjiEntry.getGroups();
-					
+
 					if (currentKanjiEntryGroups != null && currentKanjiEntryGroups.size() > 0) {
-						
+
 						for (GroupEnum currentCurrentKanjiEntryGroup : currentKanjiEntryGroups) {
-							
+
 							Set<String> groupSet = kanjiGroups.get(currentCurrentKanjiEntryGroup);
-							
+
 							if (groupSet == null) {
 								groupSet = new HashSet<String>();
 							}
-							
+
 							groupSet.add(currentKanjiEntry.getKanji());
-							
+
 							kanjiGroups.put(currentCurrentKanjiEntryGroup, groupSet);
 						}
 					}
 				}
-				
+
 				List<String> chosenKanji = kanjiTestConfig.getChosenKanjiAsList();
-				
+
 				for (String currentChoosenKanji : chosenKanji) {
 					kanjiList.setKanjiChecked(currentChoosenKanji, true);
-				}				
-				
-				GroupEnum[] kanjiGroupsKeysArray = new GroupEnum[kanjiGroups.size()]; 
-				
+				}
+
+				GroupEnum[] kanjiGroupsKeysArray = new GroupEnum[kanjiGroups.size()];
+
 				kanjiGroups.keySet().toArray(kanjiGroupsKeysArray);
-				
+
 				GroupEnum.sortGroups(kanjiGroupsKeysArray);
-				
+
 				// add to main layout
-				
+
 				Set<String> chosenKanjiGroup = kanjiTestConfig.getChosenKanjiGroup();
-				
+
 				for (GroupEnum currentKanjiGroup : kanjiGroupsKeysArray) {
-					
+
 					CheckBox currentKanjiGroupCheckBox = new CheckBox(KanjiTestOptionsActivity.this);
-					
+
 					currentKanjiGroupCheckBox.setLayoutParams(new LinearLayout.LayoutParams(
 							LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
 					currentKanjiGroupCheckBox.setTextSize(12);
 
 					currentKanjiGroupCheckBox.setText(currentKanjiGroup.getValue());
-					
+
 					currentKanjiGroupCheckBox.setChecked(chosenKanjiGroup.contains(currentKanjiGroup.getValue()));
-					
+
 					currentKanjiGroupCheckBox.setTag(kanjiGroups.get(currentKanjiGroup));
-					
+
 					kanjiGroupList.add(currentKanjiGroupCheckBox);
-					
+
 					mainLayout.addView(currentKanjiGroupCheckBox, mainLayout.getChildCount() - 2);
-					
+
 					currentKanjiGroupCheckBox.setOnClickListener(new OnClickListener() {
-						
+
+						@Override
 						public void onClick(View v) {
-							
+
 							Set<String> allKanjisInGroup = new HashSet<String>();
-							
+
 							for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
-								
+
 								if (currentKanjiGroupListCheckBox.isChecked() == false) {
 									continue;
 								}
-								
+
 								@SuppressWarnings("unchecked")
-								Set<String> currentKanjiGroupListCheckBoxTag = (Set<String>)currentKanjiGroupListCheckBox.getTag();
-								
+								Set<String> currentKanjiGroupListCheckBoxTag = (Set<String>) currentKanjiGroupListCheckBox
+										.getTag();
+
 								allKanjisInGroup.addAll(currentKanjiGroupListCheckBoxTag);
-							}							
-							
-							for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getAllKanjiList()) {
-								
-								String currentCheckBoxKanjiEntryKanji = currentCheckBoxKanjiEntry.getKanji();
-								
-								kanjiList.setKanjiChecked(currentCheckBoxKanjiEntry, allKanjisInGroup.contains(currentCheckBoxKanjiEntryKanji));								
 							}
-							
+
+							for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getAllKanjiList()) {
+
+								String currentCheckBoxKanjiEntryKanji = currentCheckBoxKanjiEntry.getKanji();
+
+								kanjiList.setKanjiChecked(currentCheckBoxKanjiEntry,
+										allKanjisInGroup.contains(currentCheckBoxKanjiEntryKanji));
+							}
+
 							showSelectedKanji();
 						}
 					});
 				}
-				
+
 				showSelectedKanji();
-				
+
 				progressDialog.dismiss();
 			}
 		}
 
 		new PrepareAsyncTask().execute();
 	}
-	
+
 	private void showSelectedKanji() {
-		
-		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_options_main_layout);
-		final TextView chosenKanjiInfoTextView = (TextView)findViewById(R.id.kanji_test_options_chosen_kanji_info);
-		
+
+		final LinearLayout mainLayout = (LinearLayout) findViewById(R.id.kanji_test_options_main_layout);
+		final TextView chosenKanjiInfoTextView = (TextView) findViewById(R.id.kanji_test_options_chosen_kanji_info);
+
 		boolean startDelete = false;
-		
+
 		// clear end of main layout
 		for (int idx = 0; idx < mainLayout.getChildCount(); ++idx) {
-			
+
 			View currentMainLayoutChildView = mainLayout.getChildAt(idx);
-			
-			if (currentMainLayoutChildView == chosenKanjiInfoTextView) { 
+
+			if (currentMainLayoutChildView == chosenKanjiInfoTextView) {
 				startDelete = true;
-				
+
 				continue;
 			}
-			
+
 			if (startDelete == true) {
 				mainLayout.removeView(currentMainLayoutChildView);
-				
+
 				idx--;
 			}
 		}
-		
+
 		for (final KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
 
 			LinearLayout linearLayout = new LinearLayout(this);
 
-			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+					LayoutParams.WRAP_CONTENT);
 			linearLayout.setLayoutParams(layoutParams);
 
 			// kanji
 			TextView kanjiTextView = new TextView(this);
 
-			LinearLayout.LayoutParams kanjiLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			LinearLayout.LayoutParams kanjiLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+					LayoutParams.WRAP_CONTENT);
 
 			kanjiLayoutParams.leftMargin = 10;
 
@@ -700,8 +754,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			StringBuffer currentKanjiEntryText = new StringBuffer();
 
-			currentKanjiEntryText.append("<big>").append(currentCheckBoxKanjiEntry.getKanji()).append("</big> - ").
-			append(currentCheckBoxKanjiEntry.getPolishTranslates().toString()).append("\n\n");
+			currentKanjiEntryText.append("<big>").append(currentCheckBoxKanjiEntry.getKanji()).append("</big> - ")
+					.append(currentCheckBoxKanjiEntry.getPolishTranslates().toString()).append("\n\n");
 
 			kanjiTextView.setTextSize(15.0f);
 			kanjiTextView.setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
@@ -709,7 +763,8 @@ public class KanjiTestOptionsActivity extends Activity {
 			// delete icon
 			ImageView deleteImageView = new ImageView(this);
 
-			LinearLayout.LayoutParams imageLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			LinearLayout.LayoutParams imageLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+					LayoutParams.WRAP_CONTENT);
 			imageLayoutParams.gravity = Gravity.CENTER;
 
 			imageLayoutParams.leftMargin = 10;
@@ -733,33 +788,34 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					kanjiList.setKanjiChecked(currentCheckBoxKanjiEntry, false);
 
-					showSelectedKanji();						
+					showSelectedKanji();
 				}
 			};
 
 			kanjiTextView.setOnClickListener(deleteOnClickListener);
-			deleteImageView.setOnClickListener(deleteOnClickListener);				
+			deleteImageView.setOnClickListener(deleteOnClickListener);
 
 			mainLayout.addView(linearLayout);
 		}
 
 	}
-	
-	private void setUntilSuccessNewWordLimitCheckBoxEnabled(CheckBox untilSuccessCheckBox, CheckBox untilSuccessNewWordLimitCheckBox) {
-		
+
+	private void setUntilSuccessNewWordLimitCheckBoxEnabled(CheckBox untilSuccessCheckBox,
+			CheckBox untilSuccessNewWordLimitCheckBox) {
+
 		if (untilSuccessCheckBox.isChecked() == true) {
 			untilSuccessNewWordLimitCheckBox.setEnabled(true);
 		} else {
 			untilSuccessNewWordLimitCheckBox.setEnabled(false);
 		}
 	}
-	
+
 	private static class KanjiList {
-		
-		private List<KanjiEntry> allKanjiList = new ArrayList<KanjiEntry>();
-				
-		private List<KanjiEntry> userSelectedKanjiList = new ArrayList<KanjiEntry>();
-		
+
+		private final List<KanjiEntry> allKanjiList = new ArrayList<KanjiEntry>();
+
+		private final List<KanjiEntry> userSelectedKanjiList = new ArrayList<KanjiEntry>();
+
 		public List<KanjiEntry> getAllKanjiList() {
 			return allKanjiList;
 		}
@@ -767,7 +823,7 @@ public class KanjiTestOptionsActivity extends Activity {
 		public List<KanjiEntry> getUserSelectedKanjiList() {
 			return userSelectedKanjiList;
 		}
-		
+
 		public void cleatUserSelectedKanjiList() {
 			userSelectedKanjiList.clear();
 		}
@@ -775,38 +831,38 @@ public class KanjiTestOptionsActivity extends Activity {
 		public void addKanjiEntry(KanjiEntry kanjiEntry) {
 			allKanjiList.add(kanjiEntry);
 		}
-		
+
 		public void setKanjiChecked(String kanji, boolean checked) {
-			
-			KanjiEntry foundKanjiEntry = null; 
-			
+
+			KanjiEntry foundKanjiEntry = null;
+
 			for (KanjiEntry currentKanjiEntry : allKanjiList) {
-				
+
 				if (currentKanjiEntry.getKanji().equals(kanji) == true) {
-					
+
 					foundKanjiEntry = currentKanjiEntry;
-					
+
 					break;
 				}
 			}
-			
+
 			if (foundKanjiEntry != null) {
 				setKanjiChecked(foundKanjiEntry, checked);
 			}
 		}
-		
+
 		public void setKanjiChecked(KanjiEntry kanjiEntry, boolean checked) {
-			
+
 			if (checked == false) {
 				userSelectedKanjiList.remove(kanjiEntry);
-				
-			} else if (userSelectedKanjiList.contains(kanjiEntry) == false ) {
+
+			} else if (userSelectedKanjiList.contains(kanjiEntry) == false) {
 				userSelectedKanjiList.add(kanjiEntry);
 			}
 		}
-		
-		public boolean isChecked(KanjiEntry kanjiEntry) {			
-			return userSelectedKanjiList.contains(kanjiEntry);			
+
+		public boolean isChecked(KanjiEntry kanjiEntry) {
+			return userSelectedKanjiList.contains(kanjiEntry);
 		}
 	}
 }
