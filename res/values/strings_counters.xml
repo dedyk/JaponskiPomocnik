@@ -113,4 +113,10 @@
         <item>szklanki</item>
     </string-array>
     
+    <string name="counter_ki_description">samoloty</string>
+
+    <string-array name="counter_ki_examples">
+        <item>samoloty</item>
+    </string-array>
+    
 </resources>

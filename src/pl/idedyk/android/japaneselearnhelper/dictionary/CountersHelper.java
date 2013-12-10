@@ -79,6 +79,9 @@ public class CountersHelper {
 		// hai - łyżki, kubki, miski, szklanki
 		result.add(createHaiCounter(resources));
 
+		// ki - samoloty
+		result.add(createKiCounter(resources));
+
 		return result;
 	}
 
@@ -571,6 +574,36 @@ public class CountersHelper {
 				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何杯", "なんはい", "nanhai"));
 
 		String[] examplesArray = resources.getStringArray(R.array.counter_hai_examples);
+
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+
+		return counterEntry;
+	}
+
+	private CounterEntry createKiCounter(Resources resources) {
+
+		CounterEntry counterEntry = new CounterEntry("機", "き", "ki",
+				resources.getString(R.string.counter_ki_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一機", "いっき", "ikki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二機", "にき", "niki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三機", "さんき", "sanki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四機", "よんき", "yonki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五機", "ごき", "goki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六機", "ろっき", "rokki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七機", "ななき", "nanaki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八機", "はっき", "hakki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九機", "きゅうき", "kyuuki"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十機", "じゅっき", "jukki"));
+
+		counterEntry.getEntries().add(null);
+
+		counterEntry.getEntries().add(
+				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何機", "なんき", "nanki"));
+
+		String[] examplesArray = resources.getStringArray(R.array.counter_ki_examples);
 
 		for (String currentExample : examplesArray) {
 			counterEntry.getExampleUse().add(currentExample);
