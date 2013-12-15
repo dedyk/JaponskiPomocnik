@@ -118,5 +118,19 @@
     <string-array name="counter_ki_examples">
         <item>samoloty</item>
     </string-array>
+
+    <string name="counter_bu_description">książki, czasopisma, gazety</string>
+
+    <string-array name="counter_bu_examples">
+        <item>książki</item>
+        <item>czasopisma</item>
+        <item>gazety</item>
+    </string-array>
+
+    <string name="counter_kyoku_description">utwory</string>
+
+    <string-array name="counter_kyoku_examples">
+        <item>utwory</item>
+    </string-array>
     
 </resources>

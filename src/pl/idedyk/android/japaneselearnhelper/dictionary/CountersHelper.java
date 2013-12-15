@@ -82,6 +82,12 @@ public class CountersHelper {
 		// ki - samoloty
 		result.add(createKiCounter(resources));
 
+		// bu - książki, czasopisma, gazety
+		result.add(createBuCounter(resources));
+
+		// kyoku - utwory
+		result.add(createKyokuCounter(resources));
+
 		return result;
 	}
 
@@ -604,6 +610,67 @@ public class CountersHelper {
 				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何機", "なんき", "nanki"));
 
 		String[] examplesArray = resources.getStringArray(R.array.counter_ki_examples);
+
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+
+		return counterEntry;
+	}
+
+	private CounterEntry createBuCounter(Resources resources) {
+
+		CounterEntry counterEntry = new CounterEntry("部", "ぶ", "bu",
+				resources.getString(R.string.counter_bu_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一部", "いちぶ", "ichibu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二部", "にぶ", "nibu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三部", "さんぶ", "sanbu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四部", "よんぶ", "yonbu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五部", "ごぶ", "gobu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六部", "ろくぶ", "rokubu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七部", "ななぶ", "nanabu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八部", "はちぶ", "hachibu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九部", "きゅうぶ", "kyuubu"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十部", "じゅうぶ", "juubu"));
+
+		counterEntry.getEntries().add(null);
+
+		counterEntry.getEntries().add(
+				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何部", "なんぶ", "nanbu"));
+
+		String[] examplesArray = resources.getStringArray(R.array.counter_bu_examples);
+
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+
+		return counterEntry;
+	}
+
+	private CounterEntry createKyokuCounter(Resources resources) {
+
+		CounterEntry counterEntry = new CounterEntry("曲", "きょく", "kyoku",
+				resources.getString(R.string.counter_kyoku_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一曲", "いっきょく", "ikkyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二曲", "にきょく", "nikyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三曲", "さんきょく", "sankyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四曲", "よんきょく", "yonkyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五曲", "ごきょく", "gokyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六曲", "ろっきょく", "rokkyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七曲", "ななきょく", "nanakyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八曲", "はっきょく", "hakkyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九曲", "きゅうきょく", "kyuukyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十曲", "じっきょく", "jikkyoku"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十曲", "じゅっきょく", "jukkyoku"));
+
+		counterEntry.getEntries().add(null);
+
+		counterEntry.getEntries().add(
+				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何曲", "なんきょく", "nankyoku"));
+
+		String[] examplesArray = resources.getStringArray(R.array.counter_kyoku_examples);
 
 		for (String currentExample : examplesArray) {
 			counterEntry.getExampleUse().add(currentExample);
