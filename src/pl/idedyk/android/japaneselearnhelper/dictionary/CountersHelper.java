@@ -26,7 +26,7 @@ public class CountersHelper {
 		// E2 - liczba (słownie)
 		// F2 - opis
 
-		// wzór dla komorki G2: =ZŁĄCZ.TEKSTY($A$1, A2, $B$1,B2 ,$B$1,C2, $B$1, D2, $C$1)
+		// wzór dla komorki G2: =ZŁĄCZ.TEKSTY($A$1; A2; $B$1; B2; $B$1; C2; $B$1; D2; $C$1)
 
 		// tsu - klasyfikator ogólny
 		result.add(createTsuCounter(resources));
@@ -87,6 +87,9 @@ public class CountersHelper {
 
 		// kyoku - utwory
 		result.add(createKyokuCounter(resources));
+
+		// hako - pudełka
+		result.add(createHakoCounter(resources));
 
 		return result;
 	}
@@ -671,6 +674,38 @@ public class CountersHelper {
 				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何曲", "なんきょく", "nankyoku"));
 
 		String[] examplesArray = resources.getStringArray(R.array.counter_kyoku_examples);
+
+		for (String currentExample : examplesArray) {
+			counterEntry.getExampleUse().add(currentExample);
+		}
+
+		return counterEntry;
+	}
+
+	private CounterEntry createHakoCounter(Resources resources) {
+
+		CounterEntry counterEntry = new CounterEntry("箱", "はこ", "hako",
+				resources.getString(R.string.counter_hako_description));
+
+		counterEntry.getEntries().add(new CounterEntry.Entry("1", "一箱", "ひとはこ", "hitohako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("2", "二箱", "ふたはこ", "futahako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("3", "三箱", "さんはこ", "sanhako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("4", "四箱", "よんはこ", "yonhako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("5", "五箱", "ごはこ", "gohako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六箱", "ろくはこ", "rokuhako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六箱", "ろっぱこ", "roppako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七箱", "ななはこ", "nanahako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八箱", "はちはこ", "hachihako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八箱", "はっぱこ", "happako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九箱", "きゅうはこ", "kyuuhako"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十箱", "じゅっぱこ", "juppako"));
+
+		counterEntry.getEntries().add(null);
+
+		counterEntry.getEntries().add(
+				new CounterEntry.Entry(resources.getString(R.string.counters_how_many), "何箱", "なんはこ", "nanhako"));
+
+		String[] examplesArray = resources.getStringArray(R.array.counter_hako_examples);
 
 		for (String currentExample : examplesArray) {
 			counterEntry.getExampleUse().add(currentExample);
