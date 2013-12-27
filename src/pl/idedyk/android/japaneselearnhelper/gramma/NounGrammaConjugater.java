@@ -13,25 +13,26 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 
 public class NounGrammaConjugater {
 
-	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+	public static List<GrammaFormConjugateGroupTypeElements> makeAll(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
 
 		// validate DictionaryEntry
 		validateDictionaryEntry(dictionaryEntry);
-		
+
 		List<GrammaFormConjugateGroupTypeElements> result = new ArrayList<GrammaFormConjugateGroupTypeElements>();
 
 		// forma formalna
 		GrammaFormConjugateGroupTypeElements formal = new GrammaFormConjugateGroupTypeElements();
 
 		formal.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.NOUN_FORMAL);
-		
+
 		formal.getGrammaFormConjugateResults().add(makeFormalPresentForm(dictionaryEntry));
 		formal.getGrammaFormConjugateResults().add(makeFormalPresentNegativeForm(dictionaryEntry));
 		formal.getGrammaFormConjugateResults().add(makeFormalPastForm(dictionaryEntry));
 		formal.getGrammaFormConjugateResults().add(makeFormalPastNegativeForm(dictionaryEntry));
-		
+
 		result.add(formal);
-		
+
 		// forma nieformalna (prosta)
 		GrammaFormConjugateGroupTypeElements informal = new GrammaFormConjugateGroupTypeElements();
 
@@ -43,35 +44,36 @@ public class NounGrammaConjugater {
 		informal.getGrammaFormConjugateResults().add(makeInformalPastNegativeForm(dictionaryEntry));
 
 		result.add(informal);
-		
+
 		// forma te
 		GrammaFormConjugateGroupTypeElements teForm = new GrammaFormConjugateGroupTypeElements();
-		
+
 		teForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.NOUN_TE);
-		
+
 		teForm.getGrammaFormConjugateResults().add(makeTeForm(dictionaryEntry));
-		
+
 		result.add(teForm);
-		
+
 		// forma honoryfikatywna
 		GrammaFormConjugateGroupTypeElements keigoForm = new GrammaFormConjugateGroupTypeElements();
-		
+
 		keigoForm.setGrammaFormConjugateGroupType(GrammaFormConjugateGroupType.NOUN_KEIGO);
-		
+
 		keigoForm.getGrammaFormConjugateResults().add(makeKeigoLowForm(dictionaryEntry));
-		
+
 		result.add(keigoForm);
 
 		// caching
 		for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : result) {
-			
-			List<GrammaFormConjugateResult> grammaFormConjugateResults = grammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults();
-			
+
+			List<GrammaFormConjugateResult> grammaFormConjugateResults = grammaFormConjugateGroupTypeElements
+					.getGrammaFormConjugateResults();
+
 			for (GrammaFormConjugateResult grammaFormConjugateResult : grammaFormConjugateResults) {
 				grammaFormCache.put(grammaFormConjugateResult.getResultType(), grammaFormConjugateResult);
 			}
 		}
-		
+
 		return result;
 	}
 
@@ -91,12 +93,12 @@ public class NounGrammaConjugater {
 		final String postfixKana = "でわありません";
 		final String postfixRomaji = " dewa arimasen";
 
-		GrammaFormConjugateResult grammaFormConjugateResult = makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_FORMAL_PRESENT_NEGATIVE,
-				postfixKana, postfixRomaji);
-		
+		GrammaFormConjugateResult grammaFormConjugateResult = makeNounGrammaConjugateForm(dictionaryEntry,
+				GrammaFormConjugateResultType.NOUN_FORMAL_PRESENT_NEGATIVE, postfixKana, postfixRomaji);
+
 		// alternative
 		grammaFormConjugateResult.setAlternative(makeFormalPresentNegativeForm2(dictionaryEntry));
-		
+
 		return grammaFormConjugateResult;
 	}
 
@@ -109,7 +111,7 @@ public class NounGrammaConjugater {
 		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_FORMAL_PRESENT_NEGATIVE,
 				postfixKana, postfixRomaji);
 	}
-	
+
 	private static GrammaFormConjugateResult makeFormalPastForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, twierdzenie, forma formalna, -deshita
 
@@ -119,32 +121,32 @@ public class NounGrammaConjugater {
 		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_FORMAL_PAST,
 				postfixKana, postfixRomaji);
 	}
-	
+
 	private static GrammaFormConjugateResult makeFormalPastNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, przeczenie, forma formalna, -dewa arimasen deshita
 
 		final String postfixKana = "でわありませんでした";
 		final String postfixRomaji = " dewa arimasen deshita";
 
-		GrammaFormConjugateResult grammaFormConjugateResult = makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_FORMAL_PAST_NEGATIVE,
-				postfixKana, postfixRomaji);
-		
+		GrammaFormConjugateResult grammaFormConjugateResult = makeNounGrammaConjugateForm(dictionaryEntry,
+				GrammaFormConjugateResultType.NOUN_FORMAL_PAST_NEGATIVE, postfixKana, postfixRomaji);
+
 		// alternative
 		grammaFormConjugateResult.setAlternative(makeFormalPastNegativeForm2(dictionaryEntry));
-		
+
 		return grammaFormConjugateResult;
 	}
-	
+
 	private static GrammaFormConjugateResult makeFormalPastNegativeForm2(DictionaryEntry dictionaryEntry) {
 		// czas przesly, przeczenie, forma formalna, -ja arimasen deshita
-		
+
 		final String postfixKana = "じゃありませんでした";
 		final String postfixRomaji = " ja arimasen deshita";
 
 		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_FORMAL_PAST_NEGATIVE,
 				postfixKana, postfixRomaji);
 	}
-	
+
 	private static GrammaFormConjugateResult makeInformalPresentForm(DictionaryEntry dictionaryEntry) {
 		// czas terazniejszy, twierdzenie, forma nieformalna (prosta), -da
 
@@ -161,10 +163,10 @@ public class NounGrammaConjugater {
 		final String postfixKana = "じゃない";
 		final String postfixRomaji = " ja nai";
 
-		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_INFORMAL_PRESENT_NEGATIVE,
-				postfixKana, postfixRomaji);
+		return makeNounGrammaConjugateForm(dictionaryEntry,
+				GrammaFormConjugateResultType.NOUN_INFORMAL_PRESENT_NEGATIVE, postfixKana, postfixRomaji);
 	}
-	
+
 	private static GrammaFormConjugateResult makeInformalPastForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, twierdzenie, forma nieformalna (prosta), -datta
 
@@ -174,18 +176,18 @@ public class NounGrammaConjugater {
 		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_INFORMAL_PAST,
 				postfixKana, postfixRomaji);
 	}
-		
+
 	private static GrammaFormConjugateResult makeInformalPastNegativeForm(DictionaryEntry dictionaryEntry) {
 		// czas przesly, przeczenie, forma nieformalna (prosta), -ja nakatta
-		
+
 		final String postfixKana = "じゃなかった";
 		final String postfixRomaji = " ja nakatta";
 
 		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_INFORMAL_PAST_NEGATIVE,
 				postfixKana, postfixRomaji);
 	}
-	
-	private static GrammaFormConjugateResult makeNounGrammaConjugateForm(DictionaryEntry dictionaryEntry, 
+
+	private static GrammaFormConjugateResult makeNounGrammaConjugateForm(DictionaryEntry dictionaryEntry,
 			GrammaFormConjugateResultType grammaFormConjugateResultType, String postfixKana, String postfixRomaji) {
 
 		// make common
@@ -195,7 +197,7 @@ public class NounGrammaConjugater {
 
 		String kanji = dictionaryEntry.getKanji();
 
-		if (kanji != null) {		
+		if (kanji != null) {
 			result.setKanji(kanji + postfixKana);
 		}
 
@@ -203,11 +205,11 @@ public class NounGrammaConjugater {
 
 		List<String> kanaListResult = new ArrayList<String>();
 
-		for (String currentKana : kanaList) {			
+		for (String currentKana : kanaList) {
 			kanaListResult.add(currentKana + postfixKana);
 		}
 
-		result.setKanaList(kanaListResult);		
+		result.setKanaList(kanaListResult);
 
 		List<String> romajiList = dictionaryEntry.getRomajiList();
 
@@ -219,9 +221,9 @@ public class NounGrammaConjugater {
 
 		result.setRomajiList(romajiListResult);
 
-		return result; 
+		return result;
 	}
-	
+
 	private static GrammaFormConjugateResult makeCommon(DictionaryEntry dictionaryEntry) {
 
 		// create result
@@ -233,41 +235,43 @@ public class NounGrammaConjugater {
 		return result;
 	}
 
-	private static void  validateDictionaryEntry(DictionaryEntry dictionaryEntry) {
-		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+	private static void validateDictionaryEntry(DictionaryEntry dictionaryEntry) {
 
-		if (dictionaryEntryType != DictionaryEntryType.WORD_NOUN) {
-			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_NOUN: " + dictionaryEntryType);
-		}		
+		boolean isAdjectiveNounResult = dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_NOUN);
+
+		if (isAdjectiveNounResult == false) {
+			throw new RuntimeException("dictionaryEntryType != DictionaryEntryType.WORD_NOUN: "
+					+ dictionaryEntry.getDictionaryEntryTypeList());
+		}
 	}
-	
+
 	private static GrammaFormConjugateResult makeTeForm(DictionaryEntry dictionaryEntry) {
-		
+
 		// forma te
-		
+
 		final String postfixKana = "で";
 		final String postfixRomaji = " de";
 
-		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_TE,
-				postfixKana, postfixRomaji);
+		return makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_TE, postfixKana,
+				postfixRomaji);
 	}
-	
+
 	private static GrammaFormConjugateResult makeKeigoLowForm(DictionaryEntry dictionaryEntry) {
-		
+
 		// keigo low
-		
+
 		final String postfixKana1 = "でございます";
 		final String postfixRomaji1 = " de gozaimasu";
 
-		GrammaFormConjugateResult result = makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_KEIGO_LOW,
-				postfixKana1, postfixRomaji1);
-		
+		GrammaFormConjugateResult result = makeNounGrammaConjugateForm(dictionaryEntry,
+				GrammaFormConjugateResultType.NOUN_KEIGO_LOW, postfixKana1, postfixRomaji1);
+
 		final String postfixKana2 = "でござる";
 		final String postfixRomaji2 = " de gozaru";
-		
-		result.setAlternative(makeNounGrammaConjugateForm(dictionaryEntry, GrammaFormConjugateResultType.NOUN_KEIGO_LOW,
-				postfixKana2, postfixRomaji2));		
-		
+
+		result.setAlternative(makeNounGrammaConjugateForm(dictionaryEntry,
+				GrammaFormConjugateResultType.NOUN_KEIGO_LOW, postfixKana2, postfixRomaji2));
+
 		return result;
 	}
 }
