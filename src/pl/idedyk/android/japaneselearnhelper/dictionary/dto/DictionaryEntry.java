@@ -34,6 +34,10 @@ public class DictionaryEntry implements Serializable {
 		return dictionaryEntryTypeList.get(0);
 	}
 
+	public List<DictionaryEntryType> getDictionaryEntryTypeList() {
+		return dictionaryEntryTypeList;
+	}
+
 	public String getKanji() {
 		return kanji;
 	}
@@ -88,6 +92,10 @@ public class DictionaryEntry implements Serializable {
 		this.dictionaryEntryTypeList = new ArrayList<DictionaryEntryType>();
 
 		this.dictionaryEntryTypeList.add(dictionaryEntryType);
+	}
+
+	public void setDictionaryEntryTypeList(List<DictionaryEntryType> dictionaryEntryTypeList) {
+		this.dictionaryEntryTypeList = dictionaryEntryTypeList;
 	}
 
 	public void setKanji(String kanji) {
