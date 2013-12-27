@@ -4,35 +4,34 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class DictionaryEntry implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	private int id;
-		
-	private DictionaryEntryType dictionaryEntryType;
-	
+
+	private List<DictionaryEntryType> dictionaryEntryTypeList;
+
 	private AttributeList attributeList;
-	
+
 	private List<GroupEnum> groups;
-	
+
 	private String prefixKana;
-	
+
 	private String kanji;
-	
+
 	private List<String> kanaList;
-	
+
 	private String prefixRomaji;
-	
+
 	private List<String> romajiList;
-		
+
 	private List<String> translates;
-	
+
 	private String info;
-	
+
 	public DictionaryEntryType getDictionaryEntryType() {
-		return dictionaryEntryType;
+		return dictionaryEntryTypeList.get(0);
 	}
 
 	public String getKanji() {
@@ -41,11 +40,11 @@ public class DictionaryEntry implements Serializable {
 
 	public List<String> getFullKanaList() {
 		List<String> result = new ArrayList<String>();
-		
+
 		for (String currentKanaList : kanaList) {
 			result.add(prefixKana + currentKanaList);
 		}
-		
+
 		return result;
 	}
 
@@ -54,26 +53,26 @@ public class DictionaryEntry implements Serializable {
 	}
 
 	public String getFullInfo() {
-		
+
 		StringBuffer result = new StringBuffer();
-		
+
 		if (info != null) {
 			result.append(info);
 		}
-		
-		if (DictionaryEntryType.isAddableDictionaryEntryTypeInfo(dictionaryEntryType) == true) {
+
+		if (DictionaryEntryType.isAddableDictionaryEntryTypeInfo(getDictionaryEntryType()) == true) {
 			if (result.length() > 0) {
 				result.append(", ");
 			}
-			
-			result.append(dictionaryEntryType.getName());
+
+			result.append(getDictionaryEntryType().getName());
 		}
-		
+
 		if (result.length() > 0) {
-			return result.toString();	
+			return result.toString();
 		} else {
 			return null;
-		}	
+		}
 	}
 
 	public List<String> getRomajiList() {
@@ -85,7 +84,10 @@ public class DictionaryEntry implements Serializable {
 	}
 
 	public void setDictionaryEntryType(DictionaryEntryType dictionaryEntryType) {
-		this.dictionaryEntryType = dictionaryEntryType;
+
+		this.dictionaryEntryTypeList = new ArrayList<DictionaryEntryType>();
+
+		this.dictionaryEntryTypeList.add(dictionaryEntryType);
 	}
 
 	public void setKanji(String kanji) {
@@ -111,16 +113,16 @@ public class DictionaryEntry implements Serializable {
 	public void setPrefixKana(String prefixKana) {
 		this.prefixKana = prefixKana;
 	}
-	
+
 	public String getFullKanji() {
-		
+
 		if (isKanjiExists() == true) {
-			return prefixKana + kanji;	
+			return prefixKana + kanji;
 		} else {
 			return null;
 		}
 	}
-	
+
 	public boolean isKanjiExists() {
 		if (kanji != null && kanji.equals("-") == false) {
 			return true;
@@ -128,7 +130,7 @@ public class DictionaryEntry implements Serializable {
 			return false;
 		}
 	}
-		
+
 	public int getId() {
 		return id;
 	}
@@ -157,7 +159,7 @@ public class DictionaryEntry implements Serializable {
 		return groups;
 	}
 
-	public void setGroups(List<GroupEnum> groups) {		
+	public void setGroups(List<GroupEnum> groups) {
 		this.groups = groups;
 	}
 
@@ -171,11 +173,9 @@ public class DictionaryEntry implements Serializable {
 
 	@Override
 	public String toString() {
-		return "DictionaryEntry [id=" + id + ", dictionaryEntryType="
-				+ dictionaryEntryType + ", groups=" + groups + ", prefixKana="
-				+ prefixKana + ", kanji=" + kanji + ", kanaList=" + kanaList
-				+ ", prefixRomaji=" + prefixRomaji + ", romajiList="
-				+ romajiList + ", translates=" + translates + ", info=" + info
-				+ "]";
+		return "DictionaryEntry [id=" + id + ", dictionaryEntryTypeList=" + dictionaryEntryTypeList
+				+ ", attributeList=" + attributeList + ", groups=" + groups + ", prefixKana=" + prefixKana + ", kanji="
+				+ kanji + ", kanaList=" + kanaList + ", prefixRomaji=" + prefixRomaji + ", romajiList=" + romajiList
+				+ ", translates=" + translates + ", info=" + info + "]";
 	}
 }
