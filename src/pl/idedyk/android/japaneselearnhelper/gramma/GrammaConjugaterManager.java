@@ -11,24 +11,25 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 
 public class GrammaConjugaterManager {
-
-	public static List<GrammaFormConjugateGroupTypeElements> getGrammaConjufateResult(KeigoHelper keigoHelper,
-			DictionaryEntry dictionaryEntry,
+	
+	public static List<GrammaFormConjugateGroupTypeElements> getGrammaConjufateResult(KeigoHelper keigoHelper, DictionaryEntry dictionaryEntry, 
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
-
-		if (dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_ADJECTIVE_I) == true) {
+		
+		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_I) {
 			return AdjectiveIGrammaConjugater.makeAll(dictionaryEntry, grammaFormCache);
-
-		} else if (dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_ADJECTIVE_NA) == true) {
+		
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_NA) {
 			return AdjectiveNaGrammaConjugater.makeAll(dictionaryEntry, grammaFormCache);
-
-		} else if (dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_NOUN) == true) {
+		
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_NOUN) {
 			return NounGrammaConjugater.makeAll(dictionaryEntry, grammaFormCache);
-
-		} else if (dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_VERB_U) == true
-				|| dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_VERB_RU) == true
-				|| dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_VERB_IRREGULAR) == true) {
-
+		
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U ||
+				dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU ||
+				dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
 			return VerbGrammaConjugater.makeAll(keigoHelper, dictionaryEntry, grammaFormCache);
 		}
 

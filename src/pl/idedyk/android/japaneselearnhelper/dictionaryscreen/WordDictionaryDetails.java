@@ -583,16 +583,14 @@ public class WordDictionaryDetails extends Activity {
 			}
 		}
 
-		int fixme = 1;
-
 		// Word type
 		boolean addableDictionaryEntryTypeInfo = DictionaryEntryType.isAddableDictionaryEntryTypeInfo(dictionaryEntry
-				.getPrimaryDictionaryEntryType());
+				.getDictionaryEntryType());
 
 		if (addableDictionaryEntryTypeInfo == true) {
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));
 
-			report.add(new StringValue(dictionaryEntry.getPrimaryDictionaryEntryType().getName(), 20.0f, 0));
+			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));
 		}
 
 		List<Attribute> attributeList = dictionaryEntry.getAttributeList().getAttributeList();

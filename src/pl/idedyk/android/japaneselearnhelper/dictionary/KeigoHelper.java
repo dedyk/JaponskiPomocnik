@@ -174,8 +174,8 @@ public class KeigoHelper {
 		return keigoLowEntryList;
 	}
 
-	public KeigoEntry findKeigoHighEntry(List<DictionaryEntryType> dictionaryEntryTypeList, String kanji,
-			List<String> kanaList, List<String> romajiList) {
+	public KeigoEntry findKeigoHighEntry(DictionaryEntryType dictionaryEntryType, String kanji, List<String> kanaList,
+			List<String> romajiList) {
 
 		for (KeigoEntry keigoEntry : keigoHighEntryList) {
 
@@ -187,7 +187,7 @@ public class KeigoHelper {
 
 			for (int idx = 0; idx < kanaList.size(); ++idx) {
 
-				if (dictionaryEntryTypeList.contains(keigoEntryDictionaryEntryType) == true) {
+				if (dictionaryEntryType == keigoEntryDictionaryEntryType) {
 
 					KeigoEntryFindMatchType findMatchType = keigoEntry.getFindMatchType();
 

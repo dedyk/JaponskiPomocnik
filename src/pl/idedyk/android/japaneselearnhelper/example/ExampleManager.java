@@ -15,41 +15,42 @@ import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResul
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 
 public class ExampleManager {
-
-	public static List<ExampleGroupTypeElements> getExamples(KeigoHelper keigoHelper, DictionaryEntry dictionaryEntry,
+	
+	public static List<ExampleGroupTypeElements> getExamples(KeigoHelper keigoHelper, DictionaryEntry dictionaryEntry, 
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
-
+		
+		DictionaryEntryType dictionaryEntryType = dictionaryEntry.getDictionaryEntryType();
+		
 		List<ExampleGroupTypeElements> result = null;
-
-		if (dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_ADJECTIVE_I) == true) {
-			result = AdjectiveIExampler.makeAll(dictionaryEntry, grammaFormCache);
-
-		} else if (dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_ADJECTIVE_NA) == true) {
-			result = AdjectiveNaExampler.makeAll(dictionaryEntry, grammaFormCache);
-
-		} else if (dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_NOUN) == true) {
-			result = NounExampler.makeAll(dictionaryEntry, grammaFormCache);
-
-		} else if (dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_VERB_U) == true
-				|| dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_VERB_RU) == true
-				|| dictionaryEntry.isDictionaryEntryType(DictionaryEntryType.WORD_VERB_IRREGULAR) == true) {
-
+		
+		if (dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_I) {
+			result =  AdjectiveIExampler.makeAll(dictionaryEntry, grammaFormCache);
+		
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_ADJECTIVE_NA) {
+			result =  AdjectiveNaExampler.makeAll(dictionaryEntry, grammaFormCache);
+		
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_NOUN) {
+			result =  NounExampler.makeAll(dictionaryEntry, grammaFormCache);
+		
+		} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U ||
+				dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU ||
+				dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			
 			result = VerbExampler.makeAll(keigoHelper, dictionaryEntry, grammaFormCache);
 		}
-
+		
 		if (result != null) {
-
+			
 			Collections.sort(result, new Comparator<ExampleGroupTypeElements>() {
 
-				private final Collator collator = Collator.getInstance(Locale.getDefault());
-
-				@Override
+				private Collator collator = Collator.getInstance(Locale.getDefault());
+				
 				public int compare(ExampleGroupTypeElements lhs, ExampleGroupTypeElements rhs) {
 					return collator.compare(lhs.getExampleGroupType().getName(), rhs.getExampleGroupType().getName());
 				}
-			});
+			});		
 		}
-
+		
 		return result;
 	}
 }
