@@ -152,4 +152,19 @@ public enum DictionaryEntryType {
 
 		return DictionaryEntryType.valueOf(value);
 	}
+
+	public static List<String> convertToValues(List<DictionaryEntryType> dictionaryEntryTypeList) {
+
+		if (dictionaryEntryTypeList == null) {
+			return null;
+		}
+
+		List<String> values = new ArrayList<String>();
+
+		for (DictionaryEntryType currentDictionaryEntryTypeList : dictionaryEntryTypeList) {
+			values.add(currentDictionaryEntryTypeList.toString());
+		}
+
+		return values;
+	}
 }

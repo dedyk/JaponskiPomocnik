@@ -20,6 +20,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteStatic;
 import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
@@ -47,19 +48,19 @@ public class DBGenerator {
 		final String radicalFilePath = "db/radical.csv";
 
 		final String dbOutputFilePath = "assets/dictionary.db";
-		
+
 		// file db output file
 		new File(dbOutputFilePath).delete();
-		
+
 		// open db
 		Connection connection = null;
 		Statement statement = null;
-		
+
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlite:" + dbOutputFilePath);
-			
+
 			connection.setAutoCommit(false);
-			
+
 			// create statement
 			statement = connection.createStatement();
 			statement.setQueryTimeout(30); // set timeout to 30 sec.
@@ -81,57 +82,58 @@ public class DBGenerator {
 
 			// dictionary file input stream
 			FileInputStream dictionaryInputStream = new FileInputStream(dictionaryFilePath);
-			
+
 			// read and write dictionary
 			readDictionaryFile(statement, dictionaryInputStream);
-			
+
 			dictionaryInputStream.close();
-			
+
 			// radical file input stream
 			FileInputStream radicalInputStream = new FileInputStream(radicalFilePath);
-			
+
 			// read radical entries
 			List<RadicalInfo> radicalInfoList = readRadicalEntriesFromCsv(radicalInputStream);
-			
+
 			radicalInputStream.close();
-			
+
 			// kanji file input stream
 			FileInputStream kanjiInputStream = new FileInputStream(kanjiFilePath);
-			
+
 			// read kanji and write
 			readKanjiDictionaryFile(statement, radicalInfoList, kanjiInputStream);
-			
+
 			kanjiInputStream.close();
-			
+
 			// commit			
 			connection.commit();
-			
+
 			connection.setAutoCommit(true);
-			
+
 			// vacuum
 			statement.execute("vacuum");
-			
+
 		} finally {
-			
+
 			if (statement != null) {
 				statement.close();
 			}
-			
+
 			if (connection != null) {
 				connection.close();
-			}			
-		}	
-		
+			}
+		}
+
 		System.out.println("DB Generator - done");
 	}
-		
-	private static void readDictionaryFile(Statement statement, InputStream dictionaryInputStream) throws IOException, DictionaryException, SQLException {
+
+	private static void readDictionaryFile(Statement statement, InputStream dictionaryInputStream) throws IOException,
+			DictionaryException, SQLException {
 
 		KeigoHelper keigoHelper = new KeigoHelper();
-		
+
 		CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
 
-		while(csvReader.readRecord()) {
+		while (csvReader.readRecord()) {
 
 			String idString = csvReader.get(0);
 			String dictionaryEntryTypeString = csvReader.get(1);
@@ -147,183 +149,194 @@ public class DBGenerator {
 			String translateListString = csvReader.get(10);
 			String infoString = csvReader.get(11);
 
-			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributesString, groupsString,
-					prefixKanaString, kanjiString, kanaListString, prefixRomajiString,
-					romajiListString, translateListString, infoString);
-			
+			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributesString,
+					groupsString, prefixKanaString, kanjiString, kanaListString, prefixRomajiString, romajiListString,
+					translateListString, infoString);
+
 			// count form for dictionary entry
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
-			
-			List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = GrammaConjugaterManager.getGrammaConjufateResult(keigoHelper, entry, grammaFormCache);
+
+			List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = GrammaConjugaterManager
+					.getGrammaConjufateResult(keigoHelper, entry, grammaFormCache);
 
 			if (grammaConjufateResult != null) {
-				
+
 				/*
 				for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : grammaConjufateResult) {
 					System.out.println(grammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults().get(0).getKanji());
 				}
-				*/					
+				*/
 			}
 
 			List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(keigoHelper, entry, grammaFormCache);
 
 			if (examples != null) {
-				
+
 				/*
 				for (ExampleGroupTypeElements exampleGroupTypeElements : examples) {
 					System.out.println(exampleGroupTypeElements.getExampleResults().get(0).getKanji());
 				}
 				*/
 			}
-			
+
 			insertDictionaryEntry(statement, entry);
 		}
-		
-		csvReader.close();		
+
+		csvReader.close();
 	}
-	
+
 	private static void insertDictionaryEntry(Statement statement, DictionaryEntry dictionaryEntry) throws SQLException {
-		
+
 		Map<String, String> values = new TreeMap<String, String>();
-		
-		values.put(SQLiteStatic.dictionaryEntriesTable_id, String.valueOf(dictionaryEntry.getId()));		
-		values.put(SQLiteStatic.dictionaryEntriesTable_dictionaryEntryType, dictionaryEntry.getDictionaryEntryType().toString());
+
+		values.put(SQLiteStatic.dictionaryEntriesTable_id, String.valueOf(dictionaryEntry.getId()));
+		//values.put(SQLiteStatic.dictionaryEntriesTable_dictionaryEntryType, dictionaryEntry.getDictionaryEntryType().toString());
 		values.put(SQLiteStatic.dictionaryEntriesTable_prefixKana, emptyIfNull(dictionaryEntry.getPrefixKana()));
 		values.put(SQLiteStatic.dictionaryEntriesTable_kanji, emptyIfNull(dictionaryEntry.getKanji()));
 		values.put(SQLiteStatic.dictionaryEntriesTable_prefixRomaji, emptyIfNull(dictionaryEntry.getPrefixRomaji()));
-		values.put(SQLiteStatic.dictionaryEntriesTable_info, emptyIfNull(dictionaryEntry.getInfo()));		
-		
+		values.put(SQLiteStatic.dictionaryEntriesTable_info, emptyIfNull(dictionaryEntry.getInfo()));
+
 		insert(statement, SQLiteStatic.dictionaryEntriesTableName, values);
-		
-		insertListEntry(statement, dictionaryEntry.getAttributeList().convertAttributeListToListString(), SQLiteStatic.dictionaryEntriesTableName, 
-				SQLiteStatic.dictionaryEntriesTable_attributeList, String.valueOf(dictionaryEntry.getId()));
-		
-		insertListEntry(statement, GroupEnum.convertToValues(dictionaryEntry.getGroups()), SQLiteStatic.dictionaryEntriesTableName, 
-				SQLiteStatic.dictionaryEntriesTable_groups, String.valueOf(dictionaryEntry.getId()));
-		
-		insertListEntry(statement, dictionaryEntry.getKanaList(), SQLiteStatic.dictionaryEntriesTableName, 
+
+		insertListEntry(statement, dictionaryEntry.getAttributeList().convertAttributeListToListString(),
+				SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_attributeList,
+				String.valueOf(dictionaryEntry.getId()));
+
+		insertListEntry(statement, DictionaryEntryType.convertToValues(dictionaryEntry.getDictionaryEntryTypeList()),
+				SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_dictionaryEntryType,
+				String.valueOf(dictionaryEntry.getId()));
+
+		insertListEntry(statement, GroupEnum.convertToValues(dictionaryEntry.getGroups()),
+				SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_groups,
+				String.valueOf(dictionaryEntry.getId()));
+
+		insertListEntry(statement, dictionaryEntry.getKanaList(), SQLiteStatic.dictionaryEntriesTableName,
 				SQLiteStatic.dictionaryEntriesTable_kanaList, String.valueOf(dictionaryEntry.getId()));
 
-		insertListEntry(statement, dictionaryEntry.getRomajiList(), SQLiteStatic.dictionaryEntriesTableName, 
+		insertListEntry(statement, dictionaryEntry.getRomajiList(), SQLiteStatic.dictionaryEntriesTableName,
 				SQLiteStatic.dictionaryEntriesTable_romajiList, String.valueOf(dictionaryEntry.getId()));
-		
-		insertListEntry(statement, dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName, 
+
+		insertListEntry(statement, dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName,
 				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
-		
-		insertListEntryWithPolishCharsRemove(statement, dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName, 
-				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
+
+		insertListEntryWithPolishCharsRemove(statement, dictionaryEntry.getTranslates(),
+				SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_translates,
+				String.valueOf(dictionaryEntry.getId()));
 
 		String info = dictionaryEntry.getInfo();
-		
+
 		if (info != null && info.equals("") == false) {
-			
+
 			List<String> infoList = new ArrayList<String>();
-			
+
 			infoList.add(info);
 
-			insertListEntry(statement, infoList, SQLiteStatic.dictionaryEntriesTableName, 
+			insertListEntry(statement, infoList, SQLiteStatic.dictionaryEntriesTableName,
 					SQLiteStatic.dictionaryEntriesTable_info, String.valueOf(dictionaryEntry.getId()));
-			
-			insertListEntryWithPolishCharsRemove(statement, infoList, SQLiteStatic.dictionaryEntriesTableName, 
-					SQLiteStatic.dictionaryEntriesTable_info, String.valueOf(dictionaryEntry.getId()));					
+
+			insertListEntryWithPolishCharsRemove(statement, infoList, SQLiteStatic.dictionaryEntriesTableName,
+					SQLiteStatic.dictionaryEntriesTable_info, String.valueOf(dictionaryEntry.getId()));
 		}
 	}
-	
+
 	private static void insert(Statement statement, String tableName, Map<String, String> values) throws SQLException {
-		
+
 		StringBuffer sqlStart = new StringBuffer();
-		
+
 		sqlStart.append("INSERT INTO ").append(tableName).append(" ");
-		
+
 		StringBuffer columns = new StringBuffer();
 		StringBuffer columnsValue = new StringBuffer();
-		
+
 		Iterator<String> keySetIterator = values.keySet().iterator();
-		
+
 		boolean isFirstColumn = true;
-		
-		while(keySetIterator.hasNext()) {
-			
+
+		while (keySetIterator.hasNext()) {
+
 			String currentColumn = keySetIterator.next();
-			
+
 			if (isFirstColumn == true) {
 				columns.append("(");
 				columnsValue.append("(");
-				
+
 				isFirstColumn = false;
-				
+
 			} else {
 				columns.append(", ");
 				columnsValue.append(", ");
 			}
-			
+
 			columns.append(currentColumn);
-			
+
 			String currentColumnValue = values.get(currentColumn);
-			
+
 			currentColumnValue = currentColumnValue.replaceAll("\\'", "''");
-			
-			columnsValue.append("'").append(currentColumnValue).append("'");			
+
+			columnsValue.append("'").append(currentColumnValue).append("'");
 		}
-		
+
 		columns.append(")");
 		columnsValue.append(")");
-		
+
 		String sql = sqlStart.toString() + columns.toString() + " values " + columnsValue.toString();
-		
-		statement.execute(sql);		
+
+		statement.execute(sql);
 	}
-	
-	private static void insertListEntry(Statement statement, List<String> list, String type, String subType, String key) throws SQLException {
-		
+
+	private static void insertListEntry(Statement statement, List<String> list, String type, String subType, String key)
+			throws SQLException {
+
 		if (list == null || list.size() == 0) {
 			return;
 		}
-		
+
 		for (String currentListValue : list) {
 			Map<String, String> values = new TreeMap<String, String>();
-			
+
 			values.put(SQLiteStatic.listEntriesTable_type, type);
 			values.put(SQLiteStatic.listEntriesTable_subType, subType);
 			values.put(SQLiteStatic.listEntriesTable_key, key);
 			values.put(SQLiteStatic.listEntriesTable_value, currentListValue);
 			values.put(SQLiteStatic.listEntriesTable_special, "0");
-			
+
 			insert(statement, SQLiteStatic.listEntriesTableName, values);
 		}
 	}
-	
-	private static void insertListEntryWithPolishCharsRemove(Statement statement, List<String> list, String type, String subType, String key) throws SQLException {
-		
+
+	private static void insertListEntryWithPolishCharsRemove(Statement statement, List<String> list, String type,
+			String subType, String key) throws SQLException {
+
 		if (list == null || list.size() == 0) {
 			return;
 		}
-		
+
 		for (String currentListValue : list) {
-			
+
 			if (Utils.containsPolishChars(currentListValue) == false) {
 				continue;
-			}			
-			
+			}
+
 			Map<String, String> values = new TreeMap<String, String>();
-			
+
 			values.put(SQLiteStatic.listEntriesTable_type, type);
 			values.put(SQLiteStatic.listEntriesTable_subType, subType);
 			values.put(SQLiteStatic.listEntriesTable_key, key);
 			values.put(SQLiteStatic.listEntriesTable_value, Utils.removePolishChars(currentListValue));
 			values.put(SQLiteStatic.listEntriesTable_special, "1");
-			
+
 			insert(statement, SQLiteStatic.listEntriesTableName, values);
 		}
 	}
-	
-	private static List<RadicalInfo> readRadicalEntriesFromCsv(InputStream radicalInputStream) throws IOException, DictionaryException {
+
+	private static List<RadicalInfo> readRadicalEntriesFromCsv(InputStream radicalInputStream) throws IOException,
+			DictionaryException {
 
 		List<RadicalInfo> radicalList = new ArrayList<RadicalInfo>();
 
 		CsvReader csvReader = new CsvReader(new InputStreamReader(radicalInputStream), ',');
 
-		while(csvReader.readRecord()) {			
+		while (csvReader.readRecord()) {
 
 			int id = Integer.parseInt(csvReader.get(0));
 
@@ -347,11 +360,12 @@ public class DBGenerator {
 		}
 
 		csvReader.close();
-		
+
 		return radicalList;
 	}
-	
-	private static void readKanjiDictionaryFile(Statement statement, List<RadicalInfo> radicalInfoList, InputStream kanjiInputStream) throws IOException, DictionaryException, SQLException {
+
+	private static void readKanjiDictionaryFile(Statement statement, List<RadicalInfo> radicalInfoList,
+			InputStream kanjiInputStream) throws IOException, DictionaryException, SQLException {
 
 		Map<String, RadicalInfo> radicalListMapCache = new HashMap<String, RadicalInfo>();
 
@@ -363,9 +377,9 @@ public class DBGenerator {
 		}
 
 		CsvReader csvReader = new CsvReader(new InputStreamReader(kanjiInputStream), ',');
-		
-		while(csvReader.readRecord()) {
-			
+
+		while (csvReader.readRecord()) {
+
 			String idString = csvReader.get(0);
 
 			String kanjiString = csvReader.get(1);
@@ -387,22 +401,25 @@ public class DBGenerator {
 
 			String groupString = csvReader.get(10);
 
-			KanjiEntry entry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString, 
-					Utils.parseStringIntoList(radicalsString, false), Utils.parseStringIntoList(onReadingString, false), Utils.parseStringIntoList(kunReadingString, false), strokePathString, 
-					Utils.parseStringIntoList(polishTranslateListString, false), infoString, generatedString, Utils.parseStringIntoList(groupString, false));
+			KanjiEntry entry = Utils.parseKanjiEntry(idString, kanjiString, strokeCountString,
+					Utils.parseStringIntoList(radicalsString, false),
+					Utils.parseStringIntoList(onReadingString, false),
+					Utils.parseStringIntoList(kunReadingString, false), strokePathString,
+					Utils.parseStringIntoList(polishTranslateListString, false), infoString, generatedString,
+					Utils.parseStringIntoList(groupString, false));
 
 			// update radical info
 			if (entry.getKanjiDic2Entry() != null) {
-				updateRadicalInfoUse(radicalListMapCache, entry.getKanjiDic2Entry().getRadicals());	
+				updateRadicalInfoUse(radicalListMapCache, entry.getKanjiDic2Entry().getRadicals());
 			}
 
 			// insert
 			insertKanjiEntry(statement, entry);
 		}
 
-		csvReader.close();		
+		csvReader.close();
 	}
-	
+
 	private static void updateRadicalInfoUse(Map<String, RadicalInfo> radicalListMapCache, List<String> radicals) {
 
 		for (String currentRadical : radicals) {
@@ -416,69 +433,71 @@ public class DBGenerator {
 			//currentRadicalInfo.incrementUse();			
 		}
 	}
-	
+
 	public static void insertKanjiEntry(Statement statement, KanjiEntry kanjiEntry) throws SQLException {
-						
+
 		Map<String, String> values = new TreeMap<String, String>();
-		
+
 		values.put(SQLiteStatic.kanjiEntriesTable_id, String.valueOf(kanjiEntry.getId()));
 		values.put(SQLiteStatic.kanjiEntriesTable_kanji, kanjiEntry.getKanji());
-		
+
 		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
-		
+
 		if (kanjiDic2Entry != null) {
-			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, String.valueOf(kanjiDic2Entry.getStrokeCount()));			
+			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, String.valueOf(kanjiDic2Entry.getStrokeCount()));
 		} else {
 			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, "");
 		}
-		
+
 		values.put(SQLiteStatic.kanjiEntriesTable_strokePaths, Utils.convertListToString(kanjiEntry.getStrokePaths()));
 		values.put(SQLiteStatic.kanjiEntriesTable_generated, String.valueOf(kanjiEntry.isGenerated()));
-		
+
 		insert(statement, SQLiteStatic.kanjiEntriesTableName, values);
-		
+
 		if (kanjiDic2Entry != null) {
-			
-			insertListEntry(statement, kanjiDic2Entry.getRadicals(), SQLiteStatic.kanjiEntriesTableName, 
+
+			insertListEntry(statement, kanjiDic2Entry.getRadicals(), SQLiteStatic.kanjiEntriesTableName,
 					SQLiteStatic.kanjiEntriesTable_radicals, String.valueOf(kanjiEntry.getId()));
 
-			insertListEntry(statement, kanjiDic2Entry.getOnReading(), SQLiteStatic.kanjiEntriesTableName, 
+			insertListEntry(statement, kanjiDic2Entry.getOnReading(), SQLiteStatic.kanjiEntriesTableName,
 					SQLiteStatic.kanjiEntriesTable_onReading, String.valueOf(kanjiEntry.getId()));
 
-			insertListEntry(statement, kanjiDic2Entry.getKunReading(), SQLiteStatic.kanjiEntriesTableName, 
-					SQLiteStatic.kanjiEntriesTable_kunReading, String.valueOf(kanjiEntry.getId()));			
+			insertListEntry(statement, kanjiDic2Entry.getKunReading(), SQLiteStatic.kanjiEntriesTableName,
+					SQLiteStatic.kanjiEntriesTable_kunReading, String.valueOf(kanjiEntry.getId()));
 		}
-		
-		insertListEntry(statement, kanjiEntry.getPolishTranslates(), SQLiteStatic.kanjiEntriesTableName, 
-				SQLiteStatic.kanjiEntriesTable_polishTranslates, String.valueOf(kanjiEntry.getId()));			
 
-		insertListEntryWithPolishCharsRemove(statement, kanjiEntry.getPolishTranslates(), SQLiteStatic.kanjiEntriesTableName, 
-				SQLiteStatic.kanjiEntriesTable_polishTranslates, String.valueOf(kanjiEntry.getId()));		
-		
+		insertListEntry(statement, kanjiEntry.getPolishTranslates(), SQLiteStatic.kanjiEntriesTableName,
+				SQLiteStatic.kanjiEntriesTable_polishTranslates, String.valueOf(kanjiEntry.getId()));
+
+		insertListEntryWithPolishCharsRemove(statement, kanjiEntry.getPolishTranslates(),
+				SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTable_polishTranslates,
+				String.valueOf(kanjiEntry.getId()));
+
 		String info = kanjiEntry.getInfo();
-		
+
 		if (info != null && info.equals("") == false) {
-			
+
 			List<String> infoList = new ArrayList<String>();
-			
+
 			infoList.add(info);
 
-			insertListEntry(statement, infoList, SQLiteStatic.kanjiEntriesTableName, 
+			insertListEntry(statement, infoList, SQLiteStatic.kanjiEntriesTableName,
 					SQLiteStatic.kanjiEntriesTable_info, String.valueOf(kanjiEntry.getId()));
-			
-			insertListEntryWithPolishCharsRemove(statement, infoList, SQLiteStatic.kanjiEntriesTableName, 
-					SQLiteStatic.kanjiEntriesTable_info, String.valueOf(kanjiEntry.getId()));					
+
+			insertListEntryWithPolishCharsRemove(statement, infoList, SQLiteStatic.kanjiEntriesTableName,
+					SQLiteStatic.kanjiEntriesTable_info, String.valueOf(kanjiEntry.getId()));
 		}
-		
-		insertListEntry(statement, GroupEnum.convertToValues(kanjiEntry.getGroups()), SQLiteStatic.kanjiEntriesTableName, 
-				SQLiteStatic.kanjiEntriesTable_groups, String.valueOf(kanjiEntry.getId()));
+
+		insertListEntry(statement, GroupEnum.convertToValues(kanjiEntry.getGroups()),
+				SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTable_groups,
+				String.valueOf(kanjiEntry.getId()));
 	}
-	
+
 	private static String emptyIfNull(String text) {
 		if (text == null) {
 			return "";
 		}
-		
+
 		return text;
-	}	
+	}
 }

@@ -72,10 +72,10 @@ public class Utils {
 
 		if (dictionaryEntryTypeObject instanceof String) {
 			entry.setDictionaryEntryTypeList(DictionaryEntryType.convertToListDictionaryEntryType(parseStringIntoList(
-					(String) groupsObject, false)));
+					(String) dictionaryEntryTypeObject, false)));
 		} else {
 			entry.setDictionaryEntryTypeList(DictionaryEntryType
-					.convertToListDictionaryEntryType(convertToListString(groupsObject)));
+					.convertToListDictionaryEntryType(convertToListString(dictionaryEntryTypeObject)));
 		}
 
 		if (attributesObject instanceof String) {
