@@ -901,17 +901,17 @@ public class VerbGrammaConjugater {
 		List<String> romajiList = dictionaryEntry.getRomajiList();
 
 		for (String currentRomaji : romajiList) {
-			if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && currentRomaji.endsWith("ru") == false) {
+			if (isWordVerbRUResult == true && currentRomaji.endsWith("ru") == false) {
 				throw new RuntimeException(
 						"dictionaryEntryType == DictionaryEntryType.WORD_VERB_RU && kanji.endsWith(ru) == false): "
 								+ currentRomaji);
 
-			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && currentRomaji.endsWith("u") == false) {
+			} else if (isWordVerbUResult == true && currentRomaji.endsWith("u") == false) {
 				throw new RuntimeException(
 						"dictionaryEntryType == DictionaryEntryType.WORD_VERB_U && kanji.endsWith(u) == false): "
 								+ currentRomaji);
 
-			} else if (dictionaryEntryType == DictionaryEntryType.WORD_VERB_IRREGULAR) {
+			} else if (isWordVerbIrregularResult == true) {
 
 				if (currentRomaji.endsWith("suru") == false && currentRomaji.endsWith("kuru") == false) {
 					throw new RuntimeException(

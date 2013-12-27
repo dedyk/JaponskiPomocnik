@@ -171,6 +171,9 @@ public class DictionaryEntry implements Serializable {
 	}
 
 	public DictionaryEntryType getPrimaryDictionaryEntryType() {
+
+		int fixme = 1;
+
 		return dictionaryEntryTypeList.get(0);
 	}
 
