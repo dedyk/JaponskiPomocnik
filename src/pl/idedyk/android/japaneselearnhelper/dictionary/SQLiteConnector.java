@@ -423,8 +423,18 @@ public class SQLiteConnector {
 		Cursor cursor = null;
 
 		try {
-			cursor = sqliteDatabase
-					.rawQuery(SQLiteStatic.listEntriesTableSelectValues, new String[] { type, key, "0" });
+
+			if (type == SQLiteStatic.dictionaryEntriesTableName) {
+				cursor = sqliteDatabase.rawQuery(SQLiteStatic.listEntriesDictionaryEntriesTableSelectValues,
+						new String[] { key, "0", key, "0", key, "0", key, "0", key, "0", key, "0", key, "0" });
+
+			} else if (type == SQLiteStatic.kanjiEntriesTableName) {
+				cursor = sqliteDatabase.rawQuery(SQLiteStatic.listEntriesKanjiEntriesTableSelectValues, new String[] {
+						key, "0", key, "0", key, "0", key, "0", key, "0", key, "0" });
+
+			} else {
+				throw new RuntimeException("getMapListEntryValues: " + type);
+			}
 
 			cursor.moveToFirst();
 
@@ -594,6 +604,14 @@ public class SQLiteConnector {
 		sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectFindKanjiFromRadicalsElement);
 
 		for (int idx = 0; idx < radicals.length; ++idx) {
+
+			if (idx == 0) {
+				sqlQuery.append(" where ");
+
+			} else {
+				sqlQuery.append(" and ");
+			}
+
 			sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectFindKanjiFromRadicalsFilter);
 		}
 
@@ -663,6 +681,14 @@ public class SQLiteConnector {
 		sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectAllAvailableRadicalsElement);
 
 		for (int idx = 0; idx < radicals.length; ++idx) {
+
+			if (idx == 0) {
+				sqlQuery.append(" where ");
+
+			} else {
+				sqlQuery.append(" and ");
+			}
+
 			sqlQuery.append(SQLiteStatic.kanjiEntriesTableSelectAllAvailableRadicalsElementFilter);
 		}
 
@@ -1128,11 +1154,8 @@ public class SQLiteConnector {
 		Cursor cursor = null;
 
 		try {
-			cursor = sqliteDatabase.query(true, SQLiteStatic.listEntriesTableName,
-					new String[] { SQLiteStatic.listEntriesTable_value }, SQLiteStatic.listEntriesTable_type
-							+ " = ? and " + SQLiteStatic.listEntriesTable_subType + " = ? ", new String[] {
-							SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_groups },
-					null, null, null, null);
+			cursor = sqliteDatabase.query(true, SQLiteStatic.listEntries_DictionaryEntries_groupsList_TableName,
+					new String[] { SQLiteStatic.listEntriesTableCommon_value }, null, null, null, null, null, null);
 
 			cursor.moveToFirst();
 
@@ -1165,11 +1188,9 @@ public class SQLiteConnector {
 		try {
 			cursor = sqliteDatabase.rawQuery("select * from " + SQLiteStatic.dictionaryEntriesTableName + " de where "
 					+ " de." + SQLiteStatic.dictionaryEntriesTable_id + " in ( " + " select "
-					+ SQLiteStatic.listEntriesTable_key + " from " + SQLiteStatic.listEntriesTableName + " "
-					+ " where " + SQLiteStatic.listEntriesTable_type + " = ? and "
-					+ SQLiteStatic.listEntriesTable_subType + " = ? and " + " " + SQLiteStatic.listEntriesTable_value
-					+ " = ? " + ")", new String[] { SQLiteStatic.dictionaryEntriesTableName,
-					SQLiteStatic.dictionaryEntriesTable_groups, groupName.getValue() });
+					+ SQLiteStatic.listEntriesTableCommon_key + " from "
+					+ SQLiteStatic.listEntries_DictionaryEntries_groupsList_TableName + " " + " where "
+					+ SQLiteStatic.listEntriesTableCommon_value + " = ? " + ")", new String[] { groupName.getValue() });
 
 			cursor.moveToFirst();
 

@@ -8,14 +8,25 @@ public class SQLiteStatic {
 
 	public static final String databaseName = "JapaneseAndroidLearnHelperDb";
 
-	public static final String listEntriesTableName = "ListEntries";
+	public static final String listEntries_DictionaryEntries_attributeList_TableName = "ListEntries_DictionaryEntries_AttributeList";
+	public static final String listEntries_DictionaryEntries_dictionaryEntryTypeList_TableName = "ListEntries_DictionaryEntries_DictionaryEntryTypeList";
+	public static final String listEntries_DictionaryEntries_groupsList_TableName = "ListEntries_DictionaryEntries_GroupsList";
+	public static final String listEntries_DictionaryEntries_kanaList_TableName = "ListEntries_DictionaryEntries_KanaList";
+	public static final String listEntries_DictionaryEntries_romajiList_TableName = "ListEntries_DictionaryEntries_RomajiList";
+	public static final String listEntries_DictionaryEntries_translateList_TableName = "ListEntries_DictionaryEntries_TranslateList";
+	public static final String listEntries_DictionaryEntries_infoStringList_TableName = "ListEntries_DictionaryEntries_InfoStringList";
 
-	public static final String listEntriesTable_id = "id";
-	public static final String listEntriesTable_type = "type";
-	public static final String listEntriesTable_subType = "subType";
-	public static final String listEntriesTable_key = "key";
-	public static final String listEntriesTable_value = "value";
-	public static final String listEntriesTable_special = "special";
+	public static final String listEntries_KanjiEntries_radicalsList_TableName = "ListEntries_KanjiEntries_RadicalsList";
+	public static final String listEntries_KanjiEntries_onReadingList_TableName = "ListEntries_KanjiEntries_OnReadingList";
+	public static final String listEntries_KanjiEntries_kunReadingList_TableName = "ListEntries_KanjiEntries_KunReadingList";
+	public static final String listEntries_KanjiEntries_polishTranslateList_TableName = "ListEntries_KanjiEntries_PolishTranslateList";
+	public static final String listEntries_KanjiEntries_groupsList_TableName = "ListEntries_KanjiEntries_GroupsList";
+	public static final String listEntries_KanjiEntries_infoStringList_TableName = "ListEntries_KanjiEntries_InfoStringList";
+
+	public static final String listEntriesTableCommon_id = "id";
+	public static final String listEntriesTableCommon_key = "key";
+	public static final String listEntriesTableCommon_value = "value";
+	public static final String listEntriesTableCommon_special = "special";
 
 	public static final String dictionaryEntriesTableName = "DictionaryEntries";
 
@@ -92,17 +103,13 @@ public class SQLiteStatic {
 	//SQLiteStatic.kanjiEntriesTable_groups
 	};
 
-	public static final String listEntriesTableCreate = "create virtual table " + listEntriesTableName + " using fts3("
-			+ listEntriesTable_id + " integer primary key autoincrement, " + listEntriesTable_type + " text not null, "
-			+ listEntriesTable_subType + " text not null, " + listEntriesTable_key + " text not null, "
-			+ listEntriesTable_value + " text not null, " + listEntriesTable_special + " boolean not null);";
+	public static final String listEntriesTableTemplateCreate = "create virtual table " + "%TABLE_NAME%"
+			+ " using fts3(" + listEntriesTableCommon_id + " integer primary key autoincrement, "
+			+ listEntriesTableCommon_key + " text not null, " + listEntriesTableCommon_value + " text not null, "
+			+ listEntriesTableCommon_special + " boolean not null);";
 
-	public static final String listEntriesTableCreateAllIndex = "create index " + listEntriesTableName + "AllIdx on "
-			+ listEntriesTableName + "(" + listEntriesTable_type + ", " + listEntriesTable_subType + ", "
-			+ listEntriesTable_key + ")";
-
-	public static final String listEntriesTableCreateTypeKeyIndex = "create index " + listEntriesTableName
-			+ "TypeKeyIdx on " + listEntriesTableName + "(" + listEntriesTable_type + ", " + listEntriesTable_key + ")";
+	// public static final String listEntriesTableTemplateCreateTypeKeyIndex = "create index " + "%TABLE_NAME%"
+	//		+ "KeyIdx on " + "%TABLE_NAME%" + "(" + listEntriesTableCommon_key + ")";
 
 	/*
 	public static final String listEntriesTableCreateTypeIndex = 
@@ -115,11 +122,11 @@ public class SQLiteStatic {
 	
 	public static final String listEntriesTableCreateKeyIndex = 
 			"create index " + listEntriesTableName + listEntriesTable_key.substring(0, 1).toUpperCase() + listEntriesTable_key.substring(1) + "Idx on " +
-			listEntriesTableName + "(" + listEntriesTable_key + ")";
+			listEntriesTableName + "(" + listEntriesTableCommon_key + ")";
 
 	public static final String listEntriesTableCreateValueIndex = 
 			"create index " + listEntriesTableName + listEntriesTable_value.substring(0, 1).toUpperCase() + listEntriesTable_value.substring(1) + "Idx on " +
-			listEntriesTableName + "(" + listEntriesTable_value + ")";
+			listEntriesTableName + "(" + listEntriesTableCommon_value + ")";
 	*/
 
 	public static final String dictionaryEntriesTableCreate = "create table " + dictionaryEntriesTableName + "("
@@ -174,9 +181,59 @@ public class SQLiteStatic {
 			+ exampleResultEntriesTable_kanaList + " text not null, " + exampleResultEntriesTable_prefixRomaji
 			+ " text null, " + exampleResultEntriesTable_romajiList + " text not null);";
 
-	public static final String listEntriesTableSelectValues = "select " + listEntriesTable_subType + ", "
-			+ listEntriesTable_value + " from " + listEntriesTableName + " " + "where " + listEntriesTable_type
-			+ " = ? and " + listEntriesTable_key + " match ? and " + listEntriesTable_special + " = ? ";
+	public static final String listEntriesDictionaryEntriesTableSelectValues = "select '"
+			+ dictionaryEntriesTable_attributeList + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_DictionaryEntries_attributeList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + dictionaryEntriesTable_dictionaryEntryType + "' " + ", " + listEntriesTableCommon_value
+			+ " from " + listEntries_DictionaryEntries_dictionaryEntryTypeList_TableName + " " + "where "
+			+ listEntriesTableCommon_key + " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + dictionaryEntriesTable_groups + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_DictionaryEntries_groupsList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + dictionaryEntriesTable_kanaList + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_DictionaryEntries_kanaList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + dictionaryEntriesTable_romajiList + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_DictionaryEntries_romajiList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + dictionaryEntriesTable_translates + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_DictionaryEntries_translateList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + dictionaryEntriesTable_info + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_DictionaryEntries_infoStringList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ?";
+
+	public static final String listEntriesKanjiEntriesTableSelectValues = "select '" + kanjiEntriesTable_radicals
+			+ "' " + ", " + listEntriesTableCommon_value + " from " + listEntries_KanjiEntries_radicalsList_TableName
+			+ " " + "where " + listEntriesTableCommon_key + " match ? and " + listEntriesTableCommon_special
+			+ " = ? union all " +
+
+			"select '" + kanjiEntriesTable_onReading + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_KanjiEntries_onReadingList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + kanjiEntriesTable_kunReading + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_KanjiEntries_kunReadingList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + kanjiEntriesTable_polishTranslates + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_KanjiEntries_polishTranslateList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + kanjiEntriesTable_groups + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_KanjiEntries_groupsList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? union all " +
+
+			"select '" + kanjiEntriesTable_info + "' " + ", " + listEntriesTableCommon_value + " from "
+			+ listEntries_KanjiEntries_infoStringList_TableName + " " + "where " + listEntriesTableCommon_key
+			+ " match ? and " + listEntriesTableCommon_special + " = ? ";
 
 	public static final String dictionaryEntriesTableIdElement = "select " + dictionaryEntriesTable_id + ", "
 	//+ dictionaryEntriesTable_dictionaryEntryType + ", " + 
@@ -214,90 +271,76 @@ public class SQLiteStatic {
 	// kana
 
 	public static final String dictionaryEntriesTableSelectElements_match_kana = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_kanaList + "' and " + listEntriesTable_value
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_kanaList_TableName + " where " + listEntriesTableCommon_value
 			+ " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_match_exact_kana = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_kanaList + "' and " + listEntriesTable_value
-			+ " like ? and " + listEntriesTable_value + " match ?) ";
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_kanaList_TableName + " where " + listEntriesTableCommon_value
+			+ " like ? and " + listEntriesTableCommon_value + " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_like_kana = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_kanaList + "' and " + listEntriesTable_value
-			+ " like ?) ";
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_kanaList_TableName + " where " + listEntriesTableCommon_value + " like ?) ";
 
 	// romaji
 
 	public static final String dictionaryEntriesTableSelectElements_match_romaji = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_romajiList + "' and " + " "
-			+ listEntriesTable_value + " match ?) ";
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_romajiList_TableName + " where " + listEntriesTableCommon_value
+			+ " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_match_exact_romaji = dictionaryEntriesTableName
-			+ "." + dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from "
-			+ listEntriesTableName + " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_romajiList + "' and " + listEntriesTable_value
-			+ " like ? and " + listEntriesTable_value + " match ?) ";
+			+ "." + dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_romajiList_TableName + " where " + listEntriesTableCommon_value
+			+ " like ? and " + listEntriesTableCommon_value + " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_like_romaji = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_romajiList + "' and " + " "
-			+ listEntriesTable_value + " like ?) ";
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_romajiList_TableName + " where " + listEntriesTableCommon_value
+			+ " like ?) ";
 
 	// translate 
 
 	public static final String dictionaryEntriesTableSelectElements_match_translate = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_translates + "' and " + " "
-			+ listEntriesTable_value + " match ?) ";
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_translateList_TableName + " where " + listEntriesTableCommon_value
+			+ " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_match_exact_translate = dictionaryEntriesTableName
-			+ "." + dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from "
-			+ listEntriesTableName + " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_translates + "' and " + listEntriesTable_value
-			+ " like ? and " + listEntriesTable_value + " match ?) ";
+			+ "." + dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_translateList_TableName + " where " + listEntriesTableCommon_value
+			+ " like ? and " + listEntriesTableCommon_value + " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_like_translate = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_translates + "' and " + " "
-			+ listEntriesTable_value + " like ?) ";
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_translateList_TableName + " where " + listEntriesTableCommon_value
+			+ " like ?) ";
 
 	// info
 
 	public static final String dictionaryEntriesTableSelectElements_match_info = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_info + "' and " + " " + listEntriesTable_value
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_infoStringList_TableName + " where " + listEntriesTableCommon_value
 			+ " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_match_exact_info = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_info + "' and " + listEntriesTable_value
-			+ " like ? and " + listEntriesTable_value + " match ?) ";
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_infoStringList_TableName + " where " + listEntriesTableCommon_value
+			+ " like ? and " + listEntriesTableCommon_value + " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_like_info = dictionaryEntriesTableName + "."
-			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_info + "' and " + " " + listEntriesTable_value
+			+ dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_infoStringList_TableName + " where " + listEntriesTableCommon_value
 			+ " match ?) ";
 
 	public static final String dictionaryEntriesTableSelectElements_limit = " limit " + MAX_SEARCH_RESULT;
 
 	public static final String dictionaryEntriesTableSelectElements_dictionaryEntryType = dictionaryEntriesTableName
-			+ "." + dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from "
-			+ listEntriesTableName + " where " + listEntriesTable_type + " = '" + dictionaryEntriesTableName + "' and "
-			+ listEntriesTable_subType + " = '" + dictionaryEntriesTable_dictionaryEntryType + "' and "
-			+ listEntriesTable_value + " like ? and " + listEntriesTable_value + " match ?) ";
+			+ "." + dictionaryEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_DictionaryEntries_dictionaryEntryTypeList_TableName + " where "
+			+ listEntriesTableCommon_value + " like ? and " + listEntriesTableCommon_value + " match ?) ";
 
 	public static final String countTableSql = "select count(*) from ";
 
@@ -347,27 +390,22 @@ public class SQLiteStatic {
 			+ kanjiEntriesTable_strokePaths + " , " + kanjiEntriesTable_generated + " from " + kanjiEntriesTableName
 			+ " where " + kanjiEntriesTable_id + " in ( ";
 
-	public static final String kanjiEntriesTableSelectFindKanjiFromRadicalsElement = "select " + listEntriesTable_key
-			+ " from " + listEntriesTableName + " ln where ln." + listEntriesTable_type + " = '"
-			+ kanjiEntriesTableName + "' and ln." + listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals
-			+ "' ";
+	public static final String kanjiEntriesTableSelectFindKanjiFromRadicalsElement = "select "
+			+ listEntriesTableCommon_key + " from " + listEntries_KanjiEntries_radicalsList_TableName + " ln";
 
-	public static final String kanjiEntriesTableSelectFindKanjiFromRadicalsFilter = " and ln." + listEntriesTable_key
-			+ " in (select ln2." + listEntriesTable_key + " from " + listEntriesTableName + " ln2 where ln2."
-			+ listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and ln2." + listEntriesTable_subType + " = '"
-			+ kanjiEntriesTable_radicals + "' and ln2." + listEntriesTable_value + " = ?) ";
+	public static final String kanjiEntriesTableSelectFindKanjiFromRadicalsFilter = " ln." + listEntriesTableCommon_key
+			+ " in (select ln2." + listEntriesTableCommon_key + " from "
+			+ listEntries_KanjiEntries_radicalsList_TableName + " ln2 where ln2." + listEntriesTableCommon_value
+			+ " = ?) ";
 
 	public static final String kanjiEntriesTableSelectFindKanjiFromRadicalsElementStop = " ) ";
 
-	public static final String kanjiEntriesTableSelectAllAvailableRadicalsElement = "select " + listEntriesTable_value
-			+ " from " + listEntriesTableName + " ln where ln." + listEntriesTable_type + " = '"
-			+ kanjiEntriesTableName + "' and ln." + listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals
-			+ "' ";
+	public static final String kanjiEntriesTableSelectAllAvailableRadicalsElement = "select "
+			+ listEntriesTableCommon_value + " from " + listEntries_KanjiEntries_radicalsList_TableName + " ln ";
 
-	public static final String kanjiEntriesTableSelectAllAvailableRadicalsElementFilter = " and ln."
-			+ listEntriesTable_key + " in (select ln2." + listEntriesTable_key + " from " + listEntriesTableName
-			+ " ln2 where ln2." + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and ln2."
-			+ listEntriesTable_subType + " = '" + kanjiEntriesTable_radicals + "' and ln2." + listEntriesTable_value
+	public static final String kanjiEntriesTableSelectAllAvailableRadicalsElementFilter = " ln."
+			+ listEntriesTableCommon_key + " in (select ln2." + listEntriesTableCommon_key + " from "
+			+ listEntries_KanjiEntries_radicalsList_TableName + " ln2 where ln2." + listEntriesTableCommon_value
 			+ " = ?) ";
 
 	public static final String kanjiEntriesTableFindKanjiElementsStart = "select " + kanjiEntriesTable_id + " , "
@@ -381,44 +419,41 @@ public class SQLiteStatic {
 	// translate 
 
 	public static final String kanjiEntriesTableFindKanjiElements_match_translate = kanjiEntriesTableName + "."
-			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " + listEntriesTable_subType
-			+ " = '" + kanjiEntriesTable_polishTranslates + "' and " + " " + listEntriesTable_value + " match ?) ";
+			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_KanjiEntries_polishTranslateList_TableName + " where " + listEntriesTableCommon_value
+			+ " match ?) ";
 
 	public static final String kanjiEntriesTableFindKanjiElements_match_exact_translate = kanjiEntriesTableName + "."
-			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " + listEntriesTable_subType
-			+ " = '" + kanjiEntriesTable_polishTranslates + "' and " + listEntriesTable_value + " like ? and "
-			+ listEntriesTable_value + " match ?) ";
+			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_KanjiEntries_polishTranslateList_TableName + " where " + listEntriesTableCommon_value
+			+ " like ? and " + listEntriesTableCommon_value + " match ?) ";
 
 	public static final String kanjiEntriesTableFindKanjiElements_like_translate = kanjiEntriesTableName + "."
-			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " + listEntriesTable_subType
-			+ " = '" + kanjiEntriesTable_polishTranslates + "' and " + " " + listEntriesTable_value + " like ?) ";
+			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_KanjiEntries_polishTranslateList_TableName + " where " + listEntriesTableCommon_value
+			+ " like ?) ";
 
 	// info
 
 	public static final String kanjiEntriesTableFindKanjiElements_match_info = kanjiEntriesTableName + "."
-			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " + listEntriesTable_subType
-			+ " = '" + kanjiEntriesTable_info + "' and " + " " + listEntriesTable_value + " match ?) ";
+			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_KanjiEntries_infoStringList_TableName + " where " + listEntriesTableCommon_value
+			+ " match ?) ";
 
 	public static final String kanjiEntriesTableFindKanjiElements_match_exact_info = kanjiEntriesTableName + "."
-			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " + listEntriesTable_subType
-			+ " = '" + kanjiEntriesTable_info + "' and " + listEntriesTable_value + " like ? and "
-			+ listEntriesTable_value + " match ?) ";
+			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_KanjiEntries_infoStringList_TableName + " where " + listEntriesTableCommon_value
+			+ " like ? and " + listEntriesTableCommon_value + " match ?) ";
 
 	public static final String kanjiEntriesTableFindKanjiElements_like_info = kanjiEntriesTableName + "."
-			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " + listEntriesTable_subType
-			+ " = '" + kanjiEntriesTable_info + "' and " + " " + listEntriesTable_value + " match ?) ";
+			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_KanjiEntries_infoStringList_TableName + " where " + listEntriesTableCommon_value
+			+ " match ?) ";
 
 	// radicals
 	public static final String kanjiEntriesTableFindKanjiElements_radicals = kanjiEntriesTableName + "."
-			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTable_key + " from " + listEntriesTableName
-			+ " where " + listEntriesTable_type + " = '" + kanjiEntriesTableName + "' and " + listEntriesTable_subType
-			+ " = '" + kanjiEntriesTable_radicals + "' and " + " " + listEntriesTable_value + " like ?) ";
+			+ kanjiEntriesTable_id + " in ( " + "select " + listEntriesTableCommon_key + " from "
+			+ listEntries_KanjiEntries_radicalsList_TableName + " where " + listEntriesTableCommon_value + " like ?) ";
 
 	public static final String kanjiEntriesTableFindKanjiElements_limit = " limit " + MAX_SEARCH_RESULT;
 }

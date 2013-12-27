@@ -66,7 +66,34 @@ public class DBGenerator {
 			statement.setQueryTimeout(30); // set timeout to 30 sec.
 
 			// create db objects
-			statement.execute(SQLiteStatic.listEntriesTableCreate);
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_DictionaryEntries_attributeList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_DictionaryEntries_dictionaryEntryTypeList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_DictionaryEntries_groupsList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_DictionaryEntries_kanaList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_DictionaryEntries_romajiList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_DictionaryEntries_translateList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_DictionaryEntries_infoStringList_TableName));
+
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_KanjiEntries_radicalsList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_KanjiEntries_onReadingList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_KanjiEntries_kunReadingList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_KanjiEntries_polishTranslateList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_KanjiEntries_groupsList_TableName));
+			statement.execute(SQLiteStatic.listEntriesTableTemplateCreate.replaceAll("%TABLE_NAME%",
+					SQLiteStatic.listEntries_KanjiEntries_infoStringList_TableName));
+
 			// statement.execute(SQLiteStatic.listEntriesTableCreateAllIndex);
 			// statement.execute(SQLiteStatic.listEntriesTableCreateTypeKeyIndex);
 			// statement.execute(SQLiteStatic.listEntriesTableCreateTypeIndex);
@@ -198,28 +225,33 @@ public class DBGenerator {
 
 		insert(statement, SQLiteStatic.dictionaryEntriesTableName, values);
 
-		insertListEntry(statement, dictionaryEntry.getAttributeList().convertAttributeListToListString(),
-				SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_attributeList,
-				String.valueOf(dictionaryEntry.getId()));
+		insertListEntry(statement, SQLiteStatic.listEntries_DictionaryEntries_attributeList_TableName, dictionaryEntry
+				.getAttributeList().convertAttributeListToListString(), SQLiteStatic.dictionaryEntriesTableName,
+				SQLiteStatic.dictionaryEntriesTable_attributeList, String.valueOf(dictionaryEntry.getId()));
 
-		insertListEntry(statement, DictionaryEntryType.convertToValues(dictionaryEntry.getDictionaryEntryTypeList()),
+		insertListEntry(statement, SQLiteStatic.listEntries_DictionaryEntries_dictionaryEntryTypeList_TableName,
+				DictionaryEntryType.convertToValues(dictionaryEntry.getDictionaryEntryTypeList()),
 				SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_dictionaryEntryType,
 				String.valueOf(dictionaryEntry.getId()));
 
-		insertListEntry(statement, GroupEnum.convertToValues(dictionaryEntry.getGroups()),
-				SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_groups,
-				String.valueOf(dictionaryEntry.getId()));
+		insertListEntry(statement, SQLiteStatic.listEntries_DictionaryEntries_groupsList_TableName,
+				GroupEnum.convertToValues(dictionaryEntry.getGroups()), SQLiteStatic.dictionaryEntriesTableName,
+				SQLiteStatic.dictionaryEntriesTable_groups, String.valueOf(dictionaryEntry.getId()));
 
-		insertListEntry(statement, dictionaryEntry.getKanaList(), SQLiteStatic.dictionaryEntriesTableName,
+		insertListEntry(statement, SQLiteStatic.listEntries_DictionaryEntries_kanaList_TableName,
+				dictionaryEntry.getKanaList(), SQLiteStatic.dictionaryEntriesTableName,
 				SQLiteStatic.dictionaryEntriesTable_kanaList, String.valueOf(dictionaryEntry.getId()));
 
-		insertListEntry(statement, dictionaryEntry.getRomajiList(), SQLiteStatic.dictionaryEntriesTableName,
+		insertListEntry(statement, SQLiteStatic.listEntries_DictionaryEntries_romajiList_TableName,
+				dictionaryEntry.getRomajiList(), SQLiteStatic.dictionaryEntriesTableName,
 				SQLiteStatic.dictionaryEntriesTable_romajiList, String.valueOf(dictionaryEntry.getId()));
 
-		insertListEntry(statement, dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName,
+		insertListEntry(statement, SQLiteStatic.listEntries_DictionaryEntries_translateList_TableName,
+				dictionaryEntry.getTranslates(), SQLiteStatic.dictionaryEntriesTableName,
 				SQLiteStatic.dictionaryEntriesTable_translates, String.valueOf(dictionaryEntry.getId()));
 
-		insertListEntryWithPolishCharsRemove(statement, dictionaryEntry.getTranslates(),
+		insertListEntryWithPolishCharsRemove(statement,
+				SQLiteStatic.listEntries_DictionaryEntries_translateList_TableName, dictionaryEntry.getTranslates(),
 				SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_translates,
 				String.valueOf(dictionaryEntry.getId()));
 
@@ -231,11 +263,14 @@ public class DBGenerator {
 
 			infoList.add(info);
 
-			insertListEntry(statement, infoList, SQLiteStatic.dictionaryEntriesTableName,
-					SQLiteStatic.dictionaryEntriesTable_info, String.valueOf(dictionaryEntry.getId()));
+			insertListEntry(statement, SQLiteStatic.listEntries_DictionaryEntries_infoStringList_TableName, infoList,
+					SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_info,
+					String.valueOf(dictionaryEntry.getId()));
 
-			insertListEntryWithPolishCharsRemove(statement, infoList, SQLiteStatic.dictionaryEntriesTableName,
-					SQLiteStatic.dictionaryEntriesTable_info, String.valueOf(dictionaryEntry.getId()));
+			insertListEntryWithPolishCharsRemove(statement,
+					SQLiteStatic.listEntries_DictionaryEntries_infoStringList_TableName, infoList,
+					SQLiteStatic.dictionaryEntriesTableName, SQLiteStatic.dictionaryEntriesTable_info,
+					String.valueOf(dictionaryEntry.getId()));
 		}
 	}
 
@@ -284,8 +319,8 @@ public class DBGenerator {
 		statement.execute(sql);
 	}
 
-	private static void insertListEntry(Statement statement, List<String> list, String type, String subType, String key)
-			throws SQLException {
+	private static void insertListEntry(Statement statement, String tableName, List<String> list, String type,
+			String subType, String key) throws SQLException {
 
 		if (list == null || list.size() == 0) {
 			return;
@@ -294,18 +329,16 @@ public class DBGenerator {
 		for (String currentListValue : list) {
 			Map<String, String> values = new TreeMap<String, String>();
 
-			values.put(SQLiteStatic.listEntriesTable_type, type);
-			values.put(SQLiteStatic.listEntriesTable_subType, subType);
-			values.put(SQLiteStatic.listEntriesTable_key, key);
-			values.put(SQLiteStatic.listEntriesTable_value, currentListValue);
-			values.put(SQLiteStatic.listEntriesTable_special, "0");
+			values.put(SQLiteStatic.listEntriesTableCommon_key, key);
+			values.put(SQLiteStatic.listEntriesTableCommon_value, currentListValue);
+			values.put(SQLiteStatic.listEntriesTableCommon_special, "0");
 
-			insert(statement, SQLiteStatic.listEntriesTableName, values);
+			insert(statement, tableName, values);
 		}
 	}
 
-	private static void insertListEntryWithPolishCharsRemove(Statement statement, List<String> list, String type,
-			String subType, String key) throws SQLException {
+	private static void insertListEntryWithPolishCharsRemove(Statement statement, String tableName, List<String> list,
+			String type, String subType, String key) throws SQLException {
 
 		if (list == null || list.size() == 0) {
 			return;
@@ -319,13 +352,11 @@ public class DBGenerator {
 
 			Map<String, String> values = new TreeMap<String, String>();
 
-			values.put(SQLiteStatic.listEntriesTable_type, type);
-			values.put(SQLiteStatic.listEntriesTable_subType, subType);
-			values.put(SQLiteStatic.listEntriesTable_key, key);
-			values.put(SQLiteStatic.listEntriesTable_value, Utils.removePolishChars(currentListValue));
-			values.put(SQLiteStatic.listEntriesTable_special, "1");
+			values.put(SQLiteStatic.listEntriesTableCommon_key, key);
+			values.put(SQLiteStatic.listEntriesTableCommon_value, Utils.removePolishChars(currentListValue));
+			values.put(SQLiteStatic.listEntriesTableCommon_special, "1");
 
-			insert(statement, SQLiteStatic.listEntriesTableName, values);
+			insert(statement, tableName, values);
 		}
 	}
 
@@ -456,20 +487,25 @@ public class DBGenerator {
 
 		if (kanjiDic2Entry != null) {
 
-			insertListEntry(statement, kanjiDic2Entry.getRadicals(), SQLiteStatic.kanjiEntriesTableName,
+			insertListEntry(statement, SQLiteStatic.listEntries_KanjiEntries_radicalsList_TableName,
+					kanjiDic2Entry.getRadicals(), SQLiteStatic.kanjiEntriesTableName,
 					SQLiteStatic.kanjiEntriesTable_radicals, String.valueOf(kanjiEntry.getId()));
 
-			insertListEntry(statement, kanjiDic2Entry.getOnReading(), SQLiteStatic.kanjiEntriesTableName,
+			insertListEntry(statement, SQLiteStatic.listEntries_KanjiEntries_onReadingList_TableName,
+					kanjiDic2Entry.getOnReading(), SQLiteStatic.kanjiEntriesTableName,
 					SQLiteStatic.kanjiEntriesTable_onReading, String.valueOf(kanjiEntry.getId()));
 
-			insertListEntry(statement, kanjiDic2Entry.getKunReading(), SQLiteStatic.kanjiEntriesTableName,
+			insertListEntry(statement, SQLiteStatic.listEntries_KanjiEntries_kunReadingList_TableName,
+					kanjiDic2Entry.getKunReading(), SQLiteStatic.kanjiEntriesTableName,
 					SQLiteStatic.kanjiEntriesTable_kunReading, String.valueOf(kanjiEntry.getId()));
 		}
 
-		insertListEntry(statement, kanjiEntry.getPolishTranslates(), SQLiteStatic.kanjiEntriesTableName,
+		insertListEntry(statement, SQLiteStatic.listEntries_KanjiEntries_polishTranslateList_TableName,
+				kanjiEntry.getPolishTranslates(), SQLiteStatic.kanjiEntriesTableName,
 				SQLiteStatic.kanjiEntriesTable_polishTranslates, String.valueOf(kanjiEntry.getId()));
 
-		insertListEntryWithPolishCharsRemove(statement, kanjiEntry.getPolishTranslates(),
+		insertListEntryWithPolishCharsRemove(statement,
+				SQLiteStatic.listEntries_KanjiEntries_polishTranslateList_TableName, kanjiEntry.getPolishTranslates(),
 				SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTable_polishTranslates,
 				String.valueOf(kanjiEntry.getId()));
 
@@ -481,16 +517,19 @@ public class DBGenerator {
 
 			infoList.add(info);
 
-			insertListEntry(statement, infoList, SQLiteStatic.kanjiEntriesTableName,
-					SQLiteStatic.kanjiEntriesTable_info, String.valueOf(kanjiEntry.getId()));
+			insertListEntry(statement, SQLiteStatic.listEntries_KanjiEntries_infoStringList_TableName, infoList,
+					SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTable_info,
+					String.valueOf(kanjiEntry.getId()));
 
-			insertListEntryWithPolishCharsRemove(statement, infoList, SQLiteStatic.kanjiEntriesTableName,
-					SQLiteStatic.kanjiEntriesTable_info, String.valueOf(kanjiEntry.getId()));
+			insertListEntryWithPolishCharsRemove(statement,
+					SQLiteStatic.listEntries_KanjiEntries_infoStringList_TableName, infoList,
+					SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTable_info,
+					String.valueOf(kanjiEntry.getId()));
 		}
 
-		insertListEntry(statement, GroupEnum.convertToValues(kanjiEntry.getGroups()),
-				SQLiteStatic.kanjiEntriesTableName, SQLiteStatic.kanjiEntriesTable_groups,
-				String.valueOf(kanjiEntry.getId()));
+		insertListEntry(statement, SQLiteStatic.listEntries_KanjiEntries_groupsList_TableName,
+				GroupEnum.convertToValues(kanjiEntry.getGroups()), SQLiteStatic.kanjiEntriesTableName,
+				SQLiteStatic.kanjiEntriesTable_groups, String.valueOf(kanjiEntry.getId()));
 	}
 
 	private static String emptyIfNull(String text) {
