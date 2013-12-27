@@ -123,4 +123,33 @@ public enum DictionaryEntryType {
 
 		return otherDictionaryEntryList;
 	}
+
+	public static List<DictionaryEntryType> convertToListDictionaryEntryType(List<String> values) {
+
+		if (values == null) {
+			return null;
+		}
+
+		List<DictionaryEntryType> dictionaryEntryTypeList = new ArrayList<DictionaryEntryType>();
+
+		for (String currentValue : values) {
+
+			DictionaryEntryType dictionaryEntryType = getDictionaryEntryType(currentValue);
+
+			if (dictionaryEntryType != null) {
+				dictionaryEntryTypeList.add(dictionaryEntryType);
+			}
+		}
+
+		return dictionaryEntryTypeList;
+	}
+
+	public static DictionaryEntryType getDictionaryEntryType(String value) {
+
+		if (value == null || value.equals("") == true) {
+			return null;
+		}
+
+		return DictionaryEntryType.valueOf(value);
+	}
 }
