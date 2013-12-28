@@ -27,9 +27,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
-import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
-import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 
@@ -183,27 +181,17 @@ public class DBGenerator {
 			// count form for dictionary entry
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
 
-			List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = GrammaConjugaterManager
-					.getGrammaConjufateResult(keigoHelper, entry, grammaFormCache);
+			GrammaConjugaterManager.getGrammaConjufateResult(keigoHelper, entry, grammaFormCache, null);
 
-			if (grammaConjufateResult != null) {
-
-				/*
-				for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : grammaConjufateResult) {
-					System.out.println(grammaFormConjugateGroupTypeElements.getGrammaFormConjugateResults().get(0).getKanji());
-				}
-				*/
+			for (DictionaryEntryType currentDictionaryEntryType : entry.getDictionaryEntryTypeList()) {
+				GrammaConjugaterManager.getGrammaConjufateResult(keigoHelper, entry, grammaFormCache,
+						currentDictionaryEntryType);
 			}
 
-			List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(keigoHelper, entry, grammaFormCache);
+			ExampleManager.getExamples(keigoHelper, entry, grammaFormCache, null);
 
-			if (examples != null) {
-
-				/*
-				for (ExampleGroupTypeElements exampleGroupTypeElements : examples) {
-					System.out.println(exampleGroupTypeElements.getExampleResults().get(0).getKanji());
-				}
-				*/
+			for (DictionaryEntryType currentDictionaryEntryType : entry.getDictionaryEntryTypeList()) {
+				ExampleManager.getExamples(keigoHelper, entry, grammaFormCache, currentDictionaryEntryType);
 			}
 
 			insertDictionaryEntry(statement, entry);

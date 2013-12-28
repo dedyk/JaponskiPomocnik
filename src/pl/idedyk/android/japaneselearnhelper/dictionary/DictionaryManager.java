@@ -548,7 +548,7 @@ public class DictionaryManager {
 				Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
 
 				List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = GrammaConjugaterManager
-						.getGrammaConjufateResult(keigoHeper, nthDictionaryEntry, grammaFormCache);
+						.getGrammaConjufateResult(keigoHeper, nthDictionaryEntry, grammaFormCache, null);
 
 				if (grammaConjufateResult != null) {
 					for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : grammaConjufateResult) {
@@ -558,7 +558,7 @@ public class DictionaryManager {
 				}
 
 				List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(keigoHeper, nthDictionaryEntry,
-						grammaFormCache);
+						grammaFormCache, null);
 
 				if (examples != null) {
 					for (ExampleGroupTypeElements exampleGroupTypeElements : examples) {

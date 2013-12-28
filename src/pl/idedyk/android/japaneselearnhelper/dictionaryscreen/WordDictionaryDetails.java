@@ -259,11 +259,13 @@ public class WordDictionaryDetails extends Activity {
 		setContentView(R.layout.word_dictionary_details);
 
 		DictionaryEntry dictionaryEntry = (DictionaryEntry) getIntent().getSerializableExtra("item");
+		DictionaryEntryType forceDictionaryEntryType = (DictionaryEntryType) getIntent().getSerializableExtra(
+				"forceDictionaryEntryType");
 
 		final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
 		final LinearLayout detailsMainLayout = (LinearLayout) findViewById(R.id.word_dictionary_details_main_layout);
 
-		generatedDetails = generateDetails(dictionaryEntry, scrollMainLayout);
+		generatedDetails = generateDetails(dictionaryEntry, forceDictionaryEntryType, scrollMainLayout);
 
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 
@@ -313,7 +315,8 @@ public class WordDictionaryDetails extends Activity {
 		ttsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
 	}
 
-	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry, final ScrollView scrollMainLayout) {
+	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry,
+			DictionaryEntryType forceDictionaryEntryType, final ScrollView scrollMainLayout) {
 
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 
@@ -584,13 +587,51 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// Word type
-		boolean addableDictionaryEntryTypeInfo = DictionaryEntryType.isAddableDictionaryEntryTypeInfo(dictionaryEntry
-				.getDictionaryEntryType());
+		int addableDictionaryEntryTypeInfoCounter = 0;
 
-		if (addableDictionaryEntryTypeInfo == true) {
+		List<DictionaryEntryType> dictionaryEntryTypeList = dictionaryEntry.getDictionaryEntryTypeList();
+
+		if (dictionaryEntryTypeList != null) {
+			for (DictionaryEntryType currentDictionaryEntryType : dictionaryEntryTypeList) {
+
+				boolean addableDictionaryEntryTypeInfo = DictionaryEntryType
+						.isAddableDictionaryEntryTypeInfo(currentDictionaryEntryType);
+
+				if (addableDictionaryEntryTypeInfo == true) {
+					addableDictionaryEntryTypeInfoCounter++;
+				}
+			}
+		}
+
+		if (addableDictionaryEntryTypeInfoCounter > 0) {
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));
 
-			report.add(new StringValue(dictionaryEntry.getDictionaryEntryType().getName(), 20.0f, 0));
+			if (addableDictionaryEntryTypeInfoCounter > 1) {
+				report.add(new StringValue(getString(R.string.word_dictionary_details_part_of_speech_press), 12.0f, 0));
+			}
+
+			for (final DictionaryEntryType currentDictionaryEntryType : dictionaryEntryTypeList) {
+
+				StringValue currentDictionaryEntryTypeStringValue = new StringValue(
+						currentDictionaryEntryType.getName(), 20.0f, 0);
+
+				if (addableDictionaryEntryTypeInfoCounter > 1) {
+					currentDictionaryEntryTypeStringValue.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+
+							intent.putExtra("item", dictionaryEntry);
+							intent.putExtra("forceDictionaryEntryType", currentDictionaryEntryType);
+
+							startActivity(intent);
+						}
+					});
+				}
+
+				report.add(currentDictionaryEntryTypeStringValue);
+			}
 		}
 
 		List<Attribute> attributeList = dictionaryEntry.getAttributeList().getAttributeList();
@@ -746,7 +787,8 @@ public class WordDictionaryDetails extends Activity {
 		// Conjugater
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = GrammaConjugaterManager
 				.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance()
-						.getDictionaryManager(this).getKeigoHelper(), dictionaryEntry, grammaCache);
+						.getDictionaryManager(this).getKeigoHelper(), dictionaryEntry, grammaCache,
+						forceDictionaryEntryType);
 
 		if (grammaFormConjugateGroupTypeElementsList != null) {
 			report.add(new StringValue("", 15.0f, 2));
@@ -776,7 +818,7 @@ public class WordDictionaryDetails extends Activity {
 		// Exampler
 		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(
 				JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getKeigoHelper(),
-				dictionaryEntry, grammaCache);
+				dictionaryEntry, grammaCache, forceDictionaryEntryType);
 
 		if (exampleGroupTypeElementsList != null) {
 
