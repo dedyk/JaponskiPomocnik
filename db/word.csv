@@ -1445,7 +1445,8 @@ stryjek
 mężczyzna w średnim wieku",,
 509,WORD_ADJECTIVE_I,,HIRAGANA,"Genki 1-6
 Genki 1-7",,頭がいい,あたまがいい,,atama ga ii,mądry,,
-510,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-6,,頭が悪い,あたまがわるい,,atama ga warui,głupi,,
+510,WORD_ADJECTIVE_I,,HIRAGANA,Genki 1-6,,頭が悪い,あたまがわるい,,atama ga warui,"głupi
+tępy",,
 511,WORD_EXPRESSION,,HIRAGANA,Genki 1-6,,真っ直ぐ行く,まっすぐいく,,massugu iku,iść prosto,,
 512,WORD_EXPRESSION,,HIRAGANA,Genki 1-6,,右に曲がる,みぎにまがる,,migi ni magaru,skręcić w prawo,,
 513,WORD_EXPRESSION,,HIRAGANA,Genki 1-6,,左に曲がる,ひだりにまがる,,hidari ni magaru,skręcić w lewo,,
@@ -1648,7 +1649,7 @@ VERB_INTRANSITIVITY",HIRAGANA,Genki 1-7,,太る,ふとる,,futoru,"zyskiwać na 
 grubieć
 tyć",,
 591,WORD_EXPRESSION,,HIRAGANA,Genki 1-7,,太っています,ふとっています,,futotte imasu,być grubym,,
-592,WORD_VERB_RU,,HIRAGANA,Genki 1-7,,-,めがねをかける,,megane o kakeru,zakładać okulary,,
+592,WORD_VERB_RU,,HIRAGANA,Genki 1-7,,眼鏡をかける,めがねをかける,,megane o kakeru,zakładać okulary,,
 593,WORD_VERB_RU,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,"Genki 1-7
 Genki kanji 2-13",,着る,きる,,kiru,"zakładać
@@ -2861,7 +2862,9 @@ polerować
 froterować
 szorować
 czyścić (zęby)",,
-1004,WORD_VERB_U,,HIRAGANA,Genki 2-13,,約束を守る,やくそくをまもる,,yakusoku o mamoru,dotrzymać tajemnicy,,
+1004,WORD_VERB_U,,HIRAGANA,Genki 2-13,,約束を守る,やくそくをまもる,,yakusoku o mamoru,"dotrzymać tajemnicy
+dotrzymywać słowa
+dotrzymywać umowy",,
 1005,WORD_VERB_IRREGULAR,,HIRAGANA,"Genki 2-13
 Genki kanji 2-23",,感動する,かんどうする,,kandou suru,"wzruszać się
 być poruszony",przez ~ ni,
@@ -3261,7 +3264,8 @@ konwenans",,
 cło",,
 1186,WORD_NOUN,,HIRAGANA,"Genki 2-15
 Genki kanji 2-19",,卒業式,そつぎょうしき,,sotsugyou shiki,"ceremonia ukończenia szkoły
-ceremonia zakończenia szkoły",,
+ceremonia zakończenia szkoły
+ceremonia rozdania (wręczenie) świadectw (dyplomów)",,
 1187,WORD_NOUN,"COMMON_WORD
 KANA_ALONE",HIRAGANA,"Genki 1-4
 Genki 2-15",,蕎麦,そば,,soba,japoński makaron gryczany,,
@@ -3481,7 +3485,9 @@ produkować
 wydać z siebie",,
 1249,WORD_EXPRESSION,,HIRAGANA,Inne,,世界中,せかいじゅう,,sekai juu,na całym świecie,,
 1250,WORD_EXPRESSION,,HIRAGANA,Inne,,利用中,りようちゅう,,riyou chuu,już używają,,
-1251,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Inne,,四方,しほう,,shihou,cztery kierunki,,
+1251,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Inne,,四方,しほう,,shihou,"cztery kierunki świata
+wszystkie kierunki świata
+cztery strony świata",,
 1252,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-15,,下ろす,おろす,,orosu,robić coś w dół,,
 1253,WORD_VERB_U,"COMMON_WORD
@@ -4601,7 +4607,8 @@ zatrzymywać (np. samochód)",,
 VERB_INTRANSITIVITY
 VERB_TRANSITIVITY_PAIR 6756",HIRAGANA,Inne,,代わる,かわる,,kawaru,"zastępować
 wymieniać","używane, gdy inna osoba lub rzecz kogoś lub coś zastępuje, zaczyna pełnić funkcję lub rolę poprzedniej",
-1773,UNKNOWN,,HIRAGANA_KATAKANA,Inne,,バス代,バスだい,,basu dai,opłata za autobus,,
+1773,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,バス代,バスだい,,basu dai,"opłata za autobus
+opłata za przejazd autobusem",,
 1774,UNKNOWN,,HIRAGANA,Inne,,三十代の人,さんじゅうだいのひと,,sanjuu dai no hito,30-latkowie,,
 1775,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,恐竜,きょうりゅう,,kyouryuu,dinozaur,,
 1776,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,壁,かべ,,kabe,"ściana
@@ -6100,7 +6107,7 @@ miejscowy",,
 rebus",,
 2390,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,学園,がくえん,,gakuen,"akademia
 kampus",,
-2391,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,入学試験,にゅうがくしけん,,nyuugakushiken,egzamin wstępny,,
+2391,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,入学試験,にゅうがくしけん,,nyuugaku shiken,egzamin wstępny,"do szkoły, na uczelnię",
 2392,WORD_NOUN,,KATAKANA_HIRAGANA,Inne,,オレンジ色,オレンジイロ,,orenji iro,kolor pomarańczowy,,
 2393,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,原色,げんしょく,,genshoku,podstawowe kolory,,
 2394,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,色紙,しきし,,shikishi,kolorowy papier,,
@@ -6837,7 +6844,8 @@ wydatek",,
 2709,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,旅費,りょひ,,ryohi,koszty podróży,,
 2710,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki dodatkowe 2-18,,生活費,せいかつひ,,seikatsuhi,"koszty utrzymania
 koszty życia
-wydatki na życie",,
+wydatki na życie
+środki na życie",,
 2711,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,消費,しょうひ,,shouhi,"konsumpcja
 zużycie
@@ -6961,7 +6969,7 @@ wózek",,
 2756,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki kanji 2-18
 Genki dodatkowe 2-18",,目的,もくてき,,mokuteki,"cel
 zamiar",do którego się zmierza,
-2757,UNKNOWN,,HIRAGANA,Inne,,二番目,にばんめ,,ni ban me,drugi,,
+2757,UNKNOWN,,HIRAGANA,Inne,,二番目,にばんめ,,ni ban me,drugi z kolei,,
 2758,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,個人,こじん,,kojin,"jednostka
 indywiduum
 indywidualny człowiek
@@ -7326,7 +7334,8 @@ urozmaicenie",,
 2904,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,変化,へんげ,,henge,chochlik,,
 2905,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki kanji 2-23,,化学,かがく,,kagaku,chemia,,
 2906,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,化け物,ばけもの,,bakemono,straszydło,,
-2907,WORD_NOUN,,HIRAGANA,Inne,,化粧品,けしょうひん,,keshouhin,artykuły kosmetyczne,,
+2907,WORD_NOUN,,HIRAGANA,Inne,,化粧品,けしょうひん,,keshouhin,"artykuły kosmetyczne
+kosmetyki",,
 2908,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,援助,えんじょ,,enjo,"pomoc
 asysta
@@ -7754,7 +7763,8 @@ VERB_TRANSITIVITY
 VERB_INTRANSITIVITY_PAIR 941",HIRAGANA,Inne,,晴らす,はらす,,harasu,"oczyszczać
 odświeżać",,
 3072,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,晴天,せいてん,,seiten,"ładna pogoda
-pogodne niebo",,
+pogodne niebo
+piękna pogoda",,
 3073,WORD_NOUN,,HIRAGANA,Inne,,晴雨計,せいうけい,,seiukei,barometr,,
 3074,WORD_NOUN,,HIRAGANA,Inne,,晴れ着,はれぎ,,haregi,świąteczne ubranie,,
 3075,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,晴朗,せいろう,,seirou,"przejrzysty
@@ -7798,7 +7808,8 @@ całość",razem,
 lubię to",,
 3093,WORD_EXPRESSION,,HIRAGANA,Inne,,-,いいなあ,,iinaa,"dobre
 lubię to",mówione z lekką dozą zazdrości,
-3094,WORD_NOUN,,HIRAGANA,Inne,,毛織物,けおりもの,,keorimono,wełniany materiał,,
+3094,WORD_NOUN,,HIRAGANA,Inne,,毛織物,けおりもの,,keorimono,"wełniany materiał
+wełniana tkanina",,
 3095,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,織機,しょっき,,shokki,warsztat tkacki,,
 3096,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,掃く,はく,,haku,"zamiatać
@@ -7989,7 +8000,7 @@ składanie",,
 SURU_VERB",HIRAGANA,Inne,,組成,そせい,,sosei,"kompozycja
 formacja
 konstrukcja",,
-3177,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,労働組合,ろうどうくみあい,,roudou kumiai,związki zawodowe,,
+3177,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,労働組合,ろうどうくみあい,,roudou kumiai,związek zawodowy,,
 3178,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,組閣,そかく,,sokaku,"tworzenie gabinetu (rządu)
 formowanie gabinetu (rządu)",,
@@ -8009,7 +8020,8 @@ usługa",,
 wynagrodzenie
 zapłata za pracę",,
 3186,WORD_NOUN,,HIRAGANA,Inne,,送り主,おくりぬし,,okurinushi,nadawca,,
-3187,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,送り先,おくりさき,,okurisaki,adres,,
+3187,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,送り先,おくりさき,,okurisaki,"adres
+miejsce docelowe",,
 3188,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Genki kanji 2-21,,送金,そうきん,,soukin,"przekaz
 przelew",pieniędzy,
@@ -8045,7 +8057,9 @@ zwroty wyrażające respekt",,
 Genki dodatkowe 2-18",,種類,しゅるい,,shurui,"rodzaj
 gatunek
 typ",,
-3202,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-19,,怠け者,なまけもの,,namakemono,leń,,
+3202,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-19,,怠け者,なまけもの,,namakemono,"leń
+leniuch
+leniwa osoba",,
 3203,WORD_NOUN,,HIRAGANA,Genki 2-19,,恥ずかしがり屋,はずかしがりや,,hazukashigariya,nieśmiała osoba,,
 3204,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,課長,かちょう,,kachou,"kierownik działu
 szef sekcji",,
@@ -9318,7 +9332,8 @@ mieć odrębne zdanie",,
 3700,WORD_VERB_RU,VERB_TRANSITIVITY,HIRAGANA,Inne,,違える,たがえる,,tagaeru,"zmieniać
 mylić",,
 3701,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,一昨日,いっさくじつ,,issakujitsu,przedwczoraj,,
-3702,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,昨年,さくねん,,sakunen,ubiegły rok,,
+3702,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,昨年,さくねん,,sakunen,"ubiegły rok
+w zeszłym roku",,
 3703,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,一昨年,いっさくねん,,issakunen,dwa lata temu,,
 3704,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,昨今,さっこん,,sakkon,"niedawno
 w tych dniach",,
@@ -9673,13 +9688,15 @@ człowiek odpowiedzialny",,
 3850,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,連係,れんけい,,renkei,"połączenie
 związek",,
-3851,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,係員,かかりいん,,kakariin,członek obsługi,,
+3851,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,係員,かかりいん,,kakariin,"członek obsługi
+urzędnik odpowiedzialny za ...",,
 3852,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,係争,けいそう,,keisou,"dyskusja
 sprzeczka",,
 3853,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,係属,けいぞく,,keizoku,"związek
 relacja",,
 3854,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,史実,しじつ,,shijitsu,fakt historyczny,,
-3855,WORD_NOUN,,HIRAGANA,Inne,,近代史,きんだいし,,kindaishi,historia nowożytna,,
+3855,WORD_NOUN,,HIRAGANA,Inne,,近代史,きんだいし,,kindaishi,"historia nowożytna
+historia współczesna",,
 3856,WORD_NOUN,,HIRAGANA,Inne,,文学史,ぶんがくし,,bungakushi,historia literatury,,
 3857,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,ポーランド史,ポーランドどし,,poorando doshi,historia Polski,,
 3858,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,弁別,べんべつ,,benbetsu,dyskryminacja,,
@@ -9904,7 +9921,8 @@ dom
 sprzedawca
 kupiec","~, postfiks",
 3959,WORD_NOUN,COMMON_WORD,HIRAGANA,Genki 2-20,,昨夜,ゆうべ,,yuube,"wczorajszy wieczór
-wczorajsza noc",,
+wczorajsza noc
+ostatnia noc",,
 3960,WORD_VERB_U,"COMMON_WORD
 VERB_KEIGO_LOW
 VERB_TRANSITIVITY",HIRAGANA,Genki 2-20,,致す,いたす,,itasu,[modestywna forma od suru],,
@@ -10601,6 +10619,7 @@ we własnej osobie",,
 4256,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,身体,からだ,,karada,ciało,,
 4257,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,身分証明書,みぶんしょうめいしょ,,mibun shoumeisho,"dowód tożsamości
 dowód osobisty
+kartka identyfikacyjna
 legitymacja",,
 4258,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,身長,しんちょう,,shinchou,"wzrost
 wysokość",,
@@ -10876,7 +10895,8 @@ narzędzie
 instalacje
 urządzenia",,
 4353,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,食器,しょっき,,shokki,"sztućce
-naczynie stołowe",,
+naczynie stołowe
+naczynia stołowe",,
 4354,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,器材,きざい,,kizai,części do maszyn,,
 4355,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,器官,きかん,,kikan,"organ
 narząd","np. wzroku, słuchu, itd.",
@@ -11933,7 +11953,10 @@ radca",w sprawach publicznych,
 4757,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,参列,さんれつ,,sanretsu,"udział
 obecność",,
-4758,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,参考書,さんこうしょ,,sankousho,książka informacyjna,,
+4758,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,参考書,さんこうしょ,,sankousho,"książka informacyjna
+informator
+materiał pomocniczy
+podręczne kompendium",,
 4759,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,参議院,さんぎいん,,sangiin,Izba Radców,japońska,
 4760,WORD_NOUN,,HIRAGANA,Inne,,墓場,はかば,,hakaba,cmentarz,,
 4761,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,墓穴,ぼけつ,,boketsu,dół grobowy,,
@@ -12836,7 +12859,8 @@ pomylić się
 popełnić błąd",,
 5087,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,を,馬鹿にする,ばかにする,o,baka ni suru,"obrażać
 wyśmiewać się z
-żartować sobie",,
+żartować sobie
+lekceważyć",kogoś,
 5088,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,,昼寝をする,ひるねをする,,hirune o suru,"robić sobie drzemkę
 zdrzemną się",,
 5089,WORD_VERB_IRREGULAR,,HIRAGANA,Genki 2-21,に,連絡する,れんらくする,ni,renraku suru,kontaktować się z,,
@@ -12993,7 +13017,9 @@ dowód",,
 5139,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,証拠,しょうこ,,shouko,"dowód
 świadectwo
 oznaka",,
-5140,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,証明書,しょうめいしょ,,shoumeisho,świadectwo,,
+5140,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,証明書,しょうめいしょ,,shoumeisho,"świadectwo
+certyfikat
+dyplom",,
 5141,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,証人,しょうにん,,shounin,świadek,,
 5142,WORD_NOUN,,HIRAGANA,Inne,,証券会社,しょうけんがいしゃ,,shouken gaisha,firma maklerska,,
 5143,WORD_NOUN,,HIRAGANA,Inne,,内証,ないしょう,,naishou,"tajemnica
@@ -16322,6 +16348,7 @@ przesłać
 przesyłać
 przekazywać",,
 6432,WORD_NOUN,,HIRAGANA,Inne,,届け先,とどけさき,,todokesaki,"adres
+adresat
 cel",,
 6433,WORD_NOUN,,HIRAGANA,Inne,,欠席届,けっせきとどけ,,kessekitodoke,zawiadomienie o nieobecności,,
 6434,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,無届け,むとどけ,,mutodoke,nieobecność bez powiadomienia,,
@@ -19217,9 +19244,10 @@ wykonywać
 przeprowadzać",,
 7667,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,行為,こうい,,koui,"czyn
 akt",,
-7668,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,行き先,いきさき,,ikisaki,kierunek,,
-7669,WORD_NOUN,,HIRAGANA,Inne,,行き先,ゆきさき,,yukisaki,"kierunek
-cel",miejsce podróży,
+7668,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,行き先,いきさき,,ikisaki,"cel (drogi)
+miejsce przeznaczenia",,
+7669,WORD_NOUN,,HIRAGANA,Inne,,行き先,ゆきさき,,yukisaki,"cel (drogi)
+miejsce przeznaczenia",miejsce podróży,
 7670,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,一行,いっこう,,ikkou,grupa,,
 7671,WORD_NOUN,"COMMON_WORD
 PREFIX
@@ -22451,6 +22479,7 @@ SURU_VERB",HIRAGANA,Inne,,証言,しょうげん,,shougen,zeznanie,,
 9119,WORD_NOUN,,HIRAGANA,Inne,,製作所,せいさくしょ,,seisakusho,"fabryka
 wytwórnia",,
 9120,WORD_NOUN,,HIRAGANA,Inne,,製作所,せいさくじょ,,seisakujo,"fabryka
+zakład wytwórczy
 wytwórnia",,
 9121,WORD_VERB_U,"VERB_TRANSITIVITY
 VERB_INTRANSITIVITY_PAIR 470",HIRAGANA,Inne,,遊ばす,あそばす,,asobasu,pozwolić grać,,
@@ -23359,7 +23388,10 @@ majątek
 własność",,
 9460,WORD_NOUN,,HIRAGANA,Inne,,魂魄,こんぱく,,konpaku,"duch
 dusza",,
-9461,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,息をする,いきをする,,iki o suru,oddychać,,
+9461,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,息をする,いきをする,,iki o suru,"oddychać
+nabrać powietrza
+odetchnąć
+wciągać powietrze",,
 9462,WORD_NOUN,,HIRAGANA,Inne,,音韻学,おんいんがく,,on'ingaku,fonetyka,,
 9463,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,手すり,てすり,,tesuri,poręcz,,
 9464,WORD_NOUN,KANA_ALONE,HIRAGANA,Inne,,破落戸,ごろつき,,gorotsuki,"łajdak
@@ -26709,7 +26741,7 @@ wnet",,
 10876,WORD_ADVERB,"COMMON_WORD
 KANA_ALONE",HIRAGANA,Inne,,一層,いっそう,,issou,"bardziej
 jeszcze bardziej",,
-10877,WORD_NOUN,,HIRAGANA,Inne,,工場,こうばん,,kouban,"fabryka
+10877,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,工場,こうば,,kouba,"fabryka
 zakład",,
 10878,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,溢す,こぼす,,kobosu,"rozlewać
 lać
@@ -26802,7 +26834,9 @@ SURU_VERB",HIRAGANA,Inne,,入港,にゅうこう,,nyuukou,wpłynięcie do portu,
 10932,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,入学する,にゅうがくする,,nyuugaku suru,"wstępować na uczelnię
 wstępować do szkoły",,
 10933,WORD_NOUN,,HIRAGANA,Inne,,入学式,にゅうがくしき,,nyuugaku shiki,"uroczystość przyjęcia nowych uczniów
-uroczystość przyjęcia nowych studentów",,
+uroczystość przyjęcia nowych studentów
+inauguracja roku szkolnego
+inauguracja roku akademickiego",,
 10934,WORD_NOUN,,HIRAGANA,Inne,,入学願書,にゅうがくがんしょ,,nyuugaku gansho,"podanie o przyjęcie na uczelnie
 podanie o przyjęcie do szkoły",,
 10935,WORD_COUNTERS,COMMON_WORD,HIRAGANA,Klasyfikatory,,一階,いっかい,,ikkai,jeden,numer piętra,
@@ -26963,7 +26997,8 @@ upominek",,
 11018,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,贈物,おくりもの,,okurimono,"prezent
 upominek",,
 11019,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,新聞社,しんぶんしゃ,,shinbunsha,wydawca gazety,,
-11020,WORD_NOUN,,HIRAGANA,Inne,,新聞記者,しんぶんきしゃ,,shinbun kisha,reporter gazety,,
+11020,WORD_NOUN,,HIRAGANA,Inne,,新聞記者,しんぶんきしゃ,,shinbun kisha,"reporter gazety
+dziennikarz z gazety",,
 11021,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,寝台,しんだい,,shindai,"łóżko
 kozetka",,
 11022,WORD_NOUN,,HIRAGANA,Inne,,寝台,ねだい,,nedai,"łóżko
@@ -27009,7 +27044,8 @@ uchwycić",,
 11031,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,地上,ちじょう,,chijou,"powierzchnia ziemi
 na ziemi",,
 11032,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,地下水,ちかすい,,chikasui,"wody gruntowe
-wody podziemne",,
+wody podziemne
+woda podskórna",,
 11033,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,地下道,ちかどう,,chikadou,przejście podziemne,,
 11034,WORD_NOUN,,HIRAGANA,Inne,,地下街,ちかがい,,chikagai,podziemne centrum handlowe,,
 11035,WORD_NOUN,,HIRAGANA,Inne,,地下二階,ちかにかい,,chika nikai,"dwa piętra pod ziemią
@@ -27090,7 +27126,8 @@ bójka",,
 pokłócić się",,
 11066,WORD_NOUN,,HIRAGANA,Inne,,健康診断,けんこうしんだん,,kenkou shindan,badanie stanu zdrowia,,
 11067,WORD_NOUN,,HIRAGANA,Inne,,健康状態,けんこうじょうたい,,kenkou joutai,stan zdrowia,,
-11068,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,健康保険,けんこうほけん,,kenkou hoken,ubezpieczenie na wypadek choroby,dosł: na zdrowie,
+11068,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,健康保険,けんこうほけん,,kenkou hoken,"ubezpieczenie na wypadek choroby
+ubezpieczenie zdrowotne",dosł: na zdrowie,
 11069,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,健康を害する,けんこうをがいする,,kenkou wo gaisuru,szkodzić zdrowiu,,
 11070,WORD_NOUN,,HIRAGANA,Inne,,研究会,けんきゅうかい,,kenkyuukai,"stowarzyszenie naukowe
 konferencja naukowa",,
@@ -27776,7 +27813,9 @@ KANA_ALONE",HIRAGANA,Inne,,到頭,とうとう,,toutou,"w końcu
 wreszcie",,
 11395,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,注射する,ちゅうしゃする,,chuusha suru,"robić zastrzyk
 wstrzykiwać",,
-11396,WORD_NOUN,,HIRAGANA,Inne,,予防注射,よぼうちゅうしゃ,,yobou chuusha,szczepienia ochronne,,
+11396,WORD_NOUN,,HIRAGANA,Inne,,予防注射,よぼうちゅうしゃ,,yobou chuusha,"szczepienia ochronne
+szczepionka
+zastrzyk uodparniający",,
 11397,WORD_VERB_U,,HIRAGANA,Inne,,注射を打つ,ちゅうしゃをうつ,,chuusha o utsu,robić zastrzyk,,
 11398,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,駐車,ちゅうしゃ,,chuusha,parkowanie,,
@@ -28524,7 +28563,8 @@ w końcu",,
 11777,WORD_NOUN,,HIRAGANA,Inne,,招待券,しょうたいけん,,shoutaiken,zaproszenie,"na wystawę, przedstawienie",
 11778,WORD_NOUN,,HIRAGANA,Inne,,食券,しょっけん,,shokken,kupon stołówkowy,,
 11779,WORD_VERB_RU,,HIRAGANA,Inne,,目を開ける,めをあける,,me o akeru,otwierać oczy,,
-11780,WORD_VERB_RU,,HIRAGANA,Inne,,目を閉じる,めをとじる,,me o tojiru,zamykać oczy,,
+11780,WORD_VERB_RU,,HIRAGANA,Inne,,目を閉じる,めをとじる,,me o tojiru,"zamykać oczy
+zamknąć oczy",,
 11781,WORD_EXPRESSION,,HIRAGANA,Inne,,悲しい目にあう,かなしいめにあう,,kanashii me ni au,przeżyć smutne chwile,,
 11782,WORD_EXPRESSION,,HIRAGANA,Inne,,辛い目にあう,つらいめにあう,,tsurai me ni au,przeżyć ciężkie doświadczenie,,
 11783,WORD_EXPRESSION,,HIRAGANA,Inne,,嫌な目にあう,いやなめにあう,,iya na me ni au,mieć przykre doświadczenie,,
@@ -29003,7 +29043,7 @@ zdobyć",,
 12056,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,迷惑する,めいわくする,,meiwaku suru,mieć kłopot,,
 12057,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,目方,めかた,,mekata,"ciężar
 waga",,
-12058,WORD_VERB_U,,HIRAGANA,Inne,,目方を量る,めかたをはかる,,mekata o hakaru,ważyć,coś,
+12058,WORD_VERB_U,,HIRAGANA,Inne,,目方を量る,めかたをはかる,,mekata o hakaru,ważyć,dosł: mierzyć ciężar,
 12059,WORD_VERB_RU,,HIRAGANA,Inne,,目方が増える,めかたがふえる,,mekata ga fueru,"zyskiwać na wadze
 przybierać na wadze",,
 12060,WORD_VERB_RU,,HIRAGANA,Inne,,目方が減る,めかたがへる,,mekata ga heru,tracić na wadze,,
@@ -29017,7 +29057,8 @@ strona (np. gazety)",,
 12063,WORD_PARTICULE,COMMON_WORD,HIRAGANA,Inne,,-,な,,na,"ależ
 ach jak ...! (podkreśla zachwyt mówiącego)
 nie! (wyraża zakaz lub ostre polecenie przy użyciu negacji, używa się po formie słownikowej czasownika)",,
-12064,WORD_VERB_U,,HIRAGANA,Inne,,温度が上がる,おんどがあがる,,ondo ga agaru,temperatura rośnie,,
+12064,WORD_VERB_U,,HIRAGANA,Inne,,温度が上がる,おんどがあがる,,ondo ga agaru,"temperatura rośnie
+temperatura wzrasta",,
 12065,WORD_VERB_U,,HIRAGANA,Inne,,温度が下がる,おんどがさがる,,ondo ga sagaru,temperatura spada,,
 12066,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,温度が高い,おんどがたかい,,ondo ga takai,temperatura jest wysoka,,
 12067,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,温度が低い,おんどがひくい,,ondo ga hikui,temperatura jest niska,,
@@ -29949,7 +29990,9 @@ chłodzić (powietrze)",,
 12589,WORD_NOUN,,HIRAGANA,Inne,,東洋史,とうようし,,touyoushi,historia Orientu,,
 12590,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,成績が悪い,せいせきがわるい,,seiseki ga warui,"oceny są słabe
 wyniki są kiepskie",,
-12591,WORD_VERB_U,,HIRAGANA,Inne,,成績が上がる,せいせきがあがる,,seiseki ga agaru,następuje poprawa wyników,,
+12591,WORD_VERB_U,,HIRAGANA,Inne,,成績が上がる,せいせきがあがる,,seiseki ga agaru,"następuje poprawa wyników
+stopnie (w szkole) poprawiają się
+wyniki (w szkole) poprawiają się",,
 12592,WORD_NOUN,,HIRAGANA,Inne,,精神病,せいしんびょう,,seishinbyou,choroba psychiczna,,
 12593,WORD_NOUN,,HIRAGANA,Inne,,精神力,せいしんりょく,,seishin ryoku,"siła duchowa
 moc ducha",,
@@ -30013,7 +30056,8 @@ opłata za użytkowanie
 opłata za najem",,
 12626,WORD_NOUN,,HIRAGANA,Inne,,受験料,じゅけんりょう,,juken ryou,opłata egzaminacyjna,,
 12627,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,議論する,ぎろんする,,giron suru,dyskutować,,
-12628,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ギターを弾く,ギターをひく,,gitaa o hiku,grać na gitarze,,
+12628,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ギターを弾く,ギターをひく,,gitaa o hiku,"grać na gitarze
+wykonywać muzykę gitarową",,
 12629,UNKNOWN,"COMMON_WORD
 PREFIX
 KANA_ALONE",HIRAGANA,Inne,,御,ご,,go,[przedrostek honoryfikatywny lub modestywny],,
@@ -30670,3 +30714,467 @@ zatwierdzenie",,
 13001,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,決裁する,けっさいする,,kessai suru,"aprobować
 zatwierdzać",,
 13002,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,炉心,ろしん,,roshin,rdzeń reaktora jądrowego,,
+13003,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,女子大,じょしだい,,joshidai,uniwersytet żeński,,
+13004,WORD_NOUN,,HIRAGANA,Inne,,女子用,じょしよう,,joshiyou,"dla kobiet
+damski",,
+13005,WORD_NOUN,,HIRAGANA,Inne,,女子寮,じょしりょう,,joshiryou,żeński dom studencki,,
+13006,WORD_VERB_RU,,HIRAGANA,Inne,,湯を浴びる,ゆをあびる,,yu o abiru,brać kąpiel,,
+13007,WORD_VERB_RU,,HIRAGANA,Inne,,川で水を浴びる,かわでみずをあびる,,kawa de mizu o abiru,kąpać się w rzece,,
+13008,WORD_VERB_RU,,HIRAGANA,Inne,,日光を浴びる,にっこうをあびる,,nikkou o abiru,"być skąpanym w promieniach słonecznych
+opalać się",,
+13009,WORD_VERB_U,,HIRAGANA,Inne,,二階へ上がる,にかいへあがる,,nikai e agaru,iść na pierwsze piętro,,
+13010,WORD_VERB_U,,HIRAGANA,Inne,,階段を上がる,かいだんをあがる,,kaidan o agaru,"wchodzić po schodach
+wspinać się po schodach",,
+13011,WORD_VERB_U,,HIRAGANA,Inne,,物価が上がる,ぶっかがあがる,,bukka ga agaru,ceny rosną,,
+13012,WORD_VERB_U,,HIRAGANA,Inne,,月給が上がる,げっきゅうがあがる,,gekkyuu ga agaru,płace rosną,,
+13013,WORD_NOUN,,HIRAGANA,Inne,,赤鉛筆,あかえんぴつ,,akaenpitsu,czerwony ołówek,,
+13014,WORD_NOUN,,HIRAGANA,Inne,,男の赤ちゃん,おとこのあかちゃん,,otoko no akachan,"malutki chłopczyk
+niemowlę płci męskiej",,
+13015,WORD_NOUN,,HIRAGANA,Inne,,可愛い赤ちゃん,かわいいあかちゃん,,kawaii akachan,"uroczy dzidziuś
+słodkie dzieciątko",,
+13016,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,赤いシャツ,あかいシャツ,,akai shatsu,czerwona koszula,,
+13017,WORD_NOUN,,HIRAGANA,Inne,,赤い林檎,あかいりんご,,akai ringo,czerwone jabłko,,
+13018,WORD_VERB_RU,,HIRAGANA,Inne,,明かりをつける,あかりをつける,,akari o tsukeru,zapalić światło,,
+13019,WORD_VERB_U,,HIRAGANA,Inne,,明かりを消す,あかりをけす,,akari o kesu,zgasić światło,,
+13020,WORD_VERB_RU,,HIRAGANA,Inne,,部屋を出る,へやをでる,,heya o deru,wychodzić z pokoju,,
+13021,WORD_VERB_RU,,HIRAGANA,Inne,,学校の門を出る,がっこうのもんをでる,,gakkou no mon o deru,wychodzić przez szkolną bramę,,
+13022,WORD_VERB_RU,,HIRAGANA,Inne,,会社を四時に出る,かいしゃをよじにでる,,kaisha o yoji ni deru,wychodzić z biura o czwartej,,
+13023,WORD_VERB_RU,,HIRAGANA,Inne,,外に出る,そとにでる,,soto ni deru,wychodzić na dwór,,
+13024,WORD_VERB_RU,,HIRAGANA,Inne,,庭に出る,にわにでる,,niwa ni deru,wychodzić do ogrodu,,
+13025,UNKNOWN,,HIRAGANA,Inne,,毎日曜日,まいにちようび,,mainichiyoubi,"każdej niedzielo
+co niedziela",,
+13026,WORD_VERB_U,,HIRAGANA,Inne,,船を造る,ふねをつくる,,fune o tsukuru,zbudować statek,,
+13027,WORD_VERB_U,,HIRAGANA,Inne,,酒を造る,さけをつくる,,sake o tsukuru,wyprodukować sake,,
+13028,WORD_VERB_U,,HIRAGANA,Inne,,全力を尽くす,ぜんりょくをつくす,,zenryoku o tsukusu,"usilnie się starać
+zrobić wszystko, co można",,
+13029,WORD_VERB_U,,HIRAGANA,Inne,,文章を作る,ぶんしょうをつくる,,bunshou o tsukuru,układać zdania,,
+13030,WORD_VERB_RU,,HIRAGANA,Inne,,道の幅を広げる,みちのはばをひろげる,,michi no haba o hirogeru,poszerzać drogę,dosł: poszerzać szerokość drogi,
+13031,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,大型,おおがた,,oogata,"duży rozmiar
+duży model",,
+13032,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,小型,こがた,,kogata,"mały rozmiar
+mały model",,
+13033,UNKNOWN,COMMON_WORD,HIRAGANA,Inne,,話し方,はなしかた,,hanashi kata,sposób mówienia,,
+13034,UNKNOWN,,HIRAGANA,Inne,,泳ぎ方,およぎかた,,oyogi kata,"sposób pływania
+styl pływania",,
+13035,UNKNOWN,,HIRAGANA,Inne,,教え方,おしえかた,,oshie kata,sposób uczenia,,
+13036,WORD_VERB_RU,,HIRAGANA,Inne,,毛が生える,けがはえる,,ke ga haeru,włosy rosną,,
+13037,WORD_VERB_RU,,HIRAGANA,Inne,,毛が抜ける,けがぬける,,ke ga nukeru,włosy wypadają,,
+13038,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,毛深い,けぶかい,,kebukai,"owłosiony
+włochaty",,
+13039,WORD_NOUN,,HIRAGANA,Inne,,技術指導,ぎじゅつしどう,,gijutsu shidou,szkolenie techniczne,,
+13040,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,食料品,しょくりょうひん,,shokuryouhin,"żywność
+towary żywnościowe
+artykuły spożywcze",,
+13041,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ニュースが伝わる,ニュースがつたわる,,nyuusu ga tsutawaru,"wiadomość krąży
+wieści są przekazywane",,
+13042,WORD_VERB_U,,HIRAGANA,Inne,,電気が伝わる,でんきがつたわる,,denki ga tsutawaru,prąd elektryczny jest przewodzony,,
+13043,WORD_VERB_U,,HIRAGANA,Inne,,大きさが違う,おおきさがちがう,,ookisa ga chigau,różnić się wielkością,,
+13044,WORD_VERB_U,,HIRAGANA,Inne,,重さが違う,おもさがちがう,,omosa ga chigau,różnić się ciężarem,,
+13045,WORD_VERB_U,,HIRAGANA,Inne,,意見が違う,いけんがちがう,,iken ga chigau,mieć odmienne poglądy,,
+13046,UNKNOWN,,HIRAGANA,Inne,,本箱の上の段下の段,ほんばこのうえのだんしたのだん,,honbako no ue no dan shita no dan,"górna półka, dolna półka biblioteczki",,
+13047,UNKNOWN,,HIRAGANA,Inne,,寝台車の上の段,しんだいしゃのうえのだん,,shindaisha no ue no dan,górne łóżko,w wagonie sypialnym,
+13048,WORD_NOUN,,HIRAGANA,Inne,,堅い人,かたいひと,,katai hito,"poważny człowiek
+sztywny człowiek",,
+13049,WORD_NOUN,,HIRAGANA,Inne,,堅い握手,かたいあくしゅ,,katai akushu,silny uścisk dłoni,,
+13050,WORD_VERB_U,,HIRAGANA,Inne,,堅く結ぶ,かたくむすぶ,,kataku musubu,"mocno związywać
+mocno wiązać",,
+13051,WORD_NOUN,,HIRAGANA,Inne,,仮名文字,かなもじ,,kana moji,znaki kany,,
+13052,WORD_VERB_RU,,HIRAGANA,Inne,,お金を儲ける,おかねをもうける,,okane o moukeru,"robić zysk
+czerpać zysk",,
+13053,WORD_VERB_RU,,HIRAGANA,Inne,,目標を立てる,もくひょうをたてる,,mokuhyou o tateru,"obrać cel
+wziąć za cel",,
+13054,WORD_NOUN,,HIRAGANA,Inne,,立派な学者,りっぱながくしゃ,,rippa na gakusha,wybitny naukowiec,,
+13055,WORD_NOUN,,HIRAGANA,Inne,,高い理想,たかいりそう,,takai risou,szczytny ideał,,
+13056,WORD_NOUN,,HIRAGANA,Inne,,理想的な家庭,りそうてきなかてい,,risouteki na katei,idealna rodzina,,
+13057,WORD_VERB_U,,HIRAGANA,Inne,,御飯を炊く,ごはんをたく,,gohan o taku,gotować ryż,,
+13058,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,タクシーで行く,タクシーでいく,,takushii de iku,jechać taksówką,,
+13059,WORD_NOUN,,HIRAGANA,Inne,,眼鏡を玉,めがねのたま,,megane no tama,soczewka okularów,,
+13060,WORD_NOUN,,HIRAGANA,Inne,,十円玉,じゅうえんだま,,juuendama,moneta dziesięciojenowa,,
+13061,WORD_NOUN,,HIRAGANA,Inne,,電気の球,でんきのたま,,denki no tama,żarówka,,
+13062,WORD_NOUN,,HIRAGANA,Inne,,野球の球,やきゅうのたま,,yakyuu no tama,piłka baseballowa,,
+13063,WORD_VERB_U,,HIRAGANA,Inne,,球を打つ,たまをうつ,,tama o utsu,uderzyć piłkę,,
+13064,WORD_NOUN,,HIRAGANA,Inne,,部屋代,へやだい,,heya dai,opłata za pokój,,
+13065,WORD_NOUN,,HIRAGANA,Inne,,下宿だい,げしゅくだい,,geshuku dai,opłata za wynajęte mieszkanie,,
+13066,WORD_NOUN,,HIRAGANA,Inne,,本代,ほんだい,,hon dai,"rachunek za książki
+zapłata za książki",,
+13067,WORD_NOUN,,HIRAGANA,Inne,,洗濯代,せんたくだい,,sentaku dai,rachunek za pranie,,
+13068,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,タクシー代,タクシーだい,,takushii dai,opłata za taksówkę,,
+13069,WORD_VERB_U,,HIRAGANA,Inne,,人口が減る,じんこうがへる,,jinkou ga heru,zmniejsza się liczba ludności,,
+13070,WORD_VERB_U,,HIRAGANA,Inne,,地図をかく,ちずをかく,,chizu o kaku,rysować mapę,,
+13071,WORD_VERB_U,,HIRAGANA,Inne,,角度を測る,かくどをはかる,,kakudo o hakaru,mierzyć kąt,,
+13072,WORD_VERB_U,,HIRAGANA,Inne,,汽車に乗る,きしゃにのる,,kisha ni noru,wsiadać do pociągu,,
+13073,WORD_VERB_RU,,HIRAGANA,Inne,,汽車を降りる,きしゃをおりる,,kisha o oriru,wysiadać z pociągu,,
+13074,WORD_NOUN,,HIRAGANA,Inne,,東京行きの汽車,とうきょうゆきのきしゃ,,toukyou yuki no kisha,pociąg jadący do Tokio,,
+13075,WORD_NOUN,,HIRAGANA,Inne,,東京発の汽車,とうきょうはつのきしゃ,,toukyou hatsu no kisha,pociąg wyjeżdżający z Tokio,,
+13076,WORD_NOUN,,HIRAGANA,Inne,,汽車賃,きしゃちん,,kishachin,opłata za przejazd pociągiem,,
+13077,WORD_NOUN,,HIRAGANA,Inne,,雑誌汽車,ざっしきしゃ,,zasshi kisha,"reporter z czasopisma
+dziennikarz z czasopisma",,
+13078,WORD_VERB_U,,HIRAGANA,Inne,,箒で庭を掃く,ほうきでにわをはく,,houki de niwa o haku,"zamiatać ogród miotłą
+zamiatać podwórko miotłą",,
+13079,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+KANA_ALONE",HIRAGANA,Inne,,箒,ほうき,,houki,miotła,,
+13080,WORD_NOUN,"SURU_VERB
+KANA_ALONE",HIRAGANA,Inne,,帚,ほうき,,houki,miotła,,
+13081,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,白のシャツ,しろのシャツ,,shiro no shatsu,biała koszula,,
+13082,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ハンカチを振る,ハンカチをふる,,hankachi o furu,machać chusteczką,,
+13083,WORD_NOUN,,HIRAGANA,Inne,,悪い人,わるいひと,,warui hito,zły człowiek,,
+13084,WORD_NOUN,,HIRAGANA,Inne,,自習時間,じしゅうじかん,,jishuu jikan,godziny samodzielnej nauki,,
+13085,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,係長,かかりちょう,,kakarichou,kierownik,,
+13086,WORD_NOUN,,HIRAGANA,Inne,,濃いお茶,こいおちゃ,,koi ocha,mocna zielona herbata,,
+13087,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,髭が濃い,ひげがこい,,hige ga koi,"wąsy są gęste
+broda jest gęsta",,
+13088,WORD_NOUN,,HIRAGANA,Inne,,夫婦喧嘩,ふうふげんか,,fuufu genka,kłótnia małżeńska,,
+13089,WORD_NOUN,,HIRAGANA,Inne,,夫婦げんか,ふうふげんか,,fuufu genka,kłótnia małżeńska,,
+13090,WORD_NOUN,,HIRAGANA,Inne,,新婚夫婦,しんこんふうふ,,shinkon fuufu,nowożeńcy,,
+13091,WORD_NOUN,,HIRAGANA,Inne,,真っ青な海,まっさおなうみ,,massao na umi,"bardzo niebieskie morze
+bardzo błękitne morze",,
+13092,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,木綿のシャツ,もめんのシャツ,,momen no shatsu,koszula bawełniana,,
+13093,WORD_NOUN,,HIRAGANA,Inne,,木綿の靴下,もめんのくつした,,momen no kutsushita,bawełniane skarpetki,,
+13094,WORD_NOUN,,HIRAGANA,Inne,,桃の木,もものき,,momo no ki,drzewo brzoskwiniowe,,
+13095,WORD_NOUN,,HIRAGANA,Inne,,桃の花,もものはな,,momo no hana,kwiat brzoskwini,,
+13096,WORD_VERB_U,,HIRAGANA,Inne,,門が開く,もんがあく,,mon ga aku,brama się otwiera,,
+13097,WORD_VERB_RU,,HIRAGANA,Inne,,門を開ける,もんをあける,,mon o akeru,otwierać bramę,,
+13098,WORD_VERB_RU,,HIRAGANA,Inne,,門を閉める,もんをしめる,,mon o shimeru,zamykać bramę,,
+13099,WORD_VERB_U,,HIRAGANA,Inne,,山に登る,やまにのぼる,,yama ni noboru,wspinać się na górę,,
+13100,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,主役,しゅやく,,shuyaku,główna rola,,
+13101,WORD_VERB_U,,HIRAGANA,Inne,,鉛筆で書く,えんぴつでかく,,enpitsu de kaku,pisać ołówkiem,,
+13102,WORD_VERB_U,,HIRAGANA,Inne,,日本語で話す,にほんごではなす,,nihongo de hanasu,mówić po japońsku,,
+13103,WORD_VERB_RU,,HIRAGANA,Inne,,東京を離れる,とうきょうをはなれる,,toukyou o hanareru,opuszczać Tokio,,
+13104,WORD_VERB_RU,,HIRAGANA,Inne,,席をはなれる,せきをはなれる,,seki o hanareru,opuszczać miejsce,,
+13105,WORD_VERB_U,,HIRAGANA,Inne,,話が纏まる,はなしがまとまる,,hanashi ga matomaru,"dojść do uzgodnienia
+dojść do porozumienia",,
+13106,WORD_NOUN,,HIRAGANA,Inne,,記憶力,きおくりょく,,kioku ryoku,zdolność zapamiętywania,,
+13107,WORD_VERB_U,,HIRAGANA,Inne,,気温が上がる,きおんがあがる,,kion ga agaru,"temperatura (powietrza) rośnie
+temperatura (powietrza) spada",,
+13108,WORD_EXPRESSION,,HIRAGANA,Inne,,仲が悪い,なかがわるい,,naka ga warui,być z kimś w złych stosunkach,,
+13109,WORD_NOUN,,HIRAGANA,Inne,,色鉛筆,いろえんぴつ,,iroenpitsu,kredka,,
+13110,WORD_NOUN,,HIRAGANA,Inne,,鉛筆削り,えんぴつけずり,,enpitsu kezuri,temperówka,,
+13111,WORD_VERB_IRREGULAR,,HIRAGANA_KATAKANA,Inne,,ピアノ曲を演奏する,ピアノきょくをえんそうする,,piano kyoku o ensou suru,"grać na fortepianie
+wykonywać  muzykę fortepianową",,
+13112,WORD_NOUN,,HIRAGANA,Inne,,正しい発音,ただしいはつおん,,tadashii hatsuon,prawidłowa wymowa,,
+13113,WORD_NOUN,,HIRAGANA,Inne,,正しい人,ただしいひと,,tadashii hito,sprawiedliwy człowiek,,
+13114,WORD_NOUN,,HIRAGANA,Inne,,正しい行い,ただしいおこない,,tadashii okonai,"właściwe postępowanie
+słuszne zachowanie",,
+13115,WORD_VERB_U,,HIRAGANA,Inne,,生け捕る,いけとる,,iketoru,schwytać żywcem,,
+13116,WORD_VERB_U,,HIRAGANA,Inne,,機会を掴む,きかいをつかむ,,kikai o tsukamu,"chwytać okazję
+chwytać szansę
+skorzystać ze sposobności",,
+13117,WORD_VERB_U,,HIRAGANA,Inne,,幸福を掴む,こうふくをつかむ,,koufuku o tsukamu,"łapać szczęście
+nie pozwolić umknąć szczęściu",,
+13118,WORD_NOUN,,HIRAGANA,Inne,,新しい家,あたらしいいえ,,atarashii ie,nowy dom,,
+13119,WORD_NOUN,,HIRAGANA,Inne,,新しい魚,あたらしいさかな,,atarashii sakana,świeża ryba,,
+13120,WORD_NOUN,,HIRAGANA,Inne,,新しい型の自動車,あたらしいかたのじどうしゃ,,atarashii kata no jidousha,nowy model samochodu,,
+13121,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,円い形をしたテーブル,まるいかたちをしたテーブル,,marui katachi o shita teeburu,okrągły stół,"dosł: stół, który przybrał okrągły kształt",
+13122,WORD_VERB_RU,,HIRAGANA,Inne,,霜が降りる,しもがおりる,,shimo ga oriru,osiada szron,,
+13123,WORD_VERB_U,,HIRAGANA,Inne,,秤で量る,はかりではかる,,hakari de hakaru,ważyć na wadze,,
+13124,WORD_VERB_U,,HIRAGANA,Inne,,身長を計る,しんちょうをはかる,,shinchou o hakaru,mierzyć wzrost,,
+13125,WORD_VERB_U,,HIRAGANA,Inne,,面積を測る,めんせきをはかる,,menseki o hakaru,mierzyć powierzchnię,,
+13126,UNKNOWN,,HIRAGANA,Inne,,二十歳過ぎの娘,はたちすぎのむすめ,,hatachi sugi no musume,dziewczyna po dwudziestce,,
+13127,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,ラジオ体操,ラジオたいそう,,rajio taisou,radiowa gimnastyka poranna,,
+13128,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,コップを割る,コップをわる,,koppu o waru,stłuc szklankę,,
+13129,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,窓ガラスを割る,まどガラスをわる,,madogarasu o waru,zbić szybę,,
+13130,WORD_NOUN,,HIRAGANA,Inne,,夜霧,よぎり,,yogiri,nocna mgła,,
+13131,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,霧が深い,きりがふかい,,kiri ga fukai,mgła jest gęsta,dosł: głęboka,
+13132,WORD_VERB_U,,HIRAGANA,Inne,,霧がかかる,きりがかかる,,kiri ga kakaru,zamglić się,,
+13133,WORD_VERB_U,,HIRAGANA,Inne,,霧が晴れる,きりがはれる,,kiri ga hareru,"mgła rzednie
+mgła rozprasza się",,
+13134,WORD_VERB_U,,HIRAGANA,Inne,,意見を言う,いけんをいう,,iken o iu,wypowiadać pogląd,,
+13135,WORD_VERB_RU,,HIRAGANA,Inne,,意見を述べる,いけんをのべる,,iken o noberu,wypowiadać pogląd,,
+13136,WORD_VERB_U,,HIRAGANA,Inne,,背にかごを負う,せにかごをおう,,se ni kago o ou,nieść kosz na plecach,,
+13137,WORD_VERB_RU,,HIRAGANA,Inne,,背が伸びる,せがのびる,,se ga nobiru,urosnąć,,
+13138,WORD_NOUN,,HIRAGANA,Inne,,修理代,しゅうりだい,,shuuridai,koszt naprawy,,
+13139,WORD_NOUN,,HIRAGANA,Inne,,週刊雑誌,しゅうかんざっし,,shuukan zasshi,tygodnik,,
+13140,WORD_VERB_U,,HIRAGANA,Inne,,傘をさす,かさをさす,,kasa o sasu,"iść pod parasolem
+nieść parasol nad głową",,
+13141,WORD_VERB_RU,,HIRAGANA,Inne,,傘をひろげる,かさをひろげる,,kasa o hirogeru,otwierać parasol,,
+13142,WORD_VERB_RU,,HIRAGANA,Inne,,傘をつぼめる,かさをつぼめる,,kasa o tsubomeru,zamykać parasol,,
+13143,WORD_NOUN,,HIRAGANA,Inne,,悪い品物,わるいしなもの,,warui shinamono,kiepski towar,,
+13144,WORD_NOUN,,HIRAGANA,Inne,,雄犬,おすいぬ,,osu inu,pies,samiec,
+13145,WORD_NOUN,,HIRAGANA,Inne,,雄猫,おすねこ,,osu neko,kot,samiec,
+13146,WORD_NOUN,,HIRAGANA,Inne,,片道切符,かたみちきっぷ,,katamichi kippu,bilet w jedną stronę,,
+13147,WORD_NOUN,,HIRAGANA,Genki dodatkowe 2-17,,音楽家,おんがっか,,ongakka,muzyk,,
+13148,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,お礼をする,おれいをする,,orei o suru,składać podziękowanie,,
+13149,UNKNOWN,,HIRAGANA,Inne,,零下十度,れいかじゅうど,,reika juudo,dziesięć stopni poniżej zera,,
+13150,WORD_VERB_RU,,HIRAGANA,Inne,,汗が出る,あせがでる,,ase ga deru,pocić się,,
+13151,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ハンカチで汗をふく,ハンカチであせをふく,,hankachi de ase o fuku,ocierać pot chusteczką,,
+13152,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,足が強い,あしがつよい,,ashi ga tsuyoi,jest dobrym piechurem,dosł: ma mocne nogi,
+13153,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,足が弱い,あしがよわい,,ashi ga yowai,"jest kiepskim piechurem
+mieć słabe nogi
+łatwo się męczyć chodząc",dosł: ma słabe nogi,
+13154,WORD_VERB_U,,HIRAGANA,Inne,,川を渡る,かわをわたる,,kawa o wataru,przeprawiać się przez rzekę,,
+13155,WORD_VERB_U,,HIRAGANA,Inne,,橋を渡る,はしをわたる,,hashi o wataru,przejść przez most,,
+13156,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ダイヤモンドが光る,ダイヤモンドがひかる,,daiyamondo ga hikaru,diament błyszczy,,
+13157,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ドアの取っ手を引く,ドアのとってをひく,,doa no totte o hiku,pociągnąć za klamkę,,
+13158,WORD_VERB_U,,HIRAGANA,Inne,,馬がそりを引く,うまがそりをひく,,uma ga sori o hiku,koń ciągnie sanie,,
+13159,WORD_VERB_U,,HIRAGANA,Inne,,電話を引く,でんわをひく,,denwa o hiku,zakładać telefon,,
+13160,WORD_VERB_U,,HIRAGANA,Inne,,水道を引く,すいどうをひく,,suidou o hiku,doprowadzać wodę,,
+13161,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ガスを引く,ガスをひく,,gasu o hiku,doprowadzać gaz,,
+13162,WORD_VERB_U,,HIRAGANA,Inne,,線を引く,せんをひく,,sen o hiku,rysować linię,,
+13163,WORD_NOUN,,HIRAGANA,Inne,,低い音,ひくいおと,,hikui oto,niski dźwięk,,
+13164,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,気圧が低い,きあつがひくい,,kiatsu ga hikui,ciśnienie atmosferyczne jest niskie,,
+13165,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,地位が低い,ちいがひくい,,chii ga hikui,jego pozycja jest niska,,
+13166,WORD_VERB_U,,HIRAGANA,Inne,,伝染病が広がる,でんせんびょうがひろがる,,densenbyou ga hirogaru,szerzy się epidemia,,
+13167,WORD_VERB_U,,HIRAGANA,Inne,,規則を守る,きそくをまもる,,kisoku o mamoru,"przestrzegać zasad
+przestrzegać regulaminu",,
+13168,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,人のまねをする,ひとのまねをする,,hito no mane o suru,naśladować kogoś,,
+13169,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,マッチ箱,マッチばこ,,macchi bako,pudełko zapałek,,
+13170,WORD_VERB_RU,,HIRAGANA_KATAKANA,Inne,,マッチでたばこに火をつける,マッチでたばこにひをつける,,macchi de tabako ni hi o tsukeru,przypalać papierosa zapałką,,
+13171,WORD_NOUN,,HIRAGANA,Inne,,上り下りの船,のぼりくだりのふね,,nobori kudari no fune,statki płynące w górę i w dół rzeki,,
+13172,WORD_VERB_U,,HIRAGANA,Inne,,くぎを打つ,くぎをうつ,,kugi o utsu,wbijać gwóźdź,,
+13173,WORD_VERB_U,,HIRAGANA,Inne,,くぎを抜く,くぎをぬく,,kugi o nuku,wyciągać gwóźdź,,
+13174,WORD_VERB_U,,HIRAGANA,Inne,,下を向く,したをむく,,shita o muku,"patrzeć w dół
+spuścić wzrok",,
+13175,WORD_VERB_U,,HIRAGANA,Inne,,糸を結ぶ,いとをむすぶ,,ito o musubu,związywać nitkę,,
+13176,WORD_VERB_U,,HIRAGANA,Inne,,ひもを結ぶ,ひもをむすぶ,,himo o musubu,"zawiązać sznurowadło
+zawiązać sznurek",,
+13177,WORD_VERB_U,,HIRAGANA,Inne,,角力をとる,すもうをとる,,sumou o toru,"uprawiać sumo
+walczyć w zapasach sumo",,
+13178,WORD_NOUN,,HIRAGANA,Inne,,進んだ考え,すすんだかんがえ,,susunda kangae,postępowy sposób myślenia,,
+13179,WORD_NOUN,,HIRAGANA,Inne,,進んだ文化,すすんだぶんか,,susunda bunka,rozwinięta kultura,,
+13180,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,仕事の邪魔をする,しごとのじゃまをする,,shigoto no jama o suru,przeszkadzać w pracy,,
+13181,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,自分自身,じぶんじしん,,jibun jishin,"sam
+sam z siebie
+własny",,
+13182,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,時代劇,じだいげき,,jidaigeki,sztuka historyczna,,
+13183,WORD_NOUN,,HIRAGANA,Inne,,時代遅れ,じだいおくれ,,jidai okure,staromodny,,
+13184,WORD_NOUN,,HIRAGANA,Inne,,学生時代,がくせいじだい,,gakusei jidai,czasy studenckie,,
+13185,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,アメリカ人,アメリカじん,,amerika jin,Amerykanin,,
+13186,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,中国人,ちゅうごくじん,,chuugoku jin,Chińczyk,,
+13187,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,ドイツ人,ドイツじん,,doitsu jin,Niemiec,,
+13188,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,フランス人,フランスじん,,furansu jin,Francuz,,
+13189,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,イギリス人,イギリスじん,,igirisu jin,Anglik,,
+13190,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,インド人,インドじん,,indo jin,Hindus,,
+13191,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,スペイン人,スペインじん,,supein jin,Hiszpan,,
+13192,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,タイ人,タイじん,,tai jin,"Taj
+Tajlandczyk",,
+13193,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,知識人,ちしきじん,,chishikijin,intelektualista,,
+13194,WORD_NOUN,,HIRAGANA,Inne,,現代人,げんだいじん,,gendaijin,człowiek współczesny,,
+13195,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,一リットル,いちリットル,,ichi rittoru,jeden litr,,
+13196,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,四リットル,よんリットル,,yon rittoru,cztery litry,,
+13197,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,九リットル,きゅうリットル,,kyuu rittoru,dziewięć litrów,,
+13198,WORD_NOUN,,HIRAGANA,Inne,,重労働,じゅうろうどう,,juuroudou,ciężka praca,fizyczna,
+13199,WORD_NOUN,,HIRAGANA,Inne,,労働時間,ろうどうじかん,,roudou jikan,czas pracy,czas pracy,
+13200,WORD_NOUN,,HIRAGANA,Inne,,数学の先生,すうがくのせんせい,,suugaku no sensei,nauczyciel matematyki,,
+13201,WORD_VERB_U,,HIRAGANA,Inne,,ひもで縛る,ひもでしばる,,himo de shibaru,wiązać sznurkiem,,
+13202,WORD_NOUN,,HIRAGANA,Inne,,東京の地図,とうきょうのちず,,toukyou no chizu,plan Tokio,,
+13203,WORD_NOUN,,HIRAGANA,Inne,,子供のくつ,こどものくつ,,kodomo no kutsu,"but dziecka
+buty dziecka",,
+13204,WORD_NOUN,,HIRAGANA,Inne,,日本語の先生,にほんごのせんせい,,nihongo no sensei,nauczyciel języka japońskiego,,
+13205,WORD_VERB_U,,HIRAGANA,Inne,,背中を伸ばす,せなかをのばす,,senaka o nobasu,wyprostować się,,
+13206,WORD_VERB_U,,HIRAGANA,Inne,,才能を伸ばす,さいのうをのばす,,sainou o nobasu,rozwijać zdolności,,
+13207,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ポケットから財布を出す,ポケットからさいふをだす,,poketto kara saifu o dasu,wyjąć portfel z kieszeni,,
+13208,WORD_VERB_U,,HIRAGANA,Inne,,本棚から本を出す,ほんだなからほんをだす,,hondana kara hon o dasu,wyjąć książki z półki,,
+13209,WORD_VERB_U,,HIRAGANA,Inne,,足を前に出す,あしをまえにだす,,ashi o mae ni dasu,wyciągnąć nogi przed siebie,,
+13210,WORD_VERB_U,,HIRAGANA,Inne,,子供を使いに出す,こどもをつかいにだす,,kodomo o tsukai ni dasu,wysłać dziecko z poleceniem,,
+13211,WORD_VERB_U,,HIRAGANA,Inne,,船を海に出す,ふねをうみにだす,,fune o umi ni dasu,wysłać łódź w morze,,
+13212,WORD_VERB_U,,HIRAGANA,Inne,,臨時列車を出す,りんじれっしゃをだす,,rinji ressha o dasu,wypuścić pociąg specjalny,,
+13213,WORD_VERB_U,,HIRAGANA,Inne,,小包を出す,こづつみをだす,,kodutsumi o dasu,wysłać paczkę,,
+13214,WORD_VERB_U,,HIRAGANA,Inne,,野菜を市場に出す,やさいをいちばにだす,,yasai o ichiba ni dasu,zawieźć jarzyny na targ,,
+13215,WORD_VERB_U,,HIRAGANA,Inne,,経済学の本を出す,けいざいがくのほんをだす,,keizaigaku no hon o dasu,opublikować książkę o ekonomii,,
+13216,WORD_VERB_U,,HIRAGANA,Inne,,雑誌を出す,ざっしをだす,,zasshi o dasu,wydawać czasopismo,,
+13217,WORD_VERB_U,,HIRAGANA,Inne,,新聞に広告を出す,しんぶんにこうこくをだす,,shinbun ni koukoku o dasu,zamieścić reklamę w gazetę,,
+13218,WORD_VERB_U,,HIRAGANA,Inne,,掲示を出す,けいじをだす,,keiji o dasu,wywiesić zawiadomienie,,
+13219,WORD_VERB_U,,HIRAGANA,Inne,,看板を出す,かんばんをだす,,kanban o dasu,wywiesić szyld,,
+13220,WORD_VERB_U,,HIRAGANA,Inne,,願書を出す,がんしょをだす,,gansho o dasu,przedłożyć podanie,,
+13221,WORD_VERB_U,,HIRAGANA,Inne,,欠席届を出す,けっせきとどけをだす,,kessekitodoke o dasu,przedstawić pisemne zawiadomienie o nieobecności,,
+13222,WORD_VERB_U,,HIRAGANA,Inne,,火事を出す,かじをだす,,kaji o dasu,spowodować pożar,,
+13223,WORD_VERB_U,,HIRAGANA,Inne,,お茶を出す,おちゃをだす,,ocha o dasu,podać herbatę,,
+13224,WORD_VERB_U,,HIRAGANA,Inne,,お菓子を出す,おかしをだす,,okashi o dasu,podać słodycze,,
+13225,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ビールを出す,ビールをだす,,biiru o dasu,podać piwo,,
+13226,WORD_VERB_RU,,HIRAGANA,Inne,,電池が切れる,でんちがきれる,,denchi ga kireru,bateria się wyczerpuje,,
+13227,WORD_VERB_RU,,HIRAGANA,Inne,,電池を新しいのと取り替える,でんちをあたらしいのととりかえる,,denchi o atarashii no to torikaeru,wymienić baterię na nową,,
+13228,WORD_VERB_U,,HIRAGANA,Inne,,電報を打つ,でんぽうをうつ,,denpou o utsu,wysłać depeszę,,
+13229,WORD_VERB_RU,,HIRAGANA,Inne,,電報で知らせる,でんぽうをしらせる,,denpou o shiraseru,zawiadomić telegraficznie,,
+13230,WORD_VERB_RU,,HIRAGANA,Inne,,新刊本が出る,しんかんぼんがでる,,shinkanbon ga deru,"ukazuje się nową książka
+ukazuje się nowe wydanie",,
+13231,WORD_VERB_RU,,HIRAGANA,Inne,,旅行に出る,りょこうにでる,,ryokou ni deru,wyruszać w podróż,,
+13232,WORD_VERB_RU,,HIRAGANA,Inne,,木の芽が出る,きのめがでる,,ki no me ga deru,na drzewach pojawiają się pączki,,
+13233,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,日当たりがいい,ひあたりがいい,,hiatari ga ii,słoneczny,"np. pokój, dosł: dobrze wpada słońce",
+13234,UNKNOWN,,HIRAGANA,Inne,,その日,そのひ,,sono hi,tego dnia,,
+13235,WORD_NOUN,,HIRAGANA,Inne,,次の日,つぎのひ,,tsugi no hi,następnego dnia,,
+13236,WORD_NOUN,,HIRAGANA,Inne,,天気のよい日,てんきのよいひ,,tenki no yoi hi,pogodny dzień,,
+13237,WORD_VERB_RU,,HIRAGANA,Inne,,体が冷える,からだがひえる,,karada ga hieru,zmarznąć,dosł: ciało marznie,
+13238,WORD_NOUN,,HIRAGANA,Inne,,独り者,ひとりもの,,hitori mono,"nieżonaty (mężczyzna)
+niezamężna (kobieta)",,
+13239,WORD_VERB_U,,HIRAGANA,Inne,,羊を飼う,ひつじをかう,,hitsuji o kau,hodować owce,,
+13240,WORD_NOUN,,HIRAGANA,Inne,,自動車の運転免許,じどうしゃのうんてんめんきょ,,jidousha no unten menkyo,prawo jazdy,na samochód,
+13241,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,耳が遠い,みみがとおい,,mimi ga tooi,"słabo słyszeć
+mieć kłopot ze słuchem",,
+13242,WORD_EXPRESSION,,HIRAGANA,Inne,,店が開いている,みせがあいている,,mise ga aite iru,"sklep jest otwarty
+sklep jest czynny
+restauracja jest otwarty
+restauracja jest czynny",,
+13243,WORD_EXPRESSION,,HIRAGANA,Inne,,店が閉まっている,みせがしまっている,,mise ga shimatte iru,"sklep jest otwarty
+sklep jest czynny
+restauracja jest otwarta
+restauracja jest czynna",,
+13244,WORD_NOUN,,HIRAGANA,Inne,,高い木,たかいき,,takai ki,wysokie drzewo,,
+13245,WORD_NOUN,,HIRAGANA,Inne,,高い音,たかいおと,,takai oto,wysoki dźwięk,,
+13246,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,気圧が高い,きあつがたかい,,kiatsu ga takai,ciśnienie atmosferyczne jest wysokie,,
+13247,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,ピストルの弾,ピストルのたま,,pisutoru no tama,kula pistoletowa,,
+13248,WORD_NOUN,,HIRAGANA,Inne,,鉄砲の弾,てっぽうのたま,,teppou no tama,kula karabinowa,,
+13249,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,アパート代がたまる,アパートだいがたまる,,apaato dai ga tomaru,zalegać z opłatą za komorne,,
+13250,WORD_VERB_U,,HIRAGANA,Inne,,たなから者を降ろす,たなからものをおろす,,tana kara mono o orosu,wziąć coś z półki,,
+13251,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,タオルで顔をふく,タオルでかおをふく,,taoru de kao o fuku,wytrzeć twarz ręcznikiem,,
+13252,WORD_NOUN,,HIRAGANA,Inne,,たとえ話,たとえばなし,,tatoe banashi,"przypowieść
+bajka
+alegoria",,
+13253,WORD_VERB_U,,HIRAGANA,Inne,,程度が違う,ていどがちがう,,teido ga chigau,"różnić się poziomem
+różnić się jakością",,
+13254,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,程度が低い,ていどがひくい,,teido ga hikui,"niski poziom
+niski standard",,
+13255,WORD_EXPRESSION,,HIRAGANA,Inne,,天と地,てんとち,,ten to chi,niebo i ziemia,,
+13256,WORD_EXPRESSION,,HIRAGANA,Inne,,点と線,てんとせん,,ten to sen,"kropka i kreska
+punkt i linia",,
+13257,WORD_EXPRESSION,,HIRAGANA,Inne,,点がいい,てんがいい,,ten ga ii,stopnie są dobre,,
+13258,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,点が悪い,てんがわるい,,ten ga warui,stopnie są złe,,
+13259,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,点が甘い,てんがあまい,,ten ga amai,sposób oceniania jest łagodny,,
+13260,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,点が辛い,てんがからい,,ten ga karai,sposób oceniania jest surowy,,
+13261,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,テニスの試合,テニスのしあい,,tenisu no shiai,"partia tenisa
+mecz tenisowy",,
+13262,WORD_VERB_U,,HIRAGANA,Inne,,手ぬぐいで手をふく,てぬぐいでてをふく,,tenugui de te o fuku,wytrzeć ręce ściereczką (do rąk),,
+13263,WORD_VERB_RU,,HIRAGANA,Inne,,戸を開ける,とをあける,,to o akeru,otworzyć drzwi,,
+13264,WORD_VERB_RU,,HIRAGANA,Inne,,戸を閉める,とをしめる,,to o shimeru,zamknąć drzwi,,
+13265,WORD_VERB_RU,,HIRAGANA,Inne,,なぞが解ける,なぞがとける,,nazo ga tokeru,"zagadka jest rozwiązana
+łamigłówka jest wyjaśniania",,
+13266,WORD_NOUN,,HIRAGANA,Inne,,近代思想,きんだいしそう,,kindai shisou,"myśl nowoczesna
+myśl nowożytna",,
+13267,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,記念日,きねんび,,kinenbi,rocznica,,
+13268,WORD_NOUN,,HIRAGANA,Inne,,記念写真,きねんしゃしん,,kinen shashin,zdjęcie pamiątkowe,,
+13269,WORD_NOUN,,HIRAGANA,Inne,,きれいな水,きれいなみず,,kirei na mizu,czysta woda,,
+13270,WORD_VERB_U,,HIRAGANA,Inne,,困りきる,こまりきる,,komari kiru,"zamartwiać się
+być w ogromnym kłopocie",,
+13271,WORD_VERB_U,,HIRAGANA,Inne,,弱りきる,よわりきる,,yowari kiru,"być całkowicie załamanym
+być w ogromnym kłopocie",,
+13272,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,北風,きたかぜ,,kita kaze,północny wiatr,,
+13273,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,北側,きたがわ,,kita gawa,północna strona,,
+13274,WORD_NOUN,,HIRAGANA,Inne,,北向き,きたむき,,kita muki,"zwrócony na północ
+wychodzący na północ",,
+13275,WORD_NOUN,,HIRAGANA,Inne,,記念切手,きねんきって,,kinen kitte,znaczek pamiątkowy,pocztowy,
+13276,WORD_VERB_U,,HIRAGANA,Inne,,切手をはる,きってをはる,,kitte o haru,naklejać znaczek,,
+13277,WORD_VERB_U,,HIRAGANA,Inne,,工場で働く,こうばではたらく,,kouba de hataraku,pracować w fabryce,,
+13278,WORD_VERB_RU,,HIRAGANA,Inne,,敵から攻撃を受ける,てきからこうげきをうける,,teki kara kougeki o ukeru,być zaatakowanym przez wroga,,
+13279,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,敵を攻撃する,てきをこうげきする,,teki o kougeki suru,atakować wroga,,
+13280,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,一時停止,いちじていし,,ichiji teishi,chwilowy postój,,
+13281,WORD_NOUN,,HIRAGANA,Inne,,いい声,いいこえ,,ii koe,piękny głos,,
+13282,WORD_NOUN,,HIRAGANA,Inne,,いい品物,いいしなもの,,ii shinamono,dobry towar,,
+13283,WORD_NOUN,,HIRAGANA,Inne,,いい習慣,いいしゅうかん,,ii shuukan,dobry zwyczaj,,
+13284,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,景色がいい,けしきがいい,,keshiki ga ii,widok jest piękny,,
+13285,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,気分がいい,きぶんがいい,,kibun ga ii,czuć się dobrze,,
+13286,WORD_NOUN,,HIRAGANA,Inne,,健康にいい体操,けんこうにいいたいそう,,kenkou ni ii taisou,ćwiczenia pożyteczne dla zdrowia,dosł: dobre,
+13287,WORD_VERB_U,,HIRAGANA,Inne,,息をはく,いきをはく,,iki o haku,wydychać,,
+13288,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,行き帰り,いきかえり,,ikikaeri,pójść tam i z powrotem,,
+13289,WORD_VERB_U,,HIRAGANA,Inne,,問題を解く,もんだいをとく,,mondai o toku,"rozwiązywać problem
+rozwiązywać zadanie",,
+13290,WORD_NOUN,,HIRAGANA,Inne,,元首相,もとしゅしょう,,moto shushou,były premier,,
+13291,WORD_NOUN,,HIRAGANA,Inne,,連絡先,れんらくさき,,renrakusaki,kontakt,do osoby,
+13292,WORD_NOUN,,HIRAGANA,Inne,,流行作家,りゅうこうさっか,,ryuukou sakka,"popularny pisarz
+autor bestsellerów",,
+13293,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,昨夜,さくや,,sakuya,"wczorajszy wieczór
+wczorajsza noc
+ostatnia noc",,
+13294,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,昨晩,さくばん,,sakuban,ostatniego wieczoru,,
+13295,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,昨日,さくじつ,,sakujitsu,wczoraj,,
+13296,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,参加者,さんかしゃ,,sankasha,"uczestnik
+współzawodnik",,
+13297,WORD_NOUN,,HIRAGANA,Inne,,参加国,さんかこく,,sankakoku,kraj uczestniczący,,
+13298,WORD_VERB_U,,HIRAGANA,Inne,,目薬をさす,めぐすりをさす,,megusuri o sasu,zapuścić krople do oczu,,
+13299,WORD_VERB_U,,HIRAGANA,Inne,,やかんに水をさす,やかんにみずをさす,,yakan ni mizu o sasu,napełnić czajnik wodą,,
+13300,WORD_VERB_U,,HIRAGANA,Inne,,眼鏡を外す,めがねをはずす,,megane o hazusu,zdejmować okulary,,
+13301,WORD_VERB_U,,HIRAGANA,Inne,,火を消す,ひをけす,,hi o kesu,gasić ogień,,
+13302,WORD_NOUN,,HIRAGANA,Inne,,洋服だんす,ようふくだんす,,youfuku dansu,szafa na ubrania,,
+13303,UNKNOWN,,HIRAGANA,Inne,,八日前,ようかまえ,,youkamae,osiem dni temu,,
+13304,UNKNOWN,,HIRAGANA,Inne,,八日後,ようかご,,youkago,"za osiem dni
+po ośmiu dniach",,
+13305,UNKNOWN,,HIRAGANA,Inne,,四日前,よっかまえ,,yokkamae,cztery dni temu,,
+13306,UNKNOWN,,HIRAGANA,Inne,,四日後,よっかご,,yokkago,"za cztery dni
+po czterech dniach",,
+13307,WORD_VERB_U,,HIRAGANA,Inne,,予想が当たる,よそうがあたる,,yosou ga ataru,czyjeś przewidywania się sprawdziły,,
+13308,WORD_VERB_RU,,HIRAGANA,Inne,,予想が外れる,よそうがはずれる,,yosou ga hazureru,czyjeś przewidywania się nie sprawdziły,,
+13309,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,数学に弱い,すうがくによわい,,suugaku ni yowai,słaby w matematyce,,
+13310,WORD_VERB_U,,HIRAGANA,Inne,,ごみを焼く,ごみをやく,,gomi o yaku,palić śmieci,,
+13311,WORD_VERB_U,,HIRAGANA,Inne,,魚を焼く,さかなをやく,,sakana o yaku,piec rybę,na ruszcie,
+13312,WORD_VERB_U,,HIRAGANA,Inne,,約束を破る,やくそくをやぶる,,yakusoku o yaburu,"złamać umowę
+nie dotrzymać słowa
+nie dotrzymać przyrzeczenia",,
+13313,WORD_VERB_U,,HIRAGANA,Inne,,用が済む,ようがすむ,,you ga sumu,"kończyć sprawę
+załatwić sprawę",,
+13314,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,保険金,ほけんきん,,hokenkin,odszkodowanie,,
+13315,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,生命保険,せいめいほけん,,seimei hoken,ubezpieczenie na życie,,
+13316,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,火災保険,かさいほけん,,kasai hoken,ubezpieczenie od pożaru,,
+13317,WORD_NOUN,,HIRAGANA,Inne,,風の方向,かぜのほうこう,,kaze no houkou,kierunek wiatru,,
+13318,WORD_VERB_RU,,HIRAGANA,Inne,,国が滅びる,くにがほろびる,,kuni ga horobiru,kraj upada,,
+13319,WORD_VERB_RU,,HIRAGANA,Inne,,星が出る,ほしがでる,,hoshi ga deru,"wschodzą gwiazdy
+ukazują się gwiazdy",,
+13320,WORD_NOUN,,HIRAGANA,Inne,,教育方針,きょういくほうしん,,kyouiku houshin,"polityka wychowawcza
+polityka edukacyjna
+kierunki wychowania",,
+13321,WORD_NOUN,,HIRAGANA,Inne,,時間表,じかんひょう,,jikanhyou,rozkład zajęć,,
+13322,WORD_NOUN,,HIRAGANA,Inne,,予定表,よていひょう,,yoteihyou,program,,
+13323,WORD_NOUN,,HIRAGANA,Inne,,動詞の活用表,どうしのかつようひょう,,doushi no katsuyouhyou,tabela koniugacji czasowników,,
+13324,WORD_NOUN,,HIRAGANA,Inne,,平和の願い,へいわのねがい,,heiwa no negai,pragnienie pokoju,,
+13325,WORD_VERB_RU,,HIRAGANA,Inne,,試験を受ける,しけんをうける,,shiken o ukeru,zdawać egzamin,,
+13326,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,ヘボン式ローマ字,ヘボンしきローマジ,,henonshiki roumaji,transkrypcja łacińska według systemu Hepburna,,
+13327,WORD_NOUN,,HIRAGANA,Inne,,寝台車,しんだいしゃ,,shindaisha,wagon sypialny,,
+13328,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,神経が鋭い,しんけいがするどい,,shinkei ga surudoi,"czuły
+nerwowy
+wrażliwy",,
+13329,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,神経が鈍い,しんけいがにぶい,,shinkei ga nibui,"niewrażliwy
+gruboskórny
+nieczuły",,
+13330,WORD_EXPRESSION,,HIRAGANA,Inne,,信用できる,しんようできる,,shin'you dekiru,"godny zaufania
+szanowany
+wiarygodny",,
+13331,WORD_VERB_RU,,HIRAGANA,Inne,,信用を得る,しんようをえる,,shin'you o eru,zdobyć zaufanie,czyjeś,
+13332,WORD_VERB_U,,HIRAGANA,Inne,,信用を失う,しんようをうしなう,,shin'you o ushinau,stracić zaufanie,czyjeś,
+13333,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,心臓病,しんぞうびょう,,shinzoubyou,choroba serca,,
+13334,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,試験に失敗する,しけんにしっぱいする,,shiken ni shippai suru,oblać egzamin,,
+13335,WORD_VERB_IRREGULAR,,HIRAGANA,Inne,,事業に失敗する,じぎょうにしっぱいする,,jigyou ni shippai suru,"doznać niepowodzenia w pracy
+doznać niepowodzenia w interesach",,
+13336,WORD_NOUN,,HIRAGANA,Inne,,背が低い人,せいがひくいひと,,sei ga hikui hito,człowiek niskiego wzrostu,,
+13337,WORD_NOUN,,HIRAGANA,Inne,,制限時間,せいげんじかん,,seigen jikan,"ograniczony czas
+limit czasu",,
+13338,WORD_NOUN,,HIRAGANA,Inne,,家庭生活,かていせいかつ,,katei seikatsu,"życie rodzinne
+życie domowe",,
+13339,WORD_NOUN,,HIRAGANA,Inne,,請求書,せいきゅうしょ,,seikyuusho,rachunek,,
+13340,WORD_VERB_RU,,HIRAGANA,Inne,,請求を受ける,せいきゅうをうける,,seikyuu o ukeru,otrzymać rachunek,,
+13341,WORD_NOUN,,HIRAGANA,Inne,,交通整理,こうつうせいり,,koutsuu seiri,"kontrola ruchu
+kierowanie ruchem",,
+13342,WORD_NOUN,,HIRAGANA,Inne,,経済政策,けいざいせいさく,,keizai seisaku,polityka gospodarcza,,
+13343,WORD_NOUN,,HIRAGANA,Inne,,農業政策,のうぎょうせいさく,,nougyou seisaku,polityka rolna,,
+13344,WORD_VERB_RU,,HIRAGANA,Inne,,政策を立てる,せいさくをたてる,,seisaku o tateru,"sformułować tezy polityczne
+określić swoją politykę",,
+13345,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,製作費,せいさくひ,,seisakuhi,koszty produkcji,,
+13346,WORD_NOUN,,HIRAGANA,Inne,,生産高,せいさんだか,,seisandaka,wysokość produkcji,,
+13347,WORD_NOUN,,HIRAGANA,Inne,,生産者,せいさんしゃ,,seisansha,"producent
+wytwórca",,
+13348,WORD_NOUN,,HIRAGANA,Inne,,生産技術,せいさんぎじゅつ,,seisan gijutsu,"technika produkcyjna
+technologia przemysłowa",,
+13349,WORD_VERB_RU,,HIRAGANA,Inne,,行をかえる,ぎょうをかえる,,gyou o kaeru,"zaczynać od nowego wiersza
+zmieniać wiersz",,
+13350,WORD_VERB_U,,HIRAGANA,Inne,,能力がある,のうりょくがある,,nouryoku ga aru,mieć zdolności,,
+13351,WORD_EXPRESSION,,HIRAGANA,Inne,,能力がない,のうりょくがない,,nouryoku ga nai,nie mieć zdolności,,
+13352,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,-,ノートをとる,,nooto o toru,"robić notatki
+notować",,
+13353,WORD_VERB_U,,HIRAGANA,Inne,,服を脱ぐ,ふくをぬぐ,,fuku o nugu,"zdejmować ubranie
+rozbierać się",,
+13354,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ズボンを脱ぐ,ズボンをぬぐ,,zubon o nugu,zdejmować spodnie,,
+13355,WORD_VERB_U,,HIRAGANA,Inne,,靴下を脱ぐ,くつしたをぬぐ,,kutsushita o nugu,zdejmować skarpety,,
+13356,WORD_VERB_RU,,HIRAGANA,Inne,,髪の毛が抜ける,かみのけがぬける,,kami no ke ga nukeru,"włosy wychodzą
+włosy wypadają",,
+13357,WORD_VERB_U,,HIRAGANA,Inne,,毛を抜く,けをぬく,,ke o nuku,wyrywać włos,,
+13358,WORD_VERB_U,,HIRAGANA,Inne,,草を抜く,くさをぬく,,kusa o nuku,"wyrywać zielsko
+pleć",,
+13359,WORD_VERB_U,,HIRAGANA,Inne,,歯を抜く,はをぬく,,ha o nuku,wyrywać ząb,,
+13360,WORD_NOUN,,HIRAGANA,Inne,,天気図,てんきず,,tenkizu,mapa pogody,,
+13361,WORD_NOUN,,HIRAGANA,Inne,,案内図,あんないず,,annaizu,"mapa turystyczna
+plan",,
+13362,WORD_NOUN,,HIRAGANA,Inne,,馬鹿者,ばかもの,,bakamono,głupiec,,
+13363,WORD_NOUN,,HIRAGANA,Inne,,ばか者,ばかもの,,bakamono,głupiec,,
+13364,WORD_VERB_U,,HIRAGANA,Inne,,便所に行く,べんじょにいく,,benjo ni iku,iść do toalety,,
+13365,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,-,ビールびん,,biiru bin,butelka po piwie,,
+13366,WORD_VERB_U,,HIRAGANA_KATAKANA,Inne,,ビールを飲む,ビールをのむ,,biiru o nomu,pić piwo,,
+13367,WORD_NOUN,,HIRAGANA,Inne,,美術品,びじゅつひん,,bijutsuhin,dzieło sztuki,,
+13368,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,-,インクびん,,inku bin,buteleczka od atramentu,,
+13369,WORD_NOUN,,HIRAGANA,Inne,,しょう油びん,しょうゆびん,,shouyu bin,butelka od sosu sojowego,,
