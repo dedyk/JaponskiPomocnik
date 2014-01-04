@@ -51,7 +51,7 @@ public class Utils {
 		return sb.toString();
 	}
 
-	public static DictionaryEntry parseDictionaryEntry(String idString, String dictionaryEntryTypeString,
+	public static DictionaryEntry parseDictionaryEntry(String idString, Object dictionaryEntryTypeObject,
 			Object attributesObject, Object groupsObject, String prefixKanaString, String kanjiString,
 			Object kanaListObject, String prefixRomajiString, Object romajiListObject, Object translateListObject,
 			String infoString) throws DictionaryException {
@@ -64,12 +64,19 @@ public class Utils {
 			prefixRomajiString = null;
 		}
 
-		DictionaryEntryType dictionaryEntryType = DictionaryEntryType.valueOf(dictionaryEntryTypeString);
+		//DictionaryEntryType dictionaryEntryType = DictionaryEntryType.valueOf(dictionaryEntryTypeString);
 
 		DictionaryEntry entry = new DictionaryEntry();
 
 		entry.setId(Integer.parseInt(idString));
-		entry.setDictionaryEntryType(dictionaryEntryType);
+
+		if (dictionaryEntryTypeObject instanceof String) {
+			entry.setDictionaryEntryTypeList(DictionaryEntryType.convertToListDictionaryEntryType(parseStringIntoList(
+					(String) dictionaryEntryTypeObject, false)));
+		} else {
+			entry.setDictionaryEntryTypeList(DictionaryEntryType
+					.convertToListDictionaryEntryType(convertToListString(dictionaryEntryTypeObject)));
+		}
 
 		if (attributesObject instanceof String) {
 			entry.setAttributeList(AttributeList.parseAttributesStringList(parseStringIntoList(

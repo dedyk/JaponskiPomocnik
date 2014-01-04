@@ -19,14 +19,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.database.SQLException;
-import android.os.Environment;
-import android.util.Log;
-
-import com.csvreader.CsvReader;
-
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
@@ -45,119 +37,130 @@ import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.database.SQLException;
+import android.os.Environment;
+import android.util.Log;
+
+import com.csvreader.CsvReader;
 
 public class DictionaryManager {
-	
+
 	private static final String KANJI_RECOGNIZE_MODEL_DB_FILE = "kanji_recognizer.model.db";
 
 	private static final String RADICAL_FILE = "radical.csv";
-	
+
 	private static final String TRANSITIVE_INTRANSTIVE_PAIRS_FILE = "transitive_intransitive_pairs.csv";
 
 	private static final String KANA_FILE = "kana.csv";
-		
+
 	private static final String DATABASE_FILE = "dictionary.db";
 
-	private SQLiteConnector sqliteConnector;
+	private final SQLiteConnector sqliteConnector;
 
 	private ZinniaManager zinniaManager;
 
 	private List<RadicalInfo> radicalList = null;
-	
+
 	private List<TransitiveIntransitivePair> transitiveIntransitivePairsList = null;
-	
+
 	private KanaHelper kanaHelper;
-	
-	private KeigoHelper keigoHeper;
-	
+
+	private final KeigoHelper keigoHeper;
+
 	private WordTestSM2Manager wordTestSM2Manager;
 
 	public DictionaryManager() {
-		
+
 		sqliteConnector = new SQLiteConnector();
-		
+
 		keigoHeper = new KeigoHelper();
 	}
 
-	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
-		
-		try {			
+	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName,
+			int versionCode) {
+
+		try {
 			// init
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
-			
+
 			try {
 				// delete old database file
 				deleteOldDatabaseFile(packageName);
-				
+
 			} catch (IOException e) {
-				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
-				
+				loadWithProgress
+						.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+
 				return;
 			}
-			
+
 			// check external storage state
 			if (checkExternalStorageState(loadWithProgress, resources) == false) {
 				return;
 			}
-			
+
 			// create base dir in external storage
 			File externalStorageDirectory = Environment.getExternalStorageDirectory();
-			
+
 			// create base dir
 			File baseDir = new File(externalStorageDirectory, "JaponskiPomocnik");
-			
+
 			if (baseDir.isDirectory() == false) {
-				
+
 				if (baseDir.mkdirs() == false) {
-					loadWithProgress.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
-					
-					return;					
+					loadWithProgress
+							.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
+
+					return;
 				}
 			}
-			
+
 			// create directory dir
 			File databaseDir = new File(baseDir, "db");
 
 			if (databaseDir.isDirectory() == false) {
-				
+
 				if (databaseDir.mkdirs() == false) {
-					loadWithProgress.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
-					
-					return;					
+					loadWithProgress
+							.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
+
+					return;
 				}
 			}
-			
+
 			File databaseFile = new File(databaseDir, DATABASE_FILE);
 			File databaseVersionFile = new File(databaseFile.getAbsolutePath() + "-version");
-			
+
 			File databaseRecognizeModelFile = new File(databaseDir, KANJI_RECOGNIZE_MODEL_DB_FILE);
-			
+
 			// get database version
 			int databaseVersion = getDatabaseVersion(databaseFile, databaseVersionFile);
-			
+
 			if (versionCode != databaseVersion) {
-				
+
 				try {
 					// copy dictionary file
 					copyDatabaseFileToDatabaseDir(assets.open(DATABASE_FILE), databaseFile);
 
 					// save database version
 					saveDatabaseVersion(databaseVersionFile, versionCode);
-					
+
 				} catch (IOException e) {
 					loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
-					
+
 					return;
 				}
-			}			
-			
+			}
+
 			// open databaase
 			try {
 				sqliteConnector.open(databaseFile.getAbsolutePath());
-				
+
 			} catch (SQLException e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
-				
+
 				return;
 			}
 
@@ -178,10 +181,11 @@ public class DictionaryManager {
 
 				kanaFileInputStream = assets.open(KANA_FILE);
 				readKanaFile(kanaFileInputStream, loadWithProgress);
-				
+
 			} catch (IOException e) {
-				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
-				
+				loadWithProgress
+						.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+
 				return;
 			}
 
@@ -192,19 +196,21 @@ public class DictionaryManager {
 			try {
 				InputStream radicalInputStream = assets.open(RADICAL_FILE);
 				int radicalFileSize = getWordSize(radicalInputStream);
-				loadWithProgress.setMaxValue(radicalFileSize);			
+				loadWithProgress.setMaxValue(radicalFileSize);
 
 				radicalInputStream = assets.open(RADICAL_FILE);
 				readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);
-				
+
 			} catch (IOException e) {
-				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
-				
+				loadWithProgress
+						.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+
 				return;
 			}
-			
+
 			// wczytywanie informacji o parach czasownikow przechodnich i nieprzechodnich
-			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_transitive_intransitive_pairs));
+			loadWithProgress.setDescription(resources
+					.getString(R.string.dictionary_manager_load_transitive_intransitive_pairs));
 			loadWithProgress.setCurrentPos(0);
 
 			try {
@@ -214,10 +220,11 @@ public class DictionaryManager {
 
 				transitiveIntransitivePairsInputStream = assets.open(TRANSITIVE_INTRANSTIVE_PAIRS_FILE);
 				readTransitiveIntransitivePairsFromCsv(transitiveIntransitivePairsInputStream, loadWithProgress);
-				
+
 			} catch (IOException e) {
-				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
-				
+				loadWithProgress
+						.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+
 				return;
 			}
 
@@ -226,7 +233,7 @@ public class DictionaryManager {
 			loadWithProgress.setCurrentPos(0);
 
 			fakeProgress(loadWithProgress);
-									
+
 			// copy kanji recognize model db data
 			zinniaManager = new ZinniaManager(databaseRecognizeModelFile);
 
@@ -236,28 +243,28 @@ public class DictionaryManager {
 
 			try {
 				InputStream kanjiRecognizeModelInputStream = assets.open(KANJI_RECOGNIZE_MODEL_DB_FILE);
-				
+
 				zinniaManager.copyKanjiRecognizeModelToData(kanjiRecognizeModelInputStream, loadWithProgress);
 			} catch (IOException e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
-				
+
 				return;
 			}
-			
+
 			// create word test sm2 manager
 			wordTestSM2Manager = new WordTestSM2Manager(databaseDir);
-			
+
 			// open word test sm2 manager
 			try {
 				wordTestSM2Manager.open();
-			}  catch (TestSM2ManagerException e) {
+			} catch (TestSM2ManagerException e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
-				
+
 				return;
 			}
-			
+
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
-			
+
 			return;
 
 		} catch (DictionaryException e) {
@@ -266,86 +273,86 @@ public class DictionaryManager {
 	}
 
 	private void deleteOldDatabaseFile(String packageName) throws IOException {
-		
+
 		String packageBaseDir = Environment.getDataDirectory().getAbsolutePath() + "/data/" + packageName;
-				
+
 		//  delete old kanji recognize mode db data
 		new File(packageBaseDir + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE).delete();
-		
+
 		// delete all from database directory
-		
+
 		String databaseDir = packageBaseDir + "/databases/";
-		
+
 		File databaseDirFile = new File(databaseDir);
-		
+
 		if (databaseDirFile.isDirectory() == true) {
-			
+
 			File[] databaseDirListFiles = databaseDirFile.listFiles();
-			
+
 			for (File currentDatabaseDirListFiles : databaseDirListFiles) {
 				currentDatabaseDirListFiles.delete();
 			}
-			
+
 			databaseDirFile.delete();
 		}
 	}
-	
+
 	private boolean checkExternalStorageState(ILoadWithProgress loadWithProgress, Resources resources) {
-		
+
 		String state = Environment.getExternalStorageState();
 
 		if (Environment.MEDIA_MOUNTED.equals(state) == false) {
 			loadWithProgress.setError(resources.getString(R.string.dictionary_manager_bad_external_storage_state));
-			
+
 			return false;
 		}
-		
+
 		return true;
 	}
 
 	private void saveDatabaseVersion(File databaseVersionFile, int versionCode) throws IOException {
-		
+
 		BufferedWriter writer = new BufferedWriter(new FileWriter(databaseVersionFile));
-		
+
 		writer.write(String.valueOf(versionCode));
-		
-		writer.close();		
+
+		writer.close();
 	}
-	
+
 	private int getDatabaseVersion(File databaseFile, File databaseVersionFile) {
-		
+
 		int version = 0;
 
 		if (databaseFile.exists() == false) {
 			return version;
 		}
-		
+
 		if (databaseVersionFile.exists() == false) {
 			return version;
 		}
-		
+
 		BufferedReader reader = null;
-		
+
 		try {
 			reader = new BufferedReader(new FileReader(databaseVersionFile));
-			
+
 			String line = reader.readLine();
-			
+
 			if (line == null) {
 				return version;
 			}
-			
+
 			try {
 				version = Integer.parseInt(line);
 			} catch (NumberFormatException e) {
 				return version;
 			}
-			
+
 		} catch (IOException e) {
 			return version;
-			
+
 		} finally {
-			
+
 			if (reader != null) {
 				try {
 					reader.close();
@@ -353,32 +360,33 @@ public class DictionaryManager {
 				}
 			}
 		}
-		
+
 		// testing open database
 		try {
-			sqliteConnector.open(databaseFile.getAbsolutePath());			
+			sqliteConnector.open(databaseFile.getAbsolutePath());
 		} catch (SQLException e) {
-			return 0;			
+			return 0;
 		} finally {
 			sqliteConnector.close();
-		}	
-		
+		}
+
 		return version;
 	}
 
-	private void copyDatabaseFileToDatabaseDir(InputStream databaseInputStream, File databaseOutputFile) throws IOException {
-		
+	private void copyDatabaseFileToDatabaseDir(InputStream databaseInputStream, File databaseOutputFile)
+			throws IOException {
+
 		BufferedOutputStream databaseOutputStream = null;
 
 		databaseOutputStream = new BufferedOutputStream(new FileOutputStream(databaseOutputFile));
 
 		byte[] buffer = new byte[8096];
-		
-		int read;  
-		
-		while ((read = databaseInputStream.read(buffer)) != -1) {  
-			databaseOutputStream.write(buffer, 0, read);  
-		}  
+
+		int read;
+
+		while ((read = databaseInputStream.read(buffer)) != -1) {
+			databaseOutputStream.write(buffer, 0, read);
+		}
 
 		databaseInputStream.close();
 		databaseOutputStream.close();
@@ -390,13 +398,13 @@ public class DictionaryManager {
 
 		CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
 
-		while(csvReader.readRecord()) {
-			size++;			
+		while (csvReader.readRecord()) {
+			size++;
 		}
 
 		dictionaryInputStream.close();
 
-		return size;		
+		return size;
 	}
 
 	public int getWordGroupsNo(int groupSize) {
@@ -442,12 +450,13 @@ public class DictionaryManager {
 
 		} catch (DictionaryException e) {
 			throw new RuntimeException(e);
-		}		
+		}
 
 		final Map<String, KanaEntry> kanaCache = kanaHelper.getKanaCache();
 
 		Collections.sort(findWordResult.result, new Comparator<ResultItem>() {
 
+			@Override
 			public int compare(ResultItem lhs, ResultItem rhs) {
 
 				List<String> lhsKanaList = lhs.getKanaList();
@@ -483,8 +492,10 @@ public class DictionaryManager {
 				} else if (lhsString == null && rhsString != null) {
 					return 1;
 				} else {
-					String lhsRomaji = kanaHelper.createRomajiString(kanaHelper.convertKanaStringIntoKanaWord(lhsString, kanaCache, true));
-					String rhsRomaji = kanaHelper.createRomajiString(kanaHelper.convertKanaStringIntoKanaWord(rhsString, kanaCache, true));
+					String lhsRomaji = kanaHelper.createRomajiString(kanaHelper.convertKanaStringIntoKanaWord(
+							lhsString, kanaCache, true));
+					String rhsRomaji = kanaHelper.createRomajiString(kanaHelper.convertKanaStringIntoKanaWord(
+							rhsString, kanaCache, true));
 
 					return lhsRomaji.compareToIgnoreCase(rhsRomaji);
 				}
@@ -501,11 +512,11 @@ public class DictionaryManager {
 
 		return findWordResult;
 	}
-	
+
 	public int getDictionaryEntriesSize() {
 		return sqliteConnector.getDictionaryEntriesSize();
 	}
-	
+
 	public DictionaryEntry getDictionaryEntryById(int id) {
 		try {
 			return sqliteConnector.getDictionaryEntryById(String.valueOf(id));
@@ -533,20 +544,21 @@ public class DictionaryManager {
 				loadWithProgress.setCurrentPos(counter);
 
 				DictionaryEntry nthDictionaryEntry = sqliteConnector.getNthDictionaryEntry(dictionaryEntriesSizeIdx);
-				
-				Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = 
-						new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
-				
-				List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = 
-						GrammaConjugaterManager.getGrammaConjufateResult(keigoHeper, nthDictionaryEntry, grammaFormCache);
+
+				Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
+
+				List<GrammaFormConjugateGroupTypeElements> grammaConjufateResult = GrammaConjugaterManager
+						.getGrammaConjufateResult(keigoHeper, nthDictionaryEntry, grammaFormCache, null);
 
 				if (grammaConjufateResult != null) {
 					for (GrammaFormConjugateGroupTypeElements grammaFormConjugateGroupTypeElements : grammaConjufateResult) {
-						sqliteConnector.insertGrammaFormConjugateGroupTypeElements(nthDictionaryEntry, grammaFormConjugateGroupTypeElements);
-					}					
+						sqliteConnector.insertGrammaFormConjugateGroupTypeElements(nthDictionaryEntry,
+								grammaFormConjugateGroupTypeElements);
+					}
 				}
 
-				List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(keigoHeper, nthDictionaryEntry, grammaFormCache);
+				List<ExampleGroupTypeElements> examples = ExampleManager.getExamples(keigoHeper, nthDictionaryEntry,
+						grammaFormCache, null);
 
 				if (examples != null) {
 					for (ExampleGroupTypeElements exampleGroupTypeElements : examples) {
@@ -576,7 +588,7 @@ public class DictionaryManager {
 			sqliteConnector.endTransaction();
 		}
 	}
-	
+
 	public List<KanjiEntry> findKnownKanji(String text) {
 
 		List<KanjiEntry> result = new ArrayList<KanjiEntry>();
@@ -610,7 +622,7 @@ public class DictionaryManager {
 			throw new RuntimeException(e);
 		}
 
-		return kanjiEntry;		
+		return kanjiEntry;
 	}
 
 	public List<KanjiEntry> getAllKanjis(boolean withDetails, boolean addGenerated) {
@@ -620,10 +632,9 @@ public class DictionaryManager {
 			throw new RuntimeException(e);
 		}
 	}
-	
 
-
-	private void readRadicalEntriesFromCsv(InputStream radicalInputStream, ILoadWithProgress loadWithProgress) throws IOException, DictionaryException {
+	private void readRadicalEntriesFromCsv(InputStream radicalInputStream, ILoadWithProgress loadWithProgress)
+			throws IOException, DictionaryException {
 
 		radicalList = new ArrayList<RadicalInfo>();
 
@@ -631,7 +642,7 @@ public class DictionaryManager {
 
 		int currentPos = 1;
 
-		while(csvReader.readRecord()) {			
+		while (csvReader.readRecord()) {
 
 			currentPos++;
 
@@ -677,6 +688,7 @@ public class DictionaryManager {
 
 		Collections.sort(result, new Comparator<KanjiEntry>() {
 
+			@Override
 			public int compare(KanjiEntry lhs, KanjiEntry rhs) {
 
 				int lhsId = lhs.getId();
@@ -710,6 +722,7 @@ public class DictionaryManager {
 
 		Collections.sort(result.getResult(), new Comparator<KanjiEntry>() {
 
+			@Override
 			public int compare(KanjiEntry lhs, KanjiEntry rhs) {
 
 				int lhsId = lhs.getId();
@@ -730,7 +743,7 @@ public class DictionaryManager {
 
 		return result;
 	}
-	
+
 	public Set<String> findAllAvailableRadicals(String[] radicals) {
 
 		try {
@@ -739,9 +752,9 @@ public class DictionaryManager {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public FindKanjiResult findKanji(FindKanjiRequest findKanjiRequest) {
-		
+
 		try {
 			return sqliteConnector.findKanji(findKanjiRequest);
 		} catch (DictionaryException e) {
@@ -778,7 +791,7 @@ public class DictionaryManager {
 
 		Map<String, List<List<String>>> kanaAndStrokePaths = new HashMap<String, List<List<String>>>();
 
-		while(csvReader.readRecord()) {			
+		while (csvReader.readRecord()) {
 
 			currentPos++;
 
@@ -805,18 +818,19 @@ public class DictionaryManager {
 
 		kanaHelper = new KanaHelper(kanaAndStrokePaths);
 
-		csvReader.close();		
+		csvReader.close();
 	}
-	
-	private void readTransitiveIntransitivePairsFromCsv(InputStream transitiveIntransitivePairsInputStream, ILoadWithProgress loadWithProgress) throws IOException {
-		
+
+	private void readTransitiveIntransitivePairsFromCsv(InputStream transitiveIntransitivePairsInputStream,
+			ILoadWithProgress loadWithProgress) throws IOException {
+
 		CsvReader csvReader = new CsvReader(new InputStreamReader(transitiveIntransitivePairsInputStream), ',');
 
 		int currentPos = 1;
-		
+
 		transitiveIntransitivePairsList = new ArrayList<TransitiveIntransitivePair>();
 
-		while(csvReader.readRecord()) {			
+		while (csvReader.readRecord()) {
 
 			currentPos++;
 
@@ -826,14 +840,14 @@ public class DictionaryManager {
 			Integer intransitiveId = Integer.valueOf(csvReader.get(1));
 
 			TransitiveIntransitivePair transitiveIntransitivePair = new TransitiveIntransitivePair();
-			
+
 			transitiveIntransitivePair.setTransitiveId(transitiveId);
 			transitiveIntransitivePair.setIntransitiveId(intransitiveId);
-			
+
 			transitiveIntransitivePairsList.add(transitiveIntransitivePair);
 		}
 
-		csvReader.close();		
+		csvReader.close();
 	}
 
 	public List<List<String>> getStrokePathsForWord(String word) {
@@ -896,9 +910,9 @@ public class DictionaryManager {
 				Log.d("FuriganaError", kanji + " - " + currentKana);
 			}
 		}
-		
+
 		List<FuriganaEntry> newResult = new ArrayList<FuriganaEntry>();
-		
+
 		for (FuriganaEntry currentFuriganaEntry : result) {
 			if (currentFuriganaEntry.matchKanaWithKanaPart() == true) {
 				newResult.add(currentFuriganaEntry);
@@ -906,14 +920,14 @@ public class DictionaryManager {
 		}
 
 		result = newResult;
-		
-		if (result.size() == 0) {			
+
+		if (result.size() == 0) {
 			return null;
 		}
 
 		return result;
 	}
-	
+
 	/*
 	private void getFuriganaForAll() throws DictionaryException {
 
@@ -984,7 +998,8 @@ public class DictionaryManager {
 
 						FuriganaEntry newCurrentFuriganaEntry = currentFuriganaEntry.createCopy();
 
-						boolean removeCharsFromCurrentKanaStateResult = newCurrentFuriganaEntry.removeCharsFromCurrentKanaState(currentKanjiReading.length());
+						boolean removeCharsFromCurrentKanaStateResult = newCurrentFuriganaEntry
+								.removeCharsFromCurrentKanaState(currentKanjiReading.length());
 
 						if (removeCharsFromCurrentKanaStateResult == true) {
 							newCurrentFuriganaEntry.addReading(kanjiEntry.getKanji(), currentKanjiReading);
@@ -999,11 +1014,11 @@ public class DictionaryManager {
 		}
 
 		if (furiganaEntries.size() == 0) {
-			
+
 			FuriganaEntry furiganaEntry = new FuriganaEntry(kanji, kana);
-			
+
 			furiganaEntry.addReading(kanji, kana);
-			
+
 			furiganaEntries.add(furiganaEntry);
 		}
 
@@ -1059,11 +1074,11 @@ public class DictionaryManager {
 				}
 			}
 		}
-		
+
 		// generate additional
-		
+
 		Map<String, String[]> generateAdditionalMap = new HashMap<String, String[]>();
-		
+
 		generateAdditionalMap.put("か", new String[] { "が" });
 		generateAdditionalMap.put("き", new String[] { "ぎ" });
 		generateAdditionalMap.put("く", new String[] { "ぐ" });
@@ -1087,24 +1102,24 @@ public class DictionaryManager {
 		generateAdditionalMap.put("ふ", new String[] { "ぶ", "ぷ" });
 		generateAdditionalMap.put("へ", new String[] { "べ", "ぺ" });
 		generateAdditionalMap.put("ほ", new String[] { "ぼ", "ぽ" });
-		
+
 		List<String> newResult = new ArrayList<String>();
-		
+
 		for (String currentResult : result) {
-			
+
 			if (currentResult.length() == 0) {
 				continue;
 			}
-			
+
 			String currentResultFirstCgar = String.valueOf(currentResult.charAt(0));
-			
+
 			String[] additionalValues = generateAdditionalMap.get(currentResultFirstCgar);
-			
+
 			if (additionalValues == null) {
 				newResult.add(currentResult);
 			} else {
 				newResult.add(currentResult);
-				
+
 				for (String currentAdditionalValue : additionalValues) {
 					newResult.add(currentAdditionalValue + currentResult.substring(1));
 				}
@@ -1180,7 +1195,7 @@ public class DictionaryManager {
 
 			result.add(reading2);
 		}
-		
+
 		return result;
 	}
 
@@ -1191,7 +1206,7 @@ public class DictionaryManager {
 	public ZinniaManager getZinniaManager() {
 		return zinniaManager;
 	}
-	
+
 	public WordTestSM2Manager getWordTestSM2Manager() {
 		return wordTestSM2Manager;
 	}
@@ -1199,7 +1214,7 @@ public class DictionaryManager {
 	public KanaHelper getKanaHelper() {
 		return kanaHelper;
 	}
-	
+
 	public KeigoHelper getKeigoHelper() {
 		return keigoHeper;
 	}
@@ -1207,7 +1222,7 @@ public class DictionaryManager {
 	@Override
 	protected void finalize() throws Throwable {
 		super.finalize();
-		
+
 		wordTestSM2Manager.close();
 
 		close();
@@ -1218,7 +1233,7 @@ public class DictionaryManager {
 	}
 
 	public List<DictionaryEntry> getGroupDictionaryEntries(GroupEnum groupName) {
-		
+
 		try {
 			return sqliteConnector.getGroupDictionaryEntries(groupName);
 		} catch (DictionaryException e) {
