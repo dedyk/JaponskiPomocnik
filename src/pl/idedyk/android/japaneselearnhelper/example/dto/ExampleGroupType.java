@@ -300,7 +300,9 @@ public enum ExampleGroupType {
 
 	VERB_NAKUTE_MO_KAMAWANAI("Nie jest konieczne (potrzebne)"),
 
-	VERB_NAKEREBA_NARANAI_NAKUTE_WA_NARANAI("Musieć 2 / Trzeba");
+	VERB_NAKEREBA_NARANAI_NAKUTE_WA_NARANAI("Musieć 2 / Trzeba"),
+
+	VERB_KA_MO_SHIRENAI("Być może");
 
 	// nakereba naranai
 	// nakute wa naranai

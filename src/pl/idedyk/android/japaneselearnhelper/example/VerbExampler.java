@@ -313,6 +313,10 @@ public class VerbExampler {
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NAKEREBA_NARANAI_NAKUTE_WA_NARANAI,
 				makeNakerebaNaranaiNakuteWaNaranai(dictionaryEntry, grammaFormCache));
 
+		// ka mo shirenai
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_KA_MO_SHIRENAI,
+				makeKaMoShirenai(dictionaryEntry, grammaFormCache));
+
 		return result;
 	}
 
@@ -2191,5 +2195,27 @@ public class VerbExampler {
 		}
 
 		return startExampleResult;
+	}
+
+	private static ExampleResult makeKaMoShirenai(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+
+		final String templateKanji1 = "%sかもしれない";
+		final String templateKana1 = "%sかもしれない";
+		final String templateRomaji1 = "%s ka mo shirenai";
+
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji1,
+				templateKana1, templateRomaji1, true);
+
+		final String templateKanji2 = "%sかもしれません";
+		final String templateKana2 = "%sかもしれません";
+		final String templateRomaji2 = "%s ka mo shiremasen";
+
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(dictionaryEntry, templateKanji2,
+				templateKana2, templateRomaji2, true);
+
+		exampleResult1.setAlternative(exampleResult2);
+
+		return exampleResult1;
 	}
 }
