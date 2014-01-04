@@ -181,7 +181,7 @@ public enum ExampleGroupType {
 
 	VERB_ADVICE("Rada"),
 
-	VERB_NAKUCHA_IKEMASEN("Musieć"),
+	VERB_NAKUCHA_IKEMASEN("Musieć 1"),
 
 	VERB_DESHOU("Prawdopodobnie, ok. 60%"),
 
@@ -298,7 +298,12 @@ public enum ExampleGroupType {
 
 	VERB_TE_MO_KAMAWANAI("Pozwolenie 2"),
 
-	VERB_NAKUTE_MO_KAMAWANAI("Nie jest konieczne (potrzebne)");
+	VERB_NAKUTE_MO_KAMAWANAI("Nie jest konieczne (potrzebne)"),
+
+	VERB_NAKEREBA_NARANAI_NAKUTE_WA_NARANAI("Musieć 2 / Trzeba");
+
+	// nakereba naranai
+	// nakute wa naranai
 
 	private String name;
 

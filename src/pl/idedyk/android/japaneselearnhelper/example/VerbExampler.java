@@ -308,6 +308,11 @@ public class VerbExampler {
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NAKUTE_MO_KAMAWANAI,
 				makeNakuteMoKamawanai(dictionaryEntry, grammaFormCache));
 
+		// nakereba naranai
+		// nakute wa naranai
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NAKEREBA_NARANAI_NAKUTE_WA_NARANAI,
+				makeNakerebaNaranaiNakuteWaNaranai(dictionaryEntry, grammaFormCache));
+
 		return result;
 	}
 
@@ -2126,6 +2131,41 @@ public class VerbExampler {
 
 		String[][] templates = new String[][] { { "%sくてもかまわない", "%sくてもかまわない", "%skute mo kamawanai" },
 				{ "%sくてもかまいません", "%sくてもかまいません", "%skute mo kamaimasen" } };
+
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache
+				.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
+
+		ExampleResult currentExampleResult = null;
+		ExampleResult startExampleResult = null;
+
+		for (int idx = 0; idx < templates.length; ++idx) {
+
+			if (idx == 0) {
+				startExampleResult = currentExampleResult = GrammaExampleHelper
+						.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templates[idx][0],
+								templates[idx][1], templates[idx][2], true);
+			} else {
+				ExampleResult alternativeExampleResult = GrammaExampleHelper
+						.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templates[idx][0],
+								templates[idx][1], templates[idx][2], true);
+
+				currentExampleResult.setAlternative(alternativeExampleResult);
+
+				currentExampleResult = alternativeExampleResult;
+			}
+		}
+
+		return startExampleResult;
+	}
+
+	private static ExampleResult makeNakerebaNaranaiNakuteWaNaranai(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+
+		String[][] templates = new String[][] { { "%sければならない", "%sければならない", "%skereba naranai" },
+				{ "%sければなりません", "sければなりません", "%skereba narimasen" }, { "%sくてはならない", "%sくてはならない", "%skute wa naranai" },
+				{ "%sくてはなりません", "%sくてはなりません", "%skute wa narimasen" }
+
+		};
 
 		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache
 				.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
