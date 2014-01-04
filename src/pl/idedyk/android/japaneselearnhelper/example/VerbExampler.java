@@ -300,6 +300,14 @@ public class VerbExampler {
 		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_TE_GORAN_NASAI,
 				makeTeGoranNasai(dictionaryEntry, grammaFormCache));
 
+		// te mo kamawanai
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_TE_MO_KAMAWANAI,
+				makeTeMoKamawanai(dictionaryEntry, grammaFormCache));
+
+		// nakute mo kamawanai
+		GrammaExampleHelper.addExample(result, ExampleGroupType.VERB_NAKUTE_MO_KAMAWANAI,
+				makeNakuteMoKamawanai(dictionaryEntry, grammaFormCache));
+
 		return result;
 	}
 
@@ -2087,5 +2095,61 @@ public class VerbExampler {
 				templateKana1, templateRomaji1, false);
 
 		return exampleResult1;
+	}
+
+	private static ExampleResult makeTeMoKamawanai(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+
+		GrammaFormConjugateResult teForm = grammaFormCache.get(GrammaFormConjugateResultType.VERB_TE);
+
+		final String templateKanji1 = "%sもかまわない";
+		final String templateKana1 = "%sもかまわない";
+		final String templateRomaji1 = "%s mo kamawanai";
+
+		ExampleResult exampleResult1 = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji1,
+				templateKana1, templateRomaji1, false);
+
+		final String templateKanji2 = "%sもかまいません";
+		final String templateKana2 = "%sもかまいません";
+		final String templateRomaji2 = "%s mo kamaimasen";
+
+		ExampleResult exampleResult2 = GrammaExampleHelper.makeSimpleTemplateExample(teForm, templateKanji2,
+				templateKana2, templateRomaji2, false);
+
+		exampleResult1.setAlternative(exampleResult2);
+
+		return exampleResult1;
+	}
+
+	private static ExampleResult makeNakuteMoKamawanai(DictionaryEntry dictionaryEntry,
+			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+
+		String[][] templates = new String[][] { { "%sくてもかまわない", "%sくてもかまわない", "%skute mo kamawanai" },
+				{ "%sくてもかまいません", "%sくてもかまいません", "%skute mo kamaimasen" } };
+
+		GrammaFormConjugateResult informalPresentNegativeForm = grammaFormCache
+				.get(GrammaFormConjugateResultType.VERB_INFORMAL_PRESENT_NEGATIVE);
+
+		ExampleResult currentExampleResult = null;
+		ExampleResult startExampleResult = null;
+
+		for (int idx = 0; idx < templates.length; ++idx) {
+
+			if (idx == 0) {
+				startExampleResult = currentExampleResult = GrammaExampleHelper
+						.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templates[idx][0],
+								templates[idx][1], templates[idx][2], true);
+			} else {
+				ExampleResult alternativeExampleResult = GrammaExampleHelper
+						.makeSimpleTemplateExampleWithLastCharRemove(informalPresentNegativeForm, templates[idx][0],
+								templates[idx][1], templates[idx][2], true);
+
+				currentExampleResult.setAlternative(alternativeExampleResult);
+
+				currentExampleResult = alternativeExampleResult;
+			}
+		}
+
+		return startExampleResult;
 	}
 }

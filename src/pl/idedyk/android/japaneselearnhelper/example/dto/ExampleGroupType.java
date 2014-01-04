@@ -165,7 +165,7 @@ public enum ExampleGroupType {
 
 	VERB_TE_KUDASAI("Prośba"),
 
-	VERB_TE_MO_II("Pozwolenie", "Dosłowne: nawet jeśli coś zrobisz, będzie dobrze"),
+	VERB_TE_MO_II("Pozwolenie 1", "Dosłowne: nawet jeśli coś zrobisz, będzie dobrze"),
 
 	VERB_TE_HA_IKEMASEN("Zakaz 1"),
 
@@ -296,7 +296,9 @@ public enum ExampleGroupType {
 
 	VERB_TE_GORAN_NASAI("Proszę spróbuj", "Uwaga: nie używane wobec osób o wyższym statusie"),
 
-	VERB_TE_MO_KAMAWANAI("Nie szkodzi / Można");
+	VERB_TE_MO_KAMAWANAI("Pozwolenie 2"),
+
+	VERB_NAKUTE_MO_KAMAWANAI("Nie jest konieczne (potrzebne)");
 
 	private String name;
 
