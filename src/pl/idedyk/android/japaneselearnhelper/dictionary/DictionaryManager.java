@@ -41,6 +41,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.database.SQLException;
 import android.os.Environment;
+import android.os.StatFs;
 import android.util.Log;
 
 import com.csvreader.CsvReader;
@@ -110,8 +111,27 @@ public class DictionaryManager {
 			if (baseDir.isDirectory() == false) {
 
 				if (baseDir.mkdirs() == false) {
-					loadWithProgress
-							.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
+
+					StringBuffer errorMessage = new StringBuffer();
+
+					errorMessage
+							.append("1) ")
+							.append(resources.getString(R.string.dictionary_manager_create_directories_error) + "\n\n"
+									+ baseDir).append("\n\n");
+
+					StatFs stat = new StatFs(externalStorageDirectory.getAbsolutePath());
+
+					int availableBlocks = stat.getAvailableBlocks();
+					int blockCount = stat.getBlockCount();
+					int blockSize = stat.getBlockSize();
+					int freeBlocks = stat.getFreeBlocks();
+
+					errorMessage.append("availableBlocks: " + availableBlocks).append("\n");
+					errorMessage.append("freeBlocks: " + freeBlocks).append("\n");
+					errorMessage.append("blockCount: " + blockCount).append("\n");
+					errorMessage.append("blockSize: " + blockSize).append("\n");
+
+					loadWithProgress.setError(errorMessage.toString());
 
 					return;
 				}
@@ -123,8 +143,26 @@ public class DictionaryManager {
 			if (databaseDir.isDirectory() == false) {
 
 				if (databaseDir.mkdirs() == false) {
-					loadWithProgress
-							.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
+					StringBuffer errorMessage = new StringBuffer();
+
+					errorMessage
+							.append("2) ")
+							.append(resources.getString(R.string.dictionary_manager_create_directories_error) + "\n\n"
+									+ baseDir).append("\n\n");
+
+					StatFs stat = new StatFs(externalStorageDirectory.getAbsolutePath());
+
+					int availableBlocks = stat.getAvailableBlocks();
+					int blockCount = stat.getBlockCount();
+					int blockSize = stat.getBlockSize();
+					int freeBlocks = stat.getFreeBlocks();
+
+					errorMessage.append("availableBlocks: " + availableBlocks).append("\n");
+					errorMessage.append("freeBlocks: " + freeBlocks).append("\n");
+					errorMessage.append("blockCount: " + blockCount).append("\n");
+					errorMessage.append("blockSize: " + blockSize).append("\n");
+
+					loadWithProgress.setError(errorMessage.toString());
 
 					return;
 				}
