@@ -15,6 +15,8 @@ public enum DictionaryEntryType {
 
 	WORD_NOUN("rzeczownik"),
 
+	WORD_TEMPORAL_NOUN("rzeczownik czasowy"),
+
 	WORD_VERB_U("u-czasownik"),
 
 	WORD_VERB_RU("ru-czasownik"),
@@ -23,7 +25,11 @@ public enum DictionaryEntryType {
 
 	WORD_VERB_IRREGULAR("czasownik nieregularny"),
 
+	WORD_VERB_ZURU("czasownik zuru"),
+
 	WORD_ADJECTIVE_I("i-przymiotnik"),
+
+	WORD_AUX_ADJECTIVE_I("pomocniczy i-przymiotnik"),
 
 	WORD_ADJECTIVE_NA("na-przymiotnik"),
 
@@ -36,6 +42,12 @@ public enum DictionaryEntryType {
 	WORD_ASK("słówka pytające"),
 
 	WORD_ADVERB("przysłówek"),
+
+	WORD_ADVERB_TO("przysłówek z partykułą to"),
+
+	WORD_ADVERBIAL_NOUN("rzeczownik przysłówkowy"),
+
+	WORD_PRE_NOUN_ADVERBIAL("pre rzeczownik przysłówkowy"),
 
 	WORD_DAY_NUMBER("numer dnia"),
 
@@ -66,6 +78,10 @@ public enum DictionaryEntryType {
 	WORD_PARTICULE("partykuła"),
 
 	WORD_INTERJECTION("wykrzyknik"),
+
+	WORD_AUX("pomocniczy"),
+
+	WORD_EMPTY("pusty"),
 
 	UNKNOWN("nieznany");
 

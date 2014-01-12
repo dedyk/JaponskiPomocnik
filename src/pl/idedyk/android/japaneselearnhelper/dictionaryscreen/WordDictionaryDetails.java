@@ -724,10 +724,12 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new StringValue(String.valueOf(groups.get(groupsIdx).getValue()), 20.0f, 0));
 		}
 
+		/*
 		// dictionary position
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_position), 0));
 
 		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));
+		*/
 
 		// known kanji
 		List<KanjiEntry> knownKanji = null;
