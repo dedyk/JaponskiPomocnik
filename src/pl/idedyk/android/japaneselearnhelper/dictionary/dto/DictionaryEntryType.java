@@ -27,13 +27,15 @@ public enum DictionaryEntryType {
 
 	WORD_VERB_ZURU("czasownik zuru"),
 
+	WORD_VERB_AUX("czasownik pomocniczy"),
+
 	WORD_ADJECTIVE_I("i-przymiotnik"),
 
-	WORD_AUX_ADJECTIVE_I("pomocniczy i-przymiotnik"),
+	WORD_AUX_ADJECTIVE_I("i-przymiotnik (pomocniczy)"),
 
 	WORD_ADJECTIVE_NA("na-przymiotnik"),
 
-	WORD_KANJI_READING("kanji czytanie"),
+	WORD_ADJECTIVE_TARU("taru-przymiotnik"),
 
 	WORD_EXPRESSION("wyrażenia"),
 
@@ -79,7 +81,7 @@ public enum DictionaryEntryType {
 
 	WORD_INTERJECTION("wykrzyknik"),
 
-	WORD_AUX("pomocniczy"),
+	WORD_AUX("słówko pomocnicze"),
 
 	WORD_EMPTY("pusty"),
 
@@ -103,13 +105,29 @@ public enum DictionaryEntryType {
 		addableDictionaryEntryList = new ArrayList<DictionaryEntryType>();
 
 		addableDictionaryEntryList.add(WORD_GREETING);
+		addableDictionaryEntryList.add(WORD_PARTICULE);
+		addableDictionaryEntryList.add(WORD_COUNTERS);
 		addableDictionaryEntryList.add(WORD_NOUN);
+		addableDictionaryEntryList.add(WORD_TEMPORAL_NOUN);
 		addableDictionaryEntryList.add(WORD_ADJECTIVE_I);
+		addableDictionaryEntryList.add(WORD_AUX_ADJECTIVE_I);
 		addableDictionaryEntryList.add(WORD_ADJECTIVE_NA);
+		addableDictionaryEntryList.add(WORD_ADJECTIVE_TARU);
 		addableDictionaryEntryList.add(WORD_VERB_U);
 		addableDictionaryEntryList.add(WORD_VERB_RU);
 		addableDictionaryEntryList.add(WORD_VERB_IRREGULAR);
+		addableDictionaryEntryList.add(WORD_VERB_ZURU);
+		addableDictionaryEntryList.add(WORD_VERB_TE);
+		addableDictionaryEntryList.add(WORD_VERB_AUX);
 		addableDictionaryEntryList.add(WORD_ADVERB);
+		addableDictionaryEntryList.add(WORD_ADVERB_TO);
+		addableDictionaryEntryList.add(WORD_ADVERBIAL_NOUN);
+		addableDictionaryEntryList.add(WORD_PRE_NOUN_ADVERBIAL);
+		addableDictionaryEntryList.add(WORD_PRONOUN);
+		addableDictionaryEntryList.add(WORD_CONJUNCTION);
+		addableDictionaryEntryList.add(WORD_INTERJECTION);
+		addableDictionaryEntryList.add(WORD_AUX);
+		addableDictionaryEntryList.add(WORD_EXPRESSION);
 		addableDictionaryEntryList.add(WORD_NAME);
 		addableDictionaryEntryList.add(WORD_MALE_NAME);
 		addableDictionaryEntryList.add(WORD_FEMALE_NAME);

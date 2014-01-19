@@ -91,6 +91,12 @@ public class DictionaryHear extends Activity {
 				.getInstance().getContext().getDictionaryHearContext();
 
 		List<DictionaryEntry> dictionaryEntryList = dictionaryHearContext.getDictionaryEntryList();
+
+		if (dictionaryEntryList == null || dictionaryEntryList.size() == 0) {
+			stop();
+			finish();
+		}
+
 		int dictionaryEntryListIdx = dictionaryHearContext.getDictionaryEntryListIdx();
 
 		if (dictionaryEntryListIdx >= dictionaryEntryList.size()) {
