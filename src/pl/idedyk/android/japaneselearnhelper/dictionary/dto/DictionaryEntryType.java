@@ -14,6 +14,8 @@ public enum DictionaryEntryType {
 	WORD_AGE("wiek"),
 
 	WORD_NOUN("rzeczownik"),
+	
+	WORD_NOUN_VERB_ACTING_PRENOMINALLY("???"),
 
 	WORD_TEMPORAL_NOUN("rzeczownik czasowy"),
 
