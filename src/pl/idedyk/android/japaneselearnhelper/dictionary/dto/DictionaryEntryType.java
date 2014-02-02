@@ -15,6 +15,8 @@ public enum DictionaryEntryType {
 
 	WORD_NOUN("rzeczownik"),
 	
+	WORD_PRE_NOUN_ADJECTIVAL("???"),
+	
 	WORD_NOUN_VERB_ACTING_PRENOMINALLY("???"),
 
 	WORD_TEMPORAL_NOUN("rzeczownik czasowy"),

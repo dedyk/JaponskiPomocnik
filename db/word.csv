@@ -548,8 +548,8 @@ Genki kanji 1-10",,朝,あさ,,asa,rano,,
 232,WORD_TEMPORAL_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-3
 Genki 1-4
 Genki kanji 1-11",,明日,あした,,ashita,jutro,,
-233,WORD_ASK,KANA_ALONE,HIRAGANA,Genki 1-3,,-,いつ,,itsu,"kiedy
-zawsze",,
+233,WORD_ASK,"COMMON_WORD
+KANA_ALONE",HIRAGANA,Genki 1-3,,何時,いつ,,itsu,kiedy,,
 234,WORD_TEMPORAL_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-3
 Genki 1-4
 Genki kanji 1-5",,今日,きょう,,kyou,"dziś
@@ -2676,7 +2676,8 @@ być zdenerwowany",,
 Genki kanji 2-20
 Genki kanji 2-21",,心配する,しんぱいする,,shinpai suru,"martwić się
 niepokoić się",,
-917,WORD_ADVERB,KANA_ALONE,HIRAGANA,Genki 1-12,,-,いつも,,itsumo,zawsze,,
+917,WORD_ADVERB,"COMMON_WORD
+KANA_ALONE",HIRAGANA,Genki 1-12,,何時も,いつも,,itsumo,zawsze,,
 918,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Genki 1-12,,お大事に,おだいじに,,odaijini,"będzie dobrze
 trzymaj się",,
 919,WORD_EXPRESSION,,HIRAGANA,Genki 1-12,,元気がない,げんきがない,,genki ga nai,słabo wyglądać,,
@@ -33892,3 +33893,544 @@ chwilowy paraliż
 paraliż senny",,
 14156,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,錦,にしき,,nishiki,"brokat (materiał)
 delikatny materiał",,
+14157,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,フォアボール,,foabooru,base on balls,"w baseballu przyznanie pałkarzowi pierwszej bazy, po narzuceniu czterech balli przez miotacza.",
+14158,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ライダー,,raidaa,jeździec,,
+14159,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,乱れ,みだれ,,midare,"nieporządek
+bałagan
+zaburzenie
+zakłócenie
+zamieszki
+wzburzenie
+ferment",,
+14160,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,代打,だいだ,,daida,pinch hitting,"sytuacja, w której zawodnik rezerwowy wchodzi do gry za pałkarza (ang. hitter)",
+14161,WORD_NOUN,,HIRAGANA,Inne,,代打者,だいだしゃ,,daidasha,pinch hitter,zawodnik rezerwowy wchodzący do gry za pałkarza (ang. hitter),
+14162,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,作付面積,さくづけめんせき,,sakuduke menseki,"obszar, w którym uprawia się rośliny",,
+14163,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,偏差値,へんさち,,hensachi,wartość odchylenia,statystyka,
+14164,"WORD_NOUN
+WORD_ADVERB",COMMON_WORD,HIRAGANA,Inne,,山々,やまやま,,yama yama,"wiele gór
+bardzo
+bardzo dużo
+sporo",,
+14165,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,斡旋,あっせん,,assen,"mediacja
+pośrednictwo
+wstawiennictwo",,
+14166,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,正当防衛,せいとうぼうえい,,seitou bouei,samoobrona,,
+14167,"WORD_NOUN
+WORD_PRONOUN",COMMON_WORD,HIRAGANA,Inne,,足元,あしもと,,ashimoto,"jeden krok
+chód
+krok
+ty",,
+14168,WORD_PARTICULE,"COMMON_WORD
+SUFFIX",HIRAGANA,Inne,,-,だてらに,,daterani,???,,
+14169,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,クリエーター,,kurieetaa,"twórca
+kreator",,
+14170,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ボイスレコーダー,,boisurekoodaa,dyktafon,,
+14171,WORD_NOUN,COMMON_WORD,HIRAGANA_KATAKANA,Inne,,コピー機,コピーき,,kopii ki,"kopiarka
+kserokopiarka
+powielacz",,
+14172,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,交友,こうゆう,,kouyuu,"przyjaciel
+kolega
+towarzysz
+kompan",,
+14173,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,切り下げ,きりさげ,,kirisage,"dewaluacja (np. waluty)
+zniżenie
+obniżenie (np. chodnika)",,
+14174,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,務め,つとめ,,tsutome,"służba
+praca
+obowiązek
+odpowiedzialność
+posługa buddyjska",,
+14175,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,司令,しれい,,shirei,"dowodzenie
+polecenie
+rozkaz
+komenda
+dowódca
+komandor",,
+14176,"WORD_ADVERBIAL_NOUN
+WORD_ADVERB_TO",COMMON_WORD,HIRAGANA,Inne,,紀元前,きげんぜん,,kigenzen,przed naszą erą,,
+14177,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,隈なく,くまなく,,kumanaku,"wszędzie
+całkowicie
+w każdym zakątku i szczelinie",,
+14178,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ハイブリッド,,haiburiddo,hybryda,,
+14179,WORD_NOUN,,KATAKANA,Inne,,-,ハイブリッドカー,,haiburiddo kaa,samochód hybrydowy,,
+14180,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,全身,ぜんしん,,zenshin,"całe ciało
+całej długości (np. portret)",,
+14181,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,河川敷,かせんしき,,kasenshiki,"teren zalewowy
+terasa rzeczna",,
+14182,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,激怒,げきど,,gekido,"wściekłość
+szał
+furia
+szaleństwo
+oburzenie
+gniew
+rozdrażnienie",,
+14183,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,１対１,いちたいいち,,ichi tai ichi,jeden na jednego,,
+14184,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,イーグル,,iiguru,orzeł,,
+14185,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,エクストラ,,ekusutora,"extra
+dodatkowy",,
+14186,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,オペレーター,,opereetaa,"operator
+operatorka
+telefonista
+telefonistka",,
+14187,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,キャンペーン,,kyanpeen,"kampania (reklamowa, wyborcza, militarna)
+akcja",,
+14188,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,バニラ,,banira,wanilia,,
+14189,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ピル,,piru,tabletka antykoncepcyjna,,
+14190,WORD_NOUN,,HIRAGANA,Inne,,経口避妊薬,けいこうひにんやく,,keikou hinin'yaku,tabletka antykoncepcyjna,,
+14191,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,一例,いちれい,,ichirei,przykład,,
+14192,WORD_NOUN,COMMON_WORD,KATAKANA_EXCEPTION,Inne,,-,フラワーアレンジメント,,furawaa' arenjimento,"aranżacja kwiatów
+kompozycja kwiatowa",,
+14193,"WORD_TEMPORAL_NOUN
+WORD_ADVERBIAL_NOUN",COMMON_WORD,HIRAGANA,Inne,,今秋,こんしゅう,,konshuu,obecna jesień,,
+14194,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,仮装,かそう,,kasou,"kostium
+strój
+ubiór
+maskarada
+przebranie",,
+14195,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,動揺,どうよう,,douyou,"trzęsienie
+drżenie
+wibracja
+drganie
+wzburzenie
+ferment
+niepokój",,
+14196,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,吸い込む,すいこむ,,suikomu,"wdychać
+inhalować
+wziewać
+zaciągać
+robić wdech
+wciągać
+wsysać
+chłonąć
+absorbować
+wchłaniać",,
+14197,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,喫茶,きっさ,,kissa,"picie herbaty
+herbaciarnia",,
+14198,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,幕下,まくした,,makushita,makushita,trzecia dywizja w sumo zawodowym,
+14199,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,当人,とうにん,,tounin,"zaniepokojony człowiek
+zmartwiony człowiek
+niespokojny człowiek",,
+14200,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,接種,せっしゅ,,sesshu,szczepienie,,
+14201,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,明かす,あかす,,akasu,"rozgłaszać
+rozgłosić
+ujawniać
+wyjawić
+odsłonić",,
+14202,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,根底,こんてい,,kontei,"fundament
+podstawa
+baza",,
+14203,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,直接税,ちょくせつぜい,,chokusetsuzei,podatek bezpośredni,,
+14204,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,稼ぎ,かせぎ,,kasegi,"zarobek
+dochód
+zysk",,
+14205,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,肩代わり,かたがわり,,katagawari,???,,
+14206,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,迷い,まよい,,mayoi,"niezdecydowanie
+rozterka
+chwiejność
+oszołomienie
+dezorientacja
+konsternacja
+osłupienie",,
+14207,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,酵母,こうぼ,,koubo,"drożdże
+zakwas",,
+14208,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,雪解け,ゆきどけ,,yuki doke,"topnienie się śniegu
+roztapianie się śniegu
+odwilż
+roztopy",,
+14209,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,食肉,しょくにく,,shokuniku,mięso,do jedzenia,
+14210,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,黒海,こっかい,,kokkai,Morze Czarne,,
+14211,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,サスペンション,,sasupenshon,zawieszenie (np. pojazdu),,
+14212,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,スクリプター,,sukuriputaa,osoba odpowiedzialna za skrypt,,
+14213,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,トランジスタ,,toranjisuta,tranzystor,,
+14214,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ユナイテッド,,yunaiteddo,"zjednoczenie
+połączenie
+złączenie",,
+14215,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,三代,さんだい,,sandai,"trzecie pokolenie
+trzecia generacja
+trzecia epoka
+trzeci okres",,
+14216,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,人前,にんまえ,,ninmae,porcja jedzenia,,
+14217,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,人前,ひとまえ,,hitomae,"publiczny
+spółka
+firma
+przedsiębiorstwo",,
+14218,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,公演,こうえん,,kouen,"publiczny przedstawienie
+publiczny występ
+publiczne wykonanie
+pokaz sumo w zagranicznym kraju",,
+14219,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,前哨戦,ぜんしょうせん,,zenshousen,"potyczka
+utarczka
+walka
+eliminacje (w sporcie)",wstępna,
+14220,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,吊るす,つるす,,tsurusu,"wieszać
+wisieć",,
+14221,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,和英,わえい,,waei,japońsko-angielski,,
+14222,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,太り肉,ふとりじし,,futorijishi,"grubość
+tęgość",,
+14223,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,市町村,しちょうそん,,shichouson,"miasta
+miasta i wsie",,
+14224,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,座り,すわり,,suwari,"siedzenie (czynność)
+stabilność
+trwałość",,
+14225,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,彫像,ちょうぞう,,chouzou,"rzeźba
+posąg
+wyrzeźbiony posąg
+bożek",,
+14226,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,文化庁,ぶんかちょう,,bunkachou,agencja do spraw kultury,w Japonii,
+14227,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,日光浴,にっこうよく,,nikkouyoku,"opalanie się
+kąpiele słoneczne",,
+14228,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,有事,ゆうじ,,yuuji,"sytuacja awaryjna
+nagły wypadek
+niebezpieczeństwo",,
+14229,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,本流,ほんりゅう,,honryuu,"główny nurt
+główny strumień","myślenia, poglądów",
+14230,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,片思い,かたおもい,,kataomoi,nieodwzajemniona miłość,,
+14231,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,特設,とくせつ,,tokusetsu,"specjalne przygotowania
+specjalne ustawienie",,
+14232,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,短大,たんだい,,tandai,studia licencjackie,,
+14233,WORD_NOUN,,HIRAGANA,Inne,,短大生,たんだいせい,,tandaisei,student studiów licencjackich,,
+14234,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,見せびらかす,みせびらかす,,misebirakasu,"popisywać się
+afiszować się
+paradować
+szpanować",,
+14235,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,資本金,しほんきん,,shihonkin,kapitał akcyjny,,
+14236,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,趣旨,しゅし,,shushi,"znaczenie
+sens
+punkt (stwierdzenia, informacji)
+istota
+sedno",,
+14237,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,週休,しゅうきゅう,,shuukyuu,tygodniowy urlop,,
+14238,WORD_NOUN,,HIRAGANA,Inne,,週休二日制,しゅうきゅうふつかせい,,shuukyuu futsukasei,pięciodniowy tydzień pracy,,
+14239,WORD_PRE_NOUN_ADJECTIVAL,COMMON_WORD,HIRAGANA,Inne,,-,とんだ,,tonda,"niewyobrażalny
+niepojęty
+nie do pomyślenia
+niespodziewany
+okropny
+straszny
+fatalny
+wstrętny",,
+14240,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,サーファー,,saafaa,surfer,,
+14241,"WORD_ADJECTIVE_NA
+WORD_NOUN","COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,几帳面,きちょうめん,,kichoumen,"metodyczny
+systematyczny
+planowy
+punktualny",,
+14242,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,本島,ほんとう,,hontou,"główna wyspa
+najważniejsza wyspa",,
+14243,WORD_NOUN,,HIRAGANA,Inne,,本島人,ほんとうじん,,hontoujin,mieszkaniec głównej wyspy,,
+14244,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,補正予算,ほせいよさん,,hoseiyosan,"poprawiony budżet
+znowelizowany budżet
+budżet uzupełniający",,
+14245,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,幕内,まくうち,,makuuchi,makuuchi,jedna z dywizji w sumo zawodowym,
+14246,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,歯科衛生士,しかえいせいし,,shikaeiseishi,higienista dentystyczny,,
+14247,"WORD_ADJECTIVE_NA
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,流暢,りゅうちょう,,ryuuchou,"biegły
+płynny",w posługiwaniu się językiem obcym,
+14248,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,紛れ,まぐれ,,magure,"fuks
+fart
+szansa
+sposobność
+okazja
+przypadek",,
+14249,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,草書,そうしょ,,sousho,"kursywny tekst
+“trawiasty” styl kanji",,
+14250,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,テトラクロロエチレン,,tetorakuroroechiren,"tetrachloroeten
+czterochlorek etylenu",,
+14251,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,フォード,,foodo,Ford,marka samochodu,
+14252,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,稼業,かぎょう,,kagyou,"zajęcie
+zawód
+business
+interes
+handel",,
+14253,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,身上,しんじょう,,shinjou,"ciało
+pozycja społeczna",,
+14254,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,食べ過ぎる,たべすぎる,,tabesugiru,"przejadać się
+przejeść się",,
+14255,WORD_NOUN,"COMMON_WORD
+SURU_VERB",KATAKANA,Inne,,-,リザーブ,,rizaabu,"rezerwa
+rezerwowanie",,
+14256,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ロングセラー,,rongu seraa,produkt sprzedawany przez długi okres czasu,,
+14257,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,出力,しゅつりょく,,shutsuryoku,wyjście,"np. elektryczne, sygnału i etc",
+14258,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,辛口,からくち,,karakuchi,"wytrawny smak (np. wino, sake)
+słonawy smak
+cierpki smak
+cięty smak",,
+14259,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,銃弾,じゅうだん,,juudan,"kula
+nabój
+pocisk",z karabinu,
+14260,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,倒錯,とうさく,,tousaku,"perwersja
+inwersja
+odwrócenie",,
+14261,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,国士,こくし,,kokushi,"wybitny obywatel
+patriota",,
+14262,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,帝京,ていきょう,,teikyou,"stolica
+Teikyo",,
+14263,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,筋書き,すじがき,,sujigaki,"zarys
+szkic
+konspekt",,
+14264,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,酷評,こくひょう,,kokuhyou,"surowa krytyka
+potępienie",,
+14265,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,トリウム,,toriumu,tor,pierwiastek,
+14266,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,マルチメディア,,maruchimedia,multimedia,,
+14267,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,分からず屋,わからずや,,wakarazuya,"uparty człowiek
+uporczywy człowiek
+zakuty łeb
+dureń
+jełop
+głupek",,
+14268,"WORD_TEMPORAL_NOUN
+WORD_ADVERBIAL_NOUN",COMMON_WORD,HIRAGANA,Inne,,即日,そくじつ,,sokujitsu,ten sam dzień,,
+14269,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,土手,どて,,dote,"nasyp
+wał
+skarpa",,
+14270,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,変身,へんしん,,henshin,"metamorfoza
+przeobrażenie
+przekształcenie
+transformacja
+przebranie",,
+14271,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,奮闘,ふんとう,,funtou,"ciężka walka
+ciężkie zmaganie
+usilne staranie",,
+14272,"WORD_NOUN
+WORD_ADJECTIVE_NA",COMMON_WORD,HIRAGANA,Inne,,無能,むのう,,munou,"nieudolność
+nieskuteczność",,
+14273,WORD_EXPRESSION,COMMON_WORD,HIRAGANA,Inne,,言うまでもない,いうまでもない,,iu made monai,"nie trzeba nic mówić
+nic nie trzeba dodać
+ależ oczywiście
+rzecz jasna",,
+14274,WORD_EXPRESSION,,HIRAGANA,Inne,,言うまでもない,ゆうまでもない,,yuu made monai,"nie trzeba nic mówić
+nic nie trzeba dodać
+ależ oczywiście
+rzecz jasna",,
+14275,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ゴールライン,,gooru rain,linia bramkowa,,
+14276,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ニューズウィーク,,nyuuzu wiiku,Newsweek,,
+14277,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+KANA_ALONE",HIRAGANA,Inne,,やり繰り,やりくり,,yarikuri,"radzenie się
+radzić",,
+14278,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,主因,しゅいん,,shuin,"główna przyczyna
+główny czynnik",,
+14279,WORD_EMPTY,"COMMON_WORD
+PREFIX
+NOUN_SUFFIX",HIRAGANA,Inne,,御中,おんちゅう,,onchuu,"pan
+pani
+do wiadomości ...",,
+14280,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,未知数,みちすう,,michisuu,nieznany numer,,
+14281,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,沿海州,えんかいしゅう,,enkaishuu,Kraj Nadmorski,jednostka administracyjna Federacji Rosyjskiej w Dalekowschodnim Okręgu Federalnym ze stolicą we Władywostoku,
+14282,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,浮き,うき,,uki,"spławik
+boja
+pława",,
+14283,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,移り変わり,うつりかわり,,utsurikawari,zmiana,np. pór roku,
+14284,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,退社,たいしゃ,,taisha,"opuszczanie biura
+kończenie pracy (na koniec dnia)
+rezygnacja
+ustąpienie",,
+14285,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,傍観,ぼうかん,,boukan,"przeglądanie się (czemuś)
+przyglądać się
+patrzeć
+przypatrywanie się (czemuś)
+pozostać widzem",,
+14286,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,円卓,えんたく,,entaku,"okrągły stół
+okrągły stolik",,
+14287,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,山形,やまがた,,yamagata,"Yamagata (nazwa prefektury)
+w kształcie góry",,
+14288,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,背後,はいご,,haigo,"tył
+tło
+za kulisami",,
+14289,"WORD_ADVERBIAL_NOUN
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,際,さい,,sai,"z okazji
+w sytuacji",,
+14290,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,エビ,,ebi,"krewetka
+homar
+rak",,
+14291,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,スポンジ,,suponji,gąbka,,
+14292,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,パブ,,pabu,pub,,
+14293,WORD_NOUN,"COMMON_WORD
+SURU_VERB",KATAKANA,Inne,,-,フィーバー,,fiibaa,"gorączka
+rozgorączkowanie
+podwyższona temperatura ciała",,
+14294,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,叙勲,じょくん,,jokun,"przyznawanie odznaczeń
+przyznawanie orderów",,
+14295,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,幽閉,ゆうへい,,yuuhei,"uwięzienie
+pozbawienie wolności
+ograniczenie wolności
+areszt domowy",,
+14296,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,持て成す,もてなす,,motenasu,"zabawiać
+bawić (kogoś)
+ugościć
+przyjmować gości",,
+14297,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,搬入,はんにゅう,,hannyuu,"wnosić
+wwozić
+przynosić
+przewozić
+nosić","np. ciężkie przedmioty, meble, obrazy",
+14298,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,砂丘,さきゅう,,sakyuu,"piaskowa wydma
+piaskowa góra",,
+14299,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,長者,ちょうじゃ,,chouja,"senior
+starszy wiekiem
+milioner
+bogaty człowiek
+przełożony
+zwierzchnik
+szef",,
+14300,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ゲイリブ,,gei ribu,wyzwolenie gejów,,
+14301,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ナフサ,,nafusa,benzyna ciężka,zawierająca węglowodory o liczbie atomów węgla od 10 do 15-16,
+14302,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,フランスパン,,furansu pan,bagietka,francuska,
+14303,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ペレストロイカ,,peresutoroika,pierestrojka,,
+14304,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ボルテージ,,boruteeji,napięcie,elektryczne,
+14305,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ライオンズクラブ,,raionzu kurabu,Lions Club,"filantropijna organizacja pozarządowa, skupiająca swych członków na zasadzie wolontariatu",
+14306,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,互選,ごせん,,gosen,"wspólny wybór
+kooptacja",,
+14307,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,取り外す,とりはずす,,torihazusu,"zdejmowanie
+rozbieranie
+rozmontowanie
+zdemontowanie
+oddzielenie
+odłączenie",,
+14308,WORD_VERB_RU,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,見惚れる,みとれる,,mitoreru,"być pochłoniętym (czymś)
+być zaczarowanym
+być zaklętym",,
+14309,WORD_VERB_RU,VERB_INTRANSITIVITY,HIRAGANA,Inne,,見惚れる,みほれる,,mihoreru,"być pochłoniętym (czymś)
+być zaczarowanym
+być zaklętym",,
+14310,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,音程,おんてい,,ontei,interwał muzyczny,,
+14311,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,全盛,ぜんせい,,zensei,"szczyt dobrobytu
+szczyt powodzenia
+szczyt pomyślności",,
+14312,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,混合,こんごう,,kongou,"mieszanie
+miksowanie
+mieszanina
+mikstura
+krzyżowanie ras",,
+14313,"WORD_ADJECTIVE_NA
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,絶妙,ぜつみょう,,zetsumyou,"znakomity
+wyborny
+wyśmienity
+doskonały
+perfekcyjny
+cudowny",,
+14314,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,進入,しんにゅう,,shinnyuu,"penetracja
+przenikanie
+wejście",,
+14315,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,集まり,あつまり,,atsumari,"zebranie
+zgromadzenie
+zbiórka
+spotkanie",,
+14316,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,アマチュア,,amachua,amator,,
+14317,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,アマ,,ama,amator,,
+14318,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ディズニー,,dizunii,Disney,,
+14319,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,侵攻,しんこう,,shinkou,"inwazja
+najazd
+najście
+wtargnięcie",,
+14320,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,宣告,せんこく,,senkoku,"skazanie
+osądzenie
+osąd
+wyrokowanie
+werdykt
+wyrok",,
+14321,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,征服,せいふく,,seifuku,"podbój
+podbicie
+zdobycie
+pokonanie",,
+14322,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,成立,せいりつ,,seiritsu,"powstać
+powstawać
+zaistnieć
+ustanawiać
+ustanowienie",,
+14323,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,手持ち,てもち,,temochi,"trzymanie
+przechowywanie
+posiadanie
+holding
+towar do dyspozycji",,
+14324,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,正道,せいどう,,seidou,"ścieżka praworządności
+ścieżka sprawiedliwości
+właściwa droga",,
+14325,WORD_NOUN,,HIRAGANA,Inne,,正道,しょうどう,,shoudou,"ścieżka praworządności
+ścieżka sprawiedliwości
+właściwa droga",,
+14326,"WORD_NOUN
+WORD_ADJECTIVE_NA",COMMON_WORD,HIRAGANA,Inne,,裕福,ゆうふく,,yuufuku,"dostatek
+bogactwo
+zasobność
+zamożność
+dobrobyt
+powodzenie
+pomyślność",,
+14327,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,通信販売,つうしんはんばい,,tsuushin hanbai,sprzedaż wysyłkowa,,
+14328,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ジュエリー,,juerii,"biżuteria
+klejnoty",,
+14329,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,体内,たいない,,tainai,wnętrze ciała,,
+14330,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,公益,こうえき,,koueki,dobra publiczne,,
+14331,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,天神,てんじん,,tenjin,Tenjin,"dosł. bóstwo, duch nieba, nazwa odnosi się do imienia Michizane Sugawary, erudyty z IX wieku, czczonego jako bóg nauki, poezji i kaligrafii.",
+14332,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,建築士,けんちくし,,kenchikushi,konstruktor i budowlaniec,uprawniony,
+14333,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,札束,さつたば,,satsutaba,"zwitek pieniędzy
+rulon pieniędzy",,
+14334,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,目眩,めまい,,memai,"zawrót (głowy)
+kołowacizna
+oszołomienie",,
+14335,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,自営,じえい,,jiei,"pracujący na własny rachunek
+samozatrudniony
+niezależny",,
+14336,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,軌跡,きせき,,kiseki,"trajektoria
+miejsce geometryczne (punktów) (matematyka)",,
+14337,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,電鉄,でんてつ,,dentetsu,kolej elektryczna,,
+14338,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ミュンヘン,,myunhen,Monachium,,
+14339,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,体つき,からだつき,,kara datsuki,"budowa ciała
+figura ciała",,
+14340,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,体付き,からだつき,,kara datsuki,"budowa ciała
+figura ciała",,
+14341,"WORD_NOUN
+WORD_ADJECTIVE_NA",COMMON_WORD,HIRAGANA,Inne,,多め,おおめ,,oome,"nieco większa ilość
+większa porcja",,
+14342,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,町並,まちなみ,,machi nami,"pejzaż miasta
+ulice z domami i sklepami",,
+14343,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,町並み,まちなみ,,machi nami,"pejzaż miasta
+ulice z domami i sklepami",,
+14344,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,硬直,こうちょく,,kouchoku,"usztywnienie
+sztywność
+surowość
+rygor
+dyscyplina
+nieugiętość
+niepodatność
+skostniałość",,
+14345,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,硬貨,こうか,,kouka,"moneta
+twarda waluta",,
