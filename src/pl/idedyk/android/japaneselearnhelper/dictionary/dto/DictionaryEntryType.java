@@ -17,7 +17,7 @@ public enum DictionaryEntryType {
 	
 	WORD_PRE_NOUN_ADJECTIVAL("???"),
 	
-	WORD_NOUN_VERB_ACTING_PRENOMINALLY("???"),
+	WORD_ADJECTIVE_F("rzeczownik, bądź czasownik pełniący rolę przymiotnika"),
 
 	WORD_TEMPORAL_NOUN("rzeczownik czasowy"),
 
@@ -117,6 +117,7 @@ public enum DictionaryEntryType {
 		addableDictionaryEntryList.add(WORD_AUX_ADJECTIVE_I);
 		addableDictionaryEntryList.add(WORD_ADJECTIVE_NA);
 		addableDictionaryEntryList.add(WORD_ADJECTIVE_TARU);
+		addableDictionaryEntryList.add(WORD_ADJECTIVE_F);
 		addableDictionaryEntryList.add(WORD_VERB_U);
 		addableDictionaryEntryList.add(WORD_VERB_RU);
 		addableDictionaryEntryList.add(WORD_VERB_IRREGULAR);
