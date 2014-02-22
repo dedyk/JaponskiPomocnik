@@ -7,8 +7,6 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.TransitiveIntransitivePair;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
@@ -16,6 +14,8 @@ import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;

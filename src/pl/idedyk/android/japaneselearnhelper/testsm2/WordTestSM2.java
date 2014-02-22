@@ -10,10 +10,10 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Con
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.ListUtil;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

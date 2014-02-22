@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 
 public class KeigoHelper {
 

@@ -6,11 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DayStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
-
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;

@@ -1,7 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.context;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 
 public class JapaneseAndroidLearnHelperWordTestContext {
 	

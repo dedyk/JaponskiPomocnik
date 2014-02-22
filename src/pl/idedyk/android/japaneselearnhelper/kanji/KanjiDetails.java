@@ -7,9 +7,6 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest.WordPlaceSearch;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
@@ -17,6 +14,10 @@ import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
+import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -119,9 +120,9 @@ public class KanjiDetails extends Activity {
 		
 		report.add(kanjiStringValue);
 		
-		final List<String> strokePaths = kanjiEntry.getStrokePaths();
+		final KanjivgEntry kanjivsEntry = kanjiEntry.getKanjivgEntry();
 		
-		if (strokePaths != null && strokePaths.size() > 0) {
+		if (kanjivsEntry != null && kanjivsEntry.getStrokePaths().size() > 0) {
 			report.add(new StringValue(getString(R.string.kanji_details_kanji_info), 12.0f, 0));
 			
 			kanjiStringValue.setOnClickListener(new OnClickListener() {
@@ -130,9 +131,9 @@ public class KanjiDetails extends Activity {
 
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 					
-					List<List<String>> strokePathsList = new ArrayList<List<String>>();
-					strokePathsList.add(strokePaths);
-					strokePathInfo.setStrokePaths(strokePathsList);
+					List<KanjivgEntry> kanjivsEntryStrokePathsList = new ArrayList<KanjivgEntry>();
+					kanjivsEntryStrokePathsList.add(kanjivsEntry);
+					strokePathInfo.setStrokePaths(kanjivsEntryStrokePathsList);
 					
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 										

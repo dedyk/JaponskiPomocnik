@@ -14,13 +14,14 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext.TestAnswer;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -461,8 +462,8 @@ public class KanjiTest extends Activity {
 
 							StrokePathInfo strokePathInfo = new StrokePathInfo();
 
-							List<List<String>> strokePathsList = new ArrayList<List<String>>();
-							strokePathsList.add(dictionaryManager.findKanji(correctKanji).getStrokePaths());
+							List<KanjivgEntry> strokePathsList = new ArrayList<KanjivgEntry>();
+							strokePathsList.add(dictionaryManager.findKanji(correctKanji).getKanjivgEntry());
 							strokePathInfo.setStrokePaths(strokePathsList);
 
 							Intent intent = new Intent(getApplicationContext(), SodActivity.class);
@@ -771,7 +772,7 @@ public class KanjiTest extends Activity {
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
-			return kanjiTestContext.getKanjiEntryList().getNext().getStrokePaths().size();
+			return kanjiTestContext.getKanjiEntryList().getNext().getKanjivgEntry().getStrokePaths().size();
 
 		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
@@ -780,7 +781,7 @@ public class KanjiTest extends Activity {
 					.getDictionaryEntryWithRemovedKanji().getNext();
 
 			return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this)
-					.findKanji(dictionaryEntryWithRemovedKanji.getRemovedKanji()).getStrokePaths().size();
+					.findKanji(dictionaryEntryWithRemovedKanji.getRemovedKanji()).getKanjivgEntry().getStrokePaths().size();
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
 		}

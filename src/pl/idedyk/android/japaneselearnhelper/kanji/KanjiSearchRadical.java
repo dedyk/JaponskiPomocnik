@@ -10,13 +10,13 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
+import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;

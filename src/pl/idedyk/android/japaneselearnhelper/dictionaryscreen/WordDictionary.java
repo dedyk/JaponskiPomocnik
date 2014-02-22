@@ -14,9 +14,9 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest.WordPlac
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
-import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;

@@ -21,15 +21,6 @@ import java.util.TreeSet;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.FuriganaEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.TransitiveIntransitivePair;
-import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
@@ -37,6 +28,17 @@ import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.FuriganaEntry;
+import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.dto.KanaEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
+import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
+import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary.api.tools.KanaHelper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.database.SQLException;
@@ -917,7 +919,7 @@ public class DictionaryManager {
 
 		int currentPos = 1;
 
-		Map<String, List<List<String>>> kanaAndStrokePaths = new HashMap<String, List<List<String>>>();
+		Map<String, List<KanjivgEntry>> kanaAndStrokePaths = new HashMap<String, List<KanjivgEntry>>();
 
 		while (csvReader.readRecord()) {
 
@@ -933,12 +935,12 @@ public class DictionaryManager {
 
 			String strokePath2String = csvReader.get(3);
 
-			List<List<String>> strokePaths = new ArrayList<List<String>>();
+			List<KanjivgEntry> strokePaths = new ArrayList<KanjivgEntry>();
 
-			strokePaths.add(Utils.parseStringIntoList(strokePath1String, false));
+			strokePaths.add(new KanjivgEntry(Utils.parseStringIntoList(strokePath1String, false)));
 
 			if (strokePath2String == null || strokePath2String.equals("") == false) {
-				strokePaths.add(Utils.parseStringIntoList(strokePath2String, false));
+				strokePaths.add(new KanjivgEntry(Utils.parseStringIntoList(strokePath2String, false)));
 			}
 
 			kanaAndStrokePaths.put(kana, strokePaths);
@@ -978,9 +980,9 @@ public class DictionaryManager {
 		csvReader.close();
 	}
 
-	public List<List<String>> getStrokePathsForWord(String word) {
+	public List<KanjivgEntry> getStrokePathsForWord(String word) {
 
-		List<List<String>> result = new ArrayList<List<String>>();
+		List<KanjivgEntry> result = new ArrayList<KanjivgEntry>();
 
 		if (word == null) {
 			return result;
@@ -1000,12 +1002,16 @@ public class DictionaryManager {
 			}
 
 			if (kanjiEntry != null) {
-				result.add(kanjiEntry.getStrokePaths());
+				result.add(kanjiEntry.getKanjivgEntry());
 			} else {
 				KanaEntry kanaEntry = kanaCache.get(currentChar);
 
 				if (kanaEntry != null) {
-					result.addAll(kanaEntry.getStrokePaths());
+					List<KanjivgEntry> strokePaths = kanaEntry.getStrokePaths();
+					
+					for (KanjivgEntry currentStrokePaths : strokePaths) {
+						result.add(currentStrokePaths);
+					}
 				}
 			}
 		}

@@ -11,9 +11,9 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiSearchMea
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindKanjiRequest;
 import pl.idedyk.android.japaneselearnhelper.dictionary.FindKanjiResult;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;

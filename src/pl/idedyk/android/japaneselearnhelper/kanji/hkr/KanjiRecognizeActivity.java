@@ -9,7 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager.Character;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;

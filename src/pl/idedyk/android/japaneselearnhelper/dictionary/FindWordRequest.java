@@ -3,7 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 import java.io.Serializable;
 import java.util.List;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 
 public class FindWordRequest implements Serializable {
 	

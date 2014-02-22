@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeList;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary.api.dto.AttributeList;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
+import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 public class Utils {
 
@@ -166,7 +167,11 @@ public class Utils {
 
 		entry.setId(id);
 		entry.setKanji(kanjiString);
-		entry.setStrokePaths(parseStringIntoList(strokePathString, false));
+		
+		KanjivgEntry kanjivgEntry = new KanjivgEntry();
+		kanjivgEntry.setStrokePaths(parseStringIntoList(strokePathString, false));
+		
+		entry.setKanjivgEntry(kanjivgEntry);
 		entry.setPolishTranslates(polishTranslateList);
 		entry.setInfo(infoString);
 

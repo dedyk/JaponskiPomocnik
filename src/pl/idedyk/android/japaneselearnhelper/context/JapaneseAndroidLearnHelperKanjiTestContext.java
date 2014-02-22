@@ -3,10 +3,10 @@ package pl.idedyk.android.japaneselearnhelper.context;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizerResultItem;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 
 public class JapaneseAndroidLearnHelperKanjiTestContext {
 

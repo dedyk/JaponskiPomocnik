@@ -8,11 +8,11 @@ import java.util.Locale;
 import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 
 public class ExampleManager {
 

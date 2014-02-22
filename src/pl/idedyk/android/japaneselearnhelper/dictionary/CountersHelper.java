@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.CounterEntry;
+import pl.idedyk.japanese.dictionary.api.dto.CounterEntry;
 import android.content.res.Resources;
 
 public class CountersHelper {

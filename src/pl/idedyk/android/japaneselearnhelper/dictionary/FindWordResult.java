@@ -2,10 +2,10 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 import java.util.List;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 
 public class FindWordResult {
 	

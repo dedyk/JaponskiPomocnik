@@ -19,17 +19,17 @@ import java.util.TreeMap;
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteStatic;
 import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.RadicalInfo;
-import pl.idedyk.android.japaneselearnhelper.dictionary.exception.DictionaryException;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
+import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 import com.csvreader.CsvReader;
 
@@ -468,7 +468,7 @@ public class DBGenerator {
 			values.put(SQLiteStatic.kanjiEntriesTable_strokeCount, "");
 		}
 
-		values.put(SQLiteStatic.kanjiEntriesTable_strokePaths, Utils.convertListToString(kanjiEntry.getStrokePaths()));
+		values.put(SQLiteStatic.kanjiEntriesTable_strokePaths, Utils.convertListToString(kanjiEntry.getKanjivgEntry().getStrokePaths()));
 		values.put(SQLiteStatic.kanjiEntriesTable_generated, String.valueOf(kanjiEntry.isGenerated()));
 
 		insert(statement, SQLiteStatic.kanjiEntriesTableName, values);

@@ -6,16 +6,16 @@ import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper.KeigoEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeList;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupType;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 import pl.idedyk.android.japaneselearnhelper.grammaexample.GrammaExampleHelper;
+import pl.idedyk.japanese.dictionary.api.dto.AttributeList;
+import pl.idedyk.japanese.dictionary.api.dto.AttributeType;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 
 public class VerbExampler {
 	public static List<ExampleGroupTypeElements> makeAll(KeigoHelper keigoHelper, DictionaryEntry dictionaryEntry,

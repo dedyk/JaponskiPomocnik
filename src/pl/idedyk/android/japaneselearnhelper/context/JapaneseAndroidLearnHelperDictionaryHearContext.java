@@ -3,7 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.context;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 
 public class JapaneseAndroidLearnHelperDictionaryHearContext {
 

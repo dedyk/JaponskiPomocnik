@@ -5,12 +5,12 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiDic2Entry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItemAdapter;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;

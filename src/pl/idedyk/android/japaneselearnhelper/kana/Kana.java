@@ -7,13 +7,14 @@ import java.util.Map;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
+import pl.idedyk.japanese.dictionary.api.dto.KanaEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -783,7 +784,7 @@ public class Kana extends Activity {
 				@Override
 				public void onClick(View v) {
 
-					List<List<String>> allStrokePaths = kanaEntry.getStrokePaths();
+					List<KanjivgEntry> allStrokePaths = kanaEntry.getStrokePaths();
 
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 					strokePathInfo.setStrokePaths(allStrokePaths);

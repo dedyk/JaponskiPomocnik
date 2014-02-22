@@ -10,13 +10,6 @@ import java.util.Stack;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.Attribute;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.AttributeType;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.DictionaryEntryType;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.FuriganaEntry;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.GroupEnum;
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
 import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.android.japaneselearnhelper.example.dto.ExampleResult;
@@ -36,6 +29,14 @@ import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
+import pl.idedyk.japanese.dictionary.api.dto.Attribute;
+import pl.idedyk.japanese.dictionary.api.dto.AttributeType;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
+import pl.idedyk.japanese.dictionary.api.dto.FuriganaEntry;
+import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -353,7 +354,7 @@ public class WordDictionaryDetails extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance()
+				List<KanjivgEntry> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance()
 						.getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(kanjiSb.toString());
 
 				StrokePathInfo strokePathInfo = new StrokePathInfo();
@@ -521,7 +522,7 @@ public class WordDictionaryDetails extends Activity {
 
 				@Override
 				public void onClick(View v) {
-					List<List<String>> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance()
+					List<KanjivgEntry> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance()
 							.getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(sb.toString());
 
 					StrokePathInfo strokePathInfo = new StrokePathInfo();

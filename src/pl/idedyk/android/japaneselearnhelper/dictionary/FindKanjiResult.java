@@ -2,7 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 import java.util.List;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 
 public class FindKanjiResult {
 

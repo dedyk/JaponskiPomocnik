@@ -3,8 +3,8 @@ package pl.idedyk.android.japaneselearnhelper.context;
 import java.util.List;
 import java.util.Map;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.dto.KanaEntry;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
+import pl.idedyk.japanese.dictionary.api.dto.KanaEntry;
 
 public class JapaneseAndroidLearnHelperKanaTestContext {
 
