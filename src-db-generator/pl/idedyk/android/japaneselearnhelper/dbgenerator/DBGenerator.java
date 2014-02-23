@@ -16,20 +16,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.KeigoHelper;
 import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteStatic;
 import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
-import pl.idedyk.android.japaneselearnhelper.example.ExampleManager;
-import pl.idedyk.android.japaneselearnhelper.gramma.GrammaConjugaterManager;
-import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResult;
-import pl.idedyk.android.japaneselearnhelper.gramma.dto.GrammaFormConjugateResultType;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
+import pl.idedyk.japanese.dictionary.api.example.ExampleManager;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary.api.gramma.GrammaConjugaterManager;
+import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResult;
+import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResultType;
+import pl.idedyk.japanese.dictionary.api.keigo.KeigoHelper;
 
 import com.csvreader.CsvReader;
 
