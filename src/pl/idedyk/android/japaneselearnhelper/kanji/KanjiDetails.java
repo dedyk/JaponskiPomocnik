@@ -5,8 +5,6 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
-import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest.WordPlaceSearch;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
@@ -14,6 +12,8 @@ import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;

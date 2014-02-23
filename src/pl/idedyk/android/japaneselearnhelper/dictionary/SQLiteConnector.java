@@ -8,7 +8,13 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
-import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
+import pl.idedyk.japanese.dictionary.api.dictionary.IDatabaseConnector;
+import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiRequest;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
@@ -25,7 +31,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-public class SQLiteConnector {
+public class SQLiteConnector implements IDatabaseConnector {
 
 	private SQLiteDatabase sqliteDatabase;
 
@@ -63,11 +69,12 @@ public class SQLiteConnector {
 		sqliteDatabase.endTransaction();
 	}
 
+	@Override
 	public int getDictionaryEntriesSize() {
-
 		return countTableSize(SQLiteStatic.dictionaryEntriesTableName);
 	}
 
+	@Override
 	public DictionaryEntry getDictionaryEntryById(String id) throws DictionaryException {
 
 		Cursor cursor = null;
@@ -111,6 +118,7 @@ public class SQLiteConnector {
 		}
 	}
 
+	@Override
 	public DictionaryEntry getNthDictionaryEntry(int nth) throws DictionaryException {
 
 		Cursor cursor = null;
@@ -155,6 +163,7 @@ public class SQLiteConnector {
 		}
 	}
 
+	@Override
 	public FindWordResult findDictionaryEntries(FindWordRequest findWordRequest) throws DictionaryException {
 
 		FindWordResult findWordResult = new FindWordResult();
@@ -397,7 +406,7 @@ public class SQLiteConnector {
 						groupsList, prefixKanaString, kanjiString, kanaList, prefixRomajiString, romajiList,
 						translateList, infoString);
 
-				findWordResult.result.add(new ResultItem(entry));
+				findWordResult.result.add(new FindWordResult.ResultItem(entry));
 
 				cursor.moveToNext();
 			}
@@ -464,6 +473,7 @@ public class SQLiteConnector {
 		return result;
 	}
 
+	@Override
 	public List<KanjiEntry> getAllKanjis(boolean withDetails, boolean addGenerated) throws DictionaryException {
 
 		KanjiEntry kanjiEntry = null;
@@ -542,6 +552,7 @@ public class SQLiteConnector {
 		return result;
 	}
 
+	@Override
 	public KanjiEntry getKanjiEntry(String kanji) throws DictionaryException {
 
 		KanjiEntry kanjiEntry = null;
@@ -596,6 +607,7 @@ public class SQLiteConnector {
 		return kanjiEntry;
 	}
 
+	@Override
 	public List<KanjiEntry> findKanjiFromRadicals(String[] radicals) throws DictionaryException {
 
 		StringBuffer sqlQuery = new StringBuffer();
@@ -674,6 +686,7 @@ public class SQLiteConnector {
 		return result;
 	}
 
+	@Override
 	public Set<String> findAllAvailableRadicals(String[] radicals) throws DictionaryException {
 
 		StringBuffer sqlQuery = new StringBuffer();
@@ -844,6 +857,7 @@ public class SQLiteConnector {
 		}
 	}
 
+	@Override
 	public void findDictionaryEntriesInGrammaFormAndExamples(FindWordRequest findWordRequest,
 			FindWordResult findWordResult) throws DictionaryException {
 
@@ -1072,6 +1086,7 @@ public class SQLiteConnector {
 		}
 	}
 
+	@Override
 	public FindKanjiResult findKanjisFromStrokeCount(int from, int to) throws DictionaryException {
 
 		KanjiEntry kanjiEntry = null;
@@ -1147,6 +1162,7 @@ public class SQLiteConnector {
 		return findKanjiResult;
 	}
 
+	@Override
 	public List<GroupEnum> getDictionaryEntryGroupTypes() {
 
 		List<GroupEnum> result = new ArrayList<GroupEnum>();
@@ -1241,6 +1257,7 @@ public class SQLiteConnector {
 		sqliteDatabase.execSQL("vacuum");
 	}
 
+	@Override
 	public FindKanjiResult findKanji(FindKanjiRequest findKanjiRequest) throws DictionaryException {
 
 		FindKanjiResult findKanjiResult = new FindKanjiResult();

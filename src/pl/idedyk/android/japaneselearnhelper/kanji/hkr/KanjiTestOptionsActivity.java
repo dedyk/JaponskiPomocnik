@@ -12,11 +12,11 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext;
-import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordRequest;
-import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult;
-import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;

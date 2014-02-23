@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.SQLiteStatic;
-import pl.idedyk.android.japaneselearnhelper.dictionary.Utils;
+import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;

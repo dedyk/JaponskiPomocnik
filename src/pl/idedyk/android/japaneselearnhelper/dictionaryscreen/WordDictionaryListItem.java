@@ -1,7 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
 import android.text.Spanned;
-import pl.idedyk.android.japaneselearnhelper.dictionary.FindWordResult.ResultItem;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 
 public class WordDictionaryListItem {
