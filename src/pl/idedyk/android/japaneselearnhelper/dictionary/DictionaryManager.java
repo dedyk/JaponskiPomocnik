@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,8 +18,10 @@ import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
+import pl.idedyk.android.japaneselearnhelper.dictionary.sqlite.AndroidSqliteDatabase;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
+import pl.idedyk.japanese.dictionary.api.dictionary.sqlite.SQLiteConnector;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
@@ -34,7 +37,6 @@ import pl.idedyk.japanese.dictionary.api.keigo.KeigoHelper;
 import pl.idedyk.japanese.dictionary.api.tools.KanaHelper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.database.SQLException;
 import android.os.Environment;
 
 import com.csvreader.CsvReader;
@@ -52,6 +54,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 	private static final String DATABASE_FILE = "dictionary.db";
 
 	private final SQLiteConnector sqliteConnector;
+	private AndroidSqliteDatabase androidSqliteDatabase;
 
 	private ZinniaManager zinniaManager;
 
@@ -70,7 +73,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		super(new SQLiteConnector());
 
 		sqliteConnector = (SQLiteConnector)getDatabaseConnector();
-
+		
 		keigoHeper = new KeigoHelper();
 	}
 
@@ -131,6 +134,8 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 			File databaseRecognizeModelFile = new File(databaseDir, KANJI_RECOGNIZE_MODEL_DB_FILE);
 
+			androidSqliteDatabase = new AndroidSqliteDatabase(databaseFile.getAbsolutePath());
+			
 			// get database version
 			int databaseVersion = getDatabaseVersion(databaseFile, databaseVersionFile);
 
@@ -150,9 +155,9 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 				}
 			}
 
-			// open databaase
+			// open database			
 			try {
-				sqliteConnector.open(databaseFile.getAbsolutePath());
+				sqliteConnector.open(androidSqliteDatabase);
 
 			} catch (SQLException e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
@@ -359,7 +364,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 		// testing open database
 		try {
-			sqliteConnector.open(databaseFile.getAbsolutePath());
+			sqliteConnector.open(androidSqliteDatabase);
 		} catch (SQLException e) {
 			return 0;
 		} finally {
