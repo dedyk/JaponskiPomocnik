@@ -21,7 +21,6 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2Manager
 import pl.idedyk.android.japaneselearnhelper.dictionary.sqlite.AndroidSqliteDatabase;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
-import pl.idedyk.japanese.dictionary.api.dictionary.sqlite.SQLiteConnector;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
@@ -53,7 +52,6 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 	private static final String DATABASE_FILE = "dictionary.db";
 
-	private final SQLiteConnector sqliteConnector;
 	private AndroidSqliteDatabase androidSqliteDatabase;
 
 	private ZinniaManager zinniaManager;
@@ -70,9 +68,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 	public DictionaryManager() {
 		
-		super(new SQLiteConnector());
-
-		sqliteConnector = (SQLiteConnector)getDatabaseConnector();
+		super();
 		
 		keigoHeper = new KeigoHelper();
 	}
@@ -615,12 +611,19 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		return wordTestSM2Manager;
 	}
 
+	@Override
 	public KanaHelper getKanaHelper() {
 		return kanaHelper;
 	}
 
+	@Override
 	public KeigoHelper getKeigoHelper() {
 		return keigoHeper;
+	}
+	
+	@Override
+	public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
+		return transitiveIntransitivePairsList;
 	}
 
 	@Override
@@ -630,9 +633,5 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		wordTestSM2Manager.close();
 
 		close();
-	}
-
-	public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
-		return transitiveIntransitivePairsList;
 	}
 }
