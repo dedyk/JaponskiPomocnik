@@ -21,6 +21,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2Manager
 import pl.idedyk.android.japaneselearnhelper.dictionary.sqlite.AndroidSqliteDatabase;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
+import pl.idedyk.japanese.dictionary.api.dictionary.sqlite.SQLiteConnector;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
@@ -65,10 +66,14 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 	private final KeigoHelper keigoHeper;
 
 	private WordTestSM2Manager wordTestSM2Manager;
+	
+	private SQLiteConnector sqliteConnector;
 
 	public DictionaryManager() {
 		
 		super();
+		
+		databaseConnector = sqliteConnector = new SQLiteConnector();
 		
 		keigoHeper = new KeigoHelper();
 	}
