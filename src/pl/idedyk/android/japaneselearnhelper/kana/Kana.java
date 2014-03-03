@@ -699,7 +699,7 @@ public class Kana extends Activity {
 		addKanaItem(v_tableRow, kanaCache, null);
 		addKanaItem(v_tableRow, kanaCache, "ヴ");
 		addKanaItem(v_tableRow, kanaCache, null);
-		addKanaItem(v_tableRow, kanaCache, null);
+		addKanaItem(v_tableRow, kanaCache, "ヴォ");
 
 		screenItems.add(v_tableRow);
 
