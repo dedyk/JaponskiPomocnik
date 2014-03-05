@@ -18,6 +18,7 @@ import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
+import pl.idedyk.android.japaneselearnhelper.dictionary.lucene3.Lucene3Database;
 import pl.idedyk.android.japaneselearnhelper.dictionary.sqlite.AndroidSqliteDatabase;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
@@ -68,12 +69,19 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 	private WordTestSM2Manager wordTestSM2Manager;
 	
 	private SQLiteConnector sqliteConnector;
+	
+	private Lucene3Database lucene3Database;
 
 	public DictionaryManager() {
 		
 		super();
 		
-		databaseConnector = sqliteConnector = new SQLiteConnector();
+		int fixme2 = 1;
+		//databaseConnector = sqliteConnector = new SQLiteConnector();
+		sqliteConnector = new SQLiteConnector();
+		
+		int fixme = 1;
+		databaseConnector = lucene3Database = new Lucene3Database("/mnt/sdcard/JaponskiPomocnik/db-lucene");
 		
 		keigoHeper = new KeigoHelper();
 	}
@@ -159,8 +167,11 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 			// open database			
 			try {
 				sqliteConnector.open(androidSqliteDatabase);
+				
+				int fixme = 1;
+				lucene3Database.open();
 
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
 
 				return;
@@ -636,6 +647,9 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		super.finalize();
 
 		wordTestSM2Manager.close();
+		
+		int fixme = 1;
+		lucene3Database.close();
 
 		close();
 	}
