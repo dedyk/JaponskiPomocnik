@@ -1,6 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
-import java.io.BufferedOutputStream;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,30 +10,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.lucene3.Lucene3Database;
-import pl.idedyk.android.japaneselearnhelper.dictionary.sqlite.AndroidSqliteDatabase;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
-import pl.idedyk.japanese.dictionary.api.dictionary.sqlite.SQLiteConnector;
-import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
-import pl.idedyk.japanese.dictionary.api.example.ExampleManager;
-import pl.idedyk.japanese.dictionary.api.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
-import pl.idedyk.japanese.dictionary.api.gramma.GrammaConjugaterManager;
-import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateGroupTypeElements;
-import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResult;
-import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResultType;
 import pl.idedyk.japanese.dictionary.api.keigo.KeigoHelper;
 import pl.idedyk.japanese.dictionary.api.tools.KanaHelper;
 import android.content.res.AssetManager;
@@ -53,8 +45,14 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 	private static final String KANA_FILE = "kana.csv";
 
 	private static final String DATABASE_FILE = "dictionary.db";
+	
+	private static final String LUCENE_ZIP_FILE = "dictionary.zip";
+	
+	private static final String LUCENE_DIR = "db-lucene";
+	
+	private File lucenePath = null;
 
-	private AndroidSqliteDatabase androidSqliteDatabase;
+	// private AndroidSqliteDatabase androidSqliteDatabase;
 
 	private ZinniaManager zinniaManager;
 
@@ -68,7 +66,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 	private WordTestSM2Manager wordTestSM2Manager;
 	
-	private SQLiteConnector sqliteConnector;
+	// private SQLiteConnector sqliteConnector;
 	
 	private Lucene3Database lucene3Database;
 
@@ -76,13 +74,9 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		
 		super();
 		
-		int fixme2 = 1;
 		//databaseConnector = sqliteConnector = new SQLiteConnector();
-		sqliteConnector = new SQLiteConnector();
-		
-		int fixme = 1;
-		databaseConnector = lucene3Database = new Lucene3Database("/mnt/sdcard/JaponskiPomocnik/db-lucene");
-		
+		//sqliteConnector = new SQLiteConnector();
+				
 		keigoHeper = new KeigoHelper();
 	}
 
@@ -93,6 +87,11 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 			// init
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
 
+			// check external storage state
+			if (checkExternalStorageState(loadWithProgress, resources) == false) {
+				return;
+			}
+			
 			try {
 				// delete old database file
 				deleteOldDatabaseFile(packageName);
@@ -103,12 +102,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 				return;
 			}
-
-			// check external storage state
-			if (checkExternalStorageState(loadWithProgress, resources) == false) {
-				return;
-			}
-
+			
 			// create base dir in external storage
 			File externalStorageDirectory = Environment.getExternalStorageDirectory();
 
@@ -138,22 +132,43 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 				}
 			}
 
-			File databaseFile = new File(databaseDir, DATABASE_FILE);
-			File databaseVersionFile = new File(databaseFile.getAbsolutePath() + "-version");
+			File sqliteDatabaseFile = new File(databaseDir, DATABASE_FILE);
+			
+			lucenePath = new File(baseDir, LUCENE_DIR);
+			
+			// create lucene dir
+			lucenePath.mkdirs();			
+			
+			// delete old sqlite database directory
+			sqliteDatabaseFile.delete();			
+			
+			File databaseVersionFile = new File(sqliteDatabaseFile.getAbsolutePath() + "-version");
 
 			File databaseRecognizeModelFile = new File(databaseDir, KANJI_RECOGNIZE_MODEL_DB_FILE);
 
-			androidSqliteDatabase = new AndroidSqliteDatabase(databaseFile.getAbsolutePath());
+			// androidSqliteDatabase = new AndroidSqliteDatabase(lucenePath.getAbsolutePath());
+			
+			databaseConnector = lucene3Database = new Lucene3Database(lucenePath.getAbsolutePath());
 			
 			// get database version
-			int databaseVersion = getDatabaseVersion(databaseFile, databaseVersionFile);
+			int databaseVersion = getDatabaseVersion(sqliteDatabaseFile, databaseVersionFile);
 
 			if (versionCode != databaseVersion) {
 
 				try {
 					// copy dictionary file
-					copyDatabaseFileToDatabaseDir(assets.open(DATABASE_FILE), databaseFile);
+					//copyDatabaseFileToDatabaseDir(assets.open(DATABASE_FILE), databaseFile);
 
+					// delete files from lucene dir					
+					File[] lucenePathListFile = lucenePath.listFiles();
+					
+					for (File file : lucenePathListFile) {
+						file.delete();
+					}
+					
+					// unzip lucene database
+					unpackZip(assets.open(LUCENE_ZIP_FILE), lucenePath);					
+					
 					// save database version
 					saveDatabaseVersion(databaseVersionFile, versionCode);
 
@@ -165,10 +180,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 			}
 
 			// open database			
-			try {
-				sqliteConnector.open(androidSqliteDatabase);
-				
-				int fixme = 1;
+			try {				
 				lucene3Database.open();
 
 			} catch (Exception e) {
@@ -293,7 +305,6 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		new File(packageBaseDir + "/" + KANJI_RECOGNIZE_MODEL_DB_FILE).delete();
 
 		// delete all from database directory
-
 		String databaseDir = packageBaseDir + "/databases/";
 
 		File databaseDirFile = new File(databaseDir);
@@ -307,7 +318,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 			}
 
 			databaseDirFile.delete();
-		}
+		}		
 	}
 
 	private boolean checkExternalStorageState(ILoadWithProgress loadWithProgress, Resources resources) {
@@ -376,16 +387,60 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 		// testing open database
 		try {
-			sqliteConnector.open(androidSqliteDatabase);
-		} catch (SQLException e) {
+			lucene3Database.open();
+		} catch (Exception e) {
 			return 0;
 		} finally {
-			sqliteConnector.close();
+			try {
+				lucene3Database.close();
+			} catch (IOException e) {
+				return 0;
+			}
 		}
 
 		return version;
 	}
+	
+	private boolean unpackZip(InputStream zipInputFile, File dbLuceneFile) {   
+		
+	     ZipInputStream zis = null;
+	     
+	     try {
+	         zis = new ZipInputStream(new BufferedInputStream(zipInputFile));          
+	         
+	         ZipEntry ze = null;
+	         
+	         byte[] buffer = new byte[1024];
+	         int count;
 
+	         while ((ze = zis.getNextEntry()) != null) {
+	             // get file name
+	             String filename = ze.getName();
+	             
+	             if (ze.isDirectory() == true) {
+	            	 throw new IOException("Zip input directory file is not supported");
+	             }
+
+	             FileOutputStream fout = new FileOutputStream(new File(dbLuceneFile, filename));
+
+	             while ((count = zis.read(buffer)) != -1) {
+	                 fout.write(buffer, 0, count);             
+	             }
+
+	             fout.close();               
+	             zis.closeEntry();
+	         }
+
+	         zis.close();
+	         
+	     } catch(IOException e) {
+	         return false;
+	     }
+
+	    return true;
+	}
+
+	/*
 	private void copyDatabaseFileToDatabaseDir(InputStream databaseInputStream, File databaseOutputFile)
 			throws IOException {
 
@@ -404,6 +459,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		databaseInputStream.close();
 		databaseOutputStream.close();
 	}
+	*/
 
 	private int getWordSize(InputStream dictionaryInputStream) throws IOException {
 
@@ -422,23 +478,27 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 	public void countForm(ILoadWithProgress loadWithProgress, Resources resources) throws DictionaryException {
 
+		throw new UnsupportedOperationException();
+		
+		/*
+		
 		int counter = 1;
 
 		int transactionCounter = 0;
 
-		int dictionaryEntriesSize = sqliteConnector.getDictionaryEntriesSize();
+		int dictionaryEntriesSize = lucene3Database.getDictionaryEntriesSize();
 
 		loadWithProgress.setCurrentPos(0);
 		loadWithProgress.setMaxValue(dictionaryEntriesSize);
 
-		sqliteConnector.beginTransaction();
+		lucene3Database.beginTransaction();
 
 		try {
 
 			for (int dictionaryEntriesSizeIdx = 0; dictionaryEntriesSizeIdx < dictionaryEntriesSize; ++dictionaryEntriesSizeIdx) {
 				loadWithProgress.setCurrentPos(counter);
 
-				DictionaryEntry nthDictionaryEntry = sqliteConnector.getNthDictionaryEntry(dictionaryEntriesSizeIdx);
+				DictionaryEntry nthDictionaryEntry = lucene3Database.getNthDictionaryEntry(dictionaryEntriesSizeIdx);
 
 				Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
 
@@ -482,6 +542,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		} finally {
 			sqliteConnector.endTransaction();
 		}
+		*/
 	}
 
 	private void readRadicalEntriesFromCsv(InputStream radicalInputStream, ILoadWithProgress loadWithProgress)
@@ -545,7 +606,12 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 	}
 
 	public void close() {
-		sqliteConnector.close();
+		try {
+			lucene3Database.close();
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	private void readKanaFile(InputStream kanaFileInputStream, ILoadWithProgress loadWithProgress) throws IOException {
@@ -616,7 +682,10 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 	}
 
 	public int getGrammaFormAndExamplesEntriesSize() {
-		return sqliteConnector.getGrammaFormAndExamplesEntriesSize();
+		
+		throw new UnsupportedOperationException();
+		
+		//return lucene3Database.getGrammaFormAndExamplesEntriesSize();
 	}
 
 	public ZinniaManager getZinniaManager() {
@@ -648,7 +717,6 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 		wordTestSM2Manager.close();
 		
-		int fixme = 1;
 		lucene3Database.close();
 
 		close();

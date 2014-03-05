@@ -92,18 +92,18 @@
     <target name="-pre-clean">
 	<delete dir="release" />
 	<delete dir="bin-db-generator" />
-	<delete file="assets/dictionary.db" />
-	<delete file="assets/dictionary.db-journal" />
+	<delete dir="db-lucene" />
 	<delete file="assets/kana.csv" />
 	<delete file="assets/radical.csv" />
 	<delete file="assets/transitive_intransitive_pairs.csv" />
 	<delete file="assets/kanji_recognizer.model.db" />
+	<delete file="assets/dictionary.zip" />
     </target>
 
     <target name="db-generate">
 	<mkdir dir="bin-db-generator" />
 
-	<javac destdir="bin-db-generator" classpath="bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140302.jar">
+	<javac destdir="bin-db-generator" classpath="bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140305.jar">
 	    <src>
 		<pathelement location="src-db-generator" />
 	    </src>
@@ -111,14 +111,15 @@
 
 	<exec executable="java">
 	    <arg value="-cp" />
-	    <arg value="bin-db-generator:bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140302.jar:libs-db-generator/sqlite-jdbc-3.7.2.jar" />
-	    <arg value="pl.idedyk.android.japaneselearnhelper.dbgenerator.DBGenerator" />
+	    <arg value="bin:bin-db-generator:bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140305.jar:libs-db-generator/sqlite-jdbc-3.7.2.jar" />
+	    <arg value="pl.idedyk.android.japaneselearnhelper.dbgenerator.Lucene3DBGenerator" />
 	</exec>
 
 	<copy file="db/kana.csv" todir="assets" />
 	<copy file="db/radical.csv" todir="assets" />
 	<copy file="db/transitive_intransitive_pairs.csv" todir="assets" />
 	<copy file="db/kanji_recognizer.model.db" todir="assets" />
+	<zip destfile="assets/dictionary.zip" basedir="db-lucene" />
     </target>
 
     <target name="-post-compile">
