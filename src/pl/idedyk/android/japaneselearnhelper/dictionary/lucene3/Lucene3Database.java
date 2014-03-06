@@ -70,6 +70,8 @@ public class Lucene3Database implements IDatabaseConnector {
 		FindWordResult findWordResult = new FindWordResult();
 		findWordResult.result = new ArrayList<FindWordResult.ResultItem>();
 
+		findWordRequest.word = findWordRequest.word.toLowerCase(); 
+		
 		final int maxResult = 50;
 
 		try {
@@ -561,6 +563,8 @@ public class Lucene3Database implements IDatabaseConnector {
 		FindKanjiResult findKanjiResult = new FindKanjiResult();
 		findKanjiResult.result = new ArrayList<KanjiEntry>();
 
+		findKanjiRequest.word = findKanjiRequest.word.toLowerCase();
+		
 		final int maxResult = 50;
 
 		try {

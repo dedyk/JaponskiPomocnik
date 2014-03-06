@@ -153,6 +153,15 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 			// get database version
 			int databaseVersion = getDatabaseVersion(sqliteDatabaseFile, databaseVersionFile);
 
+			int fixme = 1;
+			{
+				File[] lucenePathListFile = lucenePath.listFiles();
+
+				for (File file : lucenePathListFile) {
+					file.delete();
+				}
+			}
+			
 			if (versionCode != databaseVersion) {
 
 				try {

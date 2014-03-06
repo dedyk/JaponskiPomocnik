@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.lucene.analysis.SimpleAnalyzer;
+import org.apache.lucene.analysis.CharTokenizer;
+import org.apache.lucene.analysis.ReusableAnalyzerBase;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.Field.Index;
@@ -53,32 +55,32 @@ public class Lucene3DBGenerator {
 		final String radicalFilePath = "db/radical.csv";
 				
 		final File dbOutDirFile = new File("db-lucene");
-		
+
 		if (dbOutDirFile.exists() == false) {
 			dbOutDirFile.mkdir();
 		}
-		
+
 		if (dbOutDirFile.isDirectory() == true) {
-			
+
 			File[] dbOutDirFileListFiles = dbOutDirFile.listFiles();
-			
+
 			for (File file : dbOutDirFileListFiles) {
 				file.delete();
 			}
 		}		
-		
+
 		// tworzenie indeksu lucene
 		Directory index = FSDirectory.open(dbOutDirFile);
-		
+
 		// tworzenie analizatora lucene
-		SimpleAnalyzer analyzer = new SimpleAnalyzer(Version.LUCENE_36);
-		
+		LowerKeywordAnalyzer analyzer = new LowerKeywordAnalyzer(Version.LUCENE_36);
+
 		// tworzenie zapisywacza konfiguracji
 		IndexWriterConfig indexWriterConfig = new IndexWriterConfig(Version.LUCENE_36, analyzer);
 		indexWriterConfig.setOpenMode(OpenMode.CREATE);
-		
+
 		IndexWriter indexWriter = new IndexWriter(index, indexWriterConfig);
-		
+
 		// otwarcie pliku ze slownikiem
 		FileInputStream dictionaryInputStream = new FileInputStream(dictionaryFilePath);
 
@@ -86,7 +88,7 @@ public class Lucene3DBGenerator {
 		readDictionaryFile(indexWriter, dictionaryInputStream);
 
 		dictionaryInputStream.close();
-		
+
 		// otwarcie pliku ze znakami podstawowymi
 		FileInputStream radicalInputStream = new FileInputStream(radicalFilePath);
 
@@ -102,22 +104,22 @@ public class Lucene3DBGenerator {
 		readKanjiDictionaryFile(indexWriter, radicalInfoList, kanjiInputStream);
 
 		kanjiInputStream.close();
-		
+
 		// zakonczenie zapisywania indeksu
 		indexWriter.close();
-				
+
 		System.out.println("DB Generator - done");
 	}
 
 	private static void readDictionaryFile(IndexWriter indexWriter, InputStream dictionaryInputStream) throws IOException,
-			DictionaryException, SQLException {
+	DictionaryException, SQLException {
 
 		KeigoHelper keigoHelper = new KeigoHelper();
 
 		CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
 
 		Set<GroupEnum> uniqueDictionaryEntryGroupEnumSet = new HashSet<GroupEnum>();
-		
+
 		while (csvReader.readRecord()) {
 
 			String idString = csvReader.get(0);
@@ -155,119 +157,119 @@ public class Lucene3DBGenerator {
 			}
 
 			addDictionaryEntry(indexWriter, entry);
-			
+
 			uniqueDictionaryEntryGroupEnumSet.addAll(entry.getGroups());
 		}
-				
+
 		addDictionaryEntryUniqueGroupEnum(indexWriter, uniqueDictionaryEntryGroupEnumSet);
 
 		csvReader.close();
 	}
 
 	private static void addDictionaryEntry(IndexWriter indexWriter, DictionaryEntry dictionaryEntry) throws IOException {
-		
+
 		Document document = new Document();
-		
+
 		// object type
 		document.add(new Field(LuceneStatic.objectType, LuceneStatic.dictionaryEntry_objectType, Field.Store.YES, Index.NOT_ANALYZED));
-		
+
 		// id
 		NumericField idField = new NumericField(LuceneStatic.dictionaryEntry_id, Field.Store.YES, true);
 		idField.setIntValue(dictionaryEntry.getId());
-		
+
 		document.add(idField);
-		
+
 		// dictionary entry type list
 		List<String> dictionaryEntryTypeStringList = DictionaryEntryType.convertToValues(dictionaryEntry.getDictionaryEntryTypeList());
-		
+
 		for (String dictionaryEntryTypeString : dictionaryEntryTypeStringList) {
 			document.add(new Field(LuceneStatic.dictionaryEntry_dictionaryEntryTypeList, dictionaryEntryTypeString, Field.Store.YES, Index.NOT_ANALYZED));
 		}
-				
+
 		// attributeList
 		List<String> attributeStringList = dictionaryEntry.getAttributeList().convertAttributeListToListString();
-		
+
 		for (String currentAttribute : attributeStringList) {
 			document.add(new Field(LuceneStatic.dictionaryEntry_attributeList, currentAttribute, Field.Store.YES, Index.NOT_ANALYZED));
 		}
-		
+
 		// groupsList
 		List<String> groupsList = GroupEnum.convertToValues(dictionaryEntry.getGroups());
-		
+
 		for (String currentGroup : groupsList) {
 			document.add(new Field(LuceneStatic.dictionaryEntry_groupsList, currentGroup, Field.Store.YES, Index.NOT_ANALYZED));
 		}
-		
+
 		// prefixKana
 		document.add(new Field(LuceneStatic.dictionaryEntry_prefixKana, emptyIfNull(dictionaryEntry.getPrefixKana()), Field.Store.YES, Index.NOT_ANALYZED));
-		
+
 		// kanji
-		document.add(new Field(LuceneStatic.dictionaryEntry_kanji, emptyIfNull(dictionaryEntry.getKanji()), Field.Store.YES, Index.ANALYZED));
-		
+		document.add(new Field(LuceneStatic.dictionaryEntry_kanji, emptyIfNull(dictionaryEntry.getKanji()), Field.Store.YES, Index.NOT_ANALYZED));
+
 		// kanaList
 		List<String> kanaList = dictionaryEntry.getKanaList();
-		
+
 		for (String currentKana : kanaList) {
-			document.add(new Field(LuceneStatic.dictionaryEntry_kanaList, currentKana, Field.Store.YES, Index.ANALYZED));
+			document.add(new Field(LuceneStatic.dictionaryEntry_kanaList, currentKana, Field.Store.YES, Index.NOT_ANALYZED));
 		}
-		
+
 		// prefixRomaji
 		document.add(new Field(LuceneStatic.dictionaryEntry_prefixRomaji, emptyIfNull(dictionaryEntry.getPrefixRomaji()), Field.Store.YES, Index.NOT_ANALYZED));
-		
+
 		// romajiList
 		List<String> romajiList = dictionaryEntry.getRomajiList();
-		
+
 		for (String currentRomaji : romajiList) {
 			document.add(new Field(LuceneStatic.dictionaryEntry_romajiList, currentRomaji, Field.Store.YES, Index.ANALYZED));
 		}
-		
+
 		// translatesList
 		List<String> translates = dictionaryEntry.getTranslates();
-		
+
 		for (String currentTranslate : translates) {
-			
+
 			document.add(new Field(LuceneStatic.dictionaryEntry_translatesList, currentTranslate, Field.Store.YES, Index.ANALYZED));
-			
+
 			if (Utils.containsPolishChars(currentTranslate) == true) {
 				String currentTranslateWithoutPolishChars = Utils.removePolishChars(currentTranslate);
-				
+
 				document.add(new Field(LuceneStatic.dictionaryEntry_translatesListWithoutPolishChars, currentTranslateWithoutPolishChars, Field.Store.YES, Index.ANALYZED));
 			}
 		}
-		
+
 		// info
 		String info = emptyIfNull(dictionaryEntry.getInfo());
-		
+
 		document.add(new Field(LuceneStatic.dictionaryEntry_info, info, Field.Store.YES, Index.ANALYZED));
-		
+
 		if (Utils.containsPolishChars(info) == true) {
-			
+
 			String infoWithoutPolishChars = Utils.removePolishChars(info);
-			
+
 			document.add(new Field(LuceneStatic.dictionaryEntry_infoWithoutPolishChars, infoWithoutPolishChars, Field.Store.YES, Index.ANALYZED));
 		}
-		
+
 		indexWriter.addDocument(document);
 	}
-	
+
 	private static void addDictionaryEntryUniqueGroupEnum(IndexWriter indexWriter, Set<GroupEnum> uniqueDictionaryEntryGroupEnumSet) throws IOException {
-		
+
 		List<GroupEnum> uniqueDictionaryEntryGroupEnumList = GroupEnum.sortGroups(new ArrayList<GroupEnum>(uniqueDictionaryEntryGroupEnumSet));
-				
+
 		Document document = new Document();
-		
+
 		// object type
 		document.add(new Field(LuceneStatic.objectType, LuceneStatic.uniqueDictionaryEntryGroupEnumList_objectType, Field.Store.YES, Index.NOT_ANALYZED));
 
 		for (GroupEnum groupEnum : uniqueDictionaryEntryGroupEnumList) {
 			document.add(new Field(LuceneStatic.uniqueDictionaryEntryGroupEnumList_groupsList, groupEnum.getValue(), Field.Store.YES, Index.NOT_ANALYZED));
 		}		
-		
+
 		indexWriter.addDocument(document);
 	}
 
 	private static List<RadicalInfo> readRadicalEntriesFromCsv(InputStream radicalInputStream) throws IOException,
-			DictionaryException {
+	DictionaryException {
 
 		List<RadicalInfo> radicalList = new ArrayList<RadicalInfo>();
 
@@ -312,7 +314,7 @@ public class Lucene3DBGenerator {
 
 			radicalListMapCache.put(radical, currentRadicalInfo);
 		}
-		
+
 		Set<String> allAvailableRadicalSet = new HashSet<String>();
 
 		CsvReader csvReader = new CsvReader(new InputStreamReader(kanjiInputStream), ',');
@@ -350,14 +352,14 @@ public class Lucene3DBGenerator {
 			// update radical info
 			if (entry.getKanjiDic2Entry() != null) {
 				updateRadicalInfoUse(radicalListMapCache, entry.getKanjiDic2Entry().getRadicals());
-				
+
 				allAvailableRadicalSet.addAll(entry.getKanjiDic2Entry().getRadicals());
 			}
 
 			// add
 			addKanjiEntry(indexWriter, entry);			
 		}
-		
+
 		// add available radical list
 		addAvailableRadicalList(indexWriter, allAvailableRadicalSet);
 
@@ -381,55 +383,55 @@ public class Lucene3DBGenerator {
 	public static void addKanjiEntry(IndexWriter indexWriter, KanjiEntry kanjiEntry) throws IOException {
 
 		Document document = new Document();
-		
+
 		// object type
 		document.add(new Field(LuceneStatic.objectType, LuceneStatic.kanjiEntry_objectType, Field.Store.YES, Index.NOT_ANALYZED));
-		
+
 		// id
 		NumericField idField = new NumericField(LuceneStatic.kanjiEntry_id, Field.Store.YES, true);
 		idField.setIntValue(kanjiEntry.getId());
-		
+
 		document.add(idField);
 
 		// kanji
-		document.add(new Field(LuceneStatic.kanjiEntry_kanji, emptyIfNull(kanjiEntry.getKanji()), Field.Store.YES, Index.ANALYZED));
-		
+		document.add(new Field(LuceneStatic.kanjiEntry_kanji, emptyIfNull(kanjiEntry.getKanji()), Field.Store.YES, Index.NOT_ANALYZED));
+
 		// polishTranslatesList
 		List<String> polishtranslatesList = kanjiEntry.getPolishTranslates();
-		
+
 		for (String currentTranslate : polishtranslatesList) {
-			
-			document.add(new Field(LuceneStatic.kanjiEntry_polishTranslatesList, currentTranslate, Field.Store.YES, Index.ANALYZED));
-			
+
+			document.add(new Field( LuceneStatic.kanjiEntry_polishTranslatesList, currentTranslate, Field.Store.YES, Index.ANALYZED));
+
 			if (Utils.containsPolishChars(currentTranslate) == true) {
 				String currentTranslateWithoutPolishChars = Utils.removePolishChars(currentTranslate);
-				
+
 				document.add(new Field(LuceneStatic.kanjiEntry_infoWithoutPolishChars, currentTranslateWithoutPolishChars, Field.Store.YES, Index.ANALYZED));
 			}
 		}
-		
+
 		// info
 		String info = emptyIfNull(kanjiEntry.getInfo());
-		
+
 		document.add(new Field(LuceneStatic.kanjiEntry_info, info, Field.Store.YES, Index.ANALYZED));
-		
+
 		if (Utils.containsPolishChars(info) == true) {
-			
+
 			String infoWithoutPolishChars = Utils.removePolishChars(info);
-			
+
 			document.add(new Field(LuceneStatic.kanjiEntry_infoWithoutPolishChars, infoWithoutPolishChars, Field.Store.YES, Index.ANALYZED));
 		}
 
 		// generated
-		document.add(new Field(LuceneStatic.kanjiEntry_generated, String.valueOf(kanjiEntry.isGenerated()), Field.Store.YES, Index.NOT_ANALYZED));
-				
+		document.add(new Field(LuceneStatic.kanjiEntry_generated, String.valueOf(kanjiEntry.isGenerated()), Field.Store.YES, Index.ANALYZED));
+
 		// groupsList
 		List<String> groupsList = GroupEnum.convertToValues(kanjiEntry.getGroups());
-		
+
 		for (String currentGroup : groupsList) {
 			document.add(new Field(LuceneStatic.kanjiEntry_groupsList, currentGroup, Field.Store.YES, Index.NOT_ANALYZED));
 		}
-		
+
 		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
 
 		if (kanjiDic2Entry != null) {
@@ -437,43 +439,43 @@ public class Lucene3DBGenerator {
 			// kanjiDic2Entry_strokeCount
 			NumericField strokeCountField = new NumericField(LuceneStatic.kanjiEntry_kanjiDic2Entry_strokeCount, Field.Store.YES, true);
 			strokeCountField.setIntValue(kanjiDic2Entry.getStrokeCount());
-			
+
 			document.add(strokeCountField);
-			
+
 			// kanjiDic2Entry_onReadingList
 			List<String> onReadingList = kanjiDic2Entry.getOnReading();
-			
+
 			for (String currentOnReading : onReadingList) {
-				document.add(new Field(LuceneStatic.kanjiEntry_kanjiDic2Entry_onReadingList, currentOnReading, Field.Store.YES, Index.ANALYZED));
+				document.add(new Field(LuceneStatic.kanjiEntry_kanjiDic2Entry_onReadingList, currentOnReading, Field.Store.YES, Index.NOT_ANALYZED));
 			}
 
 			// kanjiDic2Entry_kunReadingList
 			List<String> kunReadingList = kanjiDic2Entry.getKunReading();
-			
+
 			for (String currentKunReading : kunReadingList) {
-				document.add(new Field(LuceneStatic.kanjiEntry_kanjiDic2Entry_kunReadingList, currentKunReading, Field.Store.YES, Index.ANALYZED));
+				document.add(new Field(LuceneStatic.kanjiEntry_kanjiDic2Entry_kunReadingList, currentKunReading, Field.Store.YES, Index.NOT_ANALYZED));
 			}
-			
+
 			// kanjiDic2Entry_radicalsList
 			List<String> radicalsList = kanjiDic2Entry.getRadicals();
-			
+
 			for (String currentRadical : radicalsList) {
-				document.add(new Field(LuceneStatic.kanjiEntry_kanjiDic2Entry_radicalsList, currentRadical, Field.Store.YES, Index.ANALYZED));
+				document.add(new Field(LuceneStatic.kanjiEntry_kanjiDic2Entry_radicalsList, currentRadical, Field.Store.YES, Index.NOT_ANALYZED));
 			}
-			
+
 			// kanjiDic2Entry_jlpt
 			Integer jlpt = kanjiDic2Entry.getJlpt();
-			
+
 			if (jlpt != null) {
 				NumericField jlptField = new NumericField(LuceneStatic.kanjiEntry_kanjiDic2Entry_jlpt, Field.Store.YES, true);
 				jlptField.setIntValue(jlpt);
-				
+
 				document.add(jlptField);
 			}			
-			
+
 			// kanjiDic2Entry_freq
 			Integer freq = kanjiDic2Entry.getFreq();
-			
+
 			if (freq != null) {
 				NumericField freqField = new NumericField(LuceneStatic.kanjiEntry_kanjiDic2Entry_freq, Field.Store.YES, true);
 				freqField.setIntValue(freq);
@@ -481,14 +483,14 @@ public class Lucene3DBGenerator {
 				document.add(freqField);
 			}
 		}
-		
+
 		KanjivgEntry kanjivgEntry = kanjiEntry.getKanjivgEntry();
-		
+
 		if (kanjivgEntry != null) {
-			
+
 			// kanjivgEntry_strokePaths
 			List<String> strokePaths = kanjivgEntry.getStrokePaths();
-						
+
 			for (String currentStrokePath : strokePaths) {
 				document.add(new Field(LuceneStatic.kanjiEntry_kanjivgEntry_strokePaths, currentStrokePath, Field.Store.YES, Index.NOT_ANALYZED));
 			}
@@ -496,23 +498,23 @@ public class Lucene3DBGenerator {
 
 		indexWriter.addDocument(document);		
 	}
-	
+
 	private static void addAvailableRadicalList(IndexWriter indexWriter, Set<String> allAvailableRadicalSet) throws IOException {
-		
+
 		List<String> allAvailableRadicalList = new ArrayList<String>(allAvailableRadicalSet);
-				
+
 		Document document = new Document();
-		
+
 		// object type
 		document.add(new Field(LuceneStatic.objectType, LuceneStatic.allAvailableKanjiRadicals_objectType, Field.Store.YES, Index.NOT_ANALYZED));
 
 		for (String radical : allAvailableRadicalList) {
 			document.add(new Field(LuceneStatic.allAvailableKanjiRadicals_radicalsList, radical, Field.Store.YES, Index.NOT_ANALYZED));
 		}		
-		
+
 		indexWriter.addDocument(document);
 	}
-	
+
 	private static String emptyIfNull(String text) {
 		if (text == null) {
 			return "";
@@ -520,4 +522,38 @@ public class Lucene3DBGenerator {
 
 		return text;
 	}
+
+	public static class LowerKeywordAnalyzer extends ReusableAnalyzerBase {
+
+		private final Version matchVersion;
+
+		public LowerKeywordAnalyzer(Version matchVersion) {
+			super();
+			this.matchVersion = matchVersion;
+		}
+
+		@Override
+		protected TokenStreamComponents createComponents(String fieldName, Reader reader) {
+			return new TokenStreamComponents(new LowerCharTokenizer(matchVersion, reader));
+		}
+
+	}
+
+	public static class LowerCharTokenizer extends CharTokenizer {
+
+		public LowerCharTokenizer(Version version, Reader input) {
+			super(version, input);
+		}
+
+		@Override
+		protected boolean isTokenChar(int c) {
+			return true;
+		}	
+
+		@Override
+		protected int normalize(int c) {
+			return Character.toLowerCase(c);
+		}
+	}
 }
+
