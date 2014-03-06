@@ -474,7 +474,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 		// object type
 		PhraseQuery phraseQuery = new PhraseQuery();
-		phraseQuery.add(new Term(LuceneStatic.objectType, LuceneStatic.dictionaryEntry_objectType));
+		phraseQuery.add(new Term(LuceneStatic.objectType, LuceneStatic.uniqueDictionaryEntryGroupEnumList_objectType));
 
 		query.add(phraseQuery, Occur.MUST);
 		
@@ -487,7 +487,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 				Document foundDocument = searcher.doc(scoreDoc.doc);
 
-				uniqueGroupStringTypes.addAll(Arrays.asList(foundDocument.getValues(LuceneStatic.dictionaryEntry_groupsList)));
+				uniqueGroupStringTypes.addAll(Arrays.asList(foundDocument.getValues(LuceneStatic.uniqueDictionaryEntryGroupEnumList_groupsList)));
 			}
 
 			List<GroupEnum> result = GroupEnum.convertToListGroupEnum(new ArrayList<String>(uniqueGroupStringTypes));
@@ -756,38 +756,61 @@ public class Lucene3Database implements IDatabaseConnector {
 	@Override
 	public Set<String> findAllAvailableRadicals(String[] radicals) throws DictionaryException {
 
-		BooleanQuery query = new BooleanQuery();
-
-		// object type
-		PhraseQuery phraseQuery = new PhraseQuery();
-		phraseQuery.add(new Term(LuceneStatic.objectType, LuceneStatic.kanjiEntry_objectType));
-
-		query.add(phraseQuery, Occur.MUST);
-
-		if (radicals.length > 0) {
-			BooleanQuery kanjiBooleanQuery = new BooleanQuery();
-			
-
-			for (String currentRadical : radicals) {
-				kanjiBooleanQuery.add(createQuery(currentRadical, LuceneStatic.kanjiEntry_kanjiDic2Entry_radicalsList, FindKanjiRequest.WordPlaceSearch.EXACT), Occur.MUST);
-			}
-
-			query.add(kanjiBooleanQuery, Occur.MUST);			
-		}		
-
 		Set<String> result = new HashSet<String>();
 
 		try {
-			ScoreDoc[] scoreDocs = searcher.search(query, null, Integer.MAX_VALUE).scoreDocs;
+			if (radicals == null || radicals.length == 0) {
 
-			for (ScoreDoc scoreDoc : scoreDocs) {
+				BooleanQuery query = new BooleanQuery();
 
-				Document foundDocument = searcher.doc(scoreDoc.doc);
+				// object type
+				PhraseQuery phraseQuery = new PhraseQuery();
+				phraseQuery.add(new Term(LuceneStatic.objectType, LuceneStatic.allAvailableKanjiRadicals_objectType));
 
-				result.addAll(Arrays.asList(foundDocument.getValues(LuceneStatic.kanjiEntry_kanjiDic2Entry_radicalsList)));
+				query.add(phraseQuery, Occur.MUST);
+
+				ScoreDoc[] scoreDocs = searcher.search(query, null, Integer.MAX_VALUE).scoreDocs;
+
+				for (ScoreDoc scoreDoc : scoreDocs) {
+
+					Document foundDocument = searcher.doc(scoreDoc.doc);
+
+					result.addAll(Arrays.asList(foundDocument.getValues(LuceneStatic.allAvailableKanjiRadicals_radicalsList)));
+				}
+
+				return result;
+
+			} else {
+
+				BooleanQuery query = new BooleanQuery();
+
+				// object type
+				PhraseQuery phraseQuery = new PhraseQuery();
+				phraseQuery.add(new Term(LuceneStatic.objectType, LuceneStatic.kanjiEntry_objectType));
+
+				query.add(phraseQuery, Occur.MUST);
+
+				BooleanQuery kanjiBooleanQuery = new BooleanQuery();
+
+
+				for (String currentRadical : radicals) {
+					kanjiBooleanQuery.add(createQuery(currentRadical, LuceneStatic.kanjiEntry_kanjiDic2Entry_radicalsList, FindKanjiRequest.WordPlaceSearch.EXACT), Occur.MUST);
+				}
+
+				query.add(kanjiBooleanQuery, Occur.MUST);			
+
+				ScoreDoc[] scoreDocs = searcher.search(query, null, Integer.MAX_VALUE).scoreDocs;
+
+				for (ScoreDoc scoreDoc : scoreDocs) {
+
+					Document foundDocument = searcher.doc(scoreDoc.doc);
+
+					result.addAll(Arrays.asList(foundDocument.getValues(LuceneStatic.kanjiEntry_kanjiDic2Entry_radicalsList)));
+				}
+
+				return result;
+
 			}
-
-			return result;
 
 		} catch (IOException e) {
 			throw new DictionaryException("Błąd podczas wyszukiwania wszystkich dostępnych znaków podstawowych: " + e);

@@ -103,7 +103,7 @@
     <target name="db-generate">
 	<mkdir dir="bin-db-generator" />
 
-	<javac destdir="bin-db-generator" classpath="bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140305.jar">
+	<javac destdir="bin-db-generator" classpath="bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140306.jar">
 	    <src>
 		<pathelement location="src-db-generator" />
 	    </src>
@@ -111,7 +111,7 @@
 
 	<exec executable="java">
 	    <arg value="-cp" />
-	    <arg value="bin:bin-db-generator:bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140305.jar:libs-db-generator/sqlite-jdbc-3.7.2.jar" />
+	    <arg value="bin:bin-db-generator:bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140306.jar:libs-db-generator/sqlite-jdbc-3.7.2.jar" />
 	    <arg value="pl.idedyk.android.japaneselearnhelper.dbgenerator.Lucene3DBGenerator" />
 	</exec>
 
