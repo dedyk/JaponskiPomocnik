@@ -69,14 +69,14 @@ public class Lucene3Database implements IDatabaseConnector {
 
 		FindWordResult findWordResult = new FindWordResult();
 		findWordResult.result = new ArrayList<FindWordResult.ResultItem>();
+
+		findWordRequest.word = findWordRequest.word.toLowerCase(); 
 		
 		final int maxResult = 50;
 
 		try {
 			if (findWordRequest.wordPlaceSearch != WordPlaceSearch.ANY_PLACE) {
-				
-				String[] wordSplited = findWordRequest.word.split("\\s+");
-				
+
 				BooleanQuery query = new BooleanQuery();
 
 				// object type
@@ -96,51 +96,25 @@ public class Lucene3Database implements IDatabaseConnector {
 				}
 
 				if (findWordRequest.searchRomaji == true) {
-					for (String currentWordSplited : wordSplited) {
-						wordBooleanQuery.add(createQuery(currentWordSplited, LuceneStatic.dictionaryEntry_romajiList, findWordRequest.wordPlaceSearch), Occur.SHOULD);
-					}			
+					wordBooleanQuery.add(createQuery(findWordRequest.word, LuceneStatic.dictionaryEntry_romajiList, findWordRequest.wordPlaceSearch), Occur.SHOULD);				
 				}
 
 				if (findWordRequest.searchTranslate == true) {
-					BooleanQuery translateQuery = new BooleanQuery();
-					
-					BooleanQuery translateSub1Query = new BooleanQuery();
-					
-					for (String currentWordSplited : wordSplited) {
-						translateSub1Query.add(createQuery(currentWordSplited, LuceneStatic.dictionaryEntry_translatesList, findWordRequest.wordPlaceSearch), Occur.MUST);
-					}
-					
-					translateQuery.add(translateSub1Query, Occur.SHOULD);
+					wordBooleanQuery.add(createQuery(findWordRequest.word, LuceneStatic.dictionaryEntry_translatesList, findWordRequest.wordPlaceSearch), Occur.SHOULD);
 
 					String wordWithoutPolishChars = Utils.removePolishChars(findWordRequest.word);
 
-					String[] wordWithoutPolishCharsSplited = wordWithoutPolishChars.split("\\s+");
-					
-					BooleanQuery translateSub2Query = new BooleanQuery();
-					
-					for (String currentWordWithoutPolishCharsSplited : wordWithoutPolishCharsSplited) {
-						translateSub2Query.add(createQuery(currentWordWithoutPolishCharsSplited, LuceneStatic.dictionaryEntry_translatesListWithoutPolishChars, 
-								findWordRequest.wordPlaceSearch), Occur.MUST);
-					}	
-					
-					translateQuery.add(translateSub2Query, Occur.SHOULD);
-					
-					wordBooleanQuery.add(translateQuery, Occur.SHOULD);
+					wordBooleanQuery.add(createQuery(wordWithoutPolishChars, LuceneStatic.dictionaryEntry_translatesListWithoutPolishChars, 
+							findWordRequest.wordPlaceSearch), Occur.SHOULD);
 				}
 
 				if (findWordRequest.searchInfo == true) {
-					for (String currentWordSplited : wordSplited) {
-						wordBooleanQuery.add(createQuery(currentWordSplited, LuceneStatic.dictionaryEntry_info, findWordRequest.wordPlaceSearch), Occur.SHOULD);
-					}
+					wordBooleanQuery.add(createQuery(findWordRequest.word, LuceneStatic.dictionaryEntry_info, findWordRequest.wordPlaceSearch), Occur.SHOULD);
 
 					String wordWithoutPolishChars = Utils.removePolishChars(findWordRequest.word);
 
-					String[] wordWithoutPolishCharsSplited = wordWithoutPolishChars.split("\\s+");
-					
-					for (String currentWordWithoutPolishCharsSplited : wordWithoutPolishCharsSplited) {
-						wordBooleanQuery.add(createQuery(currentWordWithoutPolishCharsSplited, LuceneStatic.dictionaryEntry_infoWithoutPolishChars, 
-								findWordRequest.wordPlaceSearch), Occur.SHOULD);
-					}
+					wordBooleanQuery.add(createQuery(wordWithoutPolishChars, LuceneStatic.dictionaryEntry_infoWithoutPolishChars, 
+							findWordRequest.wordPlaceSearch), Occur.SHOULD);
 				}
 
 				createDictionaryEntryListFilter(wordBooleanQuery, findWordRequest.dictionaryEntryList);			
@@ -589,10 +563,9 @@ public class Lucene3Database implements IDatabaseConnector {
 		FindKanjiResult findKanjiResult = new FindKanjiResult();
 		findKanjiResult.result = new ArrayList<KanjiEntry>();
 
-		final int maxResult = 50;
+		findKanjiRequest.word = findKanjiRequest.word.toLowerCase();
 		
-		int fixme = 1;
-		// split
+		final int maxResult = 50;
 
 		try {
 			if (findKanjiRequest.wordPlaceSearch != FindKanjiRequest.WordPlaceSearch.ANY_PLACE) {

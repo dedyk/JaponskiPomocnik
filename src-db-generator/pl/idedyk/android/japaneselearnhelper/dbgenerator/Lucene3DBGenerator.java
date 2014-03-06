@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.lucene.analysis.SimpleAnalyzer;
+import org.apache.lucene.analysis.CharTokenizer;
+import org.apache.lucene.analysis.ReusableAnalyzerBase;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.Field.Index;
@@ -71,7 +73,7 @@ public class Lucene3DBGenerator {
 		Directory index = FSDirectory.open(dbOutDirFile);
 
 		// tworzenie analizatora lucene
-		SimpleAnalyzer analyzer = new SimpleAnalyzer(Version.LUCENE_36);
+		LowerKeywordAnalyzer analyzer = new LowerKeywordAnalyzer(Version.LUCENE_36);
 
 		// tworzenie zapisywacza konfiguracji
 		IndexWriterConfig indexWriterConfig = new IndexWriterConfig(Version.LUCENE_36, analyzer);
@@ -519,6 +521,39 @@ public class Lucene3DBGenerator {
 		}
 
 		return text;
+	}
+
+	public static class LowerKeywordAnalyzer extends ReusableAnalyzerBase {
+
+		private final Version matchVersion;
+
+		public LowerKeywordAnalyzer(Version matchVersion) {
+			super();
+			this.matchVersion = matchVersion;
+		}
+
+		@Override
+		protected TokenStreamComponents createComponents(String fieldName, Reader reader) {
+			return new TokenStreamComponents(new LowerCharTokenizer(matchVersion, reader));
+		}
+
+	}
+
+	public static class LowerCharTokenizer extends CharTokenizer {
+
+		public LowerCharTokenizer(Version version, Reader input) {
+			super(version, input);
+		}
+
+		@Override
+		protected boolean isTokenChar(int c) {
+			return true;
+		}	
+
+		@Override
+		protected int normalize(int c) {
+			return Character.toLowerCase(c);
+		}
 	}
 }
 
