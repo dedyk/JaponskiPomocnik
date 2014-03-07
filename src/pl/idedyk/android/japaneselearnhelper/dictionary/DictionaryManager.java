@@ -151,16 +151,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 			databaseConnector = lucene3Database = new Lucene3Database(lucenePath.getAbsolutePath());
 			
 			// get database version
-			int databaseVersion = getDatabaseVersion(sqliteDatabaseFile, databaseVersionFile);
-
-			int fixme = 1;
-			{
-				File[] lucenePathListFile = lucenePath.listFiles();
-
-				for (File file : lucenePathListFile) {
-					file.delete();
-				}
-			}
+			int databaseVersion = getDatabaseVersion(databaseVersionFile);
 			
 			if (versionCode != databaseVersion) {
 
@@ -352,13 +343,9 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		writer.close();
 	}
 
-	private int getDatabaseVersion(File databaseFile, File databaseVersionFile) {
+	private int getDatabaseVersion(File databaseVersionFile) {
 
 		int version = 0;
-
-		if (databaseFile.exists() == false) {
-			return version;
-		}
 
 		if (databaseVersionFile.exists() == false) {
 			return version;
@@ -402,7 +389,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		} finally {
 			try {
 				lucene3Database.close();
-			} catch (IOException e) {
+			} catch (Exception e) {
 				return 0;
 			}
 		}

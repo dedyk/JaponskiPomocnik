@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import org.apache.lucene.document.Document;
@@ -50,18 +51,24 @@ public class Lucene3Database implements IDatabaseConnector {
 		this.dbDir = dbDir;		
 	}
 
+	@SuppressWarnings("deprecation")
 	public void open() throws IOException {
 
 		index = FSDirectory.open(new File(dbDir));
 		//analyzer = new SimpleAnalyzer(Version.LUCENE_47);
-		reader = IndexReader.open(index);
+		reader = IndexReader.open(index, true);
 		searcher = new IndexSearcher(reader);
 	}
 
-	public void close() throws IOException {		
-		reader.close();
-
-		index.close();
+	public void close() throws IOException {
+		
+		if (reader != null) {
+			reader.close();
+		}
+		
+		if (index != null) {
+			index.close();
+		}
 	}
 
 	@Override
@@ -74,7 +81,7 @@ public class Lucene3Database implements IDatabaseConnector {
 		
 		String[] wordSplited = findWordRequest.word.split("\\s+");
 		
-		String wordToLowerCase = findWordRequest.word.toLowerCase();
+		String wordToLowerCase = findWordRequest.word.toLowerCase(Locale.getDefault());
 		String wordWithoutPolishCharsToLowerCase = Utils.removePolishChars(wordToLowerCase);
 		
 		//String[] wordSplitedToLowerCase = wordToLowerCase.split("\\s+");
@@ -123,7 +130,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 				query.add(wordBooleanQuery, Occur.MUST);
 
-				ScoreDoc[] scoreDocs = searcher.search(query, null, maxResult).scoreDocs;
+				ScoreDoc[] scoreDocs = searcher.search(query, null, maxResult + 1).scoreDocs;
 
 				for (ScoreDoc scoreDoc : scoreDocs) {
 
@@ -221,7 +228,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 							for (String currentTranslate : translateList) {
 
-								if (currentTranslate.toLowerCase().indexOf(wordToLowerCase) != -1) {
+								if (currentTranslate.toLowerCase(Locale.getDefault()).indexOf(wordToLowerCase) != -1) {
 									addDictionaryEntry = true;
 
 									break;
@@ -234,7 +241,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 								for (String currentTranslateListWithoutPolishChars : translateListWithoutPolishChars) {
 
-									if (currentTranslateListWithoutPolishChars.toLowerCase().indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
+									if (currentTranslateListWithoutPolishChars.toLowerCase(Locale.getDefault()).indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
 										addDictionaryEntry = true;
 
 										break;
@@ -247,7 +254,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 							if (infoString != null) {
 
-								if (infoString.toLowerCase().indexOf(wordToLowerCase) != -1) {
+								if (infoString.toLowerCase(Locale.getDefault()).indexOf(wordToLowerCase) != -1) {
 									addDictionaryEntry = true;
 								}
 
@@ -255,7 +262,7 @@ public class Lucene3Database implements IDatabaseConnector {
 									String infoStringWithoutPolishChars = document.get(LuceneStatic.dictionaryEntry_infoWithoutPolishChars);
 
 									if (infoStringWithoutPolishChars != null) {
-										if (infoStringWithoutPolishChars.toLowerCase().indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
+										if (infoStringWithoutPolishChars.toLowerCase(Locale.getDefault()).indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
 											addDictionaryEntry = true;
 										}									
 									}
@@ -607,7 +614,7 @@ public class Lucene3Database implements IDatabaseConnector {
 		
 		String[] wordSplited = findKanjiRequest.word.split("\\s+");
 		
-		String wordToLowerCase = findKanjiRequest.word.toLowerCase();
+		String wordToLowerCase = findKanjiRequest.word.toLowerCase(Locale.getDefault());
 		String wordWithoutPolishCharsToLowerCase = Utils.removePolishChars(wordToLowerCase);
 		
 		//String[] wordSplitedToLowerCase = wordToLowerCase.split("\\s+");
@@ -643,7 +650,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 				query.add(kanjiBooleanQuery, Occur.MUST);
 
-				ScoreDoc[] scoreDocs = searcher.search(query, null, maxResult).scoreDocs;
+				ScoreDoc[] scoreDocs = searcher.search(query, null, maxResult + 1).scoreDocs;
 
 				for (ScoreDoc scoreDoc : scoreDocs) {
 
@@ -722,7 +729,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 						for (String currentPolishTranslate : polishTranslateList) {
 
-							if (currentPolishTranslate.toLowerCase().indexOf(wordToLowerCase) != -1) {
+							if (currentPolishTranslate.toLowerCase(Locale.getDefault()).indexOf(wordToLowerCase) != -1) {
 								addDictionaryEntry = true;
 
 								break;
@@ -735,7 +742,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 							for (String currentPolishTranslateListWithoutPolishChars : polishTranslateListWithoutPolishChars) {
 
-								if (currentPolishTranslateListWithoutPolishChars.toLowerCase().indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
+								if (currentPolishTranslateListWithoutPolishChars.toLowerCase(Locale.getDefault()).indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
 									addDictionaryEntry = true;
 
 									break;
@@ -749,7 +756,7 @@ public class Lucene3Database implements IDatabaseConnector {
 
 						if (infoString != null) {
 
-							if (infoString.toLowerCase().indexOf(wordToLowerCase) != -1) {
+							if (infoString.toLowerCase(Locale.getDefault()).indexOf(wordToLowerCase) != -1) {
 								addDictionaryEntry = true;
 							}
 
@@ -757,7 +764,7 @@ public class Lucene3Database implements IDatabaseConnector {
 								String infoStringWithoutPolishChars = document.get(LuceneStatic.kanjiEntry_infoWithoutPolishChars);
 
 								if (infoStringWithoutPolishChars != null) {
-									if (infoStringWithoutPolishChars.toLowerCase().indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
+									if (infoStringWithoutPolishChars.toLowerCase(Locale.getDefault()).indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
 										addDictionaryEntry = true;
 									}									
 								}
@@ -949,11 +956,11 @@ public class Lucene3Database implements IDatabaseConnector {
 
 		query.add(NumericRangeQuery.newIntRange(LuceneStatic.kanjiEntry_kanjiDic2Entry_strokeCount, from, to, true, true), Occur.MUST);
 
-		final int maxResult = 201;
+		final int maxResult = 200;
 
 		try {
 
-			ScoreDoc[] scoreDocs = searcher.search(query, null, maxResult).scoreDocs;
+			ScoreDoc[] scoreDocs = searcher.search(query, null, maxResult + 1).scoreDocs;
 
 			List<KanjiEntry> result = new ArrayList<KanjiEntry>();
 
