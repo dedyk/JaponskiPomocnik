@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,8 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.lucene.analysis.CharTokenizer;
-import org.apache.lucene.analysis.ReusableAnalyzerBase;
+import org.apache.lucene.analysis.SimpleAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.Field.Index;
@@ -73,7 +71,7 @@ public class Lucene3DBGenerator {
 		Directory index = FSDirectory.open(dbOutDirFile);
 
 		// tworzenie analizatora lucene
-		LowerKeywordAnalyzer analyzer = new LowerKeywordAnalyzer(Version.LUCENE_36);
+		SimpleAnalyzer analyzer = new SimpleAnalyzer(Version.LUCENE_36);
 
 		// tworzenie zapisywacza konfiguracji
 		IndexWriterConfig indexWriterConfig = new IndexWriterConfig(Version.LUCENE_36, analyzer);
@@ -230,11 +228,9 @@ public class Lucene3DBGenerator {
 
 			document.add(new Field(LuceneStatic.dictionaryEntry_translatesList, currentTranslate, Field.Store.YES, Index.ANALYZED));
 
-			if (Utils.containsPolishChars(currentTranslate) == true) {
-				String currentTranslateWithoutPolishChars = Utils.removePolishChars(currentTranslate);
+			String currentTranslateWithoutPolishChars = Utils.removePolishChars(currentTranslate);
 
-				document.add(new Field(LuceneStatic.dictionaryEntry_translatesListWithoutPolishChars, currentTranslateWithoutPolishChars, Field.Store.YES, Index.ANALYZED));
-			}
+			document.add(new Field(LuceneStatic.dictionaryEntry_translatesListWithoutPolishChars, currentTranslateWithoutPolishChars, Field.Store.NO, Index.ANALYZED));
 		}
 
 		// info
@@ -242,12 +238,9 @@ public class Lucene3DBGenerator {
 
 		document.add(new Field(LuceneStatic.dictionaryEntry_info, info, Field.Store.YES, Index.ANALYZED));
 
-		if (Utils.containsPolishChars(info) == true) {
+		String infoWithoutPolishChars = Utils.removePolishChars(info);
 
-			String infoWithoutPolishChars = Utils.removePolishChars(info);
-
-			document.add(new Field(LuceneStatic.dictionaryEntry_infoWithoutPolishChars, infoWithoutPolishChars, Field.Store.YES, Index.ANALYZED));
-		}
+		document.add(new Field(LuceneStatic.dictionaryEntry_infoWithoutPolishChars, infoWithoutPolishChars, Field.Store.NO, Index.ANALYZED));
 
 		indexWriter.addDocument(document);
 	}
@@ -403,11 +396,9 @@ public class Lucene3DBGenerator {
 
 			document.add(new Field( LuceneStatic.kanjiEntry_polishTranslatesList, currentTranslate, Field.Store.YES, Index.ANALYZED));
 
-			if (Utils.containsPolishChars(currentTranslate) == true) {
-				String currentTranslateWithoutPolishChars = Utils.removePolishChars(currentTranslate);
+			String currentTranslateWithoutPolishChars = Utils.removePolishChars(currentTranslate);
 
-				document.add(new Field(LuceneStatic.kanjiEntry_infoWithoutPolishChars, currentTranslateWithoutPolishChars, Field.Store.YES, Index.ANALYZED));
-			}
+			document.add(new Field(LuceneStatic.kanjiEntry_infoWithoutPolishChars, currentTranslateWithoutPolishChars, Field.Store.NO, Index.ANALYZED));
 		}
 
 		// info
@@ -415,12 +406,9 @@ public class Lucene3DBGenerator {
 
 		document.add(new Field(LuceneStatic.kanjiEntry_info, info, Field.Store.YES, Index.ANALYZED));
 
-		if (Utils.containsPolishChars(info) == true) {
+		String infoWithoutPolishChars = Utils.removePolishChars(info);
 
-			String infoWithoutPolishChars = Utils.removePolishChars(info);
-
-			document.add(new Field(LuceneStatic.kanjiEntry_infoWithoutPolishChars, infoWithoutPolishChars, Field.Store.YES, Index.ANALYZED));
-		}
+		document.add(new Field(LuceneStatic.kanjiEntry_infoWithoutPolishChars, infoWithoutPolishChars, Field.Store.NO, Index.ANALYZED));
 
 		// generated
 		document.add(new Field(LuceneStatic.kanjiEntry_generated, String.valueOf(kanjiEntry.isGenerated()), Field.Store.YES, Index.ANALYZED));
@@ -521,39 +509,6 @@ public class Lucene3DBGenerator {
 		}
 
 		return text;
-	}
-
-	public static class LowerKeywordAnalyzer extends ReusableAnalyzerBase {
-
-		private final Version matchVersion;
-
-		public LowerKeywordAnalyzer(Version matchVersion) {
-			super();
-			this.matchVersion = matchVersion;
-		}
-
-		@Override
-		protected TokenStreamComponents createComponents(String fieldName, Reader reader) {
-			return new TokenStreamComponents(new LowerCharTokenizer(matchVersion, reader));
-		}
-
-	}
-
-	public static class LowerCharTokenizer extends CharTokenizer {
-
-		public LowerCharTokenizer(Version version, Reader input) {
-			super(version, input);
-		}
-
-		@Override
-		protected boolean isTokenChar(int c) {
-			return true;
-		}	
-
-		@Override
-		protected int normalize(int c) {
-			return Character.toLowerCase(c);
-		}
 	}
 }
 

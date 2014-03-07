@@ -69,11 +69,17 @@ public class Lucene3Database implements IDatabaseConnector {
 
 		FindWordResult findWordResult = new FindWordResult();
 		findWordResult.result = new ArrayList<FindWordResult.ResultItem>();
-
-		findWordRequest.word = findWordRequest.word.toLowerCase(); 
 		
 		final int maxResult = 50;
-
+		
+		String[] wordSplited = findWordRequest.word.split("\\s+");
+		
+		String wordToLowerCase = findWordRequest.word.toLowerCase();
+		String wordWithoutPolishCharsToLowerCase = Utils.removePolishChars(wordToLowerCase);
+		
+		//String[] wordSplitedToLowerCase = wordToLowerCase.split("\\s+");
+		String[] wordSplitedWithoutPolishCharsToLowerCase = wordWithoutPolishCharsToLowerCase.split("\\s+");
+		
 		try {
 			if (findWordRequest.wordPlaceSearch != WordPlaceSearch.ANY_PLACE) {
 
@@ -88,32 +94,28 @@ public class Lucene3Database implements IDatabaseConnector {
 				BooleanQuery wordBooleanQuery = new BooleanQuery();
 
 				if (findWordRequest.searchKanji == true) {
-					wordBooleanQuery.add(createQuery(findWordRequest.word, LuceneStatic.dictionaryEntry_kanji, findWordRequest.wordPlaceSearch), Occur.SHOULD);				
+					wordBooleanQuery.add(createQuery(wordSplited, LuceneStatic.dictionaryEntry_kanji, findWordRequest.wordPlaceSearch), Occur.SHOULD);				
 				}
 
 				if (findWordRequest.searchKana == true) {
-					wordBooleanQuery.add(createQuery(findWordRequest.word, LuceneStatic.dictionaryEntry_kanaList, findWordRequest.wordPlaceSearch), Occur.SHOULD);				
+					wordBooleanQuery.add(createQuery(wordSplited, LuceneStatic.dictionaryEntry_kanaList, findWordRequest.wordPlaceSearch), Occur.SHOULD);				
 				}
 
 				if (findWordRequest.searchRomaji == true) {
-					wordBooleanQuery.add(createQuery(findWordRequest.word, LuceneStatic.dictionaryEntry_romajiList, findWordRequest.wordPlaceSearch), Occur.SHOULD);				
+					wordBooleanQuery.add(createQuery(wordSplitedWithoutPolishCharsToLowerCase, LuceneStatic.dictionaryEntry_romajiList, findWordRequest.wordPlaceSearch), Occur.SHOULD);				
 				}
 
 				if (findWordRequest.searchTranslate == true) {
-					wordBooleanQuery.add(createQuery(findWordRequest.word, LuceneStatic.dictionaryEntry_translatesList, findWordRequest.wordPlaceSearch), Occur.SHOULD);
+					//wordBooleanQuery.add(createQuery(wordSplitedToLowerCase, LuceneStatic.dictionaryEntry_translatesList, findWordRequest.wordPlaceSearch), Occur.SHOULD);
 
-					String wordWithoutPolishChars = Utils.removePolishChars(findWordRequest.word);
-
-					wordBooleanQuery.add(createQuery(wordWithoutPolishChars, LuceneStatic.dictionaryEntry_translatesListWithoutPolishChars, 
+					wordBooleanQuery.add(createQuery(wordSplitedWithoutPolishCharsToLowerCase, LuceneStatic.dictionaryEntry_translatesListWithoutPolishChars, 
 							findWordRequest.wordPlaceSearch), Occur.SHOULD);
 				}
 
 				if (findWordRequest.searchInfo == true) {
-					wordBooleanQuery.add(createQuery(findWordRequest.word, LuceneStatic.dictionaryEntry_info, findWordRequest.wordPlaceSearch), Occur.SHOULD);
+					//wordBooleanQuery.add(createQuery(wordSplitedToLowerCase, LuceneStatic.dictionaryEntry_info, findWordRequest.wordPlaceSearch), Occur.SHOULD);
 
-					String wordWithoutPolishChars = Utils.removePolishChars(findWordRequest.word);
-
-					wordBooleanQuery.add(createQuery(wordWithoutPolishChars, LuceneStatic.dictionaryEntry_infoWithoutPolishChars, 
+					wordBooleanQuery.add(createQuery(wordSplitedWithoutPolishCharsToLowerCase, LuceneStatic.dictionaryEntry_infoWithoutPolishChars, 
 							findWordRequest.wordPlaceSearch), Occur.SHOULD);
 				}
 
@@ -217,11 +219,9 @@ public class Lucene3Database implements IDatabaseConnector {
 
 						if (addDictionaryEntry == false && findWordRequest.searchTranslate == true) {
 
-							String findWordWordLowerCase = findWordRequest.word.toLowerCase();
-
 							for (String currentTranslate : translateList) {
 
-								if (currentTranslate.toLowerCase().indexOf(findWordWordLowerCase) != -1) {
+								if (currentTranslate.toLowerCase().indexOf(wordToLowerCase) != -1) {
 									addDictionaryEntry = true;
 
 									break;
@@ -232,11 +232,9 @@ public class Lucene3Database implements IDatabaseConnector {
 
 							if (translateListWithoutPolishChars != null && translateListWithoutPolishChars.size() > 0) {
 
-								String findWordWordLowerCaseWithoutPolishChars = Utils.removePolishChars(findWordWordLowerCase);
-
 								for (String currentTranslateListWithoutPolishChars : translateListWithoutPolishChars) {
 
-									if (currentTranslateListWithoutPolishChars.toLowerCase().indexOf(findWordWordLowerCaseWithoutPolishChars) != -1) {
+									if (currentTranslateListWithoutPolishChars.toLowerCase().indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
 										addDictionaryEntry = true;
 
 										break;
@@ -247,11 +245,9 @@ public class Lucene3Database implements IDatabaseConnector {
 
 						if (addDictionaryEntry == false && findWordRequest.searchInfo == true) {
 
-							String findWordWordLowerCase = findWordRequest.word.toLowerCase();
-
 							if (infoString != null) {
 
-								if (infoString.toLowerCase().indexOf(findWordWordLowerCase) != -1) {
+								if (infoString.toLowerCase().indexOf(wordToLowerCase) != -1) {
 									addDictionaryEntry = true;
 								}
 
@@ -259,9 +255,7 @@ public class Lucene3Database implements IDatabaseConnector {
 									String infoStringWithoutPolishChars = document.get(LuceneStatic.dictionaryEntry_infoWithoutPolishChars);
 
 									if (infoStringWithoutPolishChars != null) {
-										String findWordWordLowerCaseWithoutPolishChars = Utils.removePolishChars(findWordWordLowerCase);
-
-										if (infoStringWithoutPolishChars.toLowerCase().indexOf(findWordWordLowerCaseWithoutPolishChars) != -1) {
+										if (infoStringWithoutPolishChars.toLowerCase().indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
 											addDictionaryEntry = true;
 										}									
 									}
@@ -394,16 +388,39 @@ public class Lucene3Database implements IDatabaseConnector {
 		}				
 	}
 
-	private Query createQuery(String word, String fieldName, WordPlaceSearch wordPlaceSearch) {
+	private Query createQuery(String[] wordSplited, String fieldName, WordPlaceSearch wordPlaceSearch) {
+		
+		BooleanQuery booleanQuery = new BooleanQuery();
 
+		if (wordPlaceSearch == WordPlaceSearch.START_WITH) {
+			
+			for (String currentWord : wordSplited) {
+				booleanQuery.add(new PrefixQuery(new Term(fieldName, currentWord)), Occur.MUST);
+			}
+			
+		} else if (wordPlaceSearch == WordPlaceSearch.EXACT) {
+			
+			for (String currentWord : wordSplited) {
+				booleanQuery.add(new TermQuery(new Term(fieldName, currentWord)), Occur.MUST);;
+			}
+			
+		} else {
+			throw new RuntimeException();
+		}
+		
+		return booleanQuery;
+	}
+	
+	private Query createQuery(String word, String fieldName, WordPlaceSearch wordPlaceSearch) {
+		
 		Query query = null;
 
 		if (wordPlaceSearch == WordPlaceSearch.START_WITH) {
 			query = new PrefixQuery(new Term(fieldName, word));
-
+			
 		} else if (wordPlaceSearch == WordPlaceSearch.EXACT) {
 			query = new TermQuery(new Term(fieldName, word));
-
+			
 		} else {
 			throw new RuntimeException();
 		}
@@ -426,6 +443,29 @@ public class Lucene3Database implements IDatabaseConnector {
 		}
 
 		return query;
+	}
+	
+	private Query createQuery(String[] wordSplited, String fieldName, FindKanjiRequest.WordPlaceSearch wordPlaceSearch) {
+		
+		BooleanQuery booleanQuery = new BooleanQuery();
+
+		if (wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.START_WITH) {
+			
+			for (String currentWord : wordSplited) {
+				booleanQuery.add(new PrefixQuery(new Term(fieldName, currentWord)), Occur.MUST);
+			}
+			
+		} else if (wordPlaceSearch == FindKanjiRequest.WordPlaceSearch.EXACT) {
+			
+			for (String currentWord : wordSplited) {
+				booleanQuery.add(new TermQuery(new Term(fieldName, currentWord)), Occur.MUST);;
+			}
+			
+		} else {
+			throw new RuntimeException();
+		}
+		
+		return booleanQuery;
 	}
 
 	private void createDictionaryEntryListFilter(BooleanQuery wordBooleanQuery, List<DictionaryEntryType> dictionaryEntryList) {
@@ -562,10 +602,16 @@ public class Lucene3Database implements IDatabaseConnector {
 
 		FindKanjiResult findKanjiResult = new FindKanjiResult();
 		findKanjiResult.result = new ArrayList<KanjiEntry>();
-
-		findKanjiRequest.word = findKanjiRequest.word.toLowerCase();
 		
 		final int maxResult = 50;
+		
+		String[] wordSplited = findKanjiRequest.word.split("\\s+");
+		
+		String wordToLowerCase = findKanjiRequest.word.toLowerCase();
+		String wordWithoutPolishCharsToLowerCase = Utils.removePolishChars(wordToLowerCase);
+		
+		//String[] wordSplitedToLowerCase = wordToLowerCase.split("\\s+");
+		String[] wordSplitedWithoutPolishCharsToLowerCase = wordWithoutPolishCharsToLowerCase.split("\\s+");
 
 		try {
 			if (findKanjiRequest.wordPlaceSearch != FindKanjiRequest.WordPlaceSearch.ANY_PLACE) {
@@ -581,20 +627,18 @@ public class Lucene3Database implements IDatabaseConnector {
 				BooleanQuery kanjiBooleanQuery = new BooleanQuery();
 
 				// kanji
-				kanjiBooleanQuery.add(createQuery(findKanjiRequest.word, LuceneStatic.kanjiEntry_kanji, findKanjiRequest.wordPlaceSearch), Occur.SHOULD);				
+				kanjiBooleanQuery.add(createQuery(wordSplited, LuceneStatic.kanjiEntry_kanji, findKanjiRequest.wordPlaceSearch), Occur.SHOULD);				
 
 				// translate
-				kanjiBooleanQuery.add(createQuery(findKanjiRequest.word, LuceneStatic.kanjiEntry_polishTranslatesList, findKanjiRequest.wordPlaceSearch), Occur.SHOULD);
+				//kanjiBooleanQuery.add(createQuery(wordSplitedToLowerCase, LuceneStatic.kanjiEntry_polishTranslatesList, findKanjiRequest.wordPlaceSearch), Occur.SHOULD);
 
-				String wordWithoutPolishChars = Utils.removePolishChars(findKanjiRequest.word);
-
-				kanjiBooleanQuery.add(createQuery(wordWithoutPolishChars, LuceneStatic.kanjiEntry_polishTranslatesListWithoutPolishChars, 
+				kanjiBooleanQuery.add(createQuery(wordSplitedWithoutPolishCharsToLowerCase, LuceneStatic.kanjiEntry_polishTranslatesListWithoutPolishChars, 
 						findKanjiRequest.wordPlaceSearch), Occur.SHOULD);
 
 				// info
-				kanjiBooleanQuery.add(createQuery(findKanjiRequest.word, LuceneStatic.kanjiEntry_info, findKanjiRequest.wordPlaceSearch), Occur.SHOULD);
+				//kanjiBooleanQuery.add(createQuery(wordSplitedToLowerCase, LuceneStatic.kanjiEntry_info, findKanjiRequest.wordPlaceSearch), Occur.SHOULD);
 
-				kanjiBooleanQuery.add(createQuery(wordWithoutPolishChars, LuceneStatic.kanjiEntry_infoWithoutPolishChars, 
+				kanjiBooleanQuery.add(createQuery(wordSplitedWithoutPolishCharsToLowerCase, LuceneStatic.kanjiEntry_infoWithoutPolishChars, 
 						findKanjiRequest.wordPlaceSearch), Occur.SHOULD);
 
 				query.add(kanjiBooleanQuery, Occur.MUST);
@@ -676,11 +720,9 @@ public class Lucene3Database implements IDatabaseConnector {
 					// translate
 					if (addDictionaryEntry == false) {
 
-						String findKanjiWordLowerCase = findKanjiRequest.word.toLowerCase();
-
 						for (String currentPolishTranslate : polishTranslateList) {
 
-							if (currentPolishTranslate.toLowerCase().indexOf(findKanjiWordLowerCase) != -1) {
+							if (currentPolishTranslate.toLowerCase().indexOf(wordToLowerCase) != -1) {
 								addDictionaryEntry = true;
 
 								break;
@@ -691,11 +733,9 @@ public class Lucene3Database implements IDatabaseConnector {
 
 						if (polishTranslateListWithoutPolishChars != null && polishTranslateListWithoutPolishChars.size() > 0) {
 
-							String findKanjiWordLowerCaseWithoutPolishChars = Utils.removePolishChars(findKanjiWordLowerCase);
-
 							for (String currentPolishTranslateListWithoutPolishChars : polishTranslateListWithoutPolishChars) {
 
-								if (currentPolishTranslateListWithoutPolishChars.toLowerCase().indexOf(findKanjiWordLowerCaseWithoutPolishChars) != -1) {
+								if (currentPolishTranslateListWithoutPolishChars.toLowerCase().indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
 									addDictionaryEntry = true;
 
 									break;
@@ -707,11 +747,9 @@ public class Lucene3Database implements IDatabaseConnector {
 					// info
 					if (addDictionaryEntry == false) {
 
-						String findKanjiWordLowerCase = findKanjiRequest.word.toLowerCase();
-
 						if (infoString != null) {
 
-							if (infoString.toLowerCase().indexOf(findKanjiWordLowerCase) != -1) {
+							if (infoString.toLowerCase().indexOf(wordToLowerCase) != -1) {
 								addDictionaryEntry = true;
 							}
 
@@ -719,9 +757,7 @@ public class Lucene3Database implements IDatabaseConnector {
 								String infoStringWithoutPolishChars = document.get(LuceneStatic.kanjiEntry_infoWithoutPolishChars);
 
 								if (infoStringWithoutPolishChars != null) {
-									String findKanjiWordLowerCaseWithoutPolishChars = Utils.removePolishChars(findKanjiWordLowerCase);
-
-									if (infoStringWithoutPolishChars.toLowerCase().indexOf(findKanjiWordLowerCaseWithoutPolishChars) != -1) {
+									if (infoStringWithoutPolishChars.toLowerCase().indexOf(wordWithoutPolishCharsToLowerCase) != -1) {
 										addDictionaryEntry = true;
 									}									
 								}
