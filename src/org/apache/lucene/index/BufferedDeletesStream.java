@@ -19,11 +19,11 @@ package org.apache.lucene.index;
 
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Comparator;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -330,7 +330,8 @@ class BufferedDeletesStream {
   }
 
   // Delete by Term
-  private synchronized long applyTermDeletes(Iterable<Term> termsIter, SegmentReader reader) throws IOException {
+  @SuppressWarnings("deprecation")
+private synchronized long applyTermDeletes(Iterable<Term> termsIter, SegmentReader reader) throws IOException {
     long delCount = 0;
         
     assert checkDeleteTerm(null);
@@ -370,7 +371,8 @@ class BufferedDeletesStream {
   }
 
   // Delete by query
-  private synchronized long applyQueryDeletes(Iterable<QueryAndLimit> queriesIter, SegmentReader reader) throws IOException {
+  @SuppressWarnings("deprecation")
+private synchronized long applyQueryDeletes(Iterable<QueryAndLimit> queriesIter, SegmentReader reader) throws IOException {
     long delCount = 0;
 
     for (QueryAndLimit ent : queriesIter) {

@@ -25,7 +25,11 @@ import org.apache.lucene.util.AttributeImpl;
  * The start and end character offset of a Token. 
  */
 public class OffsetAttributeImpl extends AttributeImpl implements OffsetAttribute, Cloneable, Serializable {
-  private int startOffset;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private int startOffset;
   private int endOffset;
 
   /** Returns this Token's starting offset, the position of the first character

@@ -71,7 +71,12 @@ public final class TwoPhaseCommitTool {
    */
   public static class PrepareCommitFailException extends IOException {
     
-    public PrepareCommitFailException(Throwable cause, TwoPhaseCommit obj) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PrepareCommitFailException(Throwable cause, TwoPhaseCommit obj) {
       super("prepareCommit() failed on " + obj);
       initCause(cause);
     }
@@ -84,7 +89,12 @@ public final class TwoPhaseCommitTool {
    */
   public static class CommitFailException extends IOException {
     
-    public CommitFailException(Throwable cause, TwoPhaseCommit obj) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public CommitFailException(Throwable cause, TwoPhaseCommit obj) {
       super("commit() failed on " + obj);
       initCause(cause);
     }

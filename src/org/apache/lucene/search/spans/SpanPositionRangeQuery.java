@@ -28,7 +28,11 @@ import java.io.IOException;
  * @see org.apache.lucene.search.spans.SpanFirstQuery for a derivation that is optimized for the case where start position is 0
  */
 public class SpanPositionRangeQuery extends SpanPositionCheckQuery {
-  protected int start = 0;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected int start = 0;
   protected int end;
 
   public SpanPositionRangeQuery(SpanQuery match, int start, int end) {

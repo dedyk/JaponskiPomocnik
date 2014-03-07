@@ -17,8 +17,13 @@ package org.apache.lucene.util.fst;
  * limitations under the License.
  */
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.BitSet;
+import java.util.Comparator;
+import java.util.List;
+import java.util.TreeSet;
 
 import org.apache.lucene.util.BytesRef;
 import org.apache.lucene.util.IntsRef;
@@ -513,7 +518,7 @@ public final class Util {
         }
       }
     
-      @SuppressWarnings({"rawtypes","unchecked"}) final MinResult<T>[] arr =
+      @SuppressWarnings({"unchecked"}) final MinResult<T>[] arr =
         (MinResult<T>[]) new MinResult[results.size()];
       return results.toArray(arr);
     }

@@ -462,7 +462,8 @@ public abstract class LogMergePolicy extends MergePolicy {
   private static class SegmentInfoAndLevel implements Comparable<SegmentInfoAndLevel> {
     SegmentInfo info;
     float level;
-    int index;
+    @SuppressWarnings("unused")
+	int index;
     
     public SegmentInfoAndLevel(SegmentInfo info, float level, int index) {
       this.info = info;

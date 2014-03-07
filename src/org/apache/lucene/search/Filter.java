@@ -29,6 +29,11 @@ import org.apache.lucene.util.DocIdBitSet;
 public abstract class Filter implements java.io.Serializable {
   
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/**
    * Creates a {@link DocIdSet} enumerating the documents that should be
    * permitted in search results. <b>NOTE:</b> null can be
    * returned if no documents are accepted by this Filter.

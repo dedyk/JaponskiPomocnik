@@ -689,6 +689,7 @@ public final class StandardTokenizerImpl implements StandardTokenizerInterface {
   private int zzEndRead;
 
   /** number of newlines encountered up to the start of the matched text */
+  @SuppressWarnings("unused")
   private int yyline;
 
   /** the number of characters up to the start of the matched text */
@@ -698,17 +699,20 @@ public final class StandardTokenizerImpl implements StandardTokenizerInterface {
    * the number of characters from the last newline up to the start of the 
    * matched text
    */
-  private int yycolumn;
+  @SuppressWarnings("unused")
+private int yycolumn;
 
   /** 
    * zzAtBOL == true <=> the scanner is currently at the beginning of a line
    */
+  @SuppressWarnings("unused")
   private boolean zzAtBOL = true;
 
   /** zzAtEOF == true <=> the scanner is at the EOF */
   private boolean zzAtEOF;
 
   /** denotes if the user-EOF-code has already been executed */
+  @SuppressWarnings("unused")
   private boolean zzEOFDone;
 
   /* user code: */
@@ -736,7 +740,8 @@ public final class StandardTokenizerImpl implements StandardTokenizerInterface {
   
   public static final int HANGUL_TYPE = StandardTokenizer.HANGUL;
 
-  public final int yychar()
+  @Override
+public final int yychar()
   {
     return yychar;
   }
@@ -744,7 +749,8 @@ public final class StandardTokenizerImpl implements StandardTokenizerInterface {
   /**
    * Fills CharTermAttribute with the current token text.
    */
-  public final void getText(CharTermAttribute t) {
+  @Override
+public final void getText(CharTermAttribute t) {
     t.copyBuffer(zzBuffer, zzStartRead, zzMarkedPos-zzStartRead);
   }
 
@@ -866,7 +872,8 @@ public final class StandardTokenizerImpl implements StandardTokenizerInterface {
    *
    * @param reader   the new input stream 
    */
-  public final void yyreset(java.io.Reader reader) {
+  @Override
+public final void yyreset(java.io.Reader reader) {
     zzReader = reader;
     zzAtBOL  = true;
     zzAtEOF  = false;
@@ -925,7 +932,8 @@ public final class StandardTokenizerImpl implements StandardTokenizerInterface {
   /**
    * Returns the length of the matched text region.
    */
-  public final int yylength() {
+  @Override
+public final int yylength() {
     return zzMarkedPos-zzStartRead;
   }
 
@@ -980,7 +988,8 @@ public final class StandardTokenizerImpl implements StandardTokenizerInterface {
    * @return      the next token
    * @exception   java.io.IOException  if any I/O-Error occurs
    */
-  public int getNextToken() throws java.io.IOException {
+  @Override
+public int getNextToken() throws java.io.IOException {
     int zzInput;
     int zzAction;
 

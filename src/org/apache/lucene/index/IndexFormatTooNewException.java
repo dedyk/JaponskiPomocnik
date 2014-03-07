@@ -25,7 +25,12 @@ import org.apache.lucene.store.DataInput;
  */
 public class IndexFormatTooNewException extends CorruptIndexException {
 
-  /** @lucene.internal */
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** @lucene.internal */
   public IndexFormatTooNewException(String resourceDesc, int version, int minVersion, int maxVersion) {
     super("Format version is not supported (resource: " + resourceDesc + "): "
       + version + " (needs to be between " + minVersion + " and " + maxVersion + ")");

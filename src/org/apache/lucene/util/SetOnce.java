@@ -32,7 +32,12 @@ public final class SetOnce<T> {
 
   /** Thrown when {@link SetOnce#set(Object)} is called more than once. */
   public static final class AlreadySetException extends RuntimeException {
-    public AlreadySetException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public AlreadySetException() {
       super("The object cannot be set twice!");
     }
   }

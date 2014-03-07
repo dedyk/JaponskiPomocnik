@@ -17,21 +17,21 @@ package org.apache.lucene.search.payloads;
  * limitations under the License.
  */
 
-import org.apache.lucene.index.Term;
+import java.io.IOException;
+
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.index.TermPositions;
-import org.apache.lucene.search.Searcher;
-import org.apache.lucene.search.Scorer;
-import org.apache.lucene.search.Weight;
-import org.apache.lucene.search.Similarity;
-import org.apache.lucene.search.Explanation;
 import org.apache.lucene.search.ComplexExplanation;
-import org.apache.lucene.search.spans.TermSpans;
+import org.apache.lucene.search.Explanation;
+import org.apache.lucene.search.Scorer;
+import org.apache.lucene.search.Searcher;
+import org.apache.lucene.search.Similarity;
+import org.apache.lucene.search.Weight;
+import org.apache.lucene.search.spans.SpanScorer;
 import org.apache.lucene.search.spans.SpanTermQuery;
 import org.apache.lucene.search.spans.SpanWeight;
-import org.apache.lucene.search.spans.SpanScorer;
-
-import java.io.IOException;
+import org.apache.lucene.search.spans.TermSpans;
 
 /**
  * This class is very similar to
@@ -45,8 +45,13 @@ import java.io.IOException;
  * <p>
  * Payload scores are aggregated using a pluggable {@link PayloadFunction}.
  **/
+@SuppressWarnings("deprecation")
 public class PayloadTermQuery extends SpanTermQuery {
-  protected PayloadFunction function;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected PayloadFunction function;
   private boolean includeSpanScore;
 
   public PayloadTermQuery(Term term, PayloadFunction function) {
@@ -67,7 +72,12 @@ public class PayloadTermQuery extends SpanTermQuery {
 
   protected class PayloadTermWeight extends SpanWeight {
 
-    public PayloadTermWeight(PayloadTermQuery query, Searcher searcher)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PayloadTermWeight(PayloadTermQuery query, Searcher searcher)
         throws IOException {
       super(query, searcher);
     }

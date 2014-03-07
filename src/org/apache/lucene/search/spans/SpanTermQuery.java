@@ -26,7 +26,11 @@ import java.util.Set;
 
 /** Matches spans containing a term. */
 public class SpanTermQuery extends SpanQuery {
-  protected Term term;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected Term term;
 
   /** Construct a SpanTermQuery matching the named term's spans. */
   public SpanTermQuery(Term term) { this.term = term; }

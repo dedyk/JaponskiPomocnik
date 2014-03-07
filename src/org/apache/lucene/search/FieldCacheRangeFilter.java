@@ -18,9 +18,9 @@ package org.apache.lucene.search;
 
 import java.io.IOException;
 
+import org.apache.lucene.document.NumericField; // for javadocs
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.util.NumericUtils;
-import org.apache.lucene.document.NumericField; // for javadocs
 
 /**
  * A range filter built on top of a cached single term field (in {@link FieldCache}).
@@ -52,7 +52,11 @@ import org.apache.lucene.document.NumericField; // for javadocs
  */
 
 public abstract class FieldCacheRangeFilter<T> extends Filter {
-  final String field;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+final String field;
   final FieldCache.Parser parser;
   final T lowerVal;
   final T upperVal;
@@ -79,7 +83,12 @@ public abstract class FieldCacheRangeFilter<T> extends Filter {
    */
   public static FieldCacheRangeFilter<String> newStringRange(String field, String lowerVal, String upperVal, boolean includeLower, boolean includeUpper) {
     return new FieldCacheRangeFilter<String>(field, null, lowerVal, upperVal, includeLower, includeUpper) {
-      @Override
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	@Override
       public DocIdSet getDocIdSet(IndexReader reader) throws IOException {
         final FieldCache.StringIndex fcsi = FieldCache.DEFAULT.getStringIndex(reader, field);
         final int lowerPoint = fcsi.binarySearchLookup(lowerVal);
@@ -144,7 +153,12 @@ public abstract class FieldCacheRangeFilter<T> extends Filter {
    */
   public static FieldCacheRangeFilter<Byte> newByteRange(String field, FieldCache.ByteParser parser, Byte lowerVal, Byte upperVal, boolean includeLower, boolean includeUpper) {
     return new FieldCacheRangeFilter<Byte>(field, parser, lowerVal, upperVal, includeLower, includeUpper) {
-      @Override
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	@Override
       public DocIdSet getDocIdSet(IndexReader reader) throws IOException {
         final byte inclusiveLowerPoint, inclusiveUpperPoint;
         if (lowerVal != null) {
@@ -194,7 +208,12 @@ public abstract class FieldCacheRangeFilter<T> extends Filter {
    */
   public static FieldCacheRangeFilter<Short> newShortRange(String field, FieldCache.ShortParser parser, Short lowerVal, Short upperVal, boolean includeLower, boolean includeUpper) {
     return new FieldCacheRangeFilter<Short>(field, parser, lowerVal, upperVal, includeLower, includeUpper) {
-      @Override
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	@Override
       public DocIdSet getDocIdSet(IndexReader reader) throws IOException {
         final short inclusiveLowerPoint, inclusiveUpperPoint;
         if (lowerVal != null) {
@@ -244,7 +263,12 @@ public abstract class FieldCacheRangeFilter<T> extends Filter {
    */
   public static FieldCacheRangeFilter<Integer> newIntRange(String field, FieldCache.IntParser parser, Integer lowerVal, Integer upperVal, boolean includeLower, boolean includeUpper) {
     return new FieldCacheRangeFilter<Integer>(field, parser, lowerVal, upperVal, includeLower, includeUpper) {
-      @Override
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	@Override
       public DocIdSet getDocIdSet(IndexReader reader) throws IOException {
         final int inclusiveLowerPoint, inclusiveUpperPoint;
         if (lowerVal != null) {
@@ -294,7 +318,12 @@ public abstract class FieldCacheRangeFilter<T> extends Filter {
    */
   public static FieldCacheRangeFilter<Long> newLongRange(String field, FieldCache.LongParser parser, Long lowerVal, Long upperVal, boolean includeLower, boolean includeUpper) {
     return new FieldCacheRangeFilter<Long>(field, parser, lowerVal, upperVal, includeLower, includeUpper) {
-      @Override
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	@Override
       public DocIdSet getDocIdSet(IndexReader reader) throws IOException {
         final long inclusiveLowerPoint, inclusiveUpperPoint;
         if (lowerVal != null) {
@@ -344,7 +373,12 @@ public abstract class FieldCacheRangeFilter<T> extends Filter {
    */
   public static FieldCacheRangeFilter<Float> newFloatRange(String field, FieldCache.FloatParser parser, Float lowerVal, Float upperVal, boolean includeLower, boolean includeUpper) {
     return new FieldCacheRangeFilter<Float>(field, parser, lowerVal, upperVal, includeLower, includeUpper) {
-      @Override
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	@Override
       public DocIdSet getDocIdSet(IndexReader reader) throws IOException {
         // we transform the floating point numbers to sortable integers
         // using NumericUtils to easier find the next bigger/lower value
@@ -398,7 +432,12 @@ public abstract class FieldCacheRangeFilter<T> extends Filter {
    */
   public static FieldCacheRangeFilter<Double> newDoubleRange(String field, FieldCache.DoubleParser parser, Double lowerVal, Double upperVal, boolean includeLower, boolean includeUpper) {
     return new FieldCacheRangeFilter<Double>(field, parser, lowerVal, upperVal, includeLower, includeUpper) {
-      @Override
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	@Override
       public DocIdSet getDocIdSet(IndexReader reader) throws IOException {
         // we transform the floating point numbers to sortable integers
         // using NumericUtils to easier find the next bigger/lower value
@@ -448,7 +487,7 @@ public abstract class FieldCacheRangeFilter<T> extends Filter {
   }
 
   @Override
-  @SuppressWarnings({"unchecked","rawtypes"})
+  @SuppressWarnings({"rawtypes"})
   public final boolean equals(Object o) {
     if (this == o) return true;
     if (!(o instanceof FieldCacheRangeFilter)) return false;

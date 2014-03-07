@@ -24,7 +24,12 @@ package org.apache.lucene.util;
  */
 
 public final class ThreadInterruptedException extends RuntimeException {
-  public ThreadInterruptedException(InterruptedException ie) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public ThreadInterruptedException(InterruptedException ie) {
     super(ie);
   }
 }

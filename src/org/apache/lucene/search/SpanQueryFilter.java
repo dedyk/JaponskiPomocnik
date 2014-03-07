@@ -36,7 +36,11 @@ import java.util.List;
  * caches.
  */
 public class SpanQueryFilter extends SpanFilter {
-  protected SpanQuery query;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected SpanQuery query;
 
   protected SpanQueryFilter()
   {

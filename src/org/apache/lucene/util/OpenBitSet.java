@@ -76,7 +76,11 @@ Test system: AMD Opteron, 64 bit linux, Sun Java 1.5_06 -server -Xbatch -Xmx64M
  */
 
 public class OpenBitSet extends DocIdSet implements Cloneable, Serializable, Bits {
-  protected long[] bits;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected long[] bits;
   protected int wlen;   // number of words (elements) used in the array
 
   // Used only for assert:

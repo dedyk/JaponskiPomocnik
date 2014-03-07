@@ -28,7 +28,11 @@ import java.util.Map;
  */
 public class MapFieldSelector implements FieldSelector {
     
-    Map<String,FieldSelectorResult> fieldSelections;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	Map<String,FieldSelectorResult> fieldSelections;
     
     /** Create a a MapFieldSelector
      * @param fieldSelections maps from field names (String) to {@link FieldSelectorResult}s

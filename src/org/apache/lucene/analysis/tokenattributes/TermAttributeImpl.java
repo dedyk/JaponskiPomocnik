@@ -24,4 +24,9 @@ package org.apache.lucene.analysis.tokenattributes;
  */
 @Deprecated
 public class TermAttributeImpl extends CharTermAttributeImpl {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 }

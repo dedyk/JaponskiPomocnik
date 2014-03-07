@@ -402,7 +402,8 @@ class TermVectorsReader implements Cloneable, Closeable {
    * @param mapper The mapper used to map the TermVector
    * @throws IOException
    */ 
-  private void readTermVector(String field, long tvfPointer, TermVectorMapper mapper)
+  @SuppressWarnings({ "deprecation" })
+private void readTermVector(String field, long tvfPointer, TermVectorMapper mapper)
           throws IOException {
 
     // Now read the data from specified position

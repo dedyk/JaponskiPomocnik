@@ -21,9 +21,9 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.index.TermDocs;
-import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.search.Explanation.IDFExplanation;
 import org.apache.lucene.util.ReaderUtil;
 import org.apache.lucene.util.ToStringUtils;
@@ -32,10 +32,18 @@ import org.apache.lucene.util.ToStringUtils;
   This may be combined with other terms with a {@link BooleanQuery}.
   */
 public class TermQuery extends Query {
-  private Term term;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Term term;
 
   private class TermWeight extends Weight {
-    private final Similarity similarity;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Similarity similarity;
     private float value;
     private float idf;
     private float queryNorm;
@@ -43,7 +51,8 @@ public class TermQuery extends Query {
     private IDFExplanation idfExp;
     private final Set<Integer> hash;
 
-    public TermWeight(Searcher searcher)
+    @SuppressWarnings("deprecation")
+	public TermWeight(Searcher searcher)
       throws IOException {
       this.similarity = getSimilarity(searcher);
       if (searcher instanceof IndexSearcher) {
@@ -194,7 +203,8 @@ public class TermQuery extends Query {
   /** Returns the term of this query. */
   public Term getTerm() { return term; }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Weight createWeight(Searcher searcher) throws IOException {
     return new TermWeight(searcher);
   }

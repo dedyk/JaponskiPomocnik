@@ -51,7 +51,8 @@ final class TermScorer extends Scorer {
    * @param norms
    *          The field norms of the document fields for the <code>Term</code>.
    */
-  TermScorer(Weight weight, TermDocs td, Similarity similarity, byte[] norms) {
+  @SuppressWarnings("deprecation")
+TermScorer(Weight weight, TermDocs td, Similarity similarity, byte[] norms) {
     super(similarity, weight);
     
     this.termDocs = td;
@@ -122,7 +123,8 @@ final class TermScorer extends Scorer {
     return doc;
   }
   
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public float score() {
     assert doc != -1;
     float raw =                                   // compute tf(f)*weight

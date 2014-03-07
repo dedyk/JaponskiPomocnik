@@ -25,7 +25,12 @@ import java.io.IOException;
  * filters to simply filter, and then wrap with this class to add caching.
  */
 public class CachingSpanFilter extends SpanFilter {
-  private SpanFilter filter;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+private SpanFilter filter;
 
   /**
    * A transient Filter cache (package private because of test)
@@ -51,7 +56,12 @@ public class CachingSpanFilter extends SpanFilter {
       throw new IllegalArgumentException("DeletesMode.DYNAMIC is not supported");
     }
     this.cache = new CachingWrapperFilter.FilterCache<SpanFilterResult>(deletesMode) {
-      @Override
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	@Override
       protected SpanFilterResult mergeDeletes(final IndexReader reader, final SpanFilterResult value) {
         throw new IllegalStateException("DeletesMode.DYNAMIC is not supported");
       }

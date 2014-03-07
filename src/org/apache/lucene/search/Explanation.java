@@ -22,7 +22,11 @@ import java.util.ArrayList;
 
 /** Expert: Describes the score computation for document and query. */
 public class Explanation implements java.io.Serializable {
-  private float value;                            // the value of this node
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private float value;                            // the value of this node
   private String description;                     // what it represents
   private ArrayList<Explanation> details;                      // sub-explanations
 
@@ -137,6 +141,10 @@ public class Explanation implements java.io.Serializable {
    */
   public static abstract class IDFExplanation implements Serializable {
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
      * @return the idf factor
      */
     public abstract float getIdf();

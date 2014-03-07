@@ -18,7 +18,12 @@ package org.apache.lucene.search;
  */
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Set;
 
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.MultipleTermPositions;
@@ -39,7 +44,11 @@ import org.apache.lucene.util.ToStringUtils;
  * @version 1.0
  */
 public class MultiPhraseQuery extends Query {
-  private String field;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private String field;
   private ArrayList<Term[]> termArrays = new ArrayList<Term[]>();
   private ArrayList<Integer> positions = new ArrayList<Integer>();
 
@@ -126,14 +135,19 @@ public class MultiPhraseQuery extends Query {
 
 
   private class MultiPhraseWeight extends Weight {
-    private Similarity similarity;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Similarity similarity;
     private float value;
     private final IDFExplanation idfExp;
     private float idf;
     private float queryNorm;
     private float queryWeight;
 
-    public MultiPhraseWeight(Searcher searcher)
+    @SuppressWarnings("deprecation")
+	public MultiPhraseWeight(Searcher searcher)
       throws IOException {
       this.similarity = getSimilarity(searcher);
 
@@ -311,7 +325,8 @@ public class MultiPhraseQuery extends Query {
     }
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Weight createWeight(Searcher searcher) throws IOException {
     return new MultiPhraseWeight(searcher);
   }

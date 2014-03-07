@@ -17,6 +17,9 @@
 
 package org.apache.lucene.analysis.standard;
 
+import java.io.IOException;
+import java.io.Reader;
+
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.standard.std31.StandardTokenizerImpl31;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
@@ -25,9 +28,6 @@ import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.util.AttributeSource;
 import org.apache.lucene.util.Version;
-
-import java.io.IOException;
-import java.io.Reader;
 
 /** A grammar-based tokenizer constructed with JFlex.
  * <p>
@@ -52,6 +52,7 @@ import java.io.Reader;
  * </ul>
  */
 
+@SuppressWarnings("deprecation")
 public final class StandardTokenizer extends Tokenizer {
   /** A private instance of the JFlex-constructed scanner */
   private StandardTokenizerInterface scanner;
@@ -150,7 +151,7 @@ public final class StandardTokenizer extends Tokenizer {
     init(matchVersion);
   }
 
-  private final void init(Version matchVersion) {
+private final void init(Version matchVersion) {
     if (matchVersion.onOrAfter(Version.LUCENE_34)) {
       this.scanner = new StandardTokenizerImpl(input);
     } else if (matchVersion.onOrAfter(Version.LUCENE_31)) {

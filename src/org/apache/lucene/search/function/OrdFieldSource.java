@@ -50,7 +50,11 @@ import java.io.IOException;
  */
 
 public class OrdFieldSource extends ValueSource {
-  protected String field;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected String field;
 
   /** 
    * Constructor for a certain field.

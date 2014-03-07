@@ -20,7 +20,13 @@ package org.apache.lucene.search;
 /** A clause in a BooleanQuery. */
 public class BooleanClause implements java.io.Serializable {
   
-  /** Specifies how clauses are to occur in matching documents. */
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+/** Specifies how clauses are to occur in matching documents. */
   public static enum Occur {
 
     /** Use this operator for clauses that <i>must</i> appear in the matching documents. */

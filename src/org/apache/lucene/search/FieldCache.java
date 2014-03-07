@@ -17,18 +17,16 @@ package org.apache.lucene.search;
  * limitations under the License.
  */
 
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.Serializable;
+
+import org.apache.lucene.analysis.NumericTokenStream; // for javadocs
+import org.apache.lucene.document.NumericField; // for javadocs
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.util.Bits;
 import org.apache.lucene.util.NumericUtils;
 import org.apache.lucene.util.RamUsageEstimator;
-import org.apache.lucene.document.NumericField; // for javadocs
-import org.apache.lucene.analysis.NumericTokenStream; // for javadocs
-
-import java.io.IOException;
-import java.io.Serializable;
-import java.io.PrintStream;
-
-import java.text.DecimalFormat;
 
 /**
  * Expert: Maintains caches of term values.
@@ -149,7 +147,11 @@ public interface FieldCache {
   
   /** The default parser for byte values, which are encoded by {@link Byte#toString(byte)} */
   public static final ByteParser DEFAULT_BYTE_PARSER = new ByteParser() {
-    public byte parseByte(String value) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public byte parseByte(String value) {
       return Byte.parseByte(value);
     }
     protected Object readResolve() {
@@ -163,7 +165,11 @@ public interface FieldCache {
 
   /** The default parser for short values, which are encoded by {@link Short#toString(short)} */
   public static final ShortParser DEFAULT_SHORT_PARSER = new ShortParser() {
-    public short parseShort(String value) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public short parseShort(String value) {
       return Short.parseShort(value);
     }
     protected Object readResolve() {
@@ -177,7 +183,11 @@ public interface FieldCache {
 
   /** The default parser for int values, which are encoded by {@link Integer#toString(int)} */
   public static final IntParser DEFAULT_INT_PARSER = new IntParser() {
-    public int parseInt(String value) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public int parseInt(String value) {
       return Integer.parseInt(value);
     }
     protected Object readResolve() {
@@ -191,7 +201,11 @@ public interface FieldCache {
 
   /** The default parser for float values, which are encoded by {@link Float#toString(float)} */
   public static final FloatParser DEFAULT_FLOAT_PARSER = new FloatParser() {
-    public float parseFloat(String value) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public float parseFloat(String value) {
       return Float.parseFloat(value);
     }
     protected Object readResolve() {
@@ -205,7 +219,11 @@ public interface FieldCache {
 
   /** The default parser for long values, which are encoded by {@link Long#toString(long)} */
   public static final LongParser DEFAULT_LONG_PARSER = new LongParser() {
-    public long parseLong(String value) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public long parseLong(String value) {
       return Long.parseLong(value);
     }
     protected Object readResolve() {
@@ -219,7 +237,11 @@ public interface FieldCache {
 
   /** The default parser for double values, which are encoded by {@link Double#toString(double)} */
   public static final DoubleParser DEFAULT_DOUBLE_PARSER = new DoubleParser() {
-    public double parseDouble(String value) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public double parseDouble(String value) {
       return Double.parseDouble(value);
     }
     protected Object readResolve() {
@@ -236,7 +258,11 @@ public interface FieldCache {
    * via {@link NumericField}/{@link NumericTokenStream}.
    */
   public static final IntParser NUMERIC_UTILS_INT_PARSER=new IntParser(){
-    public int parseInt(String val) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public int parseInt(String val) {
       final int shift = val.charAt(0)-NumericUtils.SHIFT_START_INT;
       if (shift>0 && shift<=31)
         throw new FieldCacheImpl.StopFillCacheException();
@@ -256,7 +282,11 @@ public interface FieldCache {
    * via {@link NumericField}/{@link NumericTokenStream}.
    */
   public static final FloatParser NUMERIC_UTILS_FLOAT_PARSER=new FloatParser(){
-    public float parseFloat(String val) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public float parseFloat(String val) {
       final int shift = val.charAt(0)-NumericUtils.SHIFT_START_INT;
       if (shift>0 && shift<=31)
         throw new FieldCacheImpl.StopFillCacheException();
@@ -276,7 +306,11 @@ public interface FieldCache {
    * via {@link NumericField}/{@link NumericTokenStream}.
    */
   public static final LongParser NUMERIC_UTILS_LONG_PARSER = new LongParser(){
-    public long parseLong(String val) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public long parseLong(String val) {
       final int shift = val.charAt(0)-NumericUtils.SHIFT_START_LONG;
       if (shift>0 && shift<=63)
         throw new FieldCacheImpl.StopFillCacheException();
@@ -296,7 +330,11 @@ public interface FieldCache {
    * via {@link NumericField}/{@link NumericTokenStream}.
    */
   public static final DoubleParser NUMERIC_UTILS_DOUBLE_PARSER = new DoubleParser(){
-    public double parseDouble(String val) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public double parseDouble(String val) {
       final int shift = val.charAt(0)-NumericUtils.SHIFT_START_LONG;
       if (shift>0 && shift<=63)
         throw new FieldCacheImpl.StopFillCacheException();

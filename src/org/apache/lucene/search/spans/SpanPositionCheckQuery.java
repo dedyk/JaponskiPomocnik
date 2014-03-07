@@ -31,7 +31,11 @@ import java.util.Set;
  * Base class for filtering a SpanQuery based on the position of a match.
  **/
 public abstract class SpanPositionCheckQuery extends SpanQuery implements Cloneable {
-  protected SpanQuery match;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected SpanQuery match;
 
 
   public SpanPositionCheckQuery(SpanQuery match) {

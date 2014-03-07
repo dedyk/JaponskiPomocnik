@@ -20,9 +20,9 @@ package org.apache.lucene.search.spans;
 import java.io.IOException;
 
 import org.apache.lucene.search.Explanation;
-import org.apache.lucene.search.Weight;
 import org.apache.lucene.search.Scorer;
 import org.apache.lucene.search.Similarity;
+import org.apache.lucene.search.Weight;
 
 /**
  * Public for extension only.
@@ -37,7 +37,8 @@ public class SpanScorer extends Scorer {
   protected int doc;
   protected float freq;
 
-  protected SpanScorer(Spans spans, Weight weight, Similarity similarity, byte[] norms)
+  @SuppressWarnings("deprecation")
+protected SpanScorer(Spans spans, Weight weight, Similarity similarity, byte[] norms)
   throws IOException {
     super(similarity, weight);
     this.spans = spans;
@@ -73,7 +74,8 @@ public class SpanScorer extends Scorer {
     return doc;
   }
   
-  protected boolean setFreqCurrentDoc() throws IOException {
+  @SuppressWarnings("deprecation")
+protected boolean setFreqCurrentDoc() throws IOException {
     if (!more) {
       return false;
     }
@@ -90,7 +92,8 @@ public class SpanScorer extends Scorer {
   @Override
   public int docID() { return doc; }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public float score() throws IOException {
     float raw = getSimilarity().tf(freq) * value; // raw score
     return norms == null? raw : raw * getSimilarity().decodeNormValue(norms[doc]); // normalize
@@ -103,7 +106,8 @@ public class SpanScorer extends Scorer {
 
   /** This method is no longer an official member of {@link Scorer},
    * but it is needed by SpanWeight to build an explanation. */
-  protected Explanation explain(final int doc) throws IOException {
+  @SuppressWarnings("deprecation")
+protected Explanation explain(final int doc) throws IOException {
     Explanation tfExplanation = new Explanation();
 
     int expDoc = advance(doc);

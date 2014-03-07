@@ -19,7 +19,6 @@ package org.apache.lucene.search;
 
 import java.io.IOException;
 
-
 import org.apache.lucene.index.IndexReader;
 
 /** 
@@ -33,7 +32,11 @@ import org.apache.lucene.index.IndexReader;
  * once per day.
  */
 public class QueryWrapperFilter extends Filter {
-  private Query query;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Query query;
 
   /** Constructs a filter which only matches documents matching
    * <code>query</code>.
@@ -42,7 +45,8 @@ public class QueryWrapperFilter extends Filter {
     this.query = query;
   }
 
-  @Override
+  @SuppressWarnings("resource")
+@Override
   public DocIdSet getDocIdSet(final IndexReader reader) throws IOException {
     final Weight weight = new IndexSearcher(reader).createNormalizedWeight(query);
     return new DocIdSet() {

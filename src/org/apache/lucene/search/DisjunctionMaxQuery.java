@@ -41,7 +41,12 @@ import org.apache.lucene.index.Term;
  */
 public class DisjunctionMaxQuery extends Query implements Iterable<Query> {
 
-  /* The subqueries */
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/* The subqueries */
   private ArrayList<Query> disjuncts = new ArrayList<Query>();
 
   /* Multiple of the non-max disjunct scores added into our final score.  Non-zero values support tie-breaking. */
@@ -94,14 +99,20 @@ public class DisjunctionMaxQuery extends Query implements Iterable<Query> {
    * change suddenly in the next release.</p>
    */
   protected class DisjunctionMaxWeight extends Weight {
-    /** The Similarity implementation. */
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/** The Similarity implementation. */
     protected Similarity similarity;
 
     /** The Weights for our subqueries, in 1-1 correspondence with disjuncts */
     protected ArrayList<Weight> weights = new ArrayList<Weight>();  // The Weight's for our subqueries, in 1-1 correspondence with disjuncts
 
     /** Construct the Weight for this Query searched by searcher.  Recursively construct subquery weights. */
-    public DisjunctionMaxWeight(Searcher searcher) throws IOException {
+    @SuppressWarnings("deprecation")
+	public DisjunctionMaxWeight(Searcher searcher) throws IOException {
       this.similarity = searcher.getSimilarity();
       for (Query disjunctQuery : disjuncts) {
         weights.add(disjunctQuery.createWeight(searcher));
@@ -179,7 +190,8 @@ public class DisjunctionMaxQuery extends Query implements Iterable<Query> {
   }  // end of DisjunctionMaxWeight inner class
 
   /** Create the Weight used to score us */
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Weight createWeight(Searcher searcher) throws IOException {
     return new DisjunctionMaxWeight(searcher);
   }

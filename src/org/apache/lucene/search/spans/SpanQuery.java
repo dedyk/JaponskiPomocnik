@@ -25,8 +25,14 @@ import org.apache.lucene.search.Searcher;
 import org.apache.lucene.search.Weight;
 
 /** Base class for span-based queries. */
+@SuppressWarnings("deprecation")
 public abstract class SpanQuery extends Query {
-  /** Expert: Returns the matches for this query in an index.  Used internally
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** Expert: Returns the matches for this query in an index.  Used internally
    * to search for spans. */
   public abstract Spans getSpans(IndexReader reader) throws IOException;
 

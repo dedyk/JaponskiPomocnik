@@ -30,7 +30,11 @@ import org.apache.lucene.index.Term;
  */
 public abstract class TopTermsRewrite<Q extends Query> extends TermCollectingRewrite<Q> {
 
-  private final int size;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private final int size;
   
   /** 
    * Create a TopTermsBooleanQueryRewrite for 
@@ -51,7 +55,8 @@ public abstract class TopTermsRewrite<Q extends Query> extends TermCollectingRew
   /** return the maximum size of the priority queue (for boolean rewrites this is BooleanQuery#getMaxClauseCount). */
   protected abstract int getMaxSize();
   
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Q rewrite(final IndexReader reader, final MultiTermQuery query) throws IOException {
     final int maxSize = Math.min(size, getMaxSize());
     final PriorityQueue<ScoreTerm> stQueue = new PriorityQueue<ScoreTerm>();
@@ -87,7 +92,7 @@ public abstract class TopTermsRewrite<Q extends Query> extends TermCollectingRew
     return 31 * size;
   }
 
-  @Override @SuppressWarnings({"unchecked","rawtypes"})
+  @Override @SuppressWarnings({"rawtypes"})
   public boolean equals(Object obj) {
     if (this == obj) return true;
     if (obj == null) return false;

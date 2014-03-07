@@ -19,11 +19,10 @@ package org.apache.lucene.analysis;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Set;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
-import org.apache.lucene.queryParser.QueryParser; // for javadoc
 import org.apache.lucene.util.Version;
 
 /**

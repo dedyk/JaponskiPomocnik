@@ -509,7 +509,8 @@ public final class IndexWriterConfig implements Cloneable {
    * {@link LogByteSizeMergePolicy}.
    *
    * <p>Only takes effect when IndexWriter is first created. */
-  public IndexWriterConfig setMergePolicy(MergePolicy mergePolicy) {
+  @SuppressWarnings("resource")
+public IndexWriterConfig setMergePolicy(MergePolicy mergePolicy) {
     this.mergePolicy = mergePolicy == null ? new LogByteSizeMergePolicy() : mergePolicy;
     return this;
   }

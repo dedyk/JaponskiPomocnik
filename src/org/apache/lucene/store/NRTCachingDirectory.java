@@ -28,8 +28,8 @@ import org.apache.lucene.index.IndexFileNames;
 import org.apache.lucene.index.IndexWriter;       // javadocs
 import org.apache.lucene.index.MergePolicy;
 import org.apache.lucene.index.MergeScheduler;
-import org.apache.lucene.store.RAMDirectory;      // javadocs
 import org.apache.lucene.util.IOUtils;
+// javadocs
 
 // TODO
 //   - let subclass dictate policy...?
@@ -169,7 +169,8 @@ public class NRTCachingDirectory extends Directory {
     return cache.fileExists(name) || delegate.fileExists(name);
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public synchronized long fileModified(String name) throws IOException {
     if (cache.fileExists(name)) {
       return cache.fileModified(name);

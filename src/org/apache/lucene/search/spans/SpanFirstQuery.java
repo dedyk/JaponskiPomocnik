@@ -30,7 +30,12 @@ import java.io.IOException;
  *  */
 public class SpanFirstQuery extends SpanPositionRangeQuery {
 
-  /** Construct a SpanFirstQuery matching spans in <code>match</code> whose end
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** Construct a SpanFirstQuery matching spans in <code>match</code> whose end
    * position is less than or equal to <code>end</code>. */
   public SpanFirstQuery(SpanQuery match, int end) {
     super(match, 0, end);

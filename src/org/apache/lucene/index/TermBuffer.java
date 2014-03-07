@@ -18,6 +18,7 @@ package org.apache.lucene.index;
  */
 
 import java.io.IOException;
+
 import org.apache.lucene.store.IndexInput;
 import org.apache.lucene.util.UnicodeUtil;
 
@@ -58,7 +59,8 @@ final class TermBuffer implements Cloneable {
     preUTF8Strings = true;
   }
 
-  public final void read(IndexInput input, FieldInfos fieldInfos)
+  @SuppressWarnings("deprecation")
+public final void read(IndexInput input, FieldInfos fieldInfos)
     throws IOException {
     this.term = null;                           // invalidate cache
     int start = input.readVInt();

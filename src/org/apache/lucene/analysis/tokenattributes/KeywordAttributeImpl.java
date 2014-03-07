@@ -29,7 +29,11 @@ import org.apache.lucene.util.AttributeImpl;
  */
 public final class KeywordAttributeImpl extends AttributeImpl implements
     KeywordAttribute {
-  private boolean keyword;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private boolean keyword;
 
   @Override
   public void clear() {

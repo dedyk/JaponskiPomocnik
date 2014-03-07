@@ -42,7 +42,11 @@ import java.io.IOException;
  * (single segment) readers to this API.</p>
  */
 public class FloatFieldSource extends FieldCacheSource {
-  private FieldCache.FloatParser parser;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private FieldCache.FloatParser parser;
 
   /**
    * Create a cached float field source with default string-to-float parser. 

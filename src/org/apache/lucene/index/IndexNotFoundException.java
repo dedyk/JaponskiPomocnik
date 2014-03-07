@@ -25,7 +25,12 @@ import java.io.FileNotFoundException;
  */
 public final class IndexNotFoundException extends FileNotFoundException {
 
-  public IndexNotFoundException(String msg) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public IndexNotFoundException(String msg) {
     super(msg);
   }
 

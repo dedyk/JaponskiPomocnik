@@ -25,13 +25,12 @@ import java.io.Reader;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.standard.std31.UAX29URLEmailTokenizerImpl31;
 import org.apache.lucene.analysis.standard.std34.UAX29URLEmailTokenizerImpl34;
+import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
-import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.util.AttributeSource;
 import org.apache.lucene.util.Version;
-import org.apache.lucene.util.AttributeSource.AttributeFactory;
 
 /**
  * This class implements Word Break rules from the Unicode Text Segmentation 
@@ -60,6 +59,7 @@ import org.apache.lucene.util.AttributeSource.AttributeFactory;
  * </ul>
  */
 
+@SuppressWarnings("deprecation")
 public final class UAX29URLEmailTokenizer extends Tokenizer {
   /** A private instance of the JFlex-constructed scanner */
   private final StandardTokenizerInterface scanner;

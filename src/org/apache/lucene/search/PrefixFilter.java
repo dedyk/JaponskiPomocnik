@@ -25,7 +25,12 @@ import org.apache.lucene.index.Term;
  */
 public class PrefixFilter extends MultiTermQueryWrapperFilter<PrefixQuery> {
 
-  public PrefixFilter(Term prefix) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public PrefixFilter(Term prefix) {
     super(new PrefixQuery(prefix));
   }
 

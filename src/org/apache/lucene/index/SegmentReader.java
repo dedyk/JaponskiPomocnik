@@ -21,11 +21,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
-
 import java.util.concurrent.atomic.AtomicInteger;
+
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.FieldSelector;
 import org.apache.lucene.search.FieldCache;
@@ -98,7 +97,8 @@ public class SegmentReader extends IndexReader implements Cloneable {
    * @throws CorruptIndexException if the index is corrupt
    * @throws IOException if there is a low-level IO error
    */
-  public static SegmentReader get(boolean readOnly,
+  @SuppressWarnings({ "resource" })
+public static SegmentReader get(boolean readOnly,
                                   Directory dir,
                                   SegmentInfo si,
                                   int readBufferSize,
@@ -220,7 +220,8 @@ public class SegmentReader extends IndexReader implements Cloneable {
     return reopenSegment(si, false, openReadOnly);
   }
 
-  synchronized SegmentReader reopenSegment(SegmentInfo si, boolean doClone, boolean openReadOnly) throws CorruptIndexException, IOException {
+  @SuppressWarnings("resource")
+synchronized SegmentReader reopenSegment(SegmentInfo si, boolean doClone, boolean openReadOnly) throws CorruptIndexException, IOException {
     ensureOpen();
     boolean deletionsUpToDate = (this.si.hasDeletions() == si.hasDeletions()) 
                                   && (!si.hasDeletions() || this.si.getDelFileName().equals(si.getDelFileName()));

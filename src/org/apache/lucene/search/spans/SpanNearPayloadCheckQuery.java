@@ -30,7 +30,11 @@ import java.util.Collection;
  * 
  */
 public class SpanNearPayloadCheckQuery extends SpanPositionCheckQuery {
-  protected final Collection<byte[]> payloadToMatch;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected final Collection<byte[]> payloadToMatch;
 
   /**
    * @param match          The underlying {@link SpanQuery} to check

@@ -18,16 +18,16 @@ package org.apache.lucene.search;
  */
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
-import java.util.ArrayList;
 
+import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.index.TermPositions;
-import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.search.Explanation.IDFExplanation;
-import org.apache.lucene.util.ToStringUtils;
 import org.apache.lucene.util.ArrayUtil;
+import org.apache.lucene.util.ToStringUtils;
 
 /** A Query that matches documents containing a particular sequence of terms.
  * A PhraseQuery is built by QueryParser for input like <code>"new york"</code>.
@@ -35,7 +35,11 @@ import org.apache.lucene.util.ArrayUtil;
  * <p>This query may be combined with other terms or queries with a {@link BooleanQuery}.
  */
 public class PhraseQuery extends Query {
-  private String field;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private String field;
   private ArrayList<Term> terms = new ArrayList<Term>(4);
   private ArrayList<Integer> positions = new ArrayList<Integer>(4);
   private int maxPosition = 0;
@@ -191,14 +195,19 @@ public class PhraseQuery extends Query {
   }
 
   private class PhraseWeight extends Weight {
-    private final Similarity similarity;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Similarity similarity;
     private float value;
     private float idf;
     private float queryNorm;
     private float queryWeight;
     private IDFExplanation idfExp;
 
-    public PhraseWeight(Searcher searcher)
+    @SuppressWarnings("deprecation")
+	public PhraseWeight(Searcher searcher)
       throws IOException {
       this.similarity = getSimilarity(searcher);
 
@@ -350,7 +359,8 @@ public class PhraseQuery extends Query {
     }
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Weight createWeight(Searcher searcher) throws IOException {
     if (terms.size() == 1) {			  // optimize one-term case
       Term term = terms.get(0);

@@ -44,7 +44,11 @@ import org.apache.lucene.search.FieldCache;
  * (single segment) readers to this API.</p>
  */
 public abstract class FieldCacheSource extends ValueSource {
-  private String field;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private String field;
 
   /**
    * Create a cached field source for the input field.  

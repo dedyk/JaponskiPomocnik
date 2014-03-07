@@ -26,6 +26,10 @@ import java.io.Serializable;
  */
 public class TermVectorOffsetInfo implements Serializable {
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+/**
    * Convenience declaration when creating a {@link org.apache.lucene.index.TermPositionVector} that stores only position information.
    */
   public transient static final TermVectorOffsetInfo[] EMPTY_OFFSET_INFO = new TermVectorOffsetInfo[0];

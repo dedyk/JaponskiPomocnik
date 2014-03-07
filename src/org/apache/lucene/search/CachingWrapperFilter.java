@@ -17,8 +17,8 @@ package org.apache.lucene.search;
  * limitations under the License.
  */
 
-import java.io.Serializable;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -36,7 +36,11 @@ import org.apache.lucene.util.FixedBitSet;
  * {@link DeletesMode#DYNAMIC}).
  */
 public class CachingWrapperFilter extends Filter {
-  Filter filter;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+Filter filter;
 
   /**
    * Expert: Specifies how new deletions against a reopened
@@ -66,6 +70,11 @@ public class CachingWrapperFilter extends Filter {
   static abstract class FilterCache<T> implements Serializable {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * A transient Filter cache (package private because of test)
      */
     // NOTE: not final so that we can dynamically re-init
@@ -149,7 +158,9 @@ public class CachingWrapperFilter extends Filter {
   public CachingWrapperFilter(Filter filter, DeletesMode deletesMode) {
     this.filter = filter;
     cache = new FilterCache<DocIdSet>(deletesMode) {
-      @Override
+		private static final long serialVersionUID = 1L;
+
+	@Override
       public DocIdSet mergeDeletes(final IndexReader r, final DocIdSet docIdSet) {
         return new FilteredDocIdSet(docIdSet) {
           @Override

@@ -17,13 +17,16 @@ package org.apache.lucene.search;
  * limitations under the License.
  */
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
-import org.apache.lucene.util.ToStringUtils;
 import org.apache.lucene.search.BooleanClause.Occur;
-
-import java.io.IOException;
-import java.util.*;
+import org.apache.lucene.util.ToStringUtils;
 
 /** A Query that matches documents matching boolean combinations of other
   * queries, e.g. {@link TermQuery}s, {@link PhraseQuery}s or other
@@ -31,6 +34,8 @@ import java.util.*;
   */
 public class BooleanQuery extends Query implements Iterable<BooleanClause> {
 
+  private static final long serialVersionUID = 1L;
+  
   private static int maxClauseCount = 1024;
 
   /** Thrown when an attempt is made to add more than {@link
@@ -39,7 +44,10 @@ public class BooleanQuery extends Query implements Iterable<BooleanClause> {
    * is expanded to many terms during search. 
    */
   public static class TooManyClauses extends RuntimeException {
-    public TooManyClauses() {
+ 
+	private static final long serialVersionUID = 1L;
+
+	public TooManyClauses() {
       super("maxClauseCount is set to " + maxClauseCount);
     }
   }
@@ -160,13 +168,17 @@ public class BooleanQuery extends Query implements Iterable<BooleanClause> {
    * change suddenly in the next release.</p>
    */
   protected class BooleanWeight extends Weight {
-    /** The Similarity implementation. */
+
+	private static final long serialVersionUID = 1L;
+	
+	/** The Similarity implementation. */
     protected Similarity similarity;
     protected ArrayList<Weight> weights;
     protected int maxCoord;  // num optional + num required
     private final boolean disableCoord;
 
-    public BooleanWeight(Searcher searcher, boolean disableCoord)
+    @SuppressWarnings("deprecation")
+	public BooleanWeight(Searcher searcher, boolean disableCoord)
       throws IOException {
       this.similarity = getSimilarity(searcher);
       this.disableCoord = disableCoord;
@@ -349,7 +361,8 @@ public class BooleanQuery extends Query implements Iterable<BooleanClause> {
     
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Weight createWeight(Searcher searcher) throws IOException {
     return new BooleanWeight(searcher, disableCoord);
   }

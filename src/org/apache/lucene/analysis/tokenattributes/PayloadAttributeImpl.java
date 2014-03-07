@@ -26,7 +26,11 @@ import org.apache.lucene.util.AttributeImpl;
  * The payload of a Token. See also {@link Payload}.
  */
 public class PayloadAttributeImpl extends AttributeImpl implements PayloadAttribute, Cloneable, Serializable {
-  private Payload payload;  
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Payload payload;  
   
   /**
    * Initialize this attribute with no payload.

@@ -38,7 +38,11 @@ package org.apache.lucene.search;
  */
 public class FieldDoc extends ScoreDoc {
 
-  /** Expert: The values which are used to sort the referenced document.
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+/** Expert: The values which are used to sort the referenced document.
    * The order of these will match the original sort criteria given by a
    * Sort object.  Each Object will have been returned from
    * the <code>value</code> method corresponding

@@ -42,7 +42,11 @@ import java.io.IOException;
  * (single segment) readers to this API.</p>
  */
 public class ByteFieldSource extends FieldCacheSource {
-  private FieldCache.ByteParser parser;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private FieldCache.ByteParser parser;
 
   /**
    * Create a cached byte field source with default string-to-byte parser. 

@@ -35,6 +35,11 @@ import java.text.Collator;
 public class TermRangeFilter extends MultiTermQueryWrapperFilter<TermRangeQuery> {
     
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/**
    * @param fieldName The field this range applies to
    * @param lowerTerm The lower bound on this range
    * @param upperTerm The upper bound on this range

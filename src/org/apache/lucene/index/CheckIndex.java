@@ -669,7 +669,8 @@ public class CheckIndex {
   /**
    * Test the term index.
    */
-  private Status.TermIndexStatus testTermIndex(SegmentInfo info, FieldInfos fieldInfos, SegmentReader reader) {
+  @SuppressWarnings("resource")
+private Status.TermIndexStatus testTermIndex(SegmentInfo info, FieldInfos fieldInfos, SegmentReader reader) {
     final Status.TermIndexStatus status = new Status.TermIndexStatus();
 
     final IndexSearcher is = new IndexSearcher(reader);

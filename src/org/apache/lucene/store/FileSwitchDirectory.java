@@ -18,13 +18,12 @@ package org.apache.lucene.store;
  */
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.HashSet;
 
 /**
  * Expert: A Directory instance that switches files between
@@ -137,7 +136,8 @@ public class FileSwitchDirectory extends Directory {
     return getDirectory(name).fileExists(name);
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public long fileModified(String name) throws IOException {
     return getDirectory(name).fileModified(name);
   }

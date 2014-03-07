@@ -17,10 +17,13 @@ package org.apache.lucene.document;
  * limitations under the License.
  */
 
-import java.util.*;             // for javadoc
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;             // for javadoc
+
+import org.apache.lucene.index.IndexReader;  // for javadoc
 import org.apache.lucene.search.ScoreDoc; // for javadoc
 import org.apache.lucene.search.Searcher;  // for javadoc
-import org.apache.lucene.index.IndexReader;  // for javadoc
 
 /** Documents are the unit of indexing and search.
  *
@@ -36,8 +39,13 @@ import org.apache.lucene.index.IndexReader;  // for javadoc
  * IndexReader#document(int)}.
  */
 
+@SuppressWarnings("deprecation")
 public final class Document implements java.io.Serializable {
+
+  private static final long serialVersionUID = 1L;
+
   List<Fieldable> fields = new ArrayList<Fieldable>();
+  
   private float boost = 1.0f;
 
   /** Constructs a new document with no fields. */

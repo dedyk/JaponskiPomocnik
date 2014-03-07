@@ -25,9 +25,9 @@ import java.util.Map.Entry;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-import org.apache.lucene.document.Fieldable;
 import org.apache.lucene.document.Field.Index;
 import org.apache.lucene.document.Field.Store;
+import org.apache.lucene.document.Fieldable;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.LockObtainFailedException;
@@ -63,7 +63,8 @@ public class PersistentSnapshotDeletionPolicy extends SnapshotDeletionPolicy {
    * cannot instantiate the deletion policy (because e.g., some other process
    * keeps a lock on the snapshots directory).
    */
-  public static Map<String, String> readSnapshotsInfo(Directory dir) throws IOException {
+  @SuppressWarnings("deprecation")
+public static Map<String, String> readSnapshotsInfo(Directory dir) throws IOException {
     IndexReader r = IndexReader.open(dir, true);
     Map<String, String> snapshots = new HashMap<String, String>();
     try {

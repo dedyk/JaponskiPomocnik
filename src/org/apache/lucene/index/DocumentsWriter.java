@@ -126,7 +126,8 @@ final class DocumentsWriter {
   private boolean aborting;               // True if an abort is pending
 
   PrintStream infoStream;
-  int maxFieldLength = IndexWriter.DEFAULT_MAX_FIELD_LENGTH;
+  @SuppressWarnings("deprecation")
+int maxFieldLength = IndexWriter.DEFAULT_MAX_FIELD_LENGTH;
   Similarity similarity;
 
   // max # simultaneous threads; if there are more than
@@ -187,6 +188,11 @@ final class DocumentsWriter {
   class PerDocBuffer extends RAMFile {
     
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Allocate bytes used from shared pool.
      */
     @Override
@@ -820,7 +826,8 @@ final class DocumentsWriter {
     return doFlush;
   }
 
-  boolean updateDocuments(Collection<Document> docs, Analyzer analyzer, Term delTerm)
+  @SuppressWarnings("unused")
+boolean updateDocuments(Collection<Document> docs, Analyzer analyzer, Term delTerm)
     throws CorruptIndexException, IOException {
 
     // Possibly trigger a flush, or wait until any running flush completes:

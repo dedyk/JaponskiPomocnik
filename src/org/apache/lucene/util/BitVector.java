@@ -262,7 +262,8 @@ public final class BitVector implements Cloneable, Bits {
   /** Constructs a bit vector from the file <code>name</code> in Directory
     <code>d</code>, as written by the {@link #write} method.
     */
-  public BitVector(Directory d, String name) throws IOException {
+  @SuppressWarnings("unused")
+public BitVector(Directory d, String name) throws IOException {
     IndexInput input = d.openInput(name);
 
     try {

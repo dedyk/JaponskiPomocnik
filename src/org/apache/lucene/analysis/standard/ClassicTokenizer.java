@@ -21,9 +21,9 @@ import java.io.IOException;
 import java.io.Reader;
 
 import org.apache.lucene.analysis.Tokenizer;
+import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
-import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.util.AttributeSource;
 import org.apache.lucene.util.Version;
@@ -134,7 +134,8 @@ public final class ClassicTokenizer extends Tokenizer {
     init(matchVersion);
   }
 
-  private final void init(Version matchVersion) {
+  @SuppressWarnings("deprecation")
+private final void init(Version matchVersion) {
     this.scanner = new ClassicTokenizerImpl(input);
 
     if (matchVersion.onOrAfter(Version.LUCENE_24)) {

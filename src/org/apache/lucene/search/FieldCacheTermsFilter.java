@@ -94,7 +94,11 @@ import org.apache.lucene.index.TermDocs;  // for javadocs
  */
 
 public class FieldCacheTermsFilter extends Filter {
-  private String field;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private String field;
   private String[] terms;
 
   public FieldCacheTermsFilter(String field, String... terms) {

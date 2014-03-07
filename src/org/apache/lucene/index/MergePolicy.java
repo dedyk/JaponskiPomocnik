@@ -220,7 +220,11 @@ public abstract class MergePolicy implements java.io.Closeable {
   /** Exception thrown if there are any problems while
    *  executing a merge. */
   public static class MergeException extends RuntimeException {
-    private Directory dir;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Directory dir;
 
     public MergeException(String message, Directory dir) {
       super(message);
@@ -239,7 +243,11 @@ public abstract class MergePolicy implements java.io.Closeable {
   }
 
   public static class MergeAbortedException extends IOException {
-    public MergeAbortedException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public MergeAbortedException() {
       super("merge is aborted");
     }
     public MergeAbortedException(String message) {

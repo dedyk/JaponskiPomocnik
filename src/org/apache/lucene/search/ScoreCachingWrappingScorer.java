@@ -37,7 +37,8 @@ public class ScoreCachingWrappingScorer extends Scorer {
   private float curScore;
   
   /** Creates a new instance by wrapping the given scorer. */
-  public ScoreCachingWrappingScorer(Scorer scorer) {
+  @SuppressWarnings("deprecation")
+public ScoreCachingWrappingScorer(Scorer scorer) {
     super(scorer.getSimilarity(), scorer.weight);
     this.scorer = scorer;
   }
@@ -47,7 +48,8 @@ public class ScoreCachingWrappingScorer extends Scorer {
     return scorer.score(collector, max, firstDocID);
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Similarity getSimilarity() {
     return scorer.getSimilarity();
   }

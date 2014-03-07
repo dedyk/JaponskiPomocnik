@@ -17,6 +17,10 @@ package org.apache.lucene.search.payloads;
  * limitations under the License.
  */
 
+import java.io.IOException;
+import java.util.Collection;
+import java.util.Iterator;
+
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.search.Explanation;
 import org.apache.lucene.search.Scorer;
@@ -32,10 +36,6 @@ import org.apache.lucene.search.spans.SpanWeight;
 import org.apache.lucene.search.spans.Spans;
 import org.apache.lucene.util.ToStringUtils;
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.Iterator;
-
 /**
  * This class is very similar to
  * {@link org.apache.lucene.search.spans.SpanNearQuery} except that it factors
@@ -50,8 +50,13 @@ import java.util.Iterator;
  * 
  * @see org.apache.lucene.search.Similarity#scorePayload
  */
+@SuppressWarnings("deprecation")
 public class PayloadNearQuery extends SpanNearQuery {
-  protected String fieldName;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected String fieldName;
   protected PayloadFunction function;
 
   public PayloadNearQuery(SpanQuery[] clauses, int slop, boolean inOrder) {
@@ -137,7 +142,12 @@ public class PayloadNearQuery extends SpanNearQuery {
   }
 
   public class PayloadNearSpanWeight extends SpanWeight {
-    public PayloadNearSpanWeight(SpanQuery query, Searcher searcher)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PayloadNearSpanWeight(SpanQuery query, Searcher searcher)
         throws IOException {
       super(query, searcher);
     }

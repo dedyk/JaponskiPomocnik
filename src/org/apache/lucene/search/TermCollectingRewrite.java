@@ -24,7 +24,12 @@ import org.apache.lucene.index.Term;
 
 abstract class TermCollectingRewrite<Q extends Query> extends MultiTermQuery.RewriteMethod {
   
-  /** Return a suitable top-level Query for holding all expanded terms. */
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** Return a suitable top-level Query for holding all expanded terms. */
   protected abstract Q getTopLevelQuery() throws IOException;
   
   /** Add a MultiTermQuery term to the top-level query */

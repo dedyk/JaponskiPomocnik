@@ -30,7 +30,11 @@ import org.apache.lucene.util.ToStringUtils;
  * MultiTermQuery#CONSTANT_SCORE_AUTO_REWRITE_DEFAULT}
  * rewrite method. */
 public class PrefixQuery extends MultiTermQuery {
-  private Term prefix;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Term prefix;
 
   /** Constructs a query for terms starting with <code>prefix</code>. */
   public PrefixQuery(Term prefix) {

@@ -18,18 +18,18 @@ package org.apache.lucene.search.function;
  */
 
 import java.io.IOException;
-import java.util.Set;
 import java.util.Arrays;
+import java.util.Set;
 
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.ComplexExplanation;
 import org.apache.lucene.search.Explanation;
 import org.apache.lucene.search.Query;
-import org.apache.lucene.search.Weight;
 import org.apache.lucene.search.Scorer;
 import org.apache.lucene.search.Searcher;
 import org.apache.lucene.search.Similarity;
+import org.apache.lucene.search.Weight;
 import org.apache.lucene.util.ToStringUtils;
 
 /**
@@ -44,9 +44,14 @@ import org.apache.lucene.util.ToStringUtils;
  * 
  * @lucene.experimental
  */
+@SuppressWarnings("deprecation")
 public class CustomScoreQuery extends Query {
 
-  private Query subQuery;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Query subQuery;
   private ValueSourceQuery[] valSrcQueries; // never null (empty array if there are no valSrcQueries).
   private boolean strict = false; // if true, valueSource part of query does not take part in weights normalization.  
   
@@ -182,7 +187,11 @@ public class CustomScoreQuery extends Query {
   //=========================== W E I G H T ============================
   
   private class CustomWeight extends Weight {
-    Similarity similarity;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	Similarity similarity;
     Weight subQueryWeight;
     Weight[] valSrcWeights;
     boolean qStrict;

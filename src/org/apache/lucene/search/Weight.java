@@ -49,6 +49,11 @@ import org.apache.lucene.index.IndexReader;
 public abstract class Weight implements Serializable {
 
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/**
    * An explanation of the score computation for the named document.
    * 
    * @param reader sub-reader containing the give doc

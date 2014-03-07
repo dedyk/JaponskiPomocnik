@@ -34,6 +34,11 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttributeImpl; // depr
  */
 public abstract class AttributeImpl implements Cloneable, Serializable, Attribute {  
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/**
    * Clears the values in this AttributeImpl and resets it to its 
    * default value. If this implementation implements more than one Attribute interface
    * it clears all.

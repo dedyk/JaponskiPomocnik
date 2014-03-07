@@ -22,11 +22,11 @@ import java.lang.reflect.Method;
 
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.search.BooleanClause.Occur; // javadocs only
 import org.apache.lucene.search.MultiTermQuery;
 import org.apache.lucene.search.Query;
-import org.apache.lucene.search.TopTermsRewrite;
 import org.apache.lucene.search.ScoringRewrite;
-import org.apache.lucene.search.BooleanClause.Occur; // javadocs only
+import org.apache.lucene.search.TopTermsRewrite;
 
 /**
  * Wraps any {@link MultiTermQuery} as a {@link SpanQuery}, 
@@ -45,7 +45,11 @@ import org.apache.lucene.search.BooleanClause.Occur; // javadocs only
  * </pre></blockquote>
  */
 public class SpanMultiTermQueryWrapper<Q extends MultiTermQuery> extends SpanQuery {
-  protected final Q query;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected final Q query;
   private Method getFieldMethod = null, getTermMethod = null;
 
   /**
@@ -61,7 +65,7 @@ public class SpanMultiTermQueryWrapper<Q extends MultiTermQuery> extends SpanQue
    * needs a fixed field. The wrapped query must therefore support getField() or getTerm().
    * @throws IllegalArgumentException if the wrapped query does not provide getField() or getTerm().
    */
-  @SuppressWarnings({"rawtypes","unchecked"})
+  @SuppressWarnings({"rawtypes"})
   public SpanMultiTermQueryWrapper(Q query) {
     this.query = query;
     
@@ -151,7 +155,7 @@ public class SpanMultiTermQueryWrapper<Q extends MultiTermQuery> extends SpanQue
   }
 
   @Override
-  @SuppressWarnings({"rawtypes","unchecked"})
+  @SuppressWarnings({"rawtypes"})
   public boolean equals(Object obj) {
     if (this == obj) return true;
     if (obj == null) return false;
@@ -162,7 +166,12 @@ public class SpanMultiTermQueryWrapper<Q extends MultiTermQuery> extends SpanQue
 
   /** Abstract class that defines how the query is rewritten. */
   public static abstract class SpanRewriteMethod extends MultiTermQuery.RewriteMethod {
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
     public abstract SpanQuery rewrite(IndexReader reader, MultiTermQuery query) throws IOException;
   }
 
@@ -174,8 +183,17 @@ public class SpanMultiTermQueryWrapper<Q extends MultiTermQuery> extends SpanQue
    * @see #setRewriteMethod
    */
   public final static SpanRewriteMethod SCORING_SPAN_QUERY_REWRITE = new SpanRewriteMethod() {
-    private final ScoringRewrite<SpanOrQuery> delegate = new ScoringRewrite<SpanOrQuery>() {
-      @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final ScoringRewrite<SpanOrQuery> delegate = new ScoringRewrite<SpanOrQuery>() {
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	@Override
       protected SpanOrQuery getTopLevelQuery() {
         return new SpanOrQuery();
       }
@@ -211,7 +229,11 @@ public class SpanMultiTermQueryWrapper<Q extends MultiTermQuery> extends SpanQue
    * @see #setRewriteMethod
    */
   public static final class TopTermsSpanBooleanQueryRewrite extends SpanRewriteMethod  {
-    private final TopTermsRewrite<SpanOrQuery> delegate;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final TopTermsRewrite<SpanOrQuery> delegate;
   
     /** 
      * Create a TopTermsSpanBooleanQueryRewrite for 
@@ -219,7 +241,12 @@ public class SpanMultiTermQueryWrapper<Q extends MultiTermQuery> extends SpanQue
      */
     public TopTermsSpanBooleanQueryRewrite(int size) {
       delegate = new TopTermsRewrite<SpanOrQuery>(size) {
-        @Override
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		@Override
         protected int getMaxSize() {
           return Integer.MAX_VALUE;
         }

@@ -21,8 +21,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.lucene.util.IOUtils;
-
 /**
  * Abstract base class for performing read operations of Lucene's low-level
  * data types.

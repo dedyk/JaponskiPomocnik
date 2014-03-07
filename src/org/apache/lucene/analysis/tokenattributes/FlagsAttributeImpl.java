@@ -27,7 +27,10 @@ import org.apache.lucene.util.AttributeImpl;
  * @lucene.experimental While we think this is here to stay, we may want to change it to be a long.
  */
 public class FlagsAttributeImpl extends AttributeImpl implements FlagsAttribute, Cloneable, Serializable {
-  private int flags = 0;
+
+	private static final long serialVersionUID = 1L;
+
+	private int flags = 0;
   
   /**
    * <p/>
@@ -38,14 +41,16 @@ public class FlagsAttributeImpl extends AttributeImpl implements FlagsAttribute,
    *
    * @return The bits
    */
-  public int getFlags() {
+  @Override
+public int getFlags() {
     return flags;
   }
 
   /**
    * @see #getFlags()
    */
-  public void setFlags(int flags) {
+  @Override
+public void setFlags(int flags) {
     this.flags = flags;
   }
   

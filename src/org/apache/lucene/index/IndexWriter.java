@@ -593,7 +593,8 @@ public class IndexWriter implements Closeable, TwoPhaseCommit {
 
     /** Remove all our references to readers, and commits
      *  any pending changes. */
-    synchronized void close() throws IOException {
+    @SuppressWarnings("deprecation")
+	synchronized void close() throws IOException {
       // We invoke deleter.checkpoint below, so we must be
       // sync'd on IW:
       assert Thread.holdsLock(IndexWriter.this);
@@ -625,7 +626,8 @@ public class IndexWriter implements Closeable, TwoPhaseCommit {
      * Commit all segment reader in the pool.
      * @throws IOException
      */
-    synchronized void commit(SegmentInfos infos) throws IOException {
+    @SuppressWarnings("deprecation")
+	synchronized void commit(SegmentInfos infos) throws IOException {
 
       // We invoke deleter.checkpoint below, so we must be
       // sync'd on IW:
@@ -650,7 +652,8 @@ public class IndexWriter implements Closeable, TwoPhaseCommit {
      * enrolled in the pool, so you should simply close()
      * it when you're done (ie, do not call release()).
      */
-    public synchronized SegmentReader getReadOnlyClone(SegmentInfo info, boolean doOpenStores, int termInfosIndexDivisor) throws IOException {
+    @SuppressWarnings("deprecation")
+	public synchronized SegmentReader getReadOnlyClone(SegmentInfo info, boolean doOpenStores, int termInfosIndexDivisor) throws IOException {
       SegmentReader sr = get(info, doOpenStores, BufferedIndexInput.BUFFER_SIZE, termInfosIndexDivisor);
       try {
         return (SegmentReader) sr.clone(true);
@@ -3109,7 +3112,8 @@ public class IndexWriter implements Closeable, TwoPhaseCommit {
    * @throws CorruptIndexException if the index is corrupt
    * @throws IOException if there is a low-level IO error
    */
-  public void addIndexes(Directory... dirs) throws CorruptIndexException, IOException {
+  @SuppressWarnings("unused")
+public void addIndexes(Directory... dirs) throws CorruptIndexException, IOException {
     ensureOpen();
     
     noDupDirs(dirs);
@@ -3694,7 +3698,8 @@ public class IndexWriter implements Closeable, TwoPhaseCommit {
    *  saves the resulting deletes file (incrementing the
    *  delete generation for merge.info).  If no deletes were
    *  flushed, no new deletes file is saved. */
-  synchronized private void commitMergedDeletes(MergePolicy.OneMerge merge, SegmentReader mergedReader) throws IOException {
+  @SuppressWarnings("deprecation")
+synchronized private void commitMergedDeletes(MergePolicy.OneMerge merge, SegmentReader mergedReader) throws IOException {
 
     assert testPoint("startCommitMergeDeletes");
 
@@ -4201,7 +4206,8 @@ public class IndexWriter implements Closeable, TwoPhaseCommit {
   /** Does the actual (time-consuming) work of the merge,
    *  but without holding synchronized lock on IndexWriter
    *  instance */
-  final private int mergeMiddle(MergePolicy.OneMerge merge) 
+  @SuppressWarnings("deprecation")
+final private int mergeMiddle(MergePolicy.OneMerge merge) 
     throws CorruptIndexException, IOException {
     
     merge.checkAborted(directory);

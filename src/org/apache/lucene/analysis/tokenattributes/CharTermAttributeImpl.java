@@ -28,30 +28,38 @@ import org.apache.lucene.util.RamUsageEstimator;
 /**
  * The term text of a Token.
  */
+@SuppressWarnings("deprecation")
 public class CharTermAttributeImpl extends AttributeImpl implements CharTermAttribute, TermAttribute, Cloneable, Serializable {
-  private static int MIN_BUFFER_SIZE = 10;
+
+private static final long serialVersionUID = 1L;
+
+private static int MIN_BUFFER_SIZE = 10;
   
   private char[] termBuffer = new char[ArrayUtil.oversize(MIN_BUFFER_SIZE, RamUsageEstimator.NUM_BYTES_CHAR)];
   private int termLength = 0;
   
-  @Deprecated
+  @Override
+@Deprecated
   public String term() {
     // don't delegate to toString() here!
     return new String(termBuffer, 0, termLength);
   }
 
-  public final void copyBuffer(char[] buffer, int offset, int length) {
+  @Override
+public final void copyBuffer(char[] buffer, int offset, int length) {
     growTermBuffer(length);
     System.arraycopy(buffer, offset, termBuffer, 0, length);
     termLength = length;
   }
 
-  @Deprecated
+  @Override
+@Deprecated
   public void setTermBuffer(char[] buffer, int offset, int length) {
     copyBuffer(buffer, offset, length);
   }
 
-  @Deprecated
+  @Override
+@Deprecated
   public void setTermBuffer(String buffer) {
     int length = buffer.length();
     growTermBuffer(length);
@@ -59,7 +67,8 @@ public class CharTermAttributeImpl extends AttributeImpl implements CharTermAttr
     termLength = length;
   }
 
-  @Deprecated
+  @Override
+@Deprecated
   public void setTermBuffer(String buffer, int offset, int length) {
     assert offset <= buffer.length();
     assert offset + length <= buffer.length();
@@ -68,16 +77,19 @@ public class CharTermAttributeImpl extends AttributeImpl implements CharTermAttr
     termLength = length;
   }
 
-  public final char[] buffer() {
+  @Override
+public final char[] buffer() {
     return termBuffer;
   }
 
-  @Deprecated
+  @Override
+@Deprecated
   public char[] termBuffer() {
     return termBuffer;
   }
   
-  public final char[] resizeBuffer(int newSize) {
+  @Override
+public final char[] resizeBuffer(int newSize) {
     if(termBuffer.length < newSize){
       // Not big enough; create a new array with slight
       // over allocation and preserve content
@@ -88,7 +100,8 @@ public class CharTermAttributeImpl extends AttributeImpl implements CharTermAttr
     return termBuffer;   
   }
 
-  @Deprecated
+  @Override
+@Deprecated
   public char[] resizeTermBuffer(int newSize) {
     return resizeBuffer(newSize);
   }
@@ -101,40 +114,47 @@ public class CharTermAttributeImpl extends AttributeImpl implements CharTermAttr
     }
   }
   
-  @Deprecated
+  @Override
+@Deprecated
   public int termLength() {
     return termLength;
   }
 
-  public final CharTermAttribute setLength(int length) {
+  @Override
+public final CharTermAttribute setLength(int length) {
     if (length > termBuffer.length)
       throw new IllegalArgumentException("length " + length + " exceeds the size of the termBuffer (" + termBuffer.length + ")");
     termLength = length;
     return this;
   }
   
-  public final CharTermAttribute setEmpty() {
+  @Override
+public final CharTermAttribute setEmpty() {
     termLength = 0;
     return this;
   }
   
-  @Deprecated
+  @Override
+@Deprecated
   public void setTermLength(int length) {
     setLength(length);
   }
   
   // *** CharSequence interface ***
-  public final int length() {
+  @Override
+public final int length() {
     return termLength;
   }
   
-  public final char charAt(int index) {
+  @Override
+public final char charAt(int index) {
     if (index >= termLength)
       throw new IndexOutOfBoundsException();
     return termBuffer[index];
   }
   
-  public final CharSequence subSequence(final int start, final int end) {
+  @Override
+public final CharSequence subSequence(final int start, final int end) {
     if (start > termLength || end > termLength)
       throw new IndexOutOfBoundsException();
     return new String(termBuffer, start, end - start);
@@ -142,13 +162,15 @@ public class CharTermAttributeImpl extends AttributeImpl implements CharTermAttr
   
   // *** Appendable interface ***
 
-  public final CharTermAttribute append(CharSequence csq) {
+  @Override
+public final CharTermAttribute append(CharSequence csq) {
     if (csq == null) // needed for Appendable compliance
       return appendNull();
     return append(csq, 0, csq.length());
   }
   
-  public final CharTermAttribute append(CharSequence csq, int start, int end) {
+  @Override
+public final CharTermAttribute append(CharSequence csq, int start, int end) {
     if (csq == null) // needed for Appendable compliance
       csq = "null";
     final int len = end - start, csqlen = csq.length();
@@ -184,14 +206,16 @@ public class CharTermAttributeImpl extends AttributeImpl implements CharTermAttr
     }
   }
   
-  public final CharTermAttribute append(char c) {
+  @Override
+public final CharTermAttribute append(char c) {
     resizeBuffer(termLength + 1)[termLength++] = c;
     return this;
   }
   
   // *** For performance some convenience methods in addition to CSQ's ***
   
-  public final CharTermAttribute append(String s) {
+  @Override
+public final CharTermAttribute append(String s) {
     if (s == null) // needed for Appendable compliance
       return appendNull();
     final int len = s.length();
@@ -200,7 +224,8 @@ public class CharTermAttributeImpl extends AttributeImpl implements CharTermAttr
     return this;
   }
   
-  public final CharTermAttribute append(StringBuilder s) {
+  @Override
+public final CharTermAttribute append(StringBuilder s) {
     if (s == null) // needed for Appendable compliance
       return appendNull();
     final int len = s.length();
@@ -209,7 +234,8 @@ public class CharTermAttributeImpl extends AttributeImpl implements CharTermAttr
     return this;
   }
   
-  public final CharTermAttribute append(CharTermAttribute ta) {
+  @Override
+public final CharTermAttribute append(CharTermAttribute ta) {
     if (ta == null) // needed for Appendable compliance
       return appendNull();
     final int len = ta.length();

@@ -19,8 +19,8 @@ package org.apache.lucene.analysis.standard.std31;
  * limitations under the License.
  */
 
-import org.apache.lucene.analysis.standard.UAX29URLEmailTokenizer;
 import org.apache.lucene.analysis.standard.StandardTokenizerInterface;
+import org.apache.lucene.analysis.standard.UAX29URLEmailTokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
 /**
@@ -3241,6 +3241,7 @@ public final class UAX29URLEmailTokenizerImpl31 implements StandardTokenizerInte
   private int zzEndRead;
 
   /** number of newlines encountered up to the start of the matched text */
+  @SuppressWarnings("unused")
   private int yyline;
 
   /** the number of characters up to the start of the matched text */
@@ -3250,17 +3251,20 @@ public final class UAX29URLEmailTokenizerImpl31 implements StandardTokenizerInte
    * the number of characters from the last newline up to the start of the 
    * matched text
    */
+  @SuppressWarnings("unused")
   private int yycolumn;
 
   /** 
    * zzAtBOL == true <=> the scanner is currently at the beginning of a line
    */
+  @SuppressWarnings("unused")
   private boolean zzAtBOL = true;
 
   /** zzAtEOF == true <=> the scanner is at the EOF */
   private boolean zzAtEOF;
 
   /** denotes if the user-EOF-code has already been executed */
+  @SuppressWarnings("unused")
   private boolean zzEOFDone;
 
   /* user code: */
@@ -3292,7 +3296,8 @@ public final class UAX29URLEmailTokenizerImpl31 implements StandardTokenizerInte
   
   public static final int URL_TYPE = UAX29URLEmailTokenizer.URL;
 
-  public final int yychar()
+  @Override
+public final int yychar()
   {
     return yychar;
   }
@@ -3300,7 +3305,8 @@ public final class UAX29URLEmailTokenizerImpl31 implements StandardTokenizerInte
   /**
    * Fills CharTermAttribute with the current token text.
    */
-  public final void getText(CharTermAttribute t) {
+  @Override
+public final void getText(CharTermAttribute t) {
     t.copyBuffer(zzBuffer, zzStartRead, zzMarkedPos-zzStartRead);
   }
 
@@ -3422,7 +3428,8 @@ public final class UAX29URLEmailTokenizerImpl31 implements StandardTokenizerInte
    *
    * @param reader   the new input stream 
    */
-  public final void yyreset(java.io.Reader reader) {
+  @Override
+public final void yyreset(java.io.Reader reader) {
     zzReader = reader;
     zzAtBOL  = true;
     zzAtEOF  = false;
@@ -3481,7 +3488,8 @@ public final class UAX29URLEmailTokenizerImpl31 implements StandardTokenizerInte
   /**
    * Returns the length of the matched text region.
    */
-  public final int yylength() {
+  @Override
+public final int yylength() {
     return zzMarkedPos-zzStartRead;
   }
 
@@ -3536,7 +3544,8 @@ public final class UAX29URLEmailTokenizerImpl31 implements StandardTokenizerInte
    * @return      the next token
    * @exception   java.io.IOException  if any I/O-Error occurs
    */
-  public int getNextToken() throws java.io.IOException {
+  @Override
+public int getNextToken() throws java.io.IOException {
     int zzInput;
     int zzAction;
 

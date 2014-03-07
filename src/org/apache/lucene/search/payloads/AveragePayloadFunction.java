@@ -27,7 +27,12 @@ import org.apache.lucene.search.Explanation;
  **/
 public class AveragePayloadFunction extends PayloadFunction{
 
-  @Override
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+@Override
   public float currentScore(int docId, String field, int start, int end, int numPayloadsSeen, float currentScore, float currentPayloadScore) {
     return currentPayloadScore + currentScore;
   }

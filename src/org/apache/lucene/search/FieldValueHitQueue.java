@@ -34,7 +34,11 @@ import org.apache.lucene.util.PriorityQueue;
 public abstract class FieldValueHitQueue<T extends FieldValueHitQueue.Entry> extends PriorityQueue<T> {
 
   public static class Entry extends ScoreDoc {
-    public int slot;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public int slot;
 
     public Entry(int slot, int doc, float score) {
       super(doc, score);
@@ -136,7 +140,6 @@ public abstract class FieldValueHitQueue<T extends FieldValueHitQueue.Entry> ext
   }
   
   // prevent instantiation and extension.
-  @SuppressWarnings({"unchecked","rawtypes"})
   private FieldValueHitQueue(SortField[] fields) {
     // When we get here, fields.length is guaranteed to be > 0, therefore no
     // need to check it again.

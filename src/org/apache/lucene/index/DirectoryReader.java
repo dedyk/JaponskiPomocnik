@@ -25,7 +25,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-
 import java.util.Map;
 
 import org.apache.lucene.document.Document;
@@ -317,7 +316,8 @@ class DirectoryReader extends IndexReader implements Cloneable {
     throw new UnsupportedOperationException("call getFieldInfos() on each sub reader, or use ReaderUtil.getMergedFieldInfos, instead");
   }
 
-  private void initialize(SegmentReader[] subReaders) throws IOException {
+  @SuppressWarnings("deprecation")
+private void initialize(SegmentReader[] subReaders) throws IOException {
     this.subReaders = subReaders;
     starts = new int[subReaders.length + 1];    // build starts array
     for (int i = 0; i < subReaders.length; i++) {
@@ -883,7 +883,8 @@ class DirectoryReader extends IndexReader implements Cloneable {
     return segmentInfos.getUserData();
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public boolean isCurrent() throws CorruptIndexException, IOException {
     ensureOpen();
     if (writer == null || writer.isClosed()) {

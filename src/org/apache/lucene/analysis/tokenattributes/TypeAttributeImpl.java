@@ -25,7 +25,11 @@ import org.apache.lucene.util.AttributeImpl;
  * A Token's lexical type. The Default value is "word". 
  */
 public class TypeAttributeImpl extends AttributeImpl implements TypeAttribute, Cloneable, Serializable {
-  private String type;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private String type;
   
   public TypeAttributeImpl() {
     this(DEFAULT_TYPE); 

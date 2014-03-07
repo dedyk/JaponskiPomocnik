@@ -132,7 +132,12 @@ import org.apache.lucene.search.FieldCache; // javadocs
  */
 public final class NumericField extends AbstractField {
 
-  /** Data type of the value in {@link NumericField}.
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** Data type of the value in {@link NumericField}.
    * @since 3.2
    */
   public static enum DataType { INT, LONG, FLOAT, DOUBLE }

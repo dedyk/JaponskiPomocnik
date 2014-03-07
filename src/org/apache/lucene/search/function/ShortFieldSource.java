@@ -42,7 +42,11 @@ import java.io.IOException;
  * (single segment) readers to this API.</p>
  */
 public class ShortFieldSource extends FieldCacheSource {
-  private FieldCache.ShortParser parser;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private FieldCache.ShortParser parser;
 
   /**
    * Create a cached short field source with default string-to-short parser. 

@@ -36,7 +36,11 @@ import java.io.IOException;
  *
  * @see WildcardTermEnum */
 public class WildcardQuery extends MultiTermQuery {
-  private boolean termContainsWildcard;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private boolean termContainsWildcard;
   private boolean termIsPrefix;
   protected Term term;
     

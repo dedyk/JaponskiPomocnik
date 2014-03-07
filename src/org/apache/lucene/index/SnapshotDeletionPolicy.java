@@ -17,15 +17,15 @@ package org.apache.lucene.index;
  * limitations under the License.
  */
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
-import java.io.IOException;
+import java.util.Set;
 
 import org.apache.lucene.store.Directory;
 
@@ -125,7 +125,8 @@ public class SnapshotDeletionPolicy implements IndexDeletionPolicy {
       return cp.getUserData();
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public long getVersion() {
       return cp.getVersion();
     }

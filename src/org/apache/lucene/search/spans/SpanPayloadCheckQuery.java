@@ -34,7 +34,11 @@ import java.util.Iterator;
  *
  **/
 public class SpanPayloadCheckQuery extends SpanPositionCheckQuery{
-  protected final Collection<byte[]> payloadToMatch;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected final Collection<byte[]> payloadToMatch;
 
   /**
    *

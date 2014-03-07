@@ -20,7 +20,7 @@ package org.apache.lucene.search;
 import java.io.IOException;
 import java.util.Arrays;
 
-import org.apache.lucene.index.*;
+import org.apache.lucene.index.TermPositions;
 
 final class ExactPhraseScorer extends Scorer {
   private final byte[] norms;
@@ -60,7 +60,8 @@ final class ExactPhraseScorer extends Scorer {
   private int docID = -1;
   private int freq;
 
-  ExactPhraseScorer(Weight weight, PhraseQuery.PostingsAndFreq[] postings,
+  @SuppressWarnings("deprecation")
+ExactPhraseScorer(Weight weight, PhraseQuery.PostingsAndFreq[] postings,
                     Similarity similarity, byte[] norms) throws IOException {
     super(similarity, weight);
     this.norms = norms;
@@ -223,7 +224,8 @@ final class ExactPhraseScorer extends Scorer {
     return docID;
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public float score() throws IOException {
     final float raw; // raw score
     if (freq < SCORE_CACHE_SIZE) {

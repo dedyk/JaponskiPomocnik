@@ -20,7 +20,11 @@ package org.apache.lucene.search;
 /** Expert: Describes the score computation for document and query, and
  * can distinguish a match independent of a positive value. */
 public class ComplexExplanation extends Explanation {
-  private Boolean match;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Boolean match;
   
   public ComplexExplanation() {
     super();

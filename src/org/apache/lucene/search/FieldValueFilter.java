@@ -29,7 +29,11 @@ import org.apache.lucene.util.Bits.MatchNoBits;
  * {@link FieldCache} and build the bits if not present.
  */
 public class FieldValueFilter extends Filter {
-  private final String field;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private final String field;
   private final boolean negate;
 
   /**

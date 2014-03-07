@@ -23,7 +23,12 @@ package org.apache.lucene.document;
  */
 public class LoadFirstFieldSelector implements FieldSelector {
 
-  public FieldSelectorResult accept(String fieldName) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public FieldSelectorResult accept(String fieldName) {
     return FieldSelectorResult.LOAD_AND_BREAK;
   }
 }

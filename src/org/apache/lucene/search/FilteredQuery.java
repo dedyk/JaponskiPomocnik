@@ -17,12 +17,12 @@ package org.apache.lucene.search;
  * limitations under the License.
  */
 
+import java.io.IOException;
+import java.util.Set;
+
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.util.ToStringUtils;
-
-import java.io.IOException;
-import java.util.Set;
 
 
 /**
@@ -40,7 +40,11 @@ import java.util.Set;
 public class FilteredQuery
 extends Query {
 
-  Query query;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+Query query;
   Filter filter;
 
   /**
@@ -58,12 +62,17 @@ extends Query {
    * Returns a Weight that applies the filter to the enclosed query's Weight.
    * This is accomplished by overriding the Scorer returned by the Weight.
    */
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Weight createWeight(final Searcher searcher) throws IOException {
     final Weight weight = query.createWeight (searcher);
     final Similarity similarity = query.getSimilarity(searcher);
     return new Weight() {
-      private float value;
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+	private float value;
         
       // pass these methods through to enclosed query's weight
       @Override
@@ -129,7 +138,8 @@ extends Query {
    * @param filter the Filter to wrap
    * @lucene.internal
    */
-  static Scorer getFilteredScorer(final IndexReader indexReader, final Similarity similarity,
+  @SuppressWarnings("deprecation")
+static Scorer getFilteredScorer(final IndexReader indexReader, final Similarity similarity,
                                   final Weight weight, final Weight wrapperWeight, final Filter filter) throws IOException {
     assert filter != null;
 

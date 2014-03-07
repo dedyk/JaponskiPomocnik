@@ -24,6 +24,10 @@ package org.apache.lucene.search;
 public class TopFieldDocs
 extends TopDocs {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/** The fields which were used to sort results by. */
 	public SortField[] fields;
         

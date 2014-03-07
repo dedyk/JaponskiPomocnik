@@ -27,7 +27,12 @@ import java.io.IOException;
  * @see Lock#obtain(long)
  */
 public class LockObtainFailedException extends IOException {
-  public LockObtainFailedException(String message) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public LockObtainFailedException(String message) {
     super(message);
   }
 }

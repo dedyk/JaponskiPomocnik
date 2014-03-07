@@ -57,6 +57,11 @@ package org.apache.lucene.search.function;
 public class FieldScoreQuery extends ValueSourceQuery {
 
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/**
    * Type of score field, indicating how field values are interpreted/parsed.  
    * <p>
    * The type selected at search search time should match the data stored in the field. 

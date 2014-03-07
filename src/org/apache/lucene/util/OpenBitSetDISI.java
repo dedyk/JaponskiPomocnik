@@ -24,7 +24,12 @@ import org.apache.lucene.search.DocIdSetIterator;
  *  from a {@link DocIdSetIterator}. */ 
 public class OpenBitSetDISI extends OpenBitSet {
 
-  /** Construct an OpenBitSetDISI with its bits set
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** Construct an OpenBitSetDISI with its bits set
    * from the doc ids of the given DocIdSetIterator.
    * Also give a maximum size one larger than the largest doc id for which a
    * bit may ever be set on this OpenBitSetDISI.

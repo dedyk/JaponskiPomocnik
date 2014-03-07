@@ -18,15 +18,15 @@ package org.apache.lucene.search;
  */
 
 
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Collection;
+
 import org.apache.lucene.index.FieldInvertState;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.Explanation.IDFExplanation;
 import org.apache.lucene.util.SmallFloat;
 import org.apache.lucene.util.VirtualMethod;
-
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.Collection;
 
 
 /** 
@@ -529,10 +529,16 @@ import java.util.Collection;
  */
 public abstract class Similarity implements Serializable {
 
-  // NOTE: this static code must precede setting the static defaultImpl:
-  private static final VirtualMethod<Similarity> withoutDocFreqMethod =
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+// NOTE: this static code must precede setting the static defaultImpl:
+  @SuppressWarnings("deprecation")
+private static final VirtualMethod<Similarity> withoutDocFreqMethod =
     new VirtualMethod<Similarity>(Similarity.class, "idfExplain", Term.class, Searcher.class);
-  private static final VirtualMethod<Similarity> withDocFreqMethod =
+  @SuppressWarnings("deprecation")
+private static final VirtualMethod<Similarity> withDocFreqMethod =
     new VirtualMethod<Similarity>(Similarity.class, "idfExplain", Term.class, Searcher.class, int.class);
 
   private final boolean hasIDFExplainWithDocFreqAPI =
@@ -793,7 +799,8 @@ public abstract class Similarity implements Serializable {
              and an explanation for the term.
    * @throws IOException
    */
-  public IDFExplanation idfExplain(final Term term, final Searcher searcher, int docFreq) throws IOException {
+  @SuppressWarnings("deprecation")
+public IDFExplanation idfExplain(final Term term, final Searcher searcher, int docFreq) throws IOException {
 
     if (!hasIDFExplainWithDocFreqAPI) {
       // Fallback to slow impl
@@ -803,7 +810,11 @@ public abstract class Similarity implements Serializable {
     final int max = searcher.maxDoc();
     final float idf = idf(df, max);
     return new IDFExplanation() {
-        @Override
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		@Override
         public String explain() {
           return "idf(docFreq=" + df +
           ", maxDocs=" + max + ")";
@@ -824,7 +835,8 @@ public abstract class Similarity implements Serializable {
    * queries.  Better to override {@link
    * #idfExplain(Term,Searcher,int)} instead.
    */
-  public IDFExplanation idfExplain(final Term term, final Searcher searcher) throws IOException {
+  @SuppressWarnings("deprecation")
+public IDFExplanation idfExplain(final Term term, final Searcher searcher) throws IOException {
     return idfExplain(term, searcher, searcher.docFreq(term));
   }
 
@@ -842,7 +854,8 @@ public abstract class Similarity implements Serializable {
    *         for each term.
    * @throws IOException
    */
-  public IDFExplanation idfExplain(Collection<Term> terms, Searcher searcher) throws IOException {
+  @SuppressWarnings("deprecation")
+public IDFExplanation idfExplain(Collection<Term> terms, Searcher searcher) throws IOException {
     final int max = searcher.maxDoc();
     float idf = 0.0f;
     final StringBuilder exp = new StringBuilder();
@@ -856,7 +869,11 @@ public abstract class Similarity implements Serializable {
     }
     final float fIdf = idf;
     return new IDFExplanation() {
-      @Override
+      /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+	@Override
       public float getIdf() {
         return fIdf;
       }

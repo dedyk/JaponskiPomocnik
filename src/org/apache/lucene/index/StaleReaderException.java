@@ -30,7 +30,12 @@ import java.io.IOException;
  * the changes.
  */
 public class StaleReaderException extends IOException {
-  public StaleReaderException(String message) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public StaleReaderException(String message) {
     super(message);
   }
 }

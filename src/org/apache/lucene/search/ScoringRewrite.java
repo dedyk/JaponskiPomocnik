@@ -18,6 +18,7 @@ package org.apache.lucene.search;
  */
 
 import java.io.IOException;
+
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.MultiTermQuery.RewriteMethod;
@@ -25,7 +26,12 @@ import org.apache.lucene.search.MultiTermQuery.RewriteMethod;
 /** @lucene.internal Only public to be accessible by spans package. */
 public abstract class ScoringRewrite<Q extends Query> extends TermCollectingRewrite<Q> {
 
-  /** A rewrite method that first translates each term into
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** A rewrite method that first translates each term into
    *  {@link BooleanClause.Occur#SHOULD} clause in a
    *  BooleanQuery, and keeps the scores as computed by the
    *  query.  Note that typically such scores are
@@ -39,7 +45,12 @@ public abstract class ScoringRewrite<Q extends Query> extends TermCollectingRewr
    *
    *  @see #setRewriteMethod */
   public final static ScoringRewrite<BooleanQuery> SCORING_BOOLEAN_QUERY_REWRITE = new ScoringRewrite<BooleanQuery>() {
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected BooleanQuery getTopLevelQuery() {
       return new BooleanQuery(true);
     }
@@ -68,7 +79,12 @@ public abstract class ScoringRewrite<Q extends Query> extends TermCollectingRewr
    *
    *  @see #setRewriteMethod */
   public final static RewriteMethod CONSTANT_SCORE_BOOLEAN_QUERY_REWRITE = new RewriteMethod() {
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
     public Query rewrite(IndexReader reader, MultiTermQuery query) throws IOException {
       final BooleanQuery bq = SCORING_BOOLEAN_QUERY_REWRITE.rewrite(reader, query);
       // TODO: if empty boolean query return NullQuery?
@@ -86,7 +102,8 @@ public abstract class ScoringRewrite<Q extends Query> extends TermCollectingRewr
     }
   };
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Q rewrite(final IndexReader reader, final MultiTermQuery query) throws IOException {
     final Q result = getTopLevelQuery();
     final int[] size = new int[1]; // "trick" to be able to make it final

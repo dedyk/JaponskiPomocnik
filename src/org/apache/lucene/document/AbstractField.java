@@ -15,13 +15,14 @@ package org.apache.lucene.document;
  * limitations under the License.
  */
 
+import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.index.FieldInfo;
+import org.apache.lucene.index.FieldInfo.IndexOptions;
+import org.apache.lucene.index.FieldInvertState;
 import org.apache.lucene.search.PhraseQuery; // for javadocs
 import org.apache.lucene.search.spans.SpanQuery; // for javadocs
-import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.index.FieldInvertState;
 import org.apache.lucene.util.StringHelper; // for javadocs
-import org.apache.lucene.index.FieldInfo.IndexOptions;
-import org.apache.lucene.index.FieldInvertState;  // for javadocs
+// for javadocs
 
 
 /**
@@ -30,7 +31,11 @@ import org.apache.lucene.index.FieldInvertState;  // for javadocs
  **/
 public abstract class AbstractField implements Fieldable {
 
-  protected String name = "body";
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected String name = "body";
   protected boolean storeTermVector = false;
   protected boolean storeOffsetWithTermVector = false;
   protected boolean storePositionWithTermVector = false;

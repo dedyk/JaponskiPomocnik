@@ -37,7 +37,11 @@ import java.io.IOException;
  */
 public class FuzzyQuery extends MultiTermQuery {
   
-  public final static float defaultMinSimilarity = 0.5f;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+public final static float defaultMinSimilarity = 0.5f;
   public final static int defaultPrefixLength = 0;
   public final static int defaultMaxExpansions = Integer.MAX_VALUE;
   

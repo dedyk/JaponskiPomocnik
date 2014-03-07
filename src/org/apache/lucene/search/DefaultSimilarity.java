@@ -22,7 +22,12 @@ import org.apache.lucene.index.FieldInvertState;
 /** Expert: Default scoring implementation. */
 public class DefaultSimilarity extends Similarity {
 
-  /** Implemented as
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** Implemented as
    *  <code>state.getBoost()*lengthNorm(numTerms)</code>, where
    *  <code>numTerms</code> is {@link FieldInvertState#getLength()} if {@link
    *  #setDiscountOverlaps} is false, else it's {@link

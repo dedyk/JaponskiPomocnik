@@ -23,9 +23,8 @@ import java.util.Set;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.Query;
-import org.apache.lucene.search.Weight;
 import org.apache.lucene.search.Searcher;
-import org.apache.lucene.search.Similarity;
+import org.apache.lucene.search.Weight;
 import org.apache.lucene.util.ToStringUtils;
 
 /**
@@ -70,8 +69,13 @@ import org.apache.lucene.util.ToStringUtils;
  * done using the norms of the field name supplied. This may lead to unexpected
  * scoring behaviour.</p>
  */
+@SuppressWarnings("deprecation")
 public class FieldMaskingSpanQuery extends SpanQuery {
-  private SpanQuery maskedQuery;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private SpanQuery maskedQuery;
   private String field;
     
   public FieldMaskingSpanQuery(SpanQuery maskedQuery, String maskedField) {

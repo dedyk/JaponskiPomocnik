@@ -17,13 +17,13 @@ package org.apache.lucene.search;
  * limitations under the License.
  */
 
+import java.io.IOException;
+import java.util.Set;
+
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.index.TermDocs;
 import org.apache.lucene.util.ToStringUtils;
-
-import java.util.Set;
-import java.io.IOException;
 
 /**
  * A query that matches all documents.
@@ -31,7 +31,12 @@ import java.io.IOException;
  */
 public class MatchAllDocsQuery extends Query {
 
-  public MatchAllDocsQuery() {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public MatchAllDocsQuery() {
     this(null);
   }
 
@@ -50,7 +55,8 @@ public class MatchAllDocsQuery extends Query {
     final byte[] norms;
     private int doc = -1;
     
-    MatchAllScorer(IndexReader reader, Similarity similarity, Weight w,
+    @SuppressWarnings("deprecation")
+	MatchAllScorer(IndexReader reader, Similarity similarity, Weight w,
         byte[] norms) throws IOException {
       super(similarity,w);
       this.termDocs = reader.termDocs(null);
@@ -68,7 +74,8 @@ public class MatchAllDocsQuery extends Query {
       return doc = termDocs.next() ? termDocs.doc() : NO_MORE_DOCS;
     }
     
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public float score() {
       return norms == null ? score : score * getSimilarity().decodeNormValue(norms[docID()]);
     }
@@ -80,11 +87,16 @@ public class MatchAllDocsQuery extends Query {
   }
 
   private class MatchAllDocsWeight extends Weight {
-    private Similarity similarity;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Similarity similarity;
     private float queryWeight;
     private float queryNorm;
 
-    public MatchAllDocsWeight(Searcher searcher) {
+    @SuppressWarnings("deprecation")
+	public MatchAllDocsWeight(Searcher searcher) {
       this.similarity = searcher.getSimilarity();
     }
 
@@ -135,7 +147,8 @@ public class MatchAllDocsQuery extends Query {
     }
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Weight createWeight(Searcher searcher) {
     return new MatchAllDocsWeight(searcher);
   }

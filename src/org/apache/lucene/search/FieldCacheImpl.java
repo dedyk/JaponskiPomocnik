@@ -134,6 +134,11 @@ class FieldCacheImpl implements FieldCache {
    * array.
    */
   static final class StopFillCacheException extends RuntimeException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
   }
   
   // per-segment fieldcaches don't purge until the shared core closes.

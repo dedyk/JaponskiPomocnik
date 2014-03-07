@@ -17,6 +17,11 @@ package org.apache.lucene.analysis.standard;
  * limitations under the License.
  */
 
+import java.io.File;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.Set;
+
 import org.apache.lucene.analysis.LowerCaseFilter;
 import org.apache.lucene.analysis.StopAnalyzer;
 import org.apache.lucene.analysis.StopFilter;
@@ -25,11 +30,6 @@ import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.WordlistLoader;
 import org.apache.lucene.util.IOUtils;
 import org.apache.lucene.util.Version;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.Reader;
-import java.util.Set;
 
 /**
  * Filters {@link ClassicTokenizer} with {@link ClassicFilter}, {@link
@@ -73,7 +73,8 @@ public final class ClassicAnalyzer extends StopwordAnalyzerBase {
    * @param matchVersion Lucene version to match See {@link
    * <a href="#version">above</a>}
    * @param stopWords stop words */
-  public ClassicAnalyzer(Version matchVersion, Set<?> stopWords) {
+  @SuppressWarnings("deprecation")
+public ClassicAnalyzer(Version matchVersion, Set<?> stopWords) {
     super(matchVersion, stopWords);
     replaceInvalidAcronym = matchVersion.onOrAfter(Version.LUCENE_24);
   }
@@ -126,7 +127,8 @@ public final class ClassicAnalyzer extends StopwordAnalyzerBase {
     return maxTokenLength;
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   protected TokenStreamComponents createComponents(final String fieldName, final Reader reader) {
     final ClassicTokenizer src = new ClassicTokenizer(matchVersion, reader);
     src.setMaxTokenLength(maxTokenLength);

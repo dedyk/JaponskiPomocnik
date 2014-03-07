@@ -179,7 +179,8 @@ class CompoundFileReader extends Directory {
   }
   
   /** Returns the time the compound file was last modified. */
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public long fileModified(String name) throws IOException {
     return directory.fileModified(fileName);
   }
@@ -244,7 +245,8 @@ class CompoundFileReader extends Directory {
       this(base, fileOffset, length, BufferedIndexInput.BUFFER_SIZE);
     }
     
-    CSIndexInput(final IndexInput base, final long fileOffset, final long length, int readBufferSize) {
+    @SuppressWarnings("deprecation")
+	CSIndexInput(final IndexInput base, final long fileOffset, final long length, int readBufferSize) {
       super(readBufferSize);
       this.base = (IndexInput)base.clone();
       this.fileOffset = fileOffset;

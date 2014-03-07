@@ -17,19 +17,19 @@ package org.apache.lucene.analysis;
  * limitations under the License.
  */
 
-import org.apache.lucene.analysis.tokenattributes.TermAttributeImpl;
-import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.FlagsAttribute;
+import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PayloadAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionLengthAttribute;
+import org.apache.lucene.analysis.tokenattributes.TermAttributeImpl;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.index.Payload;
 import org.apache.lucene.index.TermPositions;     // for javadoc
 import org.apache.lucene.util.Attribute;
-import org.apache.lucene.util.AttributeSource;
 import org.apache.lucene.util.AttributeImpl;
 import org.apache.lucene.util.AttributeReflector;
+import org.apache.lucene.util.AttributeSource;
 
 /** 
   A Token is an occurrence of a term from the text of a field.  It consists of
@@ -121,10 +121,17 @@ import org.apache.lucene.util.AttributeReflector;
   @see org.apache.lucene.index.Payload
 */
 // TODO: change superclass to CharTermAttribute in 4.0! Maybe deprecate the whole class?
+@SuppressWarnings("deprecation")
 public class Token extends TermAttributeImpl 
                    implements TypeAttribute, PositionIncrementAttribute,
                               FlagsAttribute, OffsetAttribute, PayloadAttribute, PositionLengthAttribute {
 
+	private static final long serialVersionUID = 1L;
+	
+  /**
+	* 
+  */
+	
   private int startOffset,endOffset;
   private String type = DEFAULT_TYPE;
   private int flags;
@@ -259,7 +266,8 @@ public class Token extends TermAttributeImpl
    * @param positionIncrement the distance from the prior term
    * @see org.apache.lucene.index.TermPositions
    */
-  public void setPositionIncrement(int positionIncrement) {
+  @Override
+public void setPositionIncrement(int positionIncrement) {
     if (positionIncrement < 0)
       throw new IllegalArgumentException
         ("Increment must be zero or greater: " + positionIncrement);
@@ -269,19 +277,22 @@ public class Token extends TermAttributeImpl
   /** Returns the position increment of this Token.
    * @see #setPositionIncrement
    */
-  public int getPositionIncrement() {
+  @Override
+public int getPositionIncrement() {
     return positionIncrement;
   }
 
   /** Set the position length.
    * @see PositionLengthAttribute */
-  public void setPositionLength(int positionLength) {
+  @Override
+public void setPositionLength(int positionLength) {
     this.positionLength = positionLength;
   }
 
   /** Get the position length.
    * @see PositionLengthAttribute */
-  public int getPositionLength() {
+  @Override
+public int getPositionLength() {
     return positionLength;
   }
 
@@ -291,7 +302,8 @@ public class Token extends TermAttributeImpl
     Note that the difference between endOffset() and startOffset() may not be
     equal to {@link #length}, as the term text may have been altered by a
     stemmer or some other filter. */
-  public final int startOffset() {
+  @Override
+public final int startOffset() {
     return startOffset;
   }
 
@@ -304,7 +316,8 @@ public class Token extends TermAttributeImpl
   /** Returns this Token's ending offset, one greater than the position of the
     last character corresponding to this token in the source text. The length
     of the token in the source text is (endOffset - startOffset). */
-  public final int endOffset() {
+  @Override
+public final int endOffset() {
     return endOffset;
   }
 
@@ -316,19 +329,22 @@ public class Token extends TermAttributeImpl
   
   /** Set the starting and ending offset.
   @see #startOffset() and #endOffset()*/
-  public void setOffset(int startOffset, int endOffset) {
+  @Override
+public void setOffset(int startOffset, int endOffset) {
     this.startOffset = startOffset;
     this.endOffset = endOffset;
   }
 
   /** Returns this Token's lexical type.  Defaults to "word". */
-  public final String type() {
+  @Override
+public final String type() {
     return type;
   }
 
   /** Set the lexical type.
       @see #type() */
-  public final void setType(String type) {
+  @Override
+public final void setType(String type) {
     this.type = type;
   }
 
@@ -342,28 +358,32 @@ public class Token extends TermAttributeImpl
    * @return The bits
    * @lucene.experimental While we think this is here to stay, we may want to change it to be a long.
    */
-  public int getFlags() {
+  @Override
+public int getFlags() {
     return flags;
   }
 
   /**
    * @see #getFlags()
    */
-  public void setFlags(int flags) {
+  @Override
+public void setFlags(int flags) {
     this.flags = flags;
   }
 
   /**
    * Returns this Token's payload.
    */ 
-  public Payload getPayload() {
+  @Override
+public Payload getPayload() {
     return this.payload;
   }
 
   /** 
    * Sets this Token's payload.
    */
-  public void setPayload(Payload payload) {
+  @Override
+public void setPayload(Payload payload) {
     this.payload = payload;
   }
   

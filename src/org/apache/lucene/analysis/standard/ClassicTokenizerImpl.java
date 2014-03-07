@@ -26,7 +26,6 @@ WARNING: if you change ClassicTokenizerImpl.jflex and need to regenerate
 
 */
 
-import java.io.Reader;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
 
@@ -323,7 +322,8 @@ class ClassicTokenizerImpl implements StandardTokenizerInterface {
   private int zzEndRead;
 
   /** number of newlines encountered up to the start of the matched text */
-  private int yyline;
+  @SuppressWarnings("unused")
+private int yyline;
 
   /** the number of characters up to the start of the matched text */
   private int yychar;
@@ -332,28 +332,36 @@ class ClassicTokenizerImpl implements StandardTokenizerInterface {
    * the number of characters from the last newline up to the start of the 
    * matched text
    */
-  private int yycolumn;
+  @SuppressWarnings("unused")
+private int yycolumn;
 
   /** 
    * zzAtBOL == true <=> the scanner is currently at the beginning of a line
    */
-  private boolean zzAtBOL = true;
+  @SuppressWarnings("unused")
+private boolean zzAtBOL = true;
 
   /** zzAtEOF == true <=> the scanner is at the EOF */
   private boolean zzAtEOF;
 
   /** denotes if the user-EOF-code has already been executed */
-  private boolean zzEOFDone;
+  @SuppressWarnings("unused")
+private boolean zzEOFDone;
 
   /* user code: */
 
 public static final int ALPHANUM          = StandardTokenizer.ALPHANUM;
+@SuppressWarnings("deprecation")
 public static final int APOSTROPHE        = StandardTokenizer.APOSTROPHE;
+@SuppressWarnings("deprecation")
 public static final int ACRONYM           = StandardTokenizer.ACRONYM;
+@SuppressWarnings("deprecation")
 public static final int COMPANY           = StandardTokenizer.COMPANY;
 public static final int EMAIL             = StandardTokenizer.EMAIL;
+@SuppressWarnings("deprecation")
 public static final int HOST              = StandardTokenizer.HOST;
 public static final int NUM               = StandardTokenizer.NUM;
+@SuppressWarnings("deprecation")
 public static final int CJ                = StandardTokenizer.CJ;
 /**
  * @deprecated this solves a bug where HOSTs that end with '.' are identified
@@ -364,6 +372,7 @@ public static final int ACRONYM_DEP       = StandardTokenizer.ACRONYM_DEP;
 
 public static final String [] TOKEN_TYPES = StandardTokenizer.TOKEN_TYPES;
 
+@Override
 public final int yychar()
 {
     return yychar;
@@ -372,6 +381,7 @@ public final int yychar()
 /**
  * Fills CharTermAttribute with the current token text.
  */
+@Override
 public final void getText(CharTermAttribute t) {
   t.copyBuffer(zzBuffer, zzStartRead, zzMarkedPos-zzStartRead);
 }
@@ -495,7 +505,8 @@ public final void getText(CharTermAttribute t) {
    *
    * @param reader   the new input stream 
    */
-  public final void yyreset(java.io.Reader reader) {
+  @Override
+public final void yyreset(java.io.Reader reader) {
     zzReader = reader;
     zzAtBOL  = true;
     zzAtEOF  = false;
@@ -554,7 +565,8 @@ public final void getText(CharTermAttribute t) {
   /**
    * Returns the length of the matched text region.
    */
-  public final int yylength() {
+  @Override
+public final int yylength() {
     return zzMarkedPos-zzStartRead;
   }
 
@@ -609,7 +621,8 @@ public final void getText(CharTermAttribute t) {
    * @return      the next token
    * @exception   java.io.IOException  if any I/O-Error occurs
    */
-  public int getNextToken() throws java.io.IOException {
+  @Override
+public int getNextToken() throws java.io.IOException {
     int zzInput;
     int zzAction;
 

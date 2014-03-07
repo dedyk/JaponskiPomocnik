@@ -43,7 +43,12 @@ import org.apache.lucene.util.NumericUtils; // for javadocs
  **/
 public final class NumericRangeFilter<T extends Number> extends MultiTermQueryWrapperFilter<NumericRangeQuery<T>> {
 
-  private NumericRangeFilter(final NumericRangeQuery<T> query) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+private NumericRangeFilter(final NumericRangeQuery<T> query) {
     super(query);
   }
   

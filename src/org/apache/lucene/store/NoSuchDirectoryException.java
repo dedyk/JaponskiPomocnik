@@ -25,7 +25,12 @@ import java.io.FileNotFoundException;
  */
 
 public class NoSuchDirectoryException extends FileNotFoundException {
-  public NoSuchDirectoryException(String message) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public NoSuchDirectoryException(String message) {
     super(message);
   }
 }

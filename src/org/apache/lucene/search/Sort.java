@@ -101,6 +101,11 @@ public class Sort
 implements Serializable {
 
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/**
    * Represents sorting by computed relevance. Using this sort criteria returns
    * the same results as calling
    * {@link Searcher#search(Query,int) Searcher#search()}without a sort criteria,

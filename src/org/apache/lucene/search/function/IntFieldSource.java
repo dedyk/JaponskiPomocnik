@@ -42,7 +42,11 @@ import java.io.IOException;
  * (single segment) readers to this API.</p>
  */
 public class IntFieldSource extends FieldCacheSource {
-  private FieldCache.IntParser parser;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private FieldCache.IntParser parser;
 
   /**
    * Create a cached int field source with default string-to-int parser. 

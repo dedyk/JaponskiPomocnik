@@ -27,7 +27,11 @@ import org.apache.lucene.index.FieldInvertState;
 @Deprecated
 public class SimilarityDelegator extends Similarity {
 
-  private Similarity delegee;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Similarity delegee;
 
   /** Construct a {@link Similarity} that delegates all methods to another.
    *

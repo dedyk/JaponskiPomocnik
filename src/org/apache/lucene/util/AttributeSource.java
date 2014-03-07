@@ -19,16 +19,16 @@ package org.apache.lucene.util;
 
 import java.lang.ref.WeakReference;
 import java.util.Collections;
-import java.util.NoSuchElementException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.NoSuchElementException;
 
 import org.apache.lucene.analysis.TokenStream; // for javadocs
-import org.apache.lucene.analysis.tokenattributes.TermAttribute;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttributeImpl;
+import org.apache.lucene.analysis.tokenattributes.TermAttribute;
 
 /**
  * An AttributeSource contains a list of different {@link AttributeImpl}s,
@@ -39,6 +39,7 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttributeImpl;
  * that type is already present. If yes, it returns the instance, otherwise
  * it creates a new instance and returns it.
  */
+@SuppressWarnings("deprecation")
 public class AttributeSource {
   /**
    * An AttributeFactory creates instances of {@link AttributeImpl}s.

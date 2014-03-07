@@ -18,9 +18,7 @@ package org.apache.lucene.search;
  */
 
 import java.io.IOException;
-
 import java.util.HashSet;
-
 import java.util.Set;
 
 import org.apache.lucene.index.IndexReader;
@@ -47,7 +45,11 @@ import org.apache.lucene.index.Term;
     </ul>
 */
 public abstract class Query implements java.io.Serializable, Cloneable {
-  private float boost = 1.0f;                     // query boost factor
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private float boost = 1.0f;                     // query boost factor
 
   /** Sets the boost for this query clause to <code>b</code>.  Documents
    * matching this clause will (in addition to the normal weightings) have
@@ -89,7 +91,8 @@ public abstract class Query implements java.io.Serializable, Cloneable {
    * <p>
    * Only implemented by primitive queries, which re-write to themselves.
    */
-  public Weight createWeight(Searcher searcher) throws IOException {
+  @SuppressWarnings("deprecation")
+public Weight createWeight(Searcher searcher) throws IOException {
     throw new UnsupportedOperationException("Query " + this + " does not implement createWeight");
   }
 

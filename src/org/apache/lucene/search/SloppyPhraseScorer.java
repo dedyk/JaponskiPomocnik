@@ -28,6 +28,9 @@ import java.util.LinkedHashMap;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.util.OpenBitSet;
 
+import android.annotation.SuppressLint;
+
+@SuppressLint("UseValueOf")
 final class SloppyPhraseScorer extends PhraseScorer {
   
   private final int slop;
@@ -68,7 +71,8 @@ final class SloppyPhraseScorer extends PhraseScorer {
    * would get same score as "g f"~2, although "c b"~2 could be matched twice.
    * We may want to fix this in the future (currently not, for performance reasons).
    */
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   protected float phraseFreq() throws IOException {
     if (!initPhrasePositions()) {
       return 0.0f;

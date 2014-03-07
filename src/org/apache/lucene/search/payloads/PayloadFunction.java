@@ -32,6 +32,11 @@ import org.apache.lucene.search.Explanation;
 public abstract class PayloadFunction implements Serializable {
 
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/**
    * Calculate the score up to this point for this doc and field
    * @param docId The current doc
    * @param field The field

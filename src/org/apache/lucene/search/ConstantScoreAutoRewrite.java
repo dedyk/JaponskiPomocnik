@@ -25,7 +25,12 @@ import org.apache.lucene.index.Term;
 
 class ConstantScoreAutoRewrite extends TermCollectingRewrite<BooleanQuery> {
 
-  // Defaults derived from rough tests with a 20.0 million
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+// Defaults derived from rough tests with a 20.0 million
   // doc Wikipedia index.  With more than 350 terms in the
   // query, the filter method is fastest:
   public static int DEFAULT_TERM_COUNT_CUTOFF = 350;
@@ -73,7 +78,8 @@ class ConstantScoreAutoRewrite extends TermCollectingRewrite<BooleanQuery> {
     topLevel.add(new TermQuery(term), BooleanClause.Occur.SHOULD);
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Query rewrite(final IndexReader reader, final MultiTermQuery query) throws IOException {
 
     // Get the enum and start visiting terms.  If we

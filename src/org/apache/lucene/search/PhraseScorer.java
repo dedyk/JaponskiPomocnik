@@ -37,7 +37,8 @@ abstract class PhraseScorer extends Scorer {
 
   private float freq; //phrase frequency in current doc as computed by phraseFreq().
 
-  PhraseScorer(Weight weight, PhraseQuery.PostingsAndFreq[] postings,
+  @SuppressWarnings({ "deprecation" })
+PhraseScorer(Weight weight, PhraseQuery.PostingsAndFreq[] postings,
       Similarity similarity, byte[] norms) {
     super(similarity, weight);
     this.norms = norms;
@@ -82,7 +83,8 @@ abstract class PhraseScorer extends Scorer {
     return true;
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public float score() throws IOException {
     //System.out.println("scoring " + max.doc);
     float raw = getSimilarity().tf(freq) * value; // raw score

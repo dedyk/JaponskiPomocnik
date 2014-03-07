@@ -29,7 +29,11 @@ import java.util.Set;
 
 /** Removes matches which overlap with another SpanQuery. */
 public class SpanNotQuery extends SpanQuery implements Cloneable {
-  private SpanQuery include;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private SpanQuery include;
   private SpanQuery exclude;
 
   /** Construct a SpanNotQuery matching spans from <code>include</code> which

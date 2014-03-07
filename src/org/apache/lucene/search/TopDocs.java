@@ -26,7 +26,12 @@ import org.apache.lucene.util.PriorityQueue;
  * Searcher#search(Query,int)}. */
 public class TopDocs implements java.io.Serializable {
 
-  /** The total number of hits for the query. */
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** The total number of hits for the query. */
   public int totalHits;
 
   /** The top hits for the query. */
@@ -156,7 +161,6 @@ public class TopDocs implements java.io.Serializable {
     }
 
     // Returns true if first is < second
-    @SuppressWarnings({"unchecked","rawtypes"})
     public boolean lessThan(ShardRef first, ShardRef second) {
       assert first != second;
       final FieldDoc firstFD = (FieldDoc) shardHits[first.shardIndex][first.hitIndex];

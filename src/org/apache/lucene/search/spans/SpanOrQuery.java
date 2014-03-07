@@ -33,7 +33,11 @@ import org.apache.lucene.search.Query;
 
 /** Matches the union of its clauses.*/
 public class SpanOrQuery extends SpanQuery implements Cloneable {
-  private List<SpanQuery> clauses;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private List<SpanQuery> clauses;
   private String field;
 
   /** Construct a SpanOrQuery merging the provided clauses. */

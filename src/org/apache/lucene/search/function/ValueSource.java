@@ -38,6 +38,11 @@ import java.io.Serializable;
 public abstract class ValueSource implements Serializable {
 
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/**
    * Return the DocValues used by the function query.
    * @param reader the IndexReader used to read these values.
    * If any caching is involved, that caching would also be IndexReader based.  

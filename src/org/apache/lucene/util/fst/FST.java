@@ -40,6 +40,8 @@ import org.apache.lucene.util.PriorityQueue;
 import org.apache.lucene.util.RamUsageEstimator;
 import org.apache.lucene.util.fst.Builder.UnCompiledNode;
 
+import android.annotation.SuppressLint;
+
 // TODO: break this into WritableFST and ReadOnlyFST.. then
 // we can have subclasses of ReadOnlyFST to handle the
 // different byte[] level encodings (packed or
@@ -66,6 +68,7 @@ import org.apache.lucene.util.fst.Builder.UnCompiledNode;
  *
  * @lucene.experimental
  */
+@SuppressLint("UseSparseArrays")
 public final class FST<T> {
   /** Specifies allowed range of each int input label for
    *  this FST. */
@@ -110,13 +113,16 @@ public final class FST<T> {
 
   // Increment version to change it
   private final static String FILE_FORMAT_NAME = "FST";
-  private final static int VERSION_START = 0;
+  @SuppressWarnings("unused")
+private final static int VERSION_START = 0;
 
   /** Changed numBytesPerArc for array'd case from byte to int. */
-  private final static int VERSION_INT_NUM_BYTES_PER_ARC = 1;
+  @SuppressWarnings("unused")
+private final static int VERSION_INT_NUM_BYTES_PER_ARC = 1;
 
   /** Write BYTE2 labels as 2-byte short, not vInt. */
-  private final static int VERSION_SHORT_BYTE2_LABELS = 2;
+  @SuppressWarnings("unused")
+private final static int VERSION_SHORT_BYTE2_LABELS = 2;
 
   /** Added optional packed format. */
   private final static int VERSION_PACKED = 3;
@@ -380,7 +386,7 @@ public final class FST<T> {
   }
 
   // Caches first 128 labels
-  @SuppressWarnings({"rawtypes","unchecked"})
+  @SuppressWarnings({"unchecked"})
   private void cacheRootArcs() throws IOException {
     cachedRootArcs = (Arc<T>[]) new Arc[0x80];
     final Arc<T> arc = new Arc<T>();
@@ -1300,7 +1306,8 @@ public final class FST<T> {
     }
   }
 
-  private static class ArcAndState<T> {
+  @SuppressWarnings("unused")
+private static class ArcAndState<T> {
     final Arc<T> arc;
     final IntsRef chain;
 
@@ -1432,7 +1439,8 @@ public final class FST<T> {
   /** Expert: creates an FST by packing this one.  This
    *  process requires substantial additional RAM (currently
    *  ~8 bytes per node), but then should produce a smaller FST. */
-  public FST<T> pack(int minInCountDeref, int maxDerefNodes) throws IOException {
+  @SuppressWarnings("unused")
+public FST<T> pack(int minInCountDeref, int maxDerefNodes) throws IOException {
 
     // TODO: other things to try
     //   - renumber the nodes to get more next / better locality?

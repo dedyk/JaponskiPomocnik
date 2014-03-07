@@ -29,6 +29,11 @@ import java.io.Serializable;
 public abstract class FieldComparatorSource implements Serializable {
 
   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/**
    * Creates a comparator for the field in the given index.
    * 
    * @param fieldname

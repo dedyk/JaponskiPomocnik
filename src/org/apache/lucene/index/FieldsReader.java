@@ -226,7 +226,8 @@ final class FieldsReader implements Cloneable, Closeable {
     return format >= FieldsWriter.FORMAT_LUCENE_3_0_NO_COMPRESSED_FIELDS;
   }
 
-  final Document doc(int n, FieldSelector fieldSelector) throws CorruptIndexException, IOException {
+  @SuppressWarnings("deprecation")
+final Document doc(int n, FieldSelector fieldSelector) throws CorruptIndexException, IOException {
     seekIndex(n);
     long position = indexStream.readLong();
     fieldsStream.seek(position);
@@ -326,7 +327,8 @@ final class FieldsReader implements Cloneable, Closeable {
     skipFieldBytes(binary, compressed, numBytes);
   }
   
-  private void skipFieldBytes(boolean binary, boolean compressed, int toRead) throws IOException {
+  @SuppressWarnings("deprecation")
+private void skipFieldBytes(boolean binary, boolean compressed, int toRead) throws IOException {
     if (format >= FieldsWriter.FORMAT_VERSION_UTF8_LENGTH_IN_BYTES || binary || compressed) {
       fieldsStream.seek(fieldsStream.getFilePointer() + toRead);
     } else {
@@ -351,7 +353,8 @@ final class FieldsReader implements Cloneable, Closeable {
     }
   }
 
-  private void addFieldLazy(Document doc, FieldInfo fi, boolean binary, boolean compressed, boolean tokenize, boolean cacheResult, int numeric) throws IOException {
+  @SuppressWarnings("deprecation")
+private void addFieldLazy(Document doc, FieldInfo fi, boolean binary, boolean compressed, boolean tokenize, boolean cacheResult, int numeric) throws IOException {
     final AbstractField f;
     if (binary) {
       int toRead = fieldsStream.readVInt();
@@ -469,7 +472,11 @@ final class FieldsReader implements Cloneable, Closeable {
    * loaded.
    */
   private class LazyField extends AbstractField implements Fieldable {
-    private int toRead;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int toRead;
     private long pointer;
     /** @deprecated Only kept for backward-compatbility with <3.0 indexes. Will be removed in 4.0. */
     @Deprecated
@@ -528,7 +535,8 @@ final class FieldsReader implements Cloneable, Closeable {
     /** The value of the field as a String, or null.  If null, the Reader value,
      * binary value, or TokenStream value is used.  Exactly one of stringValue(), 
      * readerValue(), getBinaryValue(), and tokenStreamValue() must be set. */
-    public String stringValue() {
+    @SuppressWarnings("deprecation")
+	public String stringValue() {
       ensureOpen();
       if (isBinary)
         return null;

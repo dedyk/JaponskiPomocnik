@@ -36,7 +36,12 @@ import org.apache.lucene.index.FieldInfo.IndexOptions;
 
 public final class Field extends AbstractField implements Fieldable, Serializable {
   
-  /** Specifies whether and how a field should be stored. */
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** Specifies whether and how a field should be stored. */
   public static enum Store {
 
     /** Store the original field value in the index. This is useful for short texts

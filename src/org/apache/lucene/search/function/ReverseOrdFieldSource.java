@@ -51,7 +51,11 @@ import java.io.IOException;
  */
 
 public class ReverseOrdFieldSource extends ValueSource {
-  public String field;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+public String field;
 
   /** 
    * Contructor for a certain field.

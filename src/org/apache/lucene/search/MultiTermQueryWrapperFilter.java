@@ -41,7 +41,11 @@ import org.apache.lucene.util.FixedBitSet;
  */
 public class MultiTermQueryWrapperFilter<Q extends MultiTermQuery> extends Filter {
     
-  protected final Q query;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected final Q query;
 
   /**
    * Wrap a {@link MultiTermQuery} as a Filter.
@@ -57,7 +61,7 @@ public class MultiTermQueryWrapperFilter<Q extends MultiTermQuery> extends Filte
   }
 
   @Override
-  @SuppressWarnings({"unchecked","rawtypes"})
+  @SuppressWarnings({"rawtypes"})
   public final boolean equals(final Object o) {
     if (o==this) return true;
     if (o==null) return false;
@@ -103,7 +107,8 @@ public class MultiTermQueryWrapperFilter<Q extends MultiTermQuery> extends Filte
    * Returns a DocIdSet with documents that should be
    * permitted in search results.
    */
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public DocIdSet getDocIdSet(IndexReader reader) throws IOException {
     final TermEnum enumerator = query.getEnum(reader);
     try {

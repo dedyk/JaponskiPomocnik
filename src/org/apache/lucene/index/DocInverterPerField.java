@@ -19,10 +19,11 @@ package org.apache.lucene.index;
 
 import java.io.IOException;
 import java.io.Reader;
-import org.apache.lucene.document.Fieldable;
+
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
+import org.apache.lucene.document.Fieldable;
 
 /**
  * Holds state for inverting all occurrences of a single
@@ -65,7 +66,8 @@ final class DocInverterPerField extends DocFieldConsumerPerField {
     consumer.close();
   }
 
-  @Override
+  @SuppressWarnings("unused")
+@Override
   public void processFields(final Fieldable[] fields,
                             final int count) throws IOException {
 

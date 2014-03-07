@@ -17,10 +17,11 @@ package org.apache.lucene.search;
  * limitations under the License.
  */
 
-import org.apache.lucene.util.PriorityQueue;
 import java.io.IOException;
 import java.text.Collator;
 import java.util.Locale;
+
+import org.apache.lucene.util.PriorityQueue;
 
 /**
  * Expert: Collects sorted results from Searchable's and collates them.
@@ -59,7 +60,6 @@ class FieldDocSortedHitQueue extends PriorityQueue<FieldDoc> {
    * This method should be synchronized external like all other PQ methods.
    * @param fields
    */
-  @SuppressWarnings({"unchecked","rawtypes"})
   void setFields (SortField[] fields) throws IOException {
     this.fields = fields;
     this.collators = hasCollators (fields);
@@ -100,7 +100,7 @@ class FieldDocSortedHitQueue extends PriorityQueue<FieldDoc> {
    * @return <code>true</code> if document <code>a</code> should be sorted after document <code>b</code>.
    */
   @Override
-  @SuppressWarnings({"unchecked","rawtypes"})
+  @SuppressWarnings({"unchecked"})
   protected final boolean lessThan(final FieldDoc docA, final FieldDoc docB) {
     final int n = fields.length;
     int c = 0;

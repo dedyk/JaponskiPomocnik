@@ -59,12 +59,21 @@ import org.apache.lucene.queryParser.QueryParser; // for javadoc
  * #CONSTANT_SCORE_AUTO_REWRITE_DEFAULT} by default.
  */
 public abstract class MultiTermQuery extends Query {
-  protected RewriteMethod rewriteMethod = CONSTANT_SCORE_AUTO_REWRITE_DEFAULT;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected RewriteMethod rewriteMethod = CONSTANT_SCORE_AUTO_REWRITE_DEFAULT;
   transient int numberOfTerms = 0;
 
   /** Abstract class that defines how the query is rewritten. */
   public static abstract class RewriteMethod implements Serializable {
-    public abstract Query rewrite(IndexReader reader, MultiTermQuery query) throws IOException;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public abstract Query rewrite(IndexReader reader, MultiTermQuery query) throws IOException;
     
     /**
      * Returns the {@link MultiTermQuery}s {@link FilteredTermEnum}
@@ -88,7 +97,12 @@ public abstract class MultiTermQuery extends Query {
    *
    *  @see #setRewriteMethod */
   public static final RewriteMethod CONSTANT_SCORE_FILTER_REWRITE = new RewriteMethod() {
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
     public Query rewrite(IndexReader reader, MultiTermQuery query) {
       Query result = new ConstantScoreQuery(new MultiTermQueryWrapperFilter<MultiTermQuery>(query));
       result.setBoost(query.getBoost());
@@ -142,7 +156,12 @@ public abstract class MultiTermQuery extends Query {
    */
   public static final class TopTermsScoringBooleanQueryRewrite extends TopTermsRewrite<BooleanQuery> {
 
-    /** 
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/** 
      * Create a TopTermsScoringBooleanQueryRewrite for 
      * at most <code>size</code> terms.
      * <p>
@@ -183,7 +202,12 @@ public abstract class MultiTermQuery extends Query {
    */
   public static final class TopTermsBoostOnlyBooleanQueryRewrite extends TopTermsRewrite<BooleanQuery> {
     
-    /** 
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/** 
      * Create a TopTermsBoostOnlyBooleanQueryRewrite for 
      * at most <code>size</code> terms.
      * <p>
@@ -220,7 +244,12 @@ public abstract class MultiTermQuery extends Query {
    *  Otherwise, {@link #CONSTANT_SCORE_FILTER_REWRITE} is
    *  used.
    */
-  public static class ConstantScoreAutoRewrite extends org.apache.lucene.search.ConstantScoreAutoRewrite {}
+  public static class ConstantScoreAutoRewrite extends org.apache.lucene.search.ConstantScoreAutoRewrite {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;}
 
   /** Read-only default instance of {@link
    *  ConstantScoreAutoRewrite}, with {@link
@@ -235,7 +264,12 @@ public abstract class MultiTermQuery extends Query {
    *  instance; you'll need to create a private instance
    *  instead. */
   public final static RewriteMethod CONSTANT_SCORE_AUTO_REWRITE_DEFAULT = new ConstantScoreAutoRewrite() {
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
     public void setTermCountCutoff(int count) {
       throw new UnsupportedOperationException("Please create a private instance");
     }

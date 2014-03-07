@@ -38,7 +38,11 @@ import org.apache.lucene.util.ToStringUtils;
  */
 
 public class TermRangeQuery extends MultiTermQuery {
-  private String lowerTerm;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private String lowerTerm;
   private String upperTerm;
   private Collator collator;
   private String field;

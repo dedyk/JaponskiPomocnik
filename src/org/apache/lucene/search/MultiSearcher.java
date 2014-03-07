@@ -17,14 +17,6 @@ package org.apache.lucene.search;
  * limitations under the License.
  */
 
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.FieldSelector;
-import org.apache.lucene.index.CorruptIndexException;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.util.ReaderUtil;
-import org.apache.lucene.util.DummyConcurrentLock;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -32,6 +24,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.locks.Lock;
+
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.FieldSelector;
+import org.apache.lucene.index.CorruptIndexException;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.Term;
+import org.apache.lucene.util.DummyConcurrentLock;
+import org.apache.lucene.util.ReaderUtil;
 
 /** Implements search over a set of <code>Searchables</code>.
  *
@@ -309,7 +309,8 @@ public class MultiSearcher extends Searcher {
    *
    * @return rewritten queries
    */
-  @Override
+  @SuppressWarnings("resource")
+@Override
   public Weight createNormalizedWeight(Query original) throws IOException {
     // step 1
     final Query rewrittenQuery = rewrite(original);

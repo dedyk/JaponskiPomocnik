@@ -23,12 +23,12 @@ import java.util.LinkedList;
 import org.apache.lucene.analysis.NumericTokenStream; // for javadocs
 import org.apache.lucene.document.NumericField; // for javadocs
 import org.apache.lucene.document.NumericField.DataType;
-import org.apache.lucene.util.NumericUtils;
-import org.apache.lucene.util.ToStringUtils;
-import org.apache.lucene.util.StringHelper;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.index.TermEnum;
+import org.apache.lucene.util.NumericUtils;
+import org.apache.lucene.util.StringHelper;
+import org.apache.lucene.util.ToStringUtils;
 
 /**
  * <p>A {@link Query} that matches numeric values within a
@@ -153,7 +153,12 @@ import org.apache.lucene.index.TermEnum;
  **/
 public final class NumericRangeQuery<T extends Number> extends MultiTermQuery {
 
-  private NumericRangeQuery(final String field, final int precisionStep, final DataType dataType,
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+private NumericRangeQuery(final String field, final int precisionStep, final DataType dataType,
     T min, T max, final boolean minInclusive, final boolean maxInclusive
   ) {
     if (precisionStep < 1)
@@ -345,7 +350,7 @@ public final class NumericRangeQuery<T extends Number> extends MultiTermQuery {
   }
 
   @Override
-  @SuppressWarnings({"unchecked","rawtypes"})
+  @SuppressWarnings({"rawtypes"})
   public final boolean equals(final Object o) {
     if (o==this) return true;
     if (!super.equals(o))

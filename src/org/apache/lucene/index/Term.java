@@ -28,7 +28,11 @@ import org.apache.lucene.util.StringHelper;
   things like dates, email addresses, urls, etc.  */
 
 public final class Term implements Comparable<Term>, java.io.Serializable {
-  String field;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+String field;
   String text;
 
   /** Constructs a Term with the given field and text.

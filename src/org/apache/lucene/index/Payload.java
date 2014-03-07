@@ -35,7 +35,12 @@ import org.apache.lucene.util.ArrayUtil;
  *
  */
 public class Payload implements Serializable, Cloneable {
-  /** the byte array containing the payload data */
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** the byte array containing the payload data */
   protected byte[] data;
     
   /** the offset within the byte array */

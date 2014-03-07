@@ -24,7 +24,12 @@ import java.io.IOException;
  * an inconsistency in the index.
  */
 public class CorruptIndexException extends IOException {
-  public CorruptIndexException(String message) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public CorruptIndexException(String message) {
     super(message);
   }
 }

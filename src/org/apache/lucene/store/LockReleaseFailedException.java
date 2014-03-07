@@ -25,7 +25,12 @@ import java.io.IOException;
  * @see Lock#release()
  */
 public class LockReleaseFailedException extends IOException {
-  public LockReleaseFailedException(String message) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public LockReleaseFailedException(String message) {
     super(message);
   }
 }

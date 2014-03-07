@@ -35,6 +35,7 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.FieldSelector;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.NIOFSDirectory; // javadocs
@@ -66,6 +67,7 @@ import org.apache.lucene.util.ThreadInterruptedException;
  * synchronize on the <code>IndexSearcher</code> instance;
  * use your own (non-Lucene) objects instead.</p>
  */
+@SuppressWarnings("deprecation")
 public class IndexSearcher extends Searcher {
   IndexReader reader;
   private boolean closeReader;

@@ -17,12 +17,12 @@ package org.apache.lucene.search;
  * limitations under the License.
  */
 
+import java.io.IOException;
+import java.util.Set;
+
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.util.ToStringUtils;
-
-import java.io.IOException;
-import java.util.Set;
 
 /**
  * A query that wraps another query or a filter and simply returns a constant score equal to the
@@ -36,7 +36,11 @@ import java.util.Set;
  * CachingWrapperFilter.DeletesMode#DYNAMIC}).
  */
 public class ConstantScoreQuery extends Query {
-  protected final Filter filter;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+protected final Filter filter;
   protected final Query query;
 
   /** Strips off scores from the passed in Query. The hits will get a constant score
@@ -95,12 +99,17 @@ public class ConstantScoreQuery extends Query {
   }
 
   protected class ConstantWeight extends Weight {
-    private final Weight innerWeight;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final Weight innerWeight;
     private final Similarity similarity;
     private float queryNorm;
     private float queryWeight;
     
-    public ConstantWeight(Searcher searcher) throws IOException {
+    @SuppressWarnings("deprecation")
+	public ConstantWeight(Searcher searcher) throws IOException {
       this.similarity = getSimilarity(searcher);
       this.innerWeight = (query == null) ? null : query.createWeight(searcher);
     }
@@ -180,7 +189,8 @@ public class ConstantScoreQuery extends Query {
     final DocIdSetIterator docIdSetIterator;
     final float theScore;
 
-    public ConstantScorer(Similarity similarity, DocIdSetIterator docIdSetIterator, Weight w) throws IOException {
+    @SuppressWarnings("deprecation")
+	public ConstantScorer(Similarity similarity, DocIdSetIterator docIdSetIterator, Weight w) throws IOException {
       super(similarity,w);
       theScore = w.getValue();
       this.docIdSetIterator = docIdSetIterator;
@@ -209,7 +219,8 @@ public class ConstantScoreQuery extends Query {
     
     private Collector wrapCollector(final Collector collector) {
       return new Collector() {
-        @Override
+        @SuppressWarnings("deprecation")
+		@Override
         public void setScorer(Scorer scorer) throws IOException {
           // we must wrap again here, but using the scorer passed in as parameter:
           collector.setScorer(new ConstantScorer(ConstantScorer.this.getSimilarity(),
@@ -256,7 +267,8 @@ public class ConstantScoreQuery extends Query {
     }
   }
 
-  @Override
+  @SuppressWarnings("deprecation")
+@Override
   public Weight createWeight(Searcher searcher) throws IOException {
     return new ConstantScoreQuery.ConstantWeight(searcher);
   }

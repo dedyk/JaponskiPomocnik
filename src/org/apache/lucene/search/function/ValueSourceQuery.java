@@ -17,14 +17,20 @@ package org.apache.lucene.search.function;
  * limitations under the License.
  */
 
+import java.io.IOException;
+import java.util.Set;
+
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.index.TermDocs;
-import org.apache.lucene.search.*;
+import org.apache.lucene.search.ComplexExplanation;
+import org.apache.lucene.search.Explanation;
+import org.apache.lucene.search.Query;
+import org.apache.lucene.search.Scorer;
+import org.apache.lucene.search.Searcher;
+import org.apache.lucene.search.Similarity;
+import org.apache.lucene.search.Weight;
 import org.apache.lucene.util.ToStringUtils;
-
-import java.io.IOException;
-import java.util.Set;
 
 /**
  * Expert: A Query that sets the scores of document to the
@@ -39,8 +45,13 @@ import java.util.Set;
  *
  * @lucene.experimental
  */
+@SuppressWarnings("deprecation")
 public class ValueSourceQuery extends Query {
-  ValueSource valSrc;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+ValueSource valSrc;
 
   /**
    * Create a value source query
@@ -63,11 +74,15 @@ public class ValueSourceQuery extends Query {
   }
 
   class ValueSourceWeight extends Weight {
-    Similarity similarity;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	Similarity similarity;
     float queryNorm;
     float queryWeight;
 
-    public ValueSourceWeight(Searcher searcher) {
+	public ValueSourceWeight(Searcher searcher) {
       this.similarity = getSimilarity(searcher);
     }
 

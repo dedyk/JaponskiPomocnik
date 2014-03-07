@@ -31,7 +31,11 @@ import org.apache.lucene.index.Term;
  *
  */
 public class NGramPhraseQuery extends PhraseQuery {
-  private final int n;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private final int n;
   
   /**
    * Constructor that takes gram size.

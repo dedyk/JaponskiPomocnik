@@ -17,9 +17,9 @@ package org.apache.lucene.analysis;
  * limitations under the License.
  */
 
-import java.util.Arrays;
 import java.util.AbstractMap;
 import java.util.AbstractSet;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -375,7 +375,7 @@ public class CharArrayMap<V> extends AbstractMap<Object,V> {
 
   /** Returns an {@link CharArraySet} view on the map's keys.
    * The set will use the same {@code matchVersion} as this map. */
-  @Override @SuppressWarnings({"unchecked","rawtypes"})
+  @Override @SuppressWarnings({"unchecked"})
   public final CharArraySet keySet() {
     if (keySet == null) {
       // prevent adding of entries
@@ -418,7 +418,8 @@ public class CharArrayMap<V> extends AbstractMap<Object,V> {
       while (pos < keys.length && keys[pos] == null) pos++;
     }
 
-    public boolean hasNext() {
+    @Override
+	public boolean hasNext() {
       return pos < keys.length;
     }
 
@@ -448,12 +449,14 @@ public class CharArrayMap<V> extends AbstractMap<Object,V> {
     }
 
     /** use nextCharArray() + currentValue() for better efficiency. */
-    public Map.Entry<Object,V> next() {
+    @Override
+	public Map.Entry<Object,V> next() {
       goNext();
       return new MapEntry(lastPos, allowModify);
     }
 
-    public void remove() {
+    @Override
+	public void remove() {
       throw new UnsupportedOperationException();
     }
   }
@@ -467,17 +470,20 @@ public class CharArrayMap<V> extends AbstractMap<Object,V> {
       this.allowModify = allowModify;
     }
 
-    public Object getKey() {
+    @Override
+	public Object getKey() {
       // we must clone here, as putAll to another CharArrayMap
       // with other case sensitivity flag would corrupt the keys
       return keys[pos].clone();
     }
 
-    public V getValue() {
+    @Override
+	public V getValue() {
       return values[pos];
     }
 
-    public V setValue(V value) {
+    @Override
+	public V setValue(V value) {
       if (!allowModify)
         throw new UnsupportedOperationException();
       final V old = values[pos];
@@ -507,7 +513,7 @@ public class CharArrayMap<V> extends AbstractMap<Object,V> {
     }
     
     @Override
-    @SuppressWarnings({"unchecked","rawtypes"})
+    @SuppressWarnings({"unchecked"})
     public boolean contains(Object o) {
       if (!(o instanceof Map.Entry))
         return false;
@@ -652,7 +658,8 @@ public class CharArrayMap<V> extends AbstractMap<Object,V> {
    * NPE if necessary.
    */
   private static final class EmptyCharArrayMap<V> extends UnmodifiableCharArrayMap<V> {
-    EmptyCharArrayMap() {
+    @SuppressWarnings("deprecation")
+	EmptyCharArrayMap() {
       super(new CharArrayMap<V>(Version.LUCENE_CURRENT, 0, false));
     }
     

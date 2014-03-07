@@ -23,7 +23,11 @@ import java.util.Set;
  **/
 public class SetBasedFieldSelector implements FieldSelector {
   
-  private Set<String> fieldsToLoad;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+private Set<String> fieldsToLoad;
   private Set<String> lazyFieldsToLoad;
   
   /**

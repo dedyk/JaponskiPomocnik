@@ -17,17 +17,20 @@ package org.apache.lucene.analysis.tokenattributes;
  * limitations under the License.
  */
 
-import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.util.AttributeImpl;
 
 /** See {@link PositionLengthAttribute}. */
 public class PositionLengthAttributeImpl extends AttributeImpl implements PositionLengthAttribute, Cloneable {
-  private int positionLength = 1;
+
+private static final long serialVersionUID = 1L;
+	
+private int positionLength = 1;
   
   /** @param positionLength how many positions this token
    *  spans.  NOTE: this is optional, and most analyzers
    *  don't change the default value (1). */
-  public void setPositionLength(int positionLength) {
+  @Override
+public void setPositionLength(int positionLength) {
     if (positionLength < 1) {
       throw new IllegalArgumentException
         ("Position length must be 1 or greater: got " + positionLength);
@@ -38,7 +41,8 @@ public class PositionLengthAttributeImpl extends AttributeImpl implements Positi
   /** Returns the position length of this Token.
    * @see #setPositionLength    
    */
-  public int getPositionLength() {
+  @Override
+public int getPositionLength() {
     return positionLength;
   }
 

@@ -179,7 +179,8 @@ final class SegmentNorms implements Cloneable {
 
   // Called if we intend to change a norm value.  We make a
   // private copy of bytes if it's shared with others:
-  public synchronized byte[] copyOnWrite() throws IOException {
+  @SuppressWarnings("deprecation")
+public synchronized byte[] copyOnWrite() throws IOException {
     assert refCount > 0 && (origNorm == null || origNorm.refCount > 0);
     bytes();
     assert bytes != null;

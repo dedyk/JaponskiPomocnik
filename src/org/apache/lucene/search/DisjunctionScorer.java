@@ -25,7 +25,8 @@ abstract class DisjunctionScorer extends Scorer {
   protected final Scorer subScorers[];
   protected int numScorers;
   
-  protected DisjunctionScorer(Similarity similarity, Weight weight, Scorer subScorers[], int numScorers) {
+  @SuppressWarnings({ "deprecation" })
+protected DisjunctionScorer(Similarity similarity, Weight weight, Scorer subScorers[], int numScorers) {
     super(similarity, weight);
     this.subScorers = subScorers;
     this.numScorers = numScorers;

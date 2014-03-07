@@ -35,7 +35,12 @@ import org.apache.lucene.util.StringHelper;
 public class SortField
 implements Serializable {
 
-  /** Sort by document score (relevance).  Sort values are Float and higher
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** Sort by document score (relevance).  Sort values are Float and higher
    * values are at the front. */
   public static final int SCORE = 0;
 

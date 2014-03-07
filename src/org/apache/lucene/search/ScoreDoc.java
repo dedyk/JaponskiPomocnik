@@ -21,7 +21,12 @@ package org.apache.lucene.search;
 
 public class ScoreDoc implements java.io.Serializable {
 
-  /** The score of this document for the query. */
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+/** The score of this document for the query. */
   public float score;
 
   /** Expert: A hit document's number.

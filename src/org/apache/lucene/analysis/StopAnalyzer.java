@@ -21,8 +21,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Arrays;
-import java.util.Set;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.lucene.util.IOUtils;
 import org.apache.lucene.util.Version;
@@ -39,6 +39,7 @@ import org.apache.lucene.util.Version;
  * </ul>
 */
 
+@SuppressWarnings("deprecation")
 public final class StopAnalyzer extends StopwordAnalyzerBase {
   
   /** An unmodifiable set containing some common English words that are not usually useful

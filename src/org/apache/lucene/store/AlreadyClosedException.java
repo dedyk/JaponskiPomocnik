@@ -22,7 +22,12 @@ package org.apache.lucene.store;
  * access something that has already been closed.
  */
 public class AlreadyClosedException extends IllegalStateException {
-  public AlreadyClosedException(String message) {
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+public AlreadyClosedException(String message) {
     super(message);
   }
 }

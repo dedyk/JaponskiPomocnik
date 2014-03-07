@@ -47,13 +47,17 @@ import org.apache.lucene.util.AttributeImpl;
  * </ul>
  */
 public class PositionIncrementAttributeImpl extends AttributeImpl implements PositionIncrementAttribute, Cloneable, Serializable {
-  private int positionIncrement = 1;
+
+private static final long serialVersionUID = 1L;
+	
+private int positionIncrement = 1;
   
   /** Set the position increment. The default value is one.
    *
    * @param positionIncrement the distance from the prior term
    */
-  public void setPositionIncrement(int positionIncrement) {
+  @Override
+public void setPositionIncrement(int positionIncrement) {
     if (positionIncrement < 0) {
       throw new IllegalArgumentException
         ("Increment must be zero or greater: got " + positionIncrement);
@@ -64,7 +68,8 @@ public class PositionIncrementAttributeImpl extends AttributeImpl implements Pos
   /** Returns the position increment of this Token.
    * @see #setPositionIncrement
    */
-  public int getPositionIncrement() {
+  @Override
+public int getPositionIncrement() {
     return positionIncrement;
   }
 
