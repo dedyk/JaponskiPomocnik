@@ -29,8 +29,7 @@ import java.io.Reader;
 public final class CharReader extends CharStream {
 
   private final Reader input;
-  
-  @SuppressWarnings("resource")
+
 public static CharStream get(Reader input) {
     return input instanceof CharStream ?
       (CharStream)input : new CharReader(input);

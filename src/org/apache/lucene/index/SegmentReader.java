@@ -97,7 +97,6 @@ public class SegmentReader extends IndexReader implements Cloneable {
    * @throws CorruptIndexException if the index is corrupt
    * @throws IOException if there is a low-level IO error
    */
-  @SuppressWarnings({ "resource" })
 public static SegmentReader get(boolean readOnly,
                                   Directory dir,
                                   SegmentInfo si,
@@ -220,7 +219,6 @@ public static SegmentReader get(boolean readOnly,
     return reopenSegment(si, false, openReadOnly);
   }
 
-  @SuppressWarnings("resource")
 synchronized SegmentReader reopenSegment(SegmentInfo si, boolean doClone, boolean openReadOnly) throws CorruptIndexException, IOException {
     ensureOpen();
     boolean deletionsUpToDate = (this.si.hasDeletions() == si.hasDeletions()) 
