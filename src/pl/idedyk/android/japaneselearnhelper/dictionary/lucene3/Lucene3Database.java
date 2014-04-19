@@ -650,6 +650,16 @@ public class Lucene3Database implements IDatabaseConnector {
 
 				query.add(kanjiBooleanQuery, Occur.MUST);
 
+				// range
+				Integer strokeCountFrom = findKanjiRequest.strokeCountFrom;
+				Integer strokeCountTo = findKanjiRequest.strokeCountTo;
+								
+				if (strokeCountFrom != null && strokeCountTo != null) {
+					query.add(NumericRangeQuery.newIntRange(LuceneStatic.kanjiEntry_kanjiDic2Entry_strokeCount, 
+							strokeCountFrom != null ? strokeCountFrom.intValue() : 0,
+							strokeCountTo != null ? strokeCountTo.intValue() : 999999, true, true), Occur.MUST);					
+				}
+				
 				ScoreDoc[] scoreDocs = searcher.search(query, null, maxResult + 1).scoreDocs;
 
 				for (ScoreDoc scoreDoc : scoreDocs) {
