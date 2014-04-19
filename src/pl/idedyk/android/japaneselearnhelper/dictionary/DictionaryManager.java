@@ -19,7 +19,6 @@ import java.util.zip.ZipInputStream;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
-import pl.idedyk.android.japaneselearnhelper.dictionary.lucene3.Lucene3Database;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
@@ -28,6 +27,7 @@ import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary.api.keigo.KeigoHelper;
 import pl.idedyk.japanese.dictionary.api.tools.KanaHelper;
+import pl.idedyk.japanese.dictionary.lucene.LuceneDatabase;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Environment;
@@ -68,7 +68,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 	
 	// private SQLiteConnector sqliteConnector;
 	
-	private Lucene3Database lucene3Database;
+	private LuceneDatabase luceneDatabase;
 
 	public DictionaryManager() {
 		
@@ -148,7 +148,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 			// androidSqliteDatabase = new AndroidSqliteDatabase(lucenePath.getAbsolutePath());
 			
-			databaseConnector = lucene3Database = new Lucene3Database(lucenePath.getAbsolutePath());
+			databaseConnector = luceneDatabase = new LuceneDatabase(lucenePath.getAbsolutePath(), false);
 			
 			// get database version
 			int databaseVersion = getDatabaseVersion(databaseVersionFile);
@@ -181,7 +181,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 			// open database			
 			try {				
-				lucene3Database.open();
+				luceneDatabase.open();
 
 			} catch (Exception e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
@@ -383,12 +383,12 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 		// testing open database
 		try {
-			lucene3Database.open();
+			luceneDatabase.open();
 		} catch (Exception e) {
 			return 0;
 		} finally {
 			try {
-				lucene3Database.close();
+				luceneDatabase.close();
 			} catch (Exception e) {
 				return 0;
 			}
@@ -603,7 +603,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 	public void close() {
 		try {
-			lucene3Database.close();
+			luceneDatabase.close();
 			
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -713,7 +713,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 		wordTestSM2Manager.close();
 		
-		lucene3Database.close();
+		luceneDatabase.close();
 
 		close();
 	}

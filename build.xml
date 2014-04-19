@@ -28,6 +28,10 @@
          -->
     <property file="ant.properties" />
 
+    <property name="japanese.dictionary.api.version" value="20140419" />
+    <property name="japanese.dictionary.lucene.common.version" value="20140419" />
+    <property name="lucene.version" value="4.7.2" />
+
     <!-- if sdk.dir was not set from one of the property file, then
          get it from the ANDROID_HOME env var.
          This must be done before we load project.properties since
@@ -103,16 +107,15 @@
     <target name="db-generate">
 	<mkdir dir="bin-db-generator" />
 
-	<javac destdir="bin-db-generator" classpath="bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140419.jar">
-	    <src>
-		<pathelement location="src-db-generator" />
-	    </src>
-	</javac>
-
 	<exec executable="java">
 	    <arg value="-cp" />
-	    <arg value="bin:bin-db-generator:bin/classes:libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-20140419.jar:libs-db-generator/sqlite-jdbc-3.7.2.jar" />
-	    <arg value="pl.idedyk.android.japaneselearnhelper.dbgenerator.Lucene3DBGenerator" />
+	    <arg value="libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-${japanese.dictionary.api.version}.jar:libs-db-generator/sqlite-jdbc-3.7.2.jar:libs/JapaneseDictionaryLuceneCommon-${japanese.dictionary.lucene.common.version}.jar:libs/lucene-analyzers-common-${lucene.version}.jar:libs-db-generator/lucene-core-${lucene.version}.jar" />
+	    <arg value="pl.idedyk.japanese.dictionary.lucene.LuceneDBGenerator" />
+	    <arg value="db/word.csv" />
+	    <arg value="db/kanji.csv" />
+	    <arg value="db/radical.csv" />
+	    <arg value="false" />
+	    <arg value="db-lucene" />
 	</exec>
 
 	<copy file="db/kana.csv" todir="assets" />

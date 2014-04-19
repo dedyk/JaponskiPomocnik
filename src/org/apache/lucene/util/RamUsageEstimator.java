@@ -1,6 +1,6 @@
 package org.apache.lucene.util;
 
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -35,18 +35,6 @@ import java.util.NoSuchElementException;
 
 /**
  * Estimates the size (memory representation) of Java objects.
- * 
- * <p>NOTE: Starting with Lucene 3.6, creating instances of this class
- * is deprecated. If you still do this, please note, that instances of
- * {@code RamUsageEstimator} are not thread-safe!
- * It is also deprecated to enable checking of String intern-ness,
- * the new static method no longer allow to do this. Interned strings
- * will be counted as any other object and count for memory usage.
- * 
- * <p>In Lucene 3.6, custom {@code MemoryModel}s were completely
- * removed. The new implementation is now using Hotspot&trade; internals
- * to get the correct scale factors and offsets for calculating
- * memory usage.
  * 
  * @see #sizeOf(Object)
  * @see #shallowSizeOf(Object)
@@ -87,6 +75,9 @@ public final class RamUsageEstimator {
   
   /** One gigabyte bytes.*/
   public static final long ONE_GB = ONE_KB * ONE_MB;
+
+  /** No instantiation. */
+  private RamUsageEstimator() {}
 
   public final static int NUM_BYTES_BOOLEAN = 1;
   public final static int NUM_BYTES_BYTE = 1;
@@ -228,22 +219,39 @@ public final class RamUsageEstimator {
     NUM_BYTES_ARRAY_HEADER = arrayHeader;
     
     // Try to get the object alignment (the default seems to be 8 on Hotspot, 
-    // regardless of the architecture). Retrieval only works with Java 6.
+    // regardless of the architecture).
     int objectAlignment = 8;
     /*
     try {
       final Class<?> beanClazz = Class.forName("com.sun.management.HotSpotDiagnosticMXBean");
-      final Object hotSpotBean = ManagementFactory.newPlatformMXBeanProxy(
-        ManagementFactory.getPlatformMBeanServer(),
-        "com.sun.management:type=HotSpotDiagnostic",
-        beanClazz
-      );
-      final Method getVMOptionMethod = beanClazz.getMethod("getVMOption", String.class);
-      final Object vmOption = getVMOptionMethod.invoke(hotSpotBean, "ObjectAlignmentInBytes");
-      objectAlignment = Integer.parseInt(
-          vmOption.getClass().getMethod("getValue").invoke(vmOption).toString()
-      );
-      supportedFeatures.add(JvmFeature.OBJECT_ALIGNMENT);
+      // Try to get the diagnostic mxbean without calling {@link ManagementFactory#getPlatformMBeanServer()}
+      // which starts AWT thread (and shows junk in the dock) on a Mac:
+      Object hotSpotBean;
+      // Java 7+, HotSpot
+      try {
+        hotSpotBean = ManagementFactory.class
+          .getMethod("getPlatformMXBean", Class.class)
+          .invoke(null, beanClazz);
+      } catch (Exception e1) {
+        // Java 6, HotSpot
+        try {
+          Class<?> sunMF = Class.forName("sun.management.ManagementFactory");
+          hotSpotBean = sunMF.getMethod("getDiagnosticMXBean").invoke(null);
+        } catch (Exception e2) {
+          // Last resort option is an attempt to get it from ManagementFactory's server anyway (may start AWT).
+          hotSpotBean = ManagementFactory.newPlatformMXBeanProxy(
+              ManagementFactory.getPlatformMBeanServer(), 
+              "com.sun.management:type=HotSpotDiagnostic", beanClazz);
+        }
+      }
+      if (hotSpotBean != null) {
+        final Method getVMOptionMethod = beanClazz.getMethod("getVMOption", String.class);
+        final Object vmOption = getVMOptionMethod.invoke(hotSpotBean, "ObjectAlignmentInBytes");
+        objectAlignment = Integer.parseInt(
+            vmOption.getClass().getMethod("getValue").invoke(vmOption).toString()
+        );
+        supportedFeatures.add(JvmFeature.OBJECT_ALIGNMENT);
+      }
     } catch (Exception e) {
       // Ignore.
     }
@@ -351,7 +359,7 @@ public final class RamUsageEstimator {
    * should be GCed.</p>
    */
   public static long sizeOf(Object obj) {
-    return measureObjectSize(obj, false);
+    return measureObjectSize(obj);
   }
 
   /** 
@@ -422,7 +430,7 @@ public final class RamUsageEstimator {
    * or complex graphs (a max. recursion depth on my machine was ~5000 objects linked in a chain
    * so not too much).  
    */
-  private static long measureObjectSize(Object root, boolean checkInterned) {
+  private static long measureObjectSize(Object root) {
     // Objects seen so far.
     final IdentityHashSet<Object> seen = new IdentityHashSet<Object>();
     // Class cache with reference Field and precalculated shallow size. 
@@ -440,12 +448,6 @@ public final class RamUsageEstimator {
       }
       seen.add(ob);
 
-      // *** BEGIN deprecation
-      if (checkInterned && ob instanceof String && ob == ((String) ob).intern()) {
-        continue;
-      }
-      // *** END deprecation
-      
       final Class<?> obClazz = ob.getClass();
       if (obClazz.isArray()) {
         /*
@@ -586,7 +588,7 @@ public final class RamUsageEstimator {
    */
   public static String humanReadableUnits(long bytes) {
     return humanReadableUnits(bytes, 
-        new DecimalFormat("0.#", new DecimalFormatSymbols(Locale.ENGLISH)));
+        new DecimalFormat("0.#", DecimalFormatSymbols.getInstance(Locale.ROOT)));
   }
 
   /**
@@ -813,22 +815,19 @@ public final class RamUsageEstimator {
       return size() == 0;
     }
 
-    //@Override
     @Override
-	public Iterator<KType> iterator() {
+    public Iterator<KType> iterator() {
       return new Iterator<KType>() {
         int pos = -1;
         Object nextElement = fetchNext();
 
-        //@Override
         @Override
-		public boolean hasNext() {
+        public boolean hasNext() {
           return nextElement != null;
         }
 
+        @SuppressWarnings("unchecked")
         @Override
-		@SuppressWarnings("unchecked")
-        //@Override
         public KType next() {
           Object r = this.nextElement;
           if (r == null) {
@@ -847,51 +846,11 @@ public final class RamUsageEstimator {
           return (pos >= keys.length ? null : keys[pos]);
         }
 
-        //@Override
         @Override
-		public void remove() {
+        public void remove() {
           throw new UnsupportedOperationException();
         }
       };
     }
-  }
-
-  // deprecated API (will be removed in 4.0):
-  private final boolean checkInterned;
-  
-  /** Creates a new instance of {@code RamUsageEstimator} with intern checking
-   * enabled. Don't ever use this method, as intern checking is deprecated,
-   * because it is not free of side-effects and strains the garbage collector
-   * additionally.
-   * @deprecated Don't create instances of this class, instead use the static
-   * {@link #sizeOf(Object)} method that has no intern checking, too.
-   */
-  @Deprecated
-  public RamUsageEstimator() {
-    this(true);
-  }
-  
-  /** Creates a new instance of {@code RamUsageEstimator}. 
-   * @param checkInterned check if Strings are interned and don't add to size
-   * if they are. Defaults to true but if you know the objects you are checking
-   * won't likely contain many interned Strings, it will be faster to turn off
-   * intern checking. Intern checking is deprecated altogether, as it is not free
-   * of side-effects and strains the garbage collector additionally.
-   * @deprecated Don't create instances of this class, instead use the static
-   * {@link #sizeOf(Object)} method.
-   */
-  @Deprecated
-  public RamUsageEstimator(boolean checkInterned) {
-    this.checkInterned = checkInterned;
-  }
-  
-  /** Creates a new istance of {@code RamUsageEstimator}. 
-   * @deprecated Don't create instances of this class, instead use the static
-   * {@link #sizeOf(Object)} method.
-   * @see #sizeOf(Object)
-   */
-  @Deprecated
-  public long estimateRamUsage(Object obj) {
-    return measureObjectSize(obj, checkInterned);
   }
 }
