@@ -28,8 +28,8 @@
          -->
     <property file="ant.properties" />
 
-    <property name="japanese.dictionary.api.version" value="20140419" />
-    <property name="japanese.dictionary.lucene.common.version" value="20140419" />
+    <property name="japanese.dictionary.api.version" value="1.0-SNAPSHOT" />
+    <property name="japanese.dictionary.lucene.common.version" value="1.0-SNAPSHOT" />
     <property name="lucene.version" value="4.7.2" />
 
     <!-- if sdk.dir was not set from one of the property file, then
