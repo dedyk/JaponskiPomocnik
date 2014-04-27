@@ -2578,7 +2578,10 @@ VERB_TRANSITIVITY_PAIR 1323",HIRAGANA,Genki 2-15,が,見える,みえる,ga,mier
 VERB_TRANSITIVITY
 VERB_INTRANSITIVITY_PAIR 695",HIRAGANA,Genki kanji 2-18,を,終える,おえる,o,oeru,kończyć,coś,
 861,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-11
-Genki 2-15",,締め切り,しめきり,,shimekiri,ostateczny termin,,
+Genki 2-15",,締め切り,しめきり,,shimekiri,"termin
+ostateczny termin
+nieprzekraczający termin
+zamknięte (drzwi, okna i etc)",,
 862,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,"Genki 1-11
 Genki 1-12
@@ -27994,7 +27997,10 @@ NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,資本主義,しほんしゅぎ,,shihonshugi,k
 10722,WORD_NOUN,,HIRAGANA,Inne,,資本主義者,しほんしゅぎしゃ,,shihonshugisha,"kapitalista
 finansista",,
 10723,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,正当化,せいとうか,,seitouka,uzasadnienie,,
-10724,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,締切り,しめきり,,shimekiri,ostateczny termin,,
+10724,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,締切り,しめきり,,shimekiri,"termin
+ostateczny termin
+nieprzekraczający termin
+zamknięte (drzwi, okna i etc)",,
 10725,WORD_NOUN,"COMMON_WORD
 SURU_VERB",HIRAGANA,Inne,,分類,ぶんるい,,bunrui,"klasyfikacja
 kategoryzacja",,
@@ -42843,3 +42849,76 @@ ujawnienie
 odkrycie
 wyjawienie
 naświetlenie obrazu (fotografia)",,
+16696,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,オブザーバ,,obuzaaba,obserwator,,
+16697,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,オブザーバー,,obuzaabaa,obserwator,,
+16698,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,コロナ,,korona,korona słoneczna,,
+16699,WORD_NOUN,"COMMON_WORD
+SURU_VERB",KATAKANA,Inne,,-,シンクロ,,shinkuro,"zsynchronizowanie
+pływanie synchroniczne
+oscyloskop",skrót,
+16700,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ファイナルセット,,fainaru setto,finałowy set,ang: final set,
+16701,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ライカ,,raika,Leica,niemiecka marka pierwszych fotograficznych aparatów fotograficznych,
+16702,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,三振,さんしん,,sanshin,strike out,w baseballu i softballu wyeliminowanie (wyautowanie) pałkarza,
+16703,WORD_NOUN,COMMON_WORD,HIRAGANA_KATAKANA,Inne,,人間ドック,にんげんドック,,ningen dokku,ningen dokku,charakterystyczny dla Japonii system kontroli medycznej trwający w ciągu 1 ~ 2 dni,
+16704,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,店頭,てんとう,,tentou,"wystawa sklepowa
+witryna
+okno wystawowe
+pozagiełdowy
+w wolnym obrocie (rynek)",,
+16705,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,散骨,さんこつ,,sankotsu,rozrzucanie prochów,po kremacji,
+16706,WORD_NOUN,COMMON_WORD,HIRAGANA,"Genki 1-11
+Genki 2-15",,締切,しめきり,,shimekiri,"termin
+ostateczny termin
+nieprzekraczający termin
+zamknięte (drzwi, okna i etc)",,
+16707,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ノイローゼ,,noirooze,"nerwica
+załamanie nerwowe
+rozstrój nerwowy",,
+16708,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,一酸化炭素,いっさんかたんそ,,issan katanso,tlenek węgla,,
+16709,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,嫌がる,いやがる,,iyagaru,"nienawidzić
+nie lubić
+czuć niechęć",,
+16710,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,突っ掛ける,つっかける,,tsukkakeru,"wsuwać
+wkładać","np. kapcie, sandały i etc",
+16711,WORD_ADVERB,"COMMON_WORD
+KANA_ALONE",HIRAGANA,Inne,,見す見す,みすみす,,misumisu,"przed własnymi oczami
+przed własnym nosem",,
+16712,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ディストーション,,disutooshon,zniekształcenie,,
+16713,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,バラエティー,,baraetii,"odmiana
+rozmaitość",,
+16714,"WORD_ADJECTIVE_NA
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,切実,せつじつ,,setsujitsu,"nakazujący
+pilny
+nagły
+usilny
+naglący
+poważny
+znaczny",,
+16715,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,驚異,きょうい,,kyoui,"cud
+fenomen
+zdumienie
+zachwyt",,
+16716,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,高低,こうてい,,koutei,"wysoko i nisko
+rośnięcie i spadanie",,
+16717,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,高低,たかひく,,takahiku,"wysoko i nisko
+rośnięcie i spadanie",,
+16718,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,原子力,げんしりょく,,genshiryoku,"energia atomowa
+energia jądrowa",,
+16719,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,白馬,はくば,,hakuba,biały koń,,
+16720,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,致死,ちし,,chishi,"śmiercionośny
+śmiertelny
+fatalny",,
+16721,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,融和,ゆうわ,,yuuwa,"harmonia
+zgodność
+pojednanie
+pogodzenie",,
+16722,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,釈迦,しゃか,,shaka,Budda Siakjamuni,"mędrzec, założyciel buddyzmu",
