@@ -11,10 +11,10 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionary
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
-import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import android.app.Activity;
@@ -591,7 +591,7 @@ public class WordDictionary extends Activity {
 				performSearch = false;
 			}
 			
-			findWordRequest.dictionaryEntryList = searchDictionaryEntryList;
+			findWordRequest.dictionaryEntryTypeList = searchDictionaryEntryList;
 		}		
 		
 		if (performSearch == true && findWordRequest.searchKanji == false &&

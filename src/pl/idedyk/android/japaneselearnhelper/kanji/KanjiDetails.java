@@ -247,7 +247,7 @@ public class KanjiDetails extends Activity {
 				
 				findWordRequest.wordPlaceSearch = WordPlaceSearch.ANY_PLACE;
 				
-				findWordRequest.dictionaryEntryList = null;
+				findWordRequest.dictionaryEntryTypeList = null;
 				
 				intent.putExtra("findWordRequest", findWordRequest);
 				

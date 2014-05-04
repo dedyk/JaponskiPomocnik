@@ -371,7 +371,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								findWordRequest.searchInfo = false;
 								findWordRequest.searchGrammaFormAndExamples = false;
 								findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;
-								findWordRequest.dictionaryEntryList = null;
+								findWordRequest.dictionaryEntryTypeList = null;
 
 								for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
 

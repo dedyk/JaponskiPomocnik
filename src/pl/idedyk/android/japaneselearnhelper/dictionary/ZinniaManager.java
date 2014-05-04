@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.xdump.android.zinnia.Zinnia;
 
-import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizerResultItem;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 
 public class ZinniaManager {
 	
