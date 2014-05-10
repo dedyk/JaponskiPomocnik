@@ -29,6 +29,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -36,7 +37,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class KanjiSearchMeaning extends Activity {
 	
@@ -306,6 +306,10 @@ public class KanjiSearchMeaning extends Activity {
 			    	
 			    	if (kanjiDic2Entry != null) {
 			    		radicals = kanjiDic2Entry.getRadicals();
+			    		
+			    		if (radicals != null && radicals.size() == 0) {
+			    			radicals = null;
+			    		}
 			    	}
 			    	
 			    	String info = kanjiEntry.getInfo();

@@ -156,7 +156,7 @@ public class KanjiDetails extends Activity {
 		// Radicals
 		report.add(new TitleItem(getString(R.string.kanji_details_radicals), 0));
 		
-		if (kanjiDic2Entry != null) {
+		if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null && kanjiDic2Entry.getRadicals().size() > 0) {
 			List<String> radicals = kanjiDic2Entry.getRadicals();
 			
 			for (String currentRadical : radicals) {

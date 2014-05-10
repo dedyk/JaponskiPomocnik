@@ -5,9 +5,6 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
-import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem;
-import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItemAdapter;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -21,9 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
 public class KanjiSearchStrokeCountResult extends Activity {
@@ -66,7 +63,7 @@ public class KanjiSearchStrokeCountResult extends Activity {
 			
 			currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
 			
-			if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null) {
+			if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null && kanjiDic2Entry.getRadicals().size() > 0) {
 				currentKanjiEntryFullText.append(kanjiDic2Entry.getRadicals().toString());	
 			}
 											

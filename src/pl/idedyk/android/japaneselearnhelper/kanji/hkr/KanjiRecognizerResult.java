@@ -21,9 +21,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
 public class KanjiRecognizerResult extends Activity {
@@ -67,7 +67,7 @@ public class KanjiRecognizerResult extends Activity {
 			
 			currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
 			
-			if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null) {
+			if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null && kanjiDic2Entry.getRadicals().size() > 0) {
 				currentKanjiEntryFullText.append(kanjiDic2Entry.getRadicals().toString());	
 			}
 											
