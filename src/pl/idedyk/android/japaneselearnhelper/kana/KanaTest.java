@@ -249,6 +249,10 @@ public class KanaTest extends Activity {
 		List<KanaEntry> result = new ArrayList<KanaEntry>();
 
 		for (KanaEntry currentKanaEntry : allKanaEntries) {
+			
+			if (currentKanaEntry.isUse() == false) {
+				continue;
+			}
 
 			KanaGroup currentKanaEntryKanaGroup = currentKanaEntry.getKanaGroup();
 
