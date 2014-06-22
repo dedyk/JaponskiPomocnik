@@ -29,6 +29,16 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="" />
+    
+    <TextView
+		android:id="@+id/web_version_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+		android:linksClickable="true"
+		android:autoLink="web"
+		android:text="@string/web_version_url" />
 
     <ScrollView
         android:id="@+id/info_body_scroll"

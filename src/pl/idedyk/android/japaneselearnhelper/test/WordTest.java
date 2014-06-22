@@ -666,6 +666,19 @@ public class WordTest extends Activity {
 		EditText wordPrefix15 = (EditText) findViewById(R.id.word_test_word_prefix15);
 		EditText wordInput15 = (EditText) findViewById(R.id.word_test_word_input15);
 
+		TextView wordLabel16 = (TextView) findViewById(R.id.word_test_word_label16);
+		EditText wordPrefix16 = (EditText) findViewById(R.id.word_test_word_prefix16);
+		EditText wordInput16 = (EditText) findViewById(R.id.word_test_word_input16);
+
+		TextView wordLabel17 = (TextView) findViewById(R.id.word_test_word_label17);
+		EditText wordPrefix17 = (EditText) findViewById(R.id.word_test_word_prefix17);
+		EditText wordInput17 = (EditText) findViewById(R.id.word_test_word_input17);
+
+		TextView wordLabel18 = (TextView) findViewById(R.id.word_test_word_label18);
+		EditText wordPrefix18 = (EditText) findViewById(R.id.word_test_word_prefix18);
+		EditText wordInput18 = (EditText) findViewById(R.id.word_test_word_input18);
+
+		
 		textViewAndEditTextForWordAsArray = new TextViewAndEditText[Utils.MAX_LIST_SIZE];
 
 		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordPrefix1, wordInput1);
@@ -682,7 +695,10 @@ public class WordTest extends Activity {
 		textViewAndEditTextForWordAsArray[11] = new TextViewAndEditText(wordLabel12, wordPrefix12, wordInput12);
 		textViewAndEditTextForWordAsArray[12] = new TextViewAndEditText(wordLabel13, wordPrefix13, wordInput13);
 		textViewAndEditTextForWordAsArray[13] = new TextViewAndEditText(wordLabel14, wordPrefix14, wordInput14);
-		textViewAndEditTextForWordAsArray[14] = new TextViewAndEditText(wordLabel15, wordPrefix15, wordInput15);
+		textViewAndEditTextForWordAsArray[14] = new TextViewAndEditText(wordLabel15, wordPrefix15, wordInput15);		
+		textViewAndEditTextForWordAsArray[15] = new TextViewAndEditText(wordLabel16, wordPrefix16, wordInput16);
+		textViewAndEditTextForWordAsArray[16] = new TextViewAndEditText(wordLabel17, wordPrefix17, wordInput17);
+		textViewAndEditTextForWordAsArray[17] = new TextViewAndEditText(wordLabel18, wordPrefix18, wordInput18);
 
 		for (int idx = 0; idx < textViewAndEditTextForWordAsArray.length; ++idx) {
 
