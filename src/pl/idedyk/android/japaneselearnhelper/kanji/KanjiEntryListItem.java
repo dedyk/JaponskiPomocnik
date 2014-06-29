@@ -15,6 +15,7 @@ public class KanjiEntryListItem {
 		this.kanjiEntry = kanjiEntry;
 		
 		this.text = text;
+		this.radicalText = radicalText;
 	}
 
 	public KanjiEntry getKanjiEntry() {

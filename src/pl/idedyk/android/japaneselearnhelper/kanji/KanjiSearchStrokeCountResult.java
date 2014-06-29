@@ -63,7 +63,7 @@ public class KanjiSearchStrokeCountResult extends Activity {
 			StringBuffer currentKanjiEntryFullText = new StringBuffer();
 			StringBuffer currentKanjiEntryRadicalText = new StringBuffer();
 			
-			currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
+			currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n");
 						
 			if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null && kanjiDic2Entry.getRadicals().size() > 0) {
 				currentKanjiEntryRadicalText.append(kanjiDic2Entry.getRadicals().toString());	

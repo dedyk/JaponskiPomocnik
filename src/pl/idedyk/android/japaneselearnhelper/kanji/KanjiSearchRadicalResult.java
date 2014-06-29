@@ -118,7 +118,7 @@ public class KanjiSearchRadicalResult extends Activity {
 					StringBuffer currentKanjiEntryFullText = new StringBuffer();
 					StringBuffer currentKanjiEntryRadicalText = new StringBuffer();
 					
-					currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
+					currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n");
 					currentKanjiEntryRadicalText.append(kanjiDic2Entry.getRadicals().toString());
 					
 					final String fontBegin = "<font color='red'>";

@@ -320,7 +320,7 @@ public class KanjiSearchMeaning extends Activity {
 						result.append(getStringWithMark(info, findWord));
 					}
 					
-					result.append("\n\n");
+					result.append("\n");
 					
 			    	return result.toString();
 			    }
