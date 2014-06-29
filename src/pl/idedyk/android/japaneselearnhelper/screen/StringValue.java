@@ -100,7 +100,7 @@ public class StringValue implements IScreenItem {
 
 	public void generate(Context context, Resources resources, ViewGroup layout) {
 		textView = new TextView(context);
-		
+				
 		if (layout instanceof android.widget.TableRow) {
 			android.widget.TableRow.LayoutParams layoutParam = new android.widget.TableRow.LayoutParams(android.widget.TableRow.LayoutParams.WRAP_CONTENT, android.widget.TableRow.LayoutParams.WRAP_CONTENT);
 			

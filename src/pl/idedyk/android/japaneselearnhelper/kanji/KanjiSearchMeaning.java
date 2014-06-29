@@ -19,6 +19,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -85,7 +86,9 @@ public class KanjiSearchMeaning extends Activity {
 		searchResultListView = (ListView)findViewById(R.id.kanji_search_meaning_result_list);
 		
 		searchResultList = new ArrayList<KanjiEntryListItem>();
-		searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, R.layout.kanji_entry_simplerow, searchResultList);
+		Typeface babelStoneHanTypeface = Typeface.createFromAsset(getAssets(),"BabelStoneHan.ttf");
+		
+		searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);
 		
 		searchResultListView.setAdapter(searchResultArrayAdapter);
 		
@@ -285,8 +288,11 @@ public class KanjiSearchMeaning extends Activity {
 					for (KanjiEntry currentKanjiEntry : findKanjiResult.result) {
 						
 						String currentFoundKanjiFullTextWithMarks = getKanjiFullTextWithMark(currentKanjiEntry, findWord);
-																				
-						searchResultList.add(new KanjiEntryListItem(currentKanjiEntry, Html.fromHtml(currentFoundKanjiFullTextWithMarks.replaceAll("\n", "<br/>"))));								
+						String currentFoundKanjiRadicalTextWithMarks = getKanjiRadicalTextWithMark(currentKanjiEntry, findWord);														
+						
+						searchResultList.add(new KanjiEntryListItem(currentKanjiEntry,
+								Html.fromHtml(currentFoundKanjiFullTextWithMarks.replaceAll("\n", "<br/>")),
+								Html.fromHtml(currentFoundKanjiRadicalTextWithMarks.toString())));								
 					}
 
 					searchResultArrayAdapter.notifyDataSetChanged();
@@ -299,19 +305,7 @@ public class KanjiSearchMeaning extends Activity {
 			    	
 			    	String kanji = kanjiEntry.getKanji();
 			    	List<String> polishTranslates = kanjiEntry.getPolishTranslates();
-			    	
-			    	KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
-			    	
-			    	List<String> radicals = null;
-			    	
-			    	if (kanjiDic2Entry != null) {
-			    		radicals = kanjiDic2Entry.getRadicals();
-			    		
-			    		if (radicals != null && radicals.size() == 0) {
-			    			radicals = null;
-			    		}
-			    	}
-			    	
+			    				    				    	
 			    	String info = kanjiEntry.getInfo();
 			    	
 			    	StringBuffer result = new StringBuffer();
@@ -328,12 +322,31 @@ public class KanjiSearchMeaning extends Activity {
 					
 					result.append("\n\n");
 					
+			    	return result.toString();
+			    }
+
+			    private String getKanjiRadicalTextWithMark(KanjiEntry kanjiEntry, String findWord) {
+			    	
+			    	KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
+			    				    	
+			    	List<String> radicals = null;
+			    	
+			    	if (kanjiDic2Entry != null) {
+			    		radicals = kanjiDic2Entry.getRadicals();
+			    		
+			    		if (radicals != null && radicals.size() == 0) {
+			    			radicals = null;
+			    		}
+			    	}
+			    				    	
+			    	StringBuffer result = new StringBuffer();
+			    						
 					if (radicals != null) {
 						result.append(getStringWithMark(toString(radicals, null), findWord));
 					}
 
 			    	return result.toString();
-			    }
+			    }			    
 			    
 			    private String getStringWithMark(String text, String findWord) {
 			    				    	

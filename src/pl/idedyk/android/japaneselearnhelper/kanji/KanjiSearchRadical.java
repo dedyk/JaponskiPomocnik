@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -57,7 +58,7 @@ public class KanjiSearchRadical extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.kanji_search_radical);
-		
+				
 		List<RadicalInfo> radicalList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchRadical.this).getRadicalList();
 		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_radical_main_layout);
@@ -154,6 +155,8 @@ public class KanjiSearchRadical extends Activity {
 		
 		TableLayout tableLayout = null;
 		TableRow tableRow = null;
+		
+		Typeface babelStoneHanTypeface = Typeface.createFromAsset(getAssets(),"BabelStoneHan.ttf");
 			
 		for (RadicalInfo currentRadicalInfo : radicalList) {
 			
@@ -178,6 +181,8 @@ public class KanjiSearchRadical extends Activity {
 			}
 			
 			StringValue radicalStringValue = new StringValue(currentRadicalInfo.getRadical(), 25.0f, 1);
+			
+			radicalStringValue.setTypeface(babelStoneHanTypeface);
 			
 			if (tableRow.getScreenItemSize() == 0) {
 				radicalStringValue.setNullMargins(false);

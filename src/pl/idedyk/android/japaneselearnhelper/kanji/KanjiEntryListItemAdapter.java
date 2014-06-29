@@ -5,6 +5,7 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.R;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +15,20 @@ import android.widget.TextView;
 public class KanjiEntryListItemAdapter extends ArrayAdapter<KanjiEntryListItem> {
 	
     private Context context;
+    
     private int layoutResourceId;   
+    
     private List<KanjiEntryListItem> data = null;
 	
-    public KanjiEntryListItemAdapter(Context context, int layoutResourceId, List<KanjiEntryListItem> data) {
+    private Typeface radicalTypeface;
+    
+    public KanjiEntryListItemAdapter(Context context, int layoutResourceId, List<KanjiEntryListItem> data, Typeface radicalTypeface) {
         super(context, layoutResourceId, data);
         
         this.layoutResourceId = layoutResourceId;
         this.context = context;
         this.data = data;
+        this.radicalTypeface = radicalTypeface;
     }
     
     @Override
@@ -37,6 +43,7 @@ public class KanjiEntryListItemAdapter extends ArrayAdapter<KanjiEntryListItem> 
             holder = new KanjiEntryListItemHolder();
             
             holder.kanjiEntryListItemHolderValue = (TextView)convertView.findViewById(R.id.kanji_entry_simpletow_value);
+            holder.kanjiEntryListItemHolderRadicalValue = (TextView)convertView.findViewById(R.id.kanji_entry_simpletow_radical_value);
            
             convertView.setTag(holder);
         } else {
@@ -47,6 +54,9 @@ public class KanjiEntryListItemAdapter extends ArrayAdapter<KanjiEntryListItem> 
                 
         holder.kanjiEntryListItemHolderValue.setText(currentKanjiEntryListItem.getText(), TextView.BufferType.SPANNABLE);
        
+        holder.kanjiEntryListItemHolderRadicalValue.setText(currentKanjiEntryListItem.getRadicalText(), TextView.BufferType.SPANNABLE);
+        holder.kanjiEntryListItemHolderRadicalValue.setTypeface(radicalTypeface);
+        
         return convertView;
     }
     
@@ -56,5 +66,6 @@ public class KanjiEntryListItemAdapter extends ArrayAdapter<KanjiEntryListItem> 
     
     static private class KanjiEntryListItemHolder {
     	TextView kanjiEntryListItemHolderValue;    	
+    	TextView kanjiEntryListItemHolderRadicalValue;
     }
 }
