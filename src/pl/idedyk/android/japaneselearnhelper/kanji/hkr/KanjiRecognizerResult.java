@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.kanji.hkr;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
@@ -15,6 +16,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
@@ -64,18 +66,23 @@ public class KanjiRecognizerResult extends Activity {
 			KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
 			
 			StringBuffer currentKanjiEntryFullText = new StringBuffer();
+			StringBuffer currentKanjiEntryRadicalText = new StringBuffer();
 			
-			currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
-			
+			currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n");
+						
 			if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null && kanjiDic2Entry.getRadicals().size() > 0) {
-				currentKanjiEntryFullText.append(kanjiDic2Entry.getRadicals().toString());	
+				currentKanjiEntryRadicalText.append(kanjiDic2Entry.getRadicals().toString());	
 			}
 											
-			searchResultList.add(new KanjiEntryListItem(currentKanjiEntry, Html.fromHtml(currentKanjiEntryFullText.toString().replaceAll("\n", "<br/>"))));
+			searchResultList.add(new KanjiEntryListItem(currentKanjiEntry, 
+					Html.fromHtml(currentKanjiEntryFullText.toString().replaceAll("\n", "<br/>")),
+					Html.fromHtml(currentKanjiEntryRadicalText.toString())));
 		}
 		
+		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
+		
 		final KanjiEntryListItemAdapter searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, 
-				R.layout.kanji_entry_simplerow, searchResultList);
+				R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);
 		
 		kanjiRecognizerResultListView.setAdapter(searchResultArrayAdapter);
 		

@@ -11,6 +11,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 
 public class JapaneseAndroidLearnHelperApplication extends Application {
 	
@@ -25,6 +26,8 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	private DictionaryManager dictionaryManager;
 	
 	private ConfigManager configManager;
+	
+	private Typeface babelStoneHanSubset = null;
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -121,5 +124,16 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 
 	public void setConfigManager(ConfigManager configManager) {
 		this.configManager = configManager;
+	}
+	
+	public Typeface getBabelStoneHanSubset(AssetManager assetManager) {
+		
+		if (babelStoneHanSubset != null) {
+			return babelStoneHanSubset;
+		}
+		
+		babelStoneHanSubset = Typeface.createFromAsset(getAssets(), "BabelStoneHan-subset.ttf");
+		
+		return babelStoneHanSubset;
 	}
 }

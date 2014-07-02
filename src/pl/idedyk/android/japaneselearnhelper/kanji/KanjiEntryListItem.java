@@ -8,11 +8,14 @@ public class KanjiEntryListItem {
 	private KanjiEntry kanjiEntry;
 	
 	private Spanned text;
+	
+	private Spanned radicalText;
 
-	public KanjiEntryListItem(KanjiEntry kanjiEntry, Spanned text) {
+	public KanjiEntryListItem(KanjiEntry kanjiEntry, Spanned text, Spanned radicalText) {
 		this.kanjiEntry = kanjiEntry;
 		
 		this.text = text;
+		this.radicalText = radicalText;
 	}
 
 	public KanjiEntry getKanjiEntry() {
@@ -21,5 +24,9 @@ public class KanjiEntryListItem {
 
 	public Spanned getText() {
 		return text;
+	}
+
+	public Spanned getRadicalText() {
+		return radicalText;
 	}
 }

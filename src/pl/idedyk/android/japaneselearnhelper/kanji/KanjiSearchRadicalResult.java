@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -48,7 +49,8 @@ public class KanjiSearchRadicalResult extends Activity {
 	}
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {	
+	public void onCreate(Bundle savedInstanceState) {
+				
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.kanji_entry_search_result);
@@ -68,9 +70,10 @@ public class KanjiSearchRadicalResult extends Activity {
 		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_result_list);
 		
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
+		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
 		final KanjiEntryListItemAdapter searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, 
-				R.layout.kanji_entry_simplerow, searchResultList);
+				R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);
 		
 		searchResultListView.setAdapter(searchResultArrayAdapter);
 		
@@ -113,9 +116,10 @@ public class KanjiSearchRadicalResult extends Activity {
 					KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
 					
 					StringBuffer currentKanjiEntryFullText = new StringBuffer();
+					StringBuffer currentKanjiEntryRadicalText = new StringBuffer();
 					
-					currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n\n");
-					currentKanjiEntryFullText.append(kanjiDic2Entry.getRadicals().toString());
+					currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n");
+					currentKanjiEntryRadicalText.append(kanjiDic2Entry.getRadicals().toString());
 					
 					final String fontBegin = "<font color='red'>";
 					final String fontEnd = "</font>";
@@ -140,7 +144,9 @@ public class KanjiSearchRadicalResult extends Activity {
 						}
 					}
 													
-					searchResultList.add(new KanjiEntryListItem(currentKanjiEntry, Html.fromHtml(currentKanjiEntryFullText.toString().replaceAll("\n", "<br/>"))));								
+					searchResultList.add(new KanjiEntryListItem(currentKanjiEntry, 
+							Html.fromHtml(currentKanjiEntryFullText.toString().replaceAll("\n", "<br/>")),
+							Html.fromHtml(currentKanjiEntryRadicalText.toString())));								
 				}
 
 				searchResultArrayAdapter.notifyDataSetChanged();

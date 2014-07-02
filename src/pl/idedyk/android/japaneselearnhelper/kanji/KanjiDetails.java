@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
@@ -22,6 +23,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -153,14 +155,20 @@ public class KanjiDetails extends Activity {
 			report.add(new StringValue("-", 20.0f, 0));
 		}
 		
-		// Radicals
+		// Radicals		
+		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets()); 
+		
 		report.add(new TitleItem(getString(R.string.kanji_details_radicals), 0));
 		
 		if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null && kanjiDic2Entry.getRadicals().size() > 0) {
 			List<String> radicals = kanjiDic2Entry.getRadicals();
 			
 			for (String currentRadical : radicals) {
-				report.add(new StringValue(currentRadical, 20.0f, 0));
+				StringValue currentRadicalStringValue = new StringValue(currentRadical, 20.0f, 0);
+				
+				currentRadicalStringValue.setTypeface(babelStoneHanTypeface);
+				
+				report.add(currentRadicalStringValue);
 			}
 		} else {
 			report.add(new StringValue("-", 20.0f, 0));
