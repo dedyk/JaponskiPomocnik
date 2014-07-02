@@ -86,7 +86,7 @@ public class KanjiSearchMeaning extends Activity {
 		searchResultListView = (ListView)findViewById(R.id.kanji_search_meaning_result_list);
 		
 		searchResultList = new ArrayList<KanjiEntryListItem>();
-		Typeface babelStoneHanTypeface = Typeface.createFromAsset(getAssets(),"BabelStoneHan.ttf");
+		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
 		searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);
 		

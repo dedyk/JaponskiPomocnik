@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
@@ -155,7 +156,7 @@ public class KanjiDetails extends Activity {
 		}
 		
 		// Radicals		
-		Typeface babelStoneHanTypeface = Typeface.createFromAsset(getAssets(),"BabelStoneHan.ttf"); 
+		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets()); 
 		
 		report.add(new TitleItem(getString(R.string.kanji_details_radicals), 0));
 		

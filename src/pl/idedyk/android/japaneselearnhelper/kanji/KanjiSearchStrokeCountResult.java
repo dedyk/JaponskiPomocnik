@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -74,7 +75,7 @@ public class KanjiSearchStrokeCountResult extends Activity {
 					Html.fromHtml(currentKanjiEntryRadicalText.toString())));
 		}
 		
-		Typeface babelStoneHanTypeface = Typeface.createFromAsset(getAssets(),"BabelStoneHan.ttf");
+		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
 		final KanjiEntryListItemAdapter searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, 
 				R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);

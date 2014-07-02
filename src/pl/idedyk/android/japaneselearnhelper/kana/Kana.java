@@ -62,7 +62,7 @@ public class Kana extends Activity {
 		Map<String, KanaEntry> kanaCache = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getDictionaryManager(Kana.this).getKanaHelper().getKanaCache(true);
 
-		Typeface radicalTypeface = Typeface.createFromAsset(getAssets(),"BabelStoneHan.ttf");
+		Typeface radicalTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
 		generateHiraganaTable(screenItems, kanaCache, radicalTypeface);
 		generateKatakanaTable(screenItems, kanaCache, radicalTypeface);

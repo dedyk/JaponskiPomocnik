@@ -70,7 +70,7 @@ public class KanjiSearchRadicalResult extends Activity {
 		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_result_list);
 		
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
-		Typeface babelStoneHanTypeface = Typeface.createFromAsset(getAssets(),"BabelStoneHan.ttf");
+		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
 		final KanjiEntryListItemAdapter searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, 
 				R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);

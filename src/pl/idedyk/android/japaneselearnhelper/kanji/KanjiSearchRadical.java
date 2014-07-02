@@ -156,7 +156,7 @@ public class KanjiSearchRadical extends Activity {
 		TableLayout tableLayout = null;
 		TableRow tableRow = null;
 		
-		Typeface babelStoneHanTypeface = Typeface.createFromAsset(getAssets(),"BabelStoneHan.ttf");
+		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 			
 		for (RadicalInfo currentRadicalInfo : radicalList) {
 			
