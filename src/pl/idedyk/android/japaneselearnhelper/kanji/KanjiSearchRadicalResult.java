@@ -55,10 +55,13 @@ public class KanjiSearchRadicalResult extends Activity {
 		
 		setContentView(R.layout.kanji_entry_search_result);
 		
+		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
+		
 		final String[] selectedRadicals = (String[])getIntent().getSerializableExtra("search");
 		
 		final TextView searchValueTextView = (TextView)findViewById(R.id.kanji_entry_search_value);
 		
+		searchValueTextView.setTypeface(babelStoneHanTypeface);
 		searchValueTextView.setText(Arrays.toString(selectedRadicals));
 		
 		final TextView kanjiDictionarySearchElementsNoTextView = (TextView)findViewById(R.id.kanji_entry_elements_no);
@@ -70,7 +73,6 @@ public class KanjiSearchRadicalResult extends Activity {
 		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_result_list);
 		
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
-		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
 		final KanjiEntryListItemAdapter searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, 
 				R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);

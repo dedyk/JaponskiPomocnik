@@ -2,9 +2,9 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -63,7 +63,7 @@ public class KanjiSearchRadical extends Activity {
 		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_radical_main_layout);
 		
-		final Set<String> selectedRadicals = new HashSet<String>();
+		final Set<String> selectedRadicals = new TreeSet<String>();
 		
 		final List<StringValue> radicalStringValueList = new ArrayList<StringValue>();
 		
