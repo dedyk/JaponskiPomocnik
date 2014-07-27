@@ -20,6 +20,14 @@ public class KanaTestSummary extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		
+		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
+
+		if (kanaTestContext.isInitialized() == false) {
+			finish();
+			
+			return;
+		}
+		
 		setContentView(R.layout.kana_test_summary);
 		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kana_test_summary_main_layout);
