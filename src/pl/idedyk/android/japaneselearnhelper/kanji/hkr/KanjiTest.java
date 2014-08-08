@@ -553,7 +553,7 @@ public class KanjiTest extends Activity {
 					}
 
 					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_kunyomi))
-							.append("</b>: ").append(kunReading.toString()).append("</small>");
+							.append("</b>: ").append(toString(kunReading)).append("</small>");
 				}
 
 				List<String> onReading = kanjiDic2Entry.getOnReading();
@@ -569,7 +569,7 @@ public class KanjiTest extends Activity {
 					}
 
 					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_onyomi))
-							.append("</b>: ").append(onReading.toString()).append("</small>");
+							.append("</b>: ").append(toString(onReading)).append("</small>");
 				}
 			}
 
@@ -625,6 +625,26 @@ public class KanjiTest extends Activity {
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
 		}
+	}
+	
+	private String toString(List<String> listString) {
+		
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("[");
+				
+		for (int idx = 0; idx < listString.size(); ++idx) {
+			
+			sb.append(listString.get(idx));
+			
+			if (idx != listString.size() - 1) {
+				sb.append(", &nbsp; &nbsp;");
+			}
+		}
+		
+		sb.append("]");
+				
+		return sb.toString();
 	}
 
 	private void generateChooseButtons(String correctKanji) {
