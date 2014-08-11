@@ -200,6 +200,11 @@ public class KanjiTestOptionsActivity extends Activity {
 		untilSuccessNewWordLimitCheckBox.setChecked(kanjiTestConfig.getUntilSuccessNewWordLimitPostfix());
 
 		setUntilSuccessNewWordLimitCheckBoxEnabled(untilSuccessCheckBox, untilSuccessNewWordLimitCheckBox);
+		
+		// max test size
+		final EditText maxTestSizeEditText = (EditText)findViewById(R.id.kanji_test_options_max_test_size_edit_text);
+		
+		maxTestSizeEditText.setText(String.valueOf(kanjiTestConfig.getMaxTestSize()));
 
 		// actions
 		untilSuccessCheckBox.setOnClickListener(new OnClickListener() {
@@ -322,6 +327,37 @@ public class KanjiTestOptionsActivity extends Activity {
 						return;
 					}
 				}
+				
+				// max test size
+				boolean maxTestSizeError = false;
+				
+				int maxTestSize = -1;
+				
+				String maxTestSizeString = maxTestSizeEditText.getText().toString();
+				
+				if (maxTestSizeString == null) {
+					maxTestSizeError = true;
+					
+				} else {
+					
+					try {
+						maxTestSize = Integer.parseInt(maxTestSizeString);
+						
+					} catch (NumberFormatException e) {
+						maxTestSizeError = true;
+					}					
+				}
+				
+				if (maxTestSizeError == true || maxTestSize <= 0) {
+					Toast toast = Toast.makeText(KanjiTestOptionsActivity.this,
+							getString(R.string.kanji_test_options_max_test_size_error), Toast.LENGTH_SHORT);
+
+					toast.show();
+
+					return;					
+				}
+				
+				kanjiTestConfig.setMaxTestSize(maxTestSize);				
 
 				// prepare test
 				final ProgressDialog progressDialog = ProgressDialog.show(KanjiTestOptionsActivity.this,
@@ -339,17 +375,33 @@ public class KanjiTestOptionsActivity extends Activity {
 
 						// reset test
 						kanjiTestContext.resetTest();
+						
+						List<KanjiEntry> kanjiEntryList2 = kanjiEntryList;
 
-						Collections.shuffle(kanjiEntryList);
+						Collections.shuffle(kanjiEntryList2);
+						
+						// max test size filter
+						int maxTestSize = kanjiTestConfig.getMaxTestSize();
+						
+						if (kanjiEntryList2.size() > maxTestSize) {
+							
+							List<KanjiEntry> newKanjiEntryList = new ArrayList<KanjiEntry>();
+							
+							for (int kanjiEntryListIdx = 0; kanjiEntryListIdx < maxTestSize; ++kanjiEntryListIdx) {
+								newKanjiEntryList.add(kanjiEntryList2.get(kanjiEntryListIdx));
+							}
+							
+							kanjiEntryList2 = newKanjiEntryList;
+						}						
 
 						EntryOrderList<KanjiEntry> kanjiEntryListEntryOrderList = null;
 
 						if (untilSuccessCheckBox.isChecked() == true
 								&& untilSuccessNewWordLimitCheckBox.isChecked() == true) {
-							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList, 10);
+							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList2, 10);
 						} else {
-							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList,
-									kanjiEntryList.size());
+							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList2,
+									kanjiEntryList2.size());
 						}
 
 						// set kanji entry list in context

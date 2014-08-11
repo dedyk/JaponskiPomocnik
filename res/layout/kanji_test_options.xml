@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-
+            
             <TextView
                 android:id="@+id/kanji_test_options_test_mode"
                 android:layout_width="match_parent"
@@ -60,6 +60,21 @@
             </RadioGroup>
 
             <TextView
+                android:id="@+id/kanji_test_options_max_test_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/kanji_test_options_max_test_size" />
+
+            <EditText
+                android:id="@+id/kanji_test_options_max_test_size_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" >
+            </EditText>
+            
+            <TextView
                 android:id="@+id/kanji_test_options_other_options"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,8 +100,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/kanji_test_options_dedicate_example"
-                android:textSize="12sp" />
-
+                android:textSize="12sp" />            
+            
             <TextView
                 android:id="@+id/kanji_test_options_choose_kanji_group"
                 android:layout_width="match_parent"

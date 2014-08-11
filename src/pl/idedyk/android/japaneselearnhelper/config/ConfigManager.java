@@ -203,6 +203,8 @@ public class ConfigManager {
 		private final String kanjiTestUntilSuccessNewWordLimitPostfix = "untilSuccessNewWordLimit";
 		
 		private final String kanjiTestDedicateExamplePostfix = "dedicateExample";
+		
+		private final String kanjiTestMaxTestSize = "maxTestSize";
 
 		public KanjiTestMode getKanjiTestMode() {
 			
@@ -332,6 +334,19 @@ public class ConfigManager {
 			
 			editor.commit();
 		}
+
+		public Integer getMaxTestSize() {			
+			return preferences.getInt(kanjiTestConfigPrefix + kanjiTestMaxTestSize, 999);			
+		}
+		
+		public void setMaxTestSize(int maxTestSize) {
+			
+			Editor editor = preferences.edit();
+			
+			editor.putInt(kanjiTestConfigPrefix + kanjiTestMaxTestSize, maxTestSize);
+			
+			editor.commit();			
+		}	
 	}
 	
 	public class SplashConfig {

@@ -64,6 +64,7 @@
     <string name="kanji_test_options_choose_kanji_group_info">Proszę wybrać grupy znaków kanji</string>
     <string name="kanji_test_options_choose_kanji_group_no_words">Dla wybranych grup brak słów. Proszę wybrać inne grupy</string>
     <string name="kanji_test_options_start_test">Rozpocznij test</string>
+    <string name="kanji_test_options_max_test_size">Maksymalna ilość pozycji na test</string>
     <string name="kanji_test_options_other_options">Inne opcje</string>
     <string name="kanji_test_options_until_success">Powtarzaj aż do sukcesu</string>
     <string name="kanji_test_options_until_success_new_word_limit">"Ogranicz liczbę nowych pozycji do 10</string>
@@ -80,6 +81,7 @@
     <string name="kanji_test_options_input_kanji_to_test">Wpisz znaki kanji</string>
     <string name="kanji_test_options_input_kanji_to_test2">Aby je dodać do listy</string>
     <string name="kanji_test_options_input_no_kanji">Nie znaleziono żadnych znanych znaków kanji</string>
+    <string name="kanji_test_options_max_test_size_error">Proszę wpisać prawidłową wartość w polu maksymalnej ilości pozycji na test</string>
     <string name="kanji_test_options_input_detected_kanji">Wykryto następujące znaki kanji:\n\n%1$s</string>
     <string name="kanji_test_label">Test ze znaków kanji</string>
     <string name="kanji_test_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
