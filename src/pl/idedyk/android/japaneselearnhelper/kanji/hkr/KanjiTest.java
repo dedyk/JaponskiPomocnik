@@ -14,6 +14,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext.TestAnswer;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
@@ -484,7 +485,30 @@ public class KanjiTest extends Activity {
 							setScreen();
 						}
 					});
+			
+			alertDialog.setButton3(getString(R.string.kanji_test_incorrect_show_kanji_details), new DialogInterface.OnClickListener() {
 
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					
+					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
+
+					intent.putExtra("item", dictionaryManager.findKanji(correctKanji));
+
+					startActivity(intent);
+					
+					Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
+
+					if (untilSuccess == true) {
+						addCurrentPosKanjiTestEntry(false);
+					} else {
+						addCurrentPosKanjiTestEntry(true);
+					}
+
+					setScreen();
+				}
+			});
+			
 			alertDialog.show();
 		}
 	}

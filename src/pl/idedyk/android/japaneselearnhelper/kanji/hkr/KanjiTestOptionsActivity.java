@@ -425,7 +425,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;
 								findWordRequest.dictionaryEntryTypeList = null;
 
-								for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
+								for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
 
 									findWordRequest.word = currentKanjiEntry.getKanji();
 
@@ -446,7 +446,7 @@ public class KanjiTestOptionsActivity extends Activity {
 									}
 								}
 
-								for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
+								for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
 
 									// find word with this kanji
 									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance()
@@ -483,7 +483,7 @@ public class KanjiTestOptionsActivity extends Activity {
 											.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
 											.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
 
-									for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
+									for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
 
 										for (DictionaryEntry currentDictionaryEntry : currentWordsGroupDictionaryEntryList) {
 

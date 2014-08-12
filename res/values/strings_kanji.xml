@@ -94,6 +94,7 @@
     <string name="kanji_test_correct_answer">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n%1$s</string>
     <string name="kanji_test_incorrect_ok">OK</string>
     <string name="kanji_test_incorrect_show_sod">Pisanie znaku</string>
+    <string name="kanji_test_incorrect_show_kanji_details">Szczegóły znaku</string>
     <string name="kanji_test_recognizer_check">Sprawdź</string>
     <string name="kanji_test_recognizer_undo">Cofnij</string>
     <string name="kanji_test_recognizer_clear">Wyczyść</string>
