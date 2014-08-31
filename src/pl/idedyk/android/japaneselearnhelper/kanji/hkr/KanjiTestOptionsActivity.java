@@ -651,7 +651,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			protected List<KanjiEntry> doInBackground(Void... arg) {
 
 				return JapaneseAndroidLearnHelperApplication.getInstance()
-						.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, false);
+						.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, false, true);
 			}
 
 			@Override
