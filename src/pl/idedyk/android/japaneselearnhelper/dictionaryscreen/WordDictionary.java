@@ -59,6 +59,7 @@ public class WordDictionary extends Activity {
 	
 	private Button searchButton;
 	
+	private CheckBox searchOptionsOnlyCommonWordsCheckbox;
 	private CheckBox searchOptionsKanjiCheckbox;
 	private CheckBox searchOptionsKanaCheckbox;
 	private CheckBox searchOptionsRomajiCheckbox;
@@ -99,6 +100,7 @@ public class WordDictionary extends Activity {
 		
 		bundle.putBoolean("seachOptionsEachChangeCheckBox", seachOptionsEachChangeCheckBox.isChecked());
 		
+		bundle.putBoolean("searchOptionsOnlyCommonWordsCheckbox", searchOptionsOnlyCommonWordsCheckbox.isChecked());
 		bundle.putBoolean("searchOptionsKanjiCheckbox", searchOptionsKanjiCheckbox.isChecked());
 		bundle.putBoolean("searchOptionsKanaCheckbox", searchOptionsKanaCheckbox.isChecked());
 		bundle.putBoolean("searchOptionsRomajiCheckbox", searchOptionsRomajiCheckbox.isChecked());
@@ -126,6 +128,7 @@ public class WordDictionary extends Activity {
 					   
 		seachOptionsEachChangeCheckBox.setChecked(bundle.getBoolean("seachOptionsEachChangeCheckBox"));
 		
+		searchOptionsOnlyCommonWordsCheckbox.setChecked(bundle.getBoolean("searchOptionsOnlyCommonWordsCheckbox"));
 		searchOptionsKanjiCheckbox.setChecked(bundle.getBoolean("searchOptionsKanjiCheckbox"));
 		searchOptionsKanaCheckbox.setChecked(bundle.getBoolean("searchOptionsKanaCheckbox"));
 		searchOptionsRomajiCheckbox.setChecked(bundle.getBoolean("searchOptionsRomajiCheckbox"));
@@ -211,6 +214,7 @@ public class WordDictionary extends Activity {
 			}
 		});
 		
+		searchOptionsOnlyCommonWordsCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_only_common_words_checkbox);
 		searchOptionsKanjiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kanji_checkbox);
 		searchOptionsKanaCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kana_checkbox);
 		searchOptionsRomajiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_romaji_checkbox);
@@ -231,6 +235,7 @@ public class WordDictionary extends Activity {
 			}
 		};
 		
+		searchOptionsOnlyCommonWordsCheckbox.setOnClickListener(searchOptionsOnClick);
 		searchOptionsKanjiCheckbox.setOnClickListener(searchOptionsOnClick);
 		searchOptionsKanaCheckbox.setOnClickListener(searchOptionsOnClick);
 		searchOptionsRomajiCheckbox.setOnClickListener(searchOptionsOnClick);
@@ -376,6 +381,7 @@ public class WordDictionary extends Activity {
 				throw new RuntimeException("Unknown wordplaceSearch: " + wordPlaceSearch);
 			}
 			
+			searchOptionsOnlyCommonWordsCheckbox.setChecked(findWordRequest.searchOnlyCommonWord);
 			searchOptionsKanjiCheckbox.setChecked(findWordRequest.searchKanji);
 			searchOptionsKanaCheckbox.setChecked(findWordRequest.searchKana);
 			searchOptionsRomajiCheckbox.setChecked(findWordRequest.searchRomaji);
@@ -548,6 +554,7 @@ public class WordDictionary extends Activity {
 		
 		findWordRequest.word = findWord;
 		
+		findWordRequest.searchOnlyCommonWord = searchOptionsOnlyCommonWordsCheckbox.isChecked();
 		findWordRequest.searchKanji = searchOptionsKanjiCheckbox.isChecked();
 		findWordRequest.searchKana = searchOptionsKanaCheckbox.isChecked();
 		findWordRequest.searchRomaji = searchOptionsRomajiCheckbox.isChecked();

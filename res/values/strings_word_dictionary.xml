@@ -18,6 +18,7 @@
     <string name="word_dictionary_search_search_button">Szukaj</string>
     <string name="word_dictionary_search_options_button_hide">Schowaj</string>
     <string name="word_dictionary_search_options_search_in_label">Szukaj w:</string>
+    <string name="word_dictionary_search_options_only_common_words_checkbox">słowa powszechnego użycia</string>
     <string name="word_dictionary_search_options_kanji_checkbox">kanji</string>
     <string name="word_dictionary_search_options_kana_checkbox">czytanie japońskie</string>
     <string name="word_dictionary_search_options_romaji_checkbox">czytanie romaji</string>

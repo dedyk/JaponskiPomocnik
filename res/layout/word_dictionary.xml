@@ -118,6 +118,14 @@
                 android:text="@string/word_dictionary_search_options_search_in_label" />
 
             <CheckBox
+                android:id="@+id/word_dictionary_search_options_only_common_words_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/word_dictionary_search_options_only_common_words_checkbox"
+                android:textSize="12sp" />
+            
+            <CheckBox
                 android:id="@+id/word_dictionary_search_options_kanji_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
