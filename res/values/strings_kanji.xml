@@ -14,6 +14,7 @@
     <string name="kanji_details_kun_reading">Czytanie kun\'yomi (rdzennie japońskie)</string>
     <string name="kanji_details_on_reading">Odczyty on\'yomi (sino-japońskie)</string>
     <string name="kanji_details_find_kanji_in_words">Szukaj wystąpień znaku w słowniku</string>
+    <string name="kanji_details_clipboard_copy">Skopiowano \'%1$s\' do schowka</string>
     <string name="kanji_search_label">Wyszukiwarka znaków kanji</string>
     <string name="kanji_search_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_search_radical_title">Proszę zaznaczyć elementy podstawowe</string>

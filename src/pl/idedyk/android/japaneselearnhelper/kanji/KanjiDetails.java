@@ -9,6 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
+import pl.idedyk.android.japaneselearnhelper.screen.Image;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
@@ -20,18 +21,22 @@ import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.ClipboardManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+@SuppressWarnings("deprecation")
 public class KanjiDetails extends Activity {
 	
 	@Override
@@ -145,6 +150,11 @@ public class KanjiDetails extends Activity {
 				}
 			});
 		}
+		
+		// copy kanji
+		Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
+		clipboardKanji.setOnClickListener(new CopyToClipboard(kanjiEntry.getKanji()));
+		report.add(clipboardKanji);		
 		
 		// Stroke count
 		report.add(new TitleItem(getString(R.string.kanji_details_stroke_count_label), 0));
@@ -266,5 +276,25 @@ public class KanjiDetails extends Activity {
 		report.add(findWordWithKanji);
 		
 		return report;
+	}
+	
+	private class CopyToClipboard implements OnClickListener {
+
+		private final String text;
+
+		public CopyToClipboard(String text) {
+			this.text = text;
+		}
+
+		@Override
+		public void onClick(View v) {
+
+			ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+
+			clipboardManager.setText(text);
+
+			Toast.makeText(KanjiDetails.this,
+					getString(R.string. word_dictionary_details_clipboard_copy, text), Toast.LENGTH_SHORT).show();
+		}
 	}
 }
