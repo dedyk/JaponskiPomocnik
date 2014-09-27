@@ -28,8 +28,10 @@ import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import pl.idedyk.japanese.dictionary.api.dto.FuriganaEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.dto.GroupWithTatoebaSentenceList;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
+import pl.idedyk.japanese.dictionary.api.dto.TatoebaSentence;
 import pl.idedyk.japanese.dictionary.api.example.ExampleManager;
 import pl.idedyk.japanese.dictionary.api.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.japanese.dictionary.api.example.dto.ExampleResult;
@@ -817,19 +819,85 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue("", 15.0f, 1));
 			}
 		}
+		
+		// Sentence example		
+		List<String> exampleSentenceGroupIdsList = dictionaryEntry.getExampleSentenceGroupIdsList();
+		
+		List<GroupWithTatoebaSentenceList> tatoebaSentenceGroupList = null;
+		
+		if (exampleSentenceGroupIdsList != null && exampleSentenceGroupIdsList.size() != 0) {
+			
+			tatoebaSentenceGroupList = new ArrayList<GroupWithTatoebaSentenceList>();
+			
+	    	for (String currentExampleSentenceGroupId : exampleSentenceGroupIdsList) {
+				
+	    		GroupWithTatoebaSentenceList tatoebaSentenceGroup = JapaneseAndroidLearnHelperApplication.getInstance()
+						.getDictionaryManager(this).getTatoebaSentenceGroup(currentExampleSentenceGroupId);
+	    		
+	    		if (tatoebaSentenceGroup != null) {    			
+	    			tatoebaSentenceGroupList.add(tatoebaSentenceGroup);
+	    		}
+			}
+	    	
+	    	if (tatoebaSentenceGroupList.size() > 0) {
+	    		
+				if (grammaFormConjugateGroupTypeElementsList == null) {
+					report.add(new StringValue("", 15.0f, 2));
+				}
+	    		
+	    		report.add(new TitleItem(getString(R.string.word_dictionary_details_sentence_example_label), 0));
+	    		
+	    		for (int tatoebaSentenceGroupListIdx = 0; tatoebaSentenceGroupListIdx < tatoebaSentenceGroupList.size(); ++tatoebaSentenceGroupListIdx) {
+	    			
+	    			GroupWithTatoebaSentenceList currentTatoebeSentenceGroup = tatoebaSentenceGroupList.get(tatoebaSentenceGroupListIdx);
+	    			
+	    			List<TatoebaSentence> tatoebaSentenceList = currentTatoebeSentenceGroup.getTatoebaSentenceList();
+	    						
+	    			List<TatoebaSentence> polishTatoebaSentenceList = new ArrayList<TatoebaSentence>();
+	    			List<TatoebaSentence> japaneseTatoebaSentenceList = new ArrayList<TatoebaSentence>();
+	    			
+	    			for (TatoebaSentence currentTatoebaSentence : tatoebaSentenceList) {
+	    				
+	    				if (currentTatoebaSentence.getLang().equals("pol") == true) {
+	    					polishTatoebaSentenceList.add(currentTatoebaSentence);
+	    					
+	    				} else if (currentTatoebaSentence.getLang().equals("jpn") == true) {
+	    					japaneseTatoebaSentenceList.add(currentTatoebaSentence);
+	    				}				
+	    			}
+	    			
+	    			if (polishTatoebaSentenceList.size() > 0 && japaneseTatoebaSentenceList.size() > 0) {
 
-		// Exampler
+	    				for (TatoebaSentence currentPolishTatoebaSentence : polishTatoebaSentenceList) {	    					
+	    					report.add(new StringValue(currentPolishTatoebaSentence.getSentence(), 12.0f, 1));	    					
+	    				}
+	    				
+	    				for (TatoebaSentence currentJapaneseTatoebaSentence : japaneseTatoebaSentenceList) {	    					
+	    					report.add(new StringValue(currentJapaneseTatoebaSentence.getSentence(), 12.0f, 1));
+	    				}
+	    				
+	    				if (tatoebaSentenceGroupListIdx != tatoebaSentenceGroupList.size() - 1) {	    					
+	    					report.add(new StringValue("", 6.0f, 1));
+	    				}
+	    			}
+	    		}
+	    		
+	    		report.add(new StringValue("", 15.0f, 1));
+	    	}			
+		}		
+
+		// Example
 		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(
 				JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getKeigoHelper(),
 				dictionaryEntry, grammaCache, forceDictionaryEntryType);
 
 		if (exampleGroupTypeElementsList != null) {
 
-			if (grammaFormConjugateGroupTypeElementsList == null) {
+			if (grammaFormConjugateGroupTypeElementsList == null && (tatoebaSentenceGroupList == null || tatoebaSentenceGroupList.size() == 0)) {
 				report.add(new StringValue("", 15.0f, 2));
 			}
 
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_exampler_label), 0));
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_example_label), 0));
 
 			for (ExampleGroupTypeElements currentExampleGroupTypeElements : exampleGroupTypeElementsList) {
 

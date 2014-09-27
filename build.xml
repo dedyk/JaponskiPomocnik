@@ -112,6 +112,8 @@
 	    <arg value="libs/javacsv-2.1.jar:libs/JapaneseDictionaryAPI-${japanese.dictionary.api.version}.jar:libs-db-generator/sqlite-jdbc-3.7.2.jar:libs/JapaneseDictionaryLuceneCommon-${japanese.dictionary.lucene.common.version}.jar:libs/lucene-analyzers-common-${lucene.version}.jar:libs-db-generator/lucene-core-${lucene.version}.jar" />
 	    <arg value="pl.idedyk.japanese.dictionary.lucene.LuceneDBGenerator" />
 	    <arg value="db/word.csv" />
+	    <arg value="db/sentences.csv" />
+	    <arg value="db/sentences_groups.csv" />
 	    <arg value="db/kanji.csv" />
 	    <arg value="db/radical.csv" />
 	    <arg value="false" />

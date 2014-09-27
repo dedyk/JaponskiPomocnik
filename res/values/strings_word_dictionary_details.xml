@@ -12,7 +12,8 @@
     <string name="word_dictionary_details_dictionary_groups">Występowanie znaku</string>
     <string name="word_dictionary_details_dictionary_position">Numer pozycji w słowniku</string>
     <string name="word_dictionary_details_conjugater_label">Odmiany</string>
-    <string name="word_dictionary_details_exampler_label">Przykłady</string>
+    <string name="word_dictionary_details_sentence_example_label">Przykłady zdań</string>
+    <string name="word_dictionary_details_example_label">Przykłady gramatyczne</string>
     <string name="word_dictionary_details_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w szczegółach słowa</string>
     <string name="word_dictionary_details_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="word_dictionary_details_report_counters_index">Indeks</string>

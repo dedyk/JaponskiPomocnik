@@ -174,9 +174,11 @@ public class DBGenerator {
 			String translateListString = csvReader.get(10);
 			String infoString = csvReader.get(11);
 
+			String exampleSentenceGroupIdsListString = csvReader.get(13);
+			
 			DictionaryEntry entry = Utils.parseDictionaryEntry(idString, dictionaryEntryTypeString, attributesString,
 					groupsString, prefixKanaString, kanjiString, kanaListString, prefixRomajiString, romajiListString,
-					translateListString, infoString);
+					translateListString, infoString, exampleSentenceGroupIdsListString);
 
 			// count form for dictionary entry
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
