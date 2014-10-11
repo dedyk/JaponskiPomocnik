@@ -116,6 +116,7 @@
 	    <arg value="db/sentences_groups.csv" />
 	    <arg value="db/kanji.csv" />
 	    <arg value="db/radical.csv" />
+	    <arg value="db/names.csv" />
 	    <arg value="false" />
 	    <arg value="false" />
 	    <arg value="db-lucene" />
