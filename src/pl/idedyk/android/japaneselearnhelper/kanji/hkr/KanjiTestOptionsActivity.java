@@ -422,7 +422,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								findWordRequest.searchTranslate = false;
 								findWordRequest.searchInfo = false;
 								findWordRequest.searchGrammaFormAndExamples = false;
-								findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;
+								findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.START_WITH;
 								findWordRequest.dictionaryEntryTypeList = null;
 
 								for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {

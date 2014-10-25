@@ -263,7 +263,7 @@ public class KanjiDetails extends Activity {
 				findWordRequest.searchInfo = false;
 				findWordRequest.searchGrammaFormAndExamples = false;
 				
-				findWordRequest.wordPlaceSearch = WordPlaceSearch.ANY_PLACE;
+				findWordRequest.wordPlaceSearch = WordPlaceSearch.START_WITH;
 				
 				findWordRequest.dictionaryEntryTypeList = null;
 				

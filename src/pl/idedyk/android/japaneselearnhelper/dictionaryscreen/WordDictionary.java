@@ -67,7 +67,7 @@ public class WordDictionary extends Activity {
 	private CheckBox searchOptionsInfoCheckbox;
 	private CheckBox searchOptionsGrammaExampleSearchCheckbox;
 	
-	private RadioButton searchOptionsAnyPlaceRadioButton;
+	//private RadioButton searchOptionsAnyPlaceRadioButton;
 	private RadioButton searchOptionsStartWithPlaceRadioButton;
 	private RadioButton searchOptionsExactPlaceRadioButton;
 	
@@ -108,7 +108,7 @@ public class WordDictionary extends Activity {
 		bundle.putBoolean("searchOptionsInfoCheckbox", searchOptionsInfoCheckbox.isChecked());
 		bundle.putBoolean("searchOptionsGrammaExampleSearchCheckbox", searchOptionsGrammaExampleSearchCheckbox.isChecked());
 		
-		bundle.putBoolean("searchOptionsAnyPlaceRadioButton", searchOptionsAnyPlaceRadioButton.isChecked());
+		//bundle.putBoolean("searchOptionsAnyPlaceRadioButton", searchOptionsAnyPlaceRadioButton.isChecked());
 		bundle.putBoolean("searchOptionsStartWithPlaceRadioButton", searchOptionsStartWithPlaceRadioButton.isChecked());
 		bundle.putBoolean("searchOptionsExactPlaceRadioButton", searchOptionsExactPlaceRadioButton.isChecked());
 		
@@ -136,7 +136,7 @@ public class WordDictionary extends Activity {
 		searchOptionsInfoCheckbox.setChecked(bundle.getBoolean("searchOptionsInfoCheckbox"));
 		searchOptionsGrammaExampleSearchCheckbox.setChecked(bundle.getBoolean("searchOptionsGrammaExampleSearchCheckbox"));
 		
-		searchOptionsAnyPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsAnyPlaceRadioButton"));
+		//searchOptionsAnyPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsAnyPlaceRadioButton"));
 		searchOptionsStartWithPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsStartWithPlaceRadioButton"));
 		searchOptionsExactPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsExactPlaceRadioButton"));
 
@@ -222,7 +222,7 @@ public class WordDictionary extends Activity {
 		searchOptionsInfoCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_info_checkbox);
 		searchOptionsGrammaExampleSearchCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_gramma_examples_checkbox);
 		
-		searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_any_place_radiobutton);
+		//searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_any_place_radiobutton);
 		searchOptionsStartWithPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_startwith_radiobutton);
 		searchOptionsExactPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_exact_radiobutton);
 		
@@ -243,7 +243,7 @@ public class WordDictionary extends Activity {
 		searchOptionsInfoCheckbox.setOnClickListener(searchOptionsOnClick);	
 		searchOptionsGrammaExampleSearchCheckbox.setOnClickListener(searchOptionsOnClick);
 		
-		searchOptionsAnyPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
+		//searchOptionsAnyPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		searchOptionsStartWithPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		searchOptionsExactPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		
@@ -371,10 +371,10 @@ public class WordDictionary extends Activity {
 			if (wordPlaceSearch == WordPlaceSearch.START_WITH) {
 				searchOptionsStartWithPlaceRadioButton.setChecked(true);
 				
-			} else if (wordPlaceSearch == WordPlaceSearch.ANY_PLACE) {
+			} /*else if (wordPlaceSearch == WordPlaceSearch.ANY_PLACE) {
 				searchOptionsAnyPlaceRadioButton.setChecked(true);
 				
-			} else if (wordPlaceSearch == WordPlaceSearch.EXACT) {
+			} */ else if (wordPlaceSearch == WordPlaceSearch.EXACT) {
 				searchOptionsExactPlaceRadioButton.setChecked(true);
 				
 			} else {
@@ -563,9 +563,11 @@ public class WordDictionary extends Activity {
 		
 		findWordRequest.searchGrammaFormAndExamples = searchOptionsGrammaExampleSearchCheckbox.isChecked();
 		
+		/*
 		if (searchOptionsAnyPlaceRadioButton.isChecked() == true) {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;
-		} else if (searchOptionsStartWithPlaceRadioButton.isChecked() == true) {
+		} else*/
+		if (searchOptionsStartWithPlaceRadioButton.isChecked() == true) {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.START_WITH;
 		} else if (searchOptionsExactPlaceRadioButton.isChecked() == true) {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.EXACT;
