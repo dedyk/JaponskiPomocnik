@@ -148,7 +148,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 			// androidSqliteDatabase = new AndroidSqliteDatabase(lucenePath.getAbsolutePath());
 			
-			databaseConnector = luceneDatabase = new LuceneDatabase(lucenePath.getAbsolutePath(), false);
+			databaseConnector = luceneDatabase = new LuceneDatabase(lucenePath.getAbsolutePath());
 			
 			// get database version
 			int databaseVersion = getDatabaseVersion(databaseVersionFile);
