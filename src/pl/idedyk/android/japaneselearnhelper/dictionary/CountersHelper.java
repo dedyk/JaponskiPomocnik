@@ -485,6 +485,7 @@ public class CountersHelper {
 		counterEntry.getEntries().add(new CounterEntry.Entry("6", "六階", "ろっかい", "rokkai"));
 		counterEntry.getEntries().add(new CounterEntry.Entry("7", "七階", "ななかい", "nanakai"));
 		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八階", "はちかい", "hachikai"));
+		counterEntry.getEntries().add(new CounterEntry.Entry("8", "八階", "はっかい", "hakkai"));
 		counterEntry.getEntries().add(new CounterEntry.Entry("9", "九階", "きゅうかい", "kyuukai"));
 		counterEntry.getEntries().add(new CounterEntry.Entry("10", "十階", "じゅっかい", "jukkai"));
 
