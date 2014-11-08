@@ -1,5 +1,8 @@
 package pl.idedyk.android.japaneselearnhelper;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
+
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
@@ -28,6 +31,8 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	private ConfigManager configManager;
 	
 	private Typeface babelStoneHanSubset = null;
+	
+	private Tracker tracker = null;
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -135,5 +140,20 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 		babelStoneHanSubset = Typeface.createFromAsset(getAssets(), "BabelStoneHan-subset.ttf");
 		
 		return babelStoneHanSubset;
+	}
+	
+	public Tracker getTracker() {
+		
+		if (tracker != null) {
+			return tracker;
+		}
+		
+		GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+
+		tracker = analytics.newTracker(R.xml.app_tracker);
+
+		tracker.enableAdvertisingIdCollection(true);
+		
+		return tracker;		
 	}
 }

@@ -31,8 +31,11 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 
+		JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
+		
 		setContentView(R.layout.main);
 
 		// create menu
