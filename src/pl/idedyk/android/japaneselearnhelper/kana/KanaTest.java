@@ -107,8 +107,11 @@ public class KanaTest extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kana_test));
+		
 		setContentView(R.layout.kana_test);
 
 		generateDatas();

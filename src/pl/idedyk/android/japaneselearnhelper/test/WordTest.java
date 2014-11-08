@@ -181,6 +181,8 @@ public class WordTest extends Activity {
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
 		super.onCreate(savedInstanceState);
+		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test));
 
 		setContentView(R.layout.word_test);
 

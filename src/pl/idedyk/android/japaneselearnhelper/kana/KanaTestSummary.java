@@ -20,6 +20,8 @@ public class KanaTestSummary extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kana_test_summary));
+		
 		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 
 		if (kanaTestContext.isInitialized() == false) {

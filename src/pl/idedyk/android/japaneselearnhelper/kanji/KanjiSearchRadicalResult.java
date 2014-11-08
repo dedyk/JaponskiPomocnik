@@ -53,6 +53,8 @@ public class KanjiSearchRadicalResult extends Activity {
 				
 		super.onCreate(savedInstanceState);
 		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_search_radical_result));
+		
 		setContentView(R.layout.kanji_entry_search_result);
 		
 		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());

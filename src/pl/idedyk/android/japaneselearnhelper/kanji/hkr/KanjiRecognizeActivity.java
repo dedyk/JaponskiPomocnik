@@ -45,7 +45,10 @@ public class KanjiRecognizeActivity extends Activity {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
+		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_recognize));
 
 		setContentView(R.layout.kanji_recognizer);
 

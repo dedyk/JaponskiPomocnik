@@ -20,6 +20,8 @@ public class KanjiTestSummary extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_test_summary));
+		
 		setContentView(R.layout.kanji_test_summary);
 		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_summary_main_layout);

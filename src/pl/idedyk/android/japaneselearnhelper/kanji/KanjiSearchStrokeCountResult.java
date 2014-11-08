@@ -44,9 +44,12 @@ public class KanjiSearchStrokeCountResult extends Activity {
 	}
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {	
+	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_search_stroke_count_result));
+		
 		setContentView(R.layout.kanji_search_stroke_count_result);
 		
 		final Object[] kanjiStrokeCountResult = (Object[])getIntent().getSerializableExtra("kanjiStrokeCountResult");

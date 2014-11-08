@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.info;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
 import android.app.Activity;
 import android.content.pm.PackageInfo;
@@ -12,8 +13,11 @@ public class InfoActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	
         super.onCreate(savedInstanceState);
-        		
+        
+        JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_info));
+        
         setContentView(R.layout.info);
         
         TextView titleVersion = (TextView)findViewById(R.id.info_title_version);

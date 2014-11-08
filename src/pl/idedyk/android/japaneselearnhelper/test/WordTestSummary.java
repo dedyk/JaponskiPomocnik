@@ -17,6 +17,8 @@ public class WordTestSummary extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test_summary));
+		
 		setContentView(R.layout.word_test_summary);
 		
 		fillScreen();

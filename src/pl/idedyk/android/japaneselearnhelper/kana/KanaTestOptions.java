@@ -29,8 +29,11 @@ import android.widget.Toast;
 public class KanaTestOptions extends Activity {
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {	
+	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
+		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kana_test_options));
 		
 		setContentView(R.layout.kana_test_options);
 		

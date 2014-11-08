@@ -88,6 +88,8 @@ public class WordTestSM2Options extends Activity {
 
 		super.onCreate(savedInstanceState);
 		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test_sm2_options));
+		
 		setContentView(R.layout.word_test_sm2_options);
 		
 		final WordTestSM2Config wordTestSM2Config = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordTestSM2Config();

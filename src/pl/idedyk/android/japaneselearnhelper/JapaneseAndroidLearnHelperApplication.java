@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
@@ -155,5 +156,14 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 		tracker.enableAdvertisingIdCollection(true);
 		
 		return tracker;		
+	}
+	
+	public void logScreen(String screenName) {
+		
+		Tracker tracker = getTracker();
+		
+		tracker.setScreenName(screenName);
+		
+		tracker.send(new HitBuilders.AppViewBuilder().build());		
 	}
 }

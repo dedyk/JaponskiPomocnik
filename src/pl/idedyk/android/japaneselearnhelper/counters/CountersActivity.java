@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Stack;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.CountersHelper;
@@ -50,8 +51,11 @@ public class CountersActivity extends Activity {
 	}
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {	
+	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
+		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_counters));
 		
 		setContentView(R.layout.counters);
 		

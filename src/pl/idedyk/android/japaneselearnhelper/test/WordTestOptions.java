@@ -55,6 +55,8 @@ public class WordTestOptions extends Activity {
 
 		super.onCreate(savedInstanceState);
 		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test_options));
+		
 		setContentView(R.layout.word_test_options);
 		
 		final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordTestConfig();

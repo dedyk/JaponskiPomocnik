@@ -76,8 +76,11 @@ public class KanjiSearchMeaning extends Activity {
 	}
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {	
+	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
+		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_search_meaning));
 		
 		setContentView(R.layout.kanji_search_meaning);
 		

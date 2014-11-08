@@ -56,8 +56,11 @@ public class KanjiDetails extends Activity {
 	}
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {	
+	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
+		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_details));
 		
 		setContentView(R.layout.kanji_details);
 		

@@ -51,6 +51,8 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_transitive_intransitive_pairs_table));
+		
 		int transitiveVerbId = getIntent().getIntExtra("transitive_verb_id", -1);
 		int intransitiveVerbId = getIntent().getIntExtra("intransitive_verb_id", -1);
 		

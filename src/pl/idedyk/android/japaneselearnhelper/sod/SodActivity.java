@@ -1,9 +1,9 @@
 package pl.idedyk.android.japaneselearnhelper.sod;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -46,8 +46,11 @@ public class SodActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_sod));
+		
 		setContentView(R.layout.sod);
 
 		findViews();

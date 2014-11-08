@@ -8,7 +8,7 @@
     <string name="ga_sampleFrequency">100.0</string>
 
     <!-- Enable automatic Activity measurement -->
-    <bool name="ga_autoActivityTracking">true</bool>
+    <bool name="ga_autoActivityTracking">false</bool>
 
     <!-- catch and report uncaught exceptions from the app -->
     <bool name="ga_reportUncaughtExceptions">true</bool>

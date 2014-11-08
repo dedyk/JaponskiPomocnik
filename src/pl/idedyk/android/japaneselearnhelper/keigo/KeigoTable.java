@@ -44,8 +44,11 @@ public class KeigoTable extends Activity {
 	}
 	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {	
+	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
+		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_keigo_table));
 		
 		setContentView(R.layout.keigo_table);
 		

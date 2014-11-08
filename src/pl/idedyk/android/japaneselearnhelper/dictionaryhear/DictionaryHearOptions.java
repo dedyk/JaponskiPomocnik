@@ -62,6 +62,8 @@ public class DictionaryHearOptions extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+		
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_dictionary_hear_options));
 
 		setContentView(R.layout.dictionary_hear_options);
 
