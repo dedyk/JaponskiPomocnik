@@ -33,8 +33,6 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
-
-		JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
 		
 		setContentView(R.layout.main);
 

@@ -29,8 +29,12 @@ public class Splash extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 
+		// init google analytics
+		JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
+		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
