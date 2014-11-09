@@ -153,7 +153,7 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 
 		tracker = analytics.newTracker(R.xml.app_tracker);
 
-		tracker.enableAdvertisingIdCollection(true);
+		// tracker.enableAdvertisingIdCollection(true);
 		
 		return tracker;		
 	}
