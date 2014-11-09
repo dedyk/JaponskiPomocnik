@@ -22109,7 +22109,11 @@ grawerowanie
 cięcie",,,
 4251,WORD_VERB_U,"COMMON_WORD
 VERB_TRANSITIVITY",HIRAGANA,Inne,,刻む,きざむ,,kizamu,"rąbać
+siekać
+mielić
+drobić
 rzeźbić
+ryć
 grawerować",,,"1817644
 45081
 45885"
@@ -38436,7 +38440,7 @@ skała",,,
 9004,WORD_NOUN,"COMMON_WORD
 SURU_VERB
 NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,私設,しせつ,,shisetsu,prywatny,,,
-9005,WORD_NOUN,,HIRAGANA,Inne,,病理学,びょうりがく,,byourigaku,patologia,,,
+9005,WORD_NOUN,,HIRAGANA,Inne,,病理学,びょうりがく,,byourigaku,patologia,dziedzina medycyny,,
 9006,WORD_NOUN,,HIRAGANA,Inne,,止まり,とまり,,tomari,"postój
 przerwa
 przystanek
@@ -82507,3 +82511,934 @@ wiercić się
 kręcić się
 być niecierpliwy",,,129297
 22842,WORD_NOUN,,HIRAGANA,Inne,,日本人論,にほんじんろん,,nihon jinron,teoria japońskiej kulturowej i rasowej unikalności,,,
+22843,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY
+KANA_ALONE",HIRAGANA,Inne,,-,かむ,,kamu,"wytrzeć nos
+wydmuchiwać nos",,,
+22844,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,コリア,,koria,Korea,,,
+22845,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ショルダーバッグ,,shorudaa baggu,torba na ramię,ang: shoulder bag,,
+22846,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ジュネーブ,,juneebu,Genewa,,,325611
+22847,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ネルソン,,neruson,Nelson,,,
+22848,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ハイム,,haimu,dom,ang: home,,
+22849,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,フェアプレー,,fea puree,fair play,,,
+22850,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ブランチ,,buranchi,"gałąź
+oddział
+brunch (posiłek jadany późnym rankiem lub wczesnym przedpołudniem)","ang: branch, brunch",,
+22851,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,メッカ,,mekka,"Mekka (święto miasto islamu)
+środek jakiegoś pola lub czynności",,,
+22852,"WORD_ADJECTIVE_NA
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,不穏,ふおん,,fuon,"niepokój
+zamieszanie
+zamęt
+nieprawidłowość
+niewłaściwość",,,
+22853,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,公邸,こうてい,,koutei,"siedziba urzędu
+oficjalna rezydencja",,,
+22854,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,受諾,じゅだく,,judaku,"akceptacja
+przyjęcie
+aprobata",,,353105
+22855,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,地力,じりき,,jiriki,"własny potencjał
+własne siły
+realne zdolności
+realne umiejętności",,,
+22856,WORD_NOUN,,HIRAGANA,Inne,,地力,ちりょく,,chiryoku,"płodność
+urodzajność",,,
+22857,"WORD_ADJECTIVE_NA
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,地道,じみち,,jimichi,"stały
+uczciwy
+rzetelny
+szczery
+poważny
+zrównoważony",,,277244
+22858,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,外郭団体,がいかくだんたい,,gaikaku dantai,"stowarzyszona organizacja
+pomocnicza organizacja
+pomocnicza struktura",,,
+22859,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,娯楽,ごらく,,goraku,"przyjemność
+rozrywka
+zabawa",,,
+22860,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,差益,さえき,,saeki,"marginalny zysk
+minimalny zysk",,,
+22861,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,式部,しきぶ,,shikibu,urzędnik odpowiedzialny za dworską ceremonię,okres Meiji,,
+22862,WORD_NOUN,,HIRAGANA,Inne,,式部官,しきぶかん,,shikibukan,urzędnik odpowiedzialny za dworską ceremonię,,,
+22863,WORD_NOUN,,HIRAGANA,Inne,,式部省,しきぶしょう,,shikibushou,ministerstwo ceremonii,,,
+22864,WORD_NOUN,,HIRAGANA,Inne,,式部職,しきぶしょく,,shikibushoku,Rada ds. Ceremonii,część urzędu Dworu Cesarskiego,,
+22865,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,悲恋,ひれん,,hiren,"nieszczęśliwa miłość
+zawiedzenie się w miłości",,,
+22866,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,持病,じびょう,,jibyou,"chroniczna choroba
+wyniszczająca choroba",,,
+22867,WORD_VERB_IRREGULAR,COMMON_WORD,HIRAGANA,Inne,,有する,ゆうする,,yuu suru,"posiadać
+mieć
+być obdarowany
+być obdarzony",,,
+22868,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,木戸,きど,,kido,"furtka w bramie
+drewniane drzwi
+wejście na miejsce rozrywki (np. areny sumo)",,,
+22869,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,模擬試験,もぎしけん,,mogi shiken,próbny egzamin,,,
+22870,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY
+KANA_ALONE",HIRAGANA,Inne,,蹌踉めく,よろめく,,yoromeku,"słaniać się
+chwiać się
+źle prowadzić się
+mieć romans
+odczuwać jakieś skłonności",,,
+22871,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,障壁,しょうへき,,shouheki,"otaczająca ściana
+otaczający mur
+mur
+bariera",,,
+22872,WORD_NOUN,,HIRAGANA,Inne,,障壁画,しょうへきが,,shouhekiga,rysunki na ściance pokoju,,,
+22873,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,仲のいい,なかのいい,,nakanoii,"intymny
+poufały
+bliski
+zażyły
+osobisty",np. w relacjach,,
+22874,WORD_ADJECTIVE_I,,HIRAGANA,Inne,,仲の良い,なかのいい,,nakanoii,"intymny
+poufały
+bliski
+zażyły
+osobisty",np. w relacjach,,
+22875,WORD_ADVERB,NOUN_ADJECTIVE_NO,HIRAGANA,Inne,,何回も,なんかいも,,nankaimo,"raz po raz
+wielokrotnie
+wiele razy
+liczba razy",,,
+22876,WORD_NOUN,,KATAKANA,Inne,,-,バッター,,battaa,pałkarz,w baseball'u,,
+22877,"WORD_ADVERB
+WORD_NOUN","COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,-,がっちり,,gacchiri,"dobrze zbudowany
+dokładnie
+ściśle
+szczelnie
+kurczowo
+sprytnie
+przebiegle
+wyrachowany
+wykalkulowany",,,
+22878,"WORD_ADVERB
+WORD_ADVERB_TO","COMMON_WORD
+ONAMATOPOEIC_OR_MIMETIC_WORD",HIRAGANA,Inne,,-,くっきり,,kukkiri,"wyraźnie
+wyraziście
+dokładnie
+jasno",,,
+22879,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,コラムニスト,,koramunisuto,"felietonista
+felietonistka
+publicysta
+komentator (np. polityczny)",ang: columnist,,
+22880,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ジュニアウエルター,,junia uerutaa,"junior półśrednia
+junior lekkopółśrednia","ang: junior welterweight, waga w boksie",,
+22881,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,ジュニアウエルター級,ジュニアウエルターきゅう,,junia uerutaa kyuu,"junior półśrednia
+junior lekkopółśrednia",waga w boksie,,
+22882,WORD_NOUN,,HIRAGANA,Inne,,がっちり屋,がっちりや,,gacchiriya,"skąpiec
+sknera
+dusigrosz
+kutwa",,,
+22883,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ジープ,,jiipu,jeep,marka samochodów,,
+22884,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,スーツ,,suutsu,garnitur,ang: suit,,68683
+22885,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ブラジャー,,burajaa,"biustonosz
+stanik",ang: brassiere,,
+22886,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,マジシャン,,majishan,"magik
+czarodziej
+iluzjonista",,,
+22887,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,リアクション,,riakushon,reakcja,,,
+22888,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,リゾート,,rizooto,"kurort
+resort
+miejscowość wypoczynkowa",ang: resort,,
+22889,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,一口,ひとくち,,hitokuchi,"kęs
+ugryzienie
+łyk
+jedno słowo",,,27796
+22890,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,主席,しゅせき,,shuseki,"szef
+naczelnik
+wódź
+przywódca
+przewodniczący
+prezes
+gubernator
+prezydent
+najważniejsze miejsce
+pierwszy skrzypce (w orkiestrze)",,,
+22891,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,先住,せんじゅう,,senjuu,poprzedni duchowny lub mieszkaniec,,,
+22892,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,共用,きょうよう,,kyouyou,"powszechne użycie
+zwykłe uczycie
+współdzielone użycie
+dzielenie się
+współdzielenie",,,
+22893,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA_KATAKANA,Inne,,再スタート,さいスタート,,sai sutaato,"wznawianie
+restartowanie",,,
+22894,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,分科会,ぶんかかい,,bunkakai,"podkomisja
+podgrupa",,,
+22895,WORD_NOUN,"COMMON_WORD
+SUFFIX
+KANA_ALONE",HIRAGANA,Inne,,呆け,ぼけ,,boke,"głupek
+idiota
+dureń
+stuknięty w głowę
+zabawny człowiek (z komediowego duetu)",,,
+22896,"WORD_ADJECTIVE_F
+WORD_EXPRESSION",COMMON_WORD,HIRAGANA,Inne,,条件付き,じょうけんつき,,joukentsuki,"warunkowo
+pod pewnym warunkiem",,,
+22897,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,滋養,じよう,,jiyou,"pożywienie
+wyżywienie
+pokarm",,,
+22898,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,火力,かりょく,,karyoku,"moc grzewcza
+energia grzewcza
+siła grzewcza
+moc pary",,,
+22899,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,熱帯魚,ねったいぎょ,,nettaigyo,tropikalna ryba,,,
+22900,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,班長,はんちょう,,hanchou,"kierownik drużyny
+szef składu
+lider grupy",,,
+22901,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,病理,びょうり,,byouri,patologia,dziedzina medycyny,,
+22902,WORD_NOUN,,HIRAGANA,Inne,,病理生理学,びょうりせいりがく,,byouri seirigaku,"fizjologia patologiczna
+patofizjologia",,,
+22903,WORD_NOUN,,HIRAGANA,Inne,,病理解剖学,びょうりかいぼうがく,,byouri kaibougaku,anatomia patologiczna,,,
+22904,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,細分,さいぶん,,saibun,dzielenie na małe kawałeczki,,,
+22905,WORD_NOUN,,HIRAGANA,Inne,,細分化,さいぶんか,,saibunka,"fragmentacja
+rozdrobnienie
+podział na mniejsze części",,,
+22906,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,罰則,ばっそく,,bassoku,"karne regulacje
+przepisy karne",,,
+22907,WORD_NOUN,,KATAKANA,Inne,,-,フットサル,,futtosaru,"futsal
+piłka nożna halowa pięcioosobowa",,,
+22908,"WORD_ADVERB
+WORD_ADVERB_TO
+WORD_NOUN","COMMON_WORD
+ONAMATOPOEIC_OR_MIMETIC_WORD",HIRAGANA,Inne,,-,きらきら,,kirakira,"błysk
+połysk
+blask
+błyszczenie
+połyskiwanie
+lśnienie",,,
+22909,"WORD_ADVERB
+WORD_ADVERB_TO
+WORD_NOUN",ONAMATOPOEIC_OR_MIMETIC_WORD,KATAKANA,Inne,,-,キラキラ,,kirakira,"błysk
+połysk
+blask
+błyszczenie
+połyskiwanie
+lśnienie",,,
+22910,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,クリニック,,kurinikku,"przychodnia
+klinika
+lecznica",,,
+22911,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,シート,,shiito,"siedzenie
+miejsce
+arkusz
+kartka","ang: seat, sheet",,"17013
+344243"
+22912,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ジュリー,,jurii,"jury
+ława przysięgłych",,,
+22913,"WORD_NOUN
+WORD_ADJECTIVE_NA",COMMON_WORD,KATAKANA,Inne,,-,ブランク,,buranku,"pusty
+czysty
+niezapisany
+pusta przestrzeń
+rubryka
+dziura
+odstęp",ang: blank,,
+22914,WORD_NOUN,,KATAKANA,Inne,,-,ブランクディスク,,buranku disuku,"czysty dysk
+niezapisany dysk",,,
+22915,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,乾物,かんぶつ,,kanbutsu,"suchy prowiant
+suszone jedzenie
+suszone towary
+artykuły spożywcze",,,
+22916,WORD_NOUN,,HIRAGANA,Inne,,乾物,からもの,,karamono,"suchy prowiant
+suszone jedzenie
+suszone towary
+artykuły spożywcze",,,
+22917,WORD_NOUN,,HIRAGANA,Inne,,乾物,ひもの,,himono,"suchy prowiant
+suszone jedzenie
+suszone towary
+artykuły spożywcze",,,
+22918,WORD_NOUN,,HIRAGANA,Inne,,乾物,ほしもの,,hoshimono,suszona rzecz na słońcu,np. ubranie,,
+22919,WORD_NOUN,,HIRAGANA,Inne,,乾物屋,かんぶつや,,kanbutsuya,sklep spożywczy,,,
+22920,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,初期,しょき,,shoki,"wczesne dni
+początkowe dni
+początkowy etap
+inicjalizacja (informatyka)",,,
+22921,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,執筆,しっぴつ,,shippitsu,pisanie,jako zawód,,
+22922,WORD_NOUN,,HIRAGANA,Inne,,執筆者,しっぴつしゃ,,shippitsusha,autor,,,
+22923,WORD_NOUN,,HIRAGANA,Inne,,執筆生活,しっぴつせいかつ,,shippitsu seikatsu,"życie podczas pisania
+okres życia podczas pisania",,,
+22924,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,密着,みっちゃく,,micchaku,"klejenie się do
+bliska relacja do
+dawanie pełnej relacji na kluczową postać w TV lub w filmie dokumentalnym",,,
+22925,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,密着取材,みっちゃくしゅざい,,micchaku shuzai,"pełna relacja
+pełne pokrycie
+dawanie pełnej relacji na kluczową postać w TV lub w filmie dokumentalnym",,,
+22926,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,引き締まる,ひきしまる,,hikishimaru,"stać się napięty
+stać się naprężony
+być napięty
+być naprężony",,,
+22927,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,微動,びどう,,bidou,"drobne drgania
+lekkie drgania
+małe ruchy
+drganie
+kołysanie",,,
+22928,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,攻守,こうしゅ,,koushu,"atak i obrona
+obrona i atak
+ofensywa i defensywa
+rakietka i boisko",,,
+22929,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,教養,きょうよう,,kyouyou,"kultura
+pielęgnowanie
+kształtowanie
+doskonalenie
+edukacja",,,
+22930,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,日産,にっさん,,nissan,"dzienna produkcja
+dzienne wydobycie
+dzienny wynik
+Nissan (marka samochodów)",,,
+22931,WORD_NOUN,,HIRAGANA,Inne,,日産自動車,にっさんじどうしゃ,,nissan jidousha,Nissan Motor,,,
+22932,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,暗礁,あんしょう,,anshou,"rafa
+zatopione skały
+podwodne skały",,,
+22933,"WORD_VERB_RU
+WORD_EXPRESSION",,HIRAGANA,Inne,,暗礁に乗り上げる,あんしょうにのりあげる,,anshou ni nori ageru,"osiąść na mieliźnie
+osiadać
+uderzyć w skały
+być w martwym punkcie",,,
+22934,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,書簡,しょかん,,shokan,"list
+notatka
+zapisek
+epistoła
+korespondencja",,,
+22935,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,横行,おうこう,,oukou,"chodzenie ukośnie
+chodzenie na bok
+zataczać się
+chwiać się
+słaniać się
+być bujny
+być wybujały
+być powszechny
+być rozległy
+być przeważający",,,
+22936,WORD_NOUN,"SURU_VERB
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,横行,おうぎょう,,ougyou,"chodzenie ukośnie
+chodzenie na bok
+zataczać się
+chwiać się
+słaniać się
+być bujny
+być wybujały
+być powszechny
+być rozległy
+być przeważający",,,
+22937,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,法要,ほうよう,,houyou,"buddyjskie nabożeństwo
+buddyjska służba",,,
+22938,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,異端,いたん,,itan,"herezja
+innowierstwo",,,
+22939,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,異端視,いたんし,,itanshi,"herezja
+innowierstwo",,,
+22940,WORD_NOUN,,HIRAGANA,Inne,,異端者,いたんしゃ,,itansha,heretyk,,,
+22941,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,祖,そ,,so,"przodek
+antenat
+praprzodek",,,
+22942,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,稽古,けいこ,,keiko,"praktyka
+trening
+ćwiczenia",,,
+22943,WORD_NOUN,,HIRAGANA,Inne,,稽古着,けいこぎ,,keikogi,"strój gimnastyczny
+strój do treningu",,,
+22944,WORD_NOUN,,HIRAGANA,Inne,,稽古場,けいこば,,keikoba,"sala treningowa
+sala gimnastyczna",,,
+22945,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,論評,ろんぴょう,,ronpyou,"uwaga
+komentarz
+komentowanie
+krytyka
+krytykowanie",,,
+22946,WORD_VERB_ZURU,COMMON_WORD,HIRAGANA,Inne,,重んずる,おもんずる,,omon zuru,"czcić
+honorować
+szanować
+respektować
+poważać
+cenić",,,
+22947,WORD_VERB_RU,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,重んじる,おもんじる,,omon jiru,"czcić
+honorować
+szanować
+respektować
+poważać
+cenić",,,
+22948,WORD_NOUN,"COMMON_WORD
+KANA_ALONE",HIRAGANA,Inne,,鼾,いびき,,ibiki,chrapanie,,,37406
+22949,WORD_NOUN,,HIRAGANA,Inne,,鼾酔,かんすい,,kansui,chrapanie,,,
+22950,WORD_NOUN,,HIRAGANA,Inne,,鼾声,かんせい,,kansei,"odgłos chrapanie
+głos chrapania",,,
+22951,WORD_VERB_U,KANA_ALONE,HIRAGANA,Inne,,鼾をかく,いびきをかく,,ibiki o kaku,chrapać,,,
+22952,WORD_ADVERBIAL_NOUN,COMMON_WORD,HIRAGANA,Inne,,５月,ごがつ,,gogatsu,maj,,,"10095
+1454486
+237919
+322539
+66616
+72523"
+22953,WORD_NOUN,,HIRAGANA,Inne,,威圧,いあつ,,iatsu,"przymus
+wymuszenie
+zmuszenie
+obezwładnianie
+pokonanie
+przezwyciężanie
+onieśmielanie
+zniechęcanie
+odstraszanie",,,
+22954,WORD_NOUN,,HIRAGANA,Inne,,威圧感,いあつかん,,iatsukan,"przerażający sens
+odczuwanie przerażenia
+wyczuwanie przerażanie w powietrzu",,,
+22955,WORD_ADJECTIVE_NA,,HIRAGANA,Inne,,威圧的,いあつてき,,iatsuteki,"przymusowy
+zniewalający
+wymuszający
+władczy",,,
+22956,"WORD_NOUN
+WORD_EXPRESSION",,HIRAGANA,Inne,,子供騙し,こどもだまし,,kodomo damashi,"sztuczka, którą można oszukać dziecko
+oczywista sztuczka
+dziecięca sztuczka",,,
+22957,"WORD_ADJECTIVE_NA
+WORD_NOUN",,KATAKANA,Inne,,-,マジ,,maji,poważny,"skrót, kolokwializm",,
+22958,WORD_NOUN,,HIRAGANA,Inne,,石膏像,せっこうぞう,,sekkouzou,"gipsowe popiersie
+gipsowa figura",,,
+22959,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,カンフル,,kanfuru,kamfora,"organiczny związek chemiczny z grupy terpenów, pochodna kamfenu",,
+22960,WORD_NOUN,,KATAKANA,Inne,,カンフル丁幾,カンフルチンキ,,kanfuru chinki,rozwór kamfory,,,
+22961,WORD_NOUN,"COMMON_WORD
+SURU_VERB",KATAKANA,Inne,,-,マウント,,maunto,"góra
+montowanie
+mocowanie
+zamontowanie",ang: mount,,
+22962,WORD_NOUN,,KATAKANA,Inne,,-,マウントポイント,,maunto pointo,punkt montowania,informatyka,,
+22963,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,マウント処理,マウントしょり,,maunto shori,proces montowania,informatyka,,
+22964,WORD_TEMPORAL_NOUN,COMMON_WORD,HIRAGANA,Inne,,在りし日,ありしひ,,arishihi,"dawne dni
+dni starości
+podczas własnego życia",,,
+22965,WORD_NOUN,COMMON_WORD,HIRAGANA_KATAKANA,Inne,,極性ゼロ復帰記録,きょくせいゼロふっききろく,,kyoku sei zero fukkikiroku,"spolaryzowany kod z powrotem do zera
+RZ","ang: polarized return-to-zero recording, informatyka",,
+22966,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,腐敗,ふはい,,fuhai,"rozkład
+gnicie
+rozpad
+deprawacja
+zgnilizna
+zepsucie",,,269198
+22967,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,開業医,かいぎょうい,,kaigyoui,"prywatna praktyka lekarska
+lekarz na prywatnej praktyce",,,
+22968,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,鼻息,はないき,,hanaiki,"oddychanie przez nos
+ludzka przyjemność
+ludzkie zadowolenie
+podekscytowanie
+ekscytacja
+podniecenie",,,
+22969,WORD_NOUN,,HIRAGANA,Inne,,鼻息,びそく,,bisoku,oddychanie przez nos,,,
+22970,"WORD_CONJUNCTION
+WORD_PARTICULE",COMMON_WORD,HIRAGANA,Inne,,-,ったら,,ttara,"wskazywanie przypuszczenia
+jeśli ... wtedy ...
+wskazywanie podrażnienia, irytacji (zwykle po czyimś imieniu)",,,
+22971,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,学卒,がくそつ,,gakusotsu,absolwent uczelni,,,
+22972,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,封じ手,ふうじて,,fuujite,[rodzaj planszowej gry],,,
+22973,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,無機物,むきぶつ,,mukibutsu,nieorganiczna substancja,,,
+22974,WORD_NOUN,NOUN_ADJECTIVE_NO,HIRAGANA,Inne,,無機,むき,,muki,nieorganiczny,,,
+22975,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,秘書,ひしょ,,hisho,"prywatna sekretarka
+cenna książka
+sekretna książka",,,"251375
+294146
+310339
+317846
+317853
+357501
+360375
+44376
+49110
+53748"
+22976,WORD_VERB_U,"COMMON_WORD
+VERB_TRANSITIVITY",HIRAGANA,Inne,,譲り渡す,ゆずりわたす,,yuzuriwatasu,"przekazać
+przekazywać
+oddać
+zdawać
+odstępować",,,
+22977,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,降伏,こうふく,,koufuku,"kapitulacja
+poddanie się",,,265892
+22978,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,乳幼児,にゅうようじ,,nyuuyouji,niemowlę,,,
+22979,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,乳製品,にゅうせいひん,,nyuuseihin,"nabiał
+produkty mleczne",,,
+22980,WORD_NUMBER,COMMON_WORD,HIRAGANA,Inne,,五十,ごじゅう,,gojuu,"pięćdziesiąt
+50",,,
+22981,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,所長,しょちょう,,shochou,"szef
+naczelnik","np. biura, laboratorium i etc",,
+22982,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,盗品,とうひん,,touhin,"skradziony towar
+skradzione towary
+łup
+zdobycz",,,
+22983,WORD_NOUN,,HIRAGANA,Inne,,盗品故買,とうひんこばい,,touhin kobai,handel skradzionymi towarami,,,
+22984,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,自律神経,じりつしんけい,,jiritsu shinkei,nerwy autonomiczne,,,
+22985,WORD_NOUN,,HIRAGANA,Inne,,自律神経系,じりつしんけいけい,,jiritsu shinkei kei,autonomiczny układ nerwowy,,,
+22986,WORD_NOUN,,HIRAGANA,Inne,,自律神経節,じりつしんけいせつ,,jiritsu shinkei setsu,autonomiczny zwój nerwowy,,,
+22987,WORD_NOUN,,HIRAGANA,Inne,,自律神経性運動失調,じりつしんけいせいうんどうしっちょう,,jiritsu shinkei seiundou shicchou,"niezależna ataksja
+autonomiczne zaburzenie funkcji życiowych",,,
+22988,"WORD_ADJECTIVE_NA
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,重宝,ちょうほう,,chouhou,"dogodny
+wygodny
+praktyczny
+poręczny
+przydatny
+bezcenny skarb
+wysoko wartościowy",,,
+22989,"WORD_NOUN
+WORD_ADJECTIVE_NA",,HIRAGANA,Inne,,重宝,じゅうほう,,juuhou,bezcenny skarb,,,
+22990,WORD_VERB_U,,HIRAGANA,Inne,,重宝がる,ちょうほうがる,,chouhou garu,"szukać praktycznie
+myśleć wybitnie o",,,
+22991,WORD_ADVERBIAL_NOUN,COMMON_WORD,HIRAGANA,Inne,,一時期,いちじき,,ichijiki,okres czasu,,,1316
+22992,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,乗員,じょういん,,jouin,"załoga
+ekipa",,,
+22993,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,市内,しない,,shinai,"w obrębie miasta
+lokalnie",,,"22950
+246179
+246180
+246181
+246182
+246184
+29253
+328485"
+22994,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,現況,げんきょう,,genkyou,"obecny stan
+obecna sytuacja",,,
+22995,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,次長,じちょう,,jichou,"wicedyrektor
+zastępca dyrektora",,,
+22996,"WORD_ADVERB
+WORD_PRONOUN","COMMON_WORD
+KANA_ALONE",HIRAGANA,Inne,,彼此,あれこれ,,arekore,"jedna rzecz albo druga
+to albo tamto",,,"289045
+31660"
+22997,"WORD_ADVERB
+WORD_PRONOUN",KANA_ALONE,HIRAGANA,Inne,,彼是,あれこれ,,arekore,"jedna rzecz albo druga
+to albo tamto",,,
+22998,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,哀痛,あいつう,,aitsuu,"smucenie się w żałobie
+smucenie się bycie pogrążonym w żałobie",,,
+22999,WORD_NOUN,OBSCURE,HIRAGANA,Inne,,服忌,ぶっき,,bukki,"żałoba
+okres żałoby",,,
+23000,WORD_VERB_RU,"VERB_TRANSITIVITY
+ARCHAISM",HIRAGANA,Inne,,聞ける,きける,,kikeru,"opowiadać
+mówić",archaizm,,
+23001,WORD_EXPRESSION,,HIRAGANA,Inne,,気楽にいこうぜ,きらくにいこうぜ,,kiraku ni ikouze,"nie przemęczaj się
+nie przejmuj się",,,
+23002,WORD_EXPRESSION,,HIRAGANA,Inne,,気楽に行こうぜ,きらくにいこうぜ,,kiraku ni ikouze,"nie przemęczaj się
+nie przejmuj się",,,
+23003,"WORD_ADJECTIVE_NA
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,気楽,きらく,,kiraku,"beztroski
+wygodny
+komfortowy
+spokojny
+wyluzowany
+niefrasobliwy",,,"20343
+2378
+38559
+40524"
+23004,WORD_NOUN,,HIRAGANA,Inne,,鬼婆,おにばば,,onibaba,"kobieta-diabeł
+czarownica
+wiedźma
+uboga lub złośliwa stara baba
+jędza
+sekutnica",,,
+23005,WORD_NOUN,,HIRAGANA,Inne,,鬼ばば,おにばば,,onibaba,"kobieta-diabeł
+czarownica
+wiedźma
+uboga lub złośliwa stara baba
+jędza
+sekutnica",,,
+23006,WORD_NOUN,,HIRAGANA,Inne,,鬼婆,おにばばあ,,onibabaa,"kobieta-diabeł
+czarownica
+wiedźma
+uboga lub złośliwa stara baba
+jędza
+sekutnica",,,
+23007,WORD_NOUN,,HIRAGANA,Inne,,鬼ばばあ,おにばばあ,,onibabaa,"kobieta-diabeł
+czarownica
+wiedźma
+uboga lub złośliwa stara baba
+jędza
+sekutnica",,,
+23008,WORD_ADVERB,,HIRAGANA,Inne,,夜な夜な,よなよな,,yonayona,"każdej nocy
+noc po nocy",,,
+23009,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,乖離,かいり,,kairi,"odchylenie
+rozbieżność
+różnica
+alienacja
+wyobcowanie
+separacja
+osamotnienie
+odosobnienie",,,
+23010,WORD_NOUN,,HIRAGANA,Inne,,店名,てんめい,,tenmei,nazwa sklepu,,,
+23011,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,教頭,きょうとう,,kyoutou,"zastępca dyrektora
+wicedyrektor",,,
+23012,WORD_NOUN,,HIRAGANA,Inne,,教頭先生,きょうとうせんせい,,kyoutou sensei,"zastępca dyrektora
+asystent nauczyciela",,,
+23013,WORD_VERB_U,VERB_TRANSITIVITY,HIRAGANA,Inne,,茶化す,ちゃかす,,chakasu,"wykpiwać
+wykpić
+robić sobie żarty z
+parodiować",,,
+23014,WORD_NOUN,"COMMON_WORD
+KANA_ALONE",KATAKANA,Inne,,-,チフス,,chifusu,tyfus,,,
+23015,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,チフス菌,チフスきん,,chifusu kin,bakterie tyfusa,,,
+23016,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,パステル,,pasuteru,pastel,,,
+23017,WORD_NOUN,,KATAKANA,Inne,,-,パステルカラー,,pasuteru karaa,"kolor pastelowy
+pastelowy kolor",,,
+23018,WORD_NOUN,,KATAKANA,Inne,,-,パステルトーン,,pasuteru toon,pastelowy odcień,,,
+23019,WORD_NOUN,,HIRAGANA_KATAKANA,Inne,,パステル画,パステルが,,pasuteru ga,"pastelowy obraz
+pastelowy obrazek",,,
+23020,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,個々,ここ,,koko,"indywidualny
+osobny
+jeden na jednego
+oddzielny
+odrębny",,,
+23021,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,弔問,ちょうもん,,choumon,kondolencyjna wizyta,,,
+23022,WORD_NOUN,,HIRAGANA,Inne,,弔問客,ちょうもんきゃく,,choumonkyaku,uczestnik kondolencyjnej wizyty,,,
+23023,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,調理,ちょうり,,chouri,"gotowanie
+przygotowanie jedzenia",,,
+23024,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,議場,ぎじょう,,gijou,"aula
+izba parlamentu",,,
+23025,WORD_NOUN,"COMMON_WORD
+KANA_ALONE",HIRAGANA,Inne,,麓,ふもと,,fumoto,"podnóże góry
+podstawa góry",,,"130212
+20237
+245074
+309102"
+23026,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ゴーグル,,googuru,"gogle
+okulary ochronne",,,
+23027,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ヌードル,,nuudoru,"nudle
+makaron
+osobowość telewizyjna, która pojawiła się nago (skrót)",,,
+23028,WORD_NOUN,"COMMON_WORD
+SURU_VERB",KATAKANA,Inne,,-,フォロー,,foroo,"iść za kimś
+podążać za kimś
+obserwować (np. grupy dyskusyjne) (skrót)
+wspieranie
+osłanianie","ang: follow, followup, backing-up, covering for",,
+23029,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,役員,やくいん,,yakuin,"oficer
+wyższy urzędnik
+oficjał
+pracownik na kierowniczym stanowisku",,,364374
+23030,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,推移,すいい,,suii,"przemiana
+zmiana
+przejście",,,
+23031,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,表彰,ひょうしょう,,hyoushou,"publiczne podziękowanie
+publiczne uznanie
+wyróżnienie
+przyznanie",,,
+23032,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,附属,ふぞく,,fuzoku,"dołączony
+przywiązany
+związany
+włączony
+należeć do",,,
+23033,WORD_NOUN,,HIRAGANA,Inne,,附属品,ふぞくひん,,fuzokuhin,"dodatek
+akcesoria
+dodatkowy przedmiot",,,
+23034,WORD_NOUN,,HIRAGANA,Inne,,附属池田小事件,ふぞくいけだしょうじけん,,fuzoku ikeda shoujiken,masakra w szkole podstawowej w Ikeda (8 czerwca 2001),,,
+23035,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,クリーンヒット,,kuriin hitto,czyste uderzenie,ang: clean hit,,
+23036,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,バリウム,,bariumu,bar,"pierwiastek chemiczny, metal ziem alkalicznych",,
+23037,WORD_EMPTY,"COMMON_WORD
+PREFIX",KATAKANA,Inne,,-,プチ,,puchi,mały,,,
+23038,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,レコーダー,,rekoodaa,"urządzenie nagrywające
+nagrywarka
+rejestrator
+flet prosty",,,
+23039,"WORD_ADJECTIVE_NA
+WORD_NOUN","COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,便宜,べんぎ,,bengi,"wygoda
+wygodny
+udogodnienie
+komfort
+komfortowy
+korzyść
+zaleta",,,
+23040,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,修了,しゅうりょう,,shuuryou,"ukończenie kursu
+zakończenie kursu",,,
+23041,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,本数,ほんすう,,honsuu,liczba długich cienkich obiektów,"np. filmów, programów telewizyjnych, gier baseball'a i etc",,
+23042,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,サイクロン,,saikuron,cyklon,,,
+23043,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,マリン,,marin,"morski
+marynistyczny
+marynarski",ang: marine,,
+23044,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,口げんか,くちげんか,,kuchigenka,"kłótnia
+kłócić się
+waśń
+zwada
+spieranie się",,,
+23045,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,減給,げんきゅう,,genkyuu,"obniżanie płać
+obniżanie pensji
+obniżanie wynagrodzenia",,,
+23046,WORD_EXPRESSION,,HIRAGANA,Inne,,-,であろう,,dearou,"pewnie
+prawdopodobnie
+na pewno
+ja myślę
+mam nadzieję
+wygląda na to",,,"129959
+23309
+255300
+263539
+276234
+276705
+305191
+308557
+355105
+48445"
+23047,WORD_NOUN,,HIRAGANA,Inne,,-,がちんこ,,gachinko,"rywalizowanie na poważnie
+konkurowanie na serio",np. w sumo,,
+23048,WORD_NOUN,,KATAKANA,Inne,,-,ガチンコ,,gachinko,"rywalizowanie na poważnie
+konkurowanie na serio",np. w sumo,,
+23049,WORD_NOUN,,HIRAGANA,Inne,,三日間,みっかかん,,mikkakan,trzy dni,okres czasu,,"1812058
+244997
+252560
+72648
+72649"
+23050,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,セラ,,sera,sera,,,
+23051,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,下山,げざん,,gezan,"spadek góry
+zejście góry
+zbocze góry",,,
+23052,WORD_NOUN,SURU_VERB,HIRAGANA,Inne,,下山,げさん,,gesan,"spadek góry
+zejście góry
+zbocze góry",,,
+23053,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,全権,ぜんけん,,zenken,"plenipotencja
+pełnomocnictwo
+pełna władza",,,
+23054,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,座談会,ざだんかい,,zadankai,"sympozjum
+sesja naukowa
+rozmowy przy okrągłym stole",,,
+23055,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,損う,そこなう,,sokonau,"krzywdzić
+ranić
+kaleczyć
+uszkodzić
+niszczyć",,,
+23056,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,支所,ししょ,,shisho,"filia
+oddział",biura,,
+23057,"WORD_ADJECTIVE_NA
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,随意,ずいい,,zuii,"dobrowolny
+opcjonalny
+nieobowiązkowy",,,
+23058,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,同胞,どうほう,,douhou,"brat
+bracia
+ziomek
+rodak
+współobywatel
+bliźni",,,
+23059,WORD_NOUN,,HIRAGANA,Inne,,同胞,どうぼう,,doubou,"brat
+bracia
+ziomek
+rodak
+współobywatel
+bliźni",,,
+23060,WORD_NOUN,,HIRAGANA,Inne,,同胞,はらから,,harakara,"brat
+bracia
+ziomek
+rodak
+współobywatel
+bliźni",,,
+23061,WORD_VERB_U,COMMON_WORD,HIRAGANA,Inne,,当てはまる,あてはまる,,atehamaru,"zastosować (regułę)
+stosować (zasadę)
+aplikować
+spełniać
+wypełniać",,,"358591
+55748"
+23062,WORD_ADVERB,COMMON_WORD,HIRAGANA,Inne,,是非とも,ぜひとも,,zehitomo,"ze wszech miar
+koniecznie
+wszelkimi sposobami
+za wszelką cenę",w sensie nie mówienia “nie” w odpowiedzi,,70560
+23063,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,牛歩,ぎゅうほ,,gyuuho,"ślimaczy postęp
+ślimaczy krok
+powolny postęp",,,
+23064,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,給食,きゅうしょく,,kyuushoku,"szkolny lunch
+szkolny obiad
+dostarczenie posiłku",,,
+23065,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,行員,こういん,,kouin,"urzędnik bankowy
+pracownik banku
+bankowiec",,,
+23066,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,頑張り,がんばり,,ganbari,"nieustępliwość
+upór
+wytrzymałość
+trwałość",,,
+23067,WORD_NOUN,,HIRAGANA,Inne,,頑張り屋,がんばりや,,ganbariya,"ktoś, kto walczyć w trudnych okolicznościach (sytuacji)",,,
+23068,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ミンチ,,minchi,wołowina mielona,,,
+23069,WORD_NOUN,COMMON_WORD,HIRAGANA_KATAKANA,Inne,,メモ帳,メモちょう,,memo chou,"notatnik
+notes",,,
+23070,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,入閣,にゅうかく,,nyuukaku,"wstępowanie do gabinetu
+wchodzenie do gabinetu
+dołączenie do gabinetu",,,
+23071,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,安住,あんじゅう,,anjuu,"życie w pokoju
+życie w spokoju
+życie pokojowo",,,
+23072,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,定休日,ていきゅうび,,teikyuubi,"regularne wakacje
+ustalony dzień wolny od pracy",,,
+23073,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,暴力団,ぼうりょくだん,,bouryokudan,"organizacja przestępcza
+organizacja gangsterska
+syndykat zbrodni
+yakuza (japońska mafia)",,,
+23074,WORD_NOUN,,HIRAGANA,Inne,,暴力団員,ぼうりょくだんいん,,bouryokudan'in,"gangster
+mafioza
+członek gangu
+członek yakuzy",,,
+23075,WORD_NOUN,,HIRAGANA,Inne,,暴力団狩り,ぼうりょくだんがり,,bouryokudangari,nalot na gangsterów,,,
+23076,WORD_NOUN,,HIRAGANA,Inne,,暴力団組員,ぼうりょくだんくみいん,,bouryokudan kumiin,"gangsterzy
+mafiozi
+członkowie gangów
+członkowie yakuzy",,,
+23077,WORD_NOUN,,HIRAGANA,Inne,,暴力団抗争,ぼうりょくだんこうそう,,bouryokudan kousou,wojny gangów,,,
+23078,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY
+KANA_ALONE",HIRAGANA,Inne,,燥ぐ,はしゃぐ,,hashagu,"weselić się
+bawić się
+figlować
+baraszkować
+być w doskonałym nastroju",,,
+23079,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",KATAKANA,Inne,,-,グラフイック,,gurafuikku,"grafika
+graficzny
+magazyn graficzny
+magazyn obrazkowy",,,
+23080,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ジャンパー,,janpaa,"kurtka
+pulower
+sweter
+skoczek
+skoczek narciarski",,,
+23081,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,スピーカー,,supiikaa,"głośnik
+spiker",,,
+23082,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,断行,だんこう,,dankou,"decydująca akcja
+decydujący czyn",,,
+23083,WORD_NOUN,NOUN_ADJECTIVE_NO,HIRAGANA,Inne,,色とりどり,いろとりどり,,irotoridori,"różnokolorowy
+wielokolorowy
+różnobarwny
+różnorodny
+rozmaity",,,
+23084,WORD_NOUN,NOUN_ADJECTIVE_NO,HIRAGANA,Inne,,色取り取り,いろとりどり,,irotoridori,"różnokolorowy
+wielokolorowy
+różnobarwny
+różnorodny
+rozmaity",,,
+23085,WORD_VERB_U,"COMMON_WORD
+VERB_INTRANSITIVITY",HIRAGANA,Inne,,伸び悩む,のびなやむ,,nobinayamu,"być powolny
+być nieruchawy
+być ospały
+być spowolniony",w biznesie,,
+23086,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,力試し,ちからだめし,,chikaradameshi,"próba siły
+próba mocy
+próba wytrzymałości
+quiz",,,
+23087,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,安らぎ,やすらぎ,,yasuragi,"pokój
+spokój
+cisza
+spokojność",,,
+23088,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,聴覚,ちょうかく,,choukaku,zmysł słuchu,,,
+23089,"WORD_ADJECTIVE_NA
+WORD_NOUN",COMMON_WORD,HIRAGANA,Inne,,遠浅,とおあさ,,tooasa,"mielizna
+płycizna
+szeroka płytka plaża",,,
+23090,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ノンバンク,,nonbanku,pozabankowy bank,ang: nonbank banking,,
+23091,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,ブレーク,,bureeku,"przerwanie (np. wakacji, okresu odpoczynku)
+pobicie rekordu
+hamulec","ang: break, brake",,
+23092,WORD_NOUN,"COMMON_WORD
+NOUN_ADJECTIVE_NO",KATAKANA,Inne,,-,マラリア,,mararia,malaria,,,
+23093,"WORD_ADVERBIAL_NOUN
+WORD_TEMPORAL_NOUN",COMMON_WORD,HIRAGANA,Inne,,今ごろ,いまごろ,,ima goro,"o tej porze
+około tego czasu",,,"244691
+356741
+360273
+8546"
+23094,"WORD_ADVERBIAL_NOUN
+WORD_TEMPORAL_NOUN",COMMON_WORD,HIRAGANA,Inne,,先々,さきざき,,sakizaki,"odległa przyszłość
+nieunikniona przyszłość",,,
+23095,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,シーズニング,,shiizuningu,przyprawa,ang: seasoning,,
+23096,WORD_NOUN,"COMMON_WORD
+SURU_VERB",HIRAGANA,Inne,,人見知り,ひとみしり,,hitomishiri,"nieśmiałość
+wstydliwość
+lęk przed obcymi",,,
+23097,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,合成洗剤,ごうせいせんざい,,gousei senzai,syntetyczny detergent,,,
+23098,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,土足,どそく,,dosoku,"obuwie
+buty
+brudna stopa
+zabłocona stopa",,,
+23099,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,本位,ほんい,,hon'i,"standard
+norma
+podstawa",,,
+23100,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,タウン,,taun,"miasto
+miasteczko",ang: town,,
+23101,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,マイム,,maimu,"mim
+pantomina",ang: mime,,
+23102,WORD_NOUN,,KATAKANA,Inne,,ＭＩＭＥ,マイム,,maimu,"Multipurpose Internet Mail Extension
+MIME",informatyka,,
+23103,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,会計年度,かいけいねんど,,kaikei nendo,"rok fiskalny
+rok podatkowy
+rok rozliczeniowy
+rok rozrachunkowy",,,
+23104,WORD_ADJECTIVE_I,COMMON_WORD,HIRAGANA,Inne,,可愛らしい,かわいらしい,,kawairashii,"śliczny
+piękny
+uroczy
+słodki
+prześliczny",,,"310700
+310701"
+23105,"WORD_ADJECTIVE_NA
+WORD_NOUN","COMMON_WORD
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,無傷,むきず,,mukizu,"nieuszkodzony
+bez szwanku
+bez skazy
+nieskazitelny
+perfekcyjny",,,
+23106,WORD_NOUN,COMMON_WORD,KATAKANA,Inne,,-,コピーライト,,kopiiraito,"prawo autorskie
+prawa autorskie",ang: copyright,,
+23107,WORD_ADJECTIVE_NA,COMMON_WORD,HIRAGANA,Inne,,堅実,けんじつ,,kenjitsu,"stały
+mocny
+równy
+solidny
+pewny
+niezawodny
+wiarygodny",,,
+23108,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,抱え,かかえ,,kakae,"naręcz
+naręcze
+pracownik",,,
+23109,WORD_NOUN,COMMON_WORD,HIRAGANA,Inne,,持ち株,もちかぶ,,mochikabu,"akcje spółki holdingowej
+udziały holdingu",,,
+23110,WORD_NOUN,,HIRAGANA,Inne,,持ち株会社,もちかぶがいしゃ,,mochikabu gaisha,"holding
+spółka holdingowa
+przedsiębiorstwo holdingowe",,,
+23111,WORD_NOUN,"COMMON_WORD
+SURU_VERB
+NOUN_ADJECTIVE_NO",HIRAGANA,Inne,,昇進,しょうしん,,shoushin,"promocja
+awans
+promowanie
+awansowanie",,,"251216
+301280
+357501
+357548
+645070"
