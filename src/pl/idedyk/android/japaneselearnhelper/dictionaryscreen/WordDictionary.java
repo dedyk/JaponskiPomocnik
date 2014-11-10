@@ -11,6 +11,7 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionary
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
@@ -57,6 +58,8 @@ public class WordDictionary extends Activity {
 	
 	private CheckBox seachOptionsEachChangeCheckBox;
 	
+	private CheckBox automaticSendMissingWordCheckBox;
+	
 	private Button searchButton;
 	
 	private CheckBox searchOptionsOnlyCommonWordsCheckbox;
@@ -100,6 +103,8 @@ public class WordDictionary extends Activity {
 		
 		bundle.putBoolean("seachOptionsEachChangeCheckBox", seachOptionsEachChangeCheckBox.isChecked());
 		
+		bundle.putBoolean("automaticSendMissingWordCheckBox", automaticSendMissingWordCheckBox.isChecked());
+		
 		bundle.putBoolean("searchOptionsOnlyCommonWordsCheckbox", searchOptionsOnlyCommonWordsCheckbox.isChecked());
 		bundle.putBoolean("searchOptionsKanjiCheckbox", searchOptionsKanjiCheckbox.isChecked());
 		bundle.putBoolean("searchOptionsKanaCheckbox", searchOptionsKanaCheckbox.isChecked());
@@ -127,6 +132,8 @@ public class WordDictionary extends Activity {
 		super.onRestoreInstanceState(bundle);
 					   
 		seachOptionsEachChangeCheckBox.setChecked(bundle.getBoolean("seachOptionsEachChangeCheckBox"));
+		
+		automaticSendMissingWordCheckBox.setChecked(bundle.getBoolean("automaticSendMissingWordCheckBox"));
 		
 		searchOptionsOnlyCommonWordsCheckbox.setChecked(bundle.getBoolean("searchOptionsOnlyCommonWordsCheckbox"));
 		searchOptionsKanjiCheckbox.setChecked(bundle.getBoolean("searchOptionsKanjiCheckbox"));
@@ -202,12 +209,11 @@ public class WordDictionary extends Activity {
 			}
 		});
 		
-		seachOptionsEachChangeCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_each_change_checkbox);
+		final WordDictionarySearchConfig wordDictionarySearchConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordDictionarySearchConfig();
 		
-		WordDictionarySearchConfig wordDictionarySearchConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordDictionarySearchConfig();
+		seachOptionsEachChangeCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_each_change_checkbox);		
 		
-		seachOptionsEachChangeCheckBox.setChecked(wordDictionarySearchConfig.getEachChangeSearch());
-		
+		seachOptionsEachChangeCheckBox.setChecked(wordDictionarySearchConfig.getEachChangeSearch());		
 		seachOptionsEachChangeCheckBox.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
@@ -215,6 +221,18 @@ public class WordDictionary extends Activity {
 				setSearchButtonVisible();
 			}
 		});
+		
+		automaticSendMissingWordCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_improve_dict_automatic_send_missing_word_checkbox);
+	
+		automaticSendMissingWordCheckBox.setChecked(wordDictionarySearchConfig.getAutomaticSendMissingWord());
+		automaticSendMissingWordCheckBox.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+		
+				wordDictionarySearchConfig.setAutomaticSendMissingWord(automaticSendMissingWordCheckBox.isChecked());
+		
+			}
+		});		
 		
 		searchOptionsOnlyCommonWordsCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_only_common_words_checkbox);
 		searchOptionsKanjiCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_kanji_checkbox);
@@ -414,7 +432,6 @@ public class WordDictionary extends Activity {
 		WordDictionarySearchConfig wordDictionarySearchConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordDictionarySearchConfig();
 		
 		wordDictionarySearchConfig.setEachChangeSearch(seachOptionsEachChangeCheckBox.isChecked());
-
 	}
 	
 	private CheckBox createCheckBox(String text, boolean checked) {
@@ -636,6 +653,7 @@ public class WordDictionary extends Activity {
 				
 			    @Override
 			    protected void onPostExecute(FindWordResult foundWord) {
+			    	
 			        super.onPostExecute(foundWord);
 			        
 					wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
@@ -651,6 +669,10 @@ public class WordDictionary extends Activity {
 					searchResultArrayAdapter.notifyDataSetChanged();
 			        
 			        progressDialog.dismiss();
+			        
+			        if (foundWord.result.size() == 0 && automaticSendMissingWordCheckBox.isChecked() == true) {			        
+			        	sendMissingWord(findWordRequest);
+			        }
 			    }
 			    
 			    private String getWordFullTextWithMark(ResultItem resultItem, String findWord, FindWordRequest findWordRequest) {
@@ -764,5 +786,28 @@ public class WordDictionary extends Activity {
 			
 			wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, 0));
 		}		
+	}
+	
+	private void sendMissingWord(final FindWordRequest findWordRequest) {
+		
+		class SendMissingWordTask extends AsyncTask<Void, Void, Void> {
+
+			@Override
+			protected Void doInBackground(Void... params) {
+				
+				try {				
+					ServerClient serverClient = new ServerClient();
+										
+					serverClient.sendMissingWord(findWordRequest.word);
+					
+				} catch (Exception e) {
+					// noop
+				}
+				
+				return null;
+			}		
+		}
+		
+		new SendMissingWordTask().execute();
 	}
 }

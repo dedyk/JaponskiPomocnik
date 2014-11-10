@@ -375,6 +375,8 @@ public class ConfigManager {
 		
 		private final String eachChangeSearchPostfix = "eachChangeSearch";
 		
+		private final String automaticSendMissingWordPostfix = "automaticSendMissingWord";
+		
 		public Boolean getEachChangeSearch() {
 			return preferences.getBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, false);
 		}
@@ -384,6 +386,19 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, eachChangeSearch);
+			
+			editor.commit();			
+		}
+		
+		public Boolean getAutomaticSendMissingWord() {
+			return preferences.getBoolean(wordDictionarySearchConfigPrefix + automaticSendMissingWordPostfix, true);
+		}
+		
+		public void setAutomaticSendMissingWord(boolean automaticSendMissingWord) {
+
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordDictionarySearchConfigPrefix + automaticSendMissingWordPostfix, automaticSendMissingWord);
 			
 			editor.commit();			
 		}

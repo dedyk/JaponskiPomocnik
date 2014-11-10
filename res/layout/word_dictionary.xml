@@ -61,6 +61,21 @@
                 android:background="@android:color/darker_gray" />
 
             <TextView
+                android:id="@+id/word_dictionary_search_options_improve_dict_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/word_dictionary_search_options_improve_dict_label" />
+
+            <CheckBox
+                android:id="@+id/word_dictionary_search_options_improve_dict_automatic_send_missing_word_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/word_dictionary_search_options_improve_dict_automatic_send_missing_word"
+                android:textSize="12sp" />
+            
+            <TextView
                 android:id="@+id/word_dictionary_search_options_search_mode_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
