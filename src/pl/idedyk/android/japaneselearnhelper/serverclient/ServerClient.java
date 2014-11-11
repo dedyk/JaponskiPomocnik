@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlaceSearch;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -30,7 +31,7 @@ public class ServerClient {
 				
 	}
 	
-	public void sendMissingWord(String word) {
+	public void sendMissingWord(String word, WordPlaceSearch wordPlaceSearch) {
 		
 		boolean connected = isConnected();
 		
@@ -54,6 +55,7 @@ public class ServerClient {
 			Map<String, Object> requestDataMap = new HashMap<String, Object>();
 			
 			requestDataMap.put("word", word);
+			requestDataMap.put("wordPlaceSearch", wordPlaceSearch.toString());
 			
 			StringEntity stringEntity = new StringEntity(convertMapToJSONObject(requestDataMap).toString(), "UTF-8");
 			

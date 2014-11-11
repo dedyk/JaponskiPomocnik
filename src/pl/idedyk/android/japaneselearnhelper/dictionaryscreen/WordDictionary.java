@@ -798,7 +798,7 @@ public class WordDictionary extends Activity {
 				try {				
 					ServerClient serverClient = new ServerClient();
 										
-					serverClient.sendMissingWord(findWordRequest.word);
+					serverClient.sendMissingWord(findWordRequest.word, findWordRequest.wordPlaceSearch);
 					
 				} catch (Exception e) {
 					// noop
