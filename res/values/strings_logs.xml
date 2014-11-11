@@ -13,6 +13,7 @@
     <string name="logs_kanji_recognize">Rozpoznawanie kanji</string>
     <string name="logs_kanji_recognizer_result">Wynik rozpoznawania kanji</string>
     <string name="logs_kanji_search_meaning">Wyszukiwanie kanji po znaczeniu</string>
+    <string name="logs_kanji_search_meaning_search_event">Wyszukiwanie kanji po znaczeniu</string>
     <string name="logs_search_radical">Wyszukiwanie kanji po elementach podstawowych</string>
     <string name="logs_kanji_search_radical_result">Wynik wyszukiwania kanji po elementach podstawowych</string>
     <string name="logs_kanji_search_stroke_count">Wyszukiwanie kanji po liczbie kresek</string>
@@ -24,6 +25,7 @@
     <string name="logs_sod">Rysowanie znaku</string>
     <string name="logs_transitive_intransitive_pairs_table">Tablica par czasowników przechodnich nieprzechodnich</string>
     <string name="logs_word_dictionary">Wyszukiwanie słów</string>
+    <string name="logs_word_dictionary_search_event">Wyszukiwanie słów</string>
     <string name="logs_word_dictionary_details">Szczegóły słowa</string>
     <string name="logs_word_test">Test ze słówek</string>
     <string name="logs_word_test_options">Opcje testu ze słówek</string>

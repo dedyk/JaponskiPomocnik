@@ -249,6 +249,9 @@ public class KanjiSearchMeaning extends Activity {
 	}
 	
 	private void performSearch(final String findWord) {
+		
+		// logowanie
+		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(getString(R.string.logs_kanji_search_meaning), getString(R.string.logs_kanji_search_meaning_search_event));
 			
 		searchResultList.clear();
 						
