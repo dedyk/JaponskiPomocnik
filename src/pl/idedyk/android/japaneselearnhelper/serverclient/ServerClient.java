@@ -71,7 +71,7 @@ public class ServerClient {
 			
 			int statusCode = statusLine.getStatusCode();			
 			
-			if (statusCode != 200) {
+			if (statusCode < 200 || statusCode >= 300) {
 				Log.e("ServerClient", "Error send missing word: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
 			}			
 			
