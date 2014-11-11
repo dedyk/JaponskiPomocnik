@@ -24,8 +24,8 @@ import android.util.Log;
 
 public class ServerClient {
 	
-	private static final String SEND_MISSING_WORD_URL = "http://10.0.2.2:8080/android/sendMissingWord";
-	//private static final String SEND_MISSING_WORD_URL = "http://japonski-pomocnik.idedyk.pl/android/sendMissingWord";
+	//private static final String SEND_MISSING_WORD_URL = "http://10.0.2.2:8080/android/sendMissingWord";
+	private static final String SEND_MISSING_WORD_URL = "http://japonski-pomocnik.idedyk.pl/android/sendMissingWord";
 
 	public ServerClient() {
 				
