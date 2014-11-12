@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlaceSearch;
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -24,9 +25,14 @@ import android.util.Log;
 
 public class ServerClient {
 	
-	//private static final String SEND_MISSING_WORD_URL = "http://10.0.2.2:8080/android/sendMissingWord";
-	private static final String SEND_MISSING_WORD_URL = "http://japonski-pomocnik.idedyk.pl/android/sendMissingWord";
+	private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
+	//private static final String PREFIX_URL = "http://japonski-pomocnik.idedyk.pl"; // prod
+		
+	private static final String SEND_MISSING_WORD_URL = PREFIX_URL + "/android/sendMissingWord";
+	private static final String SEARCH_URL = PREFIX_URL + "/android/search";
 
+	private static final int TIMEOUT = 5000;
+	
 	public ServerClient() {
 				
 	}
@@ -43,13 +49,17 @@ public class ServerClient {
 			// parametry do polaczenia
 			HttpParams httpParams = new BasicHttpParams();
 			
-			HttpConnectionParams.setConnectionTimeout(httpParams, 5000);
-			HttpConnectionParams.setSoTimeout(httpParams, 5000);
+			HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
+			HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
 			
 			// klient do http
 			DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
 			
 			HttpPost httpPost = new HttpPost(SEND_MISSING_WORD_URL);
+			
+			// ustaw naglowki
+			httpPost.setHeader("Accept", "application/json");
+			httpPost.setHeader("Content-type", "application/json");
 			
 			// przygotuj dane wejsciowe
 			Map<String, Object> requestDataMap = new HashMap<String, Object>();
@@ -59,11 +69,7 @@ public class ServerClient {
 			
 			StringEntity stringEntity = new StringEntity(convertMapToJSONObject(requestDataMap).toString(), "UTF-8");
 			
-			httpPost.setEntity(stringEntity);
-			
-			// ustaw naglowki
-			httpPost.setHeader("Accept", "application/json");
-			httpPost.setHeader("Content-type", "application/json");
+			httpPost.setEntity(stringEntity);			
 			
 			// wywolaj serwer
 			HttpResponse httpResponse = httpClient.execute(httpPost);
@@ -80,6 +86,54 @@ public class ServerClient {
 		} catch (Exception e) {
 			Log.e("ServerClient", "Error send missing word: ", e);
 		}
+	}
+	
+	public void search(FindWordRequest findWordRequest) {
+		
+		boolean connected = isConnected();
+		
+		if (connected == false) {			
+			return;
+		}
+
+		try {			
+			// parametry do polaczenia
+			HttpParams httpParams = new BasicHttpParams();
+			
+			HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
+			HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
+			
+			// klient do http
+			DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
+			
+			HttpPost httpPost = new HttpPost(SEARCH_URL);
+			
+			// ustaw naglowki
+			httpPost.setHeader("Accept", "application/json");
+			httpPost.setHeader("Content-type", "application/json");
+			
+			// przygotuj dane wejsciowe
+			Map<String, Object> requestDataMap = createMapFromFindWordRequest(findWordRequest);
+						
+			StringEntity stringEntity = new StringEntity(convertMapToJSONObject(requestDataMap).toString(), "UTF-8");
+			
+			httpPost.setEntity(stringEntity);			
+			
+			// wywolaj serwer
+			HttpResponse httpResponse = httpClient.execute(httpPost);
+			
+			// sprawdz odpowiedz
+			StatusLine statusLine = httpResponse.getStatusLine();
+			
+			int statusCode = statusLine.getStatusCode();			
+			
+			if (statusCode < 200 || statusCode >= 300) {
+				Log.e("ServerClient", "Error search: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
+			}			
+			
+		} catch (Exception e) {
+			Log.e("ServerClient", "Error search: ", e);
+		}		
 	}
 	
 	private boolean isConnected() {
@@ -113,5 +167,13 @@ public class ServerClient {
 	    }
 	    
 	    return result;
-	}	
+	}
+	
+	private Map<String, Object> createMapFromFindWordRequest(FindWordRequest findWordRequest) {
+		
+		Map<String, Object> requestDataMap =  new HashMap<String, Object>();
+		
+		
+		return null;
+	}
 }
