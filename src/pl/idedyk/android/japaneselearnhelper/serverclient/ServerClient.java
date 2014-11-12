@@ -2,7 +2,6 @@ package pl.idedyk.android.japaneselearnhelper.serverclient;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpResponse;
@@ -19,7 +18,6 @@ import org.json.JSONObject;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlaceSearch;
-import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -172,36 +170,26 @@ public class ServerClient {
 	}
 	
 	private Map<String, Object> createMapFromFindWordRequest(FindWordRequest findWordRequest) {
-		
-		/*
-		public String word;
-		
-		public boolean searchKanji = true;
-		
-		public boolean searchKana = true;
-		
-		public boolean searchRomaji = true;
-		
-		public boolean searchTranslate = true;
-		
-		public boolean searchInfo = true;
-		
-		public boolean searchGrammaFormAndExamples = false;
-		
-		public boolean searchOnlyCommonWord = false;
-		
-		public boolean searchName = false;
-		
-		public WordPlaceSearch wordPlaceSearch = WordPlaceSearch.START_WITH;
-			
-		public List<DictionaryEntryType> dictionaryEntryTypeList = null;
-		*/
-		
+				
 		Map<String, Object> requestDataMap =  new HashMap<String, Object>();
 		
+		requestDataMap.put("searchMainDictionary", false);
+		requestDataMap.put("searchGrammaFormAndExamples", findWordRequest.searchGrammaFormAndExamples);
+		requestDataMap.put("searchName", findWordRequest.searchName);
 		
+		requestDataMap.put("word", findWordRequest.word);
 		
+		requestDataMap.put("searchKanji", findWordRequest.searchKanji);
+		requestDataMap.put("searchKana", findWordRequest.searchKana);
+		requestDataMap.put("searchRomaji", findWordRequest.searchRomaji);
+		requestDataMap.put("searchTranslate", findWordRequest.searchTranslate);
+		requestDataMap.put("searchInfo", findWordRequest.searchInfo);
+		requestDataMap.put("searchOnlyCommonWord", findWordRequest.searchOnlyCommonWord);
 		
-		return null;
+		requestDataMap.put("wordPlaceSearch", findWordRequest.wordPlaceSearch);
+		
+		requestDataMap.put("dictionaryEntryTypeList", findWordRequest.dictionaryEntryTypeList);
+				
+		return requestDataMap;
 	}
 }
