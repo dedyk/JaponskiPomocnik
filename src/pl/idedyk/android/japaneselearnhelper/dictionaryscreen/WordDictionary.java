@@ -613,13 +613,17 @@ public class WordDictionary extends Activity {
 					}
 				}
 			}
-			
+						
 			if (searchDictionaryEntryList.size() == 0) {
 				Toast toast = Toast.makeText(WordDictionary.this, getString(R.string.word_dictionary_search_options_search_word_no_entries), Toast.LENGTH_SHORT);
 				
 				toast.show();
 				
 				performSearch = false;
+			}
+			
+			if (searchDictionaryEntryList.size() == DictionaryEntryType.values().length) {
+				searchDictionaryEntryList = null;
 			}
 			
 			findWordRequest.dictionaryEntryTypeList = searchDictionaryEntryList;
