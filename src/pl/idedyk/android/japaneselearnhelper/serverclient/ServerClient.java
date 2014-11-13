@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.serverclient;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpResponse;
@@ -12,6 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -163,7 +165,21 @@ public class ServerClient {
 	        String key = (String)currentPair.getKey();	        
 	        Object value = currentPair.getValue();
 	        
-	        result.put(key, value);
+	        if (value instanceof List<?>) {
+	        	
+	        	JSONArray jsonArray = new JSONArray();
+	        	
+	        	List<?> valueList =  (List<?>)value;
+	        	
+	        	for (Object currentValue : valueList) {					
+	        		jsonArray.put(currentValue.toString());	        		
+	        	}
+	        	
+	        	result.put(key, jsonArray);
+	        	
+	        } else {
+	        	result.put(key, value);
+	        }	        
 	    }
 	    
 	    return result;
@@ -174,8 +190,8 @@ public class ServerClient {
 		Map<String, Object> requestDataMap =  new HashMap<String, Object>();
 		
 		requestDataMap.put("searchMainDictionary", false);
-		requestDataMap.put("searchGrammaFormAndExamples", findWordRequest.searchGrammaFormAndExamples);
-		requestDataMap.put("searchName", findWordRequest.searchName);
+		requestDataMap.put("searchGrammaFormAndExamples", true);
+		requestDataMap.put("searchName", true);
 		
 		requestDataMap.put("word", findWordRequest.word);
 		
