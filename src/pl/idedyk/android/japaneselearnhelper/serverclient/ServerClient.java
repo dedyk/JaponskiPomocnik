@@ -23,7 +23,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
-import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
@@ -32,7 +31,6 @@ import pl.idedyk.japanese.dictionary.api.dto.AttributeType;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
-import pl.idedyk.japanese.dictionary.api.dto.WordType;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -271,24 +269,7 @@ public class ServerClient {
 		for (int resultIdx = 0; resultIdx < resultJsonArray.length(); ++resultIdx) {
 			
 			JSONObject currentJsonObjectResult = resultJsonArray.getJSONObject(resultIdx);
-			
-			/*
-			++ private int id;
-			++ private List<DictionaryEntryType> dictionaryEntryTypeList;
-			++ private AttributeList attributeList;
-			-- private WordType wordType;
-			++ private List<GroupEnum> groups;
-			++ private String prefixKana;
-			++ private String kanji;
-			++ private List<String> kanaList;
-			++ private String prefixRomaji;
-			++ private List<String> romajiList;
-			++ private List<String> translates;
-			++ private String info;
-			private List<String> exampleSentenceGroupIdsList;
-			private boolean name = false;
-			*/
-			
+						
 			DictionaryEntry dictionaryEntry = new DictionaryEntry();
 			
 			// id

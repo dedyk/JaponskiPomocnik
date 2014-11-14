@@ -9,7 +9,6 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
-import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
@@ -17,7 +16,6 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlac
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
-import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -68,7 +66,9 @@ public class WordDictionary extends Activity {
 	private CheckBox searchOptionsRomajiCheckbox;
 	private CheckBox searchOptionsTranslateCheckbox;
 	private CheckBox searchOptionsInfoCheckbox;
+	
 	private CheckBox searchOptionsGrammaExampleSearchCheckbox;
+	private CheckBox searchOptionsSearchNamesCheckbox;
 	
 	//private RadioButton searchOptionsAnyPlaceRadioButton;
 	private RadioButton searchOptionsStartWithPlaceRadioButton;
@@ -112,6 +112,7 @@ public class WordDictionary extends Activity {
 		bundle.putBoolean("searchOptionsTranslateCheckbox", searchOptionsTranslateCheckbox.isChecked());
 		bundle.putBoolean("searchOptionsInfoCheckbox", searchOptionsInfoCheckbox.isChecked());
 		bundle.putBoolean("searchOptionsGrammaExampleSearchCheckbox", searchOptionsGrammaExampleSearchCheckbox.isChecked());
+		bundle.putBoolean("searchOptionsSearchNamesCheckbox", searchOptionsSearchNamesCheckbox.isChecked());
 		
 		//bundle.putBoolean("searchOptionsAnyPlaceRadioButton", searchOptionsAnyPlaceRadioButton.isChecked());
 		bundle.putBoolean("searchOptionsStartWithPlaceRadioButton", searchOptionsStartWithPlaceRadioButton.isChecked());
@@ -142,6 +143,7 @@ public class WordDictionary extends Activity {
 		searchOptionsTranslateCheckbox.setChecked(bundle.getBoolean("searchOptionsTranslateCheckbox"));
 		searchOptionsInfoCheckbox.setChecked(bundle.getBoolean("searchOptionsInfoCheckbox"));
 		searchOptionsGrammaExampleSearchCheckbox.setChecked(bundle.getBoolean("searchOptionsGrammaExampleSearchCheckbox"));
+		searchOptionsSearchNamesCheckbox.setChecked(bundle.getBoolean("searchOptionsSearchNamesCheckbox"));
 		
 		//searchOptionsAnyPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsAnyPlaceRadioButton"));
 		searchOptionsStartWithPlaceRadioButton.setChecked(bundle.getBoolean("searchOptionsStartWithPlaceRadioButton"));
@@ -241,6 +243,7 @@ public class WordDictionary extends Activity {
 		searchOptionsTranslateCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_translate_checkbox);
 		searchOptionsInfoCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_info_checkbox);
 		searchOptionsGrammaExampleSearchCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_gramma_examples_checkbox);
+		searchOptionsSearchNamesCheckbox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_names_checkbox);
 		
 		//searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_any_place_radiobutton);
 		searchOptionsStartWithPlaceRadioButton = (RadioButton)findViewById(R.id.word_dictionary_search_options_search_startwith_radiobutton);
@@ -262,6 +265,7 @@ public class WordDictionary extends Activity {
 		searchOptionsTranslateCheckbox.setOnClickListener(searchOptionsOnClick);
 		searchOptionsInfoCheckbox.setOnClickListener(searchOptionsOnClick);	
 		searchOptionsGrammaExampleSearchCheckbox.setOnClickListener(searchOptionsOnClick);
+		searchOptionsSearchNamesCheckbox.setOnClickListener(searchOptionsOnClick);
 		
 		//searchOptionsAnyPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		searchOptionsStartWithPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
@@ -408,6 +412,7 @@ public class WordDictionary extends Activity {
 			searchOptionsTranslateCheckbox.setChecked(findWordRequest.searchTranslate);
 			searchOptionsInfoCheckbox.setChecked(findWordRequest.searchInfo);
 			searchOptionsGrammaExampleSearchCheckbox.setChecked(findWordRequest.searchGrammaFormAndExamples);
+			searchOptionsSearchNamesCheckbox.setChecked(findWordRequest.searchName);
 			
 			inputFindWord = findWordRequest.word;
 		}
@@ -455,6 +460,7 @@ public class WordDictionary extends Activity {
 	
 	private void performSearch(final String findWord) {
 		
+		/*
 		// sprawdzic, czy nalezy przliczyc wszystkie formy i je zapisac do bazy danych
 		if (searchOptionsGrammaExampleSearchCheckbox.isChecked() == true) {
 			
@@ -562,7 +568,10 @@ public class WordDictionary extends Activity {
 			}
 		} else {
 			performRealSearch(findWord);			
-		}		
+		}
+		*/
+		
+		performRealSearch(findWord);
 	}
 	
 	private void performRealSearch(final String findWord) {
@@ -583,7 +592,9 @@ public class WordDictionary extends Activity {
 		findWordRequest.searchTranslate = searchOptionsTranslateCheckbox.isChecked();
 		findWordRequest.searchInfo = searchOptionsInfoCheckbox.isChecked();
 		
+		findWordRequest.searchMainDictionary = true;
 		findWordRequest.searchGrammaFormAndExamples = searchOptionsGrammaExampleSearchCheckbox.isChecked();
+		findWordRequest.searchName = searchOptionsSearchNamesCheckbox.isChecked();
 		
 		/*
 		if (searchOptionsAnyPlaceRadioButton.isChecked() == true) {
@@ -653,20 +664,28 @@ public class WordDictionary extends Activity {
 				@Override
 				protected FindWordResult doInBackground(Void... params) {
 					
-					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
+					FindWordResult findWordResult = null;
 					
-					int fixme2 = 1;
-					//FindWordResult findWordResult = dictionaryManager.findWord(findWordRequest);
-					
-					int fixme3 = 1;
-					findWordRequest.searchGrammaFormAndExamples = true;
-					findWordRequest.searchName = true;
-					
-					int fixme = 1;
-					ServerClient serverClient = new ServerClient();
-					
-					FindWordResult findWordResult = serverClient.search(findWordRequest);
-					
+					if (findWordRequest.searchGrammaFormAndExamples == false && findWordRequest.searchName == false) { // szukanie lokalne
+						
+						final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
+						
+						findWordResult = dictionaryManager.findWord(findWordRequest);
+						
+					} else { // szukanie na serwerze
+						
+						ServerClient serverClient = new ServerClient();
+						
+						findWordResult = serverClient.search(findWordRequest);
+						
+						if (findWordResult == null) { // jesli szukanie nie powiodlo sie, szukaj lokalnie
+							
+							final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
+							
+							findWordResult = dictionaryManager.findWord(findWordRequest);							
+						}						
+					}
+										
 					return findWordResult;
 				}
 				
@@ -689,8 +708,11 @@ public class WordDictionary extends Activity {
 			        
 			        progressDialog.dismiss();
 			        
-			        if (foundWord.result.size() == 0 && automaticSendMissingWordCheckBox.isChecked() == true) {			        
-			        	sendMissingWord(findWordRequest);
+			        if (foundWord.result.size() == 0 && automaticSendMissingWordCheckBox.isChecked() == true) {	
+			        	
+			        	if (findWordRequest.searchGrammaFormAndExamples == false && findWordRequest.searchName == false) { // tylko dla szukania lokalnego
+			        		sendMissingWord(findWordRequest);
+			        	}			        	
 			        }
 			    }
 			    
