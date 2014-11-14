@@ -722,12 +722,16 @@ public class WordDictionaryDetails extends Activity {
 		// dictionary groups
 		List<GroupEnum> groups = dictionaryEntry.getGroups();
 
-		report.add(new StringValue("", 15.0f, 2));
-		report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_groups), 0));
+		if (groups != null && groups.size() > 0) {
+			
+			report.add(new StringValue("", 15.0f, 2));
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_groups), 0));
 
-		for (int groupsIdx = 0; groupsIdx < groups.size(); ++groupsIdx) {
-			report.add(new StringValue(String.valueOf(groups.get(groupsIdx).getValue()), 20.0f, 0));
+			for (int groupsIdx = 0; groupsIdx < groups.size(); ++groupsIdx) {
+				report.add(new StringValue(String.valueOf(groups.get(groupsIdx).getValue()), 20.0f, 0));
+			}
 		}
+		
 
 		/*
 		// dictionary position

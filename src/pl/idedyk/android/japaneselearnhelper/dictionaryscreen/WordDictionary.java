@@ -655,12 +655,17 @@ public class WordDictionary extends Activity {
 					
 					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
 					
-					FindWordResult findWordResult = dictionaryManager.findWord(findWordRequest);
+					int fixme2 = 1;
+					//FindWordResult findWordResult = dictionaryManager.findWord(findWordRequest);
+					
+					int fixme3 = 1;
+					findWordRequest.searchGrammaFormAndExamples = true;
+					findWordRequest.searchName = true;
 					
 					int fixme = 1;
 					ServerClient serverClient = new ServerClient();
 					
-					serverClient.search(findWordRequest);
+					FindWordResult findWordResult = serverClient.search(findWordRequest);
 					
 					return findWordResult;
 				}
