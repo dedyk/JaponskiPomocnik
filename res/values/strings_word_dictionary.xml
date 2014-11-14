@@ -40,4 +40,5 @@
     <string name="word_dictionary_search_options_search_word_entry_type_label">Typ szukanych słów</string>
     <string name="word_dictionary_search_options_search_word_entry_type_other">pozostałe</string>
     <string name="word_dictionary_search_options_search_word_no_entries">Nie wybrano typu szukania słów</string>
+    <string name="word_dictionary_search_options_search_word_server_client_error">Nie udało się wyszukać na serwerze. Wykonano lokalne wyszukiwanie.</string>
 </resources>

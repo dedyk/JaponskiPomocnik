@@ -655,6 +655,12 @@ public class WordDictionary extends Activity {
 		
 		if (findWord != null && findWord.length() > 0 && performSearch == true) {
 			
+			class LocalSearchWrapper {
+				public Boolean tryServerSearchThenPerformLocalSearch = null;
+			}
+			
+			final LocalSearchWrapper localSearchWrapper = new LocalSearchWrapper();
+			
 			final ProgressDialog progressDialog = ProgressDialog.show(WordDictionary.this, 
 					getString(R.string.word_dictionary_searching1),
 					getString(R.string.word_dictionary_searching2));
@@ -679,7 +685,9 @@ public class WordDictionary extends Activity {
 						findWordResult = serverClient.search(findWordRequest);
 						
 						if (findWordResult == null) { // jesli szukanie nie powiodlo sie, szukaj lokalnie
-							
+														
+							localSearchWrapper.tryServerSearchThenPerformLocalSearch = Boolean.TRUE;
+														
 							final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
 							
 							findWordResult = dictionaryManager.findWord(findWordRequest);							
@@ -707,6 +715,13 @@ public class WordDictionary extends Activity {
 					searchResultArrayAdapter.notifyDataSetChanged();
 			        
 			        progressDialog.dismiss();
+			        
+			        if (localSearchWrapper.tryServerSearchThenPerformLocalSearch != null && localSearchWrapper.tryServerSearchThenPerformLocalSearch == Boolean.TRUE) {
+			        	
+			        	Toast toast = Toast.makeText(WordDictionary.this, getString(R.string.word_dictionary_search_options_search_word_server_client_error), Toast.LENGTH_SHORT);
+						
+						toast.show();			        	
+			        }
 			        
 			        if (foundWord.result.size() == 0 && automaticSendMissingWordCheckBox.isChecked() == true) {	
 			        	
