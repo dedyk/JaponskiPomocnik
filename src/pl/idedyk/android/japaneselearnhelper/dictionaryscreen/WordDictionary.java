@@ -680,9 +680,17 @@ public class WordDictionary extends Activity {
 						
 					} else { // szukanie na serwerze
 						
+						PackageInfo packageInfo = null;
+				        
+				        try {
+				        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+				        	
+				        } catch (NameNotFoundException e) {        	
+				        }						
+						
 						ServerClient serverClient = new ServerClient();
 						
-						findWordResult = serverClient.search(findWordRequest);
+						findWordResult = serverClient.search(packageInfo, findWordRequest);
 						
 						if (findWordResult == null) { // jesli szukanie nie powiodlo sie, szukaj lokalnie
 														
@@ -851,10 +859,18 @@ public class WordDictionary extends Activity {
 			@Override
 			protected Void doInBackground(Void... params) {
 				
-				try {				
+				try {
+					PackageInfo packageInfo = null;
+			        
+			        try {
+			        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+			        	
+			        } catch (NameNotFoundException e) {        	
+			        }						
+					
 					ServerClient serverClient = new ServerClient();
 										
-					serverClient.sendMissingWord(findWordRequest.word, findWordRequest.wordPlaceSearch);
+					serverClient.sendMissingWord(packageInfo, findWordRequest.word, findWordRequest.wordPlaceSearch);
 					
 				} catch (Exception e) {
 					// noop

@@ -32,6 +32,7 @@ import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
@@ -50,7 +51,7 @@ public class ServerClient {
 				
 	}
 	
-	public void sendMissingWord(String word, WordPlaceSearch wordPlaceSearch) {
+	public void sendMissingWord(PackageInfo packageInfo, String word, WordPlaceSearch wordPlaceSearch) {
 		
 		boolean connected = isConnected();
 		
@@ -73,6 +74,7 @@ public class ServerClient {
 			// ustaw naglowki
 			httpPost.setHeader("Accept", "application/json");
 			httpPost.setHeader("Content-type", "application/json");
+			httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
 			
 			// przygotuj dane wejsciowe
 			Map<String, Object> requestDataMap = new HashMap<String, Object>();
@@ -101,7 +103,18 @@ public class ServerClient {
 		}
 	}
 	
-	public FindWordResult search(FindWordRequest findWordRequest) {
+	private String createUserAgent(PackageInfo packageInfo) {
+		
+		StringBuffer sb = new StringBuffer("JapaneseAndroidLearnHelper");
+		
+		if (packageInfo != null) {			
+			sb.append("/" + packageInfo.versionCode + "/" + packageInfo.versionName);
+		}
+				
+		return sb.toString();
+	}
+
+	public FindWordResult search(PackageInfo packageInfo, FindWordRequest findWordRequest) {
 		
 		boolean connected = isConnected();
 		
@@ -124,6 +137,7 @@ public class ServerClient {
 			// ustaw naglowki
 			httpPost.setHeader("Accept", "application/json");
 			httpPost.setHeader("Content-type", "application/json");
+			httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
 			
 			// przygotuj dane wejsciowe
 			Map<String, Object> requestDataMap = createMapFromFindWordRequest(findWordRequest);
@@ -140,7 +154,7 @@ public class ServerClient {
 			
 			int statusCode = statusLine.getStatusCode();			
 			
-			if (statusCode < 200 || statusCode >= 300) {
+			if (statusCode != 200) {
 				Log.e("ServerClient", "Error search: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
 				
 				return null;
