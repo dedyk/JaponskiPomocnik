@@ -183,17 +183,17 @@ public class DBGenerator {
 			// count form for dictionary entry
 			Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
 
-			GrammaConjugaterManager.getGrammaConjufateResult(keigoHelper, entry, grammaFormCache, null);
+			GrammaConjugaterManager.getGrammaConjufateResult(keigoHelper, entry, grammaFormCache, null, true);
 
 			for (DictionaryEntryType currentDictionaryEntryType : entry.getDictionaryEntryTypeList()) {
 				GrammaConjugaterManager.getGrammaConjufateResult(keigoHelper, entry, grammaFormCache,
-						currentDictionaryEntryType);
+						currentDictionaryEntryType, true);
 			}
 
-			ExampleManager.getExamples(keigoHelper, entry, grammaFormCache, null);
+			ExampleManager.getExamples(keigoHelper, entry, grammaFormCache, null, true);
 
 			for (DictionaryEntryType currentDictionaryEntryType : entry.getDictionaryEntryTypeList()) {
-				ExampleManager.getExamples(keigoHelper, entry, grammaFormCache, currentDictionaryEntryType);
+				ExampleManager.getExamples(keigoHelper, entry, grammaFormCache, currentDictionaryEntryType, true);
 			}
 
 			insertDictionaryEntry(statement, entry);
