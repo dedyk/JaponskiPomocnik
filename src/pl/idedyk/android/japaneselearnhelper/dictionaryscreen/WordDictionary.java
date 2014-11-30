@@ -577,7 +577,8 @@ public class WordDictionary extends Activity {
 	private void performRealSearch(final String findWord) {
 		
 		// logowanie
-		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(getString(R.string.logs_word_dictionary), getString(R.string.logs_word_dictionary_search_event));
+		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(getString(R.string.logs_word_dictionary), getString(R.string.logs_word_dictionary_search_event),
+				findWord);
 			
 		searchResultList.clear();
 						

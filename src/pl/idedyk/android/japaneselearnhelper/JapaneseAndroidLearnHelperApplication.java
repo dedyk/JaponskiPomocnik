@@ -167,12 +167,14 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 		tracker.send(new HitBuilders.AppViewBuilder().build());		
 	}
 	
-	public void logEvent(String screenName, String actionName) {
+	public void logEvent(String screenName, String actionName, String label) {
 		
 		Tracker tracker = getTracker();
 		
 		tracker.send(new HitBuilders.EventBuilder()
 				.setCategory(screenName)
-				.setAction(actionName).build());		
+				.setAction(actionName).
+				setLabel(label).
+				build());		
 	}
 }
