@@ -229,8 +229,7 @@ public class KanjiTestOptionsActivity extends Activity {
 					kanjiTestConfig.setOwnGroupKanjiList(groupName, userSelectedKanjiStringList);
 					
 					// wyswietlenie listy grup
-					int fixme = 1;
-					
+					showOwnGroupList();					
 				}
 			});
 
@@ -660,6 +659,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			@Override
 			public void onClick(View view) {
+				
+				int fixme = 1; //nowe elementy
 
 				StringBuffer detailsSb = new StringBuffer();
 
@@ -813,7 +814,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					kanjiGroupList.add(currentKanjiGroupCheckBox);
 
-					mainLayout.addView(currentKanjiGroupCheckBox, mainLayout.getChildCount() - 2);
+					mainLayout.addView(currentKanjiGroupCheckBox, mainLayout.getChildCount() - 3);
 
 					currentKanjiGroupCheckBox.setOnClickListener(new OnClickListener() {
 
@@ -856,6 +857,85 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		new PrepareAsyncTask().execute();
 	}
+	
+	private void showOwnGroupList() {
+		
+		final LinearLayout mainLayout = (LinearLayout) findViewById(R.id.kanji_test_options_main_layout);
+		
+		final View startView = findViewById(R.id.kanji_test_options_choose_own_kanji_group);
+		final View stopView = (TextView) findViewById(R.id.kanji_test_options_chosen_kanji);
+		
+		boolean startDelete = false;
+
+		for (int idx = 0; idx < mainLayout.getChildCount(); ++idx) {
+
+			View currentMainLayoutChildView = mainLayout.getChildAt(idx);
+
+			if (currentMainLayoutChildView == startView) {
+				startDelete = true;
+
+				continue;
+			}
+			
+			if (currentMainLayoutChildView == stopView) {
+				break;
+			}
+
+			if (startDelete == true) {
+				mainLayout.removeView(currentMainLayoutChildView);
+
+				idx--;
+			}
+		}
+		
+		final KanjiTestConfig kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance()
+				.getConfigManager(KanjiTestOptionsActivity.this).getKanjiTestConfig();
+
+		List<String> ownGroupList = kanjiTestConfig.getOwnGroupList();
+
+		boolean startAdd = false;
+
+		for (int idx = 0; idx < mainLayout.getChildCount(); ++idx) {
+
+			View currentMainLayoutChildView = mainLayout.getChildAt(idx);
+
+			if (currentMainLayoutChildView == startView) {
+				startAdd = true;
+
+				continue;
+			}
+			
+			if (startAdd == true) {
+				
+				int counter = 0;
+				
+				for (String currentOwnGroupName : ownGroupList) {
+					
+					CheckBox currentKanjiGroupCheckBox = new CheckBox(KanjiTestOptionsActivity.this);
+
+					currentKanjiGroupCheckBox.setLayoutParams(new LinearLayout.LayoutParams(
+							LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+					currentKanjiGroupCheckBox.setTextSize(12);
+
+					currentKanjiGroupCheckBox.setText(currentOwnGroupName);
+
+					int fixme = 1;
+					//currentKanjiGroupCheckBox.setChecked(chosenKanjiGroup.contains(currentKanjiGroup.getValue()));
+
+					//currentKanjiGroupCheckBox.setTag(kanjiGroups.get(currentKanjiGroup));
+
+					//kanjiGroupList.add(currentKanjiGroupCheckBox);
+
+					mainLayout.addView(currentKanjiGroupCheckBox, idx + counter);
+					
+					counter++;
+				}
+				
+				break;
+			}			
+		}		
+	}	
 
 	private void showSelectedKanji() {
 

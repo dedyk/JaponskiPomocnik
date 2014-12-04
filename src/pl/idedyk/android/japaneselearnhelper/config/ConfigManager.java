@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.config;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -359,10 +360,13 @@ public class ConfigManager {
 			
 			String ownGroupListString = preferences.getString(kanjiTestConfigPrefix + kanjiTestOwnGroupListPostfix, "");
 			
-			String[] ownGroupListStringSplited = ownGroupListString.split("\n");
+			String[] ownGroupListStringSplited = ownGroupListString.split(",");
 			
 			for (String currentOwnGroupList : ownGroupListStringSplited) {
-				result.add(currentOwnGroupList);
+				
+				if (currentOwnGroupList.trim().equals("") == false) {
+					result.add(currentOwnGroupList);
+				}				
 			}
 			
 			return result;
@@ -375,7 +379,7 @@ public class ConfigManager {
 			for (int idx = 0; idx < ownGroupList.size(); ++idx) {
 				
 				if (idx != 0) {
-					ownGroupListStringBuffer.append("\n");
+					ownGroupListStringBuffer.append(",");
 				}
 				
 				ownGroupListStringBuffer.append(ownGroupList.get(idx));
@@ -398,7 +402,13 @@ public class ConfigManager {
 			
 			ownGroupList.add(groupName);
 			
-			Collections.sort(ownGroupList);
+			Collections.sort(ownGroupList, new Comparator<String>() {
+
+				@Override
+				public int compare(String lhs, String rhs) {
+					return lhs.compareToIgnoreCase(rhs);
+				}
+			});
 			
 			setOwnGroupList(ownGroupList);
 		}
