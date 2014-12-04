@@ -57,9 +57,13 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		menu.add(Menu.NONE, R.id.kanji_test_options_input_kanji_to_test, Menu.NONE,
 				R.string.kanji_test_options_input_kanji_to_test);
+		
 		menu.add(Menu.NONE, R.id.kanji_test_options_clear_selected_kanji, Menu.NONE,
 				R.string.kanji_test_options_clear_selected_kanji);
 
+		menu.add(Menu.NONE, R.id.kanji_test_options_save_current_kanji_list_as_own_group, Menu.NONE,
+				R.string.kanji_test_options_save_current_kanji_list_as_own_group);
+		
 		return true;
 	}
 
@@ -151,8 +155,98 @@ public class KanjiTestOptionsActivity extends Activity {
 					getString(R.string.kanji_test_options_clear_selected_kanji_all), Toast.LENGTH_SHORT).show();
 
 			return true;
-		}
+			
+		} else if (item.getItemId() == R.id.kanji_test_options_save_current_kanji_list_as_own_group) {
+			
+			final List<KanjiEntry> userSelectedKanjiList = kanjiList.getUserSelectedKanjiList();
+						
+			if (userSelectedKanjiList.size() == 0) {
+				
+				Toast.makeText(KanjiTestOptionsActivity.this,
+						getString(R.string.kanji_test_options_save_current_kanji_list_as_own_group_please_choose_kanji),
+						Toast.LENGTH_SHORT).show();
+								
+				return true;
+			}
+			
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
+			alert.setTitle(getString(R.string.kanji_test_options_save_current_kanji_list_as_own_group_dialog_title));
+
+			// Set an EditText view to get user input 
+			final EditText input = new EditText(this);
+			
+			input.setSingleLine(true);
+			
+			alert.setView(input);
+
+			alert.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int whichButton) {
+					
+					String groupName = input.getText().toString();
+					
+					boolean isCorrectGroupName = true;
+										
+					if (groupName == null || groupName.trim().equals("") == true) {						
+						isCorrectGroupName = false;						
+					}
+					
+					if (isCorrectGroupName == true) {
+						
+						if (groupName.matches("([A-Z]|[a-z]| |[0-9])*") == false) {
+							isCorrectGroupName = false;	
+						}						
+					}
+					
+					if (isCorrectGroupName == false) {
+						
+						Toast.makeText(KanjiTestOptionsActivity.this,
+								getString(R.string.kanji_test_options_save_current_kanji_list_as_own_group_incorrect_group_name),
+								Toast.LENGTH_SHORT).show();
+						
+						return;
+					}					
+					
+					final KanjiTestConfig kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance()
+							.getConfigManager(KanjiTestOptionsActivity.this).getKanjiTestConfig();
+
+					// jesli grupa nieistnieje, dodaj ja
+					if (kanjiTestConfig.isOwnGroupExists(groupName) == false) {
+						
+						// dodanie grupy
+						kanjiTestConfig.addOwnGroup(groupName);
+					}					
+					
+					// zapisanie znakow do grupy
+					List<String> userSelectedKanjiStringList = new ArrayList<String>();
+					
+					for (KanjiEntry kanjiEntry : userSelectedKanjiList) {
+						userSelectedKanjiStringList.add(kanjiEntry.getKanji());
+					}
+					
+					kanjiTestConfig.setOwnGroupKanjiList(groupName, userSelectedKanjiStringList);
+					
+					// wyswietlenie listy grup
+					int fixme = 1;
+					
+				}
+			});
+
+			alert.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int whichButton) {
+					// noop
+				}
+			});
+
+			alert.show();
+
+			return true;			
+		}
+		
 		return false;
 	}
 

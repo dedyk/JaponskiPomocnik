@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.config;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -204,8 +205,12 @@ public class ConfigManager {
 		
 		private final String kanjiTestDedicateExamplePostfix = "dedicateExample";
 		
-		private final String kanjiTestMaxTestSize = "maxTestSize";
+		private final String kanjiTestMaxTestSizePostfix = "maxTestSize";
+		
+		private final String kanjiTestOwnGroupListPostfix = "ownGroupList";
 
+		private final String kanjiTestOwnGroup = "ownGroup";
+		
 		public KanjiTestMode getKanjiTestMode() {
 			
 			String kanjiTestMode = preferences.getString(kanjiTestConfigPrefix + kanjiTestModePostfix, KanjiTestMode.DRAW_KANJI_FROM_MEANING.toString());
@@ -336,17 +341,98 @@ public class ConfigManager {
 		}
 
 		public Integer getMaxTestSize() {			
-			return preferences.getInt(kanjiTestConfigPrefix + kanjiTestMaxTestSize, 1000);			
+			return preferences.getInt(kanjiTestConfigPrefix + kanjiTestMaxTestSizePostfix, 1000);			
 		}
 		
 		public void setMaxTestSize(int maxTestSize) {
 			
 			Editor editor = preferences.edit();
 			
-			editor.putInt(kanjiTestConfigPrefix + kanjiTestMaxTestSize, maxTestSize);
+			editor.putInt(kanjiTestConfigPrefix + kanjiTestMaxTestSizePostfix, maxTestSize);
 			
 			editor.commit();			
-		}	
+		}
+		
+		public List<String> getOwnGroupList() {
+			
+			List<String> result = new ArrayList<String>();
+			
+			String ownGroupListString = preferences.getString(kanjiTestConfigPrefix + kanjiTestOwnGroupListPostfix, "");
+			
+			String[] ownGroupListStringSplited = ownGroupListString.split("\n");
+			
+			for (String currentOwnGroupList : ownGroupListStringSplited) {
+				result.add(currentOwnGroupList);
+			}
+			
+			return result;
+		}
+		
+		public void setOwnGroupList(List<String> ownGroupList) {
+			
+			StringBuffer ownGroupListStringBuffer = new StringBuffer();
+			
+			for (int idx = 0; idx < ownGroupList.size(); ++idx) {
+				
+				if (idx != 0) {
+					ownGroupListStringBuffer.append("\n");
+				}
+				
+				ownGroupListStringBuffer.append(ownGroupList.get(idx));
+			}
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(kanjiTestConfigPrefix + kanjiTestOwnGroupListPostfix, ownGroupListStringBuffer.toString());
+			
+			editor.commit();
+		}
+		
+		public void addOwnGroup(String groupName) {
+			
+			List<String> ownGroupList = getOwnGroupList();
+			
+			if (ownGroupList.contains(groupName) == true) {
+				throw new RuntimeException("Try to add already exists group");
+			}
+			
+			ownGroupList.add(groupName);
+			
+			Collections.sort(ownGroupList);
+			
+			setOwnGroupList(ownGroupList);
+		}
+		
+		public boolean isOwnGroupExists(String groupName) {
+			
+			List<String> ownGroupList = getOwnGroupList();
+			
+			return ownGroupList.contains(groupName);
+		}
+		
+		public void setOwnGroupKanjiList(String ownGroupName, List<String> ownGroupKanjiList) {
+			
+			StringBuffer ownGroupKanjiListStringBuffer = new StringBuffer();
+			
+			for (int idx = 0; idx < ownGroupKanjiList.size(); ++idx) {
+				
+				if (idx != 0) {
+					ownGroupKanjiListStringBuffer.append(",");
+				}
+				
+				ownGroupKanjiListStringBuffer.append(ownGroupKanjiList.get(idx));
+			}
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(kanjiTestConfigPrefix + kanjiTestOwnGroup + "_" + escapeOwnGroupName(ownGroupName), ownGroupKanjiListStringBuffer.toString());
+			
+			editor.commit();
+		}
+
+		private String escapeOwnGroupName(String ownGroupName) {
+			return ownGroupName.replaceAll(" ", "_");			
+		}
 	}
 	
 	public class SplashConfig {
