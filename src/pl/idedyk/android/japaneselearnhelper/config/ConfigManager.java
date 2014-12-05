@@ -458,12 +458,13 @@ public class ConfigManager {
 			int counter = 0;
 			
 			while (ownGroupKanjiListIterator.hasNext() == true) {
-							
-				if (counter != ownGroupKanjiList.size() - 1) {
+				
+				if (counter != 0) {
 					ownGroupKanjiListStringBuffer.append(",");
 				}
-				
+											
 				ownGroupKanjiListStringBuffer.append(ownGroupKanjiListIterator.next());
+								
 				counter++;
 			}
 			
