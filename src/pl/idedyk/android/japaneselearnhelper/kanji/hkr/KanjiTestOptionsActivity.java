@@ -678,8 +678,6 @@ public class KanjiTestOptionsActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				
-				int fixme = 1; //nowe elementy
-
 				StringBuffer detailsSb = new StringBuffer();
 
 				detailsSb.append("***" + testModeTextView.getText() + "***\n\n");
@@ -709,7 +707,7 @@ public class KanjiTestOptionsActivity extends Activity {
 				detailsSb.append(dedicateExampleCheckBox.isChecked() + " - " + dedicateExampleCheckBox.getText())
 						.append("\n\n");
 
-				detailsSb.append("***" + chooseKanjiGroupTextView.getText() + "***\n\n"); // tutaj
+				detailsSb.append("***" + chooseKanjiGroupTextView.getText() + "***\n\n");
 
 				for (CheckBox currentKanjiGroupList : kanjiGroupList) {
 
@@ -719,6 +717,21 @@ public class KanjiTestOptionsActivity extends Activity {
 							.append("\n");
 				}
 
+				final TextView chooseOwnKanjiGroup = (TextView)findViewById(R.id.kanji_test_options_choose_own_kanji_group);
+				
+				if (chooseOwnKanjiGroup.getVisibility() == View.VISIBLE) {
+					
+					detailsSb.append("***" + chooseOwnKanjiGroup.getText() + "***\n\n");
+
+					for (CheckBox currentOwnKanjiGroupList : kanjiOwnGroupList) {
+
+						String currentKanjiOwnGroupListText = currentOwnKanjiGroupList.getText().toString();
+
+						detailsSb.append(currentOwnKanjiGroupList.isChecked() + " - " + currentKanjiOwnGroupListText)
+								.append("\n");
+					}					
+				}
+				
 				detailsSb.append("\n***" + chosenKanjiTextView.getText() + "***\n\n");
 
 				for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getAllKanjiList()) {
@@ -957,8 +970,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				
 				Set<String> chosenOwnKanjiGroup = kanjiTestConfig.getChosenOwnKanjiGroup();
 				
-				for (String currentOwnGroupName : ownGroupList) {
-					
+				for (final String currentOwnGroupName : ownGroupList) {
+										
 					CheckBox currentKanjiGroupCheckBox = new CheckBox(KanjiTestOptionsActivity.this);
 
 					currentKanjiGroupCheckBox.setLayoutParams(new LinearLayout.LayoutParams(
@@ -979,9 +992,68 @@ public class KanjiTestOptionsActivity extends Activity {
 							fillKanjiGroupKanjis();
 						}
 					});
+					
+					LinearLayout linearLayout = new LinearLayout(this);
+
+					LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+							LayoutParams.WRAP_CONTENT);
+					linearLayout.setLayoutParams(layoutParams);
+
+					// delete icon
+					ImageView deleteImageView = new ImageView(this);
+
+					LinearLayout.LayoutParams imageLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+							LayoutParams.WRAP_CONTENT);
+					
+					imageLayoutParams.gravity = Gravity.CENTER;
+					imageLayoutParams.leftMargin = 10;
 
 
-					mainLayout.addView(currentKanjiGroupCheckBox, idx + counter);
+					deleteImageView.setLayoutParams(imageLayoutParams);
+					deleteImageView.setImageDrawable(getResources().getDrawable(R.drawable.delete));
+
+					linearLayout.addView(currentKanjiGroupCheckBox);
+					linearLayout.addView(deleteImageView);
+
+					// actions: delete
+					View.OnClickListener deleteOnClickListener = new View.OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							
+							DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									switch (which) {
+										case DialogInterface.BUTTON_POSITIVE:
+
+											kanjiTestConfig.deleteOwnGroup(currentOwnGroupName);
+											
+											showOwnGroupList();
+
+											break;
+
+										case DialogInterface.BUTTON_NEGATIVE:
+
+											// noop
+
+											break;
+									}
+								}
+							};
+
+							AlertDialog.Builder builder = new AlertDialog.Builder(KanjiTestOptionsActivity.this);
+
+							builder.setMessage(getString(R.string.kanji_test_delete_own_group_question, currentOwnGroupName))
+									.setPositiveButton(getString(R.string.kanji_test_delete_own_group_question_yes), dialogClickListener)
+									.setNegativeButton(getString(R.string.kanji_test_delete_own_group_question_no), dialogClickListener).show();							
+						}
+					};
+
+					deleteImageView.setOnClickListener(deleteOnClickListener);
+					
+					mainLayout.addView(linearLayout, idx + counter);
 					
 					counter++;
 				}

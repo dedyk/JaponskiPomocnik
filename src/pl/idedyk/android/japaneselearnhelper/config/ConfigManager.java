@@ -416,6 +416,31 @@ public class ConfigManager {
 			
 			setOwnGroupList(ownGroupList);
 		}
+
+		public void deleteOwnGroup(String ownGroupName) {
+			
+			List<String> ownGroupList = getOwnGroupList();
+			
+			if (ownGroupList.contains(ownGroupName) == false) {
+				throw new RuntimeException("Try to delete doesn't exist group");
+			}
+			
+			ownGroupList.remove(ownGroupName);
+			
+			Collections.sort(ownGroupList, new Comparator<String>() {
+
+				@Override
+				public int compare(String lhs, String rhs) {
+					return lhs.compareToIgnoreCase(rhs);
+				}
+			});
+			
+			setOwnGroupList(ownGroupList);
+			
+			Editor editor = preferences.edit();			
+			editor.remove(kanjiTestConfigPrefix + kanjiTestOwnGroupPostfix + "_" + escapeOwnGroupName(ownGroupName));			
+			editor.commit();
+		}
 		
 		public boolean isOwnGroupExists(String groupName) {
 			

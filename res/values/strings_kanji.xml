@@ -89,6 +89,9 @@
     <string name="kanji_test_options_save_current_kanji_list_as_own_group_please_choose_kanji">Proszę wybrać znaki kanji</string>
     <string name="kanji_test_options_save_current_kanji_list_as_own_group_dialog_title">Wpisz nazwę grupy</string>    
     <string name="kanji_test_options_save_current_kanji_list_as_own_group_incorrect_group_name">Niepoprawna nazwa grupy</string>
+    <string name="kanji_test_delete_own_group_question">Czy napewno chcesz skasować grupę %1$s?</string>
+    <string name="kanji_test_delete_own_group_question_yes">Tak</string>
+    <string name="kanji_test_delete_own_group_question_no">Nie</string>
     <string name="kanji_test_label">Test ze znaków kanji</string>
     <string name="kanji_test_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_test_info_draw_meaning">Proszę dokładnie narysować znak dla znaczenia: %1$s</string>
