@@ -114,7 +114,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/title_background"
-                android:text="@string/kanji_test_options_choose_own_kanji_group" />
+                android:text="@string/kanji_test_options_choose_own_kanji_group"
+                android:visibility="gone" />
             
             <TextView
                 android:id="@+id/kanji_test_options_chosen_kanji"

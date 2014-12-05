@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.RangeTest;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode1;
@@ -210,7 +212,9 @@ public class ConfigManager {
 		
 		private final String kanjiTestOwnGroupListPostfix = "ownGroupList";
 
-		private final String kanjiTestOwnGroup = "ownGroup";
+		private final String kanjiTestOwnGroupPostfix = "ownGroup";
+		
+		private final String kanjiTestChosenOwnGroupPostfix = "chosenOwnGroup";
 		
 		public KanjiTestMode getKanjiTestMode() {
 			
@@ -420,28 +424,86 @@ public class ConfigManager {
 			return ownGroupList.contains(groupName);
 		}
 		
-		public void setOwnGroupKanjiList(String ownGroupName, List<String> ownGroupKanjiList) {
+		public void setOwnGroupKanjiList(String ownGroupName, Set<String> ownGroupKanjiList) {
 			
 			StringBuffer ownGroupKanjiListStringBuffer = new StringBuffer();
 			
-			for (int idx = 0; idx < ownGroupKanjiList.size(); ++idx) {
-				
-				if (idx != 0) {
+			Iterator<String> ownGroupKanjiListIterator = ownGroupKanjiList.iterator();
+			
+			int counter = 0;
+			
+			while (ownGroupKanjiListIterator.hasNext() == true) {
+							
+				if (counter != ownGroupKanjiList.size() - 1) {
 					ownGroupKanjiListStringBuffer.append(",");
 				}
 				
-				ownGroupKanjiListStringBuffer.append(ownGroupKanjiList.get(idx));
+				ownGroupKanjiListStringBuffer.append(ownGroupKanjiListIterator.next());
+				counter++;
 			}
 			
 			Editor editor = preferences.edit();
 			
-			editor.putString(kanjiTestConfigPrefix + kanjiTestOwnGroup + "_" + escapeOwnGroupName(ownGroupName), ownGroupKanjiListStringBuffer.toString());
+			editor.putString(kanjiTestConfigPrefix + kanjiTestOwnGroupPostfix + "_" + escapeOwnGroupName(ownGroupName), ownGroupKanjiListStringBuffer.toString());
 			
 			editor.commit();
+		}
+		
+		public Set<String> getOwnGroupKanjiList(String ownGroupName) {
+			
+			Set<String> result = new TreeSet<String>();
+			
+			String ownGroupKanjiListString = preferences.getString(kanjiTestConfigPrefix + kanjiTestOwnGroupPostfix + "_" + escapeOwnGroupName(ownGroupName), "");
+			
+			String[] ownGroupKanjiListSplitted = ownGroupKanjiListString.split(",");
+			
+			for (String currentOwnGroupKanji : ownGroupKanjiListSplitted) {
+				
+				if (currentOwnGroupKanji.trim().equals("") == false) {
+					result.add(currentOwnGroupKanji);
+				}				
+			}
+			
+			return result;			
 		}
 
 		private String escapeOwnGroupName(String ownGroupName) {
 			return ownGroupName.replaceAll(" ", "_");			
+		}
+		
+		public Set<String> getChosenOwnKanjiGroup() {
+			
+			Set<String> result = new HashSet<String>();
+			
+			String chosenOwnKanjiGroupString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenOwnGroupPostfix, "");
+			
+			String[] chosenOwnKanjiGroupSplited = chosenOwnKanjiGroupString.split(",");
+			
+			for (String currentChosenKanjiGroup : chosenOwnKanjiGroupSplited) {
+				result.add(currentChosenKanjiGroup);
+			}
+			
+			return result;
+		}
+
+		public void setChosenOwnKanjiGroup(List<String> chosenOwnKanjiGroupList) {
+			
+			StringBuffer chosenOwnKanjiGroupStringBuffer = new StringBuffer();
+			
+			for (int idx = 0; idx < chosenOwnKanjiGroupList.size(); ++idx) {
+				
+				if (idx != 0) {
+					chosenOwnKanjiGroupStringBuffer.append(",");
+				}
+				
+				chosenOwnKanjiGroupStringBuffer.append(chosenOwnKanjiGroupList.get(idx));
+			}
+			
+			Editor editor = preferences.edit();
+			
+			editor.putString(kanjiTestConfigPrefix + kanjiTestChosenOwnGroupPostfix, chosenOwnKanjiGroupStringBuffer.toString());
+			
+			editor.commit();
 		}
 	}
 	
