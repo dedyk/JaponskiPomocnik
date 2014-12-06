@@ -102,7 +102,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					for (KanjiEntry currentKanjiEntry : knownKanjiList) {
 
-						if (currentKanjiEntry.isGenerated() == false
+						if (currentKanjiEntry.isUsed() == true
 								&& allKanjisInGroup.contains(currentKanjiEntry.getKanji()) == false) {
 							allKanjisInGroup.add(currentKanjiEntry.getKanji());
 
@@ -779,7 +779,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			protected List<KanjiEntry> doInBackground(Void... arg) {
 
 				return JapaneseAndroidLearnHelperApplication.getInstance()
-						.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, false, true);
+						.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, true);
 			}
 
 			@Override

@@ -471,7 +471,7 @@ public class DBGenerator {
 		}
 
 		values.put(SQLiteStatic.kanjiEntriesTable_strokePaths, Utils.convertListToString(kanjiEntry.getKanjivgEntry().getStrokePaths()));
-		values.put(SQLiteStatic.kanjiEntriesTable_generated, String.valueOf(kanjiEntry.isGenerated()));
+		values.put(SQLiteStatic.kanjiEntriesTable_generated, "false"); // String.valueOf(kanjiEntry.isGenerated()));
 
 		insert(statement, SQLiteStatic.kanjiEntriesTableName, values);
 
