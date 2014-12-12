@@ -680,6 +680,33 @@ public class WordTest extends Activity {
 		EditText wordPrefix18 = (EditText) findViewById(R.id.word_test_word_prefix18);
 		EditText wordInput18 = (EditText) findViewById(R.id.word_test_word_input18);
 
+		TextView wordLabel19 = (TextView) findViewById(R.id.word_test_word_label19);
+		EditText wordPrefix19 = (EditText) findViewById(R.id.word_test_word_prefix19);
+		EditText wordInput19 = (EditText) findViewById(R.id.word_test_word_input19);
+
+		TextView wordLabel20 = (TextView) findViewById(R.id.word_test_word_label20);
+		EditText wordPrefix20 = (EditText) findViewById(R.id.word_test_word_prefix20);
+		EditText wordInput20 = (EditText) findViewById(R.id.word_test_word_input20);
+
+		TextView wordLabel21 = (TextView) findViewById(R.id.word_test_word_label21);
+		EditText wordPrefix21 = (EditText) findViewById(R.id.word_test_word_prefix21);
+		EditText wordInput21 = (EditText) findViewById(R.id.word_test_word_input21);
+
+		TextView wordLabel22 = (TextView) findViewById(R.id.word_test_word_label22);
+		EditText wordPrefix22 = (EditText) findViewById(R.id.word_test_word_prefix22);
+		EditText wordInput22 = (EditText) findViewById(R.id.word_test_word_input22);
+
+		TextView wordLabel23 = (TextView) findViewById(R.id.word_test_word_label23);
+		EditText wordPrefix23 = (EditText) findViewById(R.id.word_test_word_prefix23);
+		EditText wordInput23 = (EditText) findViewById(R.id.word_test_word_input23);
+
+		TextView wordLabel24 = (TextView) findViewById(R.id.word_test_word_label24);
+		EditText wordPrefix24 = (EditText) findViewById(R.id.word_test_word_prefix24);
+		EditText wordInput24 = (EditText) findViewById(R.id.word_test_word_input24);
+
+		TextView wordLabel25 = (TextView) findViewById(R.id.word_test_word_label25);
+		EditText wordPrefix25 = (EditText) findViewById(R.id.word_test_word_prefix25);
+		EditText wordInput25 = (EditText) findViewById(R.id.word_test_word_input25);
 		
 		textViewAndEditTextForWordAsArray = new TextViewAndEditText[Utils.MAX_LIST_SIZE];
 
@@ -701,6 +728,14 @@ public class WordTest extends Activity {
 		textViewAndEditTextForWordAsArray[15] = new TextViewAndEditText(wordLabel16, wordPrefix16, wordInput16);
 		textViewAndEditTextForWordAsArray[16] = new TextViewAndEditText(wordLabel17, wordPrefix17, wordInput17);
 		textViewAndEditTextForWordAsArray[17] = new TextViewAndEditText(wordLabel18, wordPrefix18, wordInput18);
+		
+		textViewAndEditTextForWordAsArray[18] = new TextViewAndEditText(wordLabel19, wordPrefix19, wordInput19);
+		textViewAndEditTextForWordAsArray[19] = new TextViewAndEditText(wordLabel20, wordPrefix20, wordInput20);
+		textViewAndEditTextForWordAsArray[20] = new TextViewAndEditText(wordLabel21, wordPrefix21, wordInput21);
+		textViewAndEditTextForWordAsArray[21] = new TextViewAndEditText(wordLabel22, wordPrefix22, wordInput22);
+		textViewAndEditTextForWordAsArray[22] = new TextViewAndEditText(wordLabel23, wordPrefix23, wordInput23);
+		textViewAndEditTextForWordAsArray[23] = new TextViewAndEditText(wordLabel24, wordPrefix24, wordInput24);
+		textViewAndEditTextForWordAsArray[24] = new TextViewAndEditText(wordLabel25, wordPrefix25, wordInput25);
 
 		for (int idx = 0; idx < textViewAndEditTextForWordAsArray.length; ++idx) {
 
