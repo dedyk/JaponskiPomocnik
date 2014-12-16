@@ -347,29 +347,22 @@ public class DictionaryHear extends Activity {
 		dictionaryEntryTableLayout$kanji.setText(kanjiSb.toString());
 
 		// reading
-		List<String> romajiList = dictionaryEntry.getRomajiList();
-		List<String> kanaList = dictionaryEntry.getKanaList();
+		String romaji = dictionaryEntry.getRomaji();
+		String kana = dictionaryEntry.getKana();
 
 		StringBuffer readingSb = new StringBuffer();
 
-		for (int idx = 0; idx < kanaList.size(); ++idx) {
-
-			if (prefixKana != null) {
-				readingSb.append("(").append(prefixKana).append(") ");
-			}
-
-			readingSb.append(kanaList.get(idx)).append(" - ");
-
-			if (prefixRomaji != null) {
-				readingSb.append("(").append(prefixRomaji).append(") ");
-			}
-
-			readingSb.append(romajiList.get(idx));
-
-			if (idx != kanaList.size() - 1) {
-				readingSb.append("\n");
-			}
+		if (prefixKana != null) {
+			readingSb.append("(").append(prefixKana).append(") ");
 		}
+
+		readingSb.append(kana).append(" - ");
+
+		if (prefixRomaji != null) {
+			readingSb.append("(").append(prefixRomaji).append(") ");
+		}
+
+		readingSb.append(romaji);
 
 		dictionaryEntryTableLayout$reading.setText(readingSb.toString());
 
@@ -487,17 +480,7 @@ public class DictionaryHear extends Activity {
 
 				dictionaryHearContext.setDictionaryEntryListIdx(dictionaryEntryListIdx);
 
-				List<String> kanaList = currentDictionaryEntry.getKanaList();
-
-				StringBuffer japaneseTextSb = new StringBuffer();
-
-				for (int kanaListIdx = 0; kanaListIdx < kanaList.size(); ++kanaListIdx) {
-					japaneseTextSb.append(kanaList.get(kanaListIdx));
-
-					if (kanaListIdx != kanaList.size() - 1) {
-						japaneseTextSb.append("、");
-					}
-				}
+				String kana = currentDictionaryEntry.getKana();
 
 				List<String> translates = currentDictionaryEntry.getTranslates();
 
@@ -519,7 +502,7 @@ public class DictionaryHear extends Activity {
 					polishTranslateSb.append(info).append(", ");
 				}
 
-				japanaeseTtsConnector.speakAndWait(japaneseTextSb.toString());
+				japanaeseTtsConnector.speakAndWait(kana);
 				polishTtsConnector.speakAndWait(polishTranslateSb.toString());
 
 				try {

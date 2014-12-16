@@ -142,8 +142,8 @@ public class TransitiveIntransitivePairsTable extends Activity {
 			final DictionaryEntry intransitivityDictionaryEntry = dictionaryManager.getDictionaryEntryById(intransitiveId);
 
 			// title			
-			StringValue titleStringValue = new StringValue(transitivityDictionaryEntry.getKanji() + " [" + transitivityDictionaryEntry.getRomajiList().get(0) + "] - " 
-					+ intransitivityDictionaryEntry.getKanji() + " [" + intransitivityDictionaryEntry.getRomajiList().get(0) + "]", 15.0f, 2);
+			StringValue titleStringValue = new StringValue(transitivityDictionaryEntry.getKanji() + " [" + transitivityDictionaryEntry.getRomaji() + "] - " 
+					+ intransitivityDictionaryEntry.getKanji() + " [" + intransitivityDictionaryEntry.getRomaji() + "]", 15.0f, 2);
 			
 			titleStringValue.setOnClickListener(new OnClickListener() {
 				
@@ -178,8 +178,8 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		DictionaryEntry intransitivityDictionaryEntry = dictionaryManager.getDictionaryEntryById(intransitiveVerbId);
 		
 		// title 2
-		TitleItem titleItem = new TitleItem(transitivityDictionaryEntry.getKanji() + " [" + transitivityDictionaryEntry.getRomajiList().get(0) + "] - " 
-				+ intransitivityDictionaryEntry.getKanji() + " [" + intransitivityDictionaryEntry.getRomajiList().get(0) + "]", 1);
+		TitleItem titleItem = new TitleItem(transitivityDictionaryEntry.getKanji() + " [" + transitivityDictionaryEntry.getRomaji() + "] - " 
+				+ intransitivityDictionaryEntry.getKanji() + " [" + intransitivityDictionaryEntry.getRomaji() + "]", 1);
 					
 		report.add(titleItem);
 		
@@ -230,10 +230,10 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		}
 		
 		// kana
-		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_kana), listStringToString(dictionaryEntry.getKanaList()), goToVerbDictionaryEntryDetails);
+		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_kana), dictionaryEntry.getKana(), goToVerbDictionaryEntryDetails);
 		
 		// romaji
-		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_romaji), listStringToString(dictionaryEntry.getRomajiList()), goToVerbDictionaryEntryDetails);
+		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_romaji), dictionaryEntry.getRomaji(), goToVerbDictionaryEntryDetails);
 		
 		// translate
 		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_translate), listStringToString(dictionaryEntry.getTranslates()), goToVerbDictionaryEntryDetails);

@@ -621,7 +621,9 @@ public class KanjiTest extends Activity {
 			String kanjiWithRemovedKanji = currentDictionaryEntryWithRemovedKanji.getKanjiWithRemovedKanji();
 			DictionaryEntry dictionaryEntry = currentDictionaryEntryWithRemovedKanji.getDictionaryEntry();
 
+			@SuppressWarnings("deprecation")
 			List<String> kanaList = dictionaryEntry.getKanaList();
+			
 			List<String> translates = dictionaryEntry.getTranslates();
 			String info = dictionaryEntry.getInfo();
 

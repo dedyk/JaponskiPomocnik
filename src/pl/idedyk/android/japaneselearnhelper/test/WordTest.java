@@ -325,6 +325,7 @@ public class WordTest extends Activity {
 			kanjiInput.setVisibility(View.VISIBLE);
 		}
 
+		@SuppressWarnings("deprecation")
 		List<String> kanaList = dictionaryEntry.getKanaList();
 
 		// show kana
@@ -382,6 +383,7 @@ public class WordTest extends Activity {
 
 		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
 
+		@SuppressWarnings("deprecation")
 		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 
 		List<String> kanaListToRemove = new ArrayList<String>(kanaList);
@@ -485,6 +487,7 @@ public class WordTest extends Activity {
 				kanjiInput.setEnabled(false);
 			}
 
+			@SuppressWarnings("deprecation")
 			List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 
 			if (kanaList.size() >= Utils.MAX_LIST_SIZE) {

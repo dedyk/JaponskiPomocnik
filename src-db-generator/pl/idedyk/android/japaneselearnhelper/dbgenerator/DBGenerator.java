@@ -202,6 +202,7 @@ public class DBGenerator {
 		csvReader.close();
 	}
 
+	@SuppressWarnings("deprecation")
 	private static void insertDictionaryEntry(Statement statement, DictionaryEntry dictionaryEntry) throws SQLException {
 
 		Map<String, String> values = new TreeMap<String, String>();

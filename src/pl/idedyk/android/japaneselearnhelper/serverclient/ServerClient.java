@@ -350,7 +350,7 @@ public class ServerClient {
 			}
 			
 			// kanaList
-			dictionaryEntry.setKanaList(convertJSONArrayToListString(currentJsonObjectResult.getJSONArray("kanaList")));
+			dictionaryEntry.setKana(currentJsonObjectResult.getString("kana"));
 			
 			// prefixRomaji
 			if (currentJsonObjectResult.has("prefixRomaji") == true) {
@@ -358,7 +358,7 @@ public class ServerClient {
 			}
 			
 			// romajiList
-			dictionaryEntry.setRomajiList(convertJSONArrayToListString(currentJsonObjectResult.getJSONArray("romajiList")));
+			dictionaryEntry.setRomaji(currentJsonObjectResult.getString("romaji"));
 			
 			// translates
 			dictionaryEntry.setTranslates(convertJSONArrayToListString(currentJsonObjectResult.getJSONArray("translates")));

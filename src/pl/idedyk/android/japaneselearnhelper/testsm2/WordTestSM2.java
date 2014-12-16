@@ -193,6 +193,7 @@ public class WordTestSM2 extends Activity {
 			// check user answer
 			int correctAnswersNo = getCorrectAnswersNo();
 
+			@SuppressWarnings("deprecation")
 			List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 
 			View stateInfoView = findViewById(R.id.word_test_sm2_state_info);
@@ -257,6 +258,7 @@ public class WordTestSM2 extends Activity {
 			kanjiInput.setVisibility(View.VISIBLE);
 		}
 
+		@SuppressWarnings("deprecation")
 		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 
 		// show kana
@@ -315,6 +317,7 @@ public class WordTestSM2 extends Activity {
 
 	private int getCorrectAnswersNo() {
 
+		@SuppressWarnings("deprecation")
 		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 
 		List<String> kanaListToRemove = new ArrayList<String>(kanaList);
