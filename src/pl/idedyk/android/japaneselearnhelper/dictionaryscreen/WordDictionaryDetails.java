@@ -652,69 +652,58 @@ public class WordDictionaryDetails extends Activity {
 					report.add(new StringValue(attributeType.getName(), 15.0f, 0));
 				}
 
-				if (attributeType == AttributeType.VERB_TRANSITIVITY_PAIR
-						|| attributeType == AttributeType.VERB_INTRANSITIVITY_PAIR) {
+				if (	attributeType == AttributeType.VERB_TRANSITIVITY_PAIR ||
+						attributeType == AttributeType.VERB_INTRANSITIVITY_PAIR ||
+						attributeType == AttributeType.ALTERNATIVE) {
 
-					Integer transitivityIntransitivityPairWordId = Integer.parseInt(currentAttribute
-							.getAttributeValue().get(0));
+					Integer referenceWordId = Integer.parseInt(currentAttribute.getAttributeValue().get(0));
 
-					final DictionaryEntry transitivityIntransitivityPairDictionaryEntry = JapaneseAndroidLearnHelperApplication
+					final DictionaryEntry referenceDictionaryEntry = JapaneseAndroidLearnHelperApplication
 							.getInstance().getDictionaryManager(WordDictionaryDetails.this)
-							.getDictionaryEntryById(transitivityIntransitivityPairWordId);
+							.getDictionaryEntryById(referenceWordId);
 
-					if (transitivityIntransitivityPairDictionaryEntry != null) {
+					if (referenceDictionaryEntry != null) {
 
 						StringValue attributeTypeStringValue = new StringValue(attributeType.getName(), 15.0f, 0);
 
-						OnClickListener goToTransitivityIntransitivityPairDictionaryEntryDetails = new OnClickListener() {
+						OnClickListener goToReferenceDictionaryEntryDetails = new OnClickListener() {
 
 							@Override
 							public void onClick(View v) {
 
 								Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
 
-								intent.putExtra("item", transitivityIntransitivityPairDictionaryEntry);
+								intent.putExtra("item", referenceDictionaryEntry);
 
 								startActivity(intent);
 							}
 						};
 
-						attributeTypeStringValue
-								.setOnClickListener(goToTransitivityIntransitivityPairDictionaryEntryDetails);
+						attributeTypeStringValue.setOnClickListener(goToReferenceDictionaryEntryDetails);
 
 						report.add(attributeTypeStringValue);
 
-						List<String> transitivityIntransitivityPairDictionaryEntryKanaList = transitivityIntransitivityPairDictionaryEntry
-								.getKanaList();
-						List<String> transitivityIntransitivityPairDictionaryEntryRomajiList = transitivityIntransitivityPairDictionaryEntry
-								.getRomajiList();
+						String kana = referenceDictionaryEntry.getKana();
+						String romaji = referenceDictionaryEntry.getRomaji();
+						
+						StringBuffer referenceDictionaryEntrySb = new StringBuffer();
 
-						for (int transitivityIntransitivityPairDictionaryEntryKanaListIdx = 0; transitivityIntransitivityPairDictionaryEntryKanaListIdx < transitivityIntransitivityPairDictionaryEntryKanaList
-								.size(); transitivityIntransitivityPairDictionaryEntryKanaListIdx++) {
-
-							StringBuffer transitivityIntrasitivitySb = new StringBuffer();
-
-							if (transitivityIntransitivityPairDictionaryEntry.isKanjiExists() == true) {
-								transitivityIntrasitivitySb.append(
-										transitivityIntransitivityPairDictionaryEntry.getKanji()).append(", ");
-							}
-
-							transitivityIntrasitivitySb.append(
-									transitivityIntransitivityPairDictionaryEntryKanaList
-											.get(transitivityIntransitivityPairDictionaryEntryKanaListIdx))
-									.append(", ");
-							transitivityIntrasitivitySb.append(transitivityIntransitivityPairDictionaryEntryRomajiList
-									.get(transitivityIntransitivityPairDictionaryEntryKanaListIdx));
-
-							StringValue transitivityIntransitivityPairDictionaryEntryKanjiKanaRomajiListStringValue = new StringValue(
-									transitivityIntrasitivitySb.toString(), 15.0f, 1);
-
-							transitivityIntransitivityPairDictionaryEntryKanjiKanaRomajiListStringValue
-									.setOnClickListener(goToTransitivityIntransitivityPairDictionaryEntryDetails);
-
-							report.add(transitivityIntransitivityPairDictionaryEntryKanjiKanaRomajiListStringValue);
+						if (referenceDictionaryEntry.isKanjiExists() == true) {
+							referenceDictionaryEntrySb.append(referenceDictionaryEntry.getKanji()).append(", ");
 						}
+
+						referenceDictionaryEntrySb.append(kana).append(", ");
+						referenceDictionaryEntrySb.append(romaji);
+
+						StringValue referenceDictionaryEntryKanaRomajiStringValue = new StringValue(
+								referenceDictionaryEntrySb.toString(), 15.0f, 1);
+
+						referenceDictionaryEntryKanaRomajiStringValue
+								.setOnClickListener(goToReferenceDictionaryEntryDetails);
+
+						report.add(referenceDictionaryEntryKanaRomajiStringValue);
 					}
+					
 				}
 			}
 		}
