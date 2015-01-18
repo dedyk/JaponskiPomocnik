@@ -79,6 +79,11 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 				
 		keigoHeper = new KeigoHelper();
 	}
+	
+	@Override
+	public void waitForDatabaseReady() {
+		// noop		
+	}
 
 	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName,
 			int versionCode) {
