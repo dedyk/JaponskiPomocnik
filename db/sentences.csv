@@ -636,10 +636,13 @@
 81105,jpn,万事よろしい。
 81114,jpn,万一列車に乗り遅れたら、バスでいきます。
 81120,jpn,万一明日雨が降れば、彼らは行かないだろう。
+81131,jpn,万一彼が訪ねてきたら、彼に私は忙しいといってくれ。
+81169,jpn,万一雨が降れば、園遊会は行われないでしょう。
 81172,jpn,万一雨が降ったら試合は中止になるだろう。
 81173,jpn,万一雨が降ったら試合は中止だ。
 81176,jpn,万一もし５月に雪が降れば、彼らはびっくりするだろう。
 81190,jpn,万一そんなことをしたらあなたはひどい非難を受けるだろう。
+81192,jpn,万一ジェイソンが電話してきたら、僕はいないといってくれ。
 81194,jpn,万一この飛行機が乗っ取られたら、君は一体どうするだろうか。
 81202,jpn,万が一気が変わったら、知らせて下さい。
 81209,jpn,末の娘にはいつもリンゴの３分の１が与えられる。
@@ -1635,6 +1638,7 @@
 93515,jpn,彼女は５人の子供を育てた。
 93537,jpn,彼女は３日ごとにスーパーへ行く。
 93544,jpn,彼女は３カ言語を話すことができる。
+93551,jpn,彼女は３０分ずっとしゃべった。
 93555,jpn,彼女は３０歳を超えているはずはない。
 93561,jpn,彼女は２年生です。
 93569,jpn,彼女は２歳だが、もう１００まで数えられる。
@@ -1794,6 +1798,7 @@
 96178,jpn,彼らは歩道の雪をシャベルで片付けていた。
 96183,jpn,彼らは舗道から雪を取り除いた。
 96186,jpn,彼らは偏見と戦った。
+96206,jpn,彼らは部屋が空っぽだとわかった。
 96207,jpn,彼らは舞台の上で順番に歌を歌った。
 96229,jpn,彼らは貧しい暮らしをしている。
 96275,jpn,彼らは彼を勉強しないので退学させた。
@@ -2969,6 +2974,7 @@
 111348,jpn,彼はノートを取り出した。
 111351,jpn,彼はネコを一匹と犬を二匹飼っている。
 111378,jpn,彼はなんとしても成功したいと願っている。
+111404,jpn,彼はなんでもしゃべってしまいそうです。
 111405,jpn,彼はなんでもぎょうぎょうしく考える人だ。
 111408,jpn,彼はナンシーをひどく嫌っている。
 111416,jpn,彼はなつかしい歌を弾き始めました。
@@ -3288,6 +3294,7 @@
 115389,jpn,彼は、病気で４日間ずっと寝ている。
 115394,jpn,彼は、彼女の説得に最善を尽くした。
 115400,jpn,彼は、彼女が無実だと主張している。
+115401,jpn,彼は、彼女が幸せだと思いこんでいた。
 115424,jpn,彼は長男です。
 115426,jpn,彼は長い距離を歩くのに慣れている。
 115432,jpn,彼は大物だぜ。
@@ -3635,6 +3642,7 @@
 120602,jpn,彼が下に降りてくる足音が聞こえた。
 120605,jpn,彼が駅へ着いたら汽車は出た後だった。
 120617,jpn,彼が英語に堪能ならば、私は彼を雇います。
+120632,jpn,彼が嘘をついたということは明白だ。
 120646,jpn,彼が育った町は大坂の東にある。
 120656,jpn,彼がわたしたちの案内役をつとめた。
 120663,jpn,彼から便りがありましたか。
@@ -3911,6 +3919,7 @@
 123774,jpn,動物に餌をやらないでください。
 123787,jpn,動けないのです。
 123792,jpn,動かないで！
+123799,jpn,働くより仕方ない。
 123803,jpn,働きに出る代わりに一日中家にいた。
 123813,jpn,頭痛を言い訳にして、彼は早く帰った。
 123816,jpn,頭痛に効く薬はありますか。
@@ -3960,6 +3969,7 @@
 124396,jpn,冬あの山に登るのは狂気のさただ。
 124427,jpn,怒った先生はジョニー君を教室から退室させました。
 124430,jpn,怒った市民たちは直ちに行動を起こした。
+124442,jpn,奴ら仕事が何ととろくさいんだ！
 124466,jpn,土曜日に学校はありますか。
 124467,jpn,土曜日に荷造りをするのを手伝ってくれますか。
 124475,jpn,土曜日には何時間授業がありますか。
@@ -4133,7 +4143,9 @@
 126213,jpn,朝食に何をとりたいですか。
 126219,jpn,朝御飯ができています。
 126233,jpn,朝の八時です。
+126272,jpn,喋るのをやめろ。
 126274,jpn,丁度欲しかった物です。
+126276,jpn,丁度おじさんの家に行ってきたところだ。
 126283,jpn,もうすぐ、トムの貯金が底を突く。
 126288,jpn,著者はその本を姉にささげた。
 126300,jpn,駐車場にとめてある車が燃えてます。
@@ -5033,6 +5045,7 @@
 147418,jpn,書架の本は１冊残らず全部読みました。
 147421,jpn,書く紙を一枚ください。
 147431,jpn,書いてくださいますか。
+147454,jpn,暑くて仕方ない。
 147456,jpn,暑くてたまらない。
 147465,jpn,そのマウンテン・バイクはいくらですか。
 147478,jpn,暑いと言わないまでも、暖かい。
@@ -5189,6 +5202,7 @@
 149526,jpn,質問していい？
 149534,jpn,質問があるのですが。
 149535,jpn,質問があります。
+149545,jpn,湿疹の方は？
 149577,jpn,失礼しました。
 149581,jpn,失礼。すみません。
 149585,jpn,失望するな。
@@ -5243,6 +5257,7 @@
 150327,jpn,次のボストン行きは何時ですか。
 150336,jpn,次のバスはいつ来ますか。
 150341,jpn,次のドライブインで休憩していこう。
+150342,jpn,次のスタンドまでどのくらいありますか。
 150369,jpn,次に何をやるべきか教えてくれませんか。
 150378,jpn,次に何をしたらよいのですか。
 150381,jpn,次に何をしたらよいのか、さっぱりわからない。
@@ -5850,6 +5865,7 @@
 156278,jpn,私は自分の意志に逆らってうそをついた。
 156304,jpn,私は自分が正しいと確信している。
 156307,jpn,私は自分が言ったことを謝る必要が無い。
+156310,jpn,私は自分が何をしゃべっているのかわかっているつもりです。
 156317,jpn,私は自分がいったことについて謝らなくてもよい。
 156320,jpn,私は自動車を持っている。
 156321,jpn,私は自動車を２、３日のうちになおしてもらわなければならない。
@@ -6084,6 +6100,7 @@
 158585,jpn,私はロンドンに行きたい。
 158587,jpn,私はロンドンで初めて彼女に会った。
 158588,jpn,私はロンドンからニューヨークへ飛んだ。
+158590,jpn,私はロックが好きです。
 158593,jpn,私はロサンゼルスに行こうかと考えています。
 158602,jpn,私はリンゴを食べるのが好きです。
 158606,jpn,私はリンゴが一番好きだ。
@@ -6172,6 +6189,7 @@
 159374,jpn,私はどうかといえば何も不平はない。
 159378,jpn,私はドイツ語の代わりにフランス語を勉強した。
 159388,jpn,私はテレビ中毒です。
+159395,jpn,私はテレビを見るのは時間の浪費だと考える。
 159396,jpn,私はテレビを見るのに飽きています。
 159411,jpn,私はテレビでテニスの試合を見た。
 159413,jpn,私はテレビゲームをします。
@@ -6418,9 +6436,11 @@
 161795,jpn,私はあなたと同じ問題を抱えています。
 161802,jpn,私はあなたと一緒にそこにいたらよかったのだが。
 161803,jpn,私はあなたと意見が一致しています。
+161824,jpn,私はあなたが時間を浪費するのをよいとは思わない。
 161826,jpn,私はあなたが最近ニューヨークタイムズに載せた広告は素晴らしいと思います。
 161832,jpn,私はあなたが好きだが、結婚する気はありません。
 161843,jpn,私はあなたがどこに住んでいるのか知っています。
+161844,jpn,私はあなたがたが時間を浪費するのをよいとは思わない。
 161855,jpn,私はあすの朝ロンドンへ出発します。
 161865,jpn,私はあえて彼女に忠告した。
 161911,jpn,私は６０ページ読んだが、一方彼は１０ページしか読んでいない。
@@ -7095,6 +7115,7 @@
 169127,jpn,仕事の半分はかたづいた。
 169135,jpn,仕事の後で、一杯どう。
 169137,jpn,仕事のほうはうまくいってますか。
+169171,jpn,仕事で大阪まで行ってきた。
 169176,jpn,仕事が忙しくて、君に手紙を書くひまがなかった。
 169206,jpn,残念なことにその城を見る機会がなかった。
 169229,jpn,残念ながらどうもそうらしい。
@@ -7753,6 +7774,7 @@
 176862,jpn,君は未成年だから入れません。
 176867,jpn,君は本当に幽霊がいると思うのか。
 176873,jpn,君は本気でそう言うのか。
+176874,jpn,君は本の虫だね。
 176879,jpn,君は僕より有利な立場にあるものね。
 176887,jpn,君は僕と同様、物覚えが悪い。
 176894,jpn,君は暴力行使を正当化することができますか。
@@ -8838,6 +8860,7 @@
 187780,jpn,何とか収支が合えばいいんだが。
 187788,jpn,何とかしろ！
 187800,jpn,何とおっしゃったのですか。
+187806,jpn,何という水の浪費だ。
 187807,jpn,何という驚き。
 187809,jpn,何というエネルギーの浪費だ。
 187811,jpn,何とあなたは幸福なんでしょう。
@@ -9539,6 +9562,7 @@
 194648,jpn,メグはおしゃべりだ。
 194650,jpn,メグの髪は自然にカールする。
 194668,jpn,メガネが見つからない。
+194703,jpn,メアリーは本の虫です。
 194705,jpn,メアリーは母親と似ている。
 194706,jpn,メアリーは母親と外見は似ているが性格は似ていない。
 194709,jpn,メアリーは不親切そうに見えるが、根はとてもやさしい。
@@ -10286,6 +10310,7 @@
 202761,jpn,ちょっと失礼。
 202788,jpn,ちょっと休憩しよう。
 202814,jpn,ちょっとのぞいてみないかい。
+202826,jpn,ちょっとそこまで行ってきていいですか。
 202830,jpn,ちょっとした幸運が予期せぬ成功につながるときもある。
 202852,jpn,ちょっとお願いしたいのですが。
 202853,jpn,ちょっとお願いしたいことがあるんだけど。
@@ -10293,6 +10318,7 @@
 202883,jpn,ちょうど僕もそれがいいたかったんだよ。
 202884,jpn,ちょうど彼女が寝ようとしたときに、誰かがドアをノックした。
 202928,jpn,ちょうど外出しようとしていたが、その時ベルが鳴った。
+202939,jpn,ちょうどおじさんの家へいってきたところだ。
 202942,jpn,チューリップはまもなく咲く。
 202950,jpn,チューダー朝は１６０３年に崩壊した。
 202955,jpn,チャンネルを変えたので彼は怒った。
@@ -10443,6 +10469,7 @@
 205002,jpn,それは大変だねえ・・・。
 205019,jpn,それは素人考えだ。
 205020,jpn,それは全然意味をなさない。
+205031,jpn,それは全くの時間の浪費だ。
 205034,jpn,それは千円以下では買えません。
 205052,jpn,それは人気商品だ。
 205056,jpn,それは真相ではない。
@@ -10639,6 +10666,7 @@
 207969,jpn,その知らせにひどく悩んだ。
 207992,jpn,その値段は税金を含みます。
 208007,jpn,その男は貧しく生まれたことを恥ずかしく思っていた。
+208028,jpn,その男は赤面した。
 208095,jpn,その男はドイツ語なまりの英語を話す。
 208096,jpn,その男はついに白状した。
 208110,jpn,その男はいつも私に金をたかる。
@@ -11616,6 +11644,7 @@
 222578,jpn,この慣習はたいていの家庭で守られている。
 222587,jpn,この寒い天気はいつまで続くのだろうか。
 222592,jpn,この額は税込みです。
+222595,jpn,この学校へ行くには多額の金を要する。
 222599,jpn,この学校は規律がやや緩やかだ。
 222601,jpn,この学校は１９７０年に創立された。
 222642,jpn,この絵は誰が描いたのですか。
@@ -11871,6 +11900,7 @@
 225472,jpn,クリスマスに彼女になにかを買ってあげたの？
 225482,jpn,クリスマスおめでとうございます。
 225526,jpn,クリームと砂糖を入れたコーヒーをください。
+225533,jpn,グランドホテルまでの送迎バス乗り場はどこですか。
 225538,jpn,クララはなかなかの仕事をしている。
 225547,jpn,クラブの会員は会議室に集まった。
 225551,jpn,クラブに入りませんか。
@@ -11904,6 +11934,7 @@
 225897,jpn,きみはどこに住んでいますか。
 225913,jpn,きみの答は確かですか。
 225923,jpn,きみのせきはタバコを吸う結果だよ。
+225925,jpn,きみには決して分かりはしないけど。
 225926,jpn,君のおじさんとは長年の知り合いだ。
 225933,jpn,きみが誰に会いたいのか分からない。
 225958,jpn,きのう魚を３匹とった。
@@ -11981,6 +12012,7 @@
 226787,jpn,お肉は食べられません。
 226797,jpn,お湯が沸騰し始めるとすぐに彼女は加えた。
 226805,jpn,お電話をお借りしてもよろしいですか。
+226815,jpn,お釣りは取っておいて。
 226818,jpn,お昼一緒に食べない？
 226836,jpn,お茶を少しいただきたいのですが。
 226862,jpn,お茶をいかがですか。
@@ -12077,6 +12109,7 @@
 227608,jpn,おとなになったら歴史を教えたい。
 227611,jpn,おとなしいものもあれば、急進的なものもある。
 227619,jpn,おとうさんはお前の実の父親じゃないんだからさ、へへ。
+227624,jpn,おつりは取っておいてください。
 227639,jpn,おっしゃることには同意できません。
 227642,jpn,おっ！今日はついてるぞ。
 227659,jpn,おそらく彼女は仕事を辞めるだろう。
@@ -12509,6 +12542,7 @@
 233311,jpn,好きな作家は誰ですか？
 233335,jpn,あなたの言う通りかもね。
 233364,jpn,あなたの激励の言葉に励まされました。
+233370,jpn,あなたの計画は多額の金を必要とします。
 233404,jpn,あなたの学校はどこにありますか。
 233437,jpn,あなたの鉛筆を使ってもよろしゅうございますか。
 233439,jpn,あなたの援助のおかげで、私たちはうまくいった。
@@ -13029,6 +13063,7 @@
 349988,pol,"Nie mówię po angielsku, a tym bardziej po niemiecku."
 349992,pol,Jak się masz?
 349999,pol,"Ile by nie jadła, nie tyje."
+350007,pol,"Szczerze mówiąc, nie lubię go."
 350012,pol,"Co się tyczy mojego dziecka, to kłopotom nie ma końca."
 350014,pol,Bitelsi składali się z czterech muzyków.
 350016,pol,"Dałem mu tę trochę pieniędzy, które miałem przy sobie."
@@ -13102,6 +13137,7 @@
 351530,pol,Wycieczka portwa co najmniej osiem godzin.
 351534,pol,Motor uderzył w słup telefoniczny.
 351536,pol,Z wiekiem zacząłem inaczej patrzeć na różne sprawy.
+351541,pol,Co za marnowanie wody!
 351542,pol,Chodzę do szkoły pieszo.
 351544,pol,Szkło łatwo się tłucze.
 351547,pol,"Zaczepiłem dziecko na ulicy, ale uciekło."
@@ -13150,6 +13186,7 @@
 351985,pol,"Jesteś już dość dorosły, by utrzymywać się samemu."
 351986,pol,Weźmy bilet bez oznaczonej daty.
 351987,pol,Ile mieszkańców ma miasto Shizuoka?
+351988,pol,"Nie mamy wyjścia, musimy pracować."
 351989,pol,Pod koniec XVIII wieku paszport amerykański był zwykle podpisywany przez prezydenta.
 351990,pol,"Jeśli to zrobisz, narazisz się na ostrą krytykę."
 351991,pol,Skupił się na studiach.
@@ -13226,6 +13263,7 @@
 352470,pol,"Zgubił zegarek, który kupił dzień wcześniej."
 352474,pol,Rzuciłem palenie i picie.
 352477,pol,Były dwa ciastka.
+352483,pol,Gdzie jest przystanek autobusu do Grand Hotelu?
 352484,pol,Ta książka odpowiada twoim potrzebom.
 352485,pol,Minister zaakceptował plany budowy.
 352486,pol,Wyjawisz mi tę tajemnicę?
@@ -13826,6 +13864,7 @@
 356925,pol,Już pora iść spać.
 356927,pol,Próbowała popełnić samobójstwo.
 356928,pol,"Jeśli dobrze pamiętam, są kuzynami."
+356930,pol,"Stwierdzili, że pokój jest pusty."
 356931,pol,Ta firma kupiła kilka nowych samochodów.
 356932,pol,W którym okienku mogę zrobić rezerwację?
 356934,pol,Język to jeden z najważniejszych wynalazków człowieka.
@@ -13960,6 +13999,7 @@
 357346,pol,Nierozsądne oświadczenie rządu spowodowało wzrost cen.
 357347,pol,Proszę iść prosto tą ulicą.
 357349,pol,Telewizja jest ważnym medium przekazywania informacji.
+357350,pol,Reszty nie trzeba.
 357351,pol,To był tylko żart.
 357353,pol,Nie zapomnę pańskiej uprzejmości.
 357354,pol,Nigdy mnie nie słuchasz - jakbym mówił do ściany.
@@ -14225,6 +14265,7 @@
 358830,pol,Na etykiecie jest napisane „dwie pastylki na raz”.
 358831,pol,"On mówi, że nie przyjdzie."
 358832,pol,Mike zdołał przenieść sam swoją walizkę.
+358833,pol,Nauka w tej szkole kosztuje dużo pieniędzy.
 358836,pol,Dźwięk dzwonka mnie zbudził.
 358837,pol,On zawsze narzeka na szefa.
 358839,pol,Przeprowadził się tu niedaleko.
@@ -14704,6 +14745,7 @@
 361640,pol,Czytałem z nudów czasopisma.
 361645,pol,Powiedziałem policjantowi wszystko co wiem.
 361647,pol,W zeszłym roku pojechali do Kioto.
+361649,pol,"Sądził, że jest szczęśliwa."
 361650,pol,Jakie filmy są teraz grane?
 361651,pol,Ona świetnie jeździ na nartach!
 361653,pol,Wydajesz się uczciwym człowiekiem.
@@ -14851,6 +14893,7 @@
 362893,pol,Czyjś łokieć dotknął moich pleców.
 362900,pol,"Problem w tym, że tego dnia nie będziemy mieć samochodu."
 362901,pol,Oddam ci twoją płytę w ciągu tygodnia.
+362904,pol,Pracują w ślimaczym tempie.
 362907,pol,Odwiedziła męża w więzieniu.
 362916,pol,Wczoraj spóźnił się do szkoły.
 362920,pol,Wyskoczył z pokoju.
@@ -14889,6 +14932,7 @@
 363015,pol,Z przyjemnością pojechałem do niego na wieś w czasie wakacji.
 363024,pol,Dach został uszkodzony podczas burzy.
 363027,pol,"Jeśli jutro będzie padać, ona nie przyjedzie."
+363028,pol,"Jasne, że skłamałeś."
 363031,pol,Atak rakietowy pociągnął za sobą wiele ofiar.
 363034,pol,"Nigdy nie zapominaj zamknąć zamka, kiedy idziesz spać."
 363037,pol,Będę czekał przy odbiorze bagażu.
@@ -15019,6 +15063,7 @@
 363744,pol,Ile kosztuje ta suknia?
 363745,pol,"Im jest starszy, tym jest skromniejszy."
 363747,pol,Demokracja jest formą rządów.
+363749,pol,Zaczerwienił się.
 363753,pol,Lepiej zniknij stąd jak najszybciej.
 363755,pol,"Mówiłem ci już, że powinienś wcześniej zapytać mamę."
 363756,pol,Rozumiem.
@@ -15095,6 +15140,7 @@
 364108,pol,W twoim wieku powienieneś być mądrzejszy.
 364109,pol,Wielu poetów pisze o pięknie przyrody.
 364111,pol,Powinniśmy znieść karę śmierci.
+364123,pol,A co z zaczerwienieniem?
 364126,pol,Pańskie dziąsła są w kiepskim stanie.
 364131,pol,Lepiej zróbmy cześniej rezerwację.
 364132,pol,Słucham radia.
@@ -15306,6 +15352,7 @@
 365141,pol,Kolor czarny często kojarzymy ze śmiercią.
 365144,pol,Gdzie jest pasta do zębów?
 365150,pol,Do twarzy ci w czerni.
+365152,pol,"Gdyby padało, garden party nie odbędzie się."
 365154,pol,Na imprezie dużo tańczyliśmy i śpiewaliśmy.
 365155,pol,Boże Narodzenie przypada 25 grudnia.
 365157,pol,Proponuję zwołać kolejne spotkanie.
@@ -16014,6 +16061,7 @@
 393319,pol,Posprzątał swój pokój w niedzielę.
 393320,pol,Stawał się coraz bardziej sławny jako krytyk.
 393322,pol,Stad do mojego wujka są dwie godziny drogi samochodem.
+393324,pol,Oglądanie telewizji uważam za stratę czasu.
 393327,pol,'A' to pierwsza litera alfabetu.
 393328,pol,Znalazł mój rower.
 393329,pol,Marzenia się spełniają.
@@ -16325,6 +16373,7 @@
 479917,pol,Spytali o podwyżkę pensji.
 479918,pol,Ta herbata zwana jest zieloną herbatą.
 479919,pol,"Myślę, że ten duch istnieje."
+479925,pol,"Boję się, że on zamierza ujawnić sekret."
 479937,pol,"Jak to często z nim bywa, zostawił swój podręcznik w domu."
 479944,pol,"Wyszło na jaw, że jestem kłamcą."
 479946,pol,Ona nosi spodnie w tym domu.
@@ -16532,6 +16581,7 @@
 524606,pol,Jim zachowywał się dziwnie przez cały dzień.
 524609,pol,Odwiedzała staruszka w szpitalu każdego dnia oprócz niedzieli.
 524610,pol,"Poznałbyś ją, gdybyś przyszedł trochę wcześniej."
+524611,pol,Przed chwilą byłem w domu mojego wujka.
 524613,pol,W końcu został zmuszony do zrezygnowania.
 524615,pol,Opiekowała się pacjentem.
 524622,pol,Płakał i płakał.
@@ -16864,6 +16914,7 @@
 527604,pol,Zagrała sonatę.
 527605,pol,Jest wiele książek w bibliotece.
 527606,pol,Przynieś mi magazyny.
+527610,pol,"Gdyby Jazon dzwonił, powiedz, że mnie nie ma."
 527611,pol,"Wygląda na to, że on wygra."
 527612,pol,"Wygląda na to, że on zwycięży."
 527613,pol,"Udawał, że nie zna odpowiedzi."
@@ -17479,6 +17530,7 @@
 548712,pol,Jesteś chory na grypę.
 548752,pol,On mieszka w mieszkaniu.
 548755,pol,On przybył pierwszy.
+549977,pol,Nie aprobuję twojego marnowania czasu.
 549986,pol,Wybraliśmy go na burmistrza.
 550355,pol,Kto to narysował?
 550361,pol,Ken ma gitarę.
@@ -17662,6 +17714,7 @@
 560195,pol,Tom został zwolniony.
 560199,pol,Oni zawsze opuszczają zajęcia szkolne.
 560201,pol,Ona jest w mojej klasie.
+560203,pol,"Nieważne, nigdy tego nie będziesz wiedział."
 560505,pol,Całym sercem cię popieram.
 560508,pol,Pozwę cię do sądu.
 560510,pol,Ostatnio ceny spadły.
@@ -18408,6 +18461,7 @@
 593404,pol,Wszystkie miejsca zostały wyprzedane.
 593435,pol,Nie zniechęcaj mnie.
 593478,pol,Czy jesz w klasie?
+593531,pol,Kocham muzykę rockową.
 593535,pol,Musimy posprzątać klasę.
 593560,pol,"Proszę, bądź w kontakcie."
 593665,pol,Wielu pracowników fabryk myśli o sobie jak o statystycznym Kowalskim.
@@ -18504,6 +18558,7 @@
 597653,pol,Tablice nie zawsze są czarne.
 597655,pol,Pójdźmy też do tamtego sklepu.
 597673,pol,Zamknij oczy i licz do dziesięciu.
+597676,pol,To całkowita strata czasu.
 597691,pol,To właśnie tak jak chodzenie po księżycu.
 597692,pol,Osiągnąłem sukces głównie dzięki twojej pomocy.
 597694,pol,Osobiście doglądnę abyś dostał podwyżkę po pierwszym roku.
@@ -18862,6 +18917,7 @@
 624834,pol,"Nie, dziękuję, jestem pełny."
 624955,pol,Właśnie zacząłem grać w tenisa.
 624956,pol,Widzę normalnie.
+625126,pol,"To oczywiste, że kłamał."
 625133,pol,Chciałbym zrobić jej niespodziankę.
 625139,pol,Mary jest zainteresowana polityką.
 625284,pol,Jestem szczęśliwy.
@@ -18979,6 +19035,7 @@
 641850,pol,Pociąg nadjeżdża!
 642384,jpn,あなたに歌を歌ってほしいです。
 642582,pol,Próbował otworzyć drzwi.
+642588,pol,Jesteś molem książkowym.
 642690,pol,Położyliśmy rannego mężczyznę na trawie.
 643808,pol,Uważaj na kieszonkowców.
 643810,pol,Wspominam pierwszy raz.
@@ -19070,6 +19127,7 @@
 668996,pol,Jego muzyka zrobiła na mnie duże wrażenie.
 668999,pol,"Jeżeli ci pasuje, przyjdź tutaj dziś wieczorem."
 669011,pol,W razie pożaru proszę używać tego wyjścia.
+669055,pol,Mary jest molem książkowym.
 669056,pol,On jest dobry w zdobywaniu funduszy.
 669058,pol,Musimy stawać za naszymi prawami.
 669059,pol,Gdzie jest autobus do miasta?
@@ -20748,6 +20806,7 @@
 1080897,jpn,目を開けて。
 1084381,jpn,６時半に戻ります。
 1084383,jpn,６時半に帰ってくるよ。
+1085461,pol,Jak daleko do najbliższej stacji benzynowej?
 1085478,pol,Nie wiesz co się wczoraj stało?
 1085562,pol,W uszach slyszę jeszcze jej głos.
 1086530,pol,Ozdobiliśmy choinkę lampkami.
@@ -20988,6 +21047,7 @@
 1165244,pol,Uznałem twoją oferte za żart.
 1165246,pol,Nie wolno biegać na terenie szkoły.
 1165250,pol,Kiedy zakończysz przygotowania?
+1165252,pol,Byłem w Osace w interesach.
 1165258,pol,Posiadała nienaturalna żądzę pieniędzy.
 1165262,pol,"Po umyciu naczyń, ogłądałem telewizję."
 1165267,pol,"To jasne, że ukradł pieniądze z sejfu."
@@ -21448,6 +21508,7 @@
 1348438,pol,Spotkałem na ulicy jego ojca.
 1348442,pol,Policz ile pieniędzy będziemy potrzebować w następnym roku.
 1348443,pol,On nie kłamie.
+1348444,pol,"Lubię mieć poczucie, że wiem o czym mówię."
 1348452,pol,Pływanie w tej rzece jest dla ciebie niebezpieczne.
 1348455,pol,Jeździliśmy na nartach po sztucznym śniegu.
 1348456,pol,Właśnie kupiłem nowe biurko dla mojego komputera.
@@ -21760,6 +21821,7 @@
 1351686,pol,"Było tak zimno, że nikt nie chciał wychodzić na zewnątrz."
 1351697,pol,Odpowiedział ze śmiechem na jej propozycję.
 1351698,pol,Nie jest łatwo wyzbyć się złych nawyków.
+1351705,pol,Jest za gorąco.
 1351707,pol,"Zastanawiam się, co się jej stało."
 1351714,pol,Przedstawił argumenty za wojną.
 1351717,pol,Koń jest bardzo użyteczny.
@@ -22192,6 +22254,7 @@
 1453930,pol,Ich propozycja nie wchodzi w rachubę.
 1453933,pol,Byłem zdziwiony jego nagłym pojawieniem się.
 1453939,pol,Mamy mniej śniegu niż zazwyczaj.
+1453945,pol,Czy mogę wyjść na krótki spacer?
 1454731,pol,Mówiła łagodnym głosem.
 1454732,pol,Ależ ci chłopcy są leniwi!
 1454737,pol,Zanieczyszczenie ma wpływ na większość morskich stworzeń.
@@ -23377,6 +23440,7 @@
 2212288,pol,Ciemność jest brakiem światła.
 2212292,pol,Dostrzegliśmy nikłe światło w ciemności.
 2212443,pol,Urodziłem się i wychowywałem w Tokio.
+2212454,pol,Twój plan wymaga dużych nakładów finansowych.
 2212534,pol,Został wykluczony z klubu.
 2212545,pol,Proszę chwilę zaczekać.
 2212716,pol,Jego poglądy stoją w zgodzie z moimi.
@@ -23854,6 +23918,7 @@
 2515145,pol,Miałem szczęście być tam na czas.
 2515814,pol,"Miej oczy zamknięte, dopóki nie powiem ci, żebyś je otworzył."
 2517024,pol,Muszę dzisiaj oddać swój raport.
+2517911,pol,"Jeśli on zadzwoni, powiedz mu, że jestem zajęty."
 2517950,pol,Wysłano trochę ludzi do zamieszkania na planecie.
 2517974,pol,Nie czuję się dobrze. Mógłbyś mi podać jakieś leki?
 2518074,pol,Nie odpisała.
@@ -23994,6 +24059,7 @@
 2680625,pol,Lepiej weź parasol.
 2680652,pol,Wczoraj strasznie wiało.
 2681066,pol,Możesz mi polecić jakiś dobry słownik?
+2684292,jpn,暑すぎ。
 2684833,jpn,私は人間だ。
 2691330,pol,"Im więcej rozmyślałem nad problemem, tym trudniejszy się zdawał."
 2710737,pol,Widziałam psa.
@@ -24194,6 +24260,7 @@
 2921054,pol,Widziałem czerwony samochód i biały; czerwony wyglądał ładniej niż ten drugi.
 2921073,pol,Poczekam na ciebie.
 2921112,pol,"Proszę, pokaż mi swój szczegółowy plan."
+2921113,pol,Mówiła przez 30 minut bez przerwy.
 2921116,pol,Miedź i srebro są obydwa metalami.
 2921151,pol,Teoria bez praktyki jest bezużyteczna.
 2925366,jpn,「トランプやりたい」「俺も俺も！」
@@ -24354,6 +24421,7 @@
 3005010,pol,Damy wywiad po południu.
 3005091,pol,"Jestem zbyt zmęczony, żeby biegać."
 3005092,pol,"Jesteś zmęczony, ja też."
+3005144,pol,Skończ gadać.
 3005154,pol,Byłeś w Kioto?
 3005178,pol,"Obecnie liczba kobiet, która nie chce zmieniać nazwiska nawet po ślubie, wzrasta."
 3005202,pol,Gdzie do cholery go poznałeś?
@@ -24547,6 +24615,7 @@
 3041435,pol,"Kiedy ktoś jest chory, goście mogą być nieco denerwujący."
 3041438,pol,Jej odwaga podczas choroby jest motywacją dla nas wszystkich.
 3041451,pol,Ewidentnie skłamałeś.
+3041452,pol,"To oczywiste, że skłamałeś."
 3041708,pol,Lubię masło bardziej niż ser.
 3041710,pol,Interesuję się wiolonczelą i pianinem.
 3041711,pol,Starałem się wykorzystać większość moich szans.
@@ -25348,6 +25417,8 @@
 3495450,pol,Na dziś wystarczy.
 3496505,pol,Czemu wstałeś tak wcześnie?
 3496507,pol,Słuchałem niektórych jego nagrań.
+3496748,jpn,暑くてかなわんわ。
+3496749,jpn,暑すぎる。
 3497216,pol,"W Europie, szkoła zaczyna się we wrześniu."
 3499746,pol,Zdrowie jest istotnym elementem szczęścia.
 3499942,pol,Przedstawił plan podniesienia produkcji.
