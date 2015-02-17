@@ -711,6 +711,26 @@ public class WordTest extends Activity {
 		EditText wordPrefix25 = (EditText) findViewById(R.id.word_test_word_prefix25);
 		EditText wordInput25 = (EditText) findViewById(R.id.word_test_word_input25);
 		
+		TextView wordLabel26 = (TextView) findViewById(R.id.word_test_word_label26);
+		EditText wordPrefix26 = (EditText) findViewById(R.id.word_test_word_prefix26);
+		EditText wordInput26 = (EditText) findViewById(R.id.word_test_word_input26);
+
+		TextView wordLabel27 = (TextView) findViewById(R.id.word_test_word_label27);
+		EditText wordPrefix27 = (EditText) findViewById(R.id.word_test_word_prefix27);
+		EditText wordInput27 = (EditText) findViewById(R.id.word_test_word_input27);
+
+		TextView wordLabel28 = (TextView) findViewById(R.id.word_test_word_label28);
+		EditText wordPrefix28 = (EditText) findViewById(R.id.word_test_word_prefix28);
+		EditText wordInput28 = (EditText) findViewById(R.id.word_test_word_input28);
+
+		TextView wordLabel29 = (TextView) findViewById(R.id.word_test_word_label29);
+		EditText wordPrefix29 = (EditText) findViewById(R.id.word_test_word_prefix29);
+		EditText wordInput29 = (EditText) findViewById(R.id.word_test_word_input29);
+
+		TextView wordLabel30 = (TextView) findViewById(R.id.word_test_word_label30);
+		EditText wordPrefix30 = (EditText) findViewById(R.id.word_test_word_prefix30);
+		EditText wordInput30 = (EditText) findViewById(R.id.word_test_word_input30);
+		
 		textViewAndEditTextForWordAsArray = new TextViewAndEditText[Utils.MAX_LIST_SIZE];
 
 		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordPrefix1, wordInput1);
@@ -740,6 +760,12 @@ public class WordTest extends Activity {
 		textViewAndEditTextForWordAsArray[23] = new TextViewAndEditText(wordLabel24, wordPrefix24, wordInput24);
 		textViewAndEditTextForWordAsArray[24] = new TextViewAndEditText(wordLabel25, wordPrefix25, wordInput25);
 
+		textViewAndEditTextForWordAsArray[25] = new TextViewAndEditText(wordLabel26, wordPrefix26, wordInput26);
+		textViewAndEditTextForWordAsArray[26] = new TextViewAndEditText(wordLabel27, wordPrefix27, wordInput27);
+		textViewAndEditTextForWordAsArray[27] = new TextViewAndEditText(wordLabel28, wordPrefix28, wordInput28);
+		textViewAndEditTextForWordAsArray[28] = new TextViewAndEditText(wordLabel29, wordPrefix29, wordInput29);
+		textViewAndEditTextForWordAsArray[29] = new TextViewAndEditText(wordLabel30, wordPrefix30, wordInput30);
+		
 		for (int idx = 0; idx < textViewAndEditTextForWordAsArray.length; ++idx) {
 
 			final EditText currentEditText = textViewAndEditTextForWordAsArray[idx].editText;
