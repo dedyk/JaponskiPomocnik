@@ -9,6 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue.QueueEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
@@ -855,10 +856,14 @@ public class WordDictionary extends Activity {
 	
 	private void sendMissingWord(final FindWordRequest findWordRequest) {
 		
+		final WordDictionaryMissingWordQueue wordDictionaryMissingWordQueue = JapaneseAndroidLearnHelperApplication.getInstance().getWordDictionaryMissingWordQueue(this);
+		
+		final boolean addMissingWordToQueueResult = wordDictionaryMissingWordQueue.addMissingWordToQueue(new QueueEntry(findWordRequest.word, findWordRequest.wordPlaceSearch));
+		
 		class SendMissingWordTask extends AsyncTask<Void, Void, Void> {
 
 			@Override
-			protected Void doInBackground(Void... params) {
+			protected Void doInBackground(Void... params) {				
 				
 				try {
 					PackageInfo packageInfo = null;
@@ -867,12 +872,36 @@ public class WordDictionary extends Activity {
 			        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
 			        	
 			        } catch (NameNotFoundException e) {        	
-			        }						
-					
-					ServerClient serverClient = new ServerClient();
-										
-					serverClient.sendMissingWord(packageInfo, findWordRequest.word, findWordRequest.wordPlaceSearch);
-					
+			        }			
+			        
+			        ServerClient serverClient = new ServerClient();
+			        
+			        if (addMissingWordToQueueResult == false) { // nie udalo sie wstawic slowka do kolejki, wyslij od razu
+			        	
+			        	serverClient.sendMissingWord(packageInfo, findWordRequest.word, findWordRequest.wordPlaceSearch);
+			        	
+			        } else { // wysylaj slowka z kolejki
+			        	
+				        while (true) {
+				        	
+				        	QueueEntry queueEntry = wordDictionaryMissingWordQueue.getNextQueueEntryFromQueue();
+				        	
+				        	if (queueEntry == null) { // brak slow do pobrania
+				        		break;
+				        	}
+				        	
+				        	// wyslanie slowka
+				        	boolean sendMissingWordResult = serverClient.sendMissingWord(packageInfo, queueEntry.getWord(), queueEntry.getWordPlaceSearch());
+				        	
+				        	if (sendMissingWordResult == false) { // nie udalo wyslac slowka, sprobujemy nastepnym razem
+				        		break;			        		
+				        	}
+				        	
+				        	// usuniecie pierwszego slowka z kolejki
+				        	wordDictionaryMissingWordQueue.removeFirstQueueEntryFromQueue();
+				        }			        	
+			        }			        
+			        					
 				} catch (Exception e) {
 					// noop
 				}

@@ -8,6 +8,7 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue;
 import android.app.Activity;
 import android.app.Application;
 import android.content.pm.PackageInfo;
@@ -30,6 +31,8 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	private DictionaryManager dictionaryManager;
 	
 	private ConfigManager configManager;
+	
+	private WordDictionaryMissingWordQueue wordDictionaryMissingWordQueue;
 	
 	private Typeface babelStoneHanSubset = null;
 	
@@ -132,6 +135,19 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 		this.configManager = configManager;
 	}
 	
+	public WordDictionaryMissingWordQueue getWordDictionaryMissingWordQueue(Activity activity) {
+		
+		if (wordDictionaryMissingWordQueue == null) {
+			wordDictionaryMissingWordQueue = new WordDictionaryMissingWordQueue(activity);
+		}
+		
+		return wordDictionaryMissingWordQueue;
+	}
+
+	public void setWordDictionaryMissingWordQueue(WordDictionaryMissingWordQueue wordDictionaryMissingWordQueue) {
+		this.wordDictionaryMissingWordQueue = wordDictionaryMissingWordQueue;
+	}
+
 	public Typeface getBabelStoneHanSubset(AssetManager assetManager) {
 		
 		if (babelStoneHanSubset != null) {

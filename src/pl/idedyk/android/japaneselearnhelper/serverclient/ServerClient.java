@@ -51,12 +51,12 @@ public class ServerClient {
 				
 	}
 	
-	public void sendMissingWord(PackageInfo packageInfo, String word, WordPlaceSearch wordPlaceSearch) {
+	public boolean sendMissingWord(PackageInfo packageInfo, String word, WordPlaceSearch wordPlaceSearch) {
 		
 		boolean connected = isConnected();
 		
 		if (connected == false) {			
-			return;
+			return false;
 		}
 		
 		try {
@@ -96,10 +96,16 @@ public class ServerClient {
 			
 			if (statusCode < 200 || statusCode >= 300) {
 				Log.e("ServerClient", "Error send missing word: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
+				
+				return false;
 			}			
+			
+			return true;
 			
 		} catch (Exception e) {
 			Log.e("ServerClient", "Error send missing word: ", e);
+			
+			return false;
 		}
 	}
 	
