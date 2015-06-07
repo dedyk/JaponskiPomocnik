@@ -12,7 +12,7 @@
     <string name="kanji_details_kanji_appearance_label">Występowanie znaku</string>
     <string name="kanji_details_radicals">Elementy podstawowe</string>
     <string name="kanji_details_kun_reading">Czytanie kun\'yomi (rdzennie japońskie)</string>
-    <string name="kanji_details_on_reading">Odczyty on\'yomi (sino-japońskie)</string>
+    <string name="kanji_details_on_reading">Odczyty on\'yomi (sinojapońskie)</string>
     <string name="kanji_details_find_kanji_in_words">Szukaj wystąpień znaku w słowniku</string>
     <string name="kanji_details_clipboard_copy">Skopiowano \'%1$s\' do schowka</string>
     <string name="kanji_search_label">Wyszukiwarka znaków kanji</string>
