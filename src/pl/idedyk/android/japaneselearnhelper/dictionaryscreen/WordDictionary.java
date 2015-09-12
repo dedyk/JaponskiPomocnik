@@ -13,7 +13,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMiss
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
-import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlaceSearch;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
@@ -603,9 +603,9 @@ public class WordDictionary extends Activity {
 			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.ANY_PLACE;
 		} else*/
 		if (searchOptionsStartWithPlaceRadioButton.isChecked() == true) {
-			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.START_WITH;
+			findWordRequest.wordPlaceSearch = WordPlaceSearch.START_WITH;
 		} else if (searchOptionsExactPlaceRadioButton.isChecked() == true) {
-			findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.EXACT;
+			findWordRequest.wordPlaceSearch = WordPlaceSearch.EXACT;
 		}
 		
 		boolean performSearch = true;

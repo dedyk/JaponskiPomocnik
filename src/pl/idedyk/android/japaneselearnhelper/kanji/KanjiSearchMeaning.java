@@ -12,6 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import android.app.Activity;
@@ -264,9 +265,9 @@ public class KanjiSearchMeaning extends Activity {
 			findKanjiRequest.wordPlaceSearch = FindKanjiRequest.WordPlaceSearch.ANY_PLACE;
 		} else*/
 		if (searchOptionsStartWithPlaceRadioButton.isChecked() == true) {
-			findKanjiRequest.wordPlaceSearch = FindKanjiRequest.WordPlaceSearch.START_WITH;
+			findKanjiRequest.wordPlaceSearch = WordPlaceSearch.START_WITH;
 		} else if (searchOptionsExactPlaceRadioButton.isChecked() == true) {
-			findKanjiRequest.wordPlaceSearch = FindKanjiRequest.WordPlaceSearch.EXACT;
+			findKanjiRequest.wordPlaceSearch = WordPlaceSearch.EXACT;
 		}
 				
 		if (findWord != null && findWord.length() > 0) {

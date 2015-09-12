@@ -3,7 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest.WordPlaceSearch;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;

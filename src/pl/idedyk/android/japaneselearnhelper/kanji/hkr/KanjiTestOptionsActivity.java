@@ -19,6 +19,7 @@ import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -535,7 +536,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								findWordRequest.searchTranslate = false;
 								findWordRequest.searchInfo = false;
 								findWordRequest.searchGrammaFormAndExamples = false;
-								findWordRequest.wordPlaceSearch = FindWordRequest.WordPlaceSearch.START_WITH;
+								findWordRequest.wordPlaceSearch = WordPlaceSearch.START_WITH;
 								findWordRequest.dictionaryEntryTypeList = null;
 
 								for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
