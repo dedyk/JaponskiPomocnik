@@ -7,7 +7,11 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Con
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
-import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+
+import java.io.InputStreamReader;
+
+import com.csvreader.CsvReader;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -15,6 +19,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -292,39 +297,77 @@ public class WordTestSM2Options extends Activity {
 						
 						if (dbVersion == null || dbVersion.intValue() != versionCode) { // update db
 							
+							CsvReader wordPowerInputStreamCsvReader = null;
+							
+							int currentProgressNo = 0;
+							
 							try {		
+								
+								int transactionCounter = 0;
+																
 								wordTestSM2Manager.beginTransaction();
 								
 								int dictionaryEntriesSize = dictionaryManager.getDictionaryEntriesSize();
 								
 								progressDialog.setMax(dictionaryEntriesSize);
 								
-								for (int currentDictionaryEntryIdx = 1; currentDictionaryEntryIdx <= dictionaryEntriesSize; ++currentDictionaryEntryIdx) {
+								// otwarcie pliku z mocami
+								AssetManager assets = getAssets();
+								
+								wordPowerInputStreamCsvReader = new CsvReader(new InputStreamReader(assets.open("word-power.csv")),  ',');
+								
+								while (wordPowerInputStreamCsvReader.readRecord()) {
 									
-									boolean dictionaryEntryExistsInWordStat = wordTestSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
+									int columnCount = wordPowerInputStreamCsvReader.getColumnCount();
 									
-									if (dictionaryEntryExistsInWordStat == false) {
-										
-										DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
-										
-										wordTestSM2Manager.insertDictionaryEntry(dictionaryEntry);
-										
-									} else {
-										
-										DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(currentDictionaryEntryIdx);
-										
-										wordTestSM2Manager.updateDictionaryEntry(dictionaryEntry);
-									}
+									int power = Integer.parseInt(wordPowerInputStreamCsvReader.get(0));
 									
-									progressDialog.setProgress(currentDictionaryEntryIdx);
+									for (int columnNo = 1; columnNo < columnCount; ++columnNo) {
+										
+										int currentDictionaryEntryIdx = Integer.parseInt(wordPowerInputStreamCsvReader.get(columnNo));
+										
+										// sprawdzanie, czy taki rekord istnieje
+										boolean dictionaryEntryExistsInWordStat = wordTestSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
+										
+										if (dictionaryEntryExistsInWordStat == false) { // dodawanie nowego
+																					
+											wordTestSM2Manager.insertDictionaryEntry(currentDictionaryEntryIdx, power);
+											
+										} else { // uaktualnienie mocy
+																					
+											wordTestSM2Manager.updateDictionaryEntry(currentDictionaryEntryIdx, power);
+										}
+										
+										progressDialog.setProgress(currentProgressNo);
+
+										currentProgressNo++;
+										transactionCounter++;
+										
+										if (transactionCounter > 1000) {
+											
+											transactionCounter = 0;
+											
+											wordTestSM2Manager.commitTransaction();
+											
+											wordTestSM2Manager.endTransaction();
+											wordTestSM2Manager.beginTransaction();
+										}										
+									}									
 								}
 								
 								wordTestSM2Manager.setVersion(versionCode);
 																
 								wordTestSM2Manager.commitTransaction();
 								
+							} catch (Exception e) {								
+								throw new RuntimeException(e);
+								
 							} finally {
 								wordTestSM2Manager.endTransaction();
+								
+								if (wordPowerInputStreamCsvReader != null) {
+									wordPowerInputStreamCsvReader.close();
+								}
 							}							
 						}
 

@@ -9,7 +9,6 @@ import java.util.Locale;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DayStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
-import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -104,13 +103,13 @@ public class WordTestSM2Manager {
 		}
 	}
 	
-	public void insertDictionaryEntry(DictionaryEntry dictionaryEntry) {
+	public void insertDictionaryEntry(int id, int power) {
 		
-		sqliteDatabase.execSQL(SQLiteStatic.insertWordStatSql, new Object[] { dictionaryEntry.getId(), dictionaryEntry.getGroups().get(0).getPower() });
+		sqliteDatabase.execSQL(SQLiteStatic.insertWordStatSql, new Object[] { id, power });
 	}
 	
-	public void updateDictionaryEntry(DictionaryEntry dictionaryEntry) {		
-		sqliteDatabase.execSQL(SQLiteStatic.updateWordStatPowerSql, new Object[] { dictionaryEntry.getGroups().get(0).getPower(), dictionaryEntry.getId() });		
+	public void updateDictionaryEntry(int id, int power) {		
+		sqliteDatabase.execSQL(SQLiteStatic.updateWordStatPowerSql, new Object[] { power, id });		
 	}
 	
 	public boolean isDictionaryEntryExistsInWordStat(int id) {
