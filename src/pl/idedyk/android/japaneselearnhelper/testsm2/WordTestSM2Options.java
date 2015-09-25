@@ -257,10 +257,18 @@ public class WordTestSM2Options extends Activity {
 				}
 				
 				// prepare test
-				final ProgressDialog progressDialog = ProgressDialog.show(WordTestSM2Options.this, 
-						getString(R.string.word_test_sm2_options_prepare1),
-						getString(R.string.word_test_sm2_options_prepare2));
+				final ProgressDialog progressDialog = new ProgressDialog(WordTestSM2Options.this);
+				
+				progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+				
+				progressDialog.setTitle(getString(R.string.word_test_sm2_options_prepare1));
+				progressDialog.setMessage(getString(R.string.word_test_sm2_options_prepare2));
+								
+				progressDialog.setProgress(0);
+				progressDialog.setMax(1);
 
+				progressDialog.show();
+				
 				class PrepareAsyncTask extends AsyncTask<Void, Void, Void> {
 
 					@Override
@@ -289,6 +297,8 @@ public class WordTestSM2Options extends Activity {
 								
 								int dictionaryEntriesSize = dictionaryManager.getDictionaryEntriesSize();
 								
+								progressDialog.setMax(dictionaryEntriesSize);
+								
 								for (int currentDictionaryEntryIdx = 1; currentDictionaryEntryIdx <= dictionaryEntriesSize; ++currentDictionaryEntryIdx) {
 									
 									boolean dictionaryEntryExistsInWordStat = wordTestSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
@@ -305,6 +315,8 @@ public class WordTestSM2Options extends Activity {
 										
 										wordTestSM2Manager.updateDictionaryEntry(dictionaryEntry);
 									}
+									
+									progressDialog.setProgress(currentDictionaryEntryIdx);
 								}
 								
 								wordTestSM2Manager.setVersion(versionCode);
