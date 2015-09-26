@@ -100,7 +100,8 @@
     <string name="kanji_test_info_choose_kanji_in_word">Proszę wybrać właściwy znak w pustym miejscu:</string>
     <string name="kanji_test_info_kunyomi">czytania kun\'yomi</string>
     <string name="kanji_test_info_onyomi">czytania on\'yomi</string>
-    <string name="kanji_test_correct_answer">Niepoprawna odpowiedź.\n\nPrawidłowa odpowiedź to:\n\n%1$s</string>
+    <string name="kanji_test_correct_answer_title">Niepoprawna odpowiedź.</string>
+    <string name="kanji_test_correct_answer_message">Prawidłowa odpowiedź to:</string>
     <string name="kanji_test_incorrect_ok">OK</string>
     <string name="kanji_test_incorrect_show_sod">Pisanie znaku</string>
     <string name="kanji_test_incorrect_show_kanji_details">Szczegóły znaku</string>

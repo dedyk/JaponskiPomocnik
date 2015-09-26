@@ -26,6 +26,7 @@ import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -36,6 +37,7 @@ import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -410,7 +412,6 @@ public class KanjiTest extends Activity {
 		processAnswer(correctAnswer, correctKanji, testAnswer);
 	}
 
-	@SuppressWarnings("deprecation")
 	private void processAnswer(boolean correctAnswer, final String correctKanji, TestAnswer testAnswer) {
 
 		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance()
@@ -434,71 +435,71 @@ public class KanjiTest extends Activity {
 		} else { // incorrect
 
 			kanjiTestContext.incrementIncorrectAnswers();
-
-			AlertDialog alertDialog = new AlertDialog.Builder(KanjiTest.this).create();
-
-			alertDialog.setMessage(getString(R.string.kanji_test_correct_answer, correctKanji));
-
-			alertDialog.setCancelable(false);
-
-			alertDialog.setButton(getString(R.string.kanji_test_incorrect_ok), new DialogInterface.OnClickListener() {
-
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-
-					Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
-
-					if (untilSuccess == true) {
-						addCurrentPosKanjiTestEntry(false);
-					} else {
-						addCurrentPosKanjiTestEntry(true);
-					}
-
-					setScreen();
-				}
-			});
-
-			alertDialog.setButton2(getString(R.string.kanji_test_incorrect_show_sod),
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-
-							StrokePathInfo strokePathInfo = new StrokePathInfo();
-
-							List<KanjivgEntry> strokePathsList = new ArrayList<KanjivgEntry>();
-							strokePathsList.add(dictionaryManager.findKanji(correctKanji).getKanjivgEntry());
-							strokePathInfo.setStrokePaths(strokePathsList);
-
-							Intent intent = new Intent(getApplicationContext(), SodActivity.class);
-
-							intent.putExtra("strokePathsInfo", strokePathInfo);
-
-							startActivity(intent);
-
-							Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
-
-							if (untilSuccess == true) {
-								addCurrentPosKanjiTestEntry(false);
-							} else {
-								addCurrentPosKanjiTestEntry(true);
-							}
-
-							setScreen();
-						}
-					});
 			
-			alertDialog.setButton3(getString(R.string.kanji_test_incorrect_show_kanji_details), new DialogInterface.OnClickListener() {
+			/*
+			Builder alertDialogBuilder = new AlertDialog.Builder(KanjiTest.this);
+			
+			alertDialogBuilder.setTitle(getString(R.string.kanji_test_correct_answer, correctKanji));
+			
+			alertDialogBuilder.setCancelable(false);
+			*/
+			
+			final Dialog alertDialog = new Dialog(this);
+			
+			alertDialog.setContentView(R.layout.alert_dialog_three_buttons);			
+			alertDialog.setTitle(getString(R.string.kanji_test_correct_answer_title, correctKanji));
+			
+			TextView message = (TextView)alertDialog.findViewById(R.id.message);
+			
+			message.setText(Html.fromHtml(getString(R.string.kanji_test_correct_answer_message) + " <b>" + correctKanji + "</b>"));
+			
+			Button alertDialogButton1 = (Button)alertDialog.findViewById(R.id.button1);
+			Button alertDialogButton2 = (Button)alertDialog.findViewById(R.id.button2);
+			Button alertDialogButton3 = (Button)alertDialog.findViewById(R.id.button3);
+			
+			alertDialogButton1.setText(getString(R.string.kanji_test_incorrect_show_kanji_details));
+			alertDialogButton2.setText(getString(R.string.kanji_test_incorrect_show_sod));
+			alertDialogButton3.setText(getString(R.string.kanji_test_incorrect_ok));
+			
+			alertDialogButton1.setOnClickListener(new OnClickListener() {
 
 				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					
+				public void onClick(View view) {
+										
 					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
 					intent.putExtra("item", dictionaryManager.findKanji(correctKanji));
 
+					startActivity(intent);				
+				}
+			});
+			
+			alertDialogButton2.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View view) {
+
+					StrokePathInfo strokePathInfo = new StrokePathInfo();
+
+					List<KanjivgEntry> strokePathsList = new ArrayList<KanjivgEntry>();
+					strokePathsList.add(dictionaryManager.findKanji(correctKanji).getKanjivgEntry());
+					strokePathInfo.setStrokePaths(strokePathsList);
+
+					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+
+					intent.putExtra("strokePathsInfo", strokePathInfo);
+
 					startActivity(intent);
+				}
+			});
+			
+			alertDialogButton3.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View view) {
 					
+					alertDialog.cancel();
+
 					Boolean untilSuccess = kanjiTestConfig.getUntilSuccess();
 
 					if (untilSuccess == true) {
@@ -510,7 +511,7 @@ public class KanjiTest extends Activity {
 					setScreen();
 				}
 			});
-			
+						
 			alertDialog.show();
 		}
 	}
