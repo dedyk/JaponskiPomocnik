@@ -343,7 +343,7 @@ public class WordTestSM2Options extends Activity {
 										currentProgressNo++;
 										transactionCounter++;
 										
-										if (transactionCounter > 1000) {
+										if (transactionCounter > 2000) {
 											
 											transactionCounter = 0;
 											
