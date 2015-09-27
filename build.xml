@@ -100,6 +100,7 @@
 	<delete file="assets/kana.csv" />
 	<delete file="assets/radical.csv" />
 	<delete file="assets/transitive_intransitive_pairs.csv" />
+	<delete file="assets/word-power.csv" />
 	<delete file="assets/kanji_recognizer.model.db" />
 	<delete file="assets/dictionary.zip" />
     </target>
@@ -125,6 +126,7 @@
 	<copy file="db/kana.csv" todir="assets" />
 	<copy file="db/radical.csv" todir="assets" />
 	<copy file="db/transitive_intransitive_pairs.csv" todir="assets" />
+	<copy file="db/word-power.csv" todir="assets" />
 	<copy file="db/kanji_recognizer.model.db" todir="assets" />
 	<zip destfile="assets/dictionary.zip" basedir="db-lucene" />
     </target>

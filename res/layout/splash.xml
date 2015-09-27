@@ -36,6 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/splash_progressbar"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/cecece" />
+        android:textColor="@color/ababab" />
 
 </RelativeLayout>
