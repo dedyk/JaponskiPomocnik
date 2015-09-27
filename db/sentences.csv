@@ -2913,6 +2913,7 @@
 107394,jpn,彼は工場で働いている。
 107406,jpn,彼は口笛を吹いて犬を呼んだ。
 107414,jpn,彼は口元をしっかり結び一言もしゃべらなかった。
+107473,jpn,彼は語り合う友達がいません。
 107479,jpn,彼は後ろのドアを閉めた。
 107491,jpn,彼は午後９時までにきっと空港に到着するだろう。
 107512,jpn,彼は湖に石を投げ入れた。
@@ -5651,6 +5652,7 @@
 149621,jpn,失った時間を取り返さなければならない。
 149626,jpn,失うものは何もない。
 149639,jpn,式に引き続いてパーティーがあった。
+149652,jpn,辞書を階下に忘れてきた。
 149654,jpn,辞書をお借りできますか。
 149660,jpn,辞書はことばの意味を調べるのに使う。
 149663,jpn,辞書のその文字をご覧。
@@ -11134,6 +11136,7 @@
 202413,jpn,テーブルの下に猫がいる？
 202418,jpn,テーブルの縁にグラスを置かないで下さい。
 202424,jpn,テーブルにひじをついてはいけません。
+202431,jpn,テーブルがきしむほど食物がたくさんあった。
 202438,jpn,データはしばしば不正確だ。
 202439,jpn,データは、メインコンピューターから自分のものに転送できるし、またその逆もできる。
 202453,jpn,ティムのオートバイは私のよりはるかに値段が高い。
@@ -13395,6 +13398,7 @@
 229459,jpn,いいえ、結構です。お腹が一杯ですから。
 229477,jpn,アンは病気のようだ。
 229481,jpn,アンは小さな女の子です。
+229491,jpn,アンは階下に降りてきた。
 229493,jpn,アンはヘンリーの求婚を受け入れた。
 229498,jpn,アンはチョコレートに目がない。
 229500,jpn,アンはチアガールです。
@@ -14988,6 +14992,7 @@
 356040,pol,"Kanarek to ptaszek, hodowany niekiedy jako maskotka."
 356041,pol,Wczoraj wieczorem ugotowała zupę jarzynową.
 356043,pol,Cały dzień oglądał telewizję.
+356044,pol,"Nie ma przyjaciół, z którymi mógłby pogadać."
 356045,pol,Kwitną róże w ogrodzie.
 356048,pol,Czas na kolację.
 356050,pol,"Uwaga, dziura w jezdni!"
@@ -19067,6 +19072,7 @@
 559466,pol,Przybyliśmy.
 559471,pol,Zabił tamtego człowieka.
 559496,pol,Rozejrzałem się.
+559497,pol,Ann zeszła na dół.
 559503,pol,Wyglądasz na znudzonego.
 559513,pol,Mary umie mówić po japońsku.
 559515,pol,"Jak się czujesz, Tom?"
@@ -21912,11 +21918,13 @@
 929276,pol,Wcale nie jestem zmęczona.
 930084,pol,Przeczytaj sam dół strony.
 930102,pol,"Uznał, że mądrze będzie przyjąć propozycję."
+930109,pol,Zostawiłem swój słownik na dole.
 930127,pol,"Zaczęła grać w tenisa nie z zainteresowania, ale na pokaz."
 930133,pol,Bardzo rzadko słucham radia.
 930134,pol,Prawie nie słucham radia.
 930135,pol,Życie jest pełne wzlotów i upadków.
 930174,jpn,ページの下を読んでください。
+930184,jpn,階下に辞書を忘れてきた。
 930200,jpn,十二は偶数だ。
 930275,pol,"Nie mam pojęcia, dlaczego tak jest."
 930382,pol,On się obija na studiach.
@@ -25094,6 +25102,7 @@
 2211981,pol,Weszliśmy tylnym wejściem by nikt nas nie zauważył.
 2211991,pol,Psychologia zajmuje się emocjami ludzi.
 2212181,pol,Nie powinieneś zadawać się z takimi ludźmi.
+2212188,pol,Stół uginał się pod ciężarem potraw.
 2212189,pol,Jest uczulony na kurz.
 2212193,pol,Skończył się nam cukier.
 2212194,pol,Nie mamy już cukru.
