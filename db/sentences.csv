@@ -1149,6 +1149,7 @@
 85866,jpn,秘書はいつも声の届くところに待機しています。
 85870,jpn,秘書が昇進を求めているんです。
 85882,jpn,疲れました。
+85903,jpn,疲れていたので、彼はいつもより早く床についた。
 85909,jpn,疲れていたけれども、彼女は働き続けました。
 85912,jpn,疲れた様子だね。私がハンドルを握ろうか。
 85915,jpn,疲れたよ。
@@ -1759,6 +1760,7 @@
 93287,jpn,彼女はいつも幸福を自慢している。
 93289,jpn,彼女はいつも幸運を自慢している。
 93303,jpn,彼女はいつも何か不平を言っている。
+93308,jpn,彼女はいつもより多くお金を使った。
 93328,jpn,彼女はいつでも約束を守る。
 93350,jpn,彼女はいい暮らしをしている。
 93369,jpn,彼女はある事務所で秘書として働いている。
@@ -2016,6 +2018,7 @@
 96795,jpn,彼らは新種の米を栽培することにより食糧生産の増加を望んでいる。
 96806,jpn,彼らは新しい会社を創設するつもりだ。
 96812,jpn,彼らは侵略者に抵抗した。
+96825,jpn,彼らは乗船した。
 96833,jpn,彼らは沼地を通り抜けた。
 96891,jpn,彼らは車でシカゴへ行った。
 96906,jpn,彼らは自分達の橋を自慢する。
@@ -2836,6 +2839,7 @@
 106163,jpn,彼は私にとって父親のような存在だ。
 106168,jpn,彼は私にチェスの仕方を教えてくれました。
 106172,jpn,彼は私にたいへん親切だった。
+106174,jpn,彼は私にそれをするように言いつけた。
 106181,jpn,彼は私にその店への道を教えてくれた。
 106183,jpn,彼は私にその単語のつづり方を教えてくれた。
 106193,jpn,彼は私にすてきなネクタイを見つけてくれました。
@@ -5202,6 +5206,7 @@
 144018,jpn,人生に災難は付き物。
 144021,jpn,人生には浮き沈みがつきものだ。
 144053,jpn,人数を数えます。
+144068,jpn,人々は彼を嘲笑った。
 144086,jpn,人々は戦争を恐れている。
 144111,jpn,人々は君に批評を求めるが、本当は誉めてもらいたいだけなのだ。
 144120,jpn,人々は丸いテーブルの周りに集まった。
@@ -5234,6 +5239,7 @@
 144402,jpn,人を見掛けで判断するものではない。
 144418,jpn,人をからかわないで。
 144419,jpn,人をからかってはいけない。
+144422,jpn,人をあざわらうのはよくない。
 144431,jpn,人は友を裏切ってはいけない。
 144435,jpn,人は平等に造られている。
 144482,jpn,人は自分の体に気をつけなければならない。
@@ -6325,6 +6331,7 @@
 155779,jpn,私は食欲がない。
 155784,jpn,私は食事制限をしています。
 155805,jpn,私は乗馬を体験した。
+155806,jpn,私は乗船した。
 155808,jpn,私は上着を裏返しに着た。
 155815,jpn,私は上司とその問題について話し合います。
 155822,jpn,私は笑わないではいられませんでした。
@@ -6463,6 +6470,7 @@
 156987,jpn,私は今朝成田空港に到着した。
 156995,jpn,私は今朝学校に間に合いませんでした。
 157005,jpn,私は今朝から少し熱がある。
+157007,jpn,私は今朝いつもより遅く起きた。
 157008,jpn,私は今朝８時３０分の汽車に５分の差で乗り遅れた。
 157021,jpn,私は今週休暇を取る。
 157022,jpn,私は今週はお休みです。
@@ -6956,6 +6964,7 @@
 161367,jpn,私はいつも朝にコーヒーを２杯飲みます。
 161373,jpn,私はいつも人の名前を忘れてばかりいる。
 161387,jpn,私はいつも家族を誇りに思う。
+161390,jpn,私はいつもより遅く着きました。
 161392,jpn,私はいつもより少し遅く寝た。
 161410,jpn,私はいつまでもあなたを忘れません。
 161412,jpn,私はいつの日かアフリカに行きたい。
@@ -7750,6 +7759,7 @@
 169171,jpn,仕事で大阪まで行ってきた。
 169176,jpn,仕事が忙しくて、君に手紙を書くひまがなかった。
 169206,jpn,残念なことにその城を見る機会がなかった。
+169218,jpn,残念ながら先約があります。
 169229,jpn,残念ながらどうもそうらしい。
 169258,jpn,残念ですが。
 169259,jpn,残念ですが、私には先約があります。
@@ -13385,6 +13395,7 @@
 228719,jpn,いつも自分の事しか話さない人々には私はうんざりしている。
 228721,jpn,いつも仕事場をきちんと整理しておきなさい。
 228728,jpn,いつも学校に遅れるのはどういう訳だ。
+228736,jpn,いつもより遅く着いた。
 228785,jpn,いつまでもその秘密を隠しておけるものではない。
 228791,jpn,いつまでの滞在予定ですか。
 228823,jpn,いつでも出かけられます。
@@ -14737,6 +14748,7 @@
 354055,pol,Lepiej późno niż wcale.
 354057,pol,Wrócił dwa dni później.
 354059,pol,Prędzej czy później pozna tajemnicę.
+354060,pol,Przyszedłem później niż zwykle.
 354064,pol,Umiesz odróżnić ją od jej siostry?
 354067,pol,Moje urodziny są w listopadzie.
 354081,pol,W przyszłym miesiącu będę miał szesnaście lat.
@@ -15255,6 +15267,7 @@
 357109,pol,On nie ma poczucia humoru.
 357110,pol,"To było tydzień temu, dokladnie drugiego kwietnia."
 357111,pol,Jest ich sześć osób.
+357112,pol,"Niestety, jestem już umówiony."
 357113,pol,Snom brak przede wszystkim konsekwencji.
 357116,pol,"Nie odpuszczę nikomu, kto powie na nią choćby jedno złe słowo."
 357118,pol,Sędzia musi być bezstronny.
@@ -15948,6 +15961,7 @@
 360433,pol,On ma dobre stosunki z całą klasą.
 360434,pol,Słońce jest bardzo daleko od Ziemi.
 360435,pol,Tą drogą nie da się przejść.
+360437,pol,Dziś rano wstałem później niż zwykle.
 360438,pol,Podziękowała za prezent.
 360439,pol,Spróbuj jeszcze raz.
 360441,pol,Powietrze jest zanieczyszczane.
@@ -18103,6 +18117,7 @@
 525153,pol,"Powinieneś przyjść wcześniej, aby mógł przeczytać Twój rękopis przed Twoją przemową."
 525154,pol,Musimy się pospieszyć jeśli chcemy dotrzeć na czas na stację.
 525156,pol,Minęło dziesięć lat od kiedy umarł.
+525158,pol,Ludzie śmiali się z niego.
 525159,pol,"Dała mi koszyk i zasugerowała, abym poczekał z otwarciem zanim dotrę do domu, w razie gdyby ktoś obserwował."
 525168,pol,Zrobił ostatnio zauważalne postępy w języku angielskim.
 525171,pol,Gejzer wyrzuca w górę kolumnę gorącej wody co dwie godziny.
@@ -18413,6 +18428,7 @@
 529051,pol,Wygrywam z nim w golfa.
 529052,pol,Nigdy nie wyjeżdżałem z Okayamy.
 529054,pol,Ona właśnie rozwiązuje ten problem.
+529056,pol,Oni weszli na pokład statku.
 529069,pol,Powinieneś połączyć teorię z praktyką.
 529070,pol,Chciałbym być tak przystojny jak on.
 529071,pol,Chciałbym być mądry.
@@ -19439,6 +19455,7 @@
 572683,pol,Będziesz dostawał pencję dostosowaną do twoich zdolności.
 572694,pol,Czy zostaniesz moją żoną?
 572697,pol,"Chłopcy, nie róbcie żadnego hałasu."
+572698,pol,Przybyłem później niż zwykle.
 572699,pol,Cześć Susan. Jak leci?
 572832,pol,On mówi po angielsku dość dobrze.
 572834,pol,On robi doktorat z literatury współczesnej.
@@ -19891,6 +19908,7 @@
 593159,pol,To lekarstwo jest dobre na przeziębienie.
 593166,pol,Proszę wziąć głęboki wdech.
 593172,pol,Z nas wszystkich Tom był zdecydowanie najlepszym pływakiem.
+593176,pol,Wydała więcej pieniędzy niż zazwyczaj.
 593179,pol,Mój ojciec zarządza sklepem.
 593181,pol,On nie jest politykiem a prawnikiem.
 593182,pol,Na nic się zda próba przekonania go.
@@ -20743,6 +20761,7 @@
 676819,pol,Na tamtej farmie było mnóstwo krów.
 676820,pol,Chciałbym zarezerwować trzy miejsca.
 676822,pol,Miło było cię spotkać.
+676823,pol,Wyleciałem za burtę.
 676827,pol,"Odkąd zaczęła nosić ten dziwny kapelusz, ludzie zaczęli jej dokuczać."
 676829,pol,Czemu miałbyś być taki smutny?
 676832,pol,W przeciwnym wypadku będziemy musieli anulować to zamówienie.
@@ -21395,6 +21414,7 @@
 784990,jpn,彼のご両親は彼の成功を喜びました。
 787193,jpn,もちろんです。
 787754,pol,Wyglądasz na zmęczonego. Czy mógłbym przejąć kierownicę?
+787756,pol,"Będąc zmęczonym, on poszedł do łóżka wcześniej niż zwykle."
 787787,pol,"Pamiętam, jak Cię widziałem w ubiegłym roku."
 787795,pol,"Czas, kiedy to zrobił, nie jest znany."
 787808,pol,"Jak jest lato, to zawsze rano się kąpię."
@@ -23348,6 +23368,7 @@
 1350259,pol,"Gdyby nie jego bezczynność, byłby fajnym gościem."
 1350261,pol,"Jest wystarczająco stary, by wiedzieć lepiej."
 1350262,pol,Bardzo dziękuję za zaproszenie mnie.
+1350263,pol,Niedobrze jest śmiać się z innych.
 1350266,pol,"Ponieważ nie otrzymałem odpowiedzi, napisałem do niej raz jeszcze."
 1350268,pol,"Czy mógłbyś, proszę, powtórzyć to powoli?"
 1350269,pol,Wszystkie miejsca są już zarezerwowane.
@@ -26263,6 +26284,7 @@
 3016167,pol,Czekam na Święta.
 3016183,pol,"Nie jest pielęgniarką, lecz lekarką."
 3016186,pol,"W deszczowy poranek wcześnie wyszedł z domu, żeby dotrzeć do szkoły na czas."
+3016209,pol,Kazał mi to zrobić.
 3017700,pol,"Jest pewna kobieta, która chciałaby się z tobą zobaczyć."
 3017702,pol,"To, ile ci zapłacimy, zależy od twoich umiejętności."
 3017948,pol,Zawsze będzie ją kochał.
