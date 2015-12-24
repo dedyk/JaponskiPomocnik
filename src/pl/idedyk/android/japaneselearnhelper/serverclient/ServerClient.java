@@ -45,6 +45,8 @@ public class ServerClient {
 	private static final String SEND_MISSING_WORD_URL = PREFIX_URL + "/android/sendMissingWord";
 	private static final String SEARCH_URL = PREFIX_URL + "/android/search";
 
+	private static final String AUTOCOMPLETE_URL = PREFIX_URL + "/android/autocomplete";
+	
 	private static final int TIMEOUT = 5000;
 	
 	public ServerClient() {
@@ -392,5 +394,122 @@ public class ServerClient {
 		}
 		
 		return result;
+	}
+	
+	public List<String> getAutoComplete(PackageInfo packageInfo, String word, AutoCompleteSuggestionType autoCompleteSuggestionType) {
+		
+		boolean connected = isConnected();
+		
+		if (connected == false) {			
+			return null;
+		}
+		
+		if (word == null || word.length() < 2) {
+			return null;
+		}
+		
+		try {
+			// parametry do polaczenia
+			HttpParams httpParams = new BasicHttpParams();
+			
+			HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
+			HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
+			
+			// klient do http
+			DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
+			
+			HttpPost httpPost = new HttpPost(AUTOCOMPLETE_URL);
+			
+			// ustaw naglowki
+			httpPost.setHeader("Accept", "application/json");
+			httpPost.setHeader("Content-type", "application/json");
+			httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
+			
+			// przygotuj dane wejsciowe
+			Map<String, Object> requestDataMap = new HashMap<String, Object>();
+			
+			requestDataMap.put("word", word);
+			requestDataMap.put("type", autoCompleteSuggestionType.getType());
+			
+			StringEntity stringEntity = new StringEntity(convertMapToJSONObject(requestDataMap).toString(), "UTF-8");
+			
+			httpPost.setEntity(stringEntity);			
+			
+			// wywolaj serwer
+			HttpResponse httpResponse = httpClient.execute(httpPost);
+			
+			// sprawdz odpowiedz
+			StatusLine statusLine = httpResponse.getStatusLine();
+			
+			int statusCode = statusLine.getStatusCode();			
+			
+			if (statusCode < 200 || statusCode >= 300) {
+				Log.e("ServerClient", "Error send missing word: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
+				
+				return null;
+			}
+			
+			// pobranie odpowiedzi
+			HttpEntity entity = httpResponse.getEntity();
+			
+			if (entity == null) {
+				return null;
+			}
+			
+			InputStream contentInputStream = entity.getContent();
+			
+			BufferedReader contentInputStreamReader = new BufferedReader(new InputStreamReader(contentInputStream));
+			
+			String readLine = null;
+			
+			StringBuffer jsonResponseSb = new StringBuffer();
+			
+			while (true) {		
+				readLine = contentInputStreamReader.readLine();
+				
+				if (readLine == null) {
+					break;
+				}
+				
+				jsonResponseSb.append(readLine);			
+			}
+
+			contentInputStreamReader.close();
+			
+			JSONArray responseJSON = new JSONArray(jsonResponseSb.toString());
+
+			List<String> result = new ArrayList<String>();
+			
+			for (int idx = 0; idx < responseJSON.length(); ++idx) {
+				
+				JSONObject jsonObject = responseJSON.getJSONObject(idx);
+				
+				result.add(jsonObject.getString("value"));
+			}			
+			
+			return result;
+			
+		} catch (Exception e) {
+			Log.e("ServerClient", "Error send missing word: ", e);
+			
+			return null;
+		}
+	}
+	
+	public static enum AutoCompleteSuggestionType {
+		
+		WORD_DICTIONARY("wordDictionaryEntry"),
+		
+		KANJI_DICTIONARY("kanjiDictionaryEntry");
+		
+		private String type;
+		
+		AutoCompleteSuggestionType(String type) {
+			this.type = type;
+		}
+
+		public String getType() {
+			return type;
+		}
 	}
 }

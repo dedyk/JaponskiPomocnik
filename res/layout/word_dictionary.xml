@@ -17,13 +17,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/word_dictionary_search_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.66"
+            android:completionThreshold="2"
             android:inputType="text" >
-        </EditText>
+        </AutoCompleteTextView>
 
         <Button
             android:id="@+id/word_dictionary_search_search_button"
