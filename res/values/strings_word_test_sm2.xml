@@ -3,7 +3,7 @@
 
     <string name="word_test_sm2_options_view_label">Opcje nauki</string>
     
-    <string name="word_test_sm2_options_max_new_words">Maksymalna liczba nowy słów na dzień</string>
+    <string name="word_test_sm2_options_max_new_words">Maksymalna liczba nowych słów na dzień</string>
 
     <string name="word_test_sm2_options_test_mode">Tryb testu</string>
     <string name="word_test_sm2_options_test_mode_radiogroup_input">Wpisywanie słów</string>
