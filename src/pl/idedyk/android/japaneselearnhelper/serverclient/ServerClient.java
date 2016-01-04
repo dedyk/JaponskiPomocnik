@@ -47,7 +47,7 @@ public class ServerClient {
 
 	private static final String AUTOCOMPLETE_URL = PREFIX_URL + "/android/autocomplete";
 	
-	private static final int TIMEOUT = 5000;
+	private static final int TIMEOUT = 10000;
 	
 	public ServerClient() {
 				

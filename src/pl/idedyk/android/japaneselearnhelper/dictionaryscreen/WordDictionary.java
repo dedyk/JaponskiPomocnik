@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
-import android.database.DataSetObserver;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -42,6 +41,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Filter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -277,15 +277,68 @@ public class WordDictionary extends Activity {
 		searchOptionsExactPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		
 		// ustawienie adaptera z podpowiadaczem		
-		final ArrayAdapter<String> searchValueEditTextAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, new ArrayList<String>());		
 		
-		searchValueEditTextAdapter.setNotifyOnChange(true);
+		// tutaj
+		
+		final ArrayAdapter<String> searchValueEditTextAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, new ArrayList<String>()) {
+			
+			private Filter filter = new Filter() {
+				
+				private FilterResults results = new FilterResults();
+
+				@Override
+				protected FilterResults performFiltering(CharSequence prefix) {
+					
+					List<String> resultList = new ArrayList<String>();
+					
+					if (prefix != null) {						
+						resultList.add(prefix.toString());						
+					}
+					
+					results.values = resultList;
+					results.count = resultList.size();
+					
+					return results;
+				}
+
+				@Override
+				protected void publishResults(CharSequence constraint, FilterResults results) {
+					
+		            if (results.count > 0) {
+		                notifyDataSetChanged();
+
+		            } else {
+		                notifyDataSetInvalidated();
+		            }
+				}
+			};
+			
+			@Override
+			public Filter getFilter() {				
+				return filter;
+			}
+		};
+		
+		searchValueEditTextAdapter.setNotifyOnChange(false);
 		
 		searchValueEditText.setAdapter(searchValueEditTextAdapter);
 		
 		searchValueEditText.addTextChangedListener(new TextWatcher() {
 			
-			public void onTextChanged(final CharSequence s, int start, int before, int count) {
+			private String beforeTextValue = null;
+			
+			public void onTextChanged(CharSequence s, int start, int before, int count) {	
+				
+				if (seachOptionsEachChangeCheckBox.isChecked() == true) {
+					performSearch(s.toString());
+				}				
+			}
+			
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {	
+				beforeTextValue = s.toString();
+			}
+			
+			public void afterTextChanged(Editable s) {
 				
 				// tutaj
 				int fixme = 1; // testy !!!!!!
@@ -307,16 +360,8 @@ public class WordDictionary extends Activity {
 						
 						ServerClient serverClient = new ServerClient();
 						
-						autoComplete = serverClient.getAutoComplete(packageInfo, s.toString(), AutoCompleteSuggestionType.WORD_DICTIONARY);
-						
-						/*
-						searchValueEditTextAdapterAutoComplete.clear();
-						
-						if (autoComplete != null) {
-							searchValueEditTextAdapterAutoComplete.addAll(autoComplete);
-						}
-						*/
-												
+						autoComplete = serverClient.getAutoComplete(packageInfo, searchValueEditText.getText().toString(), AutoCompleteSuggestionType.WORD_DICTIONARY);
+										        																		
 						return null;
 					}
 
@@ -324,37 +369,33 @@ public class WordDictionary extends Activity {
 					protected void onPostExecute(Void result) {
 						
 						searchValueEditTextAdapter.clear();
-						
+																		
 						if (autoComplete != null && autoComplete.size() > 0) {
+							
 							for (String currentAutoComplete : autoComplete) {
 								searchValueEditTextAdapter.add(currentAutoComplete);
 							}
 							
-							searchValueEditText.showDropDown();
+							searchValueEditTextAdapter.notifyDataSetChanged();
+							
+							searchValueEditText.showDropDown();							
 							
 						} else {
+							searchValueEditTextAdapter.notifyDataSetInvalidated();
+							
 							searchValueEditText.dismissDropDown();
 						}
 					}					
 				}
 				
-				new GetAutocompleteTask().execute();
-				
-				// koniec !!!!!!!!!!!
-				
-				
-				if (seachOptionsEachChangeCheckBox.isChecked() == true) {
-					performSearch(s.toString());
+				if (beforeTextValue.equals(searchValueEditText.getText().toString()) == false) {
+					new GetAutocompleteTask().execute();
 				}
-			}
-			
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-			}
-			
-			public void afterTextChanged(Editable s) {				
+												
+				// koniec !!!!!!!!!!!				
 			}
 		});
-				
+								
 		wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, 0));
 		
 		Button reportProblemButton = (Button)findViewById(R.id.word_dictionary_report_problem_button);
