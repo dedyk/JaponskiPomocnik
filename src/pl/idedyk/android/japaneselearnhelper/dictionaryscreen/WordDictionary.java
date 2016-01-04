@@ -7,6 +7,8 @@ import java.util.Locale;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
+import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue.QueueEntry;
@@ -36,12 +38,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Filter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -57,7 +56,7 @@ public class WordDictionary extends Activity {
 	
 	private List<WordDictionaryListItem> searchResultList;
 	
-	private AutoCompleteTextView searchValueEditText;
+	private DelayAutoCompleteTextView searchValueEditText;
 	
 	private CheckBox seachOptionsEachChangeCheckBox;
 	
@@ -205,7 +204,7 @@ public class WordDictionary extends Activity {
 			}
 		});
 		
-		searchValueEditText = (AutoCompleteTextView)findViewById(R.id.word_dictionary_search_value);		
+		searchValueEditText = (DelayAutoCompleteTextView)findViewById(R.id.word_dictionary_search_value);		
 		
 		searchButton = (Button)findViewById(R.id.word_dictionary_search_search_button);
 		
@@ -276,126 +275,24 @@ public class WordDictionary extends Activity {
 		searchOptionsStartWithPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		searchOptionsExactPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		
-		// ustawienie adaptera z podpowiadaczem		
-		
-		// tutaj
-		
-		final ArrayAdapter<String> searchValueEditTextAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, new ArrayList<String>()) {
-			
-			private Filter filter = new Filter() {
-				
-				private FilterResults results = new FilterResults();
-
-				@Override
-				protected FilterResults performFiltering(CharSequence prefix) {
-					
-					List<String> resultList = new ArrayList<String>();
-					
-					if (prefix != null) {						
-						resultList.add(prefix.toString());						
-					}
-					
-					results.values = resultList;
-					results.count = resultList.size();
-					
-					return results;
-				}
-
-				@Override
-				protected void publishResults(CharSequence constraint, FilterResults results) {
-					
-		            if (results.count > 0) {
-		                notifyDataSetChanged();
-
-		            } else {
-		                notifyDataSetInvalidated();
-		            }
-				}
-			};
-			
-			@Override
-			public Filter getFilter() {				
-				return filter;
-			}
-		};
-		
-		searchValueEditTextAdapter.setNotifyOnChange(false);
-		
-		searchValueEditText.setAdapter(searchValueEditTextAdapter);
-		
 		searchValueEditText.addTextChangedListener(new TextWatcher() {
 			
-			private String beforeTextValue = null;
-			
-			public void onTextChanged(CharSequence s, int start, int before, int count) {	
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				
 				if (seachOptionsEachChangeCheckBox.isChecked() == true) {
 					performSearch(s.toString());
-				}				
+				}
 			}
 			
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {	
-				beforeTextValue = s.toString();
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 			}
 			
-			public void afterTextChanged(Editable s) {
-				
-				// tutaj
-				int fixme = 1; // testy !!!!!!
-				
-				class GetAutocompleteTask extends AsyncTask<Void, Void, Void> {
-					
-					private List<String> autoComplete;
-
-					@Override
-					protected Void doInBackground(Void... params) {				
-						
-						PackageInfo packageInfo = null;
-				        
-				        try {
-				        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-				        	
-				        } catch (NameNotFoundException e) {        	
-				        }
-						
-						ServerClient serverClient = new ServerClient();
-						
-						autoComplete = serverClient.getAutoComplete(packageInfo, searchValueEditText.getText().toString(), AutoCompleteSuggestionType.WORD_DICTIONARY);
-										        																		
-						return null;
-					}
-
-					@Override
-					protected void onPostExecute(Void result) {
-						
-						searchValueEditTextAdapter.clear();
-																		
-						if (autoComplete != null && autoComplete.size() > 0) {
-							
-							for (String currentAutoComplete : autoComplete) {
-								searchValueEditTextAdapter.add(currentAutoComplete);
-							}
-							
-							searchValueEditTextAdapter.notifyDataSetChanged();
-							
-							searchValueEditText.showDropDown();							
-							
-						} else {
-							searchValueEditTextAdapter.notifyDataSetInvalidated();
-							
-							searchValueEditText.dismissDropDown();
-						}
-					}					
-				}
-				
-				if (beforeTextValue.equals(searchValueEditText.getText().toString()) == false) {
-					new GetAutocompleteTask().execute();
-				}
-												
-				// koniec !!!!!!!!!!!				
+			public void afterTextChanged(Editable s) {				
 			}
 		});
-								
+		
+		searchValueEditText.setAdapter(new AutoCompleteAdapter(this, AutoCompleteSuggestionType.WORD_DICTIONARY));
+				
 		wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, 0));
 		
 		Button reportProblemButton = (Button)findViewById(R.id.word_dictionary_report_problem_button);

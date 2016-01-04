@@ -17,13 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <AutoCompleteTextView
+        <pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView
             android:id="@+id/word_dictionary_search_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.66"
             android:inputType="text" >
-        </AutoCompleteTextView>
+        </pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView>
 
         <Button
             android:id="@+id/word_dictionary_search_search_button"
