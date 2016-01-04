@@ -7,9 +7,12 @@ import java.util.Locale;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
+import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiSearchMeaningConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient.AutoCompleteSuggestionType;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
@@ -50,7 +53,7 @@ public class KanjiSearchMeaning extends Activity {
 	
 	private KanjiEntryListItemAdapter searchResultArrayAdapter;
 	
-	private EditText searchValueEditText;
+	private DelayAutoCompleteTextView searchValueEditText;
 	
 	private Button searchButton;
 	
@@ -110,7 +113,7 @@ public class KanjiSearchMeaning extends Activity {
 			}
 		});
 		
-		searchValueEditText = (EditText)findViewById(R.id.kanji_search_meaning_search_value);		
+		searchValueEditText = (DelayAutoCompleteTextView)findViewById(R.id.kanji_search_meaning_search_value);		
 		
 		searchButton = (Button)findViewById(R.id.kanji_search_meaning_search_button);
 		
@@ -167,6 +170,8 @@ public class KanjiSearchMeaning extends Activity {
 			public void afterTextChanged(Editable s) {				
 			}
 		});
+		
+		searchValueEditText.setAdapter(new AutoCompleteAdapter(this, AutoCompleteSuggestionType.KANJI_DICTIONARY));
 				
 		kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_search_meaning_elements_no, 0));
 		
