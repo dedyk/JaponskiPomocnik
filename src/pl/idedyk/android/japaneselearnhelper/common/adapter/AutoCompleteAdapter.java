@@ -70,7 +70,8 @@ public class AutoCompleteAdapter extends BaseAdapter implements Filterable {
         		FilterResults filterResults = new FilterResults();
                 
         		if (constraint != null) {
-        			        			
+        			     
+        			/*
 					PackageInfo packageInfo = null;
 			        
 			        try {
@@ -78,10 +79,12 @@ public class AutoCompleteAdapter extends BaseAdapter implements Filterable {
 			        	
 			        } catch (NameNotFoundException e) {        	
 			        }
+			        */
 					
-					ServerClient serverClient = new ServerClient();
+					//ServerClient serverClient = new ServerClient();
 					
-					List<String> autoComplete = serverClient.getAutoComplete(packageInfo, constraint.toString(), autoCompleteSuggestionType);
+        			// tymczasowo nie wywolujemy serwera
+					List<String> autoComplete = new ArrayList<String>(); //serverClient.getAutoComplete(packageInfo, constraint.toString(), autoCompleteSuggestionType);
 					
 					//
 					
