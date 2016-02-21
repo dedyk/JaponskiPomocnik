@@ -555,6 +555,7 @@
 79932,jpn,目を閉じて、１０まで数えなさい。
 79935,jpn,目を拭きなさい。
 79936,jpn,目を向けてみたが何も目に入らなかった。
+79937,jpn,目を覚ませよ！
 79940,jpn,目を覚まして見ると、一切が夢だったことがわかりました。
 79941,jpn,目を覚ましてみると夢だったことがわかった。
 79942,jpn,目を覚ましてみるといっさいが夢であることが分かった。
@@ -716,6 +717,7 @@
 81265,jpn,毎日曜日に教会に行きます。
 81271,jpn,毎日日曜教会へ行きます。
 81272,jpn,毎日日記をつけなければならない。
+81283,jpn,毎日歯を磨きなさい。
 81285,jpn,毎日私たちはエジソンが発明した多くの物を使っている。
 81294,jpn,毎年何百万という人が飢えで死んでいる。
 81312,jpn,毎日それらは十分なだけのえさをやりなさい。
@@ -1605,6 +1607,7 @@
 91190,jpn,彼女は医学を勉強するためにドイツに行った。
 91198,jpn,彼女は椅子に座って雑誌を読んでいた。
 91207,jpn,彼女は偉大な画家になった。
+91232,jpn,彼女は悪霊に取りつかれているように見える。
 91239,jpn,彼女は挨拶もせずに立ち去った。
 91268,jpn,彼女はロンドンからパリへ行った。
 91274,jpn,彼女はロシア語が話せる。
@@ -5462,6 +5465,7 @@
 145604,jpn,心ここに在らざれば聞けども聴こえず。
 145613,jpn,審判は両チームに対して公平でなければならない。
 145649,jpn,寝る前に窓に鍵をかけなさい。
+145651,jpn,寝る前に歯を磨きなさい。
 145666,jpn,寝るのが好き。
 145668,jpn,寝るときは必ず鍵をかけてください。
 145678,jpn,寝ている子は起こすな。
@@ -7520,6 +7524,7 @@
 164603,jpn,私には札幌に住んでいる友達がいます。
 164608,jpn,私には考えがある。
 164611,jpn,私には兄弟がいない。
+164616,jpn,私には君たち皆が間違っているように思える。
 164619,jpn,私には君が持っているようないいカメラを買う余裕がない。
 164633,jpn,私には下から２行目の意味がわからなかった。
 164641,jpn,私にハンバーガーをください。
@@ -10212,6 +10217,7 @@
 191179,jpn,以前はタバコを吸わなかった。
 191180,jpn,以前はタバコを吸っていましたね。
 191217,jpn,以後こんなことはいたしません。
+191229,jpn,闇夜だった。
 191233,jpn,闇とは光がないことです。
 191246,jpn,案ずるより産むが易し。
 191254,jpn,暗闇の中にほのかな光が見えた。
@@ -12335,6 +12341,7 @@
 213769,jpn,そう深刻に考えるな。
 213773,jpn,そう思っている人が少ない。
 213781,jpn,そう考えると理由が君にはあるのか。
+213787,jpn,そう言っても言い過ぎではない。
 213832,jpn,そうでないと、購入の再考をしなければなりません。
 213838,jpn,そうですね、部屋を掃除したりします。
 213855,jpn,そうだといいけど。
@@ -13558,6 +13565,7 @@
 227759,jpn,おかげで助かったよ。
 227805,jpn,オーストラリアでは英語が話されている。
 227838,jpn,おいしいよ。試してみるべきだよ。
+227839,jpn,おいしいメキシコ料理のレストランを見つけました。
 227862,jpn,エンジンをかけたままにしておきなさい。
 227864,jpn,エンジンはどこか故障している。
 227865,jpn,エンジンのかけ方を教えてください。
@@ -15142,6 +15150,7 @@
 355467,pol,Japonia eksportuje dużo samochodów za granicę.
 355468,pol,Byli przebrani za klaunów.
 355472,pol,"Knuje, jakby tu przywłaszczyć sobie twój majątek."
+355474,pol,To stwierdzenie to nie przesada.
 355476,pol,Po usłyszeniu dobrych wiadomości jest w siódmym niebie.
 355477,pol,"Dworzec jest niemal pusty o godzinie, która normalnie byłaby porą szczytu."
 355478,pol,"Skręć w lewo, będzie tam kawiarnia."
@@ -15151,6 +15160,7 @@
 355497,pol,Jestem wyższy od ciebie.
 355499,pol,Spójrz na siebie w lustrze.
 355504,pol,Jestem z ciebie dumny.
+355509,pol,Obudź się!
 355511,pol,Usiądź i odpocznij przez chwilkę.
 355512,pol,Pospiesz się.
 355517,pol,"Obawiam się, że po południu popada."
@@ -18163,6 +18173,7 @@
 494242,jpn,彼はフランス人です。
 494509,jpn,分からない。
 494559,pol,Spotkanie skończyło się o czwartej po południu.
+495036,pol,Codziennie myj zęby.
 495044,pol,Naruszył prawo.
 495055,pol,Przeziębiłem się.
 498241,pol,Jak zdobyłeś te pieniądze?
@@ -20601,6 +20612,8 @@
 605465,pol,Mój wuj przeżył wiele lat za granicą.
 605487,pol,Rząd powinien dołożyć starań w celu powstrzymania inflacji.
 605514,pol,"Prawo mówi, że wszyscy ludzie są równouprawnieni."
+605795,jpn,良いメキシコのレストランを見つけた。
+605902,pol,Znalazłem dobrą meksykańską restaurację.
 605980,pol,Ojciec zajął miejsce u szczytu stołu.
 606034,pol,Chodzę do kościoła co niedziela.
 606285,pol,Chcesz być bogaty?
@@ -21834,6 +21847,7 @@
 793144,pol,Ona była podejrzana o szpiegowanie.
 793335,pol,Kto zrobił ten plan?
 793608,pol,"Oszczędzał przez długie lata, żeby zgromadzić pieniądze."
+794071,pol,On wygląda na opętanego przez złego ducha.
 794571,pol,Jest siódma czterdzieści pięć.
 798450,pol,Mówi pani po angielsku?
 799837,pol,On był bardzo stary i schorowany.
@@ -23291,6 +23305,7 @@
 1182216,pol,"Pozwól, że przedstawię ci pana Kato."
 1182222,pol,"Stanąłem z boku, żeby ich przepuścić."
 1182227,pol,"Nie wiem, jak się tego używa."
+1182809,pol,"Wygląda na to, że wszyscy się mylicie."
 1182823,pol,O tej porze dnia jest duży ruch na drogach.
 1182827,pol,Ten chory chłopiec jest w stanie krytycznym.
 1183735,jpn,その件が事実であると承認します。
@@ -23784,6 +23799,7 @@
 1350362,pol,Uznałem twoje milczenie za zgodę.
 1350364,pol,Czy chciałbyś jeszcze trochę więcej ciasta?
 1350370,pol,Zamknij swoje oczy na trzy minuty.
+1350371,pol,Wymyj zęby przed pójściem spać.
 1350375,pol,Gdzie znajduje się przystanek autobusowy?
 1350379,pol,Wyczerpałem moją energię.
 1350380,pol,"Zemdlała, gdy usłyszała straszliwe wieści."
@@ -25597,6 +25613,7 @@
 2212279,pol,To jest jakaś możliwość.
 2212284,pol,Ściemnia się.
 2212286,pol,Nasze oczy potrzebują czasu by przyzwyczaić się do ciemności.
+2212287,pol,Była ciemna noc.
 2212288,pol,Ciemność jest brakiem światła.
 2212292,pol,Dostrzegliśmy nikłe światło w ciemności.
 2212443,pol,Urodziłem się i wychowywałem w Tokio.
