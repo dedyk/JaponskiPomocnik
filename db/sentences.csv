@@ -2930,6 +2930,7 @@
 106183,jpn,彼は私にその単語のつづり方を教えてくれた。
 106193,jpn,彼は私にすてきなネクタイを見つけてくれました。
 106205,jpn,彼は私にお世辞を言った。
+106210,jpn,彼は私にいくらかのお金をくれた。
 106213,jpn,彼は私にアルバムを見せた。
 106257,jpn,彼は私と同い年です。
 106315,jpn,彼は私たちに悲しい知らせをもたらした。
@@ -5605,6 +5606,7 @@
 146842,jpn,少しはまけてくれませんか。
 146855,jpn,少しのつづりの間違いは別として、それはよい作文である。
 146859,jpn,少しだけ痛いです。
+146873,jpn,少しお金を貸してもらえませんか。
 146892,jpn,小麦はもう収穫できる。
 146919,jpn,小鳥が木立の中で囀っている。
 146934,jpn,小説家は大勢の聴衆に向かって話した。
@@ -7160,6 +7162,7 @@
 161419,jpn,私はいつでもあなたのお手伝いをします。
 161426,jpn,私はいつか医者になるでしょう。
 161428,jpn,私はいつかエジプトに行きたい。
+161438,jpn,私はいくらかのお金がほしい。
 161445,jpn,私はイギリスに友達がいます。
 161451,jpn,私はイースター島へ１０日間の旅をした。
 161453,jpn,私はアンに人形を作ってやった。
@@ -7589,6 +7592,7 @@
 164823,jpn,私の代わりにこの問題を解いてください。
 164825,jpn,私にこのペンをください。
 164836,jpn,私にお金をせびらないでくれ。
+164838,jpn,私にいくらかお金を貸して下さいませんか。
 164843,jpn,私にあなたの電話番号を教えて下さい。
 164844,jpn,私にあなたの車を売ってくれませんか。
 164848,jpn,私に１つアイデアがあるのですが。
@@ -8849,6 +8853,7 @@
 177879,jpn,君はカナダのどこ出身なの？
 177890,jpn,君はお兄さんにそっくりだよ。
 177891,jpn,君はお姉さんほど早く起きないんだね。
+177893,jpn,君はお金をいくらかお持ちではありませんか。
 177895,jpn,君はうれしくないのかい？
 177896,jpn,君はうれしくないですか。
 177903,jpn,君はいつ日本に来たのですか。
@@ -10831,6 +10836,7 @@
 196352,jpn,ぼくはこの本を古本屋で見つけた。
 196356,jpn,ぼくはこっちの方がそっちより品質が劣っていると思う。
 196358,jpn,ぼくはコーヒーよりも紅茶が好きだ。
+196364,jpn,ぼくはお金がほしいのだ。
 196367,jpn,ぼくはうっかり受話器をはずさないでダイヤルを回した。
 196373,jpn,ぼくは、テニスが大好きです。
 196378,jpn,ぼくの時計はこわれています。
@@ -13559,6 +13565,8 @@
 227187,jpn,お見舞いありがとう。
 227191,jpn,お見事！
 227199,jpn,お金持ちは必ずしも幸福とはかぎらない。
+227216,jpn,お金を少し貸してくれませんか。
+227217,jpn,お金を少し貸してくださいませんか。
 227234,jpn,お金よりも健康が大切なことは言うまでもない。
 227251,jpn,お金はいくら持っていますか。
 227256,jpn,お金の持ち合わせは多いですか。
@@ -13728,6 +13736,7 @@
 228736,jpn,いつもより遅く着いた。
 228785,jpn,いつまでもその秘密を隠しておけるものではない。
 228791,jpn,いつまでの滞在予定ですか。
+228794,jpn,いつまでご滞在ですか。
 228825,jpn,いつでも自分で謝るべきだ。
 228837,jpn,いつでも合図して。
 228838,jpn,いつでも好きな日に来なさい。
@@ -14710,6 +14719,7 @@
 350085,pol,Mężczyźni poszli polować na lwy.
 350089,pol,Czuj się jak u siebie w domu.
 350100,pol,"Cześć, Tom."
+350121,pol,Jak długo pan zostanie?
 350140,pol,To się nie zdarzy.
 350158,pol,Chciała uciec od życia codziennego.
 350168,pol,Jestem studentem.
@@ -19300,8 +19310,10 @@
 543682,pol,Byliśmy bardzo zmęczeni.
 543727,pol,Ze łzami w oczach opowiadała tą historię.
 544393,pol,Szliśmy wzdłuż plaży.
+544395,pol,Czy pożyczysz mi trochę pieniędzy?
 544396,pol,"To nie jest powód, aby się irytować."
 544397,pol,"Równie dobrze możemy pozostać tam, gdzie jesteśmy."
+544410,pol,On dał mi trochę pieniędzy.
 544418,pol,On zawsze zostawia swojej żonie problem edukacji swoich dzieci.
 544535,pol,Wczoraj były moje urodziny.
 544544,pol,Zrobię to.
@@ -19714,6 +19726,7 @@
 565332,pol,Jestem kompletnie wyczerpany.
 565337,pol,Meg mówi za dużo.
 565340,pol,Wszyscy to wiedzą.
+565432,pol,Chcę trochę pieniędzy.
 565539,pol,Jest ósma rano.
 565545,pol,Wystarczy na dzisiaj.
 565547,pol,Każdy gracz dał z siebie wszystko.
@@ -20131,6 +20144,7 @@
 587580,pol,Nie krępuj się pytać.
 587582,pol,Wczoraj byłem na zebraniu.
 587583,pol,Wziął wolne na tydzień.
+587584,pol,Wcale nie masz pieniędzy?
 587585,pol,On wciąż o czymś zapomina.
 587586,pol,On jest niższy niż Tom.
 587589,pol,Zadzwoń do mnie do biura.
