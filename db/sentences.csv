@@ -27,6 +27,7 @@
 4738,jpn,眠った方がいいよ。
 4739,jpn,行くよ。
 4741,jpn,君は僕にとてもいらいらしている。
+4742,jpn,私はそんな風には生きられない。
 4743,jpn,私は一時期、天体物理学者になりたかった。
 4744,jpn,生物学は好きになれません。
 4745,jpn,僕が最後に自分の考えを伝えた人は、僕を気違いだと思ったようだ。
@@ -598,6 +599,7 @@
 80224,jpn,姪とは兄弟の娘を言う。
 80258,jpn,明日彼を訪問します。
 80268,jpn,明日電話でトムに連絡して手伝ってくれるように頼むつもりだ。
+80270,jpn,明日天気はどうなるだろうか。
 80282,jpn,明日晴れるといいな。
 80297,jpn,明日の朝、事務所のほうへお伺いしてよいでしょうか。
 80322,jpn,明日我々は敵軍に出くわすだろう。
@@ -637,6 +639,7 @@
 80564,jpn,明日の午後に会いたいのですが。
 80565,jpn,明日の午後にお目にかかりたいのですが。
 80566,jpn,明日の午後ならいつでもおいでください。
+80578,jpn,明日のお天気どうかしら？
 80579,jpn,明日のお天気がどうなるのかを予測するのは難しい。
 80583,jpn,明日になればきっと天候もよくなるだろう。
 80588,jpn,明日どこかの工場へ見学に行くんですよね。
@@ -4558,6 +4561,7 @@
 125099,jpn,天気予報では、明日は涼しくなるそうだ。
 125108,jpn,天気は刻々と変わる。
 125111,jpn,天気は科学的に予報される。
+125116,jpn,天気はどうですか。
 125126,jpn,天気のよい日です。
 125134,jpn,天気さえ良ければ行きます。
 125165,jpn,天気が悪かったので、試合は延期された。
@@ -13540,6 +13544,7 @@
 226797,jpn,お湯が沸騰し始めるとすぐに彼女は加えた。
 226801,jpn,お湯が出ません。
 226805,jpn,お電話をお借りしてもよろしいですか。
+226810,jpn,お天気はどういうぐあいですか。
 226815,jpn,お釣りは取っておいて。
 226818,jpn,お昼一緒に食べない？
 226820,jpn,お昼までには戻ってきなさい。
@@ -13604,6 +13609,7 @@
 227316,jpn,お客様テーブルにライターがおわすれですよ。
 227324,jpn,お客さんが一人もいなかったので、私たちは早く閉店しました。
 227330,jpn,お気をつけて。
+227338,jpn,お気に召してよかったです。
 227339,jpn,お帰りのさいには傘をお持ちになるのを忘れないでください。
 227343,jpn,お願いを聞き入れていただけますか。
 227360,jpn,お顔が見えるようにもっと近くにおいでください。
@@ -14607,6 +14613,7 @@
 348781,pol,Dziewczyny sprzeciwiły się naszemu planowi.
 348787,pol,"Sto lat, Muiriel!"
 348788,pol,Byłem w górach.
+348794,pol,Jaka pogoda?
 348796,pol,Zaraz wracam.
 348809,pol,Wróciłem! O! Mamy gości?
 348813,pol,Zgubił się pan?
@@ -14803,6 +14810,7 @@
 351490,pol,NIe zapominaj zgasić gaz przed wyjściem z domu.
 351491,pol,Ośmielił się jej oświadczyć.
 351492,pol,Nie potrafi się nawet podpisać.
+351494,pol,Nie mogę tak żyć.
 351497,pol,"Ostatnia osoba, której opowiedziałem mój pomysł, uznała mnie za wariata."
 351501,pol,Brak ci cierpliwości do mnie.
 351514,pol,Pozrywała nalepki z okna.
@@ -19364,6 +19372,7 @@
 545010,pol,Nie przestawała pracować.
 545033,pol,Plan nie wypalił i straciliśmy mnóstwo pieniędzy.
 545034,pol,"Albo ty jesteś w błędzie, albo twój przyjaciel."
+545036,pol,"Albo wy jesteście w błędzie, albo wasi przyjaciele."
 545037,pol,Co byś chciał?
 545038,pol,"Co to jest, czego ty chcesz?"
 545055,pol,Musisz dokładnie przeczytać podręcznik.
@@ -25809,6 +25818,7 @@
 2212765,pol,Światło przenika mrok.
 2213007,pol,Ta zupa jest nadzwyczajna.
 2213011,pol,Będę za tobą tęsknić.
+2213015,pol,Zastanawiam się jaka jutro będzie pogoda.
 2213085,jpn,この子は私の娘です。
 2213091,jpn,これは娘です。
 2213135,pol,Ona jest rannym ptaszkiem.
@@ -26412,6 +26422,7 @@
 2679543,pol,"Powiedział, że ostatni autobus odjeżdża o 22:50."
 2679569,pol,"Twierdzi, że nie rzuci palenia."
 2679576,pol,Nie mogę wstać.
+2679607,pol,Ciekawe jaka będzie jutro pogoda.
 2679620,pol,Uważaj.
 2679623,pol,W drodze do teatru widziałem wypadek drogowy.
 2679626,pol,Od czasu do czasu propozycja rozebrania uwielbianego starego budynku aby zrobić miejsce dla nowego bloku wywołuje burzę protestów.
@@ -26631,6 +26642,7 @@
 2814689,pol,Te dane są nieprawidłowe.
 2814695,pol,Lód na jeziorze nie mógł udźwignąć jego wagi.
 2826489,pol,Mam psa.
+2826506,pol,Jaka jest pogoda?
 2826513,pol,Pada deszcz.
 2826772,jpn,大きくなったらパイロットになりたいです。
 2827079,pol,Jestem pracownikiem biurowym.
@@ -26875,6 +26887,7 @@
 3005989,pol,Pospiesz się albo spóźnisz się na ostatni pociąg.
 3005991,pol,Niepotrzebnie się spieszyliśmy.
 3006250,pol,"Spóźnisz się, jak się nie pospieszysz."
+3006289,pol,"Zastanawiam się, jaka jutro będzie pogoda."
 3006291,pol,Ciężko jest przewidzieć jutrzejszą pogodę.
 3006317,pol,Letnie wakacje trwają kilka tygodni.
 3009386,pol,Mam bzika na punkcie piłki nożnej.
@@ -27973,6 +27986,7 @@
 3524747,pol,Proszę połączyć mnie z doktorem White.
 3524749,pol,"Nawet jeśli masz własną drogę, nie zawsze będziesz osiągać sukcesy."
 3525365,pol,On nie może sobie pozwolić na kupno samochodu.
+3528967,jpn,お腹すいて死にそう。
 3529391,pol,Nowy Jork to duże miasto.
 3529416,pol,"To długopis, którym podpisał dokument."
 3536340,pol,Zostaniesz w domu dziś wieczorem?
@@ -29226,6 +29240,7 @@
 4884479,pol,Nie mogę zrozumieć powodu.
 4884480,pol,Wyjaśnij dokładnie jakie są powody.
 4887765,pol,On wygląda na zmęczonego.
+4889627,pol,"Cieszę się, że to lubisz."
 4889634,pol,Jak się cieszę!
 4900369,jpn,わかります。
 4914825,pol,On studiuje literaturę współczesną.
