@@ -616,6 +616,7 @@
 80392,jpn,明日またいらっしゃい。
 80393,jpn,明日また来なさい。
 80394,jpn,明日ピクニックに行くつもりだ。
+80396,jpn,明日は来なければいけませんよ。
 80397,jpn,明日は予定が決まっていますか。
 80403,jpn,明日は彼女の誕生日だ。
 80425,jpn,明日は晴れてくれるといいなぁ。
@@ -635,6 +636,7 @@
 80508,jpn,明日の朝、来なさい。
 80515,jpn,明日の朝私に会うのを忘れないで。
 80516,jpn,明日の朝、私たちは日本を発ちます。
+80523,jpn,明日の朝は早く起きなければいけませんよ。
 80554,jpn,明日の今ごろは図書館で勉強しているでしょう。
 80564,jpn,明日の午後に会いたいのですが。
 80565,jpn,明日の午後にお目にかかりたいのですが。
@@ -932,6 +934,7 @@
 82983,jpn,母は私たちに小犬を買ってくれた。
 83008,jpn,母は勤めの帰りに買い物をします。
 83012,jpn,母は喫煙に反対だ。
+83020,jpn,母は運転免許証を持っているが、運転はしない。
 83044,jpn,母はとても具合が悪い。
 83070,jpn,母はサラダに塩を加えるのを忘れた。
 83085,jpn,母はお伺いできません。
@@ -6750,6 +6753,7 @@
 157727,jpn,私は汽車に間に合うように早く起きた。
 157728,jpn,私は汽車で旅行することが好きだ。
 157731,jpn,私は気分が良くないのです。
+157744,jpn,私は帰宅しなければいけません。
 157763,jpn,私は喜んであなたを助けよう。
 157783,jpn,私は眼鏡を壊してしまった。それで黒板が見えなかった。
 157784,jpn,私は眼鏡なしで読書できる。
@@ -10828,6 +10832,7 @@
 195846,jpn,まあ、お気の毒に。
 195852,jpn,ぼんやりとして目をそらすな、自分のしていることに注意を払いなさい。
 195853,jpn,ぼんやりしていなければ、君もちゃんとできるよ。
+195865,jpn,ほんの少し砂糖が必要です。
 195871,jpn,ほんの気楽なパーティーだった。
 195882,jpn,ほんの２、３分ですよ。
 195900,jpn,ホワイト博士につないで下さい。
@@ -11254,6 +11259,7 @@
 199884,jpn,トムは辛いカレーが好きだ。
 199889,jpn,トムは笑いながら「こんにちは」と言った。
 199895,jpn,トムは首になった。
+199937,jpn,トムは今日家にいなければいけませんか。
 199944,jpn,トムは今、バイオリンを弾いている。
 199947,jpn,トムは口髭を伸ばしている。
 199949,jpn,トムは交通事故のために結婚式を延期した。
@@ -11876,6 +11882,7 @@
 206964,jpn,その部屋はバスつきですか。
 206967,jpn,その部屋はたばこ臭かった。
 206968,jpn,その部屋はスミス夫人が掃除します。
+206971,jpn,その部屋はあなたが使えるよう用意ができています。
 206975,jpn,その部屋の大きさはどれぐらいですか。
 206976,jpn,その部屋の人々は、みんな互いに知り合いだった。
 206979,jpn,その部屋に明日ペンキが塗られるでしょう。
@@ -12707,6 +12714,7 @@
 216952,jpn,さあ、一緒に来いよ。
 217000,jpn,ご用でしたら父に伝えましょうか。
 217001,jpn,ご予約はいただいていますか。
+217008,jpn,ご迷惑をおかけしますが、急を要することが起こったものですから。
 217012,jpn,ご迷惑でなければ、お願いしたいのですが。
 217021,jpn,ご返事をさし上げる前によく考えましょう。
 217022,jpn,ご返事いただければ幸いです。
@@ -13057,6 +13065,7 @@
 221274,jpn,この種の猫には尾が無い。
 221297,jpn,この種のブラウスは流行遅れになりかけている。
 221361,jpn,この取り決めは一時的なものでしかない。
+221367,jpn,この蛇口は使えません。故障しています。
 221421,jpn,この車は「年間最優秀車」に選ばれた。
 221435,jpn,この社会が若さということにそのような感情的特権を付与するというのは誤解を引き起こしやすいと思う。
 221445,jpn,この写真を見るとむかつく。
@@ -18336,6 +18345,7 @@
 502015,pol,Pracowałem kiedyś w restauracji.
 502022,pol,Te tereny obfitują w dziką zwierzynę.
 502040,pol,I spędzili ten dzień z Jezusem.
+502218,pol,Potrzebuję trochę cukru.
 502220,pol,Spodziewamy się gości dziś wieczorem.
 502221,pol,Mogę czytać bez okularów.
 502223,pol,Garnizon był zmuszony się poddać.
@@ -22404,6 +22414,7 @@
 894603,pol,Oni byli małżeństwem od 10 lat kiedy urodziło się ich pierwsze dziecko.
 896211,pol,Ona schodziła po schodach.
 897431,pol,Moja ciotka wygląda młodo.
+897653,pol,Muszę wrócić do domu.
 897687,pol,Żartujecie?
 897753,pol,I tak każdy obywatel odgrywa konieczną rolę.
 897761,pol,Woda jest nam niezbędna.
@@ -25684,6 +25695,7 @@
 2148631,pol,Ten człowiek mówi po angielsku z niemieckim akcentem.
 2148635,pol,Szkło było potłuczone.
 2149108,jpn,ペンは持っていません。
+2149498,pol,"Moja matka ma prawo jazdy, lecz nie prowadzi samochodu."
 2150090,pol,"Biegłem najszybciej jak umiem, żeby zdążyć na pociąg."
 2150106,pol,"Trzęsienie Ziemi spowodowało potężną katastrofę, niepodobną do niczego, czego doświadczył wcześniej ten kraj."
 2150128,pol,"Jakie to szczęście, że pogoda jest tak piękna."
@@ -25695,6 +25707,7 @@
 2151917,pol,Obrócił klamkę lewą ręką.
 2152013,pol,"To jest zdjęcie, które zrobiłem w zeszłym tygodniu."
 2152027,pol,Woda wytrysnęła z zepsutego kurka.
+2152029,pol,Nie można użyć tego kranu. Jest zepsuty.
 2152466,pol,"Dzięki Bogu, jest piątek."
 2152589,jpn,こっちへおいで。
 2153055,pol,Nie chce mi się dzisiaj palić.
@@ -25869,6 +25882,7 @@
 2217047,pol,Brak mi słów aby wyrazić moją wdzięczność.
 2217760,pol,Uczniowie powinni jak najlepiej wykorzystać swój czas wolny.
 2218569,jpn,君のことはいつまでも忘れないよ。
+2218751,pol,Musisz jutro wcześnie wstać.
 2218752,pol,Wycofał samochód do garażu.
 2218756,pol,Pomogą ci się rozgrzać.
 2218800,pol,Niektóre gwiazdy są ledwo widoczne gołym okiem.
@@ -26634,6 +26648,7 @@
 2809439,pol,Skorzystajmy z długiego weekendu.
 2809446,pol,Zamówiłem dwie herbaty i trzy kawy.
 2809447,pol,"Choć rozumiem co masz na myśli, nie mogę zgodzić się na twoją propozycję."
+2809449,pol,"Moja matka posiada prawo jazdy, ale nie jeździ."
 2809462,pol,Popsuta lalka jest moja.
 2809463,pol,"Im głębiej się zanurzamy, tym zimniejsza jest woda."
 2809464,pol,Zaprzestał próbowania raz na zawsze.
@@ -27236,6 +27251,7 @@
 3064055,pol,Czemu rozdarłeś tkaninę zamiast uciąć ją nożyczkami?
 3064059,pol,Bo wszyscy jego przyjaciele też byli biedni.
 3064063,pol,Jesteś jutro zajęty?
+3064064,pol,Będziesz musiał jutro przyjść.
 3064066,pol,Zamierzam jutro iść na piknik.
 3064069,pol,Zajmę się psem do jutra.
 3064070,pol,"To jest dla mnie niewykonalne, żeby ukończyć pracę semestralną do jutra."
@@ -27454,6 +27470,7 @@
 3127368,pol,Keiko jest przewodniczącą swojej klasy.
 3127369,pol,Japonia nie obfituje w bogactwa naturalne.
 3127370,pol,"Wygląda na to, że sklep jest dziś zamknięty."
+3127371,pol,"Przepraszam, że przeszkadzam, ale obawiam się, że pojawiło się coś pilnego."
 3127375,pol,Musisz natychmiast odrobić swoje zadanie.
 3127424,pol,Oczywiście. Ale najpierw zjedzmy obiad.
 3127452,pol,"Hej, ten metal rdzewieje."
@@ -28402,6 +28419,7 @@
 3808600,pol,On jest dobry w rozwiązywaniu skomplikowanych zadań matematycznych.
 3813716,pol,Nie ma ciepłej wody.
 3815481,pol,Widziałem górę Fudżi.
+3815495,pol,Czy Tom musi dziś zostać w domu?
 3830431,pol,Zrobił sobie zasadę codziennego pisania w pamiętniku.
 3830454,pol,"On mówi nie tylko po francusku, ale również po hiszpańsku."
 3834739,pol,"Jest tak uczciwy, że mogę na nim polegać."
@@ -28566,6 +28584,7 @@
 3865302,pol,Czy pokój ma łazienkę?
 3865304,pol,Pokój jest na końcu korytarza.
 3865305,pol,Pokój jest sprzątany przez pana Smitha.
+3865306,pol,Pokój jest już dla ciebie przygotowany.
 3865309,pol,Jakie są wymiary pokoju?
 3865310,pol,Wszyscy ludzie w tym pokoju się znają.
 3865312,pol,Pokój będzie jutro pomalowany.
