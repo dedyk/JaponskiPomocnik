@@ -43,10 +43,10 @@
         <activity android:name=".kana.KanaTest" android:label="@string/kana_test_label"></activity>
         <activity android:name=".kana.KanaTestSummary" android:label="@string/kana_test_summary_label"></activity>
         <activity android:name=".kanji.KanjiDetails" android:label="@string/kanji_details_label"></activity>
-        <activity android:name=".kanji.KanjiSearch" android:label="@string/kanji_search_label"></activity>
-        <activity android:name=".kanji.KanjiSearchRadical" android:label="@string/kanji_search_label"></activity>
-        <activity android:name=".kanji.KanjiSearchStrokeCount" android:label="@string/kanji_search_label"></activity>
-        <activity android:name=".kanji.KanjiSearchMeaning" android:label="@string/kanji_search_label"></activity>
+        <activity android:name=".kanji.KanjiSearch" android:label="@string/kanji_search_label" android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".kanji.KanjiSearchRadical" android:label="@string/kanji_search_label" android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".kanji.KanjiSearchStrokeCount" android:label="@string/kanji_search_label" android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".kanji.KanjiSearchMeaning" android:label="@string/kanji_search_label" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".kanji.KanjiSearchRadicalResult" android:label="@string/kanji_entry_search_result_view_label"></activity>
         <activity android:name=".kanji.KanjiSearchStrokeCountResult" android:label="@string/kanji_entry_search_result_view_label"></activity>
         <activity android:name=".sod.SodActivity" android:label="@string/sod_label"></activity>
