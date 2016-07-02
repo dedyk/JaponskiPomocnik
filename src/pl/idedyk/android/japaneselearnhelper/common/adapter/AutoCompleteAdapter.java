@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient.AutoCompleteSuggestionType;
 
 public class AutoCompleteAdapter extends BaseAdapter implements Filterable {
@@ -22,6 +19,7 @@ public class AutoCompleteAdapter extends BaseAdapter implements Filterable {
 	
 	private List<String> resultList = new ArrayList<String>();
 	
+	@SuppressWarnings("unused")
 	private AutoCompleteSuggestionType autoCompleteSuggestionType;
 	
 	public AutoCompleteAdapter(Context context, AutoCompleteSuggestionType autoCompleteSuggestionType) {
