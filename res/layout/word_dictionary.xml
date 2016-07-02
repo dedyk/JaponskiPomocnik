@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.00"
             android:inputType="text"
-            android:dropDownWidth="match_parent" >
+            android:dropDownWidth="match_parent">
         </pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView>
 
         <Button

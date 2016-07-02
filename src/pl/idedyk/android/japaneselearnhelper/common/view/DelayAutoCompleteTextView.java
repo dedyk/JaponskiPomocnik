@@ -10,16 +10,17 @@ import android.widget.AutoCompleteTextView;
 public class DelayAutoCompleteTextView extends AutoCompleteTextView {
 
     private static final int MESSAGE_TEXT_CHANGED = 100;
-    private static final int DEFAULT_AUTOCOMPLETE_DELAY = 500;
-
-    private int mAutoCompleteDelay = DEFAULT_AUTOCOMPLETE_DELAY;
+    private static final int AUTOCOMPLETE_DELAY = 1;
 
     @SuppressLint("HandlerLeak")
 	private final Handler mHandler = new Handler() {
     	
         @Override
         public void handleMessage(Message msg) {
-            DelayAutoCompleteTextView.super.performFiltering((CharSequence) msg.obj, msg.arg1);
+        	
+        	MessageObject messageObject = (MessageObject)msg.obj;
+        	
+            DelayAutoCompleteTextView.super.performFiltering(messageObject.getText(), messageObject.getKeyCode());
         }
     };
 
@@ -32,11 +33,33 @@ public class DelayAutoCompleteTextView extends AutoCompleteTextView {
     	        
         mHandler.removeMessages(MESSAGE_TEXT_CHANGED);
         
-        mHandler.sendMessageDelayed(mHandler.obtainMessage(MESSAGE_TEXT_CHANGED, text), mAutoCompleteDelay);
+        Message message = mHandler.obtainMessage(MESSAGE_TEXT_CHANGED, new MessageObject(text, keyCode));
+        
+        mHandler.sendMessageDelayed(message, AUTOCOMPLETE_DELAY);
     }
 
     @Override
     public void onFilterComplete(int count) {
     	super.onFilterComplete(count);
+    }
+    
+    private static class MessageObject {
+    	
+    	public MessageObject(CharSequence text, int keyCode) {
+    		this.text = text;
+    		this.keyCode = keyCode;
+    	}
+    	
+    	private CharSequence text;
+    	
+    	private int keyCode;
+
+		public CharSequence getText() {
+			return text;
+		}
+
+		public int getKeyCode() {
+			return keyCode;
+		}
     }
 }

@@ -3,7 +3,6 @@ package pl.idedyk.android.japaneselearnhelper.common.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.R;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -23,7 +22,6 @@ public class AutoCompleteAdapter extends BaseAdapter implements Filterable {
 	
 	private List<String> resultList = new ArrayList<String>();
 	
-	@SuppressWarnings("unused")
 	private AutoCompleteSuggestionType autoCompleteSuggestionType;
 	
 	public AutoCompleteAdapter(Context context, AutoCompleteSuggestionType autoCompleteSuggestionType) {
