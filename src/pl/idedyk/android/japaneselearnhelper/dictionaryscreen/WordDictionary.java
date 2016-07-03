@@ -58,7 +58,8 @@ public class WordDictionary extends Activity {
 	
 	private DelayAutoCompleteTextView searchValueEditText;
 	
-	private CheckBox seachOptionsEachChangeCheckBox;
+	private CheckBox searchOptionsEachChangeCheckBox;
+	private CheckBox searchOptionsUseAutocompleteCheckBox;
 	
 	private CheckBox automaticSendMissingWordCheckBox;
 	
@@ -105,7 +106,8 @@ public class WordDictionary extends Activity {
 		
 		bundle.putString("searchValueEditText", searchValueEditText.getText().toString());
 		
-		bundle.putBoolean("seachOptionsEachChangeCheckBox", seachOptionsEachChangeCheckBox.isChecked());
+		bundle.putBoolean("searchOptionsEachChangeCheckBox", searchOptionsEachChangeCheckBox.isChecked());
+		bundle.putBoolean("searchOptionsUseAutocompleteCheckBox", searchOptionsUseAutocompleteCheckBox.isChecked());
 		
 		bundle.putBoolean("automaticSendMissingWordCheckBox", automaticSendMissingWordCheckBox.isChecked());
 		
@@ -136,7 +138,8 @@ public class WordDictionary extends Activity {
 			
 		super.onRestoreInstanceState(bundle);
 					   
-		seachOptionsEachChangeCheckBox.setChecked(bundle.getBoolean("seachOptionsEachChangeCheckBox"));
+		searchOptionsEachChangeCheckBox.setChecked(bundle.getBoolean("searchOptionsEachChangeCheckBox"));
+		searchOptionsUseAutocompleteCheckBox.setChecked(bundle.getBoolean("searchOptionsUseAutocompleteCheckBox"));
 		
 		automaticSendMissingWordCheckBox.setChecked(bundle.getBoolean("automaticSendMissingWordCheckBox"));
 		
@@ -217,16 +220,35 @@ public class WordDictionary extends Activity {
 		
 		final WordDictionarySearchConfig wordDictionarySearchConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordDictionarySearchConfig();
 		
-		seachOptionsEachChangeCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_each_change_checkbox);		
+		searchOptionsEachChangeCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_each_change_checkbox);		
 		
-		seachOptionsEachChangeCheckBox.setChecked(wordDictionarySearchConfig.getEachChangeSearch());		
-		seachOptionsEachChangeCheckBox.setOnClickListener(new OnClickListener() {
+		searchOptionsEachChangeCheckBox.setChecked(wordDictionarySearchConfig.getEachChangeSearch());		
+		searchOptionsEachChangeCheckBox.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 				
 				setSearchButtonVisible();
 			}
 		});
+		
+		//
+		
+		searchOptionsUseAutocompleteCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_use_autocomplete_checkbox);
+		
+		searchOptionsUseAutocompleteCheckBox.setChecked(wordDictionarySearchConfig.getUseAutocomplete());
+		
+		searchValueEditText.setUseAutocompleteCheckBox(searchOptionsUseAutocompleteCheckBox);
+		
+		searchOptionsUseAutocompleteCheckBox.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+
+				wordDictionarySearchConfig.setUseAutocomplete(searchOptionsUseAutocompleteCheckBox.isChecked());
+				
+			}
+		});
+		
+		//
 		
 		automaticSendMissingWordCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_improve_dict_automatic_send_missing_word_checkbox);
 	
@@ -256,7 +278,7 @@ public class WordDictionary extends Activity {
 		OnClickListener searchOptionsOnClick = new OnClickListener() {			
 			public void onClick(View view) {
 				
-				if (seachOptionsEachChangeCheckBox.isChecked() == true) {
+				if (searchOptionsEachChangeCheckBox.isChecked() == true) {
 					performSearch(searchValueEditText.getText().toString());
 				}
 			}
@@ -279,7 +301,7 @@ public class WordDictionary extends Activity {
 			
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				
-				if (seachOptionsEachChangeCheckBox.isChecked() == true) {
+				if (searchOptionsEachChangeCheckBox.isChecked() == true) {
 					performSearch(s.toString());
 				}
 			}
@@ -425,14 +447,14 @@ public class WordDictionary extends Activity {
 		
 		searchValueEditText.setText(inputFindWord);
 		
-		if (seachOptionsEachChangeCheckBox.isChecked() == false) {
+		if (searchOptionsEachChangeCheckBox.isChecked() == false) {
 			performSearch(inputFindWord);
 		}
 	}
 	
 	private void setSearchButtonVisible() {
 		
-		if (seachOptionsEachChangeCheckBox.isChecked() == false) {
+		if (searchOptionsEachChangeCheckBox.isChecked() == false) {
 			searchButton.setVisibility(View.VISIBLE);
 		} else {
 			searchButton.setVisibility(View.GONE);
@@ -442,7 +464,7 @@ public class WordDictionary extends Activity {
 		
 		WordDictionarySearchConfig wordDictionarySearchConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordDictionarySearchConfig();
 		
-		wordDictionarySearchConfig.setEachChangeSearch(seachOptionsEachChangeCheckBox.isChecked());
+		wordDictionarySearchConfig.setEachChangeSearch(searchOptionsEachChangeCheckBox.isChecked());
 	}
 	
 	private CheckBox createCheckBox(String text, boolean checked) {

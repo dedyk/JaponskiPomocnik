@@ -29,6 +29,7 @@
     <string name="word_dictionary_search_options_improve_dict_automatic_send_missing_word">Automatycznie wysyłaj do autora brakujące słowa (uwaga: funkcja do działania potrzebuje internetu)</string>
     <string name="word_dictionary_search_options_search_mode_label">Sposób wyszukiwania</string>
     <string name="word_dictionary_search_options_search_each_change">Szukaj z każdą zmianą frazy</string>
+    <string name="word_dictionary_search_options_search_use_autocomplete_checkbox">Używaj autouzupełniania (uwaga: funkcja do działania potrzebuje internetu)</string>
     <string name="word_dictionary_search_options_search_place_label">Szukaj ciągu:</string>
     <string name="word_dictionary_search_options_search_any_place_radiobutton">w dowolnym miejscu w słowie</string>
     <string name="word_dictionary_search_options_search_startwith_radiobutton">od pierwszego znaku w słowie</string>

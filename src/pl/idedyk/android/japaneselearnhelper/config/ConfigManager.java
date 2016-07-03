@@ -561,6 +561,8 @@ public class ConfigManager {
 		
 		private final String automaticSendMissingWordPostfix = "automaticSendMissingWord";
 		
+		private final String useAutocompletePostfix = "useAutocomplete";
+		
 		public Boolean getEachChangeSearch() {
 			return preferences.getBoolean(wordDictionarySearchConfigPrefix + eachChangeSearchPostfix, false);
 		}
@@ -586,6 +588,19 @@ public class ConfigManager {
 			
 			editor.commit();			
 		}
+		
+		public Boolean getUseAutocomplete() {
+			return preferences.getBoolean(wordDictionarySearchConfigPrefix + useAutocompletePostfix, true);
+		}
+		
+		public void setUseAutocomplete(boolean useAutocomplete) {
+
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(wordDictionarySearchConfigPrefix + useAutocompletePostfix, useAutocomplete);
+			
+			editor.commit();			
+		}
 	}
 
 	public class KanjiSearchMeaningConfig {
@@ -593,6 +608,8 @@ public class ConfigManager {
 		private final String kanjiSearchMeaningConfigPrefix = "kanjiSearchMeaningConfig_";
 		
 		private final String eachChangeSearchPostfix = "eachChangeSearch";
+		
+		private final String useAutocompletePostfix = "useAutocomplete";
 		
 		public Boolean getEachChangeSearch() {
 			return preferences.getBoolean(kanjiSearchMeaningConfigPrefix + eachChangeSearchPostfix, false);
@@ -603,6 +620,19 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(kanjiSearchMeaningConfigPrefix + eachChangeSearchPostfix, eachChangeSearch);
+			
+			editor.commit();			
+		}
+		
+		public Boolean getUseAutocomplete() {
+			return preferences.getBoolean(kanjiSearchMeaningConfigPrefix + useAutocompletePostfix, true);
+		}
+		
+		public void setUseAutocomplete(boolean useAutocomplete) {
+
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(kanjiSearchMeaningConfigPrefix + useAutocompletePostfix, useAutocomplete);
 			
 			editor.commit();			
 		}

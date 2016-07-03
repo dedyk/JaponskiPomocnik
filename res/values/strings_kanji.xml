@@ -154,6 +154,7 @@
     <string name="kanji_search_meaning_search_button">Szukaj</string>
     <string name="kanji_search_meaning_options_search_mode_label">Sposób wyszukiwania</string>
     <string name="kanji_search_meaning_options_search_each_change">Szukaj z każdą zmianą frazy</string>
+    <string name="kanji_search_meaning_options_search_use_autocomplete">Używaj autouzupełniania (uwaga: funkcja do działania potrzebuje internetu)</string>
     <string name="kanji_search_meaning_options_search_place_label">Szukaj ciągu:</string>
     <string name="kanji_search_meaning_options_search_any_place_radiobutton">w dowolnym miejscu w słowie</string>
     <string name="kanji_search_meaning_options_search_startwith_radiobutton">od pierwszego znaku w słowie</string>

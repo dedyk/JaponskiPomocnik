@@ -56,7 +56,8 @@ public class KanjiSearchMeaning extends Activity {
 	
 	private Button searchButton;
 	
-	private CheckBox seachOptionsEachChangeCheckBox;
+	private CheckBox searchOptionsEachChangeCheckBox;
+	private CheckBox searchOptionsUseAutocompleteCheckBox;
 	
 	//private RadioButton searchOptionsAnyPlaceRadioButton;
 	private RadioButton searchOptionsStartWithPlaceRadioButton;
@@ -123,19 +124,38 @@ public class KanjiSearchMeaning extends Activity {
 			}
 		});
 		
-		seachOptionsEachChangeCheckBox = (CheckBox)findViewById(R.id.kanji_search_meaning_options_search_each_change_checkbox);
+		searchOptionsEachChangeCheckBox = (CheckBox)findViewById(R.id.kanji_search_meaning_options_search_each_change_checkbox);
 		
-		KanjiSearchMeaningConfig kanjiSearchMeaningConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanjiSearchMeaningConfig();
+		final KanjiSearchMeaningConfig kanjiSearchMeaningConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanjiSearchMeaningConfig();
 		
-		seachOptionsEachChangeCheckBox.setChecked(kanjiSearchMeaningConfig.getEachChangeSearch());
+		searchOptionsEachChangeCheckBox.setChecked(kanjiSearchMeaningConfig.getEachChangeSearch());
 		
-		seachOptionsEachChangeCheckBox.setOnClickListener(new OnClickListener() {
+		searchOptionsEachChangeCheckBox.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 				
 				setSearchButtonVisible();
 			}
 		});
+		
+		//
+		
+		searchOptionsUseAutocompleteCheckBox = (CheckBox)findViewById(R.id.kanji_search_meaning_options_search_use_autocomplete_checkbox);
+		
+		searchOptionsUseAutocompleteCheckBox.setChecked(kanjiSearchMeaningConfig.getUseAutocomplete());
+		
+		searchValueEditText.setUseAutocompleteCheckBox(searchOptionsUseAutocompleteCheckBox);
+		
+		searchOptionsUseAutocompleteCheckBox.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+
+				kanjiSearchMeaningConfig.setUseAutocomplete(searchOptionsUseAutocompleteCheckBox.isChecked());
+				
+			}
+		});
+		
+		//
 				
 		//searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.kanji_search_meaning_options_search_any_place_radiobutton);
 		searchOptionsStartWithPlaceRadioButton = (RadioButton)findViewById(R.id.kanji_search_meaning_options_search_startwith_radiobutton);
@@ -144,7 +164,7 @@ public class KanjiSearchMeaning extends Activity {
 		OnClickListener searchOptionsOnClick = new OnClickListener() {			
 			public void onClick(View view) {
 				
-				if (seachOptionsEachChangeCheckBox.isChecked() == true) {
+				if (searchOptionsEachChangeCheckBox.isChecked() == true) {
 					performSearch(searchValueEditText.getText().toString());
 				}
 			}
@@ -158,7 +178,7 @@ public class KanjiSearchMeaning extends Activity {
 			
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				
-				if (seachOptionsEachChangeCheckBox.isChecked() == true) {
+				if (searchOptionsEachChangeCheckBox.isChecked() == true) {
 					performSearch(s.toString());
 				}
 			}
@@ -240,7 +260,7 @@ public class KanjiSearchMeaning extends Activity {
 	
 	private void setSearchButtonVisible() {
 		
-		if (seachOptionsEachChangeCheckBox.isChecked() == false) {
+		if (searchOptionsEachChangeCheckBox.isChecked() == false) {
 			searchButton.setVisibility(View.VISIBLE);
 		} else {
 			searchButton.setVisibility(View.GONE);
@@ -250,7 +270,7 @@ public class KanjiSearchMeaning extends Activity {
 		
 		KanjiSearchMeaningConfig kanjiSearchMeaningConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getKanjiSearchMeaningConfig();
 		
-		kanjiSearchMeaningConfig.setEachChangeSearch(seachOptionsEachChangeCheckBox.isChecked());
+		kanjiSearchMeaningConfig.setEachChangeSearch(searchOptionsEachChangeCheckBox.isChecked());
 	}
 	
 	private void performSearch(final String findWord) {
