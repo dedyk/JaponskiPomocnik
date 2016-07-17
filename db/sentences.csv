@@ -2935,6 +2935,7 @@
 106118,jpn,彼は私に泳ぎ方を教えてくれた。
 106123,jpn,彼は私に圧力をかけた。
 106130,jpn,彼は私にルールを説明した。
+106134,jpn,彼は私によくインドの話をしてくれた。
 106148,jpn,彼は私にヒントをくれた。
 106154,jpn,彼は私にパスポートを忘れないように注意してくれた。
 106163,jpn,彼は私にとって父親のような存在だ。
@@ -3540,6 +3541,7 @@
 113167,jpn,彼はそのチームから除外された。
 113200,jpn,彼はそのことについては表面的な知識しかない。
 113204,jpn,彼はそのことでひどく腹が立っていた。
+113218,jpn,彼はそのあいだずっとタバコを吸っていた。
 113225,jpn,彼はそこへ行くように助言した。
 113239,jpn,彼はそこに行くように助言した。
 113245,jpn,彼はそこに５時ごろ着くでしょう。
@@ -3721,6 +3723,7 @@
 115210,jpn,彼は１万円の罰金を課せられた。
 115212,jpn,彼は１歩前へ進んだ。
 115225,jpn,彼は１日に８時間働く。
+115233,jpn,彼は１等賞を取りそうだ。
 115258,jpn,彼は１時間ねむった。
 115259,jpn,彼は１時間で追いつくだろう。
 115273,jpn,彼は１９７０年６月５日の朝７時に生まれた。
@@ -6966,6 +6969,7 @@
 159422,jpn,私はテニス部に所属しています。
 159424,jpn,私はテニスをする予定です。
 159433,jpn,私はテニスをしている女の子を知っています。
+159435,jpn,私はテニスプレイヤーです。
 159444,jpn,私はテニスが下手だ。
 159446,jpn,私はデトロイトへ車を運転していきましょう。
 159451,jpn,私はデザートを食べるのをあきらめました。
@@ -8430,6 +8434,7 @@
 173784,jpn,好きな歌手は誰ですか？
 173792,jpn,好きなものを指差しなさい。
 173793,jpn,好きなものをどれでも取りなさい。
+173808,jpn,好きなだけ取りなさい。
 173811,jpn,好きなだけここにいてよろしい。
 173825,jpn,喉が痛いんです。
 173826,jpn,喉が痛い。
@@ -10379,6 +10384,7 @@
 191843,jpn,わたしはその曲をしらなかった。
 191858,jpn,わたしはコーヒーよりも茶をこのむ。
 191860,jpn,わたしはきみにあうとかならずおとうとのことを思い出します。
+191869,jpn,私はインドに行ったことがある。
 191870,jpn,私はいつも徒歩で通学している。
 191887,jpn,わたしは、在宅です。
 191888,jpn,わたしは、ロンドンにいるときメアリーとジョンにあった。
@@ -11355,6 +11361,7 @@
 200776,jpn,どちらに御泊りですか。
 200777,jpn,どちらにお住まいですか。
 200788,jpn,どちらでも君の一番好きな方を取りなさい。
+200790,jpn,どちらでもほしいものを取りなさい。
 200831,jpn,どこを旅行していようとも、週に１度は必ず電話をください。
 200837,jpn,ところで彼は何処に住んでいますか。
 200847,jpn,ところであなたはどこの出身ですか。
@@ -12388,6 +12395,7 @@
 212787,jpn,そのぬれたタオルをかばんに入れてはいけない。
 212788,jpn,そのぬれたシャツはすぐに乾くだろう。
 212793,jpn,そのニュースを聞いて彼女はがっかりしてためいきをついた。
+212795,jpn,そのニュースを聞いて彼はぼうぜんとした。
 212797,jpn,そのニュースを聞いて気の毒に思う。
 212798,jpn,そのニュースを聞いてどんなにうれしかったかは表現できません。
 212806,jpn,そのニュースは本当なのだろうか。
@@ -12565,6 +12573,7 @@
 214967,jpn,すぐにあなたの声とわかりました。
 214979,jpn,すぐそちらに行きます。
 214992,jpn,すき腹にまずいものなし。
+215002,jpn,すきなだけ取ってね。
 215011,jpn,スキーの季節は過ぎた。
 215012,jpn,スキーに行こうと思う。
 215034,jpn,スープは熱いうちに召し上がれ。
@@ -13625,6 +13634,7 @@
 227136,jpn,お座り下さい。
 227145,jpn,お行儀はどうなったの。
 227151,jpn,お好きなようにしなさい。
+227155,jpn,お好きなだけお取りなさい。
 227156,jpn,お好きな席にどうぞ。
 227158,jpn,お口に合いますか。
 227163,jpn,お互い仇同士だ。
@@ -13773,6 +13783,7 @@
 228299,jpn,ウエスト夫人は朝食の用意で忙しい。
 228315,jpn,ううん、もういいよ。お腹いっぱい。
 228346,jpn,インフレ進行度は鈍っている。
+228365,jpn,インド滞在中にお金が底をついた。
 228366,jpn,インドは長年にわたって英国に支配されていた。
 228377,jpn,インドでは牛は神聖な動物です。
 228411,jpn,インカ帝国の支配者でした。
@@ -14245,6 +14256,7 @@
 234072,jpn,あなたが今あるのはだれのおかげなのですか。
 234073,jpn,あなたが行ってしまったら寂しくなります。
 234076,jpn,あなたが行こうがとどまろうと私にとってはまったく変わりがない。
+234082,jpn,あなたが好きなだけお取り下さい。
 234083,jpn,あなたが好きです。
 234104,jpn,あなたが去る前には火を確実に消しなさい。
 234110,jpn,あなたが帰宅したとき、お母さんは何をしていましたか。
@@ -14961,6 +14973,7 @@
 352287,pol,Widziałeś kiedyś wieloryba?
 352291,pol,Znów poniosłem klęskę.
 352292,pol,Trudno było rozwiązać tę łamigłówkę.
+352373,pol,"Kiedy usłyszał tę wiadomość, był porażony."
 352374,pol,Przykro mi to słyszeć.
 352375,pol,"Nie sposób wyrazić, jak byłem szczęśliwy słysząc to."
 352376,pol,Ten akapit podsumowuje treść.
@@ -18392,6 +18405,7 @@
 502332,pol,"Nawet nie śniłem, że Ciebie tu spotkam."
 502735,jpn,電話番号を教えてくれませんか？
 502987,pol,Moja torba jest już bardzo stara. Muszę kupić nową.
+502993,pol,Palił przez cały ten czas.
 503003,pol,Ona lubi też czekoladę.
 503797,pol,Porównaj styl tych dwóch listów.
 504763,pol,"Poprosiłem Toma, by zamknął drzwi."
@@ -19517,6 +19531,7 @@
 548035,pol,Usiądź gdziekolwiek chcesz.
 548230,pol,Ona jest bardzo inteligentna.
 548231,pol,Oglądam telewizję.
+548233,pol,Weź cokolwiek chcesz.
 548236,pol,Jestem córką Helen Cartwrighter.
 548304,pol,"Nie ma żadnej nadziei, że on szybko przyjdzie."
 548702,pol,To literówka. Przepraszam.
@@ -20773,6 +20788,7 @@
 601361,pol,Ich ojciec jest taksówkarzem.
 601362,pol,Do kogo należy ta walizka?
 601373,pol,Połóż się na swojej prawej stronie.
+601383,pol,Byłem już w Indiach.
 601534,pol,Nie wiem na pewno.
 601588,pol,Martha jest wspaniałą pianistką.
 601592,pol,"Bilety, proszę."
@@ -23540,6 +23556,7 @@
 1181528,pol,Wybierz albo jedno albo drugie
 1181570,pol,On jest ojcem dwójki dzieci.
 1181734,pol,Zadzwonię do nich jutro jak wrócę.
+1181752,pol,Jestem tenisistką.
 1182125,pol,"Mówią, że Wenecja to piękne miasto."
 1182196,pol,"Przyjdę, jak skończę zadanie domowe."
 1182197,pol,Różnica wieku między nimi to sześć lat.
@@ -23605,6 +23622,7 @@
 1198185,jpn,彼女の気持ちは傷つきやすい。
 1199011,pol,"Zbliż się, żebym mógł zobaczyć twoją twarz."
 1199013,pol,"Zbliż się, żebym mogła zobaczyć twoją twarz."
+1199150,jpn,どっちでもいいから欲しいのを持って行って。
 1199773,jpn,もうちょっと寝たいよ。
 1199935,pol,Ona jest prawie tak wysoka jak ja.
 1200843,jpn,彼女は兄に憧れている。
@@ -23917,6 +23935,7 @@
 1348703,pol,"Pan Young chciałby, by jego syn uczył się ciężej."
 1348710,pol,Ten plastik nie został uszkodzony przez ogień.
 1348717,pol,Powinien tutaj przybyć.
+1348732,pol,Opowiadał mi historie o Indiach.
 1348784,pol,"I w jaki sposób poniesiesz odpowiedzialność, w wypadku gdy ten projekt ustawy nie przejdzie?"
 1348788,pol,Wyglądasz dobrze!
 1348803,pol,John w ogóle nie dba o swe ubrania.
@@ -24239,6 +24258,7 @@
 1352165,pol,Je teraz lancz.
 1352166,pol,Je teraz obiad.
 1352168,pol,Raport jest całkowicie nieprawdziwy.
+1352173,pol,Weź ile tylko chcesz.
 1352174,pol,"Proszę, daj mi natychmiast znać, jeśli chcesz skorzystać z tego komputera."
 1352177,pol,Jestem ciekaw kto to wymyślił.
 1352181,pol,Nie powinieneś oczekiwać pomocy od innych.
@@ -24472,6 +24492,7 @@
 1354265,pol,"Jest dobrym pływakiem, a także świetnie gra w tenisa."
 1354268,pol,Grałem w tenisa przez cały dzień.
 1354270,pol,Ból pleców przeszkodził mi w grze w tenisa.
+1354272,pol,Jestem tenisistą.
 1354274,pol,Nie umiem grać w tenisa tak dobrze jak Tom.
 1354275,pol,Wyślij mi rakietę tenisową i buty do tenisa.
 1354276,pol,On jest raczej kiepski w tenisa.
@@ -27840,6 +27861,7 @@
 3421122,pol,Nigdy nie byłem w Ameryce.
 3421462,pol,Musi być szalony aby się tak zachowywać.
 3421466,pol,Dlatego się zezłościł.
+3421518,pol,Skończyły mi się pieniądze podczas pobytu w Indiach.
 3421595,pol,"Gdybyś wtedy przyszedł trochę wcześniej, mógłbyś ją spotkać."
 3421770,pol,John rozciągnął się na kanapie.
 3421821,pol,To najbardziej absurdalny pomysł jaki kiedykolwiek słyszałem.
@@ -28189,6 +28211,7 @@
 3614674,pol,Zostanie w Tokio na kilka tygodni.
 3614675,pol,Zatrzyma się w Tokio na kilka tygodni.
 3614676,pol,Pięć osób zginęło lub zostało rannych w wypadku.
+3614702,pol,"Wygląda na to, że wygra pierwszą nagrodę."
 3615183,pol,Jest dumny ze swoich dobrych ocen.
 3615644,pol,Skorzystałem z tej dobrej okazji.
 3615646,pol,Jego życie jest zagrożone.
