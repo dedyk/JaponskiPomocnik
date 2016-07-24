@@ -5197,6 +5197,7 @@
 142018,jpn,雪が朝日をうけて光り輝いていた。
 142020,jpn,雪が青いというのは誤りだ。
 142024,jpn,雪が降り始めていた。
+142032,jpn,雪が何日も降り続いた。
 142064,jpn,折り返し電話するよう伝えます。
 142084,jpn,切符を拝見いたします。
 142087,jpn,切符を手にいれてください。
@@ -7912,6 +7913,7 @@
 167956,jpn,私がちゃんとやりますから。
 167959,jpn,私がそんなときに思うのは、家族のことであり、友達のことではない。
 167978,jpn,私がその部屋に入るとすぐに彼は部屋を出ていった。
+167982,jpn,私がその窓を開けなければならないのですか。
 167989,jpn,私がその事件について説明しよう。
 167991,jpn,私がその光景を見たときの恐ろしさをちょっと想像して下さい。
 168011,jpn,私がせっかくやっていることにけちをつけた。
@@ -8248,6 +8250,7 @@
 171656,jpn,今日は気分がひどく悪いのです。
 171657,jpn,今日は気分がいいですね。
 171682,jpn,今日は家にいた方が良い。
+171684,jpn,今日は何日ですか。
 171700,jpn,今日は雲がなかった。
 171720,jpn,今日はほとんど風がない。
 171724,jpn,今日はひどく悪い天気だ。
@@ -9883,6 +9886,7 @@
 187316,jpn,何匹かのサルが木に登っているのを見た。
 187318,jpn,何泊のご予定でしょうか。
 187327,jpn,何年くらい英語を勉強していますか。
+187331,jpn,何日滞在する予定ですか。
 187340,jpn,何日ぐらいかかりますか。
 187357,jpn,何千人もの外国人が毎年日本を訪れる。
 187360,jpn,何千もの人々がそこにいた。
@@ -10263,6 +10267,7 @@
 190533,jpn,一緒に行かせて下さい。
 190560,jpn,一週間後にそのＣＤを返すよ。
 190562,jpn,一週間雨が降り続いた。
+190568,jpn,一週間は何日ありますか。
 190570,jpn,一週間の休みをとった。
 190572,jpn,一週間に何回入浴しますか。
 190587,jpn,一時間前に雪が降り止みました。
@@ -12053,6 +12058,7 @@
 207899,jpn,その知らせを聞けば、彼はショックを受けるだろう。
 207910,jpn,その知らせを聞くと、彼女は青くなった。
 207920,jpn,その知らせを聞いて誰もが興奮した。
+207922,jpn,その知らせを聞いて身の毛がよだった。
 207930,jpn,その知らせを聞いて驚いた。
 207931,jpn,その知らせを聞いて泣きたい気がした。
 207932,jpn,その知らせを聞いて安心した。
@@ -13970,10 +13976,12 @@
 230668,jpn,あの赤いドレスは彼女によく似合う。
 230707,jpn,あの人は仏のような人だ。
 230711,jpn,あの人は少なくとも60歳にはなっている。
+230714,jpn,あの人は自分の言った事が正しいと信じているらしい。
 230716,jpn,あの人は私の一挙一動を見守っている。
 230717,jpn,あの人は私には口うるさかった。
 230721,jpn,あの人は私が１週間待ちつづけている人だ。
 230735,jpn,あの人はどんな人物か教えて下さい？
+230736,jpn,あの人はトムの兄弟にちがいない。
 230759,jpn,あの人の家は地下鉄の最寄りにある。
 230776,jpn,あの人にはあきれてしまった。
 230778,jpn,あの人にたてつかない方がいいよ。
@@ -15963,6 +15971,7 @@
 358057,pol,Właśnie kupiliśmy dwa meble.
 358297,jpn,残念・・・。
 358687,pol,Sporządziliśmy listę potencjalnych klientów.
+358688,pol,Na ile dni planuje pan pobyt?
 358689,pol,Spotkałem się z młodą Amerykanką.
 358690,pol,Tylko pokój może uratować świat.
 358691,pol,"Powiedziała szefowi, o czym myśli."
@@ -16059,6 +16068,7 @@
 358842,pol,Twój pokój to tylko połowa wielkości mojego.
 358843,pol,Pies szedł za mną aż do domu.
 358844,pol,John jest chudy jak wilk.
+358846,pol,Śnieg padał przez wiele dni z rzędu.
 358847,pol,Chyba weźmiemy udział w meczu tenisa.
 358848,pol,Młodzi Japończycy lubią rocka i jazz.
 358850,pol,"Ten problem jest tak prosty, że nawet ja go rozwiążę."
@@ -16262,6 +16272,7 @@
 359788,pol,Czy muszę brać to lekarstwo?
 359790,pol,Jestem mu winien 100 dolarów.
 359794,pol,Muszę już iść.
+359797,pol,Czy muszę otwierać okno?
 359798,pol,Muszę kupić jeden.
 359800,pol,Muszę przeprasować koszulę.
 359803,pol,W tym tygodniu mam urlop.
@@ -16274,6 +16285,7 @@
 359840,pol,On musi cię kochać.
 359842,pol,On musi być niewinny.
 359846,pol,Trzeba przestrzegać reguł.
+359848,pol,To musi być brat Toma.
 359855,pol,Właściwie to sam dopiero wróciłem.
 359857,pol,Rozmawiali przez całą noc.
 359858,pol,Serdecznie przepraszam za kłopot.
@@ -17028,6 +17040,7 @@
 364267,pol,Ta ziemia została wystawiona na sprzedaż.
 364270,pol,Słońce zachodzi za horyzont.
 364272,pol,"Nie gap się jak cielę na malowane wrota, tylko uważaj, co robisz."
+364274,pol,On za dużo pije.
 364279,pol,Zebraliśmy się w grupę.
 364281,pol,"Dać znać, kiedykolwiek."
 364284,pol,"Nie w porządku już było jego spóźnianie się, ale przyjście do pracy po pijanemu to już za wiele. Muszę go zwolnić."
@@ -18155,6 +18168,7 @@
 440683,pol,Nie potrafię zrozumieć jego powieści.
 440687,pol,Koty potrafią widzieć w ciemnościach.
 440701,pol,Nie mógł dłużej trzymać na wodzy nerwów.
+440744,jpn,今日は何日ですか？
 442385,pol,Japońskie sztuczne perły obejmują aż 60 procent światowego rynku pereł.
 442668,pol,Jesteś wolny dziś wieczorem?
 442786,pol,Lubisz filmy?
@@ -22405,6 +22419,7 @@
 889244,pol,"Japonia, Niemcy, Wielka Brytania i Stany Zjednoczone podpisały traktat."
 889250,pol,"Jeśli nie będzie to zbytnim problemem, potrzebuję pomocy."
 889253,pol,Gołębica jest symbolem pokoju.
+889710,jpn,今日、何曜日？
 889986,jpn,母が私の熱を測った。
 890009,jpn,この鳥は飛べません。
 890127,jpn,何か飲む？
@@ -26602,6 +26617,7 @@
 2754972,pol,Mijają dwa lata odkąd Jim skończył szkołę średnią.
 2754973,pol,Kiedy ukończyłeś szkołę średnią?
 2754974,pol,Odkąd ukończył on szkołę średnią nic nie robi.
+2757016,pol,Jaki jest dzisiaj dzień?
 2757217,pol,Najważniejsze dla ciebie jest aby wstawać wcześnie.
 2757237,pol,Pamiętasz że mnie już widziałeś?
 2759086,pol,Oni jedzą nożem i widelcem.
@@ -27269,6 +27285,7 @@
 3050177,pol,Dlatego nie lubię kotów.
 3050200,pol,Jego matka jest Amerykanką.
 3050331,pol,Każdy był podekscytowany w związku z tą wiadomością.
+3050332,pol,Ta wiadomość zjeżyła mi włosy na głowie.
 3050355,pol,Zajęło mi dużo czasu aby przyzwyczaić się do hałasu.
 3050368,pol,"Czułem się, jakbym miał płakać, kiedy usłyszałem tę wiadomość."
 3050374,pol,To była ulga usłyszeć tę wiadomość.
@@ -27882,6 +27899,7 @@
 3427157,pol,Wyszliśmy i nigdy nie wróciliśmy.
 3427177,pol,"Jak myślisz, jaki kolor ona lubi?"
 3427555,pol,Nie byłem na jego pogrzebie.
+3427692,pol,Ile jest dni w tygodniu?
 3427698,pol,Proszę powtarzać za mną.
 3427707,pol,Popełniłeś błąd.
 3427709,pol,Czy twój wujek nadal jest zagranicą?
@@ -28268,6 +28286,7 @@
 3653841,pol,On studiuje historię na uniwersytecie.
 3653843,pol,Starają się obniżyć koszty.
 3653893,pol,W przyszłości chcę być spikerem w telewizji.
+3653894,pol,"Wygląda na to, że on wierzy, że to co powiedział, to prawda."
 3655025,pol,Tamtego wieczoru było bardzo zimno.
 3655032,pol,Nie znam tej pani rozmawiającej z naszym nauczycielem.
 3655033,pol,"Nie znam tej kobiety, która rozmawia z naszym nauczycielem."
