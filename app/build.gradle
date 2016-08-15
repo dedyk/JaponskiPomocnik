@@ -1,3 +1,5 @@
+import com.android.builder.core.DefaultManifestParser
+
 apply plugin: 'com.android.application'
 
 android {
@@ -26,6 +28,26 @@ android {
 
     lintOptions {
 	abortOnError false
+    }
+
+    assembleRelease.doLast {
+	def manifestParser = new DefaultManifestParser()
+
+	def versionName = manifestParser.getVersionName(android.sourceSets.main.manifest.srcFile)
+	def versionCode = manifestParser.getVersionCode(android.sourceSets.main.manifest.srcFile)
+
+	def outputRelease = "release/release_" + versionCode + "_" + versionName
+	def outputName = "JapaneseAndroidLearnHelper_release_" + versionCode + "_" + versionName
+
+	mkdir("../" + outputRelease)
+
+	copy {
+	    from('build/outputs/apk') {
+		include 'app-release.apk'
+	    }
+	    into '../' + outputRelease
+	    rename ("app-release.apk", outputName + ".apk")
+	}
     }
 }
 
