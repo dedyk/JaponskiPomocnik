@@ -11,10 +11,14 @@ android {
         multiDexEnabled true
     }
 
+    signingConfigs {
+        release
+    }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -34,4 +38,27 @@ dependencies {
     compile files('libs/lucene-analyzers-common-4.7.2.jar')
     compile files('libs/lucene-core-4.7.2-without-SPIClassIterator-and-RamUsageEstimator.jar')
     compile files('libs/lucene-suggest-4.7.2.jar')
+}
+
+
+def Properties props = new Properties()
+def propFile = new File('app/signing.properties')
+
+if (propFile.canRead()){
+
+    props.load(new FileInputStream(propFile))
+
+    if (props!=null && props.containsKey('app.signingConfigs.release.storeFile') &&
+            props.containsKey('app.signingConfigs.release.keyAlias')) {
+
+        android.signingConfigs.release.storeFile = file(props['app.signingConfigs.release.storeFile'])
+        android.signingConfigs.release.keyAlias = props['app.signingConfigs.release.keyAlias']
+        android.signingConfigs.release.storePassword = System.console().readLine("\nKeystore password: ")
+        android.signingConfigs.release.keyPassword = System.console().readLine("\nKey password: ")
+        
+    } else {
+	throw new Exception("signing.properties found but some entries are missing")
+    }
+} else {
+    throw new Exception("signing.properties not found")
 }

@@ -5,6 +5,7 @@ release
 assets/dictionary.db
 
 app/build/
+app/signing.properties
 *.iml
 .gradle
 /local.properties
