@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        applicationId "pl.idedyk.android.japaneselearnhelper"
+        minSdkVersion 10
+        targetSdkVersion 22
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    useLibrary 'org.apache.http.legacy'
+
+    lintOptions {
+	abortOnError false
+    }
+}
+
+dependencies {
+    compile 'com.google.android.gms:play-services:+'
+    compile 'com.android.support:multidex:1.0.1'
+    compile files('libs/JapaneseDictionaryAPI-1.0-SNAPSHOT.jar')
+    compile files('libs/JapaneseDictionaryLuceneCommon-1.0-SNAPSHOT.jar')
+    compile files('libs/javacsv-2.1.jar')
+    compile files('libs/lucene-analyzers-common-4.7.2.jar')
+    compile files('libs/lucene-core-4.7.2-without-SPIClassIterator-and-RamUsageEstimator.jar')
+    compile files('libs/lucene-suggest-4.7.2.jar')
+}

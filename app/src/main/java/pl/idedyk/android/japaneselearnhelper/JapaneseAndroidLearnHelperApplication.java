@@ -11,12 +11,14 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue;
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.support.multidex.MultiDex;
 
 public class JapaneseAndroidLearnHelperApplication extends Application {
 	
@@ -41,6 +43,12 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
+	}
+
+	@Override
+	protected void attachBaseContext(Context base) {
+		super.attachBaseContext(base);
+		MultiDex.install(this);
 	}
 
 	@Override

@@ -5,7 +5,7 @@
     android:versionName="20160814"
     android:installLocation="auto" >
 
-    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="22" />
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="23" />
     
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
