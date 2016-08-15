@@ -4,6 +4,7 @@ gen
 release
 assets/dictionary.db
 
+app/build/
 *.iml
 .gradle
 /local.properties
