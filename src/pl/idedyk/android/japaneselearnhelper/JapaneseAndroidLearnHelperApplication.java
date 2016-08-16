@@ -1,10 +1,8 @@
 package pl.idedyk.android.japaneselearnhelper;
 
-/* GOOGLE_PLAY
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-*/
 
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
@@ -13,7 +11,6 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue;
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
@@ -39,17 +36,11 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 	
 	private Typeface babelStoneHanSubset = null;
 	
-	// GOOGLE_PLAY private Tracker tracker = null;
+	private Tracker tracker = null;
 	
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
-	}
-
-	@Override
-	protected void attachBaseContext(Context base) {
-		super.attachBaseContext(base);
-		//MultiDex.install(this);
 	}
 
 	@Override
@@ -167,8 +158,7 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 		
 		return babelStoneHanSubset;
 	}
-
-	/* GOOGLE_PLAY
+	
 	public Tracker getTracker() {
 		
 		if (tracker != null) {
@@ -183,31 +173,24 @@ public class JapaneseAndroidLearnHelperApplication extends Application {
 		
 		return tracker;		
 	}
-	*/
 	
 	public void logScreen(String screenName) {
-
-		/* GOOGLE_PLAY
+		
 		Tracker tracker = getTracker();
 		
 		tracker.setScreenName(screenName);
 		
-		tracker.send(new HitBuilders.AppViewBuilder().build());
-		*/
+		tracker.send(new HitBuilders.AppViewBuilder().build());		
 	}
 	
 	public void logEvent(String screenName, String actionName, String label) {
-
-		/*
-		GOOGLE_PLAY
-
+		
 		Tracker tracker = getTracker();
 		
 		tracker.send(new HitBuilders.EventBuilder()
 				.setCategory(screenName)
 				.setAction(actionName).
 				setLabel(label).
-				build());
-		*/
+				build());		
 	}
 }
