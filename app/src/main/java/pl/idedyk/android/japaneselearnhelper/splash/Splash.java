@@ -33,7 +33,8 @@ public class Splash extends Activity {
 		super.onCreate(savedInstanceState);
 
 		// init google analytics
-		JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
+		// GOOGLE_PLAY
+		// JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
 		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 

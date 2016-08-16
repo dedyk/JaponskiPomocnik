@@ -10,7 +10,7 @@ android {
         applicationId "pl.idedyk.android.japaneselearnhelper"
         minSdkVersion 10
         targetSdkVersion 22
-        multiDexEnabled true
+        //multiDexEnabled true
     }
 
     signingConfigs {
@@ -20,6 +20,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            shrinkResources true
             signingConfig signingConfigs.release
         }
     }
@@ -52,8 +53,8 @@ android {
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services:+'
-    compile 'com.android.support:multidex:1.0.1'
+    // GOOGLE_PLAY compile 'com.google.android.gms:play-services:+'
+    // compile 'com.android.support:multidex:1.0.1'
     compile files('libs/JapaneseDictionaryAPI-1.0-SNAPSHOT.jar')
     compile files('libs/JapaneseDictionaryLuceneCommon-1.0-SNAPSHOT.jar')
     compile files('libs/javacsv-2.1.jar')

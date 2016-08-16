@@ -61,10 +61,10 @@
         <activity android:name=".dictionaryhear.DictionaryHear" android:label="@string/dictionary_hear_label"></activity>
         <activity android:name=".transitiveintransitive.TransitiveIntransitivePairsTable" android:label="@string/transitive_intransitive_pairs_table_label"></activity>
 
-        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" /><!-- Google Analytics Version v4 needs this value for easy tracking -->
+        <!-- GOOGLE_PLAY <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" /> --><!-- Google Analytics Version v4 needs this value for easy tracking -->
         
-        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/global_tracker" />
-        
+        <!-- GOOGLE_PLAY <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/global_tracker" /> -->
+
 	</application>
 
 </manifest>
