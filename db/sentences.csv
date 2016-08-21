@@ -3935,6 +3935,7 @@
 117516,jpn,彼の言葉のなまりからわかったのだが、彼はオーストラリア人であった。
 117536,jpn,彼の言動は常に矛盾していた。
 117553,jpn,彼の言っていることが嘘だとわかった。
+117585,jpn,彼の言ったことはある意味本当だ。
 117589,jpn,彼の言ったことの意味が全然分からなかったよ。
 117598,jpn,彼の言う事を書き留めてください。
 117652,jpn,彼の賢さは大したものです。
@@ -11148,6 +11149,8 @@
 197960,jpn,バッチリ！
 197966,jpn,バッグを盗まれました。
 197967,jpn,バッグを私に見せてください。
+197984,jpn,はっきり言って、彼は間違っている。
+197986,jpn,はっきり言いなさい。
 197990,jpn,はっきりとは知らない。
 198009,jpn,バターやチーズは牛乳から作られる。
 198010,jpn,バターは乳脂から作られる。
@@ -11294,6 +11297,8 @@
 199217,jpn,なぜはさみで布を切らずに裂いたの。
 199220,jpn,なぜなら彼女はすばらしい先生だからです。
 199245,jpn,なぜそんなにうれしがっているのか。
+199246,jpn,なぜそんなことをしたの。
+199254,jpn,なぜそうしたんですか。
 199264,jpn,なぜこうなったのかしら。
 199286,jpn,なぜあなたは、こんなに早く起きたのですか。
 199287,jpn,なぜあなたは、かれらをばっするのですか。
@@ -11414,6 +11419,7 @@
 200464,jpn,とにかくその包みはどこかに置きなさい。
 200473,jpn,とにかく、私は高校を卒業したら大学へ行きます。
 200488,jpn,トニー君は速く走ることが出来る。
+200490,jpn,トニー君は神戸に住んでいます。
 200492,jpn,トニー君は私よりも上手に英語を話す。
 200514,jpn,トニーは礼儀正しい少年です。
 200536,jpn,トニーはシャツを脱いで、それでピアノのよごれを落としました。
@@ -15847,6 +15853,7 @@
 357290,pol,"Niemożliwe, żeby ci w domu zginął płaszcz."
 357291,pol,"Proszę poczekać do piątej, wtedy powinien wrócić."
 357294,pol,Ten dziwny obyczaj jest charakterystyczny dla tego regionu.
+357295,pol,"To, co powiedział, to w pewnym sensie prawda."
 357299,pol,Wysusz te buty!
 357300,pol,Nasza szkoła znajduje się w centrum miasta.
 357303,pol,Pojechał do Ameryki uczyć się angielskiego.
@@ -16307,6 +16314,7 @@
 359302,pol,Proszę o wybaczenie.
 359304,pol,"Nie ma wątpliwości, że angielski jest najszerzej używanym językiem świata."
 359305,pol,Muszą słuchać poleceń.
+359307,pol,Tony mieszka w Kobe.
 359309,pol,Tony mówi po angielsku lepiej niż ja.
 359311,pol,Wybierz który chcesz.
 359313,pol,Pewnie się zgubił.
@@ -19818,6 +19826,7 @@
 559529,pol,Pochodzę z Sapporo.
 559982,pol,Większość Amerykanów lubi hamburgery.
 559984,pol,Gdzie boli?
+559987,pol,Powiedź to wyraźnie.
 559992,pol,Ależ jesteś wysoki!
 559997,pol,Czy coś się zmieniło?
 560128,pol,Czy Spot też poszedł?
@@ -22205,6 +22214,7 @@
 812286,pol,On poszedł do łóżka (spać) po kolacji.
 812288,pol,On pije butelkę piwa do obiadu.
 812290,pol,On zjadł wielką kolację. Musiał być głodny.
+814182,pol,"Szczerze mówiąc, on jest w błędzie."
 814211,pol,Kto zjadł wszystkie ciasteczka?
 814224,pol,Statek do przewozu ropy naftowej nazywa się tankowiec.
 814404,pol,"Praca jest ważna nie tylko dla korzyści ekonomicznych, czyli pensji, ale i dla zaspokajania potrzeb społecznych i psychologicznych, dla poczucia, że robi się coś dla dobra społeczeństwa."
@@ -26583,6 +26593,7 @@
 2605117,pol,Tą drogą dojedziesz na pocztę.
 2605137,pol,Opanowanie języka obcego wymaga cierpliwości.
 2607502,pol,Pękła rura wodociągu.
+2607525,pol,Dlaczego to zrobiłeś?
 2607533,pol,Rozmowa podczas jedzenia jest bardzo żywiołowa i interesująca.
 2607615,jpn,あなたたち２人でケーキを分けなさい。
 2607634,pol,Zasnąłem na matematyce.
@@ -27327,6 +27338,7 @@
 3046756,pol,Chodźmy zobaczyć pochód wielkanocny.
 3046759,pol,Wesołych Świąt Wielkanocnych!
 3046774,pol,Nie zwracaj uwagi na szefa.
+3048160,pol,Po co to zrobiłeś?
 3048215,pol,On czuje się dzisiaj dużo lepiej.
 3048250,pol,Zranił się w prawą stopę upadając.
 3049017,pol,"Zapytałem, gdzie ona mieszka."
@@ -29364,6 +29376,7 @@
 4791066,pol,Uważaj!
 4791067,pol,Zemdlałem.
 4791068,pol,Zemdlałam.
+4791070,pol,Mów głośniej!
 4793305,jpn,働くしかない。
 4797424,pol,Mówisz płynną angielszczyzną.
 4797437,pol,Jest w kontakcie z najróżniejszymi ludźmi.
