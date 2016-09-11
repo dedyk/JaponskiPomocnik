@@ -1,0 +1,13 @@
+1. git status, git log, sprawdzamy, czy wszystko jest zakomitowane
+2. git tag -l, sprawdzamy, czy jest tag z poprzedniej wersji
+3. kopiowanie bazy do db
+4. w pliku AndroidManifest.xml podbicie wersji na release_xxx_20RRMMDD i zapisaniu na boku
+5. git status
+6. git add -u
+7. git commit -m "Release xxx - 20RRMMDD: Tresc"
+8. git tag release_509_20160911
+9. git log
+10. git tag -l | grep release_xxx_20RRMMDD
+11. git pull ; git push ; git push --tag
+12. ant clean
+13. ant clean release
