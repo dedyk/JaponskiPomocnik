@@ -1231,6 +1231,7 @@
 86121,jpn,彼女を起こしてきなさい。
 86126,jpn,彼女を危険から守りなさい。
 86128,jpn,彼女を家を出て独立したがっている。
+86129,jpn,彼女を家まで送らなきゃ。
 86130,jpn,彼女を映画に誘ったのだ。
 86131,jpn,彼女を一目見るやいなや、彼は恋してしまった。
 86136,jpn,彼女を悪く言う奴がいたらただじゃおかないぞ。
@@ -5784,6 +5785,7 @@
 147803,jpn,出かける準備はできていますか。
 147829,jpn,熟したりんごが木から落ちた。
 147841,jpn,宿題を提出しなさい。
+147846,jpn,宿題を終わらせなきゃならないんだ。
 147852,jpn,宿題を手伝ってくれませんか。
 147869,jpn,宿題をすませてしまったら行くよ。
 147905,jpn,叔母が私に新しいスカートを作ってくれた。
@@ -8153,6 +8155,7 @@
 169462,jpn,傘を持って行きなさい。
 169479,jpn,三分間目を閉じなさい。
 169483,jpn,三日続きの雨だった。
+169487,jpn,三日間雨が降り続いた。
 169489,jpn,三日間の議論はそれだけの価値があった。
 169521,jpn,皿が彼女の手から滑り、床に落ちて割れた。
 169530,jpn,雑誌を持ってきてください。
@@ -13329,6 +13332,7 @@
 222223,jpn,この計画から手をひかせてください。巻き込まれたくありません。
 222231,jpn,この掲示はなんと書いてあるのですか。
 222239,jpn,この型のセーターはすべて今在庫切れです。
+222259,jpn,この靴は一年もった。
 222261,jpn,この靴はとてもきつくてはけない。
 222272,jpn,この空模様からすると、雨になりそうだ。
 222277,jpn,この苦痛には我慢できない。
@@ -14201,6 +14205,7 @@
 231035,jpn,あの候補者は自由貿易の擁護者である。
 231041,jpn,あの故郷へ帰るんだ。
 231086,jpn,あの橋はなんてすばらしいのでしょう。
+231100,jpn,あの汽車に乗らなきゃならない。
 231131,jpn,あの絵をちょっと見てごらん。
 231150,jpn,あの花はよい香りがします。
 231170,jpn,あの家は女房が亭主をしりに敷いている。
@@ -14593,6 +14598,7 @@
 235283,jpn,３人はお互いに憎み合っていた。
 235284,jpn,３人の隣人はお互いに助け合った。
 235285,jpn,３人の中国人留学生がその大学に入学が許された。
+235288,jpn,３人の男が昨日脱獄した。
 235289,jpn,３人の大男が彼を攻撃して彼のお金を盗んだ。
 235291,jpn,３人の少年達はその建物の扉を開けました。
 235293,jpn,３人の少年はさながら猿のように木に登った。
@@ -14601,6 +14607,7 @@
 235304,jpn,３人のうちで最年少の少年が一番魅力的だ。
 235306,jpn,３週間仕事を捜して、やっと給料のよい仕事を見つけた。
 235311,jpn,３時間議論したが、我々は話がまとまらなかった。
+235312,jpn,３時間以上も激しい雨が降り続いている。
 235321,jpn,３時にあなたを迎えに行きます。
 235325,jpn,３歳の息子の診察の予約をお願いします。
 235330,jpn,３月になると多くの花が咲く。
@@ -18267,6 +18274,7 @@
 396678,jpn,輝けるもの必ずしも金ならず。
 396771,pol,Możesz mi wyjaśnić znaczenie tego zdania?
 396776,pol,Zamknij okno zanim pójdziesz spać.
+398030,jpn,あの電車に乗らなきゃならない。
 399602,pol,Czy mówisz po japońsku?
 400933,jpn,お元気ですか。
 401171,pol,"Bert nie chodzi do liceum, prawda?"
@@ -18773,6 +18781,7 @@
 524547,pol,Gdzie będzie Ci wygodnie?
 524548,pol,Gdzie będzie Ci pasowało?
 524554,pol,"Jest tak uczciwy, że wszyscy mu ufają."
+524556,pol,Te buty wytrzymały rok.
 524559,pol,Zalecenia doktora trzymały mnie z dala od picia za dużo.
 524560,pol,"Powiedział: ""Żegnajcie, moi przyjaciele"" i odszedł."
 524562,pol,Nikt z nas nie był na Hawajach.
@@ -19645,6 +19654,7 @@
 541039,pol,"Mój starszy brat jest naprawdę wysoki, około 1,8m."
 541056,pol,Wydatki wynoszą dziesięć tysięcy jenów na głowę.
 541057,pol,Zapomnij o tym. Nie ma sensu udzielać mu rady.
+541058,pol,Muszę skończyć moje zadanie domowe.
 541061,pol,Czy zraniłem cię?
 541062,pol,Czy ktoś pójdzie ze mną na koncert Lady Gaga?
 541063,pol,Sumienie go dręczyło.
@@ -22315,6 +22325,7 @@
 787808,pol,"Jak jest lato, to zawsze rano się kąpię."
 787810,pol,On śpiewa słabo.
 787813,pol,Wczoraj złowiłem trzy ryby.
+787815,pol,Zaczęło padać mocniej ponad trzy godziny temu.
 787816,pol,"Nie miał nic do roboty, więc poszedł do miasta."
 787820,pol,"Jak się nazywa ta piosenka, co Mr Tsuji śpiewał ją w tym programie?"
 787825,pol,Wykonał pracę do końca.
@@ -25315,6 +25326,7 @@
 1603736,pol,Dziś mi nie pasuje.
 1603746,pol,George jest kapitanem naszej drużyny.
 1603780,pol,Mieszkam tu od dawna.
+1603844,pol,Ja muszę zdążyć na tamty pociąg.
 1603861,pol,"Japończycy zwracają większą uwagę na zbiorowość i organizację, niż na indywidualnego człowieka."
 1604038,pol,Pański adres e-mail otrzymałem od p. Wildera.
 1604046,pol,Możesz to udowodnić?
@@ -26950,6 +26962,7 @@
 2770479,pol,Interesuję się badaniem owadów.
 2770492,pol,"Jak tylko ją zobaczył, zakochał się"
 2770495,pol,Zaprosiłem go na pójście do kina
+2770496,pol,Musisz zobaczyć jej dom.
 2770497,pol,Ona chce się wyprowadzić i znaleźć swoje własne miejsce.
 2770498,pol,Bronić ją przed niebezpieczeństwem.
 2770501,pol,Idź i obudź ją.
@@ -27383,6 +27396,7 @@
 3029854,pol,Wszyscy troje nienawidzili siebie nawzajem.
 3029855,pol,Troje sąsiadów pomogło sobie wzajemnie.
 3029856,pol,Troje chińskich uczniów zostało przyjętych na studia.
+3029860,pol,Troje mężczyzn uciekło wczoraj z więzienia.
 3029862,pol,Trzej ogromni mężczyźni zaatakowali go i okradli z pieniędzy.
 3029874,pol,Trzej chłopcy otworzyli drzwi budynku.
 3029876,pol,Trzej chłopcy wdrapali się na drzewa niczym stado małp.
@@ -29389,6 +29403,7 @@
 4092000,pol,"Musiałem powstrzymać się od palenia, podczas gdy byłem w szpitalu."
 4095552,pol,Nasze prawo do corocznego miesięcznego urlopu jest zawarte w kontrakcie.
 4095619,pol,Jego sąsiedzi traktują go podejrzliwie.
+4095687,pol,Deszcz padał trzy dni.
 4095691,pol,Długo wpatrywał się w sufit.
 4099718,pol,Urodziłem się w Tokio w 1968.
 4100149,pol,Nie wszystkie zwierzęta są dzikie.
