@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryListItem.ItemType;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -51,6 +52,26 @@ public class WordDictionaryListItemAdapter extends ArrayAdapter<WordDictionaryLi
     
     public int size() {
     	return data.size();
+    }
+    
+    @Override
+    public boolean isEnabled(int position) {
+    	
+    	if (position < 0 || position >= data.size()) {
+    		return false;
+    	}
+    	
+    	WordDictionaryListItem wordDictionaryListItem = data.get(position);
+    	
+    	ItemType itemType = wordDictionaryListItem.getItemType();
+    	
+    	if (itemType == ItemType.RESULT_ITEM || itemType == ItemType.SUGGESTION_VALUE) {
+    		return true;
+    		
+    	} else {
+    		return false;
+    		
+    	}
     }
     
     static private class WordDictionaryListItemHolder {

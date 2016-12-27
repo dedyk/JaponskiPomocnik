@@ -11,6 +11,7 @@ import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
 import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue.QueueEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
@@ -60,6 +61,7 @@ public class WordDictionary extends Activity {
 	
 	private CheckBox searchOptionsEachChangeCheckBox;
 	private CheckBox searchOptionsUseAutocompleteCheckBox;
+	private CheckBox searchOptionsUseSuggestionCheckBox;
 	
 	private CheckBox automaticSendMissingWordCheckBox;
 	
@@ -108,6 +110,7 @@ public class WordDictionary extends Activity {
 		
 		bundle.putBoolean("searchOptionsEachChangeCheckBox", searchOptionsEachChangeCheckBox.isChecked());
 		bundle.putBoolean("searchOptionsUseAutocompleteCheckBox", searchOptionsUseAutocompleteCheckBox.isChecked());
+		bundle.putBoolean("searchOptionsUseSuggestionCheckBox", searchOptionsUseSuggestionCheckBox.isChecked());
 		
 		bundle.putBoolean("automaticSendMissingWordCheckBox", automaticSendMissingWordCheckBox.isChecked());
 		
@@ -140,6 +143,7 @@ public class WordDictionary extends Activity {
 					   
 		searchOptionsEachChangeCheckBox.setChecked(bundle.getBoolean("searchOptionsEachChangeCheckBox"));
 		searchOptionsUseAutocompleteCheckBox.setChecked(bundle.getBoolean("searchOptionsUseAutocompleteCheckBox"));
+		searchOptionsUseSuggestionCheckBox.setChecked(bundle.getBoolean("searchOptionsUseSuggestionCheckBox"));
 		
 		automaticSendMissingWordCheckBox.setChecked(bundle.getBoolean("automaticSendMissingWordCheckBox"));
 		
@@ -163,8 +167,6 @@ public class WordDictionary extends Activity {
 		}
 		
 		searchValueEditText.setText(bundle.getString("searchValueEditText"));
-				
-		
 		
 		searchValueEditText.post(new Runnable() {
 			
@@ -198,12 +200,39 @@ public class WordDictionary extends Activity {
 				
 				WordDictionaryListItem wordDictionaryListItem = searchResultArrayAdapter.getItem(position);
 				
-				Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+				ItemType itemType = wordDictionaryListItem.getItemType();
 				
-				intent.putExtra("item", wordDictionaryListItem.getDictionaryEntry());
-				
-				startActivity(intent);
-				
+				if (itemType == ItemType.RESULT_ITEM) { // klikniecie w wiersz z wynikiem, otwarcie szczegolow
+					
+					Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+					
+					intent.putExtra("item", wordDictionaryListItem.getDictionaryEntry());
+					
+					startActivity(intent);
+
+				} else if (itemType == ItemType.SUGGESTION_VALUE) { // klikniecie w sugestie
+
+					// wstawienie napisu
+					searchValueEditText.setText(wordDictionaryListItem.getSuggestion());
+										
+					// resetowanie ustawien wyszukiwania
+					searchOptionsOnlyCommonWordsCheckbox.setChecked(false);
+					
+					searchOptionsKanjiCheckbox.setChecked(true);
+					searchOptionsKanaCheckbox.setChecked(true);
+					searchOptionsRomajiCheckbox.setChecked(true);
+					searchOptionsTranslateCheckbox.setChecked(true);
+					searchOptionsInfoCheckbox.setChecked(true);
+									
+					searchOptionsStartWithPlaceRadioButton.setChecked(true);
+					
+					for (int idx = 0; idx < searchDictionaryEntryListCheckBox.length; ++idx) {
+						searchDictionaryEntryListCheckBox[idx].setChecked(true);
+					}
+					
+					// wykonanie wyszukiwania
+					performSearch(searchValueEditText.getText().toString());
+				}
 			}
 		});
 		
@@ -247,6 +276,21 @@ public class WordDictionary extends Activity {
 				
 			}
 		});
+		
+		//
+		
+		searchOptionsUseSuggestionCheckBox = (CheckBox)findViewById(R.id.word_dictionary_search_options_search_use_suggestion_checkbox);
+		
+		searchOptionsUseSuggestionCheckBox.setChecked(wordDictionarySearchConfig.getUseSuggestion());
+		
+		searchOptionsUseSuggestionCheckBox.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+
+				wordDictionarySearchConfig.setUseSuggestion(searchOptionsUseSuggestionCheckBox.isChecked());
+				
+			}
+		});		
 		
 		//
 		
@@ -694,12 +738,24 @@ public class WordDictionary extends Activity {
 					getString(R.string.word_dictionary_searching1),
 					getString(R.string.word_dictionary_searching2));
 			
-			class FindWordAsyncTask extends AsyncTask<Void, Void, FindWordResult> {
+			class FindWordAsyncTask extends AsyncTask<Void, Void, FindWordResultAndSuggestionList> {
 				
 				@Override
-				protected FindWordResult doInBackground(Void... params) {
+				protected FindWordResultAndSuggestionList doInBackground(Void... params) {
 					
 					FindWordResult findWordResult = null;
+					
+					ServerClient serverClient = new ServerClient();
+					
+					PackageInfo packageInfo = null;
+			        
+			        try {
+			        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+			        	
+			        } catch (NameNotFoundException e) {        	
+			        }
+			        
+			        //
 					
 					if (findWordRequest.searchGrammaFormAndExamples == false && findWordRequest.searchName == false) { // szukanie lokalne
 						
@@ -709,15 +765,6 @@ public class WordDictionary extends Activity {
 						
 					} else { // szukanie na serwerze
 						
-						PackageInfo packageInfo = null;
-				        
-				        try {
-				        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-				        	
-				        } catch (NameNotFoundException e) {        	
-				        }						
-						
-						ServerClient serverClient = new ServerClient();
 						
 						findWordResult = serverClient.search(packageInfo, findWordRequest);
 						
@@ -730,14 +777,29 @@ public class WordDictionary extends Activity {
 							findWordResult = dictionaryManager.findWord(findWordRequest);							
 						}						
 					}
-										
-					return findWordResult;
+					
+			        FindWordResultAndSuggestionList findWordResultAndSuggestionList = new FindWordResultAndSuggestionList();
+			        
+			        findWordResultAndSuggestionList.findWordResult = findWordResult;
+			        
+			        // szukanie sugestii
+			        if (findWordResult.result.size() == 0 && searchOptionsUseSuggestionCheckBox.isChecked() == true) {
+			        	
+			        	List<String> suggestionList = serverClient.getSuggestionList(packageInfo, findWordRequest.word, AutoCompleteSuggestionType.WORD_DICTIONARY);
+			        				        	
+			        	findWordResultAndSuggestionList.suggestionList = suggestionList;
+			        }
+			        
+					return findWordResultAndSuggestionList;
 				}
 				
 			    @Override
-			    protected void onPostExecute(FindWordResult foundWord) {
+			    protected void onPostExecute(FindWordResultAndSuggestionList findWordResultAndSuggestionList) {
 			    	
-			        super.onPostExecute(foundWord);
+			        super.onPostExecute(findWordResultAndSuggestionList);
+			        
+			        FindWordResult foundWord = findWordResultAndSuggestionList.findWordResult;
+			        List<String> suggestionList = findWordResultAndSuggestionList.suggestionList;
 			        
 					wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
 							(foundWord.moreElemetsExists == true ? "+" : "" )));
@@ -747,6 +809,15 @@ public class WordDictionary extends Activity {
 						String currentFoundWordFullTextWithMark = getWordFullTextWithMark(currentFoundWord, findWord, findWordRequest);
 																				
 						searchResultList.add(new WordDictionaryListItem(currentFoundWord, Html.fromHtml(currentFoundWordFullTextWithMark.replaceAll("\n", "<br/>"))));								
+					}
+					
+					if (suggestionList != null && suggestionList.size() > 0) { // pokazywanie sugestii
+						
+						searchResultList.add(new WordDictionaryListItem(Html.fromHtml("<big><b>" + getString(R.string.word_dictionary_search_suggestion_title) + "</b></big>")));
+						
+						for (String currentSuggestion : suggestionList) {							
+							searchResultList.add(new WordDictionaryListItem(currentSuggestion, Html.fromHtml("<big>" + currentSuggestion + "</big>")));
+						}
 					}
 
 					searchResultArrayAdapter.notifyDataSetChanged();
@@ -938,5 +1009,12 @@ public class WordDictionary extends Activity {
 		}
 		
 		new SendMissingWordTask().execute();
+	}
+	
+	class FindWordResultAndSuggestionList {
+		
+		public FindWordResult findWordResult;
+		
+		public List<String> suggestionList;		
 	}
 }

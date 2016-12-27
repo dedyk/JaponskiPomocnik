@@ -98,6 +98,14 @@
                 android:checked="true"
                 android:text="@string/word_dictionary_search_options_search_use_autocomplete_checkbox"
                 android:textSize="12sp" />
+
+            <CheckBox
+                android:id="@+id/word_dictionary_search_options_search_use_suggestion_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/word_dictionary_search_options_search_use_suggestion_checkbox"
+                android:textSize="12sp" />
             
             <TextView
                 android:id="@+id/word_dictionary_search_options_search_place_label"
