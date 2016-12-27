@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
@@ -51,17 +52,45 @@ public class KanjiEntryListItemAdapter extends ArrayAdapter<KanjiEntryListItem> 
         }
        
         KanjiEntryListItem currentKanjiEntryListItem = data.get(position);
+        
+        ItemType itemType = currentKanjiEntryListItem.getItemType();
                 
         holder.kanjiEntryListItemHolderValue.setText(currentKanjiEntryListItem.getText(), TextView.BufferType.SPANNABLE);
-       
-        holder.kanjiEntryListItemHolderRadicalValue.setText(currentKanjiEntryListItem.getRadicalText(), TextView.BufferType.SPANNABLE);
-        holder.kanjiEntryListItemHolderRadicalValue.setTypeface(radicalTypeface);
+        
+        if (itemType == ItemType.KANJI_ENTRY) {
+        	
+            holder.kanjiEntryListItemHolderRadicalValue.setText(currentKanjiEntryListItem.getRadicalText(), TextView.BufferType.SPANNABLE);
+            holder.kanjiEntryListItemHolderRadicalValue.setTypeface(radicalTypeface);
+
+        } else {        	
+        	holder.kanjiEntryListItemHolderRadicalValue.setVisibility(View.GONE);        	
+        }        
         
         return convertView;
     }
     
     public int size() {
     	return data.size();
+    }
+    
+    @Override
+    public boolean isEnabled(int position) {
+
+    	if (position < 0 || position >= data.size()) {
+    		return false;
+    	}
+
+    	KanjiEntryListItem kanjiEntryListItem = data.get(position);
+
+    	ItemType itemType = kanjiEntryListItem.getItemType();
+
+    	if (itemType == ItemType.KANJI_ENTRY || itemType == ItemType.SUGGESTION_VALUE) {
+    		return true;
+
+    	} else {
+    		return false;
+
+    	}
     }
     
     static private class KanjiEntryListItemHolder {

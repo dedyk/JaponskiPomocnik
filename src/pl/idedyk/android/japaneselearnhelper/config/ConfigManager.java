@@ -626,6 +626,8 @@ public class ConfigManager {
 		
 		private final String useAutocompletePostfix = "useAutocomplete";
 		
+		private final String useSuggestionPostfix = "useSuggestion";
+		
 		public Boolean getEachChangeSearch() {
 			return preferences.getBoolean(kanjiSearchMeaningConfigPrefix + eachChangeSearchPostfix, false);
 		}
@@ -648,6 +650,19 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(kanjiSearchMeaningConfigPrefix + useAutocompletePostfix, useAutocomplete);
+			
+			editor.commit();			
+		}
+		
+		public Boolean getUseSuggestion() {
+			return preferences.getBoolean(kanjiSearchMeaningConfigPrefix + useSuggestionPostfix, true);
+		}
+		
+		public void setUseSuggestion(boolean useSuggestion) {
+
+			Editor editor = preferences.edit();
+			
+			editor.putBoolean(kanjiSearchMeaningConfigPrefix + useSuggestionPostfix, useSuggestion);
 			
 			editor.commit();			
 		}

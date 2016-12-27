@@ -6,6 +6,7 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -95,12 +96,14 @@ public class KanjiSearchStrokeCountResult extends Activity {
 				
 				KanjiEntryListItem kanjiEntryListItem = searchResultArrayAdapter.getItem(position);
 				
-				Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
-				
-				intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
-				
-				startActivity(intent);
-				
+				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) {
+					
+					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
+					
+					intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
+					
+					startActivity(intent);
+				}
 			}
 		});
 		

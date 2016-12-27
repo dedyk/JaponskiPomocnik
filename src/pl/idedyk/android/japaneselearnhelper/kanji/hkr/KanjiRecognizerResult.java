@@ -9,6 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItemAdapter;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -99,12 +100,14 @@ public class KanjiRecognizerResult extends Activity {
 				
 				KanjiEntryListItem kanjiEntryListItem = searchResultArrayAdapter.getItem(position);
 				
-				Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
-				
-				intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
-				
-				startActivity(intent);
-				
+				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) { 
+					
+					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
+					
+					intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
+					
+					startActivity(intent);					
+				}				
 			}
 		});
 		

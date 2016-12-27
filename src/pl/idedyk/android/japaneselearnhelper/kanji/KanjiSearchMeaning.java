@@ -11,7 +11,9 @@ import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
 import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiSearchMeaningConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient.AutoCompleteSuggestionType;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
@@ -58,6 +60,7 @@ public class KanjiSearchMeaning extends Activity {
 	
 	private CheckBox searchOptionsEachChangeCheckBox;
 	private CheckBox searchOptionsUseAutocompleteCheckBox;
+	private CheckBox searchOptionsUseSuggestionCheckBox;
 	
 	//private RadioButton searchOptionsAnyPlaceRadioButton;
 	private RadioButton searchOptionsStartWithPlaceRadioButton;
@@ -105,11 +108,27 @@ public class KanjiSearchMeaning extends Activity {
 								
 				KanjiEntryListItem kanjiEntryListItem = searchResultArrayAdapter.getItem(position);
 				
-				Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
+				ItemType itemType = kanjiEntryListItem.getItemType();
 				
-				intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
-				
-				startActivity(intent);
+				if (itemType == ItemType.KANJI_ENTRY) {
+					
+					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
+					
+					intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
+					
+					startActivity(intent);
+					
+				} else if (itemType == ItemType.SUGGESTION_VALUE) { // klikniecie w sugestie
+					
+					// wstawienie napisu
+					searchValueEditText.setText(kanjiEntryListItem.getSuggestion());
+
+					// resetowanie ustawien wyszukiwania
+					searchOptionsStartWithPlaceRadioButton.setChecked(true);
+					
+					// wykonanie wyszukiwania
+					performSearch(searchValueEditText.getText().toString());
+				}				
 			}
 		});
 		
@@ -151,6 +170,21 @@ public class KanjiSearchMeaning extends Activity {
 			public void onClick(View v) {
 
 				kanjiSearchMeaningConfig.setUseAutocomplete(searchOptionsUseAutocompleteCheckBox.isChecked());
+				
+			}
+		});
+		
+		//
+		
+		searchOptionsUseSuggestionCheckBox = (CheckBox)findViewById(R.id.kanji_search_meaning_options_search_use_suggestion_checkbox);
+		
+		searchOptionsUseSuggestionCheckBox.setChecked(kanjiSearchMeaningConfig.getUseSuggestion());
+		
+		searchOptionsUseSuggestionCheckBox.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+
+				kanjiSearchMeaningConfig.setUseSuggestion(searchOptionsUseSuggestionCheckBox.isChecked());
 				
 			}
 		});
@@ -300,20 +334,49 @@ public class KanjiSearchMeaning extends Activity {
 					getString(R.string.kanji_search_meaning_searching1),
 					getString(R.string.kanji_search_meaning_searching2));
 			
-			class FindWordAsyncTask extends AsyncTask<Void, Void, FindKanjiResult> {
+			class FindWordAsyncTask extends AsyncTask<Void, Void, FindKanjiResultAndSuggestionList> {
 				
 				@Override
-				protected FindKanjiResult doInBackground(Void... params) {
+				protected FindKanjiResultAndSuggestionList doInBackground(Void... params) {
 					
 					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchMeaning.this);
 					
-					return dictionaryManager.findKanji(findKanjiRequest);
+					FindKanjiResult findKanjiResult = dictionaryManager.findKanji(findKanjiRequest);
+
+					//
+					
+					FindKanjiResultAndSuggestionList findKanjiResultAndSuggestionList = new FindKanjiResultAndSuggestionList();
+										
+					findKanjiResultAndSuggestionList.findKanjiResult = findKanjiResult;
+					
+					// szukanie sugestii
+					if (findKanjiResult.result.size() == 0 && searchOptionsUseSuggestionCheckBox.isChecked() == true) {
+						
+						ServerClient serverClient = new ServerClient();
+
+						PackageInfo packageInfo = null;
+
+						try {
+							packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+						} catch (NameNotFoundException e) {        	
+						}
+						
+						List<String> suggestionList = serverClient.getSuggestionList(packageInfo, findKanjiRequest.word, AutoCompleteSuggestionType.KANJI_DICTIONARY);
+
+						findKanjiResultAndSuggestionList.suggestionList = suggestionList;
+					}
+					
+					return findKanjiResultAndSuggestionList;
 				}
 				
 			    @Override
-			    protected void onPostExecute(FindKanjiResult findKanjiResult) {
+			    protected void onPostExecute(FindKanjiResultAndSuggestionList findKanjiResultAndSuggestionList) {
 			    	
-			        super.onPostExecute(findKanjiResult);
+			        super.onPostExecute(findKanjiResultAndSuggestionList);
+			        
+			        FindKanjiResult findKanjiResult = findKanjiResultAndSuggestionList.findKanjiResult;
+			        List<String> suggestionList = findKanjiResultAndSuggestionList.suggestionList;
 			        
 			        kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "" + findKanjiResult.result.size() +
 							(findKanjiResult.moreElemetsExists == true ? "+" : "" )));
@@ -326,6 +389,15 @@ public class KanjiSearchMeaning extends Activity {
 						searchResultList.add(new KanjiEntryListItem(currentKanjiEntry,
 								Html.fromHtml(currentFoundKanjiFullTextWithMarks.replaceAll("\n", "<br/>")),
 								Html.fromHtml(currentFoundKanjiRadicalTextWithMarks.toString())));								
+					}
+					
+					if (suggestionList != null && suggestionList.size() > 0) { // pokazywanie sugestii
+
+						searchResultList.add(new KanjiEntryListItem(Html.fromHtml("<big><b>" + getString(R.string.word_dictionary_search_suggestion_title) + "</b></big>")));
+
+						for (String currentSuggestion : suggestionList) {							
+							searchResultList.add(new KanjiEntryListItem(currentSuggestion, Html.fromHtml("<big>" + currentSuggestion + "</big>")));
+						}
 					}
 
 					searchResultArrayAdapter.notifyDataSetChanged();
@@ -444,5 +516,12 @@ public class KanjiSearchMeaning extends Activity {
 			
 			kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, 0));
 		}		
+	}
+	
+	class FindKanjiResultAndSuggestionList {
+
+		public FindKanjiResult findKanjiResult;
+
+		public List<String> suggestionList;		
 	}
 }
