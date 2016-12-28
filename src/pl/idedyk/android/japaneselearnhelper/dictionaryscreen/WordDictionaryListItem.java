@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
 import android.text.Spanned;
+import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 
@@ -55,10 +56,38 @@ public class WordDictionaryListItem {
 
 	public static enum ItemType {
 		
-		RESULT_ITEM,
+		RESULT_ITEM(R.layout.word_dictionary_simplerow, 0),
 		
-		TITLE,
+		TITLE(R.layout.word_dictionary_simplerow, 0),
 		
-		SUGGESTION_VALUE;		
+		SUGGESTION_VALUE(R.layout.word_dictionary_suggestion_simplerow, 1);
+		
+		private int layoutResourceId;
+		
+		private int viewTypeId;
+		
+		// ten sam layoutResourceId musi sie rownac tego samemu viewTypeId !!!
+		ItemType(int layoutResourceId, int viewTypeId) {
+			this.layoutResourceId = layoutResourceId;
+			this.viewTypeId = viewTypeId;
+		}
+
+		public int getViewTypeId() {
+			return viewTypeId;
+		}
+
+		public static int getLayoutResourceId(int itemViewTypeId) {
+			
+			ItemType[] values = values();
+			
+			for (ItemType itemType : values) {
+				
+				if (itemType.getViewTypeId() == itemViewTypeId) {
+					return itemType.layoutResourceId;
+				}
+			}			
+			
+			throw new RuntimeException("Unknown itemViewTypeId: " + itemViewTypeId);
+		}
 	}
 }

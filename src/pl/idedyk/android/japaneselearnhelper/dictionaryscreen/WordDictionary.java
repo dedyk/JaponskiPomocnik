@@ -190,7 +190,7 @@ public class WordDictionary extends Activity {
 		searchResultListView = (ListView)findViewById(R.id.word_dictionary_search_result_list);
 		
 		searchResultList = new ArrayList<WordDictionaryListItem>();
-		searchResultArrayAdapter = new WordDictionaryListItemAdapter(this, R.layout.word_dictionary_simplerow, searchResultList);
+		searchResultArrayAdapter = new WordDictionaryListItemAdapter(this, searchResultList);
 		
 		searchResultListView.setAdapter(searchResultArrayAdapter);
 		
@@ -198,7 +198,7 @@ public class WordDictionary extends Activity {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				
-				WordDictionaryListItem wordDictionaryListItem = searchResultArrayAdapter.getItem(position);
+				WordDictionaryListItem wordDictionaryListItem = (WordDictionaryListItem)searchResultArrayAdapter.getItem(position);
 				
 				ItemType itemType = wordDictionaryListItem.getItemType();
 				
@@ -375,7 +375,7 @@ public class WordDictionary extends Activity {
 				StringBuffer searchListText = new StringBuffer();
 				
 				for (int searchResultListViewAdapterIdx = 0; searchResultListViewAdapterIdx < searchResultListViewAdapter.size(); ++searchResultListViewAdapterIdx) {
-					searchListText.append(searchResultListViewAdapter.getItem(searchResultListViewAdapterIdx).getText().toString()).append("\n--\n");
+					searchListText.append(((WordDictionaryListItem)searchResultListViewAdapter.getItem(searchResultListViewAdapterIdx)).getText().toString()).append("\n--\n");
 				}
 				
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
