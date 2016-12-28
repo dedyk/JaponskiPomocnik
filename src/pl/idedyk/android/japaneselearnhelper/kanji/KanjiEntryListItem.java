@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.kanji;
 
+import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import android.text.Spanned;
 
@@ -62,10 +63,39 @@ public class KanjiEntryListItem {
 	
 	public static enum ItemType {
 
-		KANJI_ENTRY,
+		KANJI_ENTRY(R.layout.kanji_entry_simplerow, 0),
 
-		TITLE,
+		TITLE(R.layout.kanji_entry_simplerow, 0),
 
-		SUGGESTION_VALUE;		
+		SUGGESTION_VALUE(R.layout.kanji_entry_suggestion_simplerow, 1);
+		
+		private int layoutResourceId;
+
+		private int viewTypeId;
+
+		// ten sam layoutResourceId musi sie rownac tego samemu viewTypeId !!!
+		ItemType(int layoutResourceId, int viewTypeId) {
+			this.layoutResourceId = layoutResourceId;
+			this.viewTypeId = viewTypeId;
+		}
+
+		public int getViewTypeId() {
+			return viewTypeId;
+		}
+
+		public static int getLayoutResourceId(int itemViewTypeId) {
+
+			ItemType[] values = values();
+
+			for (ItemType itemType : values) {
+
+				if (itemType.getViewTypeId() == itemViewTypeId) {
+					return itemType.layoutResourceId;
+				}
+			}			
+
+			throw new RuntimeException("Unknown itemViewTypeId: " + itemViewTypeId);
+		}
+
 	}
 }

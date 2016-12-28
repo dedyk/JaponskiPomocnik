@@ -98,7 +98,7 @@ public class KanjiSearchMeaning extends Activity {
 		searchResultList = new ArrayList<KanjiEntryListItem>();
 		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
-		searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);
+		searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, searchResultList, babelStoneHanTypeface);
 		
 		searchResultListView.setAdapter(searchResultArrayAdapter);
 		
@@ -106,7 +106,7 @@ public class KanjiSearchMeaning extends Activity {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 								
-				KanjiEntryListItem kanjiEntryListItem = searchResultArrayAdapter.getItem(position);
+				KanjiEntryListItem kanjiEntryListItem = (KanjiEntryListItem)searchResultArrayAdapter.getItem(position);
 				
 				ItemType itemType = kanjiEntryListItem.getItemType();
 				
@@ -239,7 +239,7 @@ public class KanjiSearchMeaning extends Activity {
 				StringBuffer searchListText = new StringBuffer();
 				
 				for (int searchResultListViewAdapterIdx = 0; searchResultListViewAdapterIdx < searchResultListViewAdapter.size(); ++searchResultListViewAdapterIdx) {
-					searchListText.append(searchResultListViewAdapter.getItem(searchResultListViewAdapterIdx).getText().toString()).append("\n--\n");
+					searchListText.append(((KanjiEntryListItem)searchResultListViewAdapter.getItem(searchResultListViewAdapterIdx)).getText().toString()).append("\n--\n");
 				}
 				
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
@@ -393,7 +393,7 @@ public class KanjiSearchMeaning extends Activity {
 					
 					if (suggestionList != null && suggestionList.size() > 0) { // pokazywanie sugestii
 
-						searchResultList.add(new KanjiEntryListItem(Html.fromHtml("<big><b>" + getString(R.string.word_dictionary_search_suggestion_title) + "</b></big>")));
+						searchResultList.add(new KanjiEntryListItem(Html.fromHtml("<big><b>" + getString(R.string.kanji_search_meaning_suggestion_title) + "</b></big>")));
 
 						for (String currentSuggestion : suggestionList) {							
 							searchResultList.add(new KanjiEntryListItem(currentSuggestion, Html.fromHtml("<big>" + currentSuggestion + "</big>")));

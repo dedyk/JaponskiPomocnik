@@ -164,5 +164,5 @@
     <string name="kanji_search_meaning_options_button_hide">Schowaj</string>
     <string name="kanji_search_meaning_searching1">Szukanie</string>
     <string name="kanji_search_meaning_searching2">Proszę czekać</string>
-    <string name="kanji_search_meaning_suggestion_title">Czy chodziło Ci o:</string>
+    <string name="kanji_search_meaning_suggestion_title">Nie znaleziono wyników, czy chodziło Ci o:</string>
 </resources>

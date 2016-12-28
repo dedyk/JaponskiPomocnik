@@ -78,7 +78,7 @@ public class KanjiSearchRadicalResult extends Activity {
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
 		
 		final KanjiEntryListItemAdapter searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, 
-				R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);
+				searchResultList, babelStoneHanTypeface);
 		
 		searchResultListView.setAdapter(searchResultArrayAdapter);
 		
@@ -86,7 +86,7 @@ public class KanjiSearchRadicalResult extends Activity {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				
-				KanjiEntryListItem kanjiEntryListItem = searchResultArrayAdapter.getItem(position);
+				KanjiEntryListItem kanjiEntryListItem = (KanjiEntryListItem)searchResultArrayAdapter.getItem(position);
 				
 				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) {
 					
@@ -96,8 +96,6 @@ public class KanjiSearchRadicalResult extends Activity {
 					
 					startActivity(intent);					
 				}
-				
-				
 			}
 		});
 		
@@ -175,7 +173,7 @@ public class KanjiSearchRadicalResult extends Activity {
 				StringBuffer searchListText = new StringBuffer();
 				
 				for (int searchResultArrayAdapterIdx = 0; searchResultArrayAdapterIdx < searchResultArrayAdapter.size(); ++searchResultArrayAdapterIdx) {
-					searchListText.append(searchResultArrayAdapter.getItem(searchResultArrayAdapterIdx).getText().toString()).append("\n--\n");
+					searchListText.append(((KanjiEntryListItem)searchResultArrayAdapter.getItem(searchResultArrayAdapterIdx)).getText().toString()).append("\n--\n");
 				}
 				
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);

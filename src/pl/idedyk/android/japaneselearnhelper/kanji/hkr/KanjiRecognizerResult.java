@@ -86,7 +86,7 @@ public class KanjiRecognizerResult extends Activity {
 		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
 		final KanjiEntryListItemAdapter searchResultArrayAdapter = new KanjiEntryListItemAdapter(this, 
-				R.layout.kanji_entry_simplerow, searchResultList, babelStoneHanTypeface);
+				searchResultList, babelStoneHanTypeface);
 		
 		kanjiRecognizerResultListView.setAdapter(searchResultArrayAdapter);
 		
@@ -98,7 +98,7 @@ public class KanjiRecognizerResult extends Activity {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				
-				KanjiEntryListItem kanjiEntryListItem = searchResultArrayAdapter.getItem(position);
+				KanjiEntryListItem kanjiEntryListItem = (KanjiEntryListItem)searchResultArrayAdapter.getItem(position);
 				
 				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) { 
 					
@@ -120,7 +120,7 @@ public class KanjiRecognizerResult extends Activity {
 				StringBuffer searchListText = new StringBuffer();
 				
 				for (int searchResultArrayAdapterIdx = 0; searchResultArrayAdapterIdx < searchResultArrayAdapter.size(); ++searchResultArrayAdapterIdx) {
-					searchListText.append(searchResultArrayAdapter.getItem(searchResultArrayAdapterIdx).getText().toString()).append("\n--\n");
+					searchListText.append(((KanjiEntryListItem)searchResultArrayAdapter.getItem(searchResultArrayAdapterIdx)).getText().toString()).append("\n--\n");
 				}
 				
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
