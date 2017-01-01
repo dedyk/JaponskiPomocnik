@@ -505,6 +505,7 @@
 79187,jpn,郵便が届いた。
 79212,jpn,裕福な人々と貧しい人々との格差はますます広がっている。
 79252,jpn,有名な建築家がこの家を建てた。
+79267,jpn,有り金全部無くなってしまった。
 79274,jpn,幽霊は存在すると思う。
 79276,jpn,幽霊は存在する。
 79277,jpn,幽霊の存在を信じている人もいる。
@@ -1875,6 +1876,7 @@
 93303,jpn,彼女はいつも何か不平を言っている。
 93308,jpn,彼女はいつもより多くお金を使った。
 93328,jpn,彼女はいつでも約束を守る。
+93336,jpn,彼女はいつから病気ですか。
 93350,jpn,彼女はいい暮らしをしている。
 93369,jpn,彼女はある事務所で秘書として働いている。
 93371,jpn,彼女はある金持ちの男と婚約している。
@@ -3083,11 +3085,14 @@
 106984,jpn,彼は再び故国を見ることはなかった。
 107001,jpn,彼は砂糖を入れないコーヒーが好きだ。
 107003,jpn,彼は砂糖の代わりにハチミツを使う。
+107004,jpn,彼は砂糖なしでコーヒーを飲むのが好きである。
 107008,jpn,彼は左足に手術を受けた。
 107026,jpn,彼は困難を排して進んでいった。
 107050,jpn,彼は今弁当を食べている。
 107054,jpn,彼は今晩小館に到着するだろう。
 107072,jpn,彼は今日も帰りが遅い。
+107081,jpn,彼は今日は学校へ行かなくてもいい。
+107082,jpn,彼は今日は学校に行かなくてもよい。
 107086,jpn,彼は今日はとても気分がよい。
 107101,jpn,彼は今道を横切っているところだ。
 107112,jpn,彼は今朝寝過ごした。
@@ -3330,6 +3335,7 @@
 109877,jpn,彼は一日二十ドル稼ぐ。
 109879,jpn,彼は一日中黙っていた。
 109912,jpn,彼は一足の靴を買った。
+109913,jpn,彼は一銭ももらえずその日暮らしだった。
 109919,jpn,彼は一生懸命勉強して首尾よく奨学金を得るつもりだ。
 109925,jpn,彼は一生懸命働く。
 109933,jpn,彼は一生懸命走った。
@@ -4983,8 +4989,10 @@
 137025,jpn,誰かこの単語を発音できる人はいますか。
 137039,jpn,誰がこの絵を描いたのですか。
 137073,jpn,誰かが手伝ってくれたら、せめて「ありがとう」ぐらいは言ったって良さそうなものだったのに。
+137077,jpn,誰かが私の有り金全部を盗んだ。
 137079,jpn,誰かが私の名前を呼んでいた。
 137084,jpn,誰かが私のスーツケースを盗んだ。
+137086,jpn,誰かが私のお金を全部盗んだ。
 137087,jpn,誰かが私にふれた。
 137107,jpn,誰がカラオケを発明したのですか。
 137124,jpn,誰かが「火事だ」と叫んだら、劇場全体が大混乱になった。
@@ -5481,6 +5489,7 @@
 143781,jpn,水は３２度Ｆで凍る。
 143783,jpn,水は１てきも残っていない。
 143795,jpn,水に流す。
+143799,jpn,水なしでは我々は生きていけない。
 143802,jpn,水と油を混合させることはできない。
 143805,jpn,水と石油は共に液体である。
 143820,jpn,水が足りないのは天候のためです。
@@ -7092,6 +7101,7 @@
 159000,jpn,私はフランスで彼女と知り合った。
 159005,jpn,私はブラジルの出身です。
 159013,jpn,私はフットボールをしました。
+159018,jpn,私はふつう日曜日には働かなくてもよい。
 159019,jpn,私はふつう自転車で通学します。
 159035,jpn,私はひと晩窓を開けたままにしておいた。
 159037,jpn,私はひとりで旅行をした。
@@ -10381,6 +10391,7 @@
 189158,jpn,英語の勉強をしたあとで、私は数学を勉強した。
 189166,jpn,英語の単語を何語知っていますか。
 189168,jpn,英語の単語をどれくらい知っていますか。
+189178,jpn,英語の辞書なしで済ませることができますか。
 189193,jpn,英語のアルファベットには２６文字ある。
 189198,jpn,英語にはラテン語から来た語が多い。
 189212,jpn,英語で答えなさい。
@@ -15489,6 +15500,7 @@
 352867,pol,Czy długo na mnie czekałeś?
 352869,pol,Pracuje nad swoją nową książką już dwa miesiące.
 352872,pol,Ona umie wysoko skakać.
+352880,pol,Od kiedy jest chora?
 352888,pol,Chciałbym jeszcze pospać.
 352892,pol,Jednak ludzie nie żywią wielkich nadziei.
 352898,pol,Ona ma mało przyjaciół.
@@ -15591,6 +15603,7 @@
 354020,pol,Wczoraj było ciepło.
 354021,pol,Wczoraj było pochmurno.
 354027,pol,On lubi kawę bez cukru.
+354028,pol,On lubi pić kawę bez cukru.
 354034,pol,On używa miodu zamiast cukru.
 354036,pol,Wywrócił płaszcz na drugą stronę.
 354040,pol,Mam tylko mały ogródek.
@@ -16991,6 +17004,7 @@
 361736,pol,To brzmi doprawdy interesująco.
 361760,pol,Kenji jest tenisistą.
 361783,pol,Jaką wysokość na Fuji?
+361790,pol,Zwykle nie muszę pracować w niedziele.
 361794,pol,"Dowiedzieliśmy się, dlaczego wybuchła Rewolucja Francuska."
 361825,pol,Wrzucił kamyk do stawu.
 361831,pol,Co wolisz - jabłka czy banany?
@@ -18777,6 +18791,7 @@
 479946,pol,Ona nosi spodnie w tym domu.
 479947,pol,"Myślę, że założę ten czerwony sweter."
 479948,pol,"Skoro pytasz, ona jest trochę nietypowa."
+479949,pol,Nie możemy żyć bez wody.
 479951,pol,Jestem anemikiem.
 479954,pol,Rusz na zielonym świetle.
 479960,pol,"On uczy się więcej, niż ktokolwiek w jego klasie."
@@ -19478,6 +19493,7 @@
 529725,pol,Ten list jest do mnie.
 529739,pol,"Uważam, że rozwiązanie tego problemu jest łatwe."
 529740,pol,Zaatakowali wroga.
+529741,pol,Ktoś ukradł wszystkie moje pieniądze.
 529743,pol,To jest dokładnie to co chciałem kupić.
 529749,pol,Ta opona puszcza powietrze.
 529751,pol,Dali mu szansę uciec.
@@ -23962,6 +23978,7 @@
 1166649,jpn,その試合見た？
 1166883,jpn,ナンシーは今までにパンダを見たことがなかった。
 1167451,jpn,へとへとで走れない。
+1167572,jpn,普段私は日曜日に働かなくてもいい。
 1167593,jpn,彼を訪ねる前に、在宅かどうか確認しておいた方がいいですよ。
 1167601,jpn,私があなたなら、彼女を信用すると思う。
 1168140,jpn,あなたの学校はどこですか。
@@ -26910,6 +26927,7 @@
 2398306,pol,Musicie zebrać fundusze na pomoc humanitarną.
 2398794,pol,Proszę częstować się owocami.
 2398946,pol,"Tata poczerwieniał ze złości, gdy zachowywałem się niegrzecznie w stosunku do niego."
+2400310,pol,Czy możesz się obejść bez angielskiego słownika?
 2400321,pol,"Paszport jest czymś, bez czego nie możesz się obejść, gdy wybierasz się za granicę."
 2400391,pol,"Pospiesz się, bo go nie dogonisz."
 2402934,pol,Ma zwyczaj za dużo gadać.
@@ -27130,6 +27148,7 @@
 2679463,pol,Nie dostrzega swoich własnych wad.
 2679488,pol,Zadał niezręczne pytanie.
 2679497,pol,Ojciec pozwolił mi pójść na koncert.
+2679510,pol,"Żyje od pierwszego do pierwszego, bez żadnych oszczędności."
 2679515,pol,Zawsze pijesz kawę do śniadania?
 2679527,pol,Przypisy są na dole strony.
 2679543,pol,"Powiedział, że ostatni autobus odjeżdża o 22:50."
@@ -28425,6 +28444,7 @@
 3375170,pol,Nie popieram jego pomysłów.
 3375654,pol,"Gdyby był uczciwy, to by go zatrudnili."
 3376513,pol,Byłoby szaleństwem wspinać się na tą górę zimą.
+3376661,pol,On nie musi iść dzisiaj do szkoły.
 3376682,pol,Zaparkowałem samochód przy bramie.
 3377638,pol,Potrzebujemy czegoś do jedzenia.
 3380998,pol,"Chociaż jest młody, jest on świetnym lekarzem."
@@ -28581,6 +28601,7 @@
 3449200,jpn,ちょうど朝食を終えたところです。
 3449201,jpn,いまお昼を食べたとこ。
 3449202,jpn,雨が降り出したとき、私はちょうど出かけるところだった。
+3449847,pol,Wszystkie pieniądze znikły.
 3449997,pol,Nie możesz martwić się o takie drobnostki.
 3450002,pol,Ona jest podobna z charakteru do matki.
 3450012,pol,Nie ma rzeczy bardziej pożytecznej niż kopiarka.
