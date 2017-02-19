@@ -2243,6 +2243,7 @@
 97523,jpn,彼らは嘘を言っているように思えた。
 97543,jpn,彼らは一週間前にイギリスについた。
 97563,jpn,彼らはわなでキツネを捕まえた。
+97582,jpn,彼らはレスラーです。
 97586,jpn,彼らはリンゴを盗んでいるところを捕まった。
 97595,jpn,彼らはライオンを生け捕りにした。
 97603,jpn,彼らはよい友人であり続けました。
@@ -3767,6 +3768,7 @@
 114595,jpn,彼はいつもよいプレーをする。
 114597,jpn,彼はいつもメモをつけています。
 114608,jpn,彼はいつものように自分の理想のことを語り始めた。
+114610,jpn,彼はいつものように１０時に寝た。
 114626,jpn,彼はいつもあれこれと文句をつける。
 114629,jpn,彼はいつも７時に家をでる。
 114631,jpn,彼はいつまでも彼女を愛し続けるだろう。
@@ -6866,6 +6868,7 @@
 157093,jpn,私は黒白まだらの犬を飼っている。
 157111,jpn,私は行動の決断をする前によく考える時間が欲しい。
 157112,jpn,私は行動する前に様々な要因を考えた。
+157114,jpn,私は行けない。一つにはお金がないからだ。
 157115,jpn,私は行けない。また、行きたいとも思わない。
 157116,jpn,私は行くより仕方なかった。
 157118,jpn,私は行くのが怖い。
@@ -14193,6 +14196,7 @@
 228721,jpn,いつも仕事場をきちんと整理しておきなさい。
 228728,jpn,いつも学校に遅れるのはどういう訳だ。
 228736,jpn,いつもより遅く着いた。
+228742,jpn,いつもの列車に乗り遅れたものですから。
 228785,jpn,いつまでもその秘密を隠しておけるものではない。
 228791,jpn,いつまでの滞在予定ですか。
 228794,jpn,いつまでご滞在ですか。
@@ -14373,6 +14377,7 @@
 230859,jpn,あの小学校はサッカーが強い。
 230906,jpn,あの車を追ってくれ。
 230921,jpn,あの写しは原本と違う。
+230937,jpn,あの時は素面だったのですか。
 230971,jpn,あの子はしょうがない子だ。
 230974,jpn,あの子は２０まで数えられる。
 230985,jpn,あの子、上手に滑るねぇ！
@@ -15988,6 +15993,7 @@
 356465,pol,Nie przejmuj się moim obiadem. Zjem na mieście.
 356466,pol,Nie lubię brać na siebie takiej odpowiedzialności.
 356467,pol,Stracił zapał.
+356468,pol,"To dlatego, że spóźniłem się na ten pociąg co zwykle."
 356471,pol,Znalazłem tę książkę w antykwariacie.
 356473,pol,"Odwołaj to, że jestem skąpy!"
 356475,pol,"Zakładam, że ludzie są uczciwi."
@@ -19641,6 +19647,7 @@
 532972,pol,To jest dobry pomysł.
 533119,pol,Wytrzyj oczy.
 533120,pol,Osusz swoje oczy.
+533124,pol,Poszedł do łóżka jak zwykle o dziesiątej.
 533477,pol,"Dlaczego w Stanach mówią na jesień ""fall"" zamiast ""autumn""?"
 533487,pol,"Dlaczego jestem jedyną osobą, na którą się skarżą? Chcą bym stał się ostrzeżeniem dla innych i wykorzystują mnie jako kozła ofiarnego."
 533670,pol,Był władcą imperium Inków.
@@ -24861,6 +24868,7 @@
 1352121,pol,Był zaskoczony wieściami.
 1352126,pol,Ta szkoła została założona w 1970 roku.
 1352128,pol,"Tak przy okazji, jaki jest twój adres?"
+1352130,pol,Byłeś wtedy trzeźwy?
 1352139,pol,Odpowiednie kwalifikacje są wymagane na to stanowisko.
 1352140,pol,"Gdy dorosnę, chcę uczyć historii."
 1352143,pol,Ile zajmie to samochodem?
@@ -30076,6 +30084,7 @@
 4917186,pol,"Nie chciałem iść, ale ona była dla mnie tak miła, że musiałem zaakceptować zaproszenie."
 4917188,pol,Zgodziłem się pójść.
 4917191,pol,Nie miałem wyboru i musiałem iść.
+4917198,pol,Nie mogę iść. Po pierwsze nie mam pieniędzy.
 4917206,pol,Rozważyłem różne czynniki zanim podjąłem działania.
 4917209,pol,"Potrzebuję czasu, aby to przetrawić, zanim zdecyduję co zrobić."
 4917253,pol,Koty nie lubią moknąć.
@@ -30282,6 +30291,7 @@
 5651909,pol,Oni są śpiewakami.
 5651910,pol,Oni są artystami.
 5651911,pol,Oni są aktorami.
+5651912,pol,Oni są zapaśnikami.
 5651914,pol,Oni są ładni.
 5651968,pol,To brzmi interesująco.
 5651982,pol,To chłopiec!
