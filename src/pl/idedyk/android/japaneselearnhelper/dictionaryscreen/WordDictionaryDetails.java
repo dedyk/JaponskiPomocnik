@@ -654,7 +654,8 @@ public class WordDictionaryDetails extends Activity {
 
 				if (	attributeType == AttributeType.VERB_TRANSITIVITY_PAIR ||
 						attributeType == AttributeType.VERB_INTRANSITIVITY_PAIR ||
-						attributeType == AttributeType.ALTERNATIVE) {
+						attributeType == AttributeType.ALTERNATIVE ||
+						attributeType == AttributeType.RELATED) {
 
 					Integer referenceWordId = Integer.parseInt(currentAttribute.getAttributeValue().get(0));
 
