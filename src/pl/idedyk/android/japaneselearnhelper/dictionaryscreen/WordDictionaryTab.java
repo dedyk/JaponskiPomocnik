@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import android.app.TabActivity;
 import android.content.Intent;
@@ -26,6 +27,8 @@ public class WordDictionaryTab extends TabActivity {
 		menu.add(Menu.NONE, R.id.main_menu_word_dictionary_tab_add_tab, Menu.NONE, R.string.word_dictionary_tab_add_tab);
 		menu.add(Menu.NONE, R.id.main_menu_word_dictionary_tab_del_tab, Menu.NONE, R.string.word_dictionary_tab_del_tab);
 
+		MenuShorterHelper.onCreateOptionsMenu(menu);
+		
 		return true;
 	}
 
@@ -45,9 +48,10 @@ public class WordDictionaryTab extends TabActivity {
 			delCurrentTab(getTabHost());
 
 			return true;
+			
+		} else {
+			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 		}
-
-		return false;
 	}
 
 	@Override
