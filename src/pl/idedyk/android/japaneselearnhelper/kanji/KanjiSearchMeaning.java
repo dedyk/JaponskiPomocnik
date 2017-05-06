@@ -342,7 +342,15 @@ public class KanjiSearchMeaning extends Activity {
 					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchMeaning.this);
 					
 					FindKanjiResult findKanjiResult = dictionaryManager.findKanji(findKanjiRequest);
-
+					
+					// jesli nic nie znaleziono, proba pobrania znakow z napisu
+					if (findKanjiResult.getResult().size() == 0 && findKanjiRequest.word != null && findKanjiRequest.word.trim().equals("") == false) {
+						
+						List<KanjiEntry> findKnownKanjiResult = dictionaryManager.findKnownKanji(findKanjiRequest.word);
+						
+						findKanjiResult.setResult(findKnownKanjiResult);
+					}
+					
 					//
 					
 					FindKanjiResultAndSuggestionList findKanjiResultAndSuggestionList = new FindKanjiResultAndSuggestionList();
