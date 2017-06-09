@@ -127,13 +127,13 @@
                     android:text="@string/word_dictionary_search_options_search_startwith_radiobutton"
                     android:textSize="12sp" />
                 
-<!--            <RadioButton
+            	<RadioButton
                     android:id="@+id/word_dictionary_search_options_search_any_place_radiobutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/word_dictionary_search_options_search_any_place_radiobutton"
                     android:textSize="12sp" />
--->
+
                 <RadioButton
                     android:id="@+id/word_dictionary_search_options_search_exact_radiobutton"
                     android:layout_width="wrap_content"

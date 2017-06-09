@@ -62,7 +62,7 @@ public class KanjiSearchMeaning extends Activity {
 	private CheckBox searchOptionsUseAutocompleteCheckBox;
 	private CheckBox searchOptionsUseSuggestionCheckBox;
 	
-	//private RadioButton searchOptionsAnyPlaceRadioButton;
+	private RadioButton searchOptionsAnyPlaceRadioButton;
 	private RadioButton searchOptionsStartWithPlaceRadioButton;
 	private RadioButton searchOptionsExactPlaceRadioButton;
 
@@ -191,7 +191,7 @@ public class KanjiSearchMeaning extends Activity {
 		
 		//
 				
-		//searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.kanji_search_meaning_options_search_any_place_radiobutton);
+		searchOptionsAnyPlaceRadioButton = (RadioButton)findViewById(R.id.kanji_search_meaning_options_search_any_place_radiobutton);
 		searchOptionsStartWithPlaceRadioButton = (RadioButton)findViewById(R.id.kanji_search_meaning_options_search_startwith_radiobutton);
 		searchOptionsExactPlaceRadioButton = (RadioButton)findViewById(R.id.kanji_search_meaning_options_search_exact_radiobutton);
 		
@@ -204,7 +204,7 @@ public class KanjiSearchMeaning extends Activity {
 			}
 		};
 				
-		//searchOptionsAnyPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
+		searchOptionsAnyPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		searchOptionsStartWithPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		searchOptionsExactPlaceRadioButton.setOnClickListener(searchOptionsOnClick);
 		
@@ -318,12 +318,12 @@ public class KanjiSearchMeaning extends Activity {
 		
 		findKanjiRequest.word = findWord;
 		
-		/*
 		if (searchOptionsAnyPlaceRadioButton.isChecked() == true) {
-			findKanjiRequest.wordPlaceSearch = FindKanjiRequest.WordPlaceSearch.ANY_PLACE;
-		} else*/
-		if (searchOptionsStartWithPlaceRadioButton.isChecked() == true) {
+			findKanjiRequest.wordPlaceSearch = WordPlaceSearch.ANY_PLACE;
+			
+		} else if (searchOptionsStartWithPlaceRadioButton.isChecked() == true) {
 			findKanjiRequest.wordPlaceSearch = WordPlaceSearch.START_WITH;
+			
 		} else if (searchOptionsExactPlaceRadioButton.isChecked() == true) {
 			findKanjiRequest.wordPlaceSearch = WordPlaceSearch.EXACT;
 		}

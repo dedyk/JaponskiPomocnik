@@ -112,13 +112,13 @@
                     android:text="@string/kanji_search_meaning_options_search_startwith_radiobutton"
                     android:textSize="12sp" />
 
-<!--           <RadioButton
+           		<RadioButton
                     android:id="@+id/kanji_search_meaning_options_search_any_place_radiobutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/kanji_search_meaning_options_search_any_place_radiobutton"
                     android:textSize="12sp" />
--->
+
                 <RadioButton
                     android:id="@+id/kanji_search_meaning_options_search_exact_radiobutton"
                     android:layout_width="wrap_content"
