@@ -1197,6 +1197,7 @@
 85543,jpn,美術商はその絵を本物だと保証した。
 85546,jpn,美術館はどこにありますか。
 85549,jpn,美術館には絵がたくさんかかっている。
+85559,jpn,美しく晴れわたった日だった。
 85567,jpn,美しい曲だね。とジョンが言いました。
 85579,jpn,琵琶湖の深さはどうですか。
 85582,jpn,微熱があります。
@@ -2309,6 +2310,7 @@
 98091,jpn,彼らはここから立ち去りました。戻ってくることはないでしょう。
 98104,jpn,彼らはクッキーを１箱買った。
 98105,jpn,彼らはキツネ狩りをした。
+98106,jpn,彼らはキリスト教徒です。
 98128,jpn,彼らはお互いをながめた。
 98154,jpn,彼らはオリンピック大会に参加したがっている。
 98156,jpn,彼らはオリンピックにさんかしたがっている。
@@ -2751,6 +2753,7 @@
 102846,jpn,彼は相手チームに入った。
 102852,jpn,彼は早口だ。
 102858,jpn,彼は早起きしようとした。
+102868,jpn,彼は早く出発した。さもなければその列車に乗れなかっただろう。
 102883,jpn,彼は素敵な若者に出会った。
 102885,jpn,彼は素敵な若者になった。
 102886,jpn,彼は素敵な若者に会った。
@@ -10429,6 +10432,7 @@
 188363,jpn,俺は犬のフンなんてかたづけたくない。
 188366,jpn,俺は英雄。
 188367,jpn,俺は一晩中泣いたんだ。
+188368,jpn,俺はろくでなし。
 188370,jpn,俺はバンドで演奏してるんだ。
 188373,jpn,俺はテレビゲームをしている。
 188382,jpn,俺の片腕となって手助けしてくれ。
@@ -10648,6 +10652,8 @@
 190326,jpn,一度に２つのことをしようとするな。
 190335,jpn,一朝一夕にはできない。
 190337,jpn,ギャングの一団が金を盗んだ。
+190346,jpn,一体全体君は何をしているんだ。
+190352,jpn,一体全体ここで何をしているんだい。
 190362,jpn,一体どこで彼に会ったんだ。
 190375,jpn,一息いれようよ。
 190377,jpn,一石二鳥。
@@ -12192,6 +12198,7 @@
 204793,jpn,それは涼しい所に保存しなさい。
 204795,jpn,それは理屈に合わない。
 204818,jpn,それは面白そうだ。
+204821,jpn,それは命にかかわる問題だ。
 204825,jpn,それは無料です。
 204830,jpn,それは夢のように思われます。
 204843,jpn,それは本当にすばらしい意見ですよ。
@@ -14296,6 +14303,7 @@
 227937,jpn,エミはよい女の子だ。
 227940,jpn,えみは、自分用に新しいドレスを注文した。
 227955,jpn,エネルギー資源の確保について少し意見を述べるように頼まれた。
+227961,jpn,エドウィンと言う名前を聞いてもピンとこない。
 227969,jpn,エジプトは日本より雨が少ない。
 227973,jpn,エジソンは電燈を発明した。
 227975,jpn,エジソンは多くの有益なものを発明した。
@@ -14630,6 +14638,7 @@
 231878,jpn,あなたは自由な時間をどのように過ごしますか。
 231879,jpn,あなたは自分自身をしらなければならない。
 231880,jpn,あなたは自分自身の計画を実行すべきです。
+231888,jpn,あなたは自分の部屋を掃除するだけでいいんだ。
 231889,jpn,あなたは自分の部屋をもっていますか。
 231892,jpn,あなたは自分の長所についての答えを準備する必要がある。
 231909,jpn,あなたは自分のハンカチを落としました。
@@ -15255,6 +15264,7 @@
 348729,pol,Pracowała wyłącznie dla pieniędzy.
 348731,pol,On nigdy nie traci nadziei.
 348738,pol,Wrócił z Chin.
+348739,pol,Musisz tylko posprzątać pokój.
 348742,pol,Jego ojczyzną są Niemcy.
 348743,pol,Czasami śni mi się dom.
 348750,pol,"Zaproszono mnie na wycieczkę zagraniczną, ale nie chcę jechać."
@@ -15461,6 +15471,7 @@
 351435,pol,Czy jesteś zajęty w niedzielę po południu?
 351436,pol,Wiadro było pełne wody.
 351438,pol,Postanowił odłożyć swój odjazd.
+351439,pol,"Wyszedł wcześnie, inaczej nie zdążyłby na ten pociąg."
 351444,pol,"Kiedy usłyszała tę straszną wiadomość, wybuchnęła płaczem."
 351445,pol,"Skoro nikt nie je tych biszkoptów, to ja poproszę."
 351446,pol,Klaun przewrócił się celowo.
@@ -15576,6 +15587,7 @@
 352198,pol,To kot?
 352205,pol,Nie lubię nikogo z nich.
 352206,pol,"Kiedy zadzwonił telefon, właśnie wychodziłem."
+352210,pol,Są chrześcijanami.
 352211,pol,Muszę odwiedzić kolegę w szpitalu.
 352217,pol,Mokra koszula zaraz wyschnie.
 352218,pol,Nie wkładaj tego mokrego ręcznika do torby.
@@ -15699,6 +15711,7 @@
 352847,pol,Ciągle się uczy.
 352849,pol,Zamienił swoją krowę na dwa konie.
 352854,pol,Zgaś światło.
+352855,pol,"Był piękny, słoneczny dzień."
 352859,pol,W wyrazie 'tomorrow' akcent pada na drugą sylabę.
 352862,pol,To silny człowiek.
 352864,pol,Ten dom wcale nie jest wygodny do mieszkania.
@@ -20241,6 +20254,7 @@
 547913,pol,Nazywamy go Mike.
 547916,pol,Jestem Tom Hunter.
 547917,pol,Czy ktoś jest dzisiaj nieobecny?
+547921,pol,Jestem bezużytecznym dupkiem.
 547922,pol,Mówienie po angielsku nie jest łatwe.
 547925,pol,Ken lubi jeździć pod namiot.
 547926,pol,Mary rozumie chiński.
@@ -23756,6 +23770,7 @@
 999452,pol,Załoga przygotowywała się do lotu w kosmos.
 1000638,pol,Włamywacz dostał się do domu tymi drzwiami.
 1002547,pol,Co robiliście w tamtej chwili?
+1002588,pol,"Co tu, u diabła, robisz?"
 1002652,pol,On nadużył przywilejów.
 1002653,pol,"Proszę, dołóż sobie."
 1002655,pol,Umiesz przetłumaczyć z angielskiego na japoński?
@@ -26751,6 +26766,7 @@
 2202227,pol,Klasę podzielono na cztery grupy.
 2202308,pol,"Lubię słuchać muzyki, w szczególności jazzu."
 2202322,pol,Pacjent zemdlał na widok krwi.
+2202330,pol,To sprawa życia i śmierci.
 2202334,pol,To pewna śmierć!
 2202337,pol,Tę zbrodnię karze się śmiercią.
 2202346,pol,W kamieniu wyryto datę jego śmierci.
@@ -27268,6 +27284,7 @@
 2408648,pol,Robi cię w konia.
 2408651,pol,Postanowił rozpocząć nowe życie.
 2408652,pol,Prawdopodobnie znowu robi z igły widły.
+2408655,pol,Imię Edwin nic mi nie mówi.
 2408658,pol,Robi z igły widły.
 2408660,pol,Jest moim ideałem.
 2408661,pol,Jest dla mnie zerem.
@@ -28954,6 +28971,8 @@
 3455855,jpn,歳はいくつですか。
 3457107,pol,Wstaję o szóstej trzydzieści.
 3458070,pol,"Mam prawo jazdy, ale nie mam doświadczenia jako kierowca. Z tego powodu nie ufam w moje zdolności. Jedźmy dokądś pociągiem!"
+3459012,jpn,それは死活問題だ。
+3459019,jpn,これは生死にかかわる問題だ。
 3460232,pol,Została piosenkarką.
 3460247,pol,Pracuje w fabryce.
 3460275,pol,Jutro mam urodziny.
