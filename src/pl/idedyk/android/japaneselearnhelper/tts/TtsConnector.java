@@ -1,7 +1,5 @@
 package pl.idedyk.android.japaneselearnhelper.tts;
 
-import java.lang.reflect.Constructor;
-
 import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
@@ -15,8 +13,12 @@ public class TtsConnector implements OnInitListener {
 	private Boolean onInitResult = null;
 	
 	public TtsConnector(Context context, TtsLanguage ttsLanguage) {
+		
 		this.ttsLanguage = ttsLanguage;
 		
+		textToSpeech = new TextToSpeech(context, this);
+		
+		/*
 		try {
 			// android 4+
 			Constructor<TextToSpeech> constructor = TextToSpeech.class.getConstructor(Context.class, TextToSpeech.OnInitListener.class, String.class);
@@ -26,6 +28,7 @@ public class TtsConnector implements OnInitListener {
 		} catch (Throwable e) {
 			textToSpeech = new TextToSpeech(context, this);
 		}
+		*/
 	}
 	
 	public void onInit(int status) {
@@ -38,7 +41,7 @@ public class TtsConnector implements OnInitListener {
 			
 			return;
 		}
-		
+				
 		if (status == TextToSpeech.SUCCESS) {
 			
 			int result = textToSpeech.setLanguage(ttsLanguage.getLocale());

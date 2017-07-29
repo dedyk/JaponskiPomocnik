@@ -4,23 +4,23 @@ import java.util.Locale;
 
 public enum TtsLanguage {
 
-	JAPANESE(Locale.JAPAN, "com.svox.classic"),
+	JAPANESE(Locale.JAPAN), //, "com.svox.classic"),
 	
-	POLISH("PL", "com.ivona.tts"),
+	POLISH("PL"), //, "com.ivona.tts"),
 	
-	ENGLISH(Locale.ENGLISH, "com.svox.pico");
+	ENGLISH(Locale.ENGLISH); //, "com.svox.pico");
 	
 	private Locale locale;
 	
-	private String engine;
+	//private String engine;
 	
-	private TtsLanguage(Locale locale, String engine) {
+	private TtsLanguage(Locale locale /*, String engine */) {
 		this.locale = locale;
 		
-		this.engine = engine;
+		//this.engine = engine;
 	}
 	
-	private TtsLanguage(String localeString, String engine) {
+	private TtsLanguage(String localeString /*, String engine */) {
 		
 		Locale polishLocale = null;
 		
@@ -40,14 +40,16 @@ public enum TtsLanguage {
 		
 		this.locale = polishLocale;
 		
-		this.engine = engine;
+		//this.engine = engine;
 	}
 
 	public Locale getLocale() {
 		return locale;
 	}
 
+	/*
 	public String getEngine() {
 		return engine;
 	}
+	*/
 }

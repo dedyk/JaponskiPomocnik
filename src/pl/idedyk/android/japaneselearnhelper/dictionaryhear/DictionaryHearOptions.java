@@ -214,14 +214,14 @@ public class DictionaryHearOptions extends Activity {
 								}
 							});
 
-							if (japaneseInitialized == false) {
-								alertDialog.setButton2(getString(R.string.tts_svox_google_play_go),
+							if (japaneseInitialized == false || polishInitialized == false) {
+								alertDialog.setButton2(getString(R.string.tts_google_android_tts),
 										new DialogInterface.OnClickListener() {
 
 											@Override
 											public void onClick(DialogInterface dialog, int which) {
 
-												Uri marketUri = Uri.parse(getString(R.string.tts_svox_market_url));
+												Uri marketUri = Uri.parse(getString(R.string.tts_google_android_tts_url));
 
 												Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
 
@@ -229,7 +229,8 @@ public class DictionaryHearOptions extends Activity {
 											}
 										});
 							}
-
+							
+							/*
 							if (polishInitialized == false) {
 								alertDialog.setButton3(getString(R.string.tts_ivona_google_play_go),
 										new DialogInterface.OnClickListener() {
@@ -245,6 +246,7 @@ public class DictionaryHearOptions extends Activity {
 											}
 										});
 							}
+							*/
 
 							alertDialog.show();							
 							

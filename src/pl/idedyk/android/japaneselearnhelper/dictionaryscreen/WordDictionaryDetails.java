@@ -1215,7 +1215,7 @@ public class WordDictionaryDetails extends Activity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 
-						Uri marketUri = Uri.parse(getString(R.string.tts_svox_market_url));
+						Uri marketUri = Uri.parse(getString(R.string.tts_google_android_tts_url));
 
 						Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
 
