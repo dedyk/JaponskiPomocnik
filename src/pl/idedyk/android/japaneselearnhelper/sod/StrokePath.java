@@ -283,7 +283,8 @@ public class StrokePath {
                 buff.append(Character.toString(c));
             }
 
-            if (c == ',' || c == '-' || c == 'c' || c == 'C' || c == 's'
+            BEFORE_IF:
+            if (c == ',' || c == '-' || c == ' ' || c == 'c' || c == 'C' || c == 's'
                     || c == 'S' || i == (path.length() - 1)) {
                 String floatStr = buff.toString();
                 // System.out.println("i: " + i);
@@ -295,7 +296,7 @@ public class StrokePath {
                 }
 
                 if ("".equals(floatStr)) {
-                    continue;
+                	break BEFORE_IF;
                 }
 
                 try {
@@ -323,7 +324,10 @@ public class StrokePath {
                 y = null;
 
                 if (isInMoveTo) {
+                	isInMoveTo = false;
+                	
                     result = new StrokePath(p);
+                    
                 } else {
                     if (p1 == null) {
                         p1 = p;
@@ -356,7 +360,6 @@ public class StrokePath {
             if (c == 'c' || c == 'C' || c == 's' || c == 'S') {
                 relative = (c == 'c' || c == 's');
                 smooth = (c == 's' || c == 'S');
-                isInMoveTo = false;
             }
         }
 
