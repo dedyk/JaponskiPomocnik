@@ -7033,6 +7033,7 @@
 156374,jpn,私は時々彼女とテニスをする。
 156377,jpn,私は時々馬に乗るのを楽しみます。
 156381,jpn,私は時々故郷の夢を見る。
+156383,jpn,私は時々映画を見に行く。
 156409,jpn,私は時計を２分進めなければならない。
 156447,jpn,私は飼い主を食べてしまった犬の話を読んだのを覚えている。
 156465,jpn,私は試しに逆立ちしてみた。
@@ -7322,6 +7323,7 @@
 158638,jpn,私はよく彼女とけんかする。
 158639,jpn,私はよく彼に頼っています。
 158641,jpn,私はよく同じ夢を見る。
+158658,jpn,私はよく映画を見に行く。
 158662,jpn,私はよくその川に沿って散歩したものだ。
 158695,jpn,私はやっと宿題を仕上げた。
 158726,jpn,私はもう夕食を終えました。
@@ -10763,6 +10765,8 @@
 189277,jpn,永遠に失われた、わからないのか、俺が苦境に陥っているのが。
 189278,jpn,永遠にあなたを愛します。
 189279,jpn,永遠にあなたと一緒にいます。
+189286,jpn,映画見に行かない？
+189294,jpn,映画を見に行くのはどうですか。
 189305,jpn,映画は好きですか。
 189309,jpn,映画は何時からですか。
 189321,jpn,映画の最中に彼は震え始めた。
@@ -11147,6 +11151,7 @@
 192773,jpn,よく似たケースで責任は会社にあるとされた。
 192779,jpn,よく考えた後で彼らの申し出に応じることにした。
 192791,jpn,よく外食しますか。
+192792,jpn,よく映画を見に行きます。
 192794,jpn,よく悪夢を見ます。
 192799,jpn,よくも彼女にそんなことがいえるものだ。
 192805,jpn,よくもまあ私に助けてくれなんて言えるもんだね。
@@ -14694,6 +14699,7 @@
 229384,jpn,いいや。あいつは水がキライなんだ。
 229387,jpn,いいものになると１キロにもなるものがありますよ。
 229388,jpn,いいブランデーがあって食事は完璧になる。
+229392,jpn,いいとも、それはいい考えだ。
 229397,jpn,いいぞ。頑張れよ。
 229399,jpn,イースト菌はパンを膨らませる際の作用剤だ。
 229400,jpn,イースト菌がパン生地を膨らます。
@@ -15363,6 +15369,7 @@
 236258,jpn,「世界のみなさん、こんにちは」
 236266,jpn,「乗車券を拝見できますか」「はい、どうぞ」
 236272,jpn,「手伝ってくださいませんか」「喜んで」
+236274,jpn,「車を借りていいかい」「いいとも、どうぞ」
 236275,jpn,「邪魔をしてはいけないよ。彼女は今、仕事中なのだから。」と彼は小声で言った。
 236278,jpn,「実を言うと、俺、高所恐怖症なんだ」「臆病者っ！」
 236281,jpn,「次回だよ」と彼は言った。
@@ -17624,6 +17631,7 @@
 362468,pol,Zjechał ze stoku w trzy minuty.
 362470,pol,Teraz jestem zajęty.
 362471,pol,"Jestem zbyt podekscytowany, by coś jeść."
+362476,pol,Do kina chodzę od czasu do czasu.
 362477,pol,Ten człowiek w końcu się przyznał.
 362481,pol,Lekarz uratował mi życie.
 362482,pol,Zwykle jeżdżę do szkoły rowerem.
@@ -28106,6 +28114,7 @@
 2838222,pol,Twój kaszel jest przyczyną palenia.
 2838242,pol,"Zacząłem uczyć się układania kwiatów dopiero miesiąc temu, więc wciąż jestem początkującym"
 2838301,pol,Nienawiść wobec innych jest jej obca.
+2838385,pol,Chciałbyś pójść na film?
 2838396,pol,Prawda wyjdzie na jaw pewnego dnia.
 2838403,jpn,何かアレルギーはありますか？
 2838404,pol,"Zarówno odpowiednia dieta, jak i ćwiczenia, są ważne dla zdrowia."
@@ -28564,6 +28573,7 @@
 3046736,pol,Nie. On nie lubi wody!
 3046740,pol,Dobry okaz może ważyć nawet do kilograma.
 3046743,pol,Dobre brandy uzupełnia smaczny posiłek.
+3046749,pol,Pewnie. To dobry pomysł.
 3046752,pol,"Drożdże powodują, że ciasto rośnie."
 3046753,pol,Drożdże grają główną rolę w procesie wzrostu chleba.
 3046755,pol,"Drożdże powodują, że piwo fermentuje."
@@ -29902,6 +29912,7 @@
 3846711,pol,"Lubię i przyrodę, i matematykę."
 3846746,pol,Jak często wyjeżdżasz za granicę?
 3846748,pol,Spotkania odbywają się co tydzień.
+3846750,pol,Często chodzę na filmy.
 3846753,pol,Jak często jeżdżą autobusy?
 3846754,pol,Autobus odjeżdża co piętnaście minut.
 3846757,pol,On grywa w golfa dwa-trzy razy w miesiącu.
@@ -30456,6 +30467,8 @@
 4049480,pol,Nie ufam nikomu.
 4051575,pol,Oszczędzam na nowy samochód.
 4051576,pol,Kupuję nowy samochód.
+4089795,pol,Może byśmy poszli do kina?
+4089797,pol,Co powiesz na kino?
 4090902,pol,Moje modlitwy zostały wysłuchane.
 4092000,pol,"Musiałem powstrzymać się od palenia, podczas gdy byłem w szpitalu."
 4095552,pol,Nasze prawo do corocznego miesięcznego urlopu jest zawarte w kontrakcie.
@@ -31047,6 +31060,7 @@
 5882739,pol,Jadłeś już lunch?
 5889698,pol,Pomożesz mi?
 5889710,pol,Nie przeszkadzaj jej. Jest w tej chwili w pracy
+5889713,pol,Mogę użyć twojego samochodu?
 5890004,pol,Zapłaciłam kwotę 10 tys. jenów.
 5890536,pol,Nie szkodzi
 5894857,pol,Nowe podatki wchodzą w życie w przyszłym roku.
