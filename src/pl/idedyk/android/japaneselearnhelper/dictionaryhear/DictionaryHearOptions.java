@@ -180,7 +180,9 @@ public class DictionaryHearOptions extends Activity {
 						
 						super.onPostExecute(voidNull);
 
-						progressDialog.dismiss();
+						if (progressDialog != null && progressDialog.isShowing()) {
+							progressDialog.dismiss();
+						}
 
 						// INFO: Tylko do testow
 						//				int warning = 0;

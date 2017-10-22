@@ -170,7 +170,9 @@ public class KanjiRecognizeActivity extends Activity {
 				    protected void onPostExecute(List<KanjiEntry> kanjiEntries) {
 				        super.onPostExecute(kanjiEntries);
 
-				        progressDialog.dismiss();
+				        if (progressDialog != null && progressDialog.isShowing()) {
+				        	progressDialog.dismiss();
+				        }
 				        
 						Intent intent = new Intent(getApplicationContext(), KanjiRecognizerResult.class);
 						

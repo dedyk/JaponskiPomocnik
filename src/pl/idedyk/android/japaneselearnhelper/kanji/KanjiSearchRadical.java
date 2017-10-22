@@ -267,7 +267,9 @@ public class KanjiSearchRadical extends Activity {
 		        	}
 				}
 		        
-		        progressDialog.dismiss();
+		        if (progressDialog != null && progressDialog.isShowing()) {
+		        	progressDialog.dismiss();
+		        }
 		    }
 		}
 		

@@ -156,7 +156,9 @@ public class KanjiSearchStrokeCount extends Activity {
 				    protected void onPostExecute(FindKanjiResult foundKanjis) {
 				        super.onPostExecute(foundKanjis);
 
-				        progressDialog.dismiss();
+				        if (progressDialog != null && progressDialog.isShowing()) {
+				        	progressDialog.dismiss();
+				        }
 				        
 						if (foundKanjis.isMoreElemetsExists() == true) {					
 							Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_result_limited), Toast.LENGTH_SHORT);

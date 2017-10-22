@@ -378,7 +378,9 @@ public class WordTestSM2Options extends Activity {
 					protected void onPostExecute(Void arg) {
 						super.onPostExecute(arg);
 
-						progressDialog.dismiss();
+						if (progressDialog != null && progressDialog.isShowing()) {
+							progressDialog.dismiss();
+						}
 						
 						finish();
 						

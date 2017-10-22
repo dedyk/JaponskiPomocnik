@@ -844,7 +844,13 @@ public class KanjiTest extends Activity {
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
-			KanjiEntry kanjiEntry = kanjiTestContext.getKanjiEntryList().getNext();
+			EntryOrderList<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
+			
+			if (kanjiEntryList == null) {
+				return true;
+			}
+			
+			KanjiEntry kanjiEntry = kanjiEntryList.getNext();
 
 			if (kanjiEntry == null) {
 				return true;

@@ -104,6 +104,11 @@ public class DictionaryHear extends Activity {
 		if (dictionaryEntryListIdx >= dictionaryEntryList.size()) {
 			dictionaryEntryListIdx = dictionaryEntryList.size() - 1;
 		}
+		
+		if (dictionaryEntryListIdx < 0 || dictionaryEntryListIdx >= dictionaryEntryList.size()) {
+			stop();
+			finish();
+		}
 
 		setDictionaryEntry(dictionaryEntryList.get(dictionaryEntryListIdx), dictionaryEntryListIdx,
 				dictionaryEntryList.size());

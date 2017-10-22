@@ -410,7 +410,9 @@ public class KanjiSearchMeaning extends Activity {
 
 					searchResultArrayAdapter.notifyDataSetChanged();
 			        
-			        progressDialog.dismiss();
+					if (progressDialog != null && progressDialog.isShowing()) {
+						progressDialog.dismiss();
+					}
 			    }
 			    
 			    private String getKanjiFullTextWithMark(KanjiEntry kanjiEntry, String findWord) {

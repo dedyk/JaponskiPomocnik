@@ -624,7 +624,9 @@ public class WordDictionary extends Activity {
 				    @Override
 				    protected void onPostExecute(Void o) {
 				    	
-				    	progressDialog.dismiss();				    	
+				    	if (progressDialog != null && progressDialog.isShowing()) {
+				    		progressDialog.dismiss();
+				    	}				    	
 				    	
 				    	performRealSearch(findWord);
 				    }
@@ -825,7 +827,9 @@ public class WordDictionary extends Activity {
 
 					searchResultArrayAdapter.notifyDataSetChanged();
 			        
-			        progressDialog.dismiss();
+					if (progressDialog != null && progressDialog.isShowing()) {
+						progressDialog.dismiss();
+					}
 			        
 			        if (localSearchWrapper.tryServerSearchThenPerformLocalSearch != null && localSearchWrapper.tryServerSearchThenPerformLocalSearch == Boolean.TRUE) {
 			        	

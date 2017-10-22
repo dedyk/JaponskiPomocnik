@@ -641,7 +641,9 @@ public class KanjiTestOptionsActivity extends Activity {
 					protected void onPostExecute(Void arg) {
 						super.onPostExecute(arg);
 
-						progressDialog.dismiss();
+						if (progressDialog != null && progressDialog.isShowing()) {
+							progressDialog.dismiss();
+						}
 
 						AlertDialog alertDialog = new AlertDialog.Builder(KanjiTestOptionsActivity.this).create();
 
@@ -857,7 +859,9 @@ public class KanjiTestOptionsActivity extends Activity {
 				showOwnGroupList();
 				showSelectedKanji();
 
-				progressDialog.dismiss();
+				if (progressDialog != null && progressDialog.isShowing()) {
+					progressDialog.dismiss();
+				}
 			}
 		}
 

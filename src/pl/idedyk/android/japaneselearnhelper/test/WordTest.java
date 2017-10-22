@@ -445,6 +445,15 @@ public class WordTest extends Activity {
 			throw new RuntimeException("Unknown wordTestMode: " + wordTestConfig.getWordTestMode());
 		}
 
+		if (wordDictionaryEntries == null) {
+
+			Intent intent = new Intent(getApplicationContext(), WordTestSummary.class);
+
+			startActivity(intent);
+
+			finish();
+		}
+		
 		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
 
 		if (currentWordDictionaryEntry == null) {

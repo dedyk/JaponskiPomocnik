@@ -158,7 +158,9 @@ public class KanjiSearchRadicalResult extends Activity {
 
 				searchResultArrayAdapter.notifyDataSetChanged();
 		        
-		        progressDialog.dismiss();
+				if (progressDialog != null && progressDialog.isShowing()) {
+					progressDialog.dismiss();
+				}
 		    }
 		}
 		

@@ -178,7 +178,9 @@ public class Splash extends Activity {
 						}
 					});
 
-					alertDialog.show();
+					if (isFinishing() == false) {
+						alertDialog.show();
+					}
 
 					return;
 				}
@@ -224,8 +226,10 @@ public class Splash extends Activity {
 									finish();
 								}
 							});
-
-					alertDialog.show();
+					
+					if (isFinishing() == false) {
+						alertDialog.show();
+					}
 
 				} else {
 
