@@ -2386,7 +2386,6 @@
 97986,jpn,彼らはその悪習を打破した。
 97988,jpn,彼らはそのニュースを聞いて涙を流した。
 98023,jpn,彼らはずっとその後幸福に暮らし続けた。
-98025,jpn,彼らはスコットランドで休暇を楽しみましたか。
 98086,jpn,彼らはコストを押さえようとしている。
 98091,jpn,彼らはここから立ち去りました。戻ってくることはないでしょう。
 98101,jpn,彼らはクリスマスイブに教会に行った。
@@ -8782,6 +8781,7 @@
 169842,jpn,昨日東京に着いた。
 169848,jpn,昨日通りでメアリーにあった。
 169849,jpn,昨日調べた単語の意味が思い出せない。
+169854,jpn,彼は昨日大酒を飲んだ。
 169856,jpn,昨日大きな迷路に入りました。
 169868,jpn,昨日食べすぎた。
 169917,jpn,昨日会ったことを覚えている。
@@ -9882,6 +9882,7 @@
 179060,jpn,君が何と言おうと彼女と結婚する。
 179063,jpn,君が何と言おうと、私は君のことを信じない。
 179066,jpn,君が俺のそばにいてくれたらなあ。
+179069,jpn,君が英語を話せないのと同様に私はフランス語が話せない。
 179070,jpn,君が英語を勉強する主要な目的は何ですか。
 179072,jpn,君が嘘をついたということは明白だ。
 179089,jpn,君から始めなさい。
@@ -12709,6 +12710,7 @@
 204628,jpn,それをリストから外してください。
 204639,jpn,それをどこにも見つけることができなかった。
 204640,jpn,それをどこで買ったか覚えてない。
+204651,jpn,それをそらで言ってください。
 204681,jpn,それをここから持っていけ！
 204695,jpn,それらは話し合いを必要とする問題だ。
 204698,jpn,それらは彼らのではありません。
@@ -13627,8 +13629,6 @@
 214640,jpn,スティーブとジェーンはいつも腕を組んで歩いて通学している。
 214680,jpn,スタッフに交渉事がうまいのがいます。
 214683,jpn,スタジアムにはたくさんの興奮した人々がいた。
-214696,jpn,スコットランドは毛織物で有名だ。
-214698,jpn,スコットランドに由来する歌がいくつかあります。
 214710,jpn,すごく面白かった。
 214717,jpn,すごく寒いです。
 214726,jpn,すごいですね。
@@ -20128,7 +20128,6 @@
 525403,pol,"Masz na uwadze to, jak bardzo cię kocha?"
 525428,pol,To ja go spotkałem.
 525435,pol,Twoja kolej.
-525455,pol,Szkocja słynie z wełnianych tkanin.
 525457,pol,Proszę po południu wpaść do mnie do biura.
 525479,pol,Nie wchodź do pokoju bez pozwolenia.
 525484,pol,Kto to zbudował?
@@ -21694,6 +21693,7 @@
 586380,pol,Betty umie grać na pianinie.
 586386,pol,Nie mogę sobie pozwolić na zmarnowanie nawet jednego jena.
 586391,pol,Lubię jeść jabłka.
+587030,pol,On wczoraj dużo wypił.
 587032,pol,Zdał wstępne egzaminy.
 587033,pol,Masz całkiem rację.
 587034,pol,Czy piszesz pamiętnik?
@@ -22615,7 +22615,6 @@
 645916,pol,"Tak zbierzesz, jak posiejesz."
 646797,pol,Jest profesorem biologii na Harwardzie.
 646798,pol,Mój ojciec zmarł na raka.
-650534,pol,Niektóre piosenki pochodzą ze Szkocji.
 650537,pol,Pociąg spóźnił się ze względu na burzę śnieżną.
 650539,pol,On wołał o pomoc.
 650545,pol,Robię to każdej niedzieli rano.
@@ -23357,6 +23356,7 @@
 758341,pol,Matka niepokoi się o moją przyszłość.
 758400,pol,Chyba o tym zapomniał.
 759121,pol,Zatrzymał się u ciotki.
+759570,pol,Znam francuski nie lepiej niż ty angielski.
 760214,jpn,遅くなって申し訳ありません。
 760232,pol,Mój brat mieszka w Tokio.
 760265,pol,Do ryżu pasuje zupa miso.
@@ -31323,6 +31323,8 @@
 5097532,pol,On zaprojektował samochód.
 5105314,pol,Ile lat ma wasz dziadek?
 5113690,pol,"Powiedz jej, by nie zbliżała się do tego psa."
+5140010,pol,Proszę to powiedzieć z pamięci.
+5140011,pol,Powiedz to proszę z pamięci.
 5140020,pol,Znam ten wiersz na pamięć.
 5140058,pol,Nieoczekiwanie prognoza pogody się sprawdziła wczoraj.
 5142888,pol,Oni zemdleli.
@@ -32094,7 +32096,6 @@
 6541936,pol,Wczoraj pokłóciłam się z moim starszym bratem.
 6541937,pol,Podkradł się do tylnych drzwi.
 6541940,pol,Przemknął się ukradkiem do tylnych drzwi.
-6541941,pol,Czy oni dobrze się bawili na urlopie w Szkocji?
 6541943,pol,Jej policzki były zimne jak lód.
 6541944,pol,Miała policzki zimne jak lód.
 6541946,pol,Miałam podaną kroplówkę w szpitalu.
