@@ -3,3 +3,15 @@ dictionary/word.csv
 gen
 release
 assets/dictionary.db
+
+app/build/
+app/signing.properties
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+/.idea

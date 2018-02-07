@@ -1,0 +1,92 @@
+import com.android.builder.core.DefaultManifestParser
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "pl.idedyk.android.japaneselearnhelper"
+        minSdkVersion 14
+        targetSdkVersion 22
+        multiDexEnabled true
+    }
+    
+    /*
+    signingConfigs {
+        release
+    }
+    */
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            //signingConfig signingConfigs.release
+        }
+    }
+
+    useLibrary 'org.apache.http.legacy'
+
+    lintOptions {
+	abortOnError false
+    }
+
+/*
+    assembleRelease.doLast {
+	def manifestParser = new DefaultManifestParser()
+
+	def versionName = manifestParser.getVersionName(android.sourceSets.main.manifest.srcFile)
+	def versionCode = manifestParser.getVersionCode(android.sourceSets.main.manifest.srcFile)
+
+	def outputRelease = "release/release_" + versionCode + "_" + versionName
+	def outputName = "JapaneseAndroidLearnHelper_release_" + versionCode + "_" + versionName
+
+	mkdir("../" + outputRelease)
+
+	copy {
+	    from('build/outputs/apk') {
+		include 'app-release.apk'
+	    }
+	    into '../' + outputRelease
+	    rename ("app-release.apk", outputName + ".apk")
+	}
+    }
+*/
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services:+'
+    // implementation 'com.android.support:multidex:1.0.1'
+    implementation files('libs/JapaneseDictionaryAPI-1.0-SNAPSHOT.jar')
+    implementation files('libs/JapaneseDictionaryLuceneCommon-1.0-SNAPSHOT.jar')
+    implementation files('libs/javacsv-2.1.jar')
+    implementation files('libs/lucene-analyzers-common-4.7.2.jar')
+    implementation files('libs/lucene-core-4.7.2-without-SPIClassIterator-and-RamUsageEstimator.jar')
+    implementation files('libs/lucene-suggest-4.7.2.jar')
+}
+
+/*
+def Properties props = new Properties()
+def propFile = new File('app/signing.properties')
+
+if (propFile.canRead()){
+
+    props.load(new FileInputStream(propFile))
+
+    if (props!=null && props.containsKey('app.signingConfigs.release.storeFile') &&
+            props.containsKey('app.signingConfigs.release.keyAlias')) {
+
+        android.signingConfigs.release.storeFile = file(props['app.signingConfigs.release.storeFile'])
+        android.signingConfigs.release.keyAlias = props['app.signingConfigs.release.keyAlias']
+        android.signingConfigs.release.storePassword = System.console().readLine("\nKeystore password: ")
+        android.signingConfigs.release.keyPassword = System.console().readLine("\nKey password: ")
+        
+    } else {
+	throw new Exception("signing.properties found but some entries are missing")
+    }
+} else {
+    throw new Exception("signing.properties not found")
+}
+*/
