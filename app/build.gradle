@@ -3,14 +3,14 @@ import com.android.builder.core.DefaultManifestParser
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "pl.idedyk.android.japaneselearnhelper"
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 22
-        //multiDexEnabled true
+        multiDexEnabled true
     }
 
     signingConfigs {
@@ -53,8 +53,8 @@ android {
 }
 
 dependencies {
-    // GOOGLE_PLAY compile 'com.google.android.gms:play-services:+'
-    // compile 'com.android.support:multidex:1.0.1'
+    compile 'com.google.android.gms:play-services:+'
+    compile 'com.android.support:multidex:1.0.1'
     compile files('libs/JapaneseDictionaryAPI-1.0-SNAPSHOT.jar')
     compile files('libs/JapaneseDictionaryLuceneCommon-1.0-SNAPSHOT.jar')
     compile files('libs/javacsv-2.1.jar')
