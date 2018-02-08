@@ -17,8 +17,9 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.support.multidex.MultiDexApplication;
 
-public class JapaneseAndroidLearnHelperApplication extends Application {
+public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	
 	private static JapaneseAndroidLearnHelperApplication singleton;
 	
