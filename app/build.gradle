@@ -1,29 +1,50 @@
 import com.android.builder.core.DefaultManifestParser
+import groovy.swing.SwingBuilder
 
 apply plugin: 'com.android.application'
 
+def keystorePropertiesFile = rootProject.file("app/signing.properties")
+
+// Initialize a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "pl.idedyk.android.japaneselearnhelper"
         minSdkVersion 14
-        targetSdkVersion 22
+        targetSdkVersion 26
         multiDexEnabled true
     }
-    
-    /*
+
     signingConfigs {
-        release
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
     }
-    */
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
-            //signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -33,27 +54,27 @@ android {
 	abortOnError false
     }
 
-/*
-    assembleRelease.doLast {
-	def manifestParser = new DefaultManifestParser()
+    tasks.whenTaskAdded { task ->
+	if (task.name == 'assembleRelease') {
+    	    def manifestParser = new DefaultManifestParser(android.sourceSets.main.manifest.srcFile)
 
-	def versionName = manifestParser.getVersionName(android.sourceSets.main.manifest.srcFile)
-	def versionCode = manifestParser.getVersionCode(android.sourceSets.main.manifest.srcFile)
+	    def versionName = manifestParser.getVersionName()
+	    def versionCode = manifestParser.getVersionCode()
 
-	def outputRelease = "release/release_" + versionCode + "_" + versionName
-	def outputName = "JapaneseAndroidLearnHelper_release_" + versionCode + "_" + versionName
+	    def outputRelease = "release/release_" + versionCode + "_" + versionName
+	    def outputName = "JapaneseAndroidLearnHelper_release_" + versionCode + "_" + versionName
 
-	mkdir("../" + outputRelease)
+	    mkdir("../" + outputRelease)
 
-	copy {
-	    from('build/outputs/apk') {
-		include 'app-release.apk'
+	    copy {
+		from('build/outputs/apk/release') {
+		    include 'app-release.apk'
+		}
+		into '../' + outputRelease
+		rename ("app-release.apk", outputName + ".apk")
 	    }
-	    into '../' + outputRelease
-	    rename ("app-release.apk", outputName + ".apk")
 	}
     }
-*/
 }
 
 dependencies {
@@ -66,27 +87,3 @@ dependencies {
     implementation files('libs/lucene-core-4.7.2-without-SPIClassIterator-and-RamUsageEstimator.jar')
     implementation files('libs/lucene-suggest-4.7.2.jar')
 }
-
-/*
-def Properties props = new Properties()
-def propFile = new File('app/signing.properties')
-
-if (propFile.canRead()){
-
-    props.load(new FileInputStream(propFile))
-
-    if (props!=null && props.containsKey('app.signingConfigs.release.storeFile') &&
-            props.containsKey('app.signingConfigs.release.keyAlias')) {
-
-        android.signingConfigs.release.storeFile = file(props['app.signingConfigs.release.storeFile'])
-        android.signingConfigs.release.keyAlias = props['app.signingConfigs.release.keyAlias']
-        android.signingConfigs.release.storePassword = System.console().readLine("\nKeystore password: ")
-        android.signingConfigs.release.keyPassword = System.console().readLine("\nKey password: ")
-        
-    } else {
-	throw new Exception("signing.properties found but some entries are missing")
-    }
-} else {
-    throw new Exception("signing.properties not found")
-}
-*/
