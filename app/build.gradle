@@ -54,24 +54,30 @@ android {
 	abortOnError false
     }
 
-    tasks.whenTaskAdded { task ->
-	if (task.name == 'assembleRelease') {
-    	    def manifestParser = new DefaultManifestParser(android.sourceSets.main.manifest.srcFile)
+    gradle.taskGraph.afterTask { Task task, TaskState state ->
+	if (state.failure) {
+    	    // noop
 
-	    def versionName = manifestParser.getVersionName()
-	    def versionCode = manifestParser.getVersionCode()
+	} else {
 
-	    def outputRelease = "release/release_" + versionCode + "_" + versionName
-	    def outputName = "JapaneseAndroidLearnHelper_release_" + versionCode + "_" + versionName
+	    if (task.name == 'assembleRelease') {
+    		def manifestParser = new DefaultManifestParser(android.sourceSets.main.manifest.srcFile)
 
-	    mkdir("../" + outputRelease)
+		def versionName = manifestParser.getVersionName()
+		def versionCode = manifestParser.getVersionCode()
 
-	    copy {
-		from('build/outputs/apk/release') {
-		    include 'app-release.apk'
+		def outputRelease = "release/release_" + versionCode + "_" + versionName
+		def outputName = "JapaneseAndroidLearnHelper_release_" + versionCode + "_" + versionName
+
+		mkdir("../" + outputRelease)
+
+		copy {
+		    from('build/outputs/apk/release') {
+			include 'app-release.apk'
+		    }
+		    into '../' + outputRelease
+		    rename ("app-release.apk", outputName + ".apk")
 		}
-		into '../' + outputRelease
-		rename ("app-release.apk", outputName + ".apk")
 	    }
 	}
     }
