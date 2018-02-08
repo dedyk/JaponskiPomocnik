@@ -9,6 +9,6 @@
 9. git log
 10. git tag -l | grep release_xxx_20RRMMDD
 11. git pull ; git push ; git push --tag
-12../clean.sh
+12. ./clean.sh
 13. ./generate-result-db.sh
-14. gradlew clean assembleRelease
+14. ./gradlew clean assembleRelease
