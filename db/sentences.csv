@@ -3709,6 +3709,7 @@
 111520,jpn,彼はとても貧しかったので、そのパンを買えなかった。
 111530,jpn,彼はとても年老いていた。
 111531,jpn,彼はとても年をとっているけれどたっしゃだ。
+111539,jpn,彼はとても怒っている。
 111543,jpn,彼はとても大きな声で話した。
 111553,jpn,彼はとても速く走ったので、私たちは追いつけなかった。
 111555,jpn,彼はとても足早に歩いて行ったので、私は追いつけなかった。
@@ -3951,6 +3952,7 @@
 114057,jpn,彼はギターの弾き方を知らない。
 114058,jpn,彼はギターが大変上手です。
 114069,jpn,彼はガンで死んだのではありません。
+114073,jpn,彼はかんかんに怒っている。
 114076,jpn,彼はかわいい女の子と結婚した。
 114080,jpn,彼はかろうじて試験に受かった。
 114081,jpn,彼はかろうじて試験に合格した。
@@ -5046,7 +5048,6 @@
 125904,jpn,長く待たせてしまって申し訳ありません。
 125906,jpn,長く続いた試合がやっと終わった。
 125909,jpn,長くてだらしがないより短くて簡潔のほうがよい。
-125911,jpn,長くかかるんでしょうか。
 125913,jpn,長くお待たせしてすみませんでした。
 125916,jpn,長い話し合いの末、私はついに彼女を説得してキャンプに行かせた。
 125942,jpn,長い週末を利用しよう。
@@ -12466,6 +12467,7 @@
 201780,jpn,ドアを閉めて。
 201786,jpn,ドアを開け放しにしておくな。
 201797,jpn,ドアを開けてください。
+201798,jpn,ドアを開けておきなさい。
 201799,jpn,ドアを開けておかないで。
 201802,jpn,ドアを開けっ放しにしてはいけません。
 201803,jpn,ドアを開けっ放しにしておくな。
@@ -14184,7 +14186,6 @@
 220601,jpn,この地域は壊滅的である。
 220604,jpn,この地域は２００年以上前に最初にオランダ人が植民した。
 220614,jpn,この地域には野生動物が多い。
-220634,jpn,この探検には、お金がかかる。
 220643,jpn,この単語はどう発音しますか。
 220644,jpn,この単語はどういう意味ですか。
 220647,jpn,この単語の発音の仕方を知っていますか。
@@ -14220,7 +14221,6 @@
 221148,jpn,この小説は米国の作家によって書かれた。
 221152,jpn,この小説は退屈だ。
 221214,jpn,この書式に記入してください。
-221230,jpn,この宿題を終えるのに十分な時間がかかる。
 221238,jpn,この重役のポストに適当な人物を見つけるには、人材斡旋業者に依頼する必要がある。
 221239,jpn,この重さを計ってもらえませんか。
 221274,jpn,この種の猫には尾が無い。
@@ -15071,7 +15071,6 @@
 229493,jpn,アンはヘンリーの求婚を受け入れた。
 229498,jpn,アンはチョコレートに目がない。
 229500,jpn,アンはチアガールです。
-229502,jpn,アンはその絵をかき終えた。
 229507,jpn,アンはいつも自分の部屋を綺麗にしておく。
 229512,jpn,アンに謝らないといけない。
 229523,jpn,あんな風に振る舞うなんて彼は気が狂ってるに違いない。
@@ -20182,7 +20181,6 @@
 525596,pol,"Nie muszę się dziś uczyć, chyba pooglądam telewizję."
 525599,pol,Mój ojciec naprawia mój zepsuty rower.
 525600,pol,Możesz przyciszyć?
-525602,pol,Mamy dość czasu na skończenie pracy domowej.
 525603,pol,Warto obejrzeć ten film dwa lub trzy razy.
 525628,pol,Kupiłem tę książkę w księgarni Maruzen.
 525629,pol,Musisz posprzątać stół.
@@ -21594,7 +21592,6 @@
 577988,pol,Jego żona pochodzi z Kalifornii.
 577992,pol,Jesteś bardzo blady.
 577996,pol,Czy możesz jeść surowe ostrygi?
-578001,pol,Ann skończyła malować ten obraz.
 578014,pol,Zrezygnował z powodów zdrowotnych.
 578015,pol,Ich krew będzie dostarczona do wielu ludzi.
 578042,pol,"Odbierz telefon, dobrze?"
@@ -21706,6 +21703,7 @@
 585776,pol,Czy jesteś teraz zajęty?
 585827,pol,Porównaj twoją odpowiedź z odpowiedzią Toma.
 585845,pol,Nauczył się jak pływać.
+585850,pol,Niech drzwi będą otwarte.
 585851,pol,Z powodu słabego zdrowia przeszedł na emeryturę.
 585852,pol,Brian trzyma Kate za rękę.
 585853,pol,On całkiem nieźle czyta.
@@ -27339,7 +27337,6 @@
 2108488,pol,Czas żebyś poszedł spać.
 2109142,pol,Próbował rozmawiać z nami po francusku.
 2109151,pol,"Poradziła mi, żebym tam poszedł."
-2109153,pol,Czy to jeszcze długo potrwa?
 2113137,jpn,彼女のことが大好きです。
 2116046,jpn,その戦争では百万人もの人命が失われた。
 2116592,jpn,そのリンゴはすっぱい味がします。
@@ -27821,6 +27818,7 @@
 2246664,pol,"Nie masz prawa wejść, bo jesteś niepełnoletni."
 2246717,pol,Chciałabym karmić moje dziecko piersią.
 2246749,pol,Jego osiągnięcia naukowe są imponujące.
+2246754,pol,Zostaw otwarte drzwi.
 2246778,pol,"Ułóż narty w kształcie odwróconego ""V""."
 2246857,pol,Szkoła spaliła się na popiół.
 2246910,pol,Poszliśmy na spacer do lasu.
@@ -31337,6 +31335,7 @@
 4931203,pol,Mogę iść do domu?
 4933765,pol,On śpi w dzień i pracuje w nocy.
 4940284,pol,"Jeśli rozumiesz, podnieś rękę."
+4943995,pol,On jest bardzo rozgniewany.
 4947505,pol,O której?
 4953527,pol,Moje biurko jest stare.
 4956926,pol,"Pragniemy, by byli bezpieczni."
@@ -31976,7 +31975,6 @@
 6313887,pol,Nie rozmawiajmy z nią.
 6313893,pol,Po chwili mężczyzna wszedł do pokoju.
 6313902,pol,Muzycy są zwykle wrażliwi na krytycyzm.
-6313903,pol,Ta ekspedycja będzie kosztowna.
 6313905,pol,Dała mi torebkę zrobioną ze skóry.
 6313909,pol,Minie trochę czasu zanim wróci do zdrowia.
 6313913,pol,"Potrzeba mu czasu, żeby dojść do siebie."
