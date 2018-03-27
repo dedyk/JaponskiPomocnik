@@ -8,7 +8,7 @@
     <string name="kana_report_problem_email_subject">Japoński pomocnik - tablica hiragana i katakana: Sugestia</string>
     <string name="kana_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="kana_info">Naciśnij na znak, aby uzyskać animację pisania znaku</string>
-    <string name="kana_info2">* - znak nie używany współcześnie</string>
+    <string name="kana_info2">* - znak nieużywany współcześnie</string>
     <string name="kana_info3">** - z powodów technicznych znak nie może być wyświetlony na ekranie, ale można na niego nacisnąć</string>
     <string name="kana_test_options_label">Opcje testu</string>
     <string name="kana_test_label">Test</string>
