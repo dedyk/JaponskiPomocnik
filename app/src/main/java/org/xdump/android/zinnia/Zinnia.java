@@ -27,7 +27,23 @@ public class Zinnia {
 
 
 	public native String zinnia_result_value(long result, long i);
+	public native int[] zinnia_result_value_as_int_array(long result, long i);
+	
+	public String zinnia_result_value_from_int_array_to_string(long result, long i) {
+		
+		int[] intArray = zinnia_result_value_as_int_array(result, i);
+				
+		byte[] byteArray = new byte[intArray.length];
+		
+		for (int idx = 0; idx < intArray.length; ++idx) {
+			byteArray[idx] = (byte)intArray[idx];
+		}
+		
+		return new String(byteArray);
+	}
+	
 	public native float       zinnia_result_score(long result, long i);
+	
 	public native long      zinnia_result_size(long result);
 	public native void        zinnia_result_destroy(long result);
 

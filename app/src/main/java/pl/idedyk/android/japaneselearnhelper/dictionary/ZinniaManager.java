@@ -101,7 +101,7 @@ public class ZinniaManager {
 
 			if (recognizerResult != 0) {
 				for (int i = 0; i < zinnia.zinnia_result_size(recognizerResult); ++i) {	
-					result.add(new KanjiRecognizerResultItem(zinnia.zinnia_result_value(recognizerResult, i), zinnia.zinnia_result_score(recognizerResult, i)));
+					result.add(new KanjiRecognizerResultItem(zinnia.zinnia_result_value_from_int_array_to_string(recognizerResult, i), zinnia.zinnia_result_score(recognizerResult, i)));
 				}
 				
 				zinnia.zinnia_result_destroy(recognizerResult);
