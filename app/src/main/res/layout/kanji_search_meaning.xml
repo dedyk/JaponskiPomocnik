@@ -29,7 +29,7 @@
         <Button
             android:id="@+id/kanji_search_meaning_search_button"
             style="@android:style/Widget.Button"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="@string/kanji_search_meaning_search_button"
             android:visibility="gone" />
@@ -37,10 +37,26 @@
         <Button
             android:id="@+id/kanji_search_meaning_options_button"
             style="@android:style/Widget.Button"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="@string/kanji_search_meaning_options_button" />
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/kanji_search_meaning_show_history_button"
+            style="@android:style/Widget.Button"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/kanji_search_meaning_show_history_button" />
+
+    </RelativeLayout>
 
     <ScrollView
         android:id="@+id/kanji_search_meaning_options_scrollview"

@@ -16,29 +16,58 @@ public class KanjiEntryListItem {
 	
 	private String suggestion;
 
-	public KanjiEntryListItem(KanjiEntry kanjiEntry, Spanned text, Spanned radicalText) {
-		
-		this.itemType = ItemType.KANJI_ENTRY;
-		
-		this.kanjiEntry = kanjiEntry;
-		
-		this.text = text;
-		this.radicalText = radicalText;
+	private String historyValue;
+
+	public static KanjiEntryListItem createKanjiEntryListItemAsKanjiEntry(KanjiEntry kanjiEntry, Spanned text, Spanned radicalText) {
+
+		KanjiEntryListItem kanjiEntryListItem = new KanjiEntryListItem();
+
+		kanjiEntryListItem.itemType = ItemType.KANJI_ENTRY;
+
+		kanjiEntryListItem.kanjiEntry = kanjiEntry;
+
+		kanjiEntryListItem.text = text;
+		kanjiEntryListItem.radicalText = radicalText;
+
+		return kanjiEntryListItem;
 	}
 	
-	public KanjiEntryListItem(String suggestion, Spanned text) {
+	public static KanjiEntryListItem createKanjiEntryListItemAsSuggestionValue(String suggestion, Spanned text) {
 
-		this.itemType = ItemType.SUGGESTION_VALUE;
+		KanjiEntryListItem kanjiEntryListItem = new KanjiEntryListItem();
 
-		this.suggestion = suggestion;		
-		this.text = text;
+		kanjiEntryListItem.itemType = ItemType.SUGGESTION_VALUE;
+
+		kanjiEntryListItem.suggestion = suggestion;
+		kanjiEntryListItem.text = text;
+
+		return kanjiEntryListItem;
 	}
 
-	public KanjiEntryListItem(Spanned text) {
+	public static KanjiEntryListItem createKanjiEntryListItemAsHistoryValue(String historyValue, Spanned text) {
 
-		this.itemType = ItemType.TITLE;
+		KanjiEntryListItem kanjiEntryListItem = new KanjiEntryListItem();
 
-		this.text = text;
+		kanjiEntryListItem.itemType = ItemType.SHOW_HISTORY_VALUE;
+
+		kanjiEntryListItem.historyValue = historyValue;
+		kanjiEntryListItem.text = text;
+
+		return kanjiEntryListItem;
+	}
+
+	public static KanjiEntryListItem createKanjiEntryListItemAsTitle(Spanned text) {
+
+		KanjiEntryListItem kanjiEntryListItem = new KanjiEntryListItem();
+
+		kanjiEntryListItem.itemType = ItemType.TITLE;
+
+		kanjiEntryListItem.text = text;
+
+		return kanjiEntryListItem;
+	}
+
+	private KanjiEntryListItem() {
 	}
 
 	public KanjiEntry getKanjiEntry() {
@@ -56,7 +85,11 @@ public class KanjiEntryListItem {
 	public String getSuggestion() {
 		return suggestion;
 	}
-	
+
+	public String getHistoryValue() {
+		return historyValue;
+	}
+
 	public ItemType getItemType() {
 		return itemType;
 	}
@@ -67,7 +100,9 @@ public class KanjiEntryListItem {
 
 		TITLE(R.layout.kanji_entry_simplerow, 0),
 
-		SUGGESTION_VALUE(R.layout.kanji_entry_suggestion_simplerow, 1);
+		SUGGESTION_VALUE(R.layout.kanji_entry_suggestion_simplerow, 1),
+
+		SHOW_HISTORY_VALUE(R.layout.kanji_entry_show_history_simplerow, 2);
 		
 		private int layoutResourceId;
 

@@ -15,6 +15,7 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient.AutoCompleteSuggestionType;
+import pl.idedyk.android.japaneselearnhelper.utils.SearchHistoryHelper;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
@@ -45,6 +46,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class KanjiSearchMeaning extends Activity {
+
+	private static final String kanjiSearchMeaningSearchHistoryFieldName = "kanjiSearchMeaningSearchHistory";
 	
 	private TextView kanjiSearchMeaningElementsNoTextView;
 	
@@ -128,7 +131,18 @@ public class KanjiSearchMeaning extends Activity {
 					
 					// wykonanie wyszukiwania
 					performSearch(searchValueEditText.getText().toString());
-				}				
+
+				} else if (itemType == ItemType.SHOW_HISTORY_VALUE) { // klikniecie w historie wyszukiwania
+
+					// wstawienie napisu
+					searchValueEditText.setText(kanjiEntryListItem.getHistoryValue());
+
+					// resetowanie ustawien wyszukiwania
+					searchOptionsStartWithPlaceRadioButton.setChecked(true);
+
+					// wykonanie wyszukiwania
+					performSearch(searchValueEditText.getText().toString());
+				}
 			}
 		});
 		
@@ -223,7 +237,31 @@ public class KanjiSearchMeaning extends Activity {
 			public void afterTextChanged(Editable s) {				
 			}
 		});
-		
+
+		final Button showHistoryButton = (Button)findViewById(R.id.kanji_search_meaning_show_history_button);
+
+		showHistoryButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				// pokazywanie histori wyszukiwania
+
+				searchResultList.clear();
+
+				searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsTitle(Html.fromHtml("<big><b>" + getString(R.string.kanji_search_meaning_show_history_title) + "</b></big>")));
+
+				SearchHistoryHelper searchHistoryHelper = new SearchHistoryHelper(KanjiSearchMeaning.this, kanjiSearchMeaningSearchHistoryFieldName);
+
+				List<SearchHistoryHelper.Entry> historyEntryList = searchHistoryHelper.getEntryList();
+
+				for (SearchHistoryHelper.Entry entry : historyEntryList) {
+					searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsHistoryValue(entry.getText(), Html.fromHtml("<big>" + entry.getText() + "</big>")));
+				}
+
+				searchResultArrayAdapter.notifyDataSetChanged();
+			}
+		});
+
 		searchValueEditText.setAdapter(new AutoCompleteAdapter(this, AutoCompleteSuggestionType.KANJI_DICTIONARY));
 				
 		kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_search_meaning_elements_no, 0));
@@ -394,17 +432,17 @@ public class KanjiSearchMeaning extends Activity {
 						String currentFoundKanjiFullTextWithMarks = getKanjiFullTextWithMark(currentKanjiEntry, findWord);
 						String currentFoundKanjiRadicalTextWithMarks = getKanjiRadicalTextWithMark(currentKanjiEntry, findWord);														
 						
-						searchResultList.add(new KanjiEntryListItem(currentKanjiEntry,
+						searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsKanjiEntry(currentKanjiEntry,
 								Html.fromHtml(currentFoundKanjiFullTextWithMarks.replaceAll("\n", "<br/>")),
 								Html.fromHtml(currentFoundKanjiRadicalTextWithMarks.toString())));								
 					}
 					
 					if (suggestionList != null && suggestionList.size() > 0) { // pokazywanie sugestii
 
-						searchResultList.add(new KanjiEntryListItem(Html.fromHtml("<big><b>" + getString(R.string.kanji_search_meaning_suggestion_title) + "</b></big>")));
+						searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsTitle(Html.fromHtml("<big><b>" + getString(R.string.kanji_search_meaning_suggestion_title) + "</b></big>")));
 
 						for (String currentSuggestion : suggestionList) {							
-							searchResultList.add(new KanjiEntryListItem(currentSuggestion, Html.fromHtml("<big>" + currentSuggestion + "</big>")));
+							searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsSuggestionValue(currentSuggestion, Html.fromHtml("<big>" + currentSuggestion + "</big>")));
 						}
 					}
 
@@ -413,7 +451,12 @@ public class KanjiSearchMeaning extends Activity {
 					if (progressDialog != null && progressDialog.isShowing()) {
 						progressDialog.dismiss();
 					}
-			    }
+
+					// zapisywanie do historii wyszukiwania
+					SearchHistoryHelper searchHistoryHelper = new SearchHistoryHelper(KanjiSearchMeaning.this, kanjiSearchMeaningSearchHistoryFieldName);
+
+					searchHistoryHelper.addEntry(new SearchHistoryHelper.Entry(findKanjiRequest.word));
+				}
 			    
 			    private String getKanjiFullTextWithMark(KanjiEntry kanjiEntry, String findWord) {
 

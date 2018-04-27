@@ -151,7 +151,7 @@ public class KanjiSearchRadicalResult extends Activity {
 						}
 					}
 													
-					searchResultList.add(new KanjiEntryListItem(currentKanjiEntry, 
+					searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsKanjiEntry(currentKanjiEntry,
 							Html.fromHtml(currentKanjiEntryFullText.toString().replaceAll("\n", "<br/>")),
 							Html.fromHtml(currentKanjiEntryRadicalText.toString())));								
 				}

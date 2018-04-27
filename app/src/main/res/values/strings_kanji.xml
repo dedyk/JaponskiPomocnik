@@ -152,6 +152,7 @@
     <string name="kanji_search_meaning_search_label">Szukana fraza</string>
     <string name="kanji_search_meaning_options_button">Opcje</string>
     <string name="kanji_search_meaning_search_button">Szukaj</string>
+    <string name="kanji_search_meaning_show_history_button">Pokaż historię wyszukiwania</string>
     <string name="kanji_search_meaning_options_search_mode_label">Sposób wyszukiwania</string>
     <string name="kanji_search_meaning_options_search_each_change">Szukaj z każdą zmianą frazy</string>
     <string name="kanji_search_meaning_options_search_use_autocomplete">Używaj autouzupełniania (uwaga: funkcja do działania potrzebuje internetu)</string>
@@ -165,4 +166,5 @@
     <string name="kanji_search_meaning_searching1">Szukanie</string>
     <string name="kanji_search_meaning_searching2">Proszę czekać</string>
     <string name="kanji_search_meaning_suggestion_title">Nie znaleziono wyników, czy chodziło Ci o:</string>
+    <string name="kanji_search_meaning_show_history_title">Historia wyszukiwania:</string>
 </resources>

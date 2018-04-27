@@ -122,7 +122,7 @@ public class KanjiEntryListItemAdapter extends BaseAdapter { // extends ArrayAda
 
     	ItemType itemType = kanjiEntryListItem.getItemType();
 
-    	if (itemType == ItemType.KANJI_ENTRY || itemType == ItemType.SUGGESTION_VALUE) {
+    	if (itemType == ItemType.KANJI_ENTRY || itemType == ItemType.SUGGESTION_VALUE || itemType == ItemType.SHOW_HISTORY_VALUE) {
     		return true;
 
     	} else {

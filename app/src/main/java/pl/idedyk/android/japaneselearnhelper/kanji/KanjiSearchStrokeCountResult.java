@@ -74,7 +74,7 @@ public class KanjiSearchStrokeCountResult extends Activity {
 				currentKanjiEntryRadicalText.append(kanjiDic2Entry.getRadicals().toString());	
 			}
 											
-			searchResultList.add(new KanjiEntryListItem(currentKanjiEntry, 
+			searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsKanjiEntry(currentKanjiEntry,
 					Html.fromHtml(currentKanjiEntryFullText.toString().replaceAll("\n", "<br/>")),
 					Html.fromHtml(currentKanjiEntryRadicalText.toString())));
 		}

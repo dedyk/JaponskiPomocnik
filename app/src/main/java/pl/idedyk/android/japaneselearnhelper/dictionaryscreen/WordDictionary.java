@@ -239,7 +239,7 @@ public class WordDictionary extends Activity {
 				} else if (itemType == ItemType.SHOW_HISTORY_VALUE) {
 
 					// wstawienie napisu
-					searchValueEditText.setText(wordDictionaryListItem.getText());
+					searchValueEditText.setText(wordDictionaryListItem.getHistoryValue());
 
 					// resetowanie ustawien wyszukiwania
 					searchOptionsOnlyCommonWordsCheckbox.setChecked(false);
