@@ -12,30 +12,59 @@ public class WordDictionaryListItem {
 	private ResultItem resultItem;
 	
 	private String suggestion;
-	
+
+	private String historyValue;
+
 	private Spanned text;
 
-	public WordDictionaryListItem(ResultItem resultItem, Spanned text) {
-		
-		this.itemType = ItemType.RESULT_ITEM;
-		
-		this.resultItem = resultItem;		
-		this.text = text;
+	public static WordDictionaryListItem createWordDictionaryListItemAsResultItem(ResultItem resultItem, Spanned text) {
+
+		WordDictionaryListItem wordDictionaryListItem = new WordDictionaryListItem();
+
+		wordDictionaryListItem.itemType = ItemType.RESULT_ITEM;
+
+		wordDictionaryListItem.resultItem = resultItem;
+		wordDictionaryListItem.text = text;
+
+		return wordDictionaryListItem;
 	}
 	
-	public WordDictionaryListItem(String suggestion, Spanned text) {
-		
-		this.itemType = ItemType.SUGGESTION_VALUE;
-		
-		this.suggestion = suggestion;		
-		this.text = text;
+	public static WordDictionaryListItem createWordDictionaryListItemAsSuggestionValue(String suggestion, Spanned text) {
+
+		WordDictionaryListItem wordDictionaryListItem = new WordDictionaryListItem();
+
+		wordDictionaryListItem.itemType = ItemType.SUGGESTION_VALUE;
+
+		wordDictionaryListItem.suggestion = suggestion;
+		wordDictionaryListItem.text = text;
+
+		return wordDictionaryListItem;
 	}
 
-	public WordDictionaryListItem(Spanned text) {
-		
-		this.itemType = ItemType.TITLE;
-		
-		this.text = text;
+	public static WordDictionaryListItem createWordDictionaryListItemAsHistoryValue(String historyValue, Spanned text) {
+
+		WordDictionaryListItem wordDictionaryListItem = new WordDictionaryListItem();
+
+		wordDictionaryListItem.itemType = ItemType.SHOW_HISTORY_VALUE;
+
+		wordDictionaryListItem.historyValue = historyValue;
+		wordDictionaryListItem.text = text;
+
+		return wordDictionaryListItem;
+	}
+
+	public static WordDictionaryListItem createWordDictionaryListItemAsTitle(Spanned text) {
+
+		WordDictionaryListItem wordDictionaryListItem = new WordDictionaryListItem();
+
+		wordDictionaryListItem.itemType = ItemType.TITLE;
+
+		wordDictionaryListItem.text = text;
+
+		return wordDictionaryListItem;
+	}
+
+	private WordDictionaryListItem() {
 	}
 	
 	public DictionaryEntry getDictionaryEntry() {
@@ -50,6 +79,10 @@ public class WordDictionaryListItem {
 		return suggestion;
 	}
 
+	public String getHistoryValue() {
+		return historyValue;
+	}
+
 	public ItemType getItemType() {
 		return itemType;
 	}
@@ -60,7 +93,9 @@ public class WordDictionaryListItem {
 		
 		TITLE(R.layout.word_dictionary_simplerow, 0),
 		
-		SUGGESTION_VALUE(R.layout.word_dictionary_suggestion_simplerow, 1);
+		SUGGESTION_VALUE(R.layout.word_dictionary_suggestion_simplerow, 1),
+
+		SHOW_HISTORY_VALUE(R.layout.word_dictionary_show_history_simplerow, 2);
 		
 		private int layoutResourceId;
 		

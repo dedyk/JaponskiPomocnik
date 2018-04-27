@@ -14,6 +14,7 @@
     <string name="word_dictionary_tab_add_tab">Dodaj zakładkę</string>
     <string name="word_dictionary_tab_del_tab">Usuń zakładkę</string>
     <string name="word_dictionary_tab_tab">Zakładka %1$d</string>
+    <string name="word_dictionary_search_show_history_button">Pokaż historię wyszukiwania</string>
     <string name="word_dictionary_search_options_button">Opcje</string>
     <string name="word_dictionary_search_search_button">Szukaj</string>
     <string name="word_dictionary_search_options_button_hide">Schowaj</string>
@@ -44,4 +45,5 @@
     <string name="word_dictionary_search_options_search_word_no_entries">Nie wybrano typu szukania słów</string>
     <string name="word_dictionary_search_options_search_word_server_client_error">Nie udało się wyszukać na serwerze. Wykonano lokalne wyszukiwanie.</string>
     <string name="word_dictionary_search_suggestion_title">Nie znaleziono wyników, czy chodziło Ci o:</string>
+    <string name="word_dictionary_search_show_history_title">Historia wyszukiwania:</string>
 </resources>

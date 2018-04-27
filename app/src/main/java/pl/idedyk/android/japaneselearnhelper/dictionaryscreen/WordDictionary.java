@@ -16,6 +16,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMiss
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient.AutoCompleteSuggestionType;
+import pl.idedyk.android.japaneselearnhelper.utils.SearchHistoryHelper;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
@@ -84,6 +85,8 @@ public class WordDictionary extends Activity {
 	private TextView wordDictionarySearchElementsNoTextView;
 	
 	private CheckBox[] searchDictionaryEntryListCheckBox;
+
+	private static final String wordDictionarySearchHistoryFieldName = "wordDictionarySearchHistory";
 			
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -230,6 +233,29 @@ public class WordDictionary extends Activity {
 						searchDictionaryEntryListCheckBox[idx].setChecked(true);
 					}
 					
+					// wykonanie wyszukiwania
+					performSearch(searchValueEditText.getText().toString());
+
+				} else if (itemType == ItemType.SHOW_HISTORY_VALUE) {
+
+					// wstawienie napisu
+					searchValueEditText.setText(wordDictionaryListItem.getText());
+
+					// resetowanie ustawien wyszukiwania
+					searchOptionsOnlyCommonWordsCheckbox.setChecked(false);
+
+					searchOptionsKanjiCheckbox.setChecked(true);
+					searchOptionsKanaCheckbox.setChecked(true);
+					searchOptionsRomajiCheckbox.setChecked(true);
+					searchOptionsTranslateCheckbox.setChecked(true);
+					searchOptionsInfoCheckbox.setChecked(true);
+
+					searchOptionsStartWithPlaceRadioButton.setChecked(true);
+
+					for (int idx = 0; idx < searchDictionaryEntryListCheckBox.length; ++idx) {
+						searchDictionaryEntryListCheckBox[idx].setChecked(true);
+					}
+
 					// wykonanie wyszukiwania
 					performSearch(searchValueEditText.getText().toString());
 				}
@@ -422,6 +448,30 @@ public class WordDictionary extends Activity {
 					
 					searchOptionsButton.setText(getString(R.string.word_dictionary_search_options_button));
 				}
+			}
+		});
+
+		final Button showHistoryButton = (Button)findViewById(R.id.word_dictionary_search_show_history_button);
+
+		showHistoryButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				// pokazywanie histori wyszukiwania
+
+				searchResultList.clear();
+
+				searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsTitle(Html.fromHtml("<big><b>" + getString(R.string.word_dictionary_search_show_history_title) + "</b></big>")));
+
+				SearchHistoryHelper searchHistoryHelper = new SearchHistoryHelper(WordDictionary.this, wordDictionarySearchHistoryFieldName);
+
+				List<SearchHistoryHelper.Entry> historyEntryList = searchHistoryHelper.getEntryList();
+
+				for (SearchHistoryHelper.Entry entry : historyEntryList) {
+					searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsHistoryValue(entry.getText(), Html.fromHtml("<big>" + entry.getText() + "</big>")));
+				}
+
+				searchResultArrayAdapter.notifyDataSetChanged();
 			}
 		});
 		
@@ -794,7 +844,7 @@ public class WordDictionary extends Activity {
 			        				        	
 			        	findWordResultAndSuggestionList.suggestionList = suggestionList;
 			        }
-			        
+
 					return findWordResultAndSuggestionList;
 				}
 				
@@ -813,15 +863,15 @@ public class WordDictionary extends Activity {
 						
 						String currentFoundWordFullTextWithMark = getWordFullTextWithMark(currentFoundWord, findWord, findWordRequest);
 																				
-						searchResultList.add(new WordDictionaryListItem(currentFoundWord, Html.fromHtml(currentFoundWordFullTextWithMark.replaceAll("\n", "<br/>"))));								
+						searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsResultItem (currentFoundWord, Html.fromHtml(currentFoundWordFullTextWithMark.replaceAll("\n", "<br/>"))));
 					}
 					
 					if (suggestionList != null && suggestionList.size() > 0) { // pokazywanie sugestii
 						
-						searchResultList.add(new WordDictionaryListItem(Html.fromHtml("<big><b>" + getString(R.string.word_dictionary_search_suggestion_title) + "</b></big>")));
+						searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsTitle (Html.fromHtml("<big><b>" + getString(R.string.word_dictionary_search_suggestion_title) + "</b></big>")));
 						
 						for (String currentSuggestion : suggestionList) {							
-							searchResultList.add(new WordDictionaryListItem(currentSuggestion, Html.fromHtml("<big>" + currentSuggestion + "</big>")));
+							searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsSuggestionValue (currentSuggestion, Html.fromHtml("<big>" + currentSuggestion + "</big>")));
 						}
 					}
 
@@ -844,7 +894,12 @@ public class WordDictionary extends Activity {
 			        		sendMissingWord(findWordRequest);
 			        	}			        	
 			        }
-			    }
+
+					// zapisywanie do historii wyszukiwania
+					SearchHistoryHelper searchHistoryHelper = new SearchHistoryHelper(WordDictionary.this, wordDictionarySearchHistoryFieldName);
+
+					searchHistoryHelper.addEntry(new SearchHistoryHelper.Entry(findWordRequest.word));
+				}
 			    
 			    private String getWordFullTextWithMark(ResultItem resultItem, String findWord, FindWordRequest findWordRequest) {
 

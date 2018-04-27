@@ -107,7 +107,7 @@ public class WordDictionaryListItemAdapter extends BaseAdapter { // ArrayAdapter
     	
     	ItemType itemType = wordDictionaryListItem.getItemType();
     	
-    	if (itemType == ItemType.RESULT_ITEM || itemType == ItemType.SUGGESTION_VALUE) {
+    	if (itemType == ItemType.RESULT_ITEM || itemType == ItemType.SUGGESTION_VALUE || itemType == ItemType.SHOW_HISTORY_VALUE) {
     		return true;
     		
     	} else {
