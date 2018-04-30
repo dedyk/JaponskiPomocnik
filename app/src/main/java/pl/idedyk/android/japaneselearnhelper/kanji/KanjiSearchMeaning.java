@@ -258,6 +258,8 @@ public class KanjiSearchMeaning extends Activity {
 					searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsHistoryValue(entry.getText(), Html.fromHtml("<big>" + entry.getText() + "</big>")));
 				}
 
+				kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, historyEntryList.size()));
+
 				searchResultArrayAdapter.notifyDataSetChanged();
 			}
 		});

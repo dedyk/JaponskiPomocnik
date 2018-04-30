@@ -471,6 +471,8 @@ public class WordDictionary extends Activity {
 					searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsHistoryValue(entry.getText(), Html.fromHtml("<big>" + entry.getText() + "</big>")));
 				}
 
+				wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, historyEntryList.size()));
+
 				searchResultArrayAdapter.notifyDataSetChanged();
 			}
 		});
