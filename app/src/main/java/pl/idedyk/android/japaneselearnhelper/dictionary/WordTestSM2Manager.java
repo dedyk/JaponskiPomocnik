@@ -9,6 +9,8 @@ import java.util.Locale;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DayStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
+import pl.idedyk.android.japaneselearnhelper.utils.SQLiteDatabaseHelper;
+
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -33,21 +35,21 @@ public class WordTestSM2Manager {
 			sqliteDatabase = SQLiteDatabase.openOrCreateDatabase(databaseFile, null);
 			
 			// create table if needed
-			if (isObjectExists("table", SQLiteStatic.wordStatTableName) == false) {
+			if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase, "table", SQLiteStatic.wordStatTableName) == false) {
 				
 				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreate);
 				
 				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreateNextRepetitionsKeyIndex);
 			}
 			
-			if (isObjectExists("table", SQLiteStatic.configTableName) == false) {
+			if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase,"table", SQLiteStatic.configTableName) == false) {
 				
 				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreate);
 				
 				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreateNameKeyIndex);				
 			}
 			
-			if (isObjectExists("table", SQLiteStatic.dayStatTableName) == false) {
+			if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase,"table", SQLiteStatic.dayStatTableName) == false) {
 				
 				sqliteDatabase.execSQL(SQLiteStatic.dayStatTableCreate);
 				
@@ -70,32 +72,7 @@ public class WordTestSM2Manager {
 	public void commitTransaction() {
 		sqliteDatabase.setTransactionSuccessful();
 	}
-	
-	private boolean isObjectExists(String type, String name) {
-		
-		Cursor cursor = null;
-		
-		try {
-			cursor = sqliteDatabase.rawQuery(SQLiteStatic.countObjectSql, new String[] { type, name });
-			
-			cursor.moveToFirst();
-			
-			int result = cursor.getInt(0);
-			
-			if (result > 0) {
-				return true;
-				
-			} else {
-				return false;
-			}
-			
-		} finally {
-			if (cursor != null) {
-				cursor.close();
-			}
-		}
-	}
-	
+
 	public void close() {
 		
 		if (sqliteDatabase != null) {
@@ -526,9 +503,6 @@ public class WordTestSM2Manager {
 				" where " +
 				dayStatTable_dateStat + " = date('now');";
 
-		public static final String countObjectSql = 
-				"select count(*) from sqlite_master where type = ? and name = ?";
-		
 		public static final String countWordStatSql =
 				"select count(*) from " + wordStatTableName + " where " + wordStatTable_id + " = ? ";
 		

@@ -18,6 +18,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.dictionary.exception.FavouriteWordsManagerException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
@@ -65,9 +66,9 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 	private final KeigoHelper keigoHeper;
 
 	private WordTestSM2Manager wordTestSM2Manager;
-	
-	// private SQLiteConnector sqliteConnector;
-	
+
+	private FavouriteWordsManager favouriteWordsManager;
+
 	private LuceneDatabase luceneDatabase;
 
 	public DictionaryManager() {
@@ -288,6 +289,18 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 			try {
 				wordTestSM2Manager.open();
 			} catch (TestSM2ManagerException e) {
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
+
+				return;
+			}
+
+			// create favourite words manager
+			favouriteWordsManager = new FavouriteWordsManager(databaseDir);
+
+			// open favourite words manager
+			try {
+				favouriteWordsManager.open();
+			} catch (FavouriteWordsManagerException e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
 
 				return;
@@ -697,6 +710,10 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		return wordTestSM2Manager;
 	}
 
+	public FavouriteWordsManager getFavouriteWordsManager() {
+		return favouriteWordsManager;
+	}
+
 	@Override
 	public KanaHelper getKanaHelper() {
 		return kanaHelper;
@@ -717,6 +734,8 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		super.finalize();
 
 		wordTestSM2Manager.close();
+
+		favouriteWordsManager.close();
 		
 		luceneDatabase.close();
 
