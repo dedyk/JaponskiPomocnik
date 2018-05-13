@@ -7,16 +7,21 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.SplashConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
+
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -24,17 +29,20 @@ import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Splash extends Activity {
+public class Splash extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
+
+	private static final int REQUEST_CODE_ASK_PERMISSIONS = 666;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		
+
 		super.onCreate(savedInstanceState);
 
 		// init google analytics
 		JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
-		
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -42,14 +50,66 @@ public class Splash extends Activity {
 
 		setContentView(R.layout.splash);
 
-		final ProgressBar progressBar = (ProgressBar) findViewById(R.id.splash_progressbar);
-
 		final TextView progressDesc = (TextView) findViewById(R.id.splash_desc_label);
 
 		progressDesc.setText("");
 
-		final Resources resources = getResources();
-		final AssetManager assets = getAssets();
+		ConfigManager configManager = new ConfigManager(this);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setConfigManager(configManager);
+
+		// poproszenie o uprawnienie
+		int hasStoragePermission = ContextCompat.checkSelfPermission(this,
+				Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+		if (hasStoragePermission != PackageManager.PERMISSION_GRANTED) {
+
+			if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
+					Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+				// testy !!!!!!!!!!!!!!!!!
+				showMessageOKCancel("TEST !!!! You need to allow access to Storage",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								ActivityCompat.requestPermissions(Splash.this,
+										new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+										REQUEST_CODE_ASK_PERMISSIONS);
+							}
+						});
+				return;
+			}
+
+			ActivityCompat.requestPermissions(this,
+					new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+					REQUEST_CODE_ASK_PERMISSIONS);
+			return;
+
+		} else { // mamy juz uprawnienie
+
+			int fixme = 1; // to jest ok !!!
+			// doInit();
+		}
+
+	}
+
+	private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+
+		// testy !!!!!!!!!!!!
+
+		new AlertDialog.Builder(this)
+				.setMessage(message)
+				.setPositiveButton("OK", okListener)
+				.setNegativeButton("Cancel", null)
+				.create()
+				.show();
+	}
+
+	private void doInit() {
+
+		final ProgressBar progressBar = (ProgressBar) findViewById(R.id.splash_progressbar);
+
+		final TextView progressDesc = (TextView) findViewById(R.id.splash_desc_label);
 
 		int versionCode = 0;
 
@@ -63,9 +123,8 @@ public class Splash extends Activity {
 
 		final int finalVersionCode = versionCode;
 
-		ConfigManager configManager = new ConfigManager(this);
-
-		JapaneseAndroidLearnHelperApplication.getInstance().setConfigManager(configManager);
+		final Resources resources = getResources();
+		final AssetManager assets = getAssets();
 
 		// create dictionary manager
 		final DictionaryManager dictionaryManager = new DictionaryManager();
@@ -226,7 +285,7 @@ public class Splash extends Activity {
 									finish();
 								}
 							});
-					
+
 					if (isFinishing() == false) {
 						alertDialog.show();
 					}
@@ -245,5 +304,30 @@ public class Splash extends Activity {
 		InitJapaneseAndroidLearnHelperContextAsyncTask initJapaneseAndroidLearnHelperContextAsyncTask = new InitJapaneseAndroidLearnHelperContextAsyncTask();
 
 		initJapaneseAndroidLearnHelperContextAsyncTask.execute();
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+		switch (requestCode) {
+			case REQUEST_CODE_ASK_PERMISSIONS:
+
+				if (grantResults[0] == PackageManager.PERMISSION_GRANTED) { // dostalismy uprawnienie, inicjalizacja
+
+					doInit();
+
+				} else {
+
+					// nie dostalismy uprawnienia
+
+					// komunikat na ekranie
+
+					Toast.makeText(Splash.this, "FM TEST !!!!!! WRITE_CONTACTS Denied", Toast.LENGTH_SHORT)
+							.show();
+				}
+				break;
+			default:
+				super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		}
 	}
 }
