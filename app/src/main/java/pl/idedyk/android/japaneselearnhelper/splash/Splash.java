@@ -59,13 +59,15 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 		JapaneseAndroidLearnHelperApplication.getInstance().setConfigManager(configManager);
 
 		// poproszenie o uprawnienie
+
+		// sprawdzamy, czy mam nadane juz uprawnienie dostepu do pamieci urzadzenia
 		int hasStoragePermission = ContextCompat.checkSelfPermission(this,
 				Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
 		if (hasStoragePermission != PackageManager.PERMISSION_GRANTED) {
 
-			if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
-					Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+			// metoda shouldShowRequestPermissionRationale zwraca false, gdy uruchamiamy aplikacje pierwszy raz lub uzytkownik zablokowal pokazywanie prosb o uprawnienie
+			if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == false) {
 
 				// testy !!!!!!!!!!!!!!!!!
 				showMessageOKCancel("TEST !!!! You need to allow access to Storage",
@@ -88,6 +90,8 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 		} else { // mamy juz uprawnienie
 
 			int fixme = 1; // to jest ok !!!
+
+			// uruchamiamy dalej aplikacje
 			// doInit();
 		}
 
