@@ -4,11 +4,4 @@
     <string name="splash_message_box_title">Informacja</string>
     <string name="splash_message_box_info">Autor powyższego programu dopełnia wszelkich starań, aby zawarte w aplikacji informacje były rzetelne i zgodne z prawdą.\n\nJednakże autor nie ponosi żadnej odpowiedzialności za aktualność, poprawność, kompletność i jakość prezentowanych informacji.\n\nJeśli widzisz błąd, koniecznie zgłoś go.\n</string>
     <string name="splash_dialogbox_skip">Nie pokazuj tego komunikatu ponownie</string>
-    <string name="splash_check_permission">Sprawdzanie uprawnień</string>
-    <string name="splash_permission_request_message_box_title">Uwaga</string>
-    <string name="splash_permission_request_message_box_message">Aplikacja do prawidłowego działania potrzebuje uprawnienia dostępu do plików znajdujących się w pamięci telefonu, gdyż
-        musi wgrać i przygotować słownik. Proszę zezwolić na dostęp do plików na następnym ekranie lub w sekcji uprawnień we właściwościach aplikacji.\n\nZmiana ta wynika z tego, że do tej pory aplikacja korzystała ze starego mechanizmu uprawnień i zgoda ta była udzielana w momencie instalacji aplikacji. Od wersji Androida 6
-        wprowadzony został nowy mechanizm uprawnień, który od sierpnia 2018 roku stanie się/stał się jedynym dozwolonym, aby aplikacja mogła być udostępniona w Google Play.</string>
-    <string name="splash_permission_request_denied_message_box_message">Nie udzielono dostępu do plików. Aplikacja zostanie wyłączona.</string>
-    <string name="splash_ok">OK</string>
 </resources>
