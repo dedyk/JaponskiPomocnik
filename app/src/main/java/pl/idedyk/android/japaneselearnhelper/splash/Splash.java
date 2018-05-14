@@ -60,6 +60,8 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 
 		// poproszenie o uprawnienie
 
+		progressDesc.setText(getString(R.string.splash_check_permission));
+
 		// sprawdzamy, czy mam nadane juz uprawnienie dostepu do pamieci urzadzenia
 		int hasStoragePermission = ContextCompat.checkSelfPermission(this,
 				Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -67,46 +69,36 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 		if (hasStoragePermission != PackageManager.PERMISSION_GRANTED) {
 
 			// metoda shouldShowRequestPermissionRationale zwraca false, gdy uruchamiamy aplikacje pierwszy raz lub uzytkownik zablokowal pokazywanie prosb o uprawnienie
-			if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == false) {
+			//if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == false) {
 
-				// testy !!!!!!!!!!!!!!!!!
-				showMessageOKCancel("TEST !!!! You need to allow access to Storage",
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								ActivityCompat.requestPermissions(Splash.this,
-										new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
-										REQUEST_CODE_ASK_PERMISSIONS);
-							}
-						});
-				return;
+			AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
+
+			alertDialog.setCancelable(false);
+
+			alertDialog.setTitle(getString(R.string.splash_permission_request_message_box_title));
+			alertDialog.setMessage(getString(R.string.splash_permission_request_message_box_message));
+
+			alertDialog.setButton(getString(R.string.splash_ok),
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+
+							ActivityCompat.requestPermissions(Splash.this,
+									new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+									REQUEST_CODE_ASK_PERMISSIONS);
+						}
+					});
+
+			if (isFinishing() == false) {
+				alertDialog.show();
 			}
 
-			ActivityCompat.requestPermissions(this,
-					new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
-					REQUEST_CODE_ASK_PERMISSIONS);
 			return;
 
 		} else { // mamy juz uprawnienie
-
-			int fixme = 1; // to jest ok !!!
-
-			// uruchamiamy dalej aplikacje
-			// doInit();
+			doInit();
 		}
-
-	}
-
-	private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
-
-		// testy !!!!!!!!!!!!
-
-		new AlertDialog.Builder(this)
-				.setMessage(message)
-				.setPositiveButton("OK", okListener)
-				.setNegativeButton("Cancel", null)
-				.create()
-				.show();
 	}
 
 	private void doInit() {
@@ -273,7 +265,7 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 					alertDialog.setTitle(getString(R.string.splash_message_box_title));
 					messageTextView.setText(getString(R.string.splash_message_box_info));
 
-					alertDialog.setButton(getString(R.string.word_test_incorrect_ok),
+					alertDialog.setButton(getString(R.string.splash_ok),
 							new DialogInterface.OnClickListener() {
 
 								@Override
@@ -321,13 +313,26 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 					doInit();
 
 				} else {
-
 					// nie dostalismy uprawnienia
 
-					// komunikat na ekranie
+                    AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
 
-					Toast.makeText(Splash.this, "FM TEST !!!!!! WRITE_CONTACTS Denied", Toast.LENGTH_SHORT)
-							.show();
+                    alertDialog.setCancelable(false);
+
+                    alertDialog.setMessage(getString(R.string.splash_permission_request_denied_message_box_message));
+
+                    alertDialog.setButton(getString(R.string.splash_ok),
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            });
+
+                    if (isFinishing() == false) {
+                        alertDialog.show();
+                    }
 				}
 				break;
 			default:
