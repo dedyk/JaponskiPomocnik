@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.idedyk.android.japaneselearnhelper"
-    android:versionCode="596"
-    android:versionName="20180506"
+    android:versionCode="597"
+    android:versionName="20180513"
     android:installLocation="auto" >
 
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="22" />
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="26" />
     
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -15,7 +15,8 @@
     <application
         android:icon="@drawable/japan"
         android:label="@string/app_name" android:name=".JapaneseAndroidLearnHelperApplication"
-        android:allowBackup="true">
+        android:allowBackup="true"
+        android:theme="@style/JapaneseDictionaryStyle">
         
         <activity android:name=".splash.Splash">
 
