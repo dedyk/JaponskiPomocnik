@@ -90,6 +90,12 @@ public class Image implements IScreenItem {
 		throw new RuntimeException("imageView is null");
 	}
 
+	public void changeImage(Drawable image) {
+		this.image = image;
+
+		imageView.setImageDrawable(image);
+	}
+
 	@Override
 	public String toString() {
 		return "";

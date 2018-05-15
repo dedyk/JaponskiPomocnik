@@ -6,11 +6,15 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.data.DataManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.Image;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
+import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
+import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
@@ -120,6 +124,8 @@ public class KanjiDetails extends Activity {
 	private List<IScreenItem> generateDetails(final KanjiEntry kanjiEntry) {
 		
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
+
+		DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 		
 		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
 
@@ -153,12 +159,25 @@ public class KanjiDetails extends Activity {
 				}
 			});
 		}
-		
+
+		TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+		TableRow actionTableRow = new TableRow();
+
+		//
+
 		// copy kanji
 		Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
 		clipboardKanji.setOnClickListener(new CopyToClipboard(kanjiEntry.getKanji()));
-		report.add(clipboardKanji);		
-		
+		actionTableRow.addScreenItem(clipboardKanji);
+
+		//
+
+		// add to favourite kanji list
+		actionTableRow.addScreenItem(createFavouriteKanjiStar(dictionaryManager, kanjiEntry));
+
+		actionButtons.addTableRow(actionTableRow);
+		report.add(actionButtons);
+
 		// Stroke count
 		report.add(new TitleItem(getString(R.string.kanji_details_stroke_count_label), 0));
 		
@@ -280,7 +299,47 @@ public class KanjiDetails extends Activity {
 		
 		return report;
 	}
-	
+
+	private Image createFavouriteKanjiStar(DictionaryManager dictionaryManager, final KanjiEntry kanjiEntry) {
+
+		final DataManager dataManager = dictionaryManager.getDataManager();
+
+		boolean kanjiEntryExistsInFavouriteList = dataManager.isKanjiEntryExistsInFavouriteList(kanjiEntry);
+
+		final int starBigOff = android.R.drawable.star_big_off;
+		final int starBigOn = android.R.drawable.star_big_on;
+
+		final Image starImage = new Image(getResources().getDrawable(kanjiEntryExistsInFavouriteList == false ? starBigOff : starBigOn), 0);
+
+		starImage.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				boolean kanjiEntryExistsInFavouriteList = dataManager.isKanjiEntryExistsInFavouriteList(kanjiEntry);
+
+				if (kanjiEntryExistsInFavouriteList == false) {
+					dataManager.addKanjiEntryToFavouriteList(kanjiEntry);
+
+					starImage.changeImage(getResources().getDrawable(starBigOn));
+
+					Toast.makeText(KanjiDetails.this,
+							getString(R.string.kanji_details_add_to_favourite_kanji_list), Toast.LENGTH_SHORT).show();
+
+
+				} else {
+					dataManager.deleteKanjiEntryFromFavouriteList(kanjiEntry);
+
+					starImage.changeImage(getResources().getDrawable(starBigOff));
+
+					Toast.makeText(KanjiDetails.this,
+							getString(R.string.kanji_details_remove_from_favourite_kanji_list), Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+
+		return starImage;
+	}
+
 	private class CopyToClipboard implements OnClickListener {
 
 		private final String text;

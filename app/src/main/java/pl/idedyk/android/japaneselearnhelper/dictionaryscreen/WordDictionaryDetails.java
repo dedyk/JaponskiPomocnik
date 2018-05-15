@@ -10,6 +10,8 @@ import java.util.Stack;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.data.DataManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
@@ -325,6 +327,8 @@ public class WordDictionaryDetails extends Activity {
 
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 
+		DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
 		String prefixKana = dictionaryEntry.getPrefixKana();
 		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
 
@@ -376,9 +380,10 @@ public class WordDictionaryDetails extends Activity {
 
 		List<String> kanaList = dictionaryEntry.getKanaList();
 
+		boolean isAddFavouriteWordStar = false;
+
 		// check furigana
-		List<FuriganaEntry> furiganaEntries = JapaneseAndroidLearnHelperApplication.getInstance()
-				.getDictionaryManager(this).getFurigana(dictionaryEntry);
+		List<FuriganaEntry> furiganaEntries = dictionaryManager.getFurigana(dictionaryEntry);
 
 		if (furiganaEntries != null && furiganaEntries.size() > 0 && addKanjiWrite == true) {
 
@@ -462,6 +467,15 @@ public class WordDictionaryDetails extends Activity {
 				clipboardKanji.setOnClickListener(new CopyToClipboard(dictionaryEntry.getKanji()));
 				actionTableRow.addScreenItem(clipboardKanji);
 
+				// add to favourite word list
+				if (isAddFavouriteWordStar == false) {
+
+					isAddFavouriteWordStar = true;
+					actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
+				}
+
+				//
+
 				actionButtons.addTableRow(actionTableRow);
 				report.add(actionButtons);
 			}
@@ -492,6 +506,15 @@ public class WordDictionaryDetails extends Activity {
 				Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
 				clipboardKanji.setOnClickListener(new CopyToClipboard(dictionaryEntry.getKanji()));
 				actionTableRow.addScreenItem(clipboardKanji);
+
+				// add to favourite word list
+				if (isAddFavouriteWordStar == false) {
+
+					isAddFavouriteWordStar = true;
+					actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
+				}
+
+				//
 
 				actionButtons.addTableRow(actionTableRow);
 				report.add(actionButtons);
@@ -561,6 +584,14 @@ public class WordDictionaryDetails extends Activity {
 			Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
 			clipboardRomaji.setOnClickListener(new CopyToClipboard(romajiList.get(idx)));
 			actionTableRow.addScreenItem(clipboardRomaji);
+
+			// add to favourite word list
+			if (isAddFavouriteWordStar == false) {
+
+				isAddFavouriteWordStar = true;
+				actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
+
+			}
 
 			actionButtons.addTableRow(actionTableRow);
 
@@ -1226,6 +1257,46 @@ public class WordDictionaryDetails extends Activity {
 				alertDialog.show();
 			}
 		}
+	}
+
+	private Image createFavouriteWordStar(DictionaryManager dictionaryManager, final DictionaryEntry dictionaryEntry) {
+
+		final DataManager dataManager = dictionaryManager.getDataManager();
+
+		boolean dictionaryEntryExistsInFavouriteList = dataManager.isDictionaryEntryExistsInFavouriteList(dictionaryEntry);
+
+		final int starBigOff = android.R.drawable.star_big_off;
+		final int starBigOn = android.R.drawable.star_big_on;
+
+		final Image starImage = new Image(getResources().getDrawable(dictionaryEntryExistsInFavouriteList == false ? starBigOff : starBigOn), 0);
+
+		starImage.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				boolean dictionaryEntryExistsInFavouriteList = dataManager.isDictionaryEntryExistsInFavouriteList(dictionaryEntry);
+
+				if (dictionaryEntryExistsInFavouriteList == false) {
+					dataManager.addDictionaryEntryToFavouriteList(dictionaryEntry);
+
+					starImage.changeImage(getResources().getDrawable(starBigOn));
+
+					Toast.makeText(WordDictionaryDetails.this,
+							getString(R.string.word_dictionary_details_add_to_favourite_words_list), Toast.LENGTH_SHORT).show();
+
+
+				} else {
+					dataManager.deleteDictionaryEntryFromFavouriteList(dictionaryEntry);
+
+					starImage.changeImage(getResources().getDrawable(starBigOff));
+
+					Toast.makeText(WordDictionaryDetails.this,
+							getString(R.string.word_dictionary_details_remove_from_favourite_words_list), Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+
+		return starImage;
 	}
 
 	private class CopyToClipboard implements OnClickListener {

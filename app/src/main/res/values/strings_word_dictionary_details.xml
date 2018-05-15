@@ -27,4 +27,7 @@
     <string name="word_dictionary_details_search_no_more_result">Brak większej liczby wyników</string>
     
     <string name="word_dictionary_details_search_title">Wpisz szukaną frazę</string>
+
+    <string name="word_dictionary_details_add_to_favourite_words_list">Dodano do listy ulubionych słów</string>
+    <string name="word_dictionary_details_remove_from_favourite_words_list">Usunięto z listy ulubionych słów</string>
 </resources>
