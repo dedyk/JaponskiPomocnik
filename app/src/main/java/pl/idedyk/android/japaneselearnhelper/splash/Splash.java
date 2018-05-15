@@ -7,16 +7,21 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.SplashConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
+
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -24,17 +29,20 @@ import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Splash extends Activity {
+public class Splash extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
+
+	private static final int REQUEST_CODE_ASK_PERMISSIONS = 666;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		
+
 		super.onCreate(savedInstanceState);
 
 		// init google analytics
 		JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
-		
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -42,14 +50,62 @@ public class Splash extends Activity {
 
 		setContentView(R.layout.splash);
 
-		final ProgressBar progressBar = (ProgressBar) findViewById(R.id.splash_progressbar);
-
 		final TextView progressDesc = (TextView) findViewById(R.id.splash_desc_label);
 
 		progressDesc.setText("");
 
-		final Resources resources = getResources();
-		final AssetManager assets = getAssets();
+		ConfigManager configManager = new ConfigManager(this);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setConfigManager(configManager);
+
+		// poproszenie o uprawnienie
+
+		progressDesc.setText(getString(R.string.splash_check_permission));
+
+		// sprawdzamy, czy mam nadane juz uprawnienie dostepu do pamieci urzadzenia
+		int hasStoragePermission = ContextCompat.checkSelfPermission(this,
+				Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+		if (hasStoragePermission != PackageManager.PERMISSION_GRANTED) {
+
+			// metoda shouldShowRequestPermissionRationale zwraca false, gdy uruchamiamy aplikacje pierwszy raz lub uzytkownik zablokowal pokazywanie prosb o uprawnienie
+			//if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == false) {
+
+			AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
+
+			alertDialog.setCancelable(false);
+
+			alertDialog.setTitle(getString(R.string.splash_permission_request_message_box_title));
+			alertDialog.setMessage(getString(R.string.splash_permission_request_message_box_message));
+
+			alertDialog.setButton(getString(R.string.splash_ok),
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+
+							ActivityCompat.requestPermissions(Splash.this,
+									new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+									REQUEST_CODE_ASK_PERMISSIONS);
+						}
+					});
+
+			if (isFinishing() == false) {
+				alertDialog.show();
+			}
+
+			return;
+
+		} else { // mamy juz uprawnienie
+			doInit();
+		}
+	}
+
+	private void doInit() {
+
+		final ProgressBar progressBar = (ProgressBar) findViewById(R.id.splash_progressbar);
+
+		final TextView progressDesc = (TextView) findViewById(R.id.splash_desc_label);
 
 		int versionCode = 0;
 
@@ -63,9 +119,8 @@ public class Splash extends Activity {
 
 		final int finalVersionCode = versionCode;
 
-		ConfigManager configManager = new ConfigManager(this);
-
-		JapaneseAndroidLearnHelperApplication.getInstance().setConfigManager(configManager);
+		final Resources resources = getResources();
+		final AssetManager assets = getAssets();
 
 		// create dictionary manager
 		final DictionaryManager dictionaryManager = new DictionaryManager();
@@ -210,7 +265,7 @@ public class Splash extends Activity {
 					alertDialog.setTitle(getString(R.string.splash_message_box_title));
 					messageTextView.setText(getString(R.string.splash_message_box_info));
 
-					alertDialog.setButton(getString(R.string.word_test_incorrect_ok),
+					alertDialog.setButton(getString(R.string.splash_ok),
 							new DialogInterface.OnClickListener() {
 
 								@Override
@@ -226,7 +281,7 @@ public class Splash extends Activity {
 									finish();
 								}
 							});
-					
+
 					if (isFinishing() == false) {
 						alertDialog.show();
 					}
@@ -245,5 +300,43 @@ public class Splash extends Activity {
 		InitJapaneseAndroidLearnHelperContextAsyncTask initJapaneseAndroidLearnHelperContextAsyncTask = new InitJapaneseAndroidLearnHelperContextAsyncTask();
 
 		initJapaneseAndroidLearnHelperContextAsyncTask.execute();
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+		switch (requestCode) {
+			case REQUEST_CODE_ASK_PERMISSIONS:
+
+				if (grantResults[0] == PackageManager.PERMISSION_GRANTED) { // dostalismy uprawnienie, inicjalizacja
+
+					doInit();
+
+				} else {
+					// nie dostalismy uprawnienia
+
+                    AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
+
+                    alertDialog.setCancelable(false);
+
+                    alertDialog.setMessage(getString(R.string.splash_permission_request_denied_message_box_message));
+
+                    alertDialog.setButton(getString(R.string.splash_ok),
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            });
+
+                    if (isFinishing() == false) {
+                        alertDialog.show();
+                    }
+				}
+				break;
+			default:
+				super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		}
 	}
 }
