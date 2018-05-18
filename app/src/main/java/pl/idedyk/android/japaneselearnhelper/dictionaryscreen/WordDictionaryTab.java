@@ -5,6 +5,8 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
+
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +28,8 @@ public class WordDictionaryTab extends TabActivity {
 
 		menu.add(Menu.NONE, R.id.main_menu_word_dictionary_tab_add_tab, Menu.NONE, R.string.word_dictionary_tab_add_tab);
 		menu.add(Menu.NONE, R.id.main_menu_word_dictionary_tab_del_tab, Menu.NONE, R.string.word_dictionary_tab_del_tab);
+
+		menu.add(Menu.NONE, R.id.main_menu_word_dictionary_show_user_group_menu_item, Menu.NONE, R.string.word_dictionary_show_user_group);
 
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
@@ -49,6 +53,15 @@ public class WordDictionaryTab extends TabActivity {
 
 			return true;
 			
+		} else if (itemId == R.id.main_menu_word_dictionary_show_user_group_menu_item) { // pokaz grupy uzytkownika
+
+			Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
+
+			startActivity(intent);
+
+			return true;
+
+
 		} else {
 			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 		}

@@ -13,6 +13,7 @@
     <string name="word_dictionary_word_anim">Naciśnij na słowo, aby uzyskać animację pisania</string>
     <string name="word_dictionary_tab_add_tab">Dodaj zakładkę</string>
     <string name="word_dictionary_tab_del_tab">Usuń zakładkę</string>
+    <string name="word_dictionary_show_user_group">Pokaż grupy użytkownika</string>
     <string name="word_dictionary_tab_tab">Zakładka %1$d</string>
     <string name="word_dictionary_search_show_history_button">Pokaż historię wyszukiwania</string>
     <string name="word_dictionary_search_options_button">Opcje</string>
