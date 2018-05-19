@@ -1,26 +1,55 @@
 package pl.idedyk.android.japaneselearnhelper.usergroup;
 
+import android.content.res.Resources;
+import android.text.Html;
+import android.text.SpannableString;
 import android.text.Spanned;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 
 public class UserGroupListItem {
 
-    private ItemType itemType;
+    private UserGroupEntity userGroupEntity;
 
-    private Spanned text;
+    //
 
-    public UserGroupListItem(ItemType itemType, Spanned text) {
-        this.itemType = itemType;
-        this.text = text;
+    private Resources resources;
+
+    public UserGroupListItem(UserGroupEntity userGroupEntity, Resources resources) {
+        this.userGroupEntity = userGroupEntity;
+
+        this.resources = resources;
     }
 
     public ItemType getItemType() {
-        return itemType;
+
+        switch (userGroupEntity.getType()) {
+
+            case STAR_GROUP:
+                return ItemType.STAR_GROUP;
+
+            case USER_GROUP:
+                return ItemType.USER_GROUP;
+
+            default:
+                throw new RuntimeException("" + userGroupEntity.getType());
+        }
     }
 
     public Spanned getText() {
-        return text;
+
+        switch (userGroupEntity.getType()) {
+
+            case STAR_GROUP:
+                return new SpannableString(resources.getString(R.string.user_group_star_group));
+
+            case USER_GROUP:
+                return new SpannableString(userGroupEntity.getName());
+
+            default:
+                throw new RuntimeException("" + userGroupEntity.getType());
+        }
     }
 
     public static enum ItemType {

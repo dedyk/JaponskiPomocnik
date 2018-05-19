@@ -5,7 +5,10 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.utils.SQLiteDatabaseHelper;
@@ -31,19 +34,12 @@ public class DataManager {
 
             sqliteDatabase = SQLiteDatabase.openOrCreateDatabase(databaseFile, null);
 
-            // create table if needed
-            if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase, "table", SQLiteStatic.favouriteDictionaryEntryTableName) == false) {
+            if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase, "table", SQLiteStatic.user_groups_table_name) == false) {
+                sqliteDatabase.execSQL(SQLiteStatic.user_groups_sql_create);
 
-                sqliteDatabase.execSQL(SQLiteStatic.favouriteDictionaryEntryTableCreate);
+                UserGroupEntity userGroupEntity = new UserGroupEntity(null, UserGroupEntity.Type.STAR_GROUP, "StarGroup");
 
-                sqliteDatabase.execSQL(SQLiteStatic.favouriteDictionaryEntryTableCreateDictionaryEntryIdIndex);
-            }
-
-            if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase, "table", SQLiteStatic.favouriteKanjiEntryTableName) == false) {
-
-                sqliteDatabase.execSQL(SQLiteStatic.favouriteKanjiEntryTableCreate);
-
-                sqliteDatabase.execSQL(SQLiteStatic.favouriteKanjiEntryTableCreateKanjiEntryIdIndex);
+                addUserGroup(userGroupEntity);
             }
 
         } catch (SQLException e) {
@@ -57,6 +53,46 @@ public class DataManager {
             sqliteDatabase.close();
         }
     }
+
+    public void addUserGroup(UserGroupEntity userGroupEntity) {
+        sqliteDatabase.execSQL(SQLiteStatic.user_group_sql_insert,
+                new Object[] { userGroupEntity.getType().name(), userGroupEntity.getName() });
+    }
+
+    public List<UserGroupEntity> getAllUserGroupList() {
+
+        List<UserGroupEntity> result = new ArrayList<>();
+
+        Cursor cursor = null;
+
+        try {
+            cursor = sqliteDatabase.rawQuery(SQLiteStatic.user_group_sql_select_all, null);
+
+            boolean moveToFirst = cursor.moveToFirst();
+
+            if (moveToFirst == false) {
+                return result;
+            }
+
+            do {
+                Integer id = cursor.getInt(0);
+                UserGroupEntity.Type type = UserGroupEntity.Type.valueOf(cursor.getString(1));
+                String name = cursor.getString(2);
+
+                result.add(new UserGroupEntity(id, type, name));
+
+            } while (cursor.moveToNext());
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+        return result;
+    }
+
+    //
 
     public void addDictionaryEntryToFavouriteList(DictionaryEntry dictionaryEntry) {
 
@@ -132,6 +168,32 @@ public class DataManager {
     }
 
     private static class SQLiteStatic {
+
+        public static final String user_groups_table_name = "user_groups";
+
+        public static final String user_groups_column_id = "id";
+        public static final String user_groups_column_type = "type";
+        public static final String user_groups_column_name = "name";
+
+        //
+
+        public static final String user_groups_sql_create =
+                "create table " + user_groups_table_name + "(" +
+                        user_groups_column_id + " integer primary key, " +
+                        user_groups_column_type + " varchar(30) not null, " +
+                        user_groups_column_name + " varchar(100) not null);";
+
+        //
+
+        public static final String user_group_sql_insert =
+                "insert into " + user_groups_table_name + "(" +
+                        user_groups_column_type + ", " +   user_groups_column_name + ") " +
+                        "values (?, ?)";
+
+        public static final String user_group_sql_select_all =
+                "select * from " + user_groups_table_name + ";";
+
+        // FIXME do usuniecia
 
         public static final String favouriteDictionaryEntryTableName = "favourite_dictionary_entry";
         public static final String favouriteKanjiEntryTableName = "favourite_kanji_entry";

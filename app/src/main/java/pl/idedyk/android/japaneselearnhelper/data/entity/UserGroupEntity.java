@@ -1,0 +1,34 @@
+package pl.idedyk.android.japaneselearnhelper.data.entity;
+
+public class UserGroupEntity {
+
+    private Integer id;
+
+    private Type type;
+
+    private String name;
+
+    public UserGroupEntity(Integer id, Type type, String name) {
+        this.id = id;
+        this.type = type;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public static enum Type {
+        STAR_GROUP,
+
+        USER_GROUP;
+    }
+}

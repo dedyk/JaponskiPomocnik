@@ -2,5 +2,6 @@
 <resources>
     <string name="user_group_label">Grupy użytkownika</string>
 
+    <string name="user_group_star_group">Pozycje oznaczone gwiazdką</string>
 
 </resources>

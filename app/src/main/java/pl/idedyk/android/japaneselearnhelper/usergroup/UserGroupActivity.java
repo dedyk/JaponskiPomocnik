@@ -13,6 +13,9 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.data.DataManager;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 
 public class UserGroupActivity extends Activity {
 
@@ -73,11 +76,22 @@ public class UserGroupActivity extends Activity {
 
         //
 
-        userGroupList.add(new UserGroupListItem(UserGroupListItem.ItemType.STAR_GROUP, Html.fromHtml("SSSSSS")));
+        loadUserGroups();
+    }
 
-        userGroupList.add(new UserGroupListItem(UserGroupListItem.ItemType.USER_GROUP, Html.fromHtml("UUUUU")));
+    private void loadUserGroups() {
 
-        //
+        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
+        DataManager dataManager = dictionaryManager.getDataManager();
+
+        userGroupList.clear();
+
+        List<UserGroupEntity> allUserGroupsList = dataManager.getAllUserGroupList();
+
+        for (UserGroupEntity currentUserGroupEntity : allUserGroupsList) {
+            userGroupList.add(new UserGroupListItem(currentUserGroupEntity, getResources()));
+        }
 
         userGroupListAdapter.notifyDataSetChanged();
     }
