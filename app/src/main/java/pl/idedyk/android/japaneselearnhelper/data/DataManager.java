@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.utils.SQLiteDatabaseHelper;
@@ -40,6 +41,12 @@ public class DataManager {
                 UserGroupEntity userGroupEntity = new UserGroupEntity(null, UserGroupEntity.Type.STAR_GROUP, "StarGroup");
 
                 addUserGroup(userGroupEntity);
+            }
+
+            if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase, "table", SQLiteStatic.user_groups_items_table_name) == false) {
+                sqliteDatabase.execSQL(SQLiteStatic.user_groups_items_sql_create);
+
+                sqliteDatabase.execSQL(SQLiteStatic.user_groups_items_sql_index);
             }
 
         } catch (SQLException e) {
@@ -92,28 +99,60 @@ public class DataManager {
         return result;
     }
 
+    public List<UserGroupEntity> findUserGroupEntity(UserGroupEntity.Type type, String name) {
+
+        List<UserGroupEntity> allUserGroupList = getAllUserGroupList();
+
+        List<UserGroupEntity> result = new ArrayList<>();
+
+        for (UserGroupEntity currentUserGroupEntity : allUserGroupList) {
+
+            if (type != null && currentUserGroupEntity.getType() != type) {
+                continue;
+            }
+
+            if (name != null && currentUserGroupEntity.getName().equals(name) == false) {
+                continue;
+            }
+
+            result.add(currentUserGroupEntity);
+        }
+
+        return result;
+    }
+
+    public boolean isItemIdExistsInUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
+        return isExists(SQLiteStatic.user_groups_items_sql_count_group_id_type_item_id, new String[] {
+                String.valueOf(userGroupEntity.getId()), type.name(), String.valueOf(itemId) });
+    }
+
     //
 
     public void addDictionaryEntryToFavouriteList(DictionaryEntry dictionaryEntry) {
 
+        /*
         boolean alreadyExists = isDictionaryEntryExistsInFavouriteList(dictionaryEntry);
 
         if (alreadyExists == false) { // add
             sqliteDatabase.execSQL(SQLiteStatic.insertFavouriteDictionaryEntryDictionaryEntryIdSql, new Object[] { dictionaryEntry.getId() });
         }
+        */
     }
 
     public void deleteDictionaryEntryFromFavouriteList(DictionaryEntry dictionaryEntry) {
 
+        /*
         boolean alreadyExists = isDictionaryEntryExistsInFavouriteList(dictionaryEntry);
 
         if (alreadyExists == true) { // delete
             sqliteDatabase.execSQL(SQLiteStatic.deleteFavouriteDictionaryEntryDictionaryEntryIdSql, new Object[] { dictionaryEntry.getId() });
         }
+        */
     }
 
     public boolean isDictionaryEntryExistsInFavouriteList(DictionaryEntry dictionaryEntry) {
-        return isExistsInFavouriteList(SQLiteStatic.countFavouriteDictionaryEntryDictionaryEntryIdSql, dictionaryEntry.getId());
+        //return isExistsInFavouriteList(SQLiteStatic.countFavouriteDictionaryEntryDictionaryEntryIdSql, dictionaryEntry.getId());
+        return false;
     }
 
     //
@@ -137,17 +176,18 @@ public class DataManager {
     }
 
     public boolean isKanjiEntryExistsInFavouriteList(KanjiEntry kanjiEntry) {
-        return isExistsInFavouriteList(SQLiteStatic.countFavouriteKanjiEntryKanjiEntryIdSql, kanjiEntry.getId());
+        //return isExistsInFavouriteList(SQLiteStatic.countFavouriteKanjiEntryKanjiEntryIdSql, kanjiEntry.getId());
+        return false;
     }
 
     //
 
-    private boolean isExistsInFavouriteList(String sql, Integer id) {
+    private boolean isExists(String sql, String[] params) {
 
         Cursor cursor = null;
 
         try {
-            cursor = sqliteDatabase.rawQuery(sql, new String[] { String.valueOf(id) });
+            cursor = sqliteDatabase.rawQuery(sql, params);
 
             cursor.moveToFirst();
 
@@ -177,11 +217,35 @@ public class DataManager {
 
         //
 
+        public static final String user_groups_items_table_name = "user_groups_items";
+
+        public static final String user_groups_items_column_id = "id";
+        public static final String user_groups_items_column_user_group_id = "user_group_id";
+        public static final String user_groups_items_column_type = "type";
+        public static final String user_groups_items_column_item_id = "item_id";
+
+        //
+
         public static final String user_groups_sql_create =
                 "create table " + user_groups_table_name + "(" +
                         user_groups_column_id + " integer primary key, " +
                         user_groups_column_type + " varchar(30) not null, " +
                         user_groups_column_name + " varchar(100) not null);";
+
+        //
+
+        public static final String user_groups_items_sql_create =
+                "create table " + user_groups_items_table_name + "(" +
+                        user_groups_items_column_id + " integer primary key, " +
+                        user_groups_items_column_user_group_id + " integer not null, " +
+                        user_groups_items_column_type + " varchar(30) not null, " +
+                        user_groups_items_column_item_id + " integer not null, " +
+                        "foreign key (" + user_groups_items_column_user_group_id + ") references " + user_groups_table_name + "(" + user_groups_column_id + "));";
+
+        public static final String user_groups_items_sql_index =
+                String.format("create index %s_%s_%s_%s_idx on %s(%s,%s,%s)", user_groups_items_table_name,
+                        user_groups_items_column_user_group_id, user_groups_items_column_type, user_groups_items_column_item_id, user_groups_items_table_name,
+                        user_groups_items_column_user_group_id, user_groups_items_column_type, user_groups_items_column_item_id);
 
         //
 
@@ -192,6 +256,12 @@ public class DataManager {
 
         public static final String user_group_sql_select_all =
                 "select * from " + user_groups_table_name + ";";
+
+        //
+
+        public static final String user_groups_items_sql_count_group_id_type_item_id =
+            String.format("select count(*) from %s where %s = ? and %s = ? and %s = ?", user_groups_items_table_name,
+                    user_groups_items_column_user_group_id, user_groups_items_column_type, user_groups_items_column_item_id);
 
         // FIXME do usuniecia
 
