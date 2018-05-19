@@ -4,4 +4,8 @@
 
     <string name="user_group_star_group">Pozycje oznaczone gwiazdką</string>
 
+    <string name="user_group_add_group">Dodaj grupę</string>
+    <string name="user_group_popup_open_group">Otwórz grupę</string>
+    <string name="user_group_popup_change_group_name">Zmień nazwę grupy</string>
+    <string name="user_group_popup_delete_group">Usuń grupę</string>
 </resources>

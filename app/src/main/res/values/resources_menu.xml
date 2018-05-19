@@ -21,4 +21,9 @@
     <item name="kanji_test_options_save_current_kanji_list_as_own_group" type="id" />
     
     <item name="main_menu_transitive_intransitive_pairs_table_text_menu_item" type="id" />
+
+    <item name="user_group_add_group" type="id" />
+    <item name="user_group_popup_open_group" type="id" />
+    <item name="user_group_popup_change_group_name" type="id" />
+    <item name="user_group_popup_delete_group" type="id" />
 </resources>
