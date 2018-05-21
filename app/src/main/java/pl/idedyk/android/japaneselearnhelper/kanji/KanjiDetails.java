@@ -7,6 +7,9 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.data.DataManager;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
+import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -304,7 +307,18 @@ public class KanjiDetails extends Activity {
 
 		final DataManager dataManager = dictionaryManager.getDataManager();
 
-		boolean kanjiEntryExistsInFavouriteList = dataManager.isKanjiEntryExistsInFavouriteList(kanjiEntry);
+		UserGroupEntity startUserGroup = null;
+
+		try {
+			startUserGroup = dataManager.getStarUserGroup();
+
+		} catch (DataManagerException e) {
+			throw new RuntimeException(e);
+		}
+
+		final UserGroupEntity startUserGroup2 = startUserGroup;
+
+		boolean kanjiEntryExistsInFavouriteList = dataManager.isItemIdExistsInUserGroup(startUserGroup, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
 
 		final int starBigOff = android.R.drawable.star_big_off;
 		final int starBigOn = android.R.drawable.star_big_on;
@@ -315,10 +329,10 @@ public class KanjiDetails extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				boolean kanjiEntryExistsInFavouriteList = dataManager.isKanjiEntryExistsInFavouriteList(kanjiEntry);
+				boolean kanjiEntryExistsInFavouriteList = dataManager.isItemIdExistsInUserGroup(startUserGroup2, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
 
 				if (kanjiEntryExistsInFavouriteList == false) {
-					dataManager.addKanjiEntryToFavouriteList(kanjiEntry);
+					dataManager.addItemIdToUserGroup(startUserGroup2, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
 
 					starImage.changeImage(getResources().getDrawable(starBigOn));
 
@@ -327,7 +341,7 @@ public class KanjiDetails extends Activity {
 
 
 				} else {
-					dataManager.deleteKanjiEntryFromFavouriteList(kanjiEntry);
+					dataManager.deleteItemIdFromUserGroup(startUserGroup2, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
 
 					starImage.changeImage(getResources().getDrawable(starBigOff));
 

@@ -11,6 +11,9 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.data.DataManager;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
+import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -1263,21 +1266,32 @@ public class WordDictionaryDetails extends Activity {
 
 		final DataManager dataManager = dictionaryManager.getDataManager();
 
-		boolean dictionaryEntryExistsInFavouriteList = dataManager.isDictionaryEntryExistsInFavouriteList(dictionaryEntry);
+		UserGroupEntity startUserGroup = null;
+
+		try {
+			startUserGroup = dataManager.getStarUserGroup();
+
+		} catch (DataManagerException e) {
+			throw new RuntimeException(e);
+		}
+
+		final UserGroupEntity startUserGroup2 = startUserGroup;
+
+		boolean isItemIdExistsInStarGroup = dataManager.isItemIdExistsInUserGroup(startUserGroup, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
 
 		final int starBigOff = android.R.drawable.star_big_off;
 		final int starBigOn = android.R.drawable.star_big_on;
 
-		final Image starImage = new Image(getResources().getDrawable(dictionaryEntryExistsInFavouriteList == false ? starBigOff : starBigOn), 0);
+		final Image starImage = new Image(getResources().getDrawable(isItemIdExistsInStarGroup == false ? starBigOff : starBigOn), 0);
 
 		starImage.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
-				boolean dictionaryEntryExistsInFavouriteList = dataManager.isDictionaryEntryExistsInFavouriteList(dictionaryEntry);
+				boolean isItemIdExistsInStarGroup = dataManager.isItemIdExistsInUserGroup(startUserGroup2, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
 
-				if (dictionaryEntryExistsInFavouriteList == false) {
-					dataManager.addDictionaryEntryToFavouriteList(dictionaryEntry);
+				if (isItemIdExistsInStarGroup == false) {
+					dataManager.addItemIdToUserGroup(startUserGroup2, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
 
 					starImage.changeImage(getResources().getDrawable(starBigOn));
 
@@ -1286,7 +1300,7 @@ public class WordDictionaryDetails extends Activity {
 
 
 				} else {
-					dataManager.deleteDictionaryEntryFromFavouriteList(dictionaryEntry);
+					dataManager.deleteItemIdFromUserGroup(startUserGroup2, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
 
 					starImage.changeImage(getResources().getDrawable(starBigOff));
 

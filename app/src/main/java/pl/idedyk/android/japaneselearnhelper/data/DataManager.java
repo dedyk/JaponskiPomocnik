@@ -121,66 +121,42 @@ public class DataManager {
         return result;
     }
 
+    public UserGroupEntity getStarUserGroup() throws DataManagerException {
+
+        List<UserGroupEntity> allUserGroupList = getAllUserGroupList();
+
+        for (UserGroupEntity currentUserGroupEntity : allUserGroupList) {
+
+            if (currentUserGroupEntity.getType() == UserGroupEntity.Type.STAR_GROUP) {
+                return currentUserGroupEntity;
+            }
+        }
+
+        throw new DataManagerException("No star user group");
+    }
+
     public boolean isItemIdExistsInUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
         return isExists(SQLiteStatic.user_groups_items_sql_count_group_id_type_item_id, new String[] {
                 String.valueOf(userGroupEntity.getId()), type.name(), String.valueOf(itemId) });
     }
 
-    //
+    public void addItemIdToUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
 
-    public void addDictionaryEntryToFavouriteList(DictionaryEntry dictionaryEntry) {
-
-        /*
-        boolean alreadyExists = isDictionaryEntryExistsInFavouriteList(dictionaryEntry);
+        boolean alreadyExists = isItemIdExistsInUserGroup(userGroupEntity, type, itemId);
 
         if (alreadyExists == false) { // add
-            sqliteDatabase.execSQL(SQLiteStatic.insertFavouriteDictionaryEntryDictionaryEntryIdSql, new Object[] { dictionaryEntry.getId() });
+            sqliteDatabase.execSQL(SQLiteStatic.user_groups_items_sql_insert_group_id_type_item_id, new Object[] { String.valueOf(userGroupEntity.getId()), type.name(), String.valueOf(itemId)  });
         }
-        */
     }
 
-    public void deleteDictionaryEntryFromFavouriteList(DictionaryEntry dictionaryEntry) {
+    public void deleteItemIdFromUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
 
-        /*
-        boolean alreadyExists = isDictionaryEntryExistsInFavouriteList(dictionaryEntry);
+        boolean alreadyExists = isItemIdExistsInUserGroup(userGroupEntity, type, itemId);
 
         if (alreadyExists == true) { // delete
-            sqliteDatabase.execSQL(SQLiteStatic.deleteFavouriteDictionaryEntryDictionaryEntryIdSql, new Object[] { dictionaryEntry.getId() });
-        }
-        */
-    }
-
-    public boolean isDictionaryEntryExistsInFavouriteList(DictionaryEntry dictionaryEntry) {
-        //return isExistsInFavouriteList(SQLiteStatic.countFavouriteDictionaryEntryDictionaryEntryIdSql, dictionaryEntry.getId());
-        return false;
-    }
-
-    //
-
-    public void addKanjiEntryToFavouriteList(KanjiEntry kanjiEntry) {
-
-        boolean alreadyExists = isKanjiEntryExistsInFavouriteList(kanjiEntry);
-
-        if (alreadyExists == false) { // add
-            sqliteDatabase.execSQL(SQLiteStatic.insertFavouriteKanjiEntryKanjiEntryIdSql, new Object[] { kanjiEntry.getId() });
+            sqliteDatabase.execSQL(SQLiteStatic.user_groups_items_sql_delete_group_id_type_item_id, new Object[] { String.valueOf(userGroupEntity.getId()), type.name(), String.valueOf(itemId)  });
         }
     }
-
-    public void deleteKanjiEntryFromFavouriteList(KanjiEntry kanjiEntry) {
-
-        boolean alreadyExists = isKanjiEntryExistsInFavouriteList(kanjiEntry);
-
-        if (alreadyExists == true) { // delete
-            sqliteDatabase.execSQL(SQLiteStatic.deleteFavouriteKanjiEntryKanjiEntryIdSql, new Object[] { kanjiEntry.getId() });
-        }
-    }
-
-    public boolean isKanjiEntryExistsInFavouriteList(KanjiEntry kanjiEntry) {
-        //return isExistsInFavouriteList(SQLiteStatic.countFavouriteKanjiEntryKanjiEntryIdSql, kanjiEntry.getId());
-        return false;
-    }
-
-    //
 
     private boolean isExists(String sql, String[] params) {
 
@@ -263,58 +239,12 @@ public class DataManager {
             String.format("select count(*) from %s where %s = ? and %s = ? and %s = ?", user_groups_items_table_name,
                     user_groups_items_column_user_group_id, user_groups_items_column_type, user_groups_items_column_item_id);
 
-        // FIXME do usuniecia
+        public static final String user_groups_items_sql_insert_group_id_type_item_id =
+                String.format("insert into %s (%s, %s, %s) values (?, ?, ?)", user_groups_items_table_name,
+                        user_groups_items_column_user_group_id, user_groups_items_column_type, user_groups_items_column_item_id);
 
-        public static final String favouriteDictionaryEntryTableName = "favourite_dictionary_entry";
-        public static final String favouriteKanjiEntryTableName = "favourite_kanji_entry";
-
-        public static final String favouriteDictionaryEntry_id = "id";
-        public static final String favouriteDictionaryEntry_dictionary_entry_id = "dictionary_entry_id";
-
-        public static final String favouriteKanjiEntry_id = "id";
-        public static final String favouriteKanjiEntry_kanji_entry_id = "kanji_entry_id";
-
-        //
-
-        public static final String favouriteDictionaryEntryTableCreate =
-                "create table " + favouriteDictionaryEntryTableName + "(" +
-                        favouriteDictionaryEntry_id + " integer primary key, " +
-                        favouriteDictionaryEntry_dictionary_entry_id + " integer not null);";
-
-        public static final String favouriteDictionaryEntryTableCreateDictionaryEntryIdIndex =
-                "create index " + favouriteDictionaryEntryTableName + "_dictionary_entry_id_idx on " +
-                        favouriteDictionaryEntryTableName + "(" + favouriteDictionaryEntry_dictionary_entry_id + ")";
-        //
-
-        public static final String favouriteKanjiEntryTableCreate =
-                "create table " + favouriteKanjiEntryTableName + "(" +
-                        favouriteKanjiEntry_id + " integer primary key, " +
-                        favouriteKanjiEntry_kanji_entry_id + " integer not null);";
-
-        public static final String favouriteKanjiEntryTableCreateKanjiEntryIdIndex =
-                "create index " + favouriteKanjiEntryTableName + "_kanji_entry_id_idx on " +
-                        favouriteKanjiEntryTableName + "(" + favouriteKanjiEntry_kanji_entry_id + ")";
-
-        //
-
-        public static final String countFavouriteDictionaryEntryDictionaryEntryIdSql =
-                "select count(*) from " + favouriteDictionaryEntryTableName + " where " + favouriteDictionaryEntry_dictionary_entry_id + " = ? ";
-
-        public static final String insertFavouriteDictionaryEntryDictionaryEntryIdSql =
-                "insert into " + favouriteDictionaryEntryTableName + "(" + favouriteDictionaryEntry_dictionary_entry_id + ") values(?);";
-
-        public static final String deleteFavouriteDictionaryEntryDictionaryEntryIdSql =
-                "delete from " + favouriteDictionaryEntryTableName + " where " + favouriteDictionaryEntry_dictionary_entry_id + " = ?;";
-
-        //
-
-        public static final String countFavouriteKanjiEntryKanjiEntryIdSql =
-                "select count(*) from " + favouriteKanjiEntryTableName + " where " + favouriteKanjiEntry_kanji_entry_id + " = ? ";
-
-        public static final String insertFavouriteKanjiEntryKanjiEntryIdSql =
-                "insert into " + favouriteKanjiEntryTableName + "(" + favouriteKanjiEntry_kanji_entry_id + ") values(?);";
-
-        public static final String deleteFavouriteKanjiEntryKanjiEntryIdSql =
-                "delete from " + favouriteKanjiEntryTableName + " where " + favouriteKanjiEntry_kanji_entry_id + " = ?;";
+        public static final String user_groups_items_sql_delete_group_id_type_item_id =
+                String.format("delete from %s where %s = ? and %s = ? and %s = ?", user_groups_items_table_name,
+                        user_groups_items_column_user_group_id, user_groups_items_column_type, user_groups_items_column_item_id);
     }
 }
