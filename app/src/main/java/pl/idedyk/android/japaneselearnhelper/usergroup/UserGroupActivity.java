@@ -1,14 +1,21 @@
 package pl.idedyk.android.japaneselearnhelper.usergroup;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,6 +28,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
 
 public class UserGroupActivity extends Activity {
 
@@ -34,7 +42,7 @@ public class UserGroupActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
-        menu.add(Menu.NONE, R.id.user_group_add_group, Menu.NONE, R.string.user_group_add_group);
+        menu.add(Menu.NONE, R.id.user_group_menu_create_new_group, Menu.NONE, R.string.user_group_menu_create_new_group);
 
         MenuShorterHelper.onCreateOptionsMenu(menu);
 
@@ -45,7 +53,17 @@ public class UserGroupActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
-        return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.user_group_menu_create_new_group) { // tworzenie nowej grupy
+
+            createNewUserGroup();
+
+            return true;
+
+        } else {
+            return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+        }
     }
 
     @Override
@@ -75,14 +93,14 @@ public class UserGroupActivity extends Activity {
 
         //
 
-        createUseerGroupListView();
+        createUserGroupListView();
 
         //
 
         loadUserGroups();
     }
 
-    private void createUseerGroupListView() {
+    private void createUserGroupListView() {
 
         userGroupListView = (ListView)findViewById(R.id.user_group_list);
 
@@ -151,5 +169,91 @@ public class UserGroupActivity extends Activity {
         }
 
         userGroupListAdapter.notifyDataSetChanged();
+    }
+
+    private void createNewUserGroup() {
+
+        final EditText groupNameEditText = new EditText(this);
+
+        groupNameEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+
+        //
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+        alertDialog.setTitle(getString(R.string.user_group_new_group_dialog_title));
+        alertDialog.setMessage(getString(R.string.user_group_new_group_dialog_message));
+
+        alertDialog.setView(groupNameEditText);
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.user_group_ok_button), (DialogInterface.OnClickListener)null);
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.user_group_cancel_button), (DialogInterface.OnClickListener)null);
+
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+
+                Button okButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+
+                okButton.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+
+                        String newGroupName = groupNameEditText.getText().toString();
+
+                        if (newGroupName == null || newGroupName.length() < 1) {
+
+                            Toast.makeText(UserGroupActivity.this,
+                                    getString(R.string.user_group_new_group_name_too_short_error), Toast.LENGTH_SHORT).show();
+
+                            return;
+                        }
+
+                        // sprawdzamy, czy grupa o takiej nazwie juz istnieje
+                        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(UserGroupActivity.this);
+
+                        DataManager dataManager = dictionaryManager.getDataManager();
+
+                        List<UserGroupEntity> findUserGroupEntityResultList = dataManager.findUserGroupEntity(null, newGroupName);
+
+                        if (findUserGroupEntityResultList != null && findUserGroupEntityResultList.size() > 0) { // grupa o podanej nazwie juz istnieje
+
+                            Toast.makeText(UserGroupActivity.this,
+                                    getString(R.string.user_group_new_group_already_exists_error), Toast.LENGTH_SHORT).show();
+
+                            return;
+                        }
+
+                        // nie znaleziono, tworzymy nowa grupe
+                        UserGroupEntity newUserGroupEntity = new UserGroupEntity(null, UserGroupEntity.Type.USER_GROUP, newGroupName);
+
+                        dataManager.addUserGroup(newUserGroupEntity);
+
+                        alertDialog.dismiss();
+
+                        Toast.makeText(UserGroupActivity.this,
+                                getString(R.string.user_group_new_group_created), Toast.LENGTH_SHORT).show();
+
+                        // zaladowanie nowe listy grup
+                        loadUserGroups();
+                    }
+                });
+
+                Button cancelButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+
+                cancelButton.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+        if (isFinishing() == false) {
+            alertDialog.show();
+        }
     }
 }
