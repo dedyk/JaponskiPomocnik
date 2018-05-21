@@ -15,7 +15,13 @@
     <string name="user_group_new_group_dialog_title">Nowa grupa</string>
     <string name="user_group_new_group_dialog_message">Proszę podać nazwę nowej grupy.</string>
 
+    <string name="user_group_update_group_dialog_title">Zmiana nazwy grupy</string>
+    <string name="user_group_update_group_dialog_message">Proszę podać nową nazwę grupy.</string>
+
     <string name="user_group_new_group_name_too_short_error">Podana nazwa grupy jest za krótka</string>
+    <string name="user_group_new_group_name_too_long_error">Podana nazwa grupy jest za długa</string>
     <string name="user_group_new_group_already_exists_error">Grupa o podanej nazwie już istnieje. Proszę podać inną nazwę</string>
+
     <string name="user_group_new_group_created">Utworzono nową grupę</string>
+    <string name="user_group_update_group_done">Uaktualniono grupę</string>
 </resources>

@@ -52,6 +52,10 @@ public class UserGroupListItem {
         }
     }
 
+    public UserGroupEntity getUserGroupEntity() {
+        return userGroupEntity;
+    }
+
     public static enum ItemType {
 
         STAR_GROUP(R.layout.user_group_simplerow, 0, android.R.drawable.star_big_on),

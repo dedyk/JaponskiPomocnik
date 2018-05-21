@@ -57,7 +57,7 @@ public class UserGroupActivity extends Activity {
 
         if (itemId == R.id.user_group_menu_create_new_group) { // tworzenie nowej grupy
 
-            createNewUserGroup();
+            createOrUpdateUserGroup(null);
 
             return true;
 
@@ -113,7 +113,7 @@ public class UserGroupActivity extends Activity {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                UserGroupListItem userGroupListItem = (UserGroupListItem)userGroupListAdapter.getItem(position);
+                final UserGroupListItem userGroupListItem = (UserGroupListItem)userGroupListAdapter.getItem(position);
 
                 UserGroupListItem.ItemType itemType = userGroupListItem.getItemType();
 
@@ -126,6 +126,37 @@ public class UserGroupActivity extends Activity {
                     popupMenu.getMenu().add(Menu.NONE, R.id.user_group_popup_change_group_name, Menu.NONE, R.string.user_group_popup_change_group_name);
                     popupMenu.getMenu().add(Menu.NONE, R.id.user_group_popup_delete_group, Menu.NONE, R.string.user_group_popup_delete_group);
                 }
+
+                //
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+
+                        int itemId = item.getItemId();
+
+                        if (itemId == R.id.user_group_popup_open_group) { // otwarcie grupy
+
+                            return true;
+
+                        } else if (itemId == R.id.user_group_popup_change_group_name) { // zmiana nazwy grupy
+
+                            UserGroupEntity userGroupEntityToUpdate = userGroupListItem.getUserGroupEntity();
+
+                            createOrUpdateUserGroup(userGroupEntityToUpdate);
+
+                            return true;
+
+                        } else if (itemId == R.id.user_group_popup_delete_group) { // usuniecie nazwy grupy
+
+                            return true;
+
+                        } else {
+                            return false;
+                        }
+                    }
+                });
 
                 //
 
@@ -171,18 +202,22 @@ public class UserGroupActivity extends Activity {
         userGroupListAdapter.notifyDataSetChanged();
     }
 
-    private void createNewUserGroup() {
+    private void createOrUpdateUserGroup(final UserGroupEntity userGroupEntityToUpdate) {
 
         final EditText groupNameEditText = new EditText(this);
 
         groupNameEditText.setInputType(InputType.TYPE_CLASS_TEXT);
 
+        if (userGroupEntityToUpdate != null) {
+            groupNameEditText.setText(userGroupEntityToUpdate.getName());
+        }
+
         //
 
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
-        alertDialog.setTitle(getString(R.string.user_group_new_group_dialog_title));
-        alertDialog.setMessage(getString(R.string.user_group_new_group_dialog_message));
+        alertDialog.setTitle(getString(userGroupEntityToUpdate == null ? R.string.user_group_new_group_dialog_title : R.string.user_group_update_group_dialog_title));
+        alertDialog.setMessage(getString(userGroupEntityToUpdate == null ? R.string.user_group_new_group_dialog_message : R.string.user_group_update_group_dialog_message));
 
         alertDialog.setView(groupNameEditText);
 
@@ -200,6 +235,12 @@ public class UserGroupActivity extends Activity {
                     @Override
                     public void onClick(View view) {
 
+                        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(UserGroupActivity.this);
+
+                        DataManager dataManager = dictionaryManager.getDataManager();
+
+                        //
+
                         String newGroupName = groupNameEditText.getText().toString();
 
                         if (newGroupName == null || newGroupName.length() < 1) {
@@ -210,11 +251,14 @@ public class UserGroupActivity extends Activity {
                             return;
                         }
 
+                        if (newGroupName.length() > 90) {
+                            Toast.makeText(UserGroupActivity.this,
+                                    getString(R.string.user_group_new_group_name_too_long_error), Toast.LENGTH_SHORT).show();
+
+                            return;
+                        }
+
                         // sprawdzamy, czy grupa o takiej nazwie juz istnieje
-                        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(UserGroupActivity.this);
-
-                        DataManager dataManager = dictionaryManager.getDataManager();
-
                         List<UserGroupEntity> findUserGroupEntityResultList = dataManager.findUserGroupEntity(null, newGroupName);
 
                         if (findUserGroupEntityResultList != null && findUserGroupEntityResultList.size() > 0) { // grupa o podanej nazwie juz istnieje
@@ -225,15 +269,24 @@ public class UserGroupActivity extends Activity {
                             return;
                         }
 
-                        // nie znaleziono, tworzymy nowa grupe
-                        UserGroupEntity newUserGroupEntity = new UserGroupEntity(null, UserGroupEntity.Type.USER_GROUP, newGroupName);
+                        if (userGroupEntityToUpdate == null) { // jesli to nowa grupa, tworzymy ja
 
-                        dataManager.addUserGroup(newUserGroupEntity);
+                            // nie znaleziono, tworzymy nowa grupe
+                            UserGroupEntity newUserGroupEntity = new UserGroupEntity(null, UserGroupEntity.Type.USER_GROUP, newGroupName);
+
+                            dataManager.addUserGroup(newUserGroupEntity);
+
+                        } else { // uaktualnienie nazwy grupy
+
+                            userGroupEntityToUpdate.setName(newGroupName);
+
+                            dataManager.updateUserGroup(userGroupEntityToUpdate);
+                        }
 
                         alertDialog.dismiss();
 
                         Toast.makeText(UserGroupActivity.this,
-                                getString(R.string.user_group_new_group_created), Toast.LENGTH_SHORT).show();
+                                getString(userGroupEntityToUpdate == null ? R.string.user_group_new_group_created : R.string.user_group_update_group_done), Toast.LENGTH_SHORT).show();
 
                         // zaladowanie nowe listy grup
                         loadUserGroups();

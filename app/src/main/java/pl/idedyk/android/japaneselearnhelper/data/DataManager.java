@@ -66,6 +66,10 @@ public class DataManager {
                 new Object[] { userGroupEntity.getType().name(), userGroupEntity.getName() });
     }
 
+    public void updateUserGroup(UserGroupEntity userGroupEntity) {
+        sqliteDatabase.execSQL(SQLiteStatic.user_group_sql_name_update, new Object[] { userGroupEntity.getName(), userGroupEntity.getId() });
+    }
+
     public List<UserGroupEntity> getAllUserGroupList() {
 
         List<UserGroupEntity> result = new ArrayList<>();
@@ -229,6 +233,9 @@ public class DataManager {
                 "insert into " + user_groups_table_name + "(" +
                         user_groups_column_type + ", " +   user_groups_column_name + ") " +
                         "values (?, ?)";
+
+        public static final String user_group_sql_name_update =
+                String.format("update %s set %s = ? where %s = ?", user_groups_table_name, user_groups_column_name, user_groups_items_column_id);
 
         public static final String user_group_sql_select_all =
                 "select * from " + user_groups_table_name + ";";
