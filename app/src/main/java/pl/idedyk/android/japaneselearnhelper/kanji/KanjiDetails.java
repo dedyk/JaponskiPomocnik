@@ -337,7 +337,7 @@ public class KanjiDetails extends Activity {
 					starImage.changeImage(getResources().getDrawable(starBigOn));
 
 					Toast.makeText(KanjiDetails.this,
-							getString(R.string.kanji_details_add_to_favourite_kanji_list), Toast.LENGTH_SHORT).show();
+							getString(R.string.kanji_details_add_to_star_group), Toast.LENGTH_SHORT).show();
 
 
 				} else {
@@ -346,7 +346,7 @@ public class KanjiDetails extends Activity {
 					starImage.changeImage(getResources().getDrawable(starBigOff));
 
 					Toast.makeText(KanjiDetails.this,
-							getString(R.string.kanji_details_remove_from_favourite_kanji_list), Toast.LENGTH_SHORT).show();
+							getString(R.string.kanji_details_remove_from_star_group), Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

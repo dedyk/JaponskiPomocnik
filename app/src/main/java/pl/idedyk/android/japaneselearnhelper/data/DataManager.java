@@ -72,33 +72,38 @@ public class DataManager {
 
     public List<UserGroupEntity> getAllUserGroupList() {
 
-        List<UserGroupEntity> result = new ArrayList<>();
-
         Cursor cursor = null;
 
         try {
             cursor = sqliteDatabase.rawQuery(SQLiteStatic.user_group_sql_select_all, null);
 
-            boolean moveToFirst = cursor.moveToFirst();
-
-            if (moveToFirst == false) {
-                return result;
-            }
-
-            do {
-                Integer id = cursor.getInt(0);
-                UserGroupEntity.Type type = UserGroupEntity.Type.valueOf(cursor.getString(1));
-                String name = cursor.getString(2);
-
-                result.add(new UserGroupEntity(id, type, name));
-
-            } while (cursor.moveToNext());
+            return createUserGroupEntityListFromCursor(cursor);
 
         } finally {
             if (cursor != null) {
                 cursor.close();
             }
         }
+    }
+
+    private List<UserGroupEntity> createUserGroupEntityListFromCursor(Cursor cursor) {
+
+        List<UserGroupEntity> result = new ArrayList<>();
+
+        boolean moveToFirst = cursor.moveToFirst();
+
+        if (moveToFirst == false) {
+            return result;
+        }
+
+        do {
+            Integer id = cursor.getInt(0);
+            UserGroupEntity.Type type = UserGroupEntity.Type.valueOf(cursor.getString(1));
+            String name = cursor.getString(2);
+
+            result.add(new UserGroupEntity(id, type, name));
+
+        } while (cursor.moveToNext());
 
         return result;
     }
@@ -137,6 +142,22 @@ public class DataManager {
         }
 
         throw new DataManagerException("No star user group");
+    }
+
+    public List<UserGroupEntity> getUserGroupEntityListForItemId(UserGroupEntity.Type userGroupEntityType, UserGroupItemEntity.Type userGroupItemEntityType, Integer itemId) {
+
+        Cursor cursor = null;
+
+        try {
+            cursor = sqliteDatabase.rawQuery(SQLiteStatic.user_group_sql_select_for_item_id, new String[] { userGroupItemEntityType.name(), String.valueOf(itemId), userGroupEntityType.name() });
+
+            return createUserGroupEntityListFromCursor(cursor);
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
     }
 
     public boolean isItemIdExistsInUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
@@ -239,6 +260,12 @@ public class DataManager {
 
         public static final String user_group_sql_select_all =
                 "select * from " + user_groups_table_name + ";";
+
+        public static final String user_group_sql_select_for_item_id =
+                String.format("select * from %s ug where ug.%s in (select %s from %s ugi where ugi.%s = ? and ugi.%s = ?) and ug.%s = ? order by %s",
+                        user_groups_table_name, user_groups_column_id, user_groups_items_column_user_group_id,
+                        user_groups_items_table_name, user_groups_items_column_type, user_groups_items_column_item_id, user_groups_column_type,
+                        user_groups_column_name);
 
         //
 

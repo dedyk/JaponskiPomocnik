@@ -15,8 +15,8 @@
     <string name="kanji_details_on_reading">Odczyty on\'yomi (sinojapońskie)</string>
     <string name="kanji_details_find_kanji_in_words">Szukaj wystąpień znaku w słowniku</string>
     <string name="kanji_details_clipboard_copy">Skopiowano \'%1$s\' do schowka</string>
-    <string name="kanji_details_add_to_favourite_kanji_list">Dodano do listy ulubionych kanji</string>
-    <string name="kanji_details_remove_from_favourite_kanji_list">Usunięto z listy ulubionych kanji</string>
+    <string name="kanji_details_add_to_star_group">Dodano gwiazdkę</string>
+    <string name="kanji_details_remove_from_star_group">Usunięto gwiazdkę</string>
 
     <string name="kanji_search_label">Wyszukiwarka znaków kanji</string>
     <string name="kanji_search_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>

@@ -10,6 +10,7 @@
     <string name="word_dictionary_details_part_of_speech_press">Naciśnij na pozycję, aby zobaczyć odmianę i przykłady dla wybranej części mowy</string>
     <string name="word_dictionary_details_attributes">Dodatkowe atrybuty</string>
     <string name="word_dictionary_details_dictionary_groups">Występowanie znaku</string>
+    <string name="word_dictionary_details_user_groups">Grupy użytkownika</string>
     <string name="word_dictionary_details_dictionary_position">Numer pozycji w słowniku</string>
     <string name="word_dictionary_details_conjugater_label">Odmiany</string>
     <string name="word_dictionary_details_sentence_example_label">Przykłady zdań</string>
@@ -28,6 +29,6 @@
     
     <string name="word_dictionary_details_search_title">Wpisz szukaną frazę</string>
 
-    <string name="word_dictionary_details_add_to_favourite_words_list">Dodano do listy ulubionych słów</string>
-    <string name="word_dictionary_details_remove_from_favourite_words_list">Usunięto z listy ulubionych słów</string>
+    <string name="word_dictionary_details_add_to_star_group">Dodano gwiazdkę</string>
+    <string name="word_dictionary_details_remove_from_star_group">Usunięto gwiazdkę</string>
 </resources>

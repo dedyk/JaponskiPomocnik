@@ -755,7 +755,18 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue(String.valueOf(groups.get(groupsIdx).getValue()), 20.0f, 0));
 			}
 		}
-		
+
+		// user groups
+        report.add(new StringValue("", 15.0f, 2));
+        report.add(new TitleItem("FIXME: " + getString(R.string.word_dictionary_details_user_groups), 0));
+
+		final DataManager dataManager = dictionaryManager.getDataManager();
+
+		List<UserGroupEntity> userGroupEntityListForItemId = dataManager.getUserGroupEntityListForItemId(UserGroupEntity.Type.USER_GROUP, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
+
+		for (UserGroupEntity currentUserGroupEntity : userGroupEntityListForItemId) {
+			report.add(new StringValue("FIXME: " + currentUserGroupEntity.getName(), 15.0f, 0));
+		}
 
 		/*
 		// dictionary position
@@ -1296,7 +1307,7 @@ public class WordDictionaryDetails extends Activity {
 					starImage.changeImage(getResources().getDrawable(starBigOn));
 
 					Toast.makeText(WordDictionaryDetails.this,
-							getString(R.string.word_dictionary_details_add_to_favourite_words_list), Toast.LENGTH_SHORT).show();
+							getString(R.string.word_dictionary_details_add_to_star_group), Toast.LENGTH_SHORT).show();
 
 
 				} else {
@@ -1305,7 +1316,7 @@ public class WordDictionaryDetails extends Activity {
 					starImage.changeImage(getResources().getDrawable(starBigOff));
 
 					Toast.makeText(WordDictionaryDetails.this,
-							getString(R.string.word_dictionary_details_remove_from_favourite_words_list), Toast.LENGTH_SHORT).show();
+							getString(R.string.word_dictionary_details_remove_from_star_group), Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
