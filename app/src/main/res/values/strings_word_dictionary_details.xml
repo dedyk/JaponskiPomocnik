@@ -31,4 +31,7 @@
 
     <string name="word_dictionary_details_add_to_star_group">Dodano gwiazdkę</string>
     <string name="word_dictionary_details_remove_from_star_group">Usunięto gwiazdkę</string>
+
+    <string name="word_dictionary_details_delete_item_id_from_user_group_title">Potwierdzenie usunięcia</string>
+    <string name="word_dictionary_details_delete_item_id_from_user_group_message">Czy chcesz usunąć to słowo z grupy: \'%1$s\'</string>
 </resources>

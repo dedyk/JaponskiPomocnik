@@ -758,14 +758,28 @@ public class WordDictionaryDetails extends Activity {
 
 		// user groups
         report.add(new StringValue("", 15.0f, 2));
-        report.add(new TitleItem("FIXME: " + getString(R.string.word_dictionary_details_user_groups), 0));
+        report.add(new TitleItem(getString(R.string.word_dictionary_details_user_groups), 0));
 
 		final DataManager dataManager = dictionaryManager.getDataManager();
 
 		List<UserGroupEntity> userGroupEntityListForItemId = dataManager.getUserGroupEntityListForItemId(UserGroupEntity.Type.USER_GROUP, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
 
 		for (UserGroupEntity currentUserGroupEntity : userGroupEntityListForItemId) {
-			report.add(new StringValue("FIXME: " + currentUserGroupEntity.getName(), 15.0f, 0));
+
+			TableRow userGroupTableRow = new TableRow();
+
+			OnClickListener deleteItemIdFromUserGroupOnClickListener = createDeleteItemIdFromUserGroupOnClickListener(dataManager, dictionaryEntry, currentUserGroupEntity, userGroupTableRow);
+
+			StringValue userGroupNameStringValue = new StringValue(currentUserGroupEntity.getName(), 15.0f, 0);
+			Image userGroupNameDeleteImage = new Image(getResources().getDrawable(R.drawable.delete), 0);
+
+			userGroupNameStringValue.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
+			userGroupNameDeleteImage.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
+
+			userGroupTableRow.addScreenItem(userGroupNameStringValue);
+			userGroupTableRow.addScreenItem(userGroupNameDeleteImage);
+
+			report.add(userGroupTableRow);
 		}
 
 		/*
@@ -1322,6 +1336,46 @@ public class WordDictionaryDetails extends Activity {
 		});
 
 		return starImage;
+	}
+
+	private OnClickListener createDeleteItemIdFromUserGroupOnClickListener(final DataManager dataManager, final DictionaryEntry dictionaryEntry, final UserGroupEntity userGroupEntity, final TableRow userGroupTableRow) {
+
+		return new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				final AlertDialog alertDialog = new AlertDialog.Builder(WordDictionaryDetails.this).create();
+
+				alertDialog.setTitle(getString(R.string.word_dictionary_details_delete_item_id_from_user_group_title));
+				alertDialog.setMessage(getString(R.string.word_dictionary_details_delete_item_id_from_user_group_message, userGroupEntity.getName()));
+
+				alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.user_group_ok_button), new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+						// usuwamy z bazy danych
+						dataManager.deleteItemIdFromUserGroup(userGroupEntity, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
+
+						// ukrywamy grupe
+						userGroupTableRow.setVisibility(View.GONE);
+					}
+				});
+
+				alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.user_group_cancel_button), new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						alertDialog.dismiss();
+
+					}
+				});
+
+				if (isFinishing() == false) {
+					alertDialog.show();
+				}
+			}
+		};
 	}
 
 	private class CopyToClipboard implements OnClickListener {

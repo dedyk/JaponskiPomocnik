@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.view.View;
 import android.view.ViewGroup;
 
 public class TableRow implements IScreenItem {
@@ -25,7 +26,7 @@ public class TableRow implements IScreenItem {
 		
 		if (screenItems.size() > 0) {
 			tableRow = new android.widget.TableRow(context);
-						
+
 			for (IScreenItem currentScreenItem : screenItems) {
 				currentScreenItem.generate(context, resources, tableRow);
 			}
@@ -54,5 +55,9 @@ public class TableRow implements IScreenItem {
 		}
 		
 		return sb.toString();
+	}
+
+	public void setVisibility(int visibility) {
+		tableRow.setVisibility(visibility);
 	}
 }
