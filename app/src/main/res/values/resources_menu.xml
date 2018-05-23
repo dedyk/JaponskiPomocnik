@@ -13,9 +13,10 @@
 
     <item name="main_menu_word_dictionary_show_user_group_menu_item" type="id" />
 
-    <item name="word_dictionary_details_search" type="id" />
-    <item name="word_dictionary_details_search_next" type="id" />
-    
+    <item name="word_dictionary_details_menu_search" type="id" />
+    <item name="word_dictionary_details_menu_search_next" type="id" />
+    <item name="word_dictionary_details_menu_add_item_id_to_user_group" type="id" />s
+
     <item name="kanji_test_options_clear_selected_kanji" type="id" />
     <item name="kanji_test_options_input_kanji_to_test" type="id" />
     <item name="kanji_test_options_save_current_kanji_list_as_own_group" type="id" />

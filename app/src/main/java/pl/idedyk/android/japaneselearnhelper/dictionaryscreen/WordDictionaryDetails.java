@@ -28,6 +28,7 @@ import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
+import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
 import pl.idedyk.japanese.dictionary.api.dto.Attribute;
 import pl.idedyk.japanese.dictionary.api.dto.AttributeType;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
@@ -81,6 +82,8 @@ public class WordDictionaryDetails extends Activity {
 
 	private Integer searchScreenItemCurrentPos = null;
 
+	private DictionaryEntry dictionaryEntry = null;
+
 	@Override
 	protected void onDestroy() {
 
@@ -120,9 +123,11 @@ public class WordDictionaryDetails extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		menu.add(Menu.NONE, R.id.word_dictionary_details_search, Menu.NONE, R.string.word_dictionary_details_search);
-		menu.add(Menu.NONE, R.id.word_dictionary_details_search_next, Menu.NONE,
-				R.string.word_dictionary_details_search_next);
+		menu.add(Menu.NONE, R.id.word_dictionary_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.word_dictionary_details_menu_add_item_id_to_user_group);
+
+		menu.add(Menu.NONE, R.id.word_dictionary_details_menu_search, Menu.NONE, R.string.word_dictionary_details_menu_search);
+		menu.add(Menu.NONE, R.id.word_dictionary_details_menu_search_next, Menu.NONE,
+				R.string.word_dictionary_details_menu_search_next);
 
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 
@@ -133,7 +138,7 @@ public class WordDictionaryDetails extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
 
-		if (item.getItemId() == R.id.word_dictionary_details_search) {
+		if (item.getItemId() == R.id.word_dictionary_details_menu_search) {
 
 			AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
@@ -211,7 +216,7 @@ public class WordDictionaryDetails extends Activity {
 
 			return true;
 
-		} else if (item.getItemId() == R.id.word_dictionary_details_search_next) {
+		} else if (item.getItemId() == R.id.word_dictionary_details_menu_search_next) {
 
 			if (searchScreenItemList == null || searchScreenItemList.size() == 0) {
 				Toast.makeText(WordDictionaryDetails.this,
@@ -235,6 +240,16 @@ public class WordDictionaryDetails extends Activity {
 
 			int counterPos = searchScreenItemList.get(searchScreenItemCurrentPos).getY();
 			scrollMainLayout.scrollTo(0, counterPos - 3);
+
+			return true;
+
+		} else if (item.getItemId() == R.id.word_dictionary_details_menu_add_item_id_to_user_group) {
+
+			Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
+
+			intent.putExtra("itemToAdd", dictionaryEntry);
+
+			startActivity(intent);
 
 			return true;
 
@@ -269,7 +284,7 @@ public class WordDictionaryDetails extends Activity {
 
 		setContentView(R.layout.word_dictionary_details);
 
-		DictionaryEntry dictionaryEntry = (DictionaryEntry) getIntent().getSerializableExtra("item");
+		dictionaryEntry = (DictionaryEntry) getIntent().getSerializableExtra("item");
 		DictionaryEntryType forceDictionaryEntryType = (DictionaryEntryType) getIntent().getSerializableExtra(
 				"forceDictionaryEntryType");
 
