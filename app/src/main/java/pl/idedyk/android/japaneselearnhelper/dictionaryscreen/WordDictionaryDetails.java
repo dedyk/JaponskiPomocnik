@@ -16,6 +16,7 @@ import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
+import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestOptionsActivity;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.Image;
@@ -1359,6 +1360,10 @@ public class WordDictionaryDetails extends Activity {
 
 						// ukrywamy grupe
 						userGroupTableRow.setVisibility(View.GONE);
+
+						// komunikat
+						Toast.makeText(WordDictionaryDetails.this,
+								getString(R.string.word_dictionary_details_delete_item_id_from_user_group_toast, userGroupEntity.getName()), Toast.LENGTH_SHORT).show();
 					}
 				});
 
