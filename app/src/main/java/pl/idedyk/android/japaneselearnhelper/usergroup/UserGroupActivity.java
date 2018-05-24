@@ -15,8 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -29,6 +31,8 @@ import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 
 public class UserGroupActivity extends Activity {
 
@@ -37,6 +41,10 @@ public class UserGroupActivity extends Activity {
     private UserGroupListItemAdapter userGroupListAdapter;
 
     private List<UserGroupListItem> userGroupList;
+
+    //
+
+    private DictionaryEntry dictionaryEntryToAdd = null;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,9 +91,9 @@ public class UserGroupActivity extends Activity {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle bundle) {
 
-        super.onCreate(savedInstanceState);
+        super.onCreate(bundle);
 
         JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_user_group));
 
@@ -98,6 +106,10 @@ public class UserGroupActivity extends Activity {
         //
 
         loadUserGroups();
+
+        //
+
+        checkItemToAdd();
     }
 
     private void createUserGroupListView() {
@@ -119,6 +131,10 @@ public class UserGroupActivity extends Activity {
 
                 // tworzenie menu podrecznego
                 PopupMenu popupMenu = new PopupMenu(UserGroupActivity.this, view);
+
+                if (dictionaryEntryToAdd != null) {
+                    popupMenu.getMenu().add(Menu.NONE, R.id.user_group_popup_add_to_this_group, Menu.NONE, R.string.user_group_popup_add_to_this_group);
+                }
 
                 popupMenu.getMenu().add(Menu.NONE, R.id.user_group_popup_open_group, Menu.NONE, R.string.user_group_popup_open_group);
 
@@ -309,4 +325,38 @@ public class UserGroupActivity extends Activity {
             alertDialog.show();
         }
     }
+
+    private void checkItemToAdd() {
+
+        Serializable itemToAdd = (DictionaryEntry) getIntent().getSerializableExtra("itemToAdd");
+
+        if (itemToAdd != null) {
+
+            TextView itemToAddValueTextView = (TextView)findViewById(R.id.user_group_item_to_add_value);
+            TextView itemToAddValueLabelTextView = (TextView)findViewById(R.id.user_group_item_to_add_value_label);
+            View itemToAddTextViewLine1 = (View)findViewById(R.id.user_group_item_to_add_line1);
+            View itemToAddTextViewLine2 = (View)findViewById(R.id.user_group_item_to_add_line2);
+
+            //
+
+            String itemToAddToString = null;
+
+            if (itemToAdd instanceof DictionaryEntry) {
+                dictionaryEntryToAdd = (DictionaryEntry)itemToAdd;
+
+                itemToAddToString = WordKanjiDictionaryUtils.getWordFullTextWithMark(dictionaryEntryToAdd);
+
+            } else {
+                throw new RuntimeException("Unknown itemToAdd: " + itemToAdd);
+            }
+
+            itemToAddValueTextView.setText(itemToAddToString);
+
+            itemToAddValueTextView.setVisibility(View.VISIBLE);
+            itemToAddValueLabelTextView.setVisibility(View.VISIBLE);
+            itemToAddTextViewLine1.setVisibility(View.VISIBLE);
+            itemToAddTextViewLine2.setVisibility(View.VISIBLE);
+        }
+    }
+
 }

@@ -4,6 +4,7 @@
 
     <string name="user_group_star_group">Pozycje oznaczone gwiazdką</string>
 
+    <string name="user_group_popup_add_to_this_group">Dodaj element to tej grupy</string>
     <string name="user_group_menu_create_new_group">Utwórz nową grupę</string>
     <string name="user_group_popup_open_group">Otwórz grupę</string>
     <string name="user_group_popup_change_group_name">Zmień nazwę grupy</string>
@@ -24,4 +25,8 @@
 
     <string name="user_group_new_group_created">Utworzono nową grupę</string>
     <string name="user_group_update_group_done">Uaktualniono grupę</string>
+
+    <string name="user_group_item_to_add_value_label">Proszę wybrać grupę dla następującego elementu:</string>
+
+    <string name="user_group_report_problem">Widzisz błąd, brakuje szukanego słowa, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
 </resources>

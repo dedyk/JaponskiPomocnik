@@ -5,6 +5,37 @@
     android:gravity="right"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/user_group_item_to_add_value_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="@string/user_group_item_to_add_value_label"
+        android:textSize="15sp"
+        android:visibility="gone"/>
+
+    <View
+        android:id="@+id/user_group_item_to_add_line1"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:visibility="gone"/>
+
+
+    <TextView
+        android:id="@+id/user_group_item_to_add_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:visibility="gone"/>
+
+    <View
+        android:id="@+id/user_group_item_to_add_line2"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:visibility="gone"/>
+
     <ListView
         android:id="@+id/user_group_list"
         android:layout_width="match_parent"
@@ -30,10 +61,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="@string/word_dictionary_search_report_problem"
+            android:text="@string/user_group_report_problem"
             android:textSize="12sp" />
     </LinearLayout>
-
 
     <RelativeLayout
         android:layout_width="match_parent"
