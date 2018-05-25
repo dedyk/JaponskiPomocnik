@@ -29,10 +29,12 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 
 public class UserGroupActivity extends Activity {
 
@@ -45,6 +47,8 @@ public class UserGroupActivity extends Activity {
     //
 
     private DictionaryEntry dictionaryEntryToAdd = null;
+
+    private KanjiEntry kanjiEntryToAdd = null;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -132,7 +136,7 @@ public class UserGroupActivity extends Activity {
                 // tworzenie menu podrecznego
                 PopupMenu popupMenu = new PopupMenu(UserGroupActivity.this, view);
 
-                if (dictionaryEntryToAdd != null) {
+                if (dictionaryEntryToAdd != null || kanjiEntryToAdd != null) {
                     popupMenu.getMenu().add(Menu.NONE, R.id.user_group_popup_add_to_this_group, Menu.NONE, R.string.user_group_popup_add_to_this_group);
                 }
 
@@ -152,7 +156,15 @@ public class UserGroupActivity extends Activity {
 
                         int itemId = item.getItemId();
 
-                        if (itemId == R.id.user_group_popup_open_group) { // otwarcie grupy
+                        if (itemId == R.id.user_group_popup_add_to_this_group) { // dodanie elementu do grupy
+
+                            UserGroupEntity userGroupEntity = userGroupListItem.getUserGroupEntity();
+
+                            addItemIdToUserGroupEntity(userGroupEntity);
+
+                            return true;
+
+                        } else if (itemId == R.id.user_group_popup_open_group) { // otwarcie grupy
 
                             return true;
 
@@ -346,6 +358,12 @@ public class UserGroupActivity extends Activity {
 
                 itemToAddToString = WordKanjiDictionaryUtils.getWordFullTextWithMark(dictionaryEntryToAdd);
 
+            } else if (itemToAdd instanceof KanjiEntry) {
+                kanjiEntryToAdd = (KanjiEntry)itemToAdd;
+
+                // FIXME
+                throw new RuntimeException("FIXME");
+
             } else {
                 throw new RuntimeException("Unknown itemToAdd: " + itemToAdd);
             }
@@ -359,4 +377,86 @@ public class UserGroupActivity extends Activity {
         }
     }
 
+    public void addItemIdToUserGroupEntity(final UserGroupEntity userGroupEntity) {
+
+        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
+        final DataManager dataManager = dictionaryManager.getDataManager();
+
+        //
+
+        final Integer itemId;
+        final UserGroupItemEntity.Type itemIdUserGroupItemEntityType;
+
+        if (dictionaryEntryToAdd != null) {
+            itemId = dictionaryEntryToAdd.getId();
+            itemIdUserGroupItemEntityType = UserGroupItemEntity.Type.DICTIONARY_ENTRY;
+
+        } else if (kanjiEntryToAdd != null) {
+            itemId = kanjiEntryToAdd.getId();
+            itemIdUserGroupItemEntityType = UserGroupItemEntity.Type.KANJI_ENTRY;
+
+        } else {
+            throw new RuntimeException("dictionaryEntryToAdd and kanjiEntryToAdd is null");
+        }
+
+        boolean itemIdAlreadyExists = dataManager.isItemIdExistsInUserGroup(userGroupEntity, itemIdUserGroupItemEntityType, itemId);
+
+        if (itemIdAlreadyExists == true) {
+
+            Toast.makeText(UserGroupActivity.this,
+                    getString(R.string.user_group_item_to_add_user_group_entity_already_exists), Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+        alertDialog.setTitle(getString(R.string.user_group_item_to_add_user_group_entity_title));
+        alertDialog.setMessage(getString(R.string.user_group_item_to_add_user_group_entity_message, userGroupEntity.getName()));
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.user_group_ok_button), new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            // dodanie do grupy
+            dataManager.addItemIdToUserGroup(userGroupEntity, itemIdUserGroupItemEntityType, itemId);
+
+            // komunikat
+            Toast.makeText(UserGroupActivity.this,
+                    getString(R.string.user_group_item_to_add_user_group_entity_toast, userGroupEntity.getName()), Toast.LENGTH_SHORT).show();
+
+            //
+
+            dictionaryEntryToAdd = null;
+            kanjiEntryToAdd = null;
+
+            //
+
+            TextView itemToAddValueTextView = (TextView) findViewById(R.id.user_group_item_to_add_value);
+            TextView itemToAddValueLabelTextView = (TextView) findViewById(R.id.user_group_item_to_add_value_label);
+            View itemToAddTextViewLine1 = (View) findViewById(R.id.user_group_item_to_add_line1);
+            View itemToAddTextViewLine2 = (View) findViewById(R.id.user_group_item_to_add_line2);
+
+            itemToAddValueTextView.setVisibility(View.GONE);
+            itemToAddValueLabelTextView.setVisibility(View.GONE);
+            itemToAddTextViewLine1.setVisibility(View.GONE);
+            itemToAddTextViewLine2.setVisibility(View.GONE);
+            }
+        });
+
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.user_group_cancel_button), new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+
+            }
+        });
+
+        if (isFinishing() == false) {
+            alertDialog.show();
+        }
+    }
 }

@@ -28,5 +28,11 @@
 
     <string name="user_group_item_to_add_value_label">Proszę wybrać grupę dla następującego elementu:</string>
 
+    <string name="user_group_item_to_add_user_group_entity_already_exists">Element już występuje w wybranej grupie</string>
+
+    <string name="user_group_item_to_add_user_group_entity_title">Potwierdzenie dodania</string>
+    <string name="user_group_item_to_add_user_group_entity_message">Czy chcesz dodać element do grupy: \'%1$s\'</string>
+    <string name="user_group_item_to_add_user_group_entity_toast">Dodano element do grupy \'%1$s\'</string>
+
     <string name="user_group_report_problem">Widzisz błąd, brakuje szukanego słowa, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
 </resources>
