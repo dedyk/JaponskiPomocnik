@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.usergroup;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.InputType;
@@ -114,6 +115,16 @@ public class UserGroupActivity extends Activity {
         //
 
         checkItemToAdd();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        final Intent mIntent = new Intent();
+
+        setResult(RESULT_OK, mIntent);
+
+        finish();
     }
 
     private void createUserGroupListView() {

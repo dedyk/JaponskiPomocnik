@@ -84,6 +84,10 @@ public class WordDictionaryDetails extends Activity {
 
 	private DictionaryEntry dictionaryEntry = null;
 
+	//
+
+	private final static int ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE = 1;
+
 	@Override
 	protected void onDestroy() {
 
@@ -249,7 +253,7 @@ public class WordDictionaryDetails extends Activity {
 
 			intent.putExtra("itemToAdd", dictionaryEntry);
 
-			startActivity(intent);
+			startActivityForResult(intent, ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE);
 
 			return true;
 
@@ -341,8 +345,16 @@ public class WordDictionaryDetails extends Activity {
 		ttsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
 	}
 
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		if (requestCode == ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE) {
+			// noop
+		}
+	}
+
 	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry,
-			DictionaryEntryType forceDictionaryEntryType, final ScrollView scrollMainLayout) {
+											  DictionaryEntryType forceDictionaryEntryType, final ScrollView scrollMainLayout) {
 
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 
@@ -1397,6 +1409,8 @@ public class WordDictionaryDetails extends Activity {
 			}
 		};
 	}
+
+
 
 	private class CopyToClipboard implements OnClickListener {
 
