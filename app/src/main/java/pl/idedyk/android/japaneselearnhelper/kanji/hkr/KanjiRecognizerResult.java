@@ -11,6 +11,7 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItemAdapter;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import android.app.Activity;
@@ -69,18 +70,12 @@ public class KanjiRecognizerResult extends Activity {
 			
 			KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
 			
-			StringBuffer currentKanjiEntryFullText = new StringBuffer();
-			StringBuffer currentKanjiEntryRadicalText = new StringBuffer();
-			
-			currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n");
-						
-			if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null && kanjiDic2Entry.getRadicals().size() > 0) {
-				currentKanjiEntryRadicalText.append(kanjiDic2Entry.getRadicals().toString());	
-			}
-											
+			String currentKanjiEntryFullText = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(currentKanjiEntry);
+			String currentKanjiEntryRadicalText = WordKanjiDictionaryUtils.getKanjiRadicalTextWithMark(currentKanjiEntry);
+
 			searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsKanjiEntry(currentKanjiEntry,
-					Html.fromHtml(currentKanjiEntryFullText.toString().replaceAll("\n", "<br/>")),
-					Html.fromHtml(currentKanjiEntryRadicalText.toString())));
+					Html.fromHtml(currentKanjiEntryFullText.replaceAll("\n", "<br/>")),
+					Html.fromHtml(currentKanjiEntryRadicalText)));
 		}
 		
 		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());

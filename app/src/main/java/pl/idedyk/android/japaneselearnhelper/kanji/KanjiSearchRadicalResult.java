@@ -10,6 +10,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import android.app.Activity;
@@ -121,39 +122,13 @@ public class KanjiSearchRadicalResult extends Activity {
 				for (KanjiEntry currentKanjiEntry : foundKanjis) {
 					
 					KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
-					
-					StringBuffer currentKanjiEntryFullText = new StringBuffer();
-					StringBuffer currentKanjiEntryRadicalText = new StringBuffer();
-					
-					currentKanjiEntryFullText.append("<big>").append(currentKanjiEntry.getKanji()).append("</big> - ").append(currentKanjiEntry.getPolishTranslates().toString()).append("\n");
-					currentKanjiEntryRadicalText.append(kanjiDic2Entry.getRadicals().toString());
-					
-					final String fontBegin = "<font color='red'>";
-					final String fontEnd = "</font>";
-					
-					for (String currentRadical : selectedRadicals) {
-						
-						int idxStart = 0;
-						
-						while(true) {
-							
-							int idx1 = currentKanjiEntryFullText.indexOf(currentRadical, idxStart);
-							
-							if (idx1 == -1) {
-								break;
-							}
-							
-							currentKanjiEntryFullText.insert(idx1, fontBegin);
-							
-							currentKanjiEntryFullText.insert(idx1 + currentRadical.length() + fontBegin.length(), fontEnd);
 
-							idxStart = idx1 + currentRadical.length() + fontBegin.length() + fontEnd.length();
-						}
-					}
-													
+                    String currentKanjiEntryFullText = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(currentKanjiEntry);
+                    String currentKanjiEntryRadicalText = WordKanjiDictionaryUtils.getKanjiRadicalTextWithMark(currentKanjiEntry);
+
 					searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsKanjiEntry(currentKanjiEntry,
-							Html.fromHtml(currentKanjiEntryFullText.toString().replaceAll("\n", "<br/>")),
-							Html.fromHtml(currentKanjiEntryRadicalText.toString())));								
+							Html.fromHtml(currentKanjiEntryFullText.replaceAll("\n", "<br/>")),
+							Html.fromHtml(currentKanjiEntryRadicalText)));
 				}
 
 				searchResultArrayAdapter.notifyDataSetChanged();

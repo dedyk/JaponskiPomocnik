@@ -6,6 +6,8 @@ import java.util.Locale;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 
 public class WordKanjiDictionaryUtils {
 
@@ -97,9 +99,69 @@ public class WordKanjiDictionaryUtils {
         return result.toString();
     }
 
+    public static String getKanjiFullTextWithMark(KanjiEntry kanjiEntry) {
+        return getKanjiFullTextWithMark(kanjiEntry, null);
+    }
+
+    public static String getKanjiFullTextWithMark(KanjiEntry kanjiEntry, String findWord) {
+
+        String kanji = kanjiEntry.getKanji();
+        List<String> polishTranslates = kanjiEntry.getPolishTranslates();
+
+        String info = kanjiEntry.getInfo();
+
+        StringBuffer result = new StringBuffer();
+
+        result.append("<big>").append(getStringWithMark(kanji, findWord, true)).append("</big> - ");
+        result.append(getStringWithMark(toString(polishTranslates, null), findWord, true));
+
+        if (info != null && info.equals("") == false) {
+
+            result.append("\n");
+
+            result.append(getStringWithMark(info, findWord, true));
+        }
+
+        result.append("\n");
+
+        return result.toString();
+    }
+
+    public static String getKanjiRadicalTextWithMark(KanjiEntry kanjiEntry) {
+        return getKanjiRadicalTextWithMark(kanjiEntry, null);
+    }
+
+    public static String getKanjiRadicalTextWithMark(KanjiEntry kanjiEntry, String findWord) {
+
+        KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
+
+        List<String> radicals = null;
+
+        if (kanjiDic2Entry != null) {
+            radicals = kanjiDic2Entry.getRadicals();
+
+            if (radicals != null && radicals.size() == 0) {
+                radicals = null;
+            }
+        }
+
+        StringBuffer result = new StringBuffer();
+
+        if (radicals != null) {
+            result.append(getStringWithMark(toString(radicals, null), findWord, true));
+        }
+
+        return result.toString();
+    }
+
+
     private static String getStringWithMark(String text, String findWord, boolean mark) {
 
         if (mark == false) {
+            return text;
+        }
+
+        if (findWord == null) {
             return text;
         }
 

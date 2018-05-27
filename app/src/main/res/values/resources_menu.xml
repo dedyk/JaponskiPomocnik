@@ -15,7 +15,9 @@
 
     <item name="word_dictionary_details_menu_search" type="id" />
     <item name="word_dictionary_details_menu_search_next" type="id" />
-    <item name="word_dictionary_details_menu_add_item_id_to_user_group" type="id" />s
+    <item name="word_dictionary_details_menu_add_item_id_to_user_group" type="id" />
+
+    <item name="kanji_details_menu_add_item_id_to_user_group" type="id" />
 
     <item name="kanji_test_options_clear_selected_kanji" type="id" />
     <item name="kanji_test_options_input_kanji_to_test" type="id" />

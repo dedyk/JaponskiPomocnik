@@ -351,7 +351,7 @@ public class UserGroupActivity extends Activity {
 
     private void checkItemToAdd() {
 
-        Serializable itemToAdd = (DictionaryEntry) getIntent().getSerializableExtra("itemToAdd");
+        Serializable itemToAdd = getIntent().getSerializableExtra("itemToAdd");
 
         if (itemToAdd != null) {
 
@@ -362,24 +362,25 @@ public class UserGroupActivity extends Activity {
 
             //
 
-            String itemToAddToString = null;
+            CharSequence itemToAddToCharSequence = null;
 
             if (itemToAdd instanceof DictionaryEntry) {
                 dictionaryEntryToAdd = (DictionaryEntry)itemToAdd;
 
-                itemToAddToString = WordKanjiDictionaryUtils.getWordFullTextWithMark(dictionaryEntryToAdd);
+                itemToAddToCharSequence = WordKanjiDictionaryUtils.getWordFullTextWithMark(dictionaryEntryToAdd);
 
             } else if (itemToAdd instanceof KanjiEntry) {
                 kanjiEntryToAdd = (KanjiEntry)itemToAdd;
 
-                // FIXME
-                throw new RuntimeException("FIXME");
+                String itemToAddToString = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(kanjiEntryToAdd);
+
+                itemToAddToCharSequence = Html.fromHtml(itemToAddToString.replaceAll("\n", "<br/>"));
 
             } else {
                 throw new RuntimeException("Unknown itemToAdd: " + itemToAdd);
             }
 
-            itemToAddValueTextView.setText(itemToAddToString);
+            itemToAddValueTextView.setText(itemToAddToCharSequence);
 
             itemToAddValueTextView.setVisibility(View.VISIBLE);
             itemToAddValueLabelTextView.setVisibility(View.VISIBLE);

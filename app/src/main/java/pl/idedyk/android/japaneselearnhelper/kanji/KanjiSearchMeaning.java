@@ -16,6 +16,7 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient.AutoCompleteSuggestionType;
 import pl.idedyk.android.japaneselearnhelper.utils.SearchHistoryHelper;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
@@ -431,8 +432,8 @@ public class KanjiSearchMeaning extends Activity {
 					
 					for (KanjiEntry currentKanjiEntry : findKanjiResult.result) {
 						
-						String currentFoundKanjiFullTextWithMarks = getKanjiFullTextWithMark(currentKanjiEntry, findWord);
-						String currentFoundKanjiRadicalTextWithMarks = getKanjiRadicalTextWithMark(currentKanjiEntry, findWord);														
+						String currentFoundKanjiFullTextWithMarks = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(currentKanjiEntry, findWord);
+						String currentFoundKanjiRadicalTextWithMarks = WordKanjiDictionaryUtils.getKanjiRadicalTextWithMark(currentKanjiEntry, findWord);
 						
 						searchResultList.add(KanjiEntryListItem.createKanjiEntryListItemAsKanjiEntry(currentKanjiEntry,
 								Html.fromHtml(currentFoundKanjiFullTextWithMarks.replaceAll("\n", "<br/>")),
@@ -458,109 +459,6 @@ public class KanjiSearchMeaning extends Activity {
 					SearchHistoryHelper searchHistoryHelper = new SearchHistoryHelper(KanjiSearchMeaning.this, kanjiSearchMeaningSearchHistoryFieldName);
 
 					searchHistoryHelper.addEntry(new SearchHistoryHelper.Entry(findKanjiRequest.word));
-				}
-			    
-			    private String getKanjiFullTextWithMark(KanjiEntry kanjiEntry, String findWord) {
-
-			    	
-			    	String kanji = kanjiEntry.getKanji();
-			    	List<String> polishTranslates = kanjiEntry.getPolishTranslates();
-			    				    				    	
-			    	String info = kanjiEntry.getInfo();
-			    	
-			    	StringBuffer result = new StringBuffer();
-			    	
-					result.append("<big>").append(getStringWithMark(kanji, findWord)).append("</big> - ");
-					result.append(getStringWithMark(toString(polishTranslates, null), findWord));
-					
-					if (info != null && info.equals("") == false) {
-						
-						result.append("\n");
-						
-						result.append(getStringWithMark(info, findWord));
-					}
-					
-					result.append("\n");
-					
-			    	return result.toString();
-			    }
-
-			    private String getKanjiRadicalTextWithMark(KanjiEntry kanjiEntry, String findWord) {
-			    	
-			    	KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
-			    				    	
-			    	List<String> radicals = null;
-			    	
-			    	if (kanjiDic2Entry != null) {
-			    		radicals = kanjiDic2Entry.getRadicals();
-			    		
-			    		if (radicals != null && radicals.size() == 0) {
-			    			radicals = null;
-			    		}
-			    	}
-			    				    	
-			    	StringBuffer result = new StringBuffer();
-			    						
-					if (radicals != null) {
-						result.append(getStringWithMark(toString(radicals, null), findWord));
-					}
-
-			    	return result.toString();
-			    }			    
-			    
-			    private String getStringWithMark(String text, String findWord) {
-			    				    	
-			    	String findWordLowerCase = findWord.toLowerCase(Locale.getDefault());
-			    	
-					StringBuffer texStringBuffer = new StringBuffer(text);								
-					StringBuffer textLowerCaseStringBuffer = new StringBuffer(text.toLowerCase(Locale.getDefault()));
-													
-					int idxStart = 0;
-					
-					final String fontBegin = "<font color='red'>";
-					final String fontEnd = "</font>";
-					
-					while(true) {
-						
-						int idx1 = textLowerCaseStringBuffer.indexOf(findWordLowerCase, idxStart);
-						
-						if (idx1 == -1) {
-							break;
-						}
-						
-						texStringBuffer.insert(idx1, fontBegin);
-						textLowerCaseStringBuffer.insert(idx1, fontBegin);
-						
-						texStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
-						textLowerCaseStringBuffer.insert(idx1 + findWordLowerCase.length() + fontBegin.length(), fontEnd);
-
-						idxStart = idx1 + findWordLowerCase.length() + fontBegin.length() + fontEnd.length();
-					}
-					
-					return texStringBuffer.toString();
-			    }
-			    
-				private String toString(List<String> listString, String prefix) {
-					
-					StringBuffer sb = new StringBuffer();
-					
-					sb.append("[");
-					
-					for (int idx = 0; idx < listString.size(); ++idx) {
-						if (prefix != null) {
-							sb.append("(").append(prefix).append(") ");
-						}
-						
-						sb.append(listString.get(idx));
-						
-						if (idx != listString.size() - 1) {
-							sb.append(", ");
-						}
-					}
-					
-					sb.append("]");
-					
-					return sb.toString();
 				}
 			}
 			

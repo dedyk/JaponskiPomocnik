@@ -21,6 +21,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
+import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
@@ -28,7 +29,9 @@ import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -45,10 +48,20 @@ import android.widget.Toast;
 
 @SuppressWarnings("deprecation")
 public class KanjiDetails extends Activity {
+
+	private List<IScreenItem> generatedDetails;
+
+	private KanjiEntry kanjiEntry;
+
+	//
+
+	private final static int ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE = 1;
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
+
+		menu.add(Menu.NONE, R.id.kanji_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.kanji_details_menu_add_item_id_to_user_group);
 		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
@@ -59,9 +72,34 @@ public class KanjiDetails extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		super.onOptionsItemSelected(item);
 
-		return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		if (item.getItemId() == R.id.kanji_details_menu_add_item_id_to_user_group) {
+
+			Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
+
+			intent.putExtra("itemToAdd", kanjiEntry);
+
+			startActivityForResult(intent, ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE);
+
+			return true;
+
+		} else {
+			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
+		}
 	}
-	
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		if (requestCode == ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE) {
+
+			LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.kanji_details_main_layout);
+
+			generatedDetails = generateDetails(kanjiEntry);
+
+			fillDetailsMainLayout(generatedDetails, detailsMainLayout);
+		}
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		
@@ -71,11 +109,11 @@ public class KanjiDetails extends Activity {
 		
 		setContentView(R.layout.kanji_details);
 		
-		final KanjiEntry kanjiEntry = (KanjiEntry)getIntent().getSerializableExtra("item");
+		kanjiEntry = (KanjiEntry)getIntent().getSerializableExtra("item");
 		
 		LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.kanji_details_main_layout);
 		
-		final List<IScreenItem> generatedDetails = generateDetails(kanjiEntry);
+		generatedDetails = generateDetails(kanjiEntry);
 		
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 		
@@ -118,6 +156,8 @@ public class KanjiDetails extends Activity {
 	}
 	
 	private void fillDetailsMainLayout(List<IScreenItem> generatedDetails, LinearLayout detailsMainLayout) {
+
+		detailsMainLayout.removeAllViews();
 		
 		for (IScreenItem currentDetailsReportItem : generatedDetails) {
 			currentDetailsReportItem.generate(this, getResources(), detailsMainLayout);			
@@ -264,10 +304,36 @@ public class KanjiDetails extends Activity {
 			for (int idx = 0; idx < groups.size(); ++idx) {
 				report.add(new StringValue(groups.get(idx).getValue(), 20.0f, 0));
 			}			
-		}		
-		
+		}
+
+		// user groups
 		report.add(new StringValue("", 15.0f, 2));
-		
+		report.add(new TitleItem(getString(R.string.kanji_details_user_groups), 0));
+
+		final DataManager dataManager = dictionaryManager.getDataManager();
+
+		List<UserGroupEntity> userGroupEntityListForItemId = dataManager.getUserGroupEntityListForItemId(UserGroupEntity.Type.USER_GROUP, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
+
+		for (UserGroupEntity currentUserGroupEntity : userGroupEntityListForItemId) {
+
+			TableRow userGroupTableRow = new TableRow();
+
+			OnClickListener	deleteItemIdFromUserGroupOnClickListener = createDeleteItemIdFromUserGroupOnClickListener(dataManager, kanjiEntry, currentUserGroupEntity, userGroupTableRow);
+
+			StringValue	userGroupNameStringValue = new StringValue(currentUserGroupEntity.getName(), 15.0f, 0);
+			Image userGroupNameDeleteImage = new Image(getResources().getDrawable(R.drawable.delete), 0);
+
+			userGroupNameStringValue.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
+			userGroupNameDeleteImage.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
+
+			userGroupTableRow.addScreenItem(userGroupNameStringValue);
+			userGroupTableRow.addScreenItem(userGroupNameDeleteImage);
+
+			report.add(userGroupTableRow);
+		}
+
+		report.add(new StringValue("", 15.0f, 2));
+
 		// find kanji in words
 		pl.idedyk.android.japaneselearnhelper.screen.Button findWordWithKanji = new pl.idedyk.android.japaneselearnhelper.screen.Button(
 				getString(R.string.kanji_details_find_kanji_in_words));
@@ -352,6 +418,49 @@ public class KanjiDetails extends Activity {
 		});
 
 		return starImage;
+	}
+
+	private OnClickListener createDeleteItemIdFromUserGroupOnClickListener(final DataManager dataManager, final KanjiEntry kanjiEntry, final UserGroupEntity userGroupEntity, final TableRow userGroupTableRow) {
+
+		return new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				final AlertDialog alertDialog = new AlertDialog.Builder(KanjiDetails.this).create();
+
+				alertDialog.setTitle(getString(R.string.kanji_details_delete_item_id_from_user_group_title));
+				alertDialog.setMessage(getString(R.string.kanji_details_delete_item_id_from_user_group_message, userGroupEntity.getName()));
+
+				alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.user_group_ok_button), new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+						// usuwamy z bazy danych
+						dataManager.deleteItemIdFromUserGroup(userGroupEntity, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
+
+						// ukrywamy grupe
+						userGroupTableRow.setVisibility(View.GONE);
+
+						// komunikat
+						Toast.makeText(KanjiDetails.this, getString(R.string.kanji_details_delete_item_id_from_user_group_toast, userGroupEntity.getName()), Toast.LENGTH_SHORT).show();
+					}
+				});
+
+				alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.user_group_cancel_button), new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						alertDialog.dismiss();
+
+					}
+				});
+
+				if (isFinishing() == false) {
+					alertDialog.show();
+				}
+			}
+		};
 	}
 
 	private class CopyToClipboard implements OnClickListener {
