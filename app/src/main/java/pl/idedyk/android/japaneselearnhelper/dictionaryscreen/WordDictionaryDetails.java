@@ -83,6 +83,7 @@ public class WordDictionaryDetails extends Activity {
 	private Integer searchScreenItemCurrentPos = null;
 
 	private DictionaryEntry dictionaryEntry = null;
+	private DictionaryEntryType forceDictionaryEntryType = null;
 
 	//
 
@@ -289,7 +290,7 @@ public class WordDictionaryDetails extends Activity {
 		setContentView(R.layout.word_dictionary_details);
 
 		dictionaryEntry = (DictionaryEntry) getIntent().getSerializableExtra("item");
-		DictionaryEntryType forceDictionaryEntryType = (DictionaryEntryType) getIntent().getSerializableExtra(
+		forceDictionaryEntryType = (DictionaryEntryType) getIntent().getSerializableExtra(
 				"forceDictionaryEntryType");
 
 		final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
@@ -349,7 +350,13 @@ public class WordDictionaryDetails extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 		if (requestCode == ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE) {
-			// noop
+
+			final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
+			final LinearLayout detailsMainLayout = (LinearLayout) findViewById(R.id.word_dictionary_details_main_layout);
+
+			generatedDetails = generateDetails(dictionaryEntry, forceDictionaryEntryType, scrollMainLayout);
+
+			fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 		}
 	}
 
@@ -1052,6 +1059,8 @@ public class WordDictionaryDetails extends Activity {
 	}
 
 	private void fillDetailsMainLayout(List<IScreenItem> generatedDetails, LinearLayout detailsMainLayout) {
+
+		detailsMainLayout.removeAllViews();
 
 		for (IScreenItem currentDetailsReportItem : generatedDetails) {
 			currentDetailsReportItem.generate(this, getResources(), detailsMainLayout);
