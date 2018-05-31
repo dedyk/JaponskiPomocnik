@@ -70,6 +70,13 @@ public class DataManager {
         sqliteDatabase.execSQL(SQLiteStatic.user_group_sql_name_update, new Object[] { userGroupEntity.getName(), userGroupEntity.getId() });
     }
 
+    public void deleteUserGroup(UserGroupEntity userGroupEntity) {
+
+        for (String sql : SQLiteStatic.user_group_sql_delete) {
+            sqliteDatabase.execSQL(sql, new Object[] { userGroupEntity.getId() });
+        }
+    }
+
     public List<UserGroupEntity> getAllUserGroupList() {
 
         Cursor cursor = null;
@@ -257,6 +264,12 @@ public class DataManager {
 
         public static final String user_group_sql_name_update =
                 String.format("update %s set %s = ? where %s = ?", user_groups_table_name, user_groups_column_name, user_groups_items_column_id);
+
+        public static final String[] user_group_sql_delete =
+                new String[] {
+                        String.format("delete from %s where %s = ?", user_groups_items_table_name, user_groups_items_column_user_group_id),
+                        String.format("delete from %s where %s = ?", user_groups_table_name, user_groups_column_id),
+                };
 
         public static final String user_group_sql_select_all =
                 "select * from " + user_groups_table_name + ";";

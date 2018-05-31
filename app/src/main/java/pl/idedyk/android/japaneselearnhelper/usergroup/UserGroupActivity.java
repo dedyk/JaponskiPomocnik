@@ -189,6 +189,10 @@ public class UserGroupActivity extends Activity {
 
                         } else if (itemId == R.id.user_group_popup_delete_group) { // usuniecie nazwy grupy
 
+                            UserGroupEntity userGroupEntityToDelete = userGroupListItem.getUserGroupEntity();
+
+                            deleteUserGroup(userGroupEntityToDelete);
+
                             return true;
 
                         } else {
@@ -455,6 +459,50 @@ public class UserGroupActivity extends Activity {
             itemToAddValueLabelTextView.setVisibility(View.GONE);
             itemToAddTextViewLine1.setVisibility(View.GONE);
             itemToAddTextViewLine2.setVisibility(View.GONE);
+            }
+        });
+
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.user_group_cancel_button), new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+
+            }
+        });
+
+        if (isFinishing() == false) {
+            alertDialog.show();
+        }
+    }
+
+    private void deleteUserGroup(final UserGroupEntity userGroupEntity) {
+
+        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
+        final DataManager dataManager = dictionaryManager.getDataManager();
+
+        //
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+        alertDialog.setTitle(getString(R.string.user_group_delete_user_group_entity_title));
+        alertDialog.setMessage(getString(R.string.user_group_delete_user_group_entity_message, userGroupEntity.getName()));
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.user_group_ok_button), new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // usuniecie grupy
+                dataManager.deleteUserGroup(userGroupEntity);
+
+                // komunikat
+                Toast.makeText(UserGroupActivity.this,
+                        getString(R.string.user_group_delete_user_group_entity_toast, userGroupEntity.getName()), Toast.LENGTH_SHORT).show();
+
+                // zaladowanie nowe listy grup
+                loadUserGroups();
             }
         });
 

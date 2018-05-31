@@ -34,5 +34,9 @@
     <string name="user_group_item_to_add_user_group_entity_message">Czy chcesz dodać element do grupy: \'%1$s\'</string>
     <string name="user_group_item_to_add_user_group_entity_toast">Dodano element do grupy \'%1$s\'</string>
 
+    <string name="user_group_delete_user_group_entity_title">Potwierdzenie usunięcia</string>
+    <string name="user_group_delete_user_group_entity_message">Czy na pewno chcesz usunąc grupę: \'%1$s\'</string>
+    <string name="user_group_delete_user_group_entity_toast">Usunięto grupę \'%1$s\'</string>
+
     <string name="user_group_report_problem">Widzisz błąd, brakuje szukanego słowa, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
 </resources>
