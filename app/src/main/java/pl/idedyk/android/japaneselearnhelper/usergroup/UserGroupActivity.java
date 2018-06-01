@@ -86,16 +86,12 @@ public class UserGroupActivity extends Activity {
     protected void onSaveInstanceState(Bundle bundle) {
 
         super.onSaveInstanceState(bundle);
-
-        // FIXME
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle bundle) {
 
         super.onRestoreInstanceState(bundle);
-
-        // FIXME
     }
 
     @Override
@@ -564,8 +560,5 @@ public class UserGroupActivity extends Activity {
                 startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
             }
         });
-
-
-
     }
 }
