@@ -57,7 +57,7 @@
         android:padding="5dp" >
 
         <TextView
-            android:id="@+id/word_dictionary_report_problem_label"
+            android:id="@+id/user_group_report_problem_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"

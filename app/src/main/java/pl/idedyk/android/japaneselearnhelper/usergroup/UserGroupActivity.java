@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.InputType;
@@ -33,6 +35,7 @@ import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -115,6 +118,10 @@ public class UserGroupActivity extends Activity {
         //
 
         checkItemToAdd();
+
+        //
+
+        createReportProblemButton();
     }
 
     @Override
@@ -518,5 +525,47 @@ public class UserGroupActivity extends Activity {
         if (isFinishing() == false) {
             alertDialog.show();
         }
+    }
+
+    private void createReportProblemButton() {
+
+        Button reportProblemButton = (Button)findViewById(R.id.user_group_report_problem_button);
+
+        reportProblemButton.setOnClickListener(new OnClickListener() {
+
+            public void onClick(View view) {
+
+                StringBuffer userGroupListText = new StringBuffer();
+
+                for (int userGroupListAdapterIdx = 0; userGroupListAdapterIdx < userGroupListAdapter.size(); ++userGroupListAdapterIdx) {
+                    userGroupListText.append(((UserGroupListItem)userGroupListAdapter.getItem(userGroupListAdapterIdx)).getText().toString()).append("\n--\n");
+                }
+
+                String chooseEmailClientTitle = getString(R.string.choose_email_client);
+
+                String mailSubject = getString(R.string.user_group_report_problem_email_subject);
+
+                String mailBody = getString(R.string.user_group_report_problem_email_body, userGroupListText.toString());
+
+                String versionName = "";
+                int versionCode = 0;
+
+                try {
+                    PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+                    versionName = packageInfo.versionName;
+                    versionCode = packageInfo.versionCode;
+
+                } catch (PackageManager.NameNotFoundException e) {
+                }
+
+                Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode);
+
+                startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+            }
+        });
+
+
+
     }
 }

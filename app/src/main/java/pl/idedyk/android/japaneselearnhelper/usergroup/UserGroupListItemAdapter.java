@@ -95,6 +95,10 @@ public class UserGroupListItemAdapter extends BaseAdapter {
         return convertView;
     }
 
+    public int size() {
+        return data.size();
+    }
+
     static private class UserGroupListItemHolder {
         TextView userGroupListItemHolderValue;
         ImageView userGroupListItemHolderIcon;

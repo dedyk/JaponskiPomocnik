@@ -39,4 +39,7 @@
     <string name="user_group_delete_user_group_entity_toast">Usunięto grupę \'%1$s\'</string>
 
     <string name="user_group_report_problem">Widzisz błąd, brakuje szukanego słowa, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+
+    <string name="user_group_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestii w grupach użytkownika</string>
+    <string name="user_group_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\nGrupy użytkownika:\n\n%1$s\n</string>
 </resources>
