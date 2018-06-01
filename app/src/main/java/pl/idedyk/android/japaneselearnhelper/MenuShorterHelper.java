@@ -7,6 +7,8 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
 import pl.idedyk.android.japaneselearnhelper.keigo.KeigoTable;
 import pl.idedyk.android.japaneselearnhelper.transitiveintransitive.TransitiveIntransitivePairsTable;
+import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -22,7 +24,8 @@ public class MenuShorterHelper {
 		menu.add(Menu.NONE, R.id.main_menu_transitive_intransitive_pairs_table_text_menu_item, Menu.NONE, R.string.main_menu_transitive_intransitive_pairs_table_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_dictionary_text_menu_item, Menu.NONE, R.string.main_menu_dictionary_text);
 		menu.add(Menu.NONE, R.id.main_menu_kanji_text_menu_item, Menu.NONE, R.string.main_menu_kanji_text_short);
-		menu.add(Menu.NONE, R.id.main_menu_kanji_recognizer_text_menu_item, Menu.NONE, R.string.main_menu_kanji_recognizer_text_short);	
+		menu.add(Menu.NONE, R.id.main_menu_kanji_recognizer_text_menu_item, Menu.NONE, R.string.main_menu_kanji_recognizer_text_short);
+		menu.add(Menu.NONE, R.id.main_menu_show_user_group_menu_item, Menu.NONE, R.string.main_menu_show_user_group_text);
 	}
 	
 	public static boolean onOptionsItemSelected(MenuItem item, Context applicationContext, Activity activity) {
@@ -77,8 +80,16 @@ public class MenuShorterHelper {
 			activity.startActivity(intent);	
 			
 			return true;
+
+		} else if (itemId == R.id.main_menu_show_user_group_menu_item) { // pokaz grupy uzytkownika
+
+			Intent intent = new Intent(applicationContext, UserGroupActivity.class);
+
+			activity.startActivity(intent);
+
+			return true;
 		}
-		
+
 		return false;
 	}
 }

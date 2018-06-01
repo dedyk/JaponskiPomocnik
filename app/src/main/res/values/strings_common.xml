@@ -47,6 +47,9 @@
     <string name="main_menu_suggestion_text">Zgłoś sugestię</string>
     <string name="main_menu_suggestion_kanji">提案</string>
 
+    <string name="main_menu_show_user_group_text">Grupy użytkownika</string>
+    <string name="main_menu_show_user_group_kana">ユーザーグループ</string>
+
     <string name="main_menu_information_text">Informacje</string>
     <string name="main_menu_information_kanji">情報</string>
     

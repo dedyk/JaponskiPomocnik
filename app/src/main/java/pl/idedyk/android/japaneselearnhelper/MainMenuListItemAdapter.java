@@ -48,6 +48,11 @@ public class MainMenuListItemAdapter extends ArrayAdapter<MainMenuItem> {
         MainMenuItem currentMainMenuListItem = data.get(position);
                 
         holder.mainMenuListItemKanjiHolderValue.setText(currentMainMenuListItem.getKanji());
+
+        if (currentMainMenuListItem.getKanjiSize() != null) {
+            holder.mainMenuListItemKanjiHolderValue.setTextSize(currentMainMenuListItem.getKanjiSize());
+        }
+
         holder.mainMenuListItemTextHolderValue.setText(currentMainMenuListItem.getText());
        
         return convertView;

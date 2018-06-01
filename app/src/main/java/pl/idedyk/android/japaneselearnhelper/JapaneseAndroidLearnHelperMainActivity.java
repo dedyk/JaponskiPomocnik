@@ -17,6 +17,8 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestOptions;
 import pl.idedyk.android.japaneselearnhelper.testsm2.WordTestSM2Options;
 import pl.idedyk.android.japaneselearnhelper.transitiveintransitive.TransitiveIntransitivePairsTable;
+import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -99,6 +101,10 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 		mainMenuListItems.add(new MainMenuItem(
 				getString(R.string.main_menu_kanji_test_kanji),
 				getString(R.string.main_menu_kanji_test_text)));
+
+		mainMenuListItems.add(new MainMenuItem(
+				getString(R.string.main_menu_show_user_group_kana),  15.0f,
+				getString(R.string.main_menu_show_user_group_text)));
 
 		mainMenuListItems.add(new MainMenuItem(
 				getString(R.string.main_menu_suggestion_kanji),
@@ -195,6 +201,12 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent intent = new Intent(getApplicationContext(), KanjiTestOptionsActivity.class);
 
 					startActivity(intent);					
+
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_show_user_group_text)) == true) { // grupy użytkownika
+
+					Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
+
+					startActivity(intent);
 
 				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_suggestion_text)) == true) { // suggestion
 					String chooseEmailClientTitle = getString(R.string.choose_email_client);

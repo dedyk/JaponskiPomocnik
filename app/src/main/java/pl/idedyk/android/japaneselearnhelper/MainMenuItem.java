@@ -6,8 +6,17 @@ public class MainMenuItem {
 	
 	private String text;
 
+	private Float kanjiSize = null;
+
 	public MainMenuItem(String kanji, String text) {
 		this.kanji = kanji;
+		this.text = text;
+	}
+
+	public MainMenuItem(String kanji, Float kanjiSize, String text) {
+		this.kanji = kanji;
+		this.kanjiSize = kanjiSize;
+
 		this.text = text;
 	}
 
@@ -17,5 +26,9 @@ public class MainMenuItem {
 
 	public String getText() {
 		return text;
+	}
+
+	public Float getKanjiSize() {
+		return kanjiSize;
 	}
 }

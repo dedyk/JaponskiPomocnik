@@ -61,10 +61,10 @@ public class KanjiDetails extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		menu.add(Menu.NONE, R.id.kanji_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.kanji_details_menu_add_item_id_to_user_group);
-		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
-		
+
+		menu.add(Menu.NONE, R.id.kanji_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.kanji_details_menu_add_item_id_to_user_group);
+
 		return true;
 	}
 	

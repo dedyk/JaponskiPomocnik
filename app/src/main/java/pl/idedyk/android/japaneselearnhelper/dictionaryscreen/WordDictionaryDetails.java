@@ -128,13 +128,13 @@ public class WordDictionaryDetails extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		menu.add(Menu.NONE, R.id.word_dictionary_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.word_dictionary_details_menu_add_item_id_to_user_group);
-
 		menu.add(Menu.NONE, R.id.word_dictionary_details_menu_search, Menu.NONE, R.string.word_dictionary_details_menu_search);
 		menu.add(Menu.NONE, R.id.word_dictionary_details_menu_search_next, Menu.NONE,
 				R.string.word_dictionary_details_menu_search_next);
 
 		MenuShorterHelper.onCreateOptionsMenu(menu);
+
+		menu.add(Menu.NONE, R.id.word_dictionary_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.word_dictionary_details_menu_add_item_id_to_user_group);
 
 		return true;
 	}

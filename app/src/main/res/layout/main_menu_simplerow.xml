@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/main_menu_simplerow_kanjitext"
-        android:layout_width="80dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:textSize="22dp" />

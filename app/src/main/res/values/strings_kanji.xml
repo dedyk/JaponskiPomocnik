@@ -20,7 +20,7 @@
 
     <string name="kanji_details_user_groups">Grupy użytkownika</string>
 
-    <string name="kanji_details_menu_add_item_id_to_user_group">Dodaj do grupy</string>
+    <string name="kanji_details_menu_add_item_id_to_user_group">Dodaj do grupy użytkownika</string>
 
     <string name="kanji_details_delete_item_id_from_user_group_title">Potwierdzenie usunięcia</string>
     <string name="kanji_details_delete_item_id_from_user_group_message">Czy chcesz usunąć ten znak z grupy: \'%1$s\'</string>

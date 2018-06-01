@@ -23,7 +23,7 @@
     
     <string name="word_dictionary_details_menu_search">Szukaj</string>
     <string name="word_dictionary_details_menu_search_next">Szukaj: Następny element</string>
-    <string name="word_dictionary_details_menu_add_item_id_to_user_group">Dodaj do grupy</string>
+    <string name="word_dictionary_details_menu_add_item_id_to_user_group">Dodaj do grupy użytkownika</string>
     
     <string name="word_dictionary_details_search_no_result">Brak wyników wyszukiwania</string>
     <string name="word_dictionary_details_search_no_more_result">Brak większej liczby wyników</string>
