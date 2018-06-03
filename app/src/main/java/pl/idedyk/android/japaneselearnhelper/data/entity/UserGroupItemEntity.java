@@ -1,6 +1,8 @@
 package pl.idedyk.android.japaneselearnhelper.data.entity;
 
-public class UserGroupItemEntity {
+import java.io.Serializable;
+
+public class UserGroupItemEntity implements Serializable {
 
     private Integer id;
 

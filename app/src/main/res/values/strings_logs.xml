@@ -33,4 +33,5 @@
     <string name="logs_word_test_sm2_options">Opcje testu ze słówek metodą sm2</string>
     <string name="logs_word_test_summary">Podsumowanie testu ze słówek</string>
     <string name="logs_user_group">Grupy użytkownika</string>
+    <string name="logs_user_group_contents">Grupy użytkownika zawartość</string>
 </resources>

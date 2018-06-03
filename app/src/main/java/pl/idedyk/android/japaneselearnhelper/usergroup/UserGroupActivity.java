@@ -180,6 +180,14 @@ public class UserGroupActivity extends Activity {
 
                         } else if (itemId == R.id.user_group_popup_open_group) { // otwarcie grupy
 
+                            UserGroupEntity userGroupEntity = userGroupListItem.getUserGroupEntity();
+
+                            Intent intent = new Intent(getApplicationContext(), UserGroupContentsActivity.class);
+
+                            intent.putExtra("userGroupEntity", userGroupEntity);
+
+                            startActivity(intent);
+
                             return true;
 
                         } else if (itemId == R.id.user_group_popup_change_group_name) { // zmiana nazwy grupy
