@@ -190,6 +190,46 @@ public class DataManager {
         }
     }
 
+    public List<UserGroupItemEntity> getUserGroupItemListForUserEntity(UserGroupEntity userGroupEntity) {
+
+        Cursor cursor = null;
+
+        try {
+            cursor = sqliteDatabase.rawQuery(SQLiteStatic.user_groups_items_sql_get_list_for_user_group,
+                    new String[] { String.valueOf(userGroupEntity.getId()) });
+
+            return createUserGroupItemEntityFromCursor(cursor);
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    private List<UserGroupItemEntity> createUserGroupItemEntityFromCursor(Cursor cursor) {
+
+        List<UserGroupItemEntity> result = new ArrayList<>();
+
+        boolean moveToFirst = cursor.moveToFirst();
+
+        if (moveToFirst == false) {
+            return result;
+        }
+
+        do {
+            Integer id = cursor.getInt(0);
+            Integer userGroupId = cursor.getInt(1);
+            UserGroupItemEntity.Type type = UserGroupItemEntity.Type.valueOf(cursor.getString(2));
+            Integer itemId = cursor.getInt(3);
+
+            result.add(new UserGroupItemEntity(id, userGroupId, type, itemId));
+
+        } while (cursor.moveToNext());
+
+        return result;
+    }
+
     private boolean isExists(String sql, String[] params) {
 
         Cursor cursor = null;
@@ -293,5 +333,8 @@ public class DataManager {
         public static final String user_groups_items_sql_delete_group_id_type_item_id =
                 String.format("delete from %s where %s = ? and %s = ? and %s = ?", user_groups_items_table_name,
                         user_groups_items_column_user_group_id, user_groups_items_column_type, user_groups_items_column_item_id);
+
+        public static final String user_groups_items_sql_get_list_for_user_group =
+                String.format("select * from %s where %s = ?", user_groups_items_table_name, user_groups_items_column_user_group_id);
     }
 }

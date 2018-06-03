@@ -4,17 +4,36 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 
 public class UserGroupContentsActivity extends Activity {
 
     private UserGroupEntity userGroupEntity;
+
+    //
+
+    private ListView userGroupContentsListView;
+
+    private UserGroupContentsListItemAdapter userGroupContentsListAdapter;
+
+    private List<UserGroupContentsListItem> userGroupContentsList;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -61,14 +80,14 @@ public class UserGroupContentsActivity extends Activity {
 
         //
 
+        createUserGroupContentsListView();
+
+        //
+
+        loadUserGroupContents();
+
         /*
         //
-
-        createUserGroupListView();
-
-        //
-
-        loadUserGroups();
 
         //
 
@@ -80,17 +99,16 @@ public class UserGroupContentsActivity extends Activity {
         */
     }
 
-    private void createUserGroupListView() {
+    private void createUserGroupContentsListView() {
+
+        userGroupContentsListView = (ListView)findViewById(R.id.user_group_contents_list);
+
+        userGroupContentsList = new ArrayList<>();
+        userGroupContentsListAdapter = new UserGroupContentsListItemAdapter(this, userGroupContentsList);
+
+        userGroupContentsListView.setAdapter(userGroupContentsListAdapter);
 
         /*
-
-        userGroupListView = (ListView)findViewById(R.id.user_group_list);
-
-        userGroupList = new ArrayList<>();
-        userGroupListAdapter = new UserGroupListItemAdapter(this, userGroupList);
-
-        userGroupListView.setAdapter(userGroupListAdapter);
-
         userGroupListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -172,43 +190,149 @@ public class UserGroupContentsActivity extends Activity {
         */
     }
 
-    private void loadUserGroups() {
+    private void loadUserGroupContents() {
 
-        /*
         DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 
         DataManager dataManager = dictionaryManager.getDataManager();
 
-        userGroupList.clear();
+        userGroupContentsList.clear();
 
-        List<UserGroupEntity> allUserGroupsList = dataManager.getAllUserGroupList();
+        List<UserGroupItemEntity> userGroupItemEntityList = dataManager.getUserGroupItemListForUserEntity(userGroupEntity);
+
+        class UserGroupItemEntityAndObject {
+
+            UserGroupItemEntity userGroupItemEntity;
+
+            DictionaryEntry dictionaryEntry;
+            KanjiEntry kanjiEntry;
+
+            public UserGroupItemEntityAndObject(UserGroupItemEntity userGroupItemEntity, DictionaryEntry dictionaryEntry) {
+                this.userGroupItemEntity = userGroupItemEntity;
+                this.dictionaryEntry = dictionaryEntry;
+            }
+
+            public UserGroupItemEntityAndObject(UserGroupItemEntity userGroupItemEntity, KanjiEntry kanjiEntry) {
+                this.userGroupItemEntity = userGroupItemEntity;
+                this.kanjiEntry = kanjiEntry;
+            }
+        }
+
+        // podzielenie grupy na liste DICTIONARY_ENTRY i KANJI_ENTRY
+        List<UserGroupItemEntityAndObject> dictionaryEntryList = new ArrayList<>();
+        List<UserGroupItemEntityAndObject> kanjiEntryList = new ArrayList<>();
+
+        for (UserGroupItemEntity userGroupItemEntity : userGroupItemEntityList) {
+
+            Integer itemId = userGroupItemEntity.getItemId();
+
+            UserGroupItemEntity.Type type = userGroupItemEntity.getType();
+
+            switch (type) {
+
+                case DICTIONARY_ENTRY:
+
+                    DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(itemId);
+
+                    if (dictionaryEntry == null) {
+                        continue;
+                    }
+
+                    dictionaryEntryList.add(new UserGroupItemEntityAndObject(userGroupItemEntity, dictionaryEntry));
+
+                    break;
+
+                case KANJI_ENTRY:
+
+                    KanjiEntry kanjiEntry = dictionaryManager.getKanjiEntryById(itemId);
+
+                    if (kanjiEntry == null) {
+                        continue;
+                    }
+
+                    kanjiEntryList.add(new UserGroupItemEntityAndObject(userGroupItemEntity, kanjiEntry));
+
+                    break;
+
+                    default:
+                        throw new RuntimeException("Unknown UserGroupItemEntity.Type");
+            }
+        }
 
         // sortowanie
-        Collections.sort(allUserGroupsList, new Comparator<UserGroupEntity>() {
-
+        Collections.sort(dictionaryEntryList, new Comparator<UserGroupItemEntityAndObject>() {
             @Override
-            public int compare(UserGroupEntity o1, UserGroupEntity o2) {
+            public int compare(UserGroupItemEntityAndObject o1, UserGroupItemEntityAndObject o2) {
 
-                UserGroupEntity.Type o1Type = o1.getType();
-                UserGroupEntity.Type o2Type = o2.getType();
+            String o1Romaji = o1.dictionaryEntry.getRomaji();
+            String o2Romaji = o2.dictionaryEntry.getRomaji();
 
-                if (o1Type == UserGroupEntity.Type.STAR_GROUP && o2Type != UserGroupEntity.Type.STAR_GROUP) {
-                    return -1;
+            if (o1Romaji == null && o2Romaji == null) {
+                return 0;
 
-                } else if (o1Type != UserGroupEntity.Type.STAR_GROUP && o2Type == UserGroupEntity.Type.STAR_GROUP) {
-                    return 1;
-                }
+            } else if (o1Romaji == null && o2Romaji != null) {
+                return -1;
 
-                return o1.getName().compareTo(o2.getName());
+            } else if (o1Romaji != null && o2Romaji == null) {
+                return 1;
+
+            } else {
+                return o1Romaji.compareTo(o2Romaji);
+            }
             }
         });
 
-        for (UserGroupEntity currentUserGroupEntity : allUserGroupsList) {
-            userGroupList.add(new UserGroupListItem(currentUserGroupEntity, getResources()));
+        Collections.sort(kanjiEntryList, new Comparator<UserGroupItemEntityAndObject>() {
+            @Override
+            public int compare(UserGroupItemEntityAndObject o1, UserGroupItemEntityAndObject o2) {
+
+                Integer o1Power = getMinPower(o1.kanjiEntry.getGroups());
+                Integer o2Power = getMinPower(o2.kanjiEntry.getGroups());
+
+                int comparePower = o1Power.compareTo(o2Power);
+
+                if (comparePower != 0) {
+                    return comparePower;
+                }
+
+                Integer o1Id = o1.kanjiEntry.getId();
+                Integer o2Id = o2.kanjiEntry.getId();
+
+                return o1Id.compareTo(o2Id);
+            }
+
+            private int getMinPower(List<GroupEnum> groupEnumList) {
+
+                int power = Integer.MAX_VALUE;
+
+                for (GroupEnum groupEnum : groupEnumList) {
+
+                    if (groupEnum.getPower() < power) {
+                        power = groupEnum.getPower();
+                    }
+                }
+
+                return power;
+            }
+        });
+
+        // dodajemy liste dictionary
+        for (UserGroupItemEntityAndObject userGroupItemEntityAndObject : dictionaryEntryList) {
+
+            userGroupContentsList.add(new UserGroupContentsListItem(userGroupItemEntityAndObject.userGroupItemEntity,
+                    userGroupItemEntityAndObject.dictionaryEntry, getResources()));
         }
 
-        userGroupListAdapter.notifyDataSetChanged();
-        */
-    }
+        // FIXME !!!!
+        // Linia rozdzielajaca !!!!!
 
+        // dodajemy liste kanji
+        for (UserGroupItemEntityAndObject userGroupItemEntityAndObject : kanjiEntryList) {
+
+            userGroupContentsList.add(new UserGroupContentsListItem(userGroupItemEntityAndObject.userGroupItemEntity,
+                    userGroupItemEntityAndObject.kanjiEntry, getResources()));
+        }
+
+        userGroupContentsListAdapter.notifyDataSetChanged();
+    }
 }

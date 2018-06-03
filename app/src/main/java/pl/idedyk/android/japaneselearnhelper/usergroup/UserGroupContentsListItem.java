@@ -16,13 +16,6 @@ import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 
 public class UserGroupContentsListItem {
 
-    private ListView userGroupListView;
-
-    //private UserGroupContentsListItemAdapter userGroupContentsListAdapter;
-
-    private List<UserGroupContentsListItem> userGroupContentsList;
-
-
     private UserGroupItemEntity userGroupItemEntity;
 
     private DictionaryEntry dictionaryEntry;
