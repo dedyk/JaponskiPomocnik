@@ -30,4 +30,7 @@
     <item name="user_group_popup_open_group" type="id" />
     <item name="user_group_popup_change_group_name" type="id" />
     <item name="user_group_popup_delete_group" type="id" />
+
+    <item name="user_group_contents_popup_open" type="id" />
+    <item name="user_group_contents_popup_delete" type="id" />
 </resources>

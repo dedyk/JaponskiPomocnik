@@ -5,6 +5,15 @@
     <string name="user_group_contents_list_title_dictionary_entry">Słowa</string>
     <string name="user_group_contents_list_title_kanji_entry">Kanji</string>
 
+    <string name="user_group_contents_popup_open">Otwórz</string>
+    <string name="user_group_contents_popup_delete">Usuń z grupy</string>
+
+    <string name="user_group_delete_user_group_item_entity_title">Potwierdzenie usunięcia</string>
+    <string name="user_group_delete_user_group_item_entity_message">Czy na pewno chcesz wybrany element?</string>
+    <string name="user_group_delete_user_group_item_entity_toast">Usunięto element z grupy</string>
+
     <string name="user_group_contents_report_problem">Widzisz błąd, brakuje szukanego słowa, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
 
+    <string name="user_group_contents_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w zawartości grupy użytkownika</string>
+    <string name="user_group_contents_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\nZawartość grupy użytkownika:\n\n%1$s\n</string>
 </resources>

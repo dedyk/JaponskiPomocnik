@@ -89,6 +89,14 @@ public class UserGroupContentsListItem {
         return userGroupItemEntity;
     }
 
+    public DictionaryEntry getDictionaryEntry() {
+        return dictionaryEntry;
+    }
+
+    public KanjiEntry getKanjiEntry() {
+        return kanjiEntry;
+    }
+
     public static enum ItemType {
 
         DICTIONARY_ENTRY(R.layout.user_group_contents_simplerow, 0),

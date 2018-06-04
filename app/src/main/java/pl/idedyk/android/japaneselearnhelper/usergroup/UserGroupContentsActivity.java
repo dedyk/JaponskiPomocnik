@@ -1,10 +1,20 @@
 package pl.idedyk.android.japaneselearnhelper.usergroup;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,6 +29,9 @@ import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -86,17 +99,10 @@ public class UserGroupContentsActivity extends Activity {
 
         loadUserGroupContents();
 
-        /*
-        //
-
-        //
-
-        checkItemToAdd();
 
         //
 
         createReportProblemButton();
-        */
     }
 
     private void createUserGroupContentsListView() {
@@ -108,28 +114,17 @@ public class UserGroupContentsActivity extends Activity {
 
         userGroupContentsListView.setAdapter(userGroupContentsListAdapter);
 
-        /*
-        userGroupListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        userGroupContentsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                final UserGroupListItem userGroupListItem = (UserGroupListItem)userGroupListAdapter.getItem(position);
-
-                UserGroupListItem.ItemType itemType = userGroupListItem.getItemType();
+                final UserGroupContentsListItem userGroupContentsListItem = (UserGroupContentsListItem)userGroupContentsListAdapter.getItem(position);
 
                 // tworzenie menu podrecznego
-                PopupMenu popupMenu = new PopupMenu(UserGroupActivity.this, view);
+                PopupMenu popupMenu = new PopupMenu(UserGroupContentsActivity.this, view);
 
-                if (dictionaryEntryToAdd != null || kanjiEntryToAdd != null) {
-                    popupMenu.getMenu().add(Menu.NONE, R.id.user_group_popup_add_to_this_group, Menu.NONE, R.string.user_group_popup_add_to_this_group);
-                }
-
-                popupMenu.getMenu().add(Menu.NONE, R.id.user_group_popup_open_group, Menu.NONE, R.string.user_group_popup_open_group);
-
-                if (itemType == UserGroupListItem.ItemType.USER_GROUP) {
-                    popupMenu.getMenu().add(Menu.NONE, R.id.user_group_popup_change_group_name, Menu.NONE, R.string.user_group_popup_change_group_name);
-                    popupMenu.getMenu().add(Menu.NONE, R.id.user_group_popup_delete_group, Menu.NONE, R.string.user_group_popup_delete_group);
-                }
+                popupMenu.getMenu().add(Menu.NONE, R.id.user_group_contents_popup_open, Menu.NONE, R.string.user_group_contents_popup_open);
+                popupMenu.getMenu().add(Menu.NONE, R.id.user_group_contents_popup_delete, Menu.NONE, R.string.user_group_contents_popup_delete);
 
                 //
 
@@ -140,39 +135,47 @@ public class UserGroupContentsActivity extends Activity {
 
                         int itemId = item.getItemId();
 
-                        if (itemId == R.id.user_group_popup_add_to_this_group) { // dodanie elementu do grupy
+                        if (itemId == R.id.user_group_contents_popup_open) { // otwarcie elementu z listy
 
-                            UserGroupEntity userGroupEntity = userGroupListItem.getUserGroupEntity();
+                            UserGroupContentsListItem.ItemType type = userGroupContentsListItem.getItemType();
 
-                            addItemIdToUserGroupEntity(userGroupEntity);
+                            switch (type) {
+
+                                case DICTIONARY_ENTRY:
+
+                                    DictionaryEntry dictionaryEntry = userGroupContentsListItem.getDictionaryEntry();
+
+                                    Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+
+                                    intent.putExtra("item", dictionaryEntry);
+
+                                    startActivity(intent);
+
+                                    break;
+
+
+                                case KANJI_ENTRY:
+
+                                    KanjiEntry kanjiEntry = userGroupContentsListItem.getKanjiEntry();
+
+                                    Intent intent2 = new Intent(getApplicationContext(), KanjiDetails.class);
+
+                                    intent2.putExtra("item", kanjiEntry);
+
+                                    startActivity(intent2);
+
+                                    break;
+
+                                    default:
+                                        throw new RuntimeException("Unknwon type: " + type);
+
+                            }
 
                             return true;
 
-                        } else if (itemId == R.id.user_group_popup_open_group) { // otwarcie grupy
+                        } else if (itemId == R.id.user_group_contents_popup_delete) { // usuniecie elementu z grupy
 
-                            UserGroupEntity userGroupEntity = userGroupListItem.getUserGroupEntity();
-
-                            Intent intent = new Intent(getApplicationContext(), UserGroupContentsActivity.class);
-
-                            intent.putExtra("userGroupEntity", userGroupEntity);
-
-                            startActivity(intent);
-
-                            return true;
-
-                        } else if (itemId == R.id.user_group_popup_change_group_name) { // zmiana nazwy grupy
-
-                            UserGroupEntity userGroupEntityToUpdate = userGroupListItem.getUserGroupEntity();
-
-                            createOrUpdateUserGroup(userGroupEntityToUpdate);
-
-                            return true;
-
-                        } else if (itemId == R.id.user_group_popup_delete_group) { // usuniecie nazwy grupy
-
-                            UserGroupEntity userGroupEntityToDelete = userGroupListItem.getUserGroupEntity();
-
-                            deleteUserGroup(userGroupEntityToDelete);
+                            deleteUserGroupItemEntity(userGroupContentsListItem.getUserGroupItemEntity());
 
                             return true;
 
@@ -187,7 +190,6 @@ public class UserGroupContentsActivity extends Activity {
                 popupMenu.show();
             }
         });
-        */
     }
 
     private void loadUserGroupContents() {
@@ -335,5 +337,88 @@ public class UserGroupContentsActivity extends Activity {
         }
 
         userGroupContentsListAdapter.notifyDataSetChanged();
+    }
+
+    private void deleteUserGroupItemEntity(final UserGroupItemEntity userGroupItemEntity) {
+
+        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
+        final DataManager dataManager = dictionaryManager.getDataManager();
+
+        //
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+        alertDialog.setTitle(getString(R.string.user_group_delete_user_group_item_entity_title));
+        alertDialog.setMessage(getString(R.string.user_group_delete_user_group_item_entity_message));
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.user_group_ok_button), new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // usuniecie elementu listy
+                dataManager.deleteItemIdFromUserGroup(userGroupEntity, userGroupItemEntity.getType(), userGroupItemEntity.getItemId());
+
+                // komunikat
+                Toast.makeText(UserGroupContentsActivity.this,
+                        getString(R.string.user_group_delete_user_group_item_entity_toast), Toast.LENGTH_SHORT).show();
+
+                // zaladowanie nowej zawartosci grupy
+                loadUserGroupContents();
+            }
+        });
+
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.user_group_cancel_button), new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+
+            }
+        });
+
+        if (isFinishing() == false) {
+            alertDialog.show();
+        }
+    }
+
+    private void createReportProblemButton() {
+
+        Button reportProblemButton = (Button)findViewById(R.id.user_group_contents_report_problem_button);
+
+        reportProblemButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+
+                StringBuffer userGroupContentsListText = new StringBuffer();
+
+                for (int userGroupContentsListAdapterIdx = 0; userGroupContentsListAdapterIdx < userGroupContentsListAdapter.size(); ++userGroupContentsListAdapterIdx) {
+                    userGroupContentsListText.append(((UserGroupContentsListItem)userGroupContentsListAdapter.getItem(userGroupContentsListAdapterIdx)).getText().toString()).append("\n--\n");
+                }
+
+                String chooseEmailClientTitle = getString(R.string.choose_email_client);
+
+                String mailSubject = getString(R.string.user_group_contents_report_problem_email_subject);
+
+                String mailBody = getString(R.string.user_group_contents_report_problem_email_body, userGroupContentsListText.toString());
+
+                String versionName = "";
+                int versionCode = 0;
+
+                try {
+                    PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+                    versionName = packageInfo.versionName;
+                    versionCode = packageInfo.versionCode;
+
+                } catch (PackageManager.NameNotFoundException e) {
+                }
+
+                Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(), versionName, versionCode);
+
+                startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+            }
+        });
     }
 }
