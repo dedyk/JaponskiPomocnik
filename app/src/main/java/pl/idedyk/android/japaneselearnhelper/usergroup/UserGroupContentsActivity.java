@@ -264,21 +264,21 @@ public class UserGroupContentsActivity extends Activity {
             @Override
             public int compare(UserGroupItemEntityAndObject o1, UserGroupItemEntityAndObject o2) {
 
-            String o1Romaji = o1.dictionaryEntry.getRomaji();
-            String o2Romaji = o2.dictionaryEntry.getRomaji();
+                String o1Romaji = o1.dictionaryEntry.getRomaji();
+                String o2Romaji = o2.dictionaryEntry.getRomaji();
 
-            if (o1Romaji == null && o2Romaji == null) {
-                return 0;
+                if (o1Romaji == null && o2Romaji == null) {
+                    return 0;
 
-            } else if (o1Romaji == null && o2Romaji != null) {
-                return -1;
+                } else if (o1Romaji == null && o2Romaji != null) {
+                    return -1;
 
-            } else if (o1Romaji != null && o2Romaji == null) {
-                return 1;
+                } else if (o1Romaji != null && o2Romaji == null) {
+                    return 1;
 
-            } else {
-                return o1Romaji.compareTo(o2Romaji);
-            }
+                } else {
+                    return o1Romaji.compareTo(o2Romaji);
+                }
             }
         });
 
@@ -317,20 +317,21 @@ public class UserGroupContentsActivity extends Activity {
         });
 
         // dodajemy liste dictionary
+        userGroupContentsList.add(new UserGroupContentsListItem(getString(R.string.user_group_contents_list_title_dictionary_entry)));
+
         for (UserGroupItemEntityAndObject userGroupItemEntityAndObject : dictionaryEntryList) {
 
             userGroupContentsList.add(new UserGroupContentsListItem(userGroupItemEntityAndObject.userGroupItemEntity,
-                    userGroupItemEntityAndObject.dictionaryEntry, getResources()));
+                    userGroupItemEntityAndObject.dictionaryEntry));
         }
 
-        // FIXME !!!!
-        // Linia rozdzielajaca !!!!!
-
         // dodajemy liste kanji
+        userGroupContentsList.add(new UserGroupContentsListItem(getString(R.string.user_group_contents_list_title_kanji_entry)));
+
         for (UserGroupItemEntityAndObject userGroupItemEntityAndObject : kanjiEntryList) {
 
             userGroupContentsList.add(new UserGroupContentsListItem(userGroupItemEntityAndObject.userGroupItemEntity,
-                    userGroupItemEntityAndObject.kanjiEntry, getResources()));
+                    userGroupItemEntityAndObject.kanjiEntry));
         }
 
         userGroupContentsListAdapter.notifyDataSetChanged();

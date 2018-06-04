@@ -23,55 +23,65 @@ public class UserGroupContentsListItem {
 
     //
 
-    private Resources resources;
+    private String title;
 
-    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, DictionaryEntry dictionaryEntry, Resources resources) {
+    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, DictionaryEntry dictionaryEntry) {
         this.userGroupItemEntity = userGroupItemEntity;
         this.dictionaryEntry = dictionaryEntry;
-
-        this.resources = resources;
     }
 
-    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, KanjiEntry kanjiEntry, Resources resources) {
+    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, KanjiEntry kanjiEntry) {
         this.userGroupItemEntity = userGroupItemEntity;
         this.kanjiEntry = kanjiEntry;
+    }
 
-        this.resources = resources;
+    public UserGroupContentsListItem(String title) {
+        this.title = title;
     }
 
     public ItemType getItemType() {
 
-        switch (userGroupItemEntity.getType()) {
+        if (title != null) {
+            return ItemType.TITLE;
 
-            case DICTIONARY_ENTRY:
-                return ItemType.DICTIONARY_ENTRY;
+        } else {
+            switch (userGroupItemEntity.getType()) {
 
-            case KANJI_ENTRY:
-                return ItemType.KANJI_ENTRY;
+                case DICTIONARY_ENTRY:
+                    return ItemType.DICTIONARY_ENTRY;
 
-            default:
-                throw new RuntimeException("" + userGroupItemEntity.getType());
+                case KANJI_ENTRY:
+                    return ItemType.KANJI_ENTRY;
+
+                default:
+                    throw new RuntimeException("" + userGroupItemEntity.getType());
+            }
         }
     }
 
     public Spanned getText() {
 
-        switch (userGroupItemEntity.getType()) {
+        if (title != null) {
+            return new SpannableString(title);
 
-            case DICTIONARY_ENTRY:
+        } else {
+            switch (userGroupItemEntity.getType()) {
 
-                String dictionaryEntryToString = WordKanjiDictionaryUtils.getWordFullTextWithMark(dictionaryEntry);
+                case DICTIONARY_ENTRY:
 
-                return new SpannableString(dictionaryEntryToString);
+                    String dictionaryEntryToString = WordKanjiDictionaryUtils.getWordFullTextWithMark(dictionaryEntry);
 
-            case KANJI_ENTRY:
+                    return new SpannableString(dictionaryEntryToString);
 
-                String kanjiEntryToString = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(kanjiEntry);
+                case KANJI_ENTRY:
 
-                return Html.fromHtml(kanjiEntryToString.replaceAll("\n", "<br/>"));
+                    String kanjiEntryToString = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(kanjiEntry);
 
-            default:
-                throw new RuntimeException("" + userGroupItemEntity.getType());
+                    return Html.fromHtml(kanjiEntryToString.replaceAll("\n", "<br/>"));
+
+                default:
+                    throw new RuntimeException("" + userGroupItemEntity.getType());
+            }
         }
     }
 
@@ -83,7 +93,9 @@ public class UserGroupContentsListItem {
 
         DICTIONARY_ENTRY(R.layout.user_group_contents_simplerow, 0),
 
-        KANJI_ENTRY(R.layout.user_group_contents_simplerow, 0);
+        KANJI_ENTRY(R.layout.user_group_contents_simplerow, 0),
+
+        TITLE(R.layout.user_group_contents_title_simplerow, 1);
 
         private int layoutResourceId;
 

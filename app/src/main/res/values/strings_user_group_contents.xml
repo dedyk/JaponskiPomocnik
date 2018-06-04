@@ -2,6 +2,9 @@
 <resources>
     <string name="user_group_contents_label">Zawartość grupy użytkownika</string>
 
+    <string name="user_group_contents_list_title_dictionary_entry">Słowa</string>
+    <string name="user_group_contents_list_title_kanji_entry">Kanji</string>
+
     <string name="user_group_contents_report_problem">Widzisz błąd, brakuje szukanego słowa, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
 
 </resources>

@@ -447,29 +447,31 @@ public class UserGroupActivity extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-            // dodanie do grupy
-            dataManager.addItemIdToUserGroup(userGroupEntity, itemIdUserGroupItemEntityType, itemId);
+                // dodanie do grupy
+                dataManager.addItemIdToUserGroup(userGroupEntity, itemIdUserGroupItemEntityType, itemId);
 
-            // komunikat
-            Toast.makeText(UserGroupActivity.this,
-                    getString(R.string.user_group_item_to_add_user_group_entity_toast, userGroupEntity.getName()), Toast.LENGTH_SHORT).show();
+                // komunikat
+                Toast.makeText(UserGroupActivity.this,
+                        getString(R.string.user_group_item_to_add_user_group_entity_toast, userGroupEntity.getName()), Toast.LENGTH_SHORT).show();
 
-            //
+                //
 
-            dictionaryEntryToAdd = null;
-            kanjiEntryToAdd = null;
+                /*
+                dictionaryEntryToAdd = null;
+                kanjiEntryToAdd = null;
 
-            //
+                //
 
-            TextView itemToAddValueTextView = (TextView) findViewById(R.id.user_group_item_to_add_value);
-            TextView itemToAddValueLabelTextView = (TextView) findViewById(R.id.user_group_item_to_add_value_label);
-            View itemToAddTextViewLine1 = (View) findViewById(R.id.user_group_item_to_add_line1);
-            View itemToAddTextViewLine2 = (View) findViewById(R.id.user_group_item_to_add_line2);
+                TextView itemToAddValueTextView = (TextView) findViewById(R.id.user_group_item_to_add_value);
+                TextView itemToAddValueLabelTextView = (TextView) findViewById(R.id.user_group_item_to_add_value_label);
+                View itemToAddTextViewLine1 = (View) findViewById(R.id.user_group_item_to_add_line1);
+                View itemToAddTextViewLine2 = (View) findViewById(R.id.user_group_item_to_add_line2);
 
-            itemToAddValueTextView.setVisibility(View.GONE);
-            itemToAddValueLabelTextView.setVisibility(View.GONE);
-            itemToAddTextViewLine1.setVisibility(View.GONE);
-            itemToAddTextViewLine2.setVisibility(View.GONE);
+                itemToAddValueTextView.setVisibility(View.GONE);
+                itemToAddValueLabelTextView.setVisibility(View.GONE);
+                itemToAddTextViewLine1.setVisibility(View.GONE);
+                itemToAddTextViewLine2.setVisibility(View.GONE);
+                */
             }
         });
 

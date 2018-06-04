@@ -96,6 +96,23 @@ public class UserGroupContentsListItemAdapter extends BaseAdapter {
         return data.size();
     }
 
+    @Override
+    public boolean isEnabled(int position) {
+
+        if (position < 0 || position >= data.size()) {
+            return false;
+        }
+
+        UserGroupContentsListItem currentUserGroupContentsListItem = data.get(position);
+
+        if (currentUserGroupContentsListItem.getItemType() == UserGroupContentsListItem.ItemType.TITLE) {
+            return false;
+
+        } else {
+            return true;
+        }
+    }
+
     static private class UserGroupContentsListItemHolder {
         TextView userGroupContentsListItemHolderValue;
     }
