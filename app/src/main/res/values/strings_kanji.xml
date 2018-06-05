@@ -23,9 +23,8 @@
     <string name="kanji_details_menu_add_item_id_to_user_group">Dodaj do grupy użytkownika</string>
 
     <string name="kanji_details_delete_item_id_from_user_group_title">Potwierdzenie usunięcia</string>
-    <string name="kanji_details_delete_item_id_from_user_group_message">Czy chcesz usunąć ten znak z grupy: \'%1$s\'</string>
-    <string name="kanji_details_delete_item_id_from_user_group_toast">Usunięto z grupy \'%1$s\'</string>
-
+    <string name="kanji_details_delete_item_id_from_user_group_message">Czy chcesz usunąć ten znak z grupy: %1$s?</string>
+    <string name="kanji_details_delete_item_id_from_user_group_toast">Usunięto z grupy: %1$s</string>
 
     <string name="kanji_search_label">Wyszukiwarka znaków kanji</string>
     <string name="kanji_search_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>

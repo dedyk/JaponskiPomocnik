@@ -17,7 +17,7 @@
     <string name="user_group_new_group_dialog_message">Proszę podać nazwę nowej grupy.</string>
 
     <string name="user_group_update_group_dialog_title">Zmiana nazwy grupy</string>
-    <string name="user_group_update_group_dialog_message">Proszę podać nową nazwę grupy.</string>
+    <string name="user_group_update_group_dialog_message">Proszę podać nową nazwę grupy</string>
 
     <string name="user_group_new_group_name_too_short_error">Podana nazwa grupy jest za krótka</string>
     <string name="user_group_new_group_name_too_long_error">Podana nazwa grupy jest za długa</string>
@@ -31,12 +31,12 @@
     <string name="user_group_item_to_add_user_group_entity_already_exists">Element już występuje w wybranej grupie</string>
 
     <string name="user_group_item_to_add_user_group_entity_title">Potwierdzenie dodania</string>
-    <string name="user_group_item_to_add_user_group_entity_message">Czy chcesz dodać element do grupy: \'%1$s\'</string>
-    <string name="user_group_item_to_add_user_group_entity_toast">Dodano element do grupy \'%1$s\'</string>
+    <string name="user_group_item_to_add_user_group_entity_message">Czy chcesz dodać element do grupy: %1$s?</string>
+    <string name="user_group_item_to_add_user_group_entity_toast">Dodano element do grupy: %1$s</string>
 
     <string name="user_group_delete_user_group_entity_title">Potwierdzenie usunięcia</string>
-    <string name="user_group_delete_user_group_entity_message">Czy na pewno chcesz usunąc grupę: \'%1$s\'</string>
-    <string name="user_group_delete_user_group_entity_toast">Usunięto grupę \'%1$s\'</string>
+    <string name="user_group_delete_user_group_entity_message">Czy na pewno chcesz usunąc grupę: %1$s?</string>
+    <string name="user_group_delete_user_group_entity_toast">Usunięto grupę: %1$s</string>
 
     <string name="user_group_report_problem">Widzisz błąd, brakuje szukanego słowa, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
 

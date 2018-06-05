@@ -9,7 +9,7 @@
     <string name="user_group_contents_popup_delete">Usuń z grupy</string>
 
     <string name="user_group_delete_user_group_item_entity_title">Potwierdzenie usunięcia</string>
-    <string name="user_group_delete_user_group_item_entity_message">Czy na pewno chcesz wybrany element?</string>
+    <string name="user_group_delete_user_group_item_entity_message">Czy na pewno chcesz usunąć wybrany element?</string>
     <string name="user_group_delete_user_group_item_entity_toast">Usunięto element z grupy</string>
 
     <string name="user_group_contents_report_problem">Widzisz błąd, brakuje szukanego słowa, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
