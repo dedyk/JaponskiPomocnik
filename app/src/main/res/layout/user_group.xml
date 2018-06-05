@@ -7,34 +7,38 @@
 
     <TextView
         android:id="@+id/user_group_item_to_add_value_label"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:text="@string/user_group_item_to_add_value_label"
         android:textSize="15sp"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:background="@color/title_background"
+        android:layout_marginBottom="15dp"/>
 
-    <View
+<!--    <View
         android:id="@+id/user_group_item_to_add_line1"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
-        android:visibility="gone"/>
-
-
+        android:visibility="gone"
+        android:layout_marginTop="10dp"/>
+-->
     <TextView
         android:id="@+id/user_group_item_to_add_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginBottom="10dp"/>
 
     <View
         android:id="@+id/user_group_item_to_add_line2"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginBottom="15dp"/>
 
     <ListView
         android:id="@+id/user_group_list"

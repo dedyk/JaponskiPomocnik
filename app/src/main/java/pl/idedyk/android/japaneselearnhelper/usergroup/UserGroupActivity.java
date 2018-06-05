@@ -58,9 +58,9 @@ public class UserGroupActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
-        menu.add(Menu.NONE, R.id.user_group_menu_create_new_group, Menu.NONE, R.string.user_group_menu_create_new_group);
-
         MenuShorterHelper.onCreateOptionsMenu(menu);
+
+        menu.add(Menu.NONE, R.id.user_group_menu_create_new_group, Menu.NONE, R.string.user_group_menu_create_new_group);
 
         return true;
     }
@@ -372,7 +372,7 @@ public class UserGroupActivity extends Activity {
 
             TextView itemToAddValueTextView = (TextView)findViewById(R.id.user_group_item_to_add_value);
             TextView itemToAddValueLabelTextView = (TextView)findViewById(R.id.user_group_item_to_add_value_label);
-            View itemToAddTextViewLine1 = (View)findViewById(R.id.user_group_item_to_add_line1);
+            //View itemToAddTextViewLine1 = (View)findViewById(R.id.user_group_item_to_add_line1);
             View itemToAddTextViewLine2 = (View)findViewById(R.id.user_group_item_to_add_line2);
 
             //
@@ -399,7 +399,7 @@ public class UserGroupActivity extends Activity {
 
             itemToAddValueTextView.setVisibility(View.VISIBLE);
             itemToAddValueLabelTextView.setVisibility(View.VISIBLE);
-            itemToAddTextViewLine1.setVisibility(View.VISIBLE);
+            //itemToAddTextViewLine1.setVisibility(View.VISIBLE);
             itemToAddTextViewLine2.setVisibility(View.VISIBLE);
         }
     }

@@ -134,7 +134,9 @@ public class WordDictionaryDetails extends Activity {
 
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 
-		menu.add(Menu.NONE, R.id.word_dictionary_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.word_dictionary_details_menu_add_item_id_to_user_group);
+		if (dictionaryEntry.isName() == false) {
+			menu.add(Menu.NONE, R.id.word_dictionary_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.word_dictionary_details_menu_add_item_id_to_user_group);
+		}
 
 		return true;
 	}
@@ -506,7 +508,7 @@ public class WordDictionaryDetails extends Activity {
 				actionTableRow.addScreenItem(clipboardKanji);
 
 				// add to favourite word list
-				if (isAddFavouriteWordStar == false) {
+				if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
 
 					isAddFavouriteWordStar = true;
 					actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
@@ -546,7 +548,7 @@ public class WordDictionaryDetails extends Activity {
 				actionTableRow.addScreenItem(clipboardKanji);
 
 				// add to favourite word list
-				if (isAddFavouriteWordStar == false) {
+				if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
 
 					isAddFavouriteWordStar = true;
 					actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
@@ -624,7 +626,7 @@ public class WordDictionaryDetails extends Activity {
 			actionTableRow.addScreenItem(clipboardRomaji);
 
 			// add to favourite word list
-			if (isAddFavouriteWordStar == false) {
+			if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
 
 				isAddFavouriteWordStar = true;
 				actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
@@ -792,29 +794,32 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// user groups
-        report.add(new StringValue("", 15.0f, 2));
-        report.add(new TitleItem(getString(R.string.word_dictionary_details_user_groups), 0));
+		if (dictionaryEntry.isName() == false) { // tylko dla normalnych slowek
 
-		final DataManager dataManager = dictionaryManager.getDataManager();
+			report.add(new StringValue("", 15.0f, 2));
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_user_groups), 0));
 
-		List<UserGroupEntity> userGroupEntityListForItemId = dataManager.getUserGroupEntityListForItemId(UserGroupEntity.Type.USER_GROUP, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
+			final DataManager dataManager = dictionaryManager.getDataManager();
 
-		for (UserGroupEntity currentUserGroupEntity : userGroupEntityListForItemId) {
+			List<UserGroupEntity> userGroupEntityListForItemId = dataManager.getUserGroupEntityListForItemId(UserGroupEntity.Type.USER_GROUP, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
 
-			TableRow userGroupTableRow = new TableRow();
+			for (UserGroupEntity currentUserGroupEntity : userGroupEntityListForItemId) {
 
-			OnClickListener deleteItemIdFromUserGroupOnClickListener = createDeleteItemIdFromUserGroupOnClickListener(dataManager, dictionaryEntry, currentUserGroupEntity, userGroupTableRow);
+				TableRow userGroupTableRow = new TableRow();
 
-			StringValue userGroupNameStringValue = new StringValue(currentUserGroupEntity.getName(), 15.0f, 0);
-			Image userGroupNameDeleteImage = new Image(getResources().getDrawable(R.drawable.delete), 0);
+				OnClickListener deleteItemIdFromUserGroupOnClickListener = createDeleteItemIdFromUserGroupOnClickListener(dataManager, dictionaryEntry, currentUserGroupEntity, userGroupTableRow);
 
-			userGroupNameStringValue.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
-			userGroupNameDeleteImage.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
+				StringValue userGroupNameStringValue = new StringValue(currentUserGroupEntity.getName(), 15.0f, 0);
+				Image userGroupNameDeleteImage = new Image(getResources().getDrawable(R.drawable.delete), 0);
 
-			userGroupTableRow.addScreenItem(userGroupNameStringValue);
-			userGroupTableRow.addScreenItem(userGroupNameDeleteImage);
+				userGroupNameStringValue.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
+				userGroupNameDeleteImage.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
 
-			report.add(userGroupTableRow);
+				userGroupTableRow.addScreenItem(userGroupNameStringValue);
+				userGroupTableRow.addScreenItem(userGroupNameDeleteImage);
+
+				report.add(userGroupTableRow);
+			}
 		}
 
 		/*
