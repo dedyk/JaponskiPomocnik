@@ -123,12 +123,31 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/word_test_options_group"
+                android:id="@+id/word_test_options_group_please_choose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/title_background"
-                android:text="@string/word_test_options_group" >
+                android:text="@string/word_test_options_group_please_choose" >
             </TextView>
+
+            <TextView
+                android:id="@+id/word_test_options_group_internal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/word_test_options_group_internal"
+                android:layout_marginTop="15dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/word_test_options_group_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/word_test_options_group_user"
+                android:layout_marginTop="15dp">
+            </TextView>
+
         </LinearLayout>
     </ScrollView>
 

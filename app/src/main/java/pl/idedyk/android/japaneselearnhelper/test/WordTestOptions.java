@@ -10,6 +10,9 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperWordTestContext;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
@@ -140,34 +143,51 @@ public class WordTestOptions extends Activity {
 				showKanaCheckBox.setEnabled(true);	
 			}
 		});
-		
-		// loading word groups
+
+		// groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
-		
+
+		// loading word groups
 		final List<GroupEnum> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getDictionaryEntryGroupTypes();
 		
 		Set<String> chosenWordGroups = wordTestConfig.getChosenWordGroups();
-				
-		for (int groupsNamesIdx = 0; groupsNamesIdx < groupsNames.size(); ++groupsNamesIdx) {
-			
-			CheckBox currentWordGroupCheckBox = new CheckBox(this);
-			
-			currentWordGroupCheckBox.setLayoutParams(new LinearLayout.LayoutParams(
-					LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
-			currentWordGroupCheckBox.setTextSize(12);
-			
-			currentWordGroupCheckBox.setText(groupsNames.get(groupsNamesIdx).getValue());
-			
-			if (chosenWordGroups != null && chosenWordGroups.contains(groupsNames.get(groupsNamesIdx).getValue())) {
-				currentWordGroupCheckBox.setChecked(true);
+		for (int groupsNamesIdx = 0; groupsNamesIdx < groupsNames.size(); ++groupsNamesIdx) {
+
+			GroupEnum groupEnum = groupsNames.get(groupsNamesIdx);
+
+			if (groupEnum == GroupEnum.OTHER) {
+				continue;
 			}
-						
-			wordGroupCheckBoxList.add(currentWordGroupCheckBox);
+
+			CheckBox checkbox = createGroupCheckBox(groupEnum, null, groupEnum.getValue(),
+					chosenWordGroups != null && chosenWordGroups.contains(groupsNames.get(groupsNamesIdx).getValue()));
+
+			wordGroupCheckBoxList.add(checkbox);
 			
-			mainLayout.addView(currentWordGroupCheckBox);
+			mainLayout.addView(checkbox, mainLayout.getChildCount() - 1);
 		}
-		
+
+		// loading user word groups
+		List<UserGroupEntity> allUserGroupList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getDataManager().getAllUserGroupList();
+
+		Set<Integer> chosenWordUserGroups = wordTestConfig.getChosenWordUserGroups();
+
+		for (int allUserGroupListIdx = 0; allUserGroupListIdx < allUserGroupList.size(); ++allUserGroupListIdx) {
+
+			UserGroupEntity userGroupEntity = allUserGroupList.get(allUserGroupListIdx);
+
+			String checkboxText = userGroupEntity.getType() == UserGroupEntity.Type.USER_GROUP ? userGroupEntity.getName() :
+					getString(R.string.user_group_star_group);
+
+			CheckBox checkbox = createGroupCheckBox(null, userGroupEntity, checkboxText,
+					chosenWordUserGroups != null && chosenWordUserGroups.contains(userGroupEntity.getId()));
+
+			wordGroupCheckBoxList.add(checkbox);
+
+			mainLayout.addView(checkbox);
+		}
+
 		// start button
 		final Button startButton = (Button)findViewById(R.id.word_test_options_start);
 		
@@ -279,47 +299,86 @@ public class WordTestOptions extends Activity {
 				List<DictionaryEntry> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntry>();
 				
 				List<String> chosenWordGroupsNumberList = new ArrayList<String>();
+				List<Integer> chosenWordUserGroupsNumberList = new ArrayList<Integer>();
 				
 				boolean wasFilteredWords = false;
-				
+
+				DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestOptions.this);
+
 				for (int wordGroupCheckBoxListIdx = 0; wordGroupCheckBoxListIdx < wordGroupCheckBoxList.size(); ++wordGroupCheckBoxListIdx) {
 					
 					CheckBox currentWordGroupCheckBox = wordGroupCheckBoxList.get(wordGroupCheckBoxListIdx);
 					
 					if (currentWordGroupCheckBox.isChecked() == true) {
-						
-						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestOptions.this).
-								getGroupDictionaryEntries(groupsNames.get(wordGroupCheckBoxListIdx));
-												
+
+						CheckBoxTag currentWordGroupCheckBoxTag = (CheckBoxTag)currentWordGroupCheckBox.getTag();
+
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
+
+						if (currentWordGroupCheckBoxTag.groupType == CheckBoxGroupType.INTERNAL_GROUP) { // grupa wbudowana
+
+							currentWordsGroupDictionaryEntryList = dictionaryManager.getGroupDictionaryEntries(currentWordGroupCheckBoxTag.groupEnum);
+
+						} else if (currentWordGroupCheckBoxTag.groupType == CheckBoxGroupType.USER_GROUP) { // grupa uzytkownika
+
+							List<UserGroupItemEntity> userGroupItemListForUserEntity = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestOptions.this).getDataManager().getUserGroupItemListForUserEntity(currentWordGroupCheckBoxTag.userGroupEntity);
+
+							if (userGroupItemListForUserEntity == null) {
+								userGroupItemListForUserEntity = new ArrayList<>();
+							}
+
+							currentWordsGroupDictionaryEntryList = new ArrayList<>();
+
+							for (UserGroupItemEntity userGroupItemEntity : userGroupItemListForUserEntity) {
+
+								if (userGroupItemEntity.getType() == UserGroupItemEntity.Type.DICTIONARY_ENTRY) {
+
+									DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(userGroupItemEntity.getItemId());
+
+									if (dictionaryEntry != null) {
+										currentWordsGroupDictionaryEntryList.add(dictionaryEntry);
+									}
+								}
+							}
+						}
+
 						for (int repeatIdx = 0; repeatIdx < repeatNumber; ++repeatIdx) {
-							
+
 							for (DictionaryEntry currentDictionaryEntry : currentWordsGroupDictionaryEntryList) {
-								
+
 								if (chosenWordTestMode == WordTestMode.INPUT) {
-									
-									if (showTranslate == true || currentDictionaryEntry.isKanjiExists() == true) {							
+
+									if (showTranslate == true || currentDictionaryEntry.isKanjiExists() == true) {
 										chosenAllDictionaryEntryList.add(currentDictionaryEntry);
 									} else {
 										wasFilteredWords = true;
 									}
 
 								} else if (chosenWordTestMode == WordTestMode.OVERVIEW) {
-									
+
 									if (showKanji == true && showKana == false && showTranslate == false && currentDictionaryEntry.isKanjiExists() == false) {
-										wasFilteredWords = true;										
+										wasFilteredWords = true;
 									} else if (showKanji == false && showKana == true && showTranslate == true && currentDictionaryEntry.isKanjiExists() == false) {
 										wasFilteredWords = true;
 									} else {
 										chosenAllDictionaryEntryList.add(currentDictionaryEntry);
 									}
-									
+
 								} else {
 									throw new RuntimeException("WordTestConfig wordTestConfig: " + chosenWordTestMode);
 								}
 							}
 						}
-						
-						chosenWordGroupsNumberList.add(groupsNames.get(wordGroupCheckBoxListIdx).getValue());
+
+						if (currentWordGroupCheckBoxTag.groupType == CheckBoxGroupType.INTERNAL_GROUP) { // grupa wbudowana
+
+							chosenWordGroupsNumberList.add(currentWordGroupCheckBoxTag.groupEnum.getValue());
+
+						} else if (currentWordGroupCheckBoxTag.groupType == CheckBoxGroupType.USER_GROUP) { // grupa uzytkownika
+
+							chosenWordUserGroupsNumberList.add(currentWordGroupCheckBoxTag.userGroupEntity.getId());
+
+						}
 					}
 				}
 								
@@ -339,6 +398,7 @@ public class WordTestOptions extends Activity {
 				}
 				
 				wordTestConfig.setChosenWordGroups(chosenWordGroupsNumberList);
+				wordTestConfig.setChosenWordUserGroups(chosenWordUserGroupsNumberList);
 				
 				if (random == true) {
 					Collections.shuffle(chosenAllDictionaryEntryList);
@@ -377,7 +437,9 @@ public class WordTestOptions extends Activity {
 				TextView optionsTestMode = (TextView)findViewById(R.id.word_test_options_test_mode);
 				TextView optionsShow = (TextView)findViewById(R.id.word_test_options_show);
 				TextView optionsOther = (TextView)findViewById(R.id.word_test_options_other);
-				TextView optionsGroup = (TextView)findViewById(R.id.word_test_options_group);
+				TextView optionsGroupPleaseChoose = (TextView)findViewById(R.id.word_test_options_group_please_choose);
+				TextView optionsGroupInternal = (TextView)findViewById(R.id.word_test_options_group_internal);
+				TextView optionsGroupUser = (TextView)findViewById(R.id.word_test_options_group_user);
 
 				detailsSb.append("*** " + optionsRepeat.getText() + " ***\n\n");
 				detailsSb.append(repeatNumberEditText.getText().toString()).append("\n\n");
@@ -397,14 +459,38 @@ public class WordTestOptions extends Activity {
 				detailsSb.append(untilSuccessCheckBox.isChecked() + " - " + untilSuccessCheckBox.getText()).append("\n\n");
 				detailsSb.append(untilSuccessNewWordLimitCheckBox.isChecked() + " - " + untilSuccessNewWordLimitCheckBox.getText()).append("\n\n");
 
-				detailsSb.append("*** " + optionsGroup.getText() + " ***\n\n");
-		
+				detailsSb.append("*** " + optionsGroupPleaseChoose.getText() + " ***\n\n");
+				detailsSb.append("*** " + optionsGroupInternal.getText() + " ***\n\n");
+
 				for (CheckBox currentWordGroupCheckBox : wordGroupCheckBoxList) {
+
+					CheckBoxTag currentWordGroupCheckBoxTag = (CheckBoxTag)currentWordGroupCheckBox.getTag();
+
+					if (currentWordGroupCheckBoxTag.groupType != CheckBoxGroupType.INTERNAL_GROUP) {
+						continue;
+					}
 
 					String currentWordGroupCheckBoxText = currentWordGroupCheckBox.getText().toString();
 
 					detailsSb.append(currentWordGroupCheckBox.isChecked() + " - " + currentWordGroupCheckBoxText).append("\n");
 				}
+
+				detailsSb.append("*** " + optionsGroupUser.getText() + " ***\n\n");
+
+				for (CheckBox currentWordGroupCheckBox : wordGroupCheckBoxList) {
+
+					CheckBoxTag currentWordGroupCheckBoxTag = (CheckBoxTag)currentWordGroupCheckBox.getTag();
+
+					if (currentWordGroupCheckBoxTag.groupType != CheckBoxGroupType.USER_GROUP) {
+						continue;
+					}
+
+					String currentWordGroupCheckBoxText = currentWordGroupCheckBox.getText().toString();
+
+					detailsSb.append(currentWordGroupCheckBox.isChecked() + " - " + currentWordGroupCheckBoxText).append("\n");
+				}
+
+				//
 
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
 
@@ -444,5 +530,58 @@ public class WordTestOptions extends Activity {
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
+	}
+
+	private CheckBox createGroupCheckBox(GroupEnum groupEnum, UserGroupEntity userGroupEntity, String text, boolean checked) {
+
+		CheckBox checkbox = new CheckBox(this);
+
+		if ( 	(groupEnum == null && userGroupEntity == null) ||
+				(groupEnum != null && userGroupEntity != null)) {
+			throw new RuntimeException();
+		}
+
+		if (groupEnum != null) {
+			checkbox.setTag(new CheckBoxTag(groupEnum));
+
+		} else if (userGroupEntity != null) {
+			checkbox.setTag(new CheckBoxTag(userGroupEntity));
+		}
+
+		checkbox.setLayoutParams(new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+		checkbox.setTextSize(12);
+		checkbox.setText(text);
+
+		checkbox.setChecked(checked);
+
+		return checkbox;
+	}
+
+	private static class CheckBoxTag {
+
+		private CheckBoxGroupType groupType;
+
+		private GroupEnum groupEnum;
+
+		private UserGroupEntity userGroupEntity;
+
+		public CheckBoxTag(GroupEnum groupEnum) {
+			this.groupType = CheckBoxGroupType.INTERNAL_GROUP;
+			this.groupEnum = groupEnum;
+		}
+
+		public CheckBoxTag(UserGroupEntity userGroupEntity) {
+			this.groupType = CheckBoxGroupType.USER_GROUP;
+			this.userGroupEntity = userGroupEntity;
+		}
+	}
+
+	private static enum CheckBoxGroupType {
+
+		INTERNAL_GROUP,
+
+		USER_GROUP;
 	}
 }

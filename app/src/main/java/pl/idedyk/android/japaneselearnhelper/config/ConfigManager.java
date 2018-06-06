@@ -770,6 +770,8 @@ public class ConfigManager {
 		private final String repeatNumberPostfix = "repeatNumber";
 				
 		private final String wordGroupsPostfix = "wordGroups";
+
+		private final String wordUserGroupsPostfix = "wordUserGroups";
 		
 		private final String randomPostfix = "random";
 		
@@ -818,7 +820,26 @@ public class ConfigManager {
 			
 			return result;
 		}
-		
+
+		public Set<Integer> getChosenWordUserGroups() {
+
+			Set<Integer> result = new HashSet<Integer>();
+
+			String chosenWordUserGroupString = preferences.getString(wordTestConfigPrefix + wordUserGroupsPostfix, null);
+
+			if (chosenWordUserGroupString == null || chosenWordUserGroupString.trim().equals("") == true) {
+				return result;
+			}
+
+			String[] chosenWordUserGroupSplited = chosenWordUserGroupString.split(",");
+
+			for (String currentChosenWordUserGroupId : chosenWordUserGroupSplited) {
+				result.add(new Integer(currentChosenWordUserGroupId));
+			}
+
+			return result;
+		}
+
 		public void setChosenWordGroups(List<String> chosenWordGroupsNumberList) {
 			
 			if (chosenWordGroupsNumberList == null) {
@@ -842,7 +863,31 @@ public class ConfigManager {
 			
 			editor.commit();
 		}
-		
+
+		public void setChosenWordUserGroups(List<Integer> chosenWordUserGroupsNumberList) {
+
+			if (chosenWordUserGroupsNumberList == null) {
+				return;
+			}
+
+			StringBuffer chosenWordUserGroupsNumberSb = new StringBuffer();
+
+			for (int chosenWordUserGroupsNumberListIdx = 0; chosenWordUserGroupsNumberListIdx < chosenWordUserGroupsNumberList.size(); ++chosenWordUserGroupsNumberListIdx) {
+
+				chosenWordUserGroupsNumberSb.append(chosenWordUserGroupsNumberList.get(chosenWordUserGroupsNumberListIdx));
+
+				if (chosenWordUserGroupsNumberListIdx != chosenWordUserGroupsNumberList.size() - 1) {
+					chosenWordUserGroupsNumberSb.append(",");
+				}
+			}
+
+			Editor editor = preferences.edit();
+
+			editor.putString(wordTestConfigPrefix + wordUserGroupsPostfix, chosenWordUserGroupsNumberSb.toString());
+
+			editor.commit();
+		}
+
 		public Boolean getRandom() {
 			return preferences.getBoolean(wordTestConfigPrefix + randomPostfix, true);
 		}
