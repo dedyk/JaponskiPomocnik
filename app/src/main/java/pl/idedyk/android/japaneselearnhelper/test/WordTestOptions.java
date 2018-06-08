@@ -386,7 +386,7 @@ public class WordTestOptions extends Activity {
 					
 					Toast toast = null;
 					
-					if (wasFilteredWords == false) {
+					if (wasFilteredWords == false && chosenWordGroupsNumberList.size() == 0 && chosenWordUserGroupsNumberList.size() == 0) {
 						toast = Toast.makeText(WordTestOptions.this, getString(R.string.word_test_options_word_group_no_chosen), Toast.LENGTH_SHORT);	
 					} else {
 						toast = Toast.makeText(WordTestOptions.this, getString(R.string.word_test_options_word_filtered), Toast.LENGTH_SHORT);
