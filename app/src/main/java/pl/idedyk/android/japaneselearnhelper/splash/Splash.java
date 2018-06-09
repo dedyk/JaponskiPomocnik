@@ -184,7 +184,7 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 
 				LoadWithProgress loadWithProgress = new LoadWithProgress();
 
-				dictionaryManager.init(loadWithProgress, resources, assets, getPackageName(), finalVersionCode);
+				dictionaryManager.init(Splash.this, loadWithProgress, resources, assets, getPackageName(), finalVersionCode);
 
 				JapaneseAndroidLearnHelperApplication.getInstance().setDictionaryManager(dictionaryManager);
 

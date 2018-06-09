@@ -14,15 +14,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.data.DataManager;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
+import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
@@ -30,6 +36,8 @@ import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary.api.keigo.KeigoHelper;
 import pl.idedyk.japanese.dictionary.api.tools.KanaHelper;
 import pl.idedyk.japanese.dictionary.lucene.LuceneDatabase;
+
+import android.app.Activity;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Environment;
@@ -87,8 +95,8 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		// noop		
 	}
 
-	public void init(ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName,
-			int versionCode) {
+	public void init(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName,
+					 int versionCode) {
 
 		try {
 			// init
@@ -306,6 +314,62 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 				return;
 			}
+
+			// migrate old own group from kanji test
+			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_migrate_old_own_groups_from_kanji_test));
+			loadWithProgress.setCurrentPos(0);
+
+			final ConfigManager.KanjiTestConfig kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance()
+					.getConfigManager(activity).getKanjiTestConfig();
+
+			List<String> kanjiTestOldOwnGroupList = kanjiTestConfig.getOwnGroupList();
+
+			if (kanjiTestOldOwnGroupList != null && kanjiTestOldOwnGroupList.size() > 0) {
+
+				for (String kanjiTestOldOwnGroupName : kanjiTestOldOwnGroupList) {
+
+					String kanjiTestOldOwnGroupNameMigrate = kanjiTestOldOwnGroupName + " " + resources.getString(R.string.dictionary_manager_migrate_old_own_groups_from_kanji_test_group_postfix);
+
+					//
+
+					List<UserGroupEntity> userGroupEntityList = dataManager.findUserGroupEntity(UserGroupEntity.Type.USER_GROUP, kanjiTestOldOwnGroupNameMigrate);
+
+					UserGroupEntity userGroupEntity = null;
+
+					if (userGroupEntityList == null || userGroupEntityList.size() == 0) {
+
+						userGroupEntity = new UserGroupEntity(null, UserGroupEntity.Type.USER_GROUP, kanjiTestOldOwnGroupNameMigrate);
+
+						dataManager.addUserGroup(userGroupEntity);
+
+						userGroupEntityList = dataManager.findUserGroupEntity(UserGroupEntity.Type.USER_GROUP, kanjiTestOldOwnGroupNameMigrate);
+					}
+
+					userGroupEntity = userGroupEntityList.get(0);
+
+					//
+
+					Set<String> ownGroupKanjiList = kanjiTestConfig.getOwnGroupKanjiList(kanjiTestOldOwnGroupName);
+
+					for (String kanji : ownGroupKanjiList) {
+
+						KanjiEntry kanjiEntry = findKanji(kanji);
+
+						if (kanjiEntry != null) {
+
+							boolean isItemIdExists = dataManager.isItemIdExistsInUserGroup(userGroupEntity, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
+
+							if (isItemIdExists == false) {
+								dataManager.addItemIdToUserGroup(userGroupEntity, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
+							}
+						}
+					}
+
+					kanjiTestConfig.deleteOwnGroup(kanjiTestOldOwnGroupName);
+				}
+			}
+
+			//
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
 

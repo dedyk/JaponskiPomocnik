@@ -113,7 +113,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 						
 			dictionaryManager = new DictionaryManager();
 			
-			dictionaryManager.init(loadWithProgress, resources, assets, getPackageName(), versionCode);
+			dictionaryManager.init(activity, loadWithProgress, resources, assets, getPackageName(), versionCode);
 		}
 		
 		return dictionaryManager;
