@@ -206,9 +206,9 @@ public class DictionaryHearOptions extends Activity {
 
 						// INFO: Tylko do testow
 						// FIXME
-														int warning = 0;
-										japaneseInitialized = true;
-										polishInitialized = true;
+						// int warning = 0;
+						// japaneseInitialized = true;
+						// polishInitialized = true;
 						
 						if (japaneseInitialized == false || polishInitialized == false) { // wystapil blad
 							
