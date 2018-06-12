@@ -14,6 +14,8 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
+import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
@@ -54,7 +56,7 @@ public class KanjiTestOptionsActivity extends Activity {
 	private KanjiList kanjiList;
 
 	private List<CheckBox> kanjiGroupList;
-	private List<CheckBox> kanjiOwnGroupList;
+	//private List<CheckBox> kanjiOwnGroupList;
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -66,9 +68,11 @@ public class KanjiTestOptionsActivity extends Activity {
 		menu.add(Menu.NONE, R.id.kanji_test_options_clear_selected_kanji, Menu.NONE,
 				R.string.kanji_test_options_clear_selected_kanji);
 
+		/*
 		menu.add(Menu.NONE, R.id.kanji_test_options_save_current_kanji_list_as_own_group, Menu.NONE,
 				R.string.kanji_test_options_save_current_kanji_list_as_own_group);
-		
+		*/
+
 		return true;
 	}
 
@@ -161,7 +165,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			return true;
 			
-		} else if (item.getItemId() == R.id.kanji_test_options_save_current_kanji_list_as_own_group) {
+		} /* else if (item.getItemId() == R.id.kanji_test_options_save_current_kanji_list_as_own_group) {
 			
 			final List<KanjiEntry> userSelectedKanjiList = kanjiList.getUserSelectedKanjiList();
 						
@@ -250,6 +254,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			return true;			
 		}
+		*/
 		
 		return false;
 	}
@@ -328,7 +333,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		kanjiList = new KanjiList();
 		kanjiGroupList = new ArrayList<CheckBox>();
-		kanjiOwnGroupList = new ArrayList<CheckBox>();
+		// kanjiOwnGroupList = new ArrayList<CheckBox>();
 
 		Button startTestButton = (Button) findViewById(R.id.kanji_test_options_start_test);
 
@@ -385,6 +390,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				kanjiTestConfig.setChosenKanjiGroup(chosenKanjiGroupList);
 
+				/*
 				// zapis wybranych wlasnych grup
 				final List<String> chosenOwnKanjiGroupList = new ArrayList<String>();
 
@@ -396,7 +402,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				kanjiTestConfig.setChosenOwnKanjiGroup(chosenOwnKanjiGroupList);				
-				
+				*/
+
 				if (chosenKanjiList.size() == 0) {
 
 					Toast toast = Toast.makeText(KanjiTestOptionsActivity.this,
@@ -720,6 +727,13 @@ public class KanjiTestOptionsActivity extends Activity {
 							.append("\n");
 				}
 
+				if (1 == 1) {
+					throw new RuntimeException();
+				}
+
+				// FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+				/*
 				final TextView chooseOwnKanjiGroup = (TextView)findViewById(R.id.kanji_test_options_choose_own_kanji_group);
 				
 				if (chooseOwnKanjiGroup.getVisibility() == View.VISIBLE) {
@@ -734,6 +748,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								.append("\n");
 					}					
 				}
+				*/
 				
 				detailsSb.append("\n***" + chosenKanjiTextView.getText() + "***\n\n");
 
@@ -829,19 +844,14 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				// add to main layout
 
+				// internal groups
+
 				Set<String> chosenKanjiGroup = kanjiTestConfig.getChosenKanjiGroup();
 
 				for (GroupEnum currentKanjiGroup : kanjiGroupsKeysArray) {
 
-					CheckBox currentKanjiGroupCheckBox = new CheckBox(KanjiTestOptionsActivity.this);
-
-					currentKanjiGroupCheckBox.setLayoutParams(new LinearLayout.LayoutParams(
-							LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-
-					currentKanjiGroupCheckBox.setTextSize(12);
-					currentKanjiGroupCheckBox.setText(currentKanjiGroup.getValue());
-					currentKanjiGroupCheckBox.setChecked(chosenKanjiGroup.contains(currentKanjiGroup.getValue()));
-					currentKanjiGroupCheckBox.setTag(kanjiGroups.get(currentKanjiGroup));
+					CheckBox currentKanjiGroupCheckBox = createGroupCheckBox(kanjiGroups.get(currentKanjiGroup), null, currentKanjiGroup.getValue(),
+							chosenKanjiGroup != null && chosenKanjiGroup.contains(currentKanjiGroup.getValue()));
 
 					kanjiGroupList.add(currentKanjiGroupCheckBox);
 
@@ -856,7 +866,35 @@ public class KanjiTestOptionsActivity extends Activity {
 					});
 				}
 
-				showOwnGroupList();
+				// loading user word groups
+				List<UserGroupEntity> allUserGroupList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).getDataManager().getAllUserGroupList();
+
+				Set<Integer> chosenUserGroups = kanjiTestConfig.getChosenUserGroups();
+
+				for (int allUserGroupListIdx = 0; allUserGroupListIdx < allUserGroupList.size(); ++allUserGroupListIdx) {
+
+					UserGroupEntity userGroupEntity = allUserGroupList.get(allUserGroupListIdx);
+
+					String checkboxText = userGroupEntity.getType() == UserGroupEntity.Type.USER_GROUP ? userGroupEntity.getName() :
+							getString(R.string.user_group_star_group);
+
+					CheckBox currentKanjiGroupCheckBox = createGroupCheckBox(null, userGroupEntity, checkboxText,
+							allUserGroupList != null && allUserGroupList.contains(userGroupEntity.getId()));
+
+					kanjiGroupList.add(currentKanjiGroupCheckBox);
+
+					mainLayout.addView(currentKanjiGroupCheckBox, mainLayout.getChildCount() - 2);
+
+					currentKanjiGroupCheckBox.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							fillKanjiGroupKanjis();
+						}
+					});
+				}
+
+				// showOwnGroupList();
 				showSelectedKanji();
 
 				if (progressDialog != null && progressDialog.isShowing()) {
@@ -879,14 +917,43 @@ public class KanjiTestOptionsActivity extends Activity {
 				continue;
 			}
 
-			@SuppressWarnings("unchecked")
-			Set<String> currentKanjiGroupListCheckBoxTag = (Set<String>) currentKanjiGroupListCheckBox
-					.getTag();
+			CheckBoxTag currentKanjiGroupCheckBoxTag = (CheckBoxTag)currentKanjiGroupListCheckBox.getTag();
 
-			allKanjisInGroup.addAll(currentKanjiGroupListCheckBoxTag);
+			Set<String> kanjiSet = null;
+
+			if (currentKanjiGroupCheckBoxTag.groupType == CheckBoxGroupType.INTERNAL_GROUP) { // grupa wbudowana
+				kanjiSet = currentKanjiGroupCheckBoxTag.groupEnumKanjiSet;
+
+			} else if (currentKanjiGroupCheckBoxTag.groupType == CheckBoxGroupType.USER_GROUP) { // grupa uzytkownika
+
+				List<UserGroupItemEntity> userGroupItemListForUserEntity = JapaneseAndroidLearnHelperApplication.getInstance()
+						.getDictionaryManager(KanjiTestOptionsActivity.this).getDataManager().getUserGroupItemListForUserEntity(currentKanjiGroupCheckBoxTag.userGroupEntity);
+
+				if (userGroupItemListForUserEntity == null) {
+					userGroupItemListForUserEntity = new ArrayList<>();
+				}
+
+				kanjiSet = new HashSet<>();
+
+				for (UserGroupItemEntity userGroupItemEntity : userGroupItemListForUserEntity) {
+
+					if (userGroupItemEntity.getType() == UserGroupItemEntity.Type.KANJI_ENTRY) {
+
+						KanjiEntry kanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance()
+								.getDictionaryManager(KanjiTestOptionsActivity.this).getKanjiEntryById(userGroupItemEntity.getItemId());
+
+						if (kanjiEntry != null) {
+							kanjiSet.add(kanjiEntry.getKanji());
+						}
+					}
+				}
+			}
+
+			allKanjisInGroup.addAll(kanjiSet);
 		}
-		
-		// pobierz znaki z grup uzytkownika
+
+		/*
+		// pobierz znaki z grup uzytkownika - stary mechanizm !!!
 		for (CheckBox currentOwnGroupListCheckBox : kanjiOwnGroupList) {
 
 			if (currentOwnGroupListCheckBox.isChecked() == false) {
@@ -899,6 +966,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			allKanjisInGroup.addAll(currentOwnGroupKanjiListCheckBoxTag);
 		}
+		*/
 
 		// ustawienie znakow
 		for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getAllKanjiList()) {
@@ -912,7 +980,7 @@ public class KanjiTestOptionsActivity extends Activity {
 		showSelectedKanji();		
 	}
 	
-	
+	/*
 	private void showOwnGroupList() {
 		
 		final LinearLayout mainLayout = (LinearLayout) findViewById(R.id.kanji_test_options_main_layout);
@@ -1066,7 +1134,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				break;
 			}			
 		}		
-	}	
+	}
+	*/
 
 	private void showSelectedKanji() {
 
@@ -1145,9 +1214,13 @@ public class KanjiTestOptionsActivity extends Activity {
 						currentKanjiGroupListCheckBox.setChecked(false);
 					}
 
+					// FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+					/*
 					for (CheckBox currentKanjiOwnGroupListCheckBox : kanjiOwnGroupList) {
 						currentKanjiOwnGroupListCheckBox.setChecked(false);
 					}
+					*/
 					
 					kanjiList.setKanjiChecked(currentCheckBoxKanjiEntry, false);
 
@@ -1236,5 +1309,57 @@ public class KanjiTestOptionsActivity extends Activity {
 		public boolean isChecked(KanjiEntry kanjiEntry) {
 			return userSelectedKanjiList.contains(kanjiEntry);
 		}
+	}
+
+	private CheckBox createGroupCheckBox(Set<String> groupEnumKanjiSet, UserGroupEntity userGroupEntity, String text, boolean checked) {
+
+		CheckBox checkbox = new CheckBox(this);
+
+		if ( 	(groupEnumKanjiSet == null && userGroupEntity == null) ||
+				(groupEnumKanjiSet != null && userGroupEntity != null)) {
+			throw new RuntimeException();
+		}
+
+		if (groupEnumKanjiSet != null) {
+			checkbox.setTag(new CheckBoxTag(groupEnumKanjiSet));
+
+		} else if (userGroupEntity != null) {
+			checkbox.setTag(new CheckBoxTag(userGroupEntity));
+		}
+
+		checkbox.setLayoutParams(new LinearLayout.LayoutParams(
+				LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+		checkbox.setTextSize(12);
+		checkbox.setText(text);
+		checkbox.setChecked(checked);
+
+		return checkbox;
+	}
+
+	private static class CheckBoxTag {
+
+		private CheckBoxGroupType groupType;
+
+		private Set<String> groupEnumKanjiSet;
+
+		private UserGroupEntity userGroupEntity;
+
+		public CheckBoxTag(Set<String> groupEnumKanjiSet) {
+			this.groupType = CheckBoxGroupType.INTERNAL_GROUP;
+			this.groupEnumKanjiSet = groupEnumKanjiSet;
+		}
+
+		public CheckBoxTag(UserGroupEntity userGroupEntity) {
+			this.groupType = CheckBoxGroupType.USER_GROUP;
+			this.userGroupEntity = userGroupEntity;
+		}
+	}
+
+	private static enum CheckBoxGroupType {
+
+		INTERNAL_GROUP,
+
+		USER_GROUP;
 	}
 }

@@ -109,6 +109,7 @@
                 android:background="@color/title_background"
                 android:text="@string/kanji_test_options_choose_kanji_group" />
 
+            <!--
 			<TextView
                 android:id="@+id/kanji_test_options_choose_own_kanji_group"
                 android:layout_width="match_parent"
@@ -116,13 +117,33 @@
                 android:background="@color/title_background"
                 android:text="@string/kanji_test_options_choose_own_kanji_group"
                 android:visibility="gone" />
-            
+            -->
+
+            <TextView
+                android:id="@+id/kanji_test_options_chosen_kanji_group_internal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/kanji_test_options_chosen_kanji_group_internal"
+                android:layout_marginTop="15dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/kanji_test_options_chosen_kanji_group_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_background"
+                android:text="@string/kanji_test_options_chosen_kanji_group_user"
+                android:layout_marginTop="15dp">
+            </TextView>
+
             <TextView
                 android:id="@+id/kanji_test_options_chosen_kanji"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/title_background"
-                android:text="@string/kanji_test_options_chosen_kanji" />
+                android:text="@string/kanji_test_options_chosen_kanji"
+                android:layout_marginTop="15dp"/>
 
             <TextView
                 android:id="@+id/kanji_test_options_chosen_kanji_info"

@@ -70,7 +70,11 @@
     <string name="kanji_test_options_test_mode_draw_kanji_in_word">Rysowanie znaków kanji uzupełniając puste miejsce w słowie</string>
     <string name="kanji_test_options_test_mode_choose_kanji_in_word">Wybór znaku kanji w pustym miejscu w słowie</string>
     <string name="kanji_test_options_choose_kanji_group">Proszę wybrać grupę znaków kanji użytych podczas testu</string>
-    <string name="kanji_test_options_choose_own_kanji_group">Lista własnych grup</string>
+    <!-- <string name="kanji_test_options_choose_own_kanji_group">Lista własnych grup</string> -->
+
+    <string name="kanji_test_options_chosen_kanji_group_internal">Grupy wbudowane</string>
+    <string name="kanji_test_options_chosen_kanji_group_user">Grupy użytkownika</string>
+
     <string name="kanji_test_options_chosen_kanji">Wybrane znaki kanji</string>
     <string name="kanji_test_options_chosen_kanji_info">(przy użyciu menu podręcznego można wpisać znaki spoza dostępnych grup)</string>
     <string name="kanji_test_options_choose_kanji_info">Proszę wybrać znaki kanji użyte podczas testu</string>

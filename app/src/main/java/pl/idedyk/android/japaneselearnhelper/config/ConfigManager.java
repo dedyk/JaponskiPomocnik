@@ -201,6 +201,8 @@ public class ConfigManager {
 		private final String kanjiTestChosenKanjiPostfix = "chosenKanji";
 		
 		private final String kanjiTestChosenKanjiGroupPostfix = "chosenKanjiGroup";
+
+		private final String kanjiTestChosenUserGroupPostfix = "chosenUserGroup";
 		
 		private final String kanjiTestUntilSuccessPostfix = "untilSuccess";
 		
@@ -305,7 +307,51 @@ public class ConfigManager {
 			
 			editor.commit();
 		}
-		
+
+		public Set<Integer> getChosenUserGroups() {
+
+			Set<Integer> result = new HashSet<Integer>();
+
+			String chosenUserGroupString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenUserGroupPostfix, null);
+
+			if (chosenUserGroupString == null || chosenUserGroupString.trim().equals("") == true) {
+				return result;
+			}
+
+			String[] chosenUserGroupSplited = chosenUserGroupString.split(",");
+
+			for (String currentChosenUserGroupId : chosenUserGroupSplited) {
+				result.add(new Integer(currentChosenUserGroupId));
+			}
+
+			return result;
+		}
+
+
+		public void setChosenUserGroups(List<Integer> chosenUserGroupsNumberList) {
+
+			if (chosenUserGroupsNumberList == null) {
+				return;
+			}
+
+			StringBuffer chosenUserGroupsNumberSb = new StringBuffer();
+
+			for (int chosenUserGroupsNumberListIdx = 0; chosenUserGroupsNumberListIdx < chosenUserGroupsNumberList.size(); ++chosenUserGroupsNumberListIdx) {
+
+				chosenUserGroupsNumberSb.append(chosenUserGroupsNumberList.get(chosenUserGroupsNumberListIdx));
+
+				if (chosenUserGroupsNumberListIdx != chosenUserGroupsNumberList.size() - 1) {
+					chosenUserGroupsNumberSb.append(",");
+				}
+			}
+
+			Editor editor = preferences.edit();
+
+			editor.putString(kanjiTestConfigPrefix + kanjiTestChosenUserGroupPostfix, chosenUserGroupsNumberSb.toString());
+
+			editor.commit();
+		}
+
 		public Boolean getUntilSuccess() {
 			return preferences.getBoolean(kanjiTestConfigPrefix + kanjiTestUntilSuccessPostfix, true);
 		}
