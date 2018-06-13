@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
@@ -84,7 +86,29 @@ public class DataManager {
         try {
             cursor = sqliteDatabase.rawQuery(SQLiteStatic.user_group_sql_select_all, null);
 
-            return createUserGroupEntityListFromCursor(cursor);
+            List<UserGroupEntity> allUserGroupsList = createUserGroupEntityListFromCursor(cursor);
+
+            // sortowanie
+            Collections.sort(allUserGroupsList, new Comparator<UserGroupEntity>() {
+
+                @Override
+                public int compare(UserGroupEntity o1, UserGroupEntity o2) {
+
+                    UserGroupEntity.Type o1Type = o1.getType();
+                    UserGroupEntity.Type o2Type = o2.getType();
+
+                    if (o1Type == UserGroupEntity.Type.STAR_GROUP && o2Type != UserGroupEntity.Type.STAR_GROUP) {
+                        return -1;
+
+                    } else if (o1Type != UserGroupEntity.Type.STAR_GROUP && o2Type == UserGroupEntity.Type.STAR_GROUP) {
+                        return 1;
+                    }
+
+                    return o1.getName().compareTo(o2.getName());
+                }
+            });
+
+            return allUserGroupsList;
 
         } finally {
             if (cursor != null) {

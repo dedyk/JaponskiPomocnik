@@ -156,7 +156,7 @@ public class KanjiTestOptionsActivity extends Activity {
 				currentCheckBox.setChecked(false);
 			}
 
-			kanjiList.cleatUserSelectedKanjiList();
+			kanjiList.clearUserSelectedKanjiList();
 
 			showSelectedKanji();
 
@@ -333,7 +333,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		kanjiList = new KanjiList();
 		kanjiGroupList = new ArrayList<CheckBox>();
-		// kanjiOwnGroupList = new ArrayList<CheckBox>();
+		// kanjiOwnGroupList = new ArrayList<CheckBox>(); // stary mechanizm!!!
 
 		Button startTestButton = (Button) findViewById(R.id.kanji_test_options_start_test);
 
@@ -378,20 +378,33 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				kanjiTestConfig.setChosenKanji(chosenKanjiList);
 
-				// zapis wybranych grup wbudowanych
+				// zapis grup wbudowanych i uzytkownika
 				final List<String> chosenKanjiGroupList = new ArrayList<String>();
+
+				List<Integer> chosenUserGroupsNumberList = new ArrayList<Integer>();
+				List<UserGroupEntity> chosenUserGroupEntityList = new ArrayList<UserGroupEntity>();
 
 				for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
 
 					if (currentKanjiGroupListCheckBox.isChecked() == true) {
-						chosenKanjiGroupList.add(currentKanjiGroupListCheckBox.getText().toString());
+
+						CheckBoxTag currentKanjiGroupCheckBoxTag = (CheckBoxTag)currentKanjiGroupListCheckBox.getTag();
+
+						if (currentKanjiGroupCheckBoxTag.groupType == CheckBoxGroupType.INTERNAL_GROUP) { // grupa wbudowana
+							chosenKanjiGroupList.add(currentKanjiGroupListCheckBox.getText().toString());
+
+						} else if (currentKanjiGroupCheckBoxTag.groupType == CheckBoxGroupType.USER_GROUP) { // grupa uzytkownika
+							chosenUserGroupsNumberList.add(currentKanjiGroupCheckBoxTag.userGroupEntity.getId());
+							chosenUserGroupEntityList.add(currentKanjiGroupCheckBoxTag.userGroupEntity);
+						}
 					}
 				}
 
 				kanjiTestConfig.setChosenKanjiGroup(chosenKanjiGroupList);
+				kanjiTestConfig.setChosenUserGroups(chosenUserGroupsNumberList);
 
 				/*
-				// zapis wybranych wlasnych grup
+				// zapis wybranych wlasnych grup - stary mechanizm!!!
 				final List<String> chosenOwnKanjiGroupList = new ArrayList<String>();
 
 				for (CheckBox currentKanjiOwnGroupListCheckBox : kanjiOwnGroupList) {
@@ -414,11 +427,10 @@ public class KanjiTestOptionsActivity extends Activity {
 					return;
 				}
 
-				if ((kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD || kanjiTestConfig
-						.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD)
+				if ((kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.CHOOSE_KANJI_IN_WORD || kanjiTestConfig.getKanjiTestMode() == KanjiTestMode.DRAW_KANJI_IN_WORD)
 						&& dedicateExampleCheckBox.isChecked() == true) {
 
-					if (chosenKanjiGroupList.size() == 0) {
+					if (chosenKanjiGroupList.size() == 0 && chosenUserGroupEntityList.size() == 0) {
 
 						Toast toast = Toast.makeText(KanjiTestOptionsActivity.this,
 								getString(R.string.kanji_test_options_choose_kanji_group_info), Toast.LENGTH_SHORT);
@@ -430,6 +442,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					int dictionaryEntrySize = 0;
 
+					// przeglad i wczytywanie slow dla wybranych wbudowanych slow
 					for (String currentKanjiGroup : chosenKanjiGroupList) {
 
 						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
@@ -437,6 +450,40 @@ public class KanjiTestOptionsActivity extends Activity {
 								.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
 
 						dictionaryEntrySize += currentWordsGroupDictionaryEntryList.size();
+					}
+
+					// przeglad i wczytywanie slow dla wybranych grup uzytkownika, trzeba ???
+					for (UserGroupEntity userGroupEntity : chosenUserGroupEntityList) {
+
+						// wczytujemy liste slow z tej grupy
+						List<UserGroupItemEntity> userGroupItemListForUserEntity = JapaneseAndroidLearnHelperApplication.getInstance()
+								.getDictionaryManager(KanjiTestOptionsActivity.this).getDataManager().getUserGroupItemListForUserEntity(userGroupEntity);
+
+						if (userGroupItemListForUserEntity == null) {
+							userGroupItemListForUserEntity = new ArrayList<>();
+						}
+
+						// sprawdzamy, czy wystepuje tu slowa, ktore maja w sobie wybrane znaki kanji
+						for (UserGroupItemEntity userGroupItemEntity : userGroupItemListForUserEntity) {
+
+							if (userGroupItemEntity.getType() == UserGroupItemEntity.Type.DICTIONARY_ENTRY) {
+
+								DictionaryEntry dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
+										getDictionaryEntryById(userGroupItemEntity.getItemId());
+
+								if (dictionaryEntry != null) {
+
+									for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
+
+										String currentDictionaryEntryKanji = dictionaryEntry.getKanji();
+
+										if (currentDictionaryEntryKanji != null && currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == true) {
+											dictionaryEntrySize++;
+										}
+									}
+								}
+							}
+						}
 					}
 
 					if (dictionaryEntrySize == 0) {
@@ -517,12 +564,11 @@ public class KanjiTestOptionsActivity extends Activity {
 
 						EntryOrderList<KanjiEntry> kanjiEntryListEntryOrderList = null;
 
-						if (untilSuccessCheckBox.isChecked() == true
-								&& untilSuccessNewWordLimitCheckBox.isChecked() == true) {
+						if (untilSuccessCheckBox.isChecked() == true && untilSuccessNewWordLimitCheckBox.isChecked() == true) {
 							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList2, 10);
+
 						} else {
-							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList2,
-									kanjiEntryList2.size());
+							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList2, kanjiEntryList2.size());
 						}
 
 						// set kanji entry list in context
@@ -598,6 +644,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 							} else {
 
+								// wczytywanie dedykowanych slow dla wybranych wbudowanych grup
+
 								for (String currentKanjiGroup : chosenKanjiGroupList) {
 
 									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
@@ -617,22 +665,27 @@ public class KanjiTestOptionsActivity extends Activity {
 											JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
 													currentDictionaryEntry, currentKanjiEntry.getKanji());
 
-											dictionaryEntryWithRemovedKanjiList
-													.add(currentDictionaryEntryWithRemovedKanji);
+											dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
 										}
 									}
 								}
+
+								// wczytywanie dedykowanych slow dla wybranych grup uzytkownika
+
+								// FIXME !!!!!!!!!!!!!
 							}
 
 							Collections.shuffle(dictionaryEntryWithRemovedKanjiList);
 
 							EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji> entryOrderList = null;
 
-							if (untilSuccessCheckBox.isChecked() == true
-									&& untilSuccessNewWordLimitCheckBox.isChecked() == true) {
+							if (untilSuccessCheckBox.isChecked() == true && untilSuccessNewWordLimitCheckBox.isChecked() == true) {
+
 								entryOrderList = new EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>(
 										dictionaryEntryWithRemovedKanjiList, 10);
+
 							} else {
+
 								entryOrderList = new EntryOrderList<JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji>(
 										dictionaryEntryWithRemovedKanjiList, dictionaryEntryWithRemovedKanjiList.size());
 							}
@@ -720,6 +773,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				detailsSb.append("***" + chooseKanjiGroupTextView.getText() + "***\n\n");
 
 				for (CheckBox currentKanjiGroupList : kanjiGroupList) {
+
+					// FIXME !!!!!!!!!!!!!!!!
 
 					String currentKanjiGroupListText = currentKanjiGroupList.getText().toString();
 
@@ -879,7 +934,7 @@ public class KanjiTestOptionsActivity extends Activity {
 							getString(R.string.user_group_star_group);
 
 					CheckBox currentKanjiGroupCheckBox = createGroupCheckBox(null, userGroupEntity, checkboxText,
-							allUserGroupList != null && allUserGroupList.contains(userGroupEntity.getId()));
+							chosenUserGroups != null && chosenUserGroups.contains(userGroupEntity.getId()));
 
 					kanjiGroupList.add(currentKanjiGroupCheckBox);
 
@@ -910,7 +965,7 @@ public class KanjiTestOptionsActivity extends Activity {
 		
 		Set<String> allKanjisInGroup = new HashSet<String>();
 
-		// pobierz znaki z wbudowanych grup
+		// pobierz znaki z grup
 		for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
 
 			if (currentKanjiGroupListCheckBox.isChecked() == false) {
@@ -1214,9 +1269,8 @@ public class KanjiTestOptionsActivity extends Activity {
 						currentKanjiGroupListCheckBox.setChecked(false);
 					}
 
-					// FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 					/*
+					// stary mechanizm wlasnych grup !!!
 					for (CheckBox currentKanjiOwnGroupListCheckBox : kanjiOwnGroupList) {
 						currentKanjiOwnGroupListCheckBox.setChecked(false);
 					}
@@ -1233,7 +1287,6 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			mainLayout.addView(linearLayout);
 		}
-
 	}
 
 	private void setUntilSuccessNewWordLimitCheckBoxEnabled(CheckBox untilSuccessCheckBox,
@@ -1269,7 +1322,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			return userSelectedKanjiList;
 		}
 
-		public void cleatUserSelectedKanjiList() {
+		public void clearUserSelectedKanjiList() {
 			userSelectedKanjiList.clear();
 		}
 

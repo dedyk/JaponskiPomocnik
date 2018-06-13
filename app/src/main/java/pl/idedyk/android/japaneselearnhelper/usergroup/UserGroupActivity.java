@@ -229,26 +229,6 @@ public class UserGroupActivity extends Activity {
 
         List<UserGroupEntity> allUserGroupsList = dataManager.getAllUserGroupList();
 
-        // sortowanie
-        Collections.sort(allUserGroupsList, new Comparator<UserGroupEntity>() {
-
-            @Override
-            public int compare(UserGroupEntity o1, UserGroupEntity o2) {
-
-                UserGroupEntity.Type o1Type = o1.getType();
-                UserGroupEntity.Type o2Type = o2.getType();
-
-                if (o1Type == UserGroupEntity.Type.STAR_GROUP && o2Type != UserGroupEntity.Type.STAR_GROUP) {
-                    return -1;
-
-                } else if (o1Type != UserGroupEntity.Type.STAR_GROUP && o2Type == UserGroupEntity.Type.STAR_GROUP) {
-                    return 1;
-                }
-
-                return o1.getName().compareTo(o2.getName());
-            }
-        });
-
         for (UserGroupEntity currentUserGroupEntity : allUserGroupsList) {
             userGroupList.add(new UserGroupListItem(currentUserGroupEntity, getResources()));
         }
