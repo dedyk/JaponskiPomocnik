@@ -242,9 +242,13 @@ public class ConfigManager {
 			
 			List<String> result = new ArrayList<String>();
 			
-			String chosenKanjiString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenKanjiPostfix, "");
-			
-			String[] chosenKanjiSplited = chosenKanjiString.split(",");
+			String chosenKanjiString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenKanjiPostfix, null);
+
+            if (chosenKanjiString == null || chosenKanjiString.trim().equals("") == true) {
+                return result;
+            }
+
+            String[] chosenKanjiSplited = chosenKanjiString.split(",");
 			
 			for (String currentChosenKanji : chosenKanjiSplited) {
 				result.add(currentChosenKanji);
@@ -254,12 +258,16 @@ public class ConfigManager {
 		}
 		
 		public Set<String> getChosenKanjiGroup() {
-			
+
 			Set<String> result = new HashSet<String>();
 			
-			String chosenKanjiGroupString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenKanjiGroupPostfix, "");
-			
-			String[] chosenKanjiGroupSplited = chosenKanjiGroupString.split(",");
+			String chosenKanjiGroupString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenKanjiGroupPostfix,  null);
+
+            if (chosenKanjiGroupString == null || chosenKanjiGroupString.trim().equals("") == true) {
+                return result;
+            }
+
+            String[] chosenKanjiGroupSplited = chosenKanjiGroupString.split(",");
 			
 			for (String currentChosenKanjiGroup : chosenKanjiGroupSplited) {
 				result.add(currentChosenKanjiGroup);
@@ -547,9 +555,13 @@ public class ConfigManager {
 			
 			Set<String> result = new HashSet<String>();
 			
-			String chosenOwnKanjiGroupString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenOwnGroupPostfix, "");
-			
-			String[] chosenOwnKanjiGroupSplited = chosenOwnKanjiGroupString.split(",");
+			String chosenOwnKanjiGroupString = preferences.getString(kanjiTestConfigPrefix + kanjiTestChosenOwnGroupPostfix, null);
+
+            if (chosenOwnKanjiGroupString == null || chosenOwnKanjiGroupString.trim().equals("") == true) {
+                return result;
+            }
+
+            String[] chosenOwnKanjiGroupSplited = chosenOwnKanjiGroupString.split(",");
 			
 			for (String currentChosenKanjiGroup : chosenOwnKanjiGroupSplited) {
 				result.add(currentChosenKanjiGroup);
@@ -760,7 +772,7 @@ public class ConfigManager {
 			
 			String chosenWordGroupString = preferences.getString(dictionaryHearConfigPrefix + wordGroupsPostfix, null);
 			
-			if (chosenWordGroupString == null) {
+			if (chosenWordGroupString == null || chosenWordGroupString.trim().equals("") == true) {
 				return result;
 			}
 			
@@ -899,7 +911,7 @@ public class ConfigManager {
 			
 			String chosenWordGroupString = preferences.getString(wordTestConfigPrefix + wordGroupsPostfix, null);
 			
-			if (chosenWordGroupString == null) {
+			if (chosenWordGroupString == null || chosenWordGroupString.trim().equals("") == true) {
 				return result;
 			}
 			

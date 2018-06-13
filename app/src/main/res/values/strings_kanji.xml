@@ -79,7 +79,7 @@
     <string name="kanji_test_options_chosen_kanji_info">(przy użyciu menu podręcznego można wpisać znaki spoza dostępnych grup)</string>
     <string name="kanji_test_options_choose_kanji_info">Proszę wybrać znaki kanji użyte podczas testu</string>
     <string name="kanji_test_options_choose_kanji_group_info">Proszę wybrać grupy znaków kanji</string>
-    <string name="kanji_test_options_choose_kanji_group_no_words">Dla wybranych grup brak słów. Proszę wybrać inne grupy</string>
+    <string name="kanji_test_options_choose_kanji_group_no_words">Dla wybranych grup brak słów zawierające wybrane znaki kanji. Proszę wybrać inne grupy lub dodać do własnych grup słowa zawierające w sobie wybrane znaki kanji.</string>
     <string name="kanji_test_options_start_test">Rozpocznij test</string>
     <string name="kanji_test_options_max_test_size">Maksymalna ilość pozycji na test</string>
     <string name="kanji_test_options_other_options">Inne opcje</string>

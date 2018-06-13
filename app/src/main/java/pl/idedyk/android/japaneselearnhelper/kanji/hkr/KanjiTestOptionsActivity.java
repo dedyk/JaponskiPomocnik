@@ -17,6 +17,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.test.WordTestOptions;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
@@ -488,7 +489,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					if (dictionaryEntrySize == 0) {
 						Toast toast = Toast.makeText(KanjiTestOptionsActivity.this,
-								getString(R.string.kanji_test_options_choose_kanji_group_no_words), Toast.LENGTH_SHORT);
+								getString(R.string.kanji_test_options_choose_kanji_group_no_words), Toast.LENGTH_LONG);
 
 						toast.show();
 
@@ -773,7 +774,12 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			@Override
 			public void onClick(View view) {
-				
+
+				TextView optionsGroupInternal = (TextView)findViewById(R.id.kanji_test_options_chosen_kanji_group_internal);
+				TextView optionsGroupUser = (TextView)findViewById(R.id.kanji_test_options_chosen_kanji_group_user);
+
+				//
+
 				StringBuffer detailsSb = new StringBuffer();
 
 				detailsSb.append("***" + testModeTextView.getText() + "***\n\n");
@@ -805,9 +811,15 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				detailsSb.append("***" + chooseKanjiGroupTextView.getText() + "***\n\n");
 
+				detailsSb.append("*** " + optionsGroupInternal.getText() + " ***\n\n");
+
 				for (CheckBox currentKanjiGroupList : kanjiGroupList) {
 
-					// FIXME !!!!!!!!!!!!!!!!
+					CheckBoxTag currentKanjiGroupCheckBoxTag = (CheckBoxTag)currentKanjiGroupList.getTag();
+
+					if (currentKanjiGroupCheckBoxTag.groupType != CheckBoxGroupType.INTERNAL_GROUP) {
+						continue;
+					}
 
 					String currentKanjiGroupListText = currentKanjiGroupList.getText().toString();
 
@@ -815,13 +827,24 @@ public class KanjiTestOptionsActivity extends Activity {
 							.append("\n");
 				}
 
-				if (1 == 1) {
-					throw new RuntimeException();
+				detailsSb.append("\n*** " + optionsGroupUser.getText() + " ***\n\n");
+
+				for (CheckBox currentKanjiGroupList : kanjiGroupList) {
+
+					CheckBoxTag currentKanjiGroupCheckBoxTag = (CheckBoxTag) currentKanjiGroupList.getTag();
+
+					if (currentKanjiGroupCheckBoxTag.groupType != CheckBoxGroupType.USER_GROUP) {
+						continue;
+					}
+
+					String currentKanjiGroupListText = currentKanjiGroupList.getText().toString();
+
+					detailsSb.append(currentKanjiGroupList.isChecked() + " - " + currentKanjiGroupListText)
+							.append("\n");
 				}
 
-				// FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 				/*
+				// stary mechanizm wlasnych grup
 				final TextView chooseOwnKanjiGroup = (TextView)findViewById(R.id.kanji_test_options_choose_own_kanji_group);
 				
 				if (chooseOwnKanjiGroup.getVisibility() == View.VISIBLE) {
@@ -983,7 +1006,10 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				// showOwnGroupList();
-				fillKanjiGroupKanjis();
+				if (chosenKanjiGroup.size() > 0 || chosenUserGroups.size() > 0) {
+					fillKanjiGroupKanjis();
+				}
+
 				showSelectedKanji();
 
 				if (progressDialog != null && progressDialog.isShowing()) {
