@@ -495,7 +495,7 @@ public class DictionaryHear extends Activity {
 					polishTranslateSb.append(translates.get(idx));
 
 					if (idx != translates.size() - 1) {
-						polishTranslateSb.append(", ");
+						polishTranslateSb.append(". ");
 					} else {
 						polishTranslateSb.append(". ");
 					}
