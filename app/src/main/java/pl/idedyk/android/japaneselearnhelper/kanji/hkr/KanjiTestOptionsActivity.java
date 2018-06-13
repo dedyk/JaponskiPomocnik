@@ -382,7 +382,7 @@ public class KanjiTestOptionsActivity extends Activity {
 				final List<String> chosenKanjiGroupList = new ArrayList<String>();
 
 				List<Integer> chosenUserGroupsNumberList = new ArrayList<Integer>();
-				List<UserGroupEntity> chosenUserGroupEntityList = new ArrayList<UserGroupEntity>();
+				final List<UserGroupEntity> chosenUserGroupEntityList = new ArrayList<UserGroupEntity>();
 
 				for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
 
@@ -452,7 +452,7 @@ public class KanjiTestOptionsActivity extends Activity {
 						dictionaryEntrySize += currentWordsGroupDictionaryEntryList.size();
 					}
 
-					// przeglad i wczytywanie slow dla wybranych grup uzytkownika, trzeba ???
+					// przeglad i wczytywanie slow dla wybranych grup uzytkownika
 					for (UserGroupEntity userGroupEntity : chosenUserGroupEntityList) {
 
 						// wczytujemy liste slow z tej grupy
@@ -645,7 +645,6 @@ public class KanjiTestOptionsActivity extends Activity {
 							} else {
 
 								// wczytywanie dedykowanych slow dla wybranych wbudowanych grup
-
 								for (String currentKanjiGroup : chosenKanjiGroupList) {
 
 									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
@@ -671,8 +670,42 @@ public class KanjiTestOptionsActivity extends Activity {
 								}
 
 								// wczytywanie dedykowanych slow dla wybranych grup uzytkownika
+								for (UserGroupEntity userGroupEntity : chosenUserGroupEntityList) {
 
-								// FIXME !!!!!!!!!!!!!
+									// wczytujemy liste slow z tej grupy
+									List<UserGroupItemEntity> userGroupItemListForUserEntity = JapaneseAndroidLearnHelperApplication.getInstance()
+											.getDictionaryManager(KanjiTestOptionsActivity.this).getDataManager().getUserGroupItemListForUserEntity(userGroupEntity);
+
+									if (userGroupItemListForUserEntity == null) {
+										userGroupItemListForUserEntity = new ArrayList<>();
+									}
+
+									// sprawdzamy, czy wystepuje tu slowa, ktore maja w sobie wybrane znaki kanji
+									for (UserGroupItemEntity userGroupItemEntity : userGroupItemListForUserEntity) {
+
+										if (userGroupItemEntity.getType() == UserGroupItemEntity.Type.DICTIONARY_ENTRY) {
+
+											DictionaryEntry dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
+													getDictionaryEntryById(userGroupItemEntity.getItemId());
+
+											if (dictionaryEntry != null) {
+
+												for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
+
+													String currentDictionaryEntryKanji = dictionaryEntry.getKanji();
+
+													if (currentDictionaryEntryKanji != null && currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == true) {
+
+														JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
+																new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(dictionaryEntry, currentKanjiEntry.getKanji());
+
+														dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
+													}
+												}
+											}
+										}
+									}
+								}
 							}
 
 							Collections.shuffle(dictionaryEntryWithRemovedKanjiList);
@@ -950,6 +983,7 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				// showOwnGroupList();
+				fillKanjiGroupKanjis();
 				showSelectedKanji();
 
 				if (progressDialog != null && progressDialog.isShowing()) {
