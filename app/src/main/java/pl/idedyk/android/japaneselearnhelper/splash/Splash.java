@@ -18,15 +18,21 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +55,24 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
 		setContentView(R.layout.splash);
+
+		//
+
+		Display display = getWindowManager().getDefaultDisplay();
+		Point screenSize = new Point();
+		display.getSize(screenSize);
+
+		ImageView splashViewImage = (ImageView)findViewById(R.id.splash_image);
+
+		// rozmiary obrazu japan_big to 900x600, proporcje 1.5
+		// ustawiamy, aby flaga japonii zawsze byla w odpowiednich proporcjach
+
+		splashViewImage.setScaleType(ImageView.ScaleType.FIT_XY);
+
+		splashViewImage.getLayoutParams().width = 900 - (int)((screenSize.x * 0.1 * 2));
+		splashViewImage.getLayoutParams().height = (int)(splashViewImage.getLayoutParams().width / 1.5);
+
+		//
 
 		final TextView progressDesc = (TextView) findViewById(R.id.splash_desc_label);
 

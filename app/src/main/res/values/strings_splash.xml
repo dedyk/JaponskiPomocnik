@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="splash_title1">小さくて奥ゆかしい日本語ヘルパー</string>
+    <string name="splash_title2">Mały, skromny japoński pomocnik</string>
     <string name="splash_image_description"/>
     <string name="splash_message_box_title">Informacja</string>
     <string name="splash_message_box_info">Autor powyższego programu dopełnia wszelkich starań, aby zawarte w aplikacji informacje były rzetelne i zgodne z prawdą.\n\nJednakże autor nie ponosi żadnej odpowiedzialności za aktualność, poprawność, kompletność i jakość prezentowanych informacji.\n\nJeśli widzisz błąd, koniecznie zgłoś go.\n</string>

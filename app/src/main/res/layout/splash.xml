@@ -1,22 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/splash_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:text="@string/splash_title1"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/splash_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="@string/splash_title2"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
 
     <ImageView
         android:id="@+id/splash_image"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         android:contentDescription="@string/splash_image_description"
-        android:scaleType="fitXY"
-        android:src="@drawable/logo" />
-
+        android:src="@drawable/japan_big" />
+    
     <ProgressBar
         android:id="@+id/splash_progressbar"
         style="?android:attr/progressBarStyleHorizontal"
