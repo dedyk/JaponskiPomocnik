@@ -420,7 +420,9 @@ public class UserGroupActivity extends Activity {
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
         alertDialog.setTitle(getString(R.string.user_group_item_to_add_user_group_entity_title));
-        alertDialog.setMessage(getString(R.string.user_group_item_to_add_user_group_entity_message, userGroupEntity.getName()));
+        alertDialog.setMessage(getString(R.string.user_group_item_to_add_user_group_entity_message,
+                userGroupEntity.getType() == UserGroupEntity.Type.USER_GROUP ? userGroupEntity.getName() :
+                getString(R.string.user_group_star_group)));
 
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.user_group_ok_button), new DialogInterface.OnClickListener() {
 
@@ -432,7 +434,8 @@ public class UserGroupActivity extends Activity {
 
                 // komunikat
                 Toast.makeText(UserGroupActivity.this,
-                        getString(R.string.user_group_item_to_add_user_group_entity_toast, userGroupEntity.getName()), Toast.LENGTH_SHORT).show();
+                        getString(R.string.user_group_item_to_add_user_group_entity_toast, userGroupEntity.getType() == UserGroupEntity.Type.USER_GROUP ? userGroupEntity.getName() :
+                                getString(R.string.user_group_star_group)), Toast.LENGTH_SHORT).show();
 
                 //
 
