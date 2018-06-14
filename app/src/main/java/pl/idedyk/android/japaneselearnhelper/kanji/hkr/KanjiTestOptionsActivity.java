@@ -607,14 +607,25 @@ public class KanjiTestOptionsActivity extends Activity {
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
 
 										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
-												currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry
-														.getKanji());
+												currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
 
 										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
+
+										if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+											break;
+										}
+									}
+
+									if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+										break;
 									}
 								}
 
 								for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
+
+									if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+										break;
+									}
 
 									// find word with this kanji
 									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance()
@@ -630,16 +641,22 @@ public class KanjiTestOptionsActivity extends Activity {
 
 										String currentDictionaryEntryKanji = currentDictionaryEntry.getKanji();
 
-										if (currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == false) {
+										if (currentDictionaryEntryKanji == null || currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == false) {
 											continue;
 										}
 
 										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
-												currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry
-														.getKanji());
+												currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
 
 										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
 
+										if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+											break;
+										}
+									}
+
+									if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+										break;
 									}
 								}
 
@@ -666,7 +683,19 @@ public class KanjiTestOptionsActivity extends Activity {
 													currentDictionaryEntry, currentKanjiEntry.getKanji());
 
 											dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
+
+											if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+												break;
+											}
 										}
+
+										if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+											break;
+										}
+									}
+
+									if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+										break;
 									}
 								}
 
@@ -701,10 +730,22 @@ public class KanjiTestOptionsActivity extends Activity {
 																new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(dictionaryEntry, currentKanjiEntry.getKanji());
 
 														dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
+
+														if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+															break;
+														}
 													}
 												}
 											}
 										}
+
+										if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+											break;
+										}
+									}
+
+									if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
+										break;
 									}
 								}
 							}
