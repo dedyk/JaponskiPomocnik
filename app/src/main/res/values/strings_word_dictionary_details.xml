@@ -36,4 +36,6 @@
     <string name="word_dictionary_details_delete_item_id_from_user_group_title">Potwierdzenie usunięcia</string>
     <string name="word_dictionary_details_delete_item_id_from_user_group_message">Czy chcesz usunąć to słowo z grupy: %1$s?</string>
     <string name="word_dictionary_details_delete_item_id_from_user_group_toast">Usunięto z grupy: %1$s</string>
+
+    <string name="word_dictionary_details_name_info">Uwaga. Poniższa zawartość została wygenerowana automatycznie, bez ludzkiej weryfikacji i może zawierać nieprzetłumaczone elementy, bądź inne błędy.</string>
 </resources>

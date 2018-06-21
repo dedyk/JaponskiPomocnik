@@ -376,6 +376,15 @@ public class WordDictionaryDetails extends Activity {
 			prefixKana = null;
 		}
 
+		// info dla slow typu name
+		if (dictionaryEntry.isName() == true) {
+
+			StringValue dictionaryEntryInfoName = new StringValue(getString(R.string.word_dictionary_details_name_info), 12.0f, 0);
+
+			report.add(dictionaryEntryInfoName);
+			report.add(new StringValue("", 15.0f, 2));
+		}
+
 		// Kanji		
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_kanji_label), 0));
 
