@@ -386,6 +386,7 @@
 77912,jpn,涼しくなってきましたね。
 77919,jpn,料理長においしかったとお伝え下さい。
 77935,jpn,料理のうまい女性が欲しい。
+77938,jpn,料理にあまりに時間がかかりすぎる。
 77941,jpn,料理ということになれば、誰もメアリーにはかなわない。
 77966,jpn,寮生活には慣れましたか。
 77968,jpn,寮の暖房が故障してるんです。
@@ -423,6 +424,7 @@
 78215,jpn,竜は想像上の生物である。
 78216,jpn,隆、もうお風呂に入った？
 78217,jpn,硫黄は青い炎を上げて燃える。
+78218,jpn,硫黄はマッチを作るのに使われる。
 78220,jpn,留守番電話にメッセージを入れてください。
 78222,jpn,留守電に入れといてね。
 78223,jpn,留守中子猫の世話は任せてください。
@@ -475,6 +477,7 @@
 78538,jpn,落ちつけよ。
 78539,jpn,落ちつきな。
 78541,jpn,落ちついて。
+78546,jpn,雷鳴がさらに大きくなった。
 78552,jpn,雷は、嵐が近づいている徴候だ。
 78554,jpn,雷が鳴ると、雨が降り始めた。
 78560,jpn,頼んだ物がまだ来ません。
@@ -650,6 +653,7 @@
 80054,jpn,木曜の夜はビールが無料なのです。
 80058,jpn,木々はすでに葉を落としている。
 80075,jpn,木星の周辺を回っているもっと小さな惑星を見てケプラーは、外出中の王の回りを取り囲む護衛を思いだしたので、それを衛星と名付けたのだ。
+80080,jpn,木陰で雨宿りをした。
 80085,jpn,木は燃えやすい。
 80091,jpn,木は高ければ高いほど登りにくい。
 80115,jpn,木の葉が赤や黄色になり始めた。
@@ -727,6 +731,7 @@
 80732,jpn,明かりを消して。
 80738,jpn,明かりはひとりでに消えた。
 80739,jpn,明かりは自然に消えた。
+80761,jpn,名簿に私の名前も追加してください。
 80763,jpn,名前を大文字で書いてください。
 80764,jpn,名前を書き終わったら日付も書いておきなさい。
 80777,jpn,名前は何とおっしゃいますか。
@@ -887,7 +892,6 @@
 82032,jpn,僕はピアノが弾けるのだ、と彼は思いました。
 82036,jpn,僕はバスケットボールをすることが好きだ。
 82040,jpn,僕はトムと同じくらいの背の高さだ。
-82041,jpn,僕はとてもうれしい。
 82047,jpn,僕はドアの取っ手を回した。
 82050,jpn,僕はテレビを見るのに飽きたよ。
 82052,jpn,僕はテストでひどい間違いをした。
@@ -1287,6 +1291,7 @@
 85733,jpn,飛行機が見えた。
 85758,jpn,非常口はどこにありますか。
 85800,jpn,費用は一人頭一万円です。
+85807,jpn,費用に値するだけの価値を提供する。
 85816,jpn,被告人は死刑を宣告された。
 85829,jpn,被告が本当にその罪を犯しているとあなたは思いますか。
 85859,jpn,秘書は手紙を封筒の中に差し込んだ。
@@ -1346,14 +1351,11 @@
 86368,jpn,彼女は要求されたようにその名と住所を書き留めた。
 86402,jpn,彼女は夕食の支度をしなければならない。
 86437,jpn,彼女は友達とヨーロッパに十日間の旅をした。
-86450,jpn,彼女は勇気を持って行動した。
 86462,jpn,彼女は優しい声で言った。
 86469,jpn,彼女は約二十分で顔の化粧をした。
 86478,jpn,彼女は約２０分で化粧をした。
 86489,jpn,彼女は夜、学校に通っている。
 86514,jpn,彼女は目をそらした。
-86521,jpn,彼女は目に涙を浮かべて入ってきた。
-86522,jpn,彼女は目に涙を浮かべてその話をした。
 86530,jpn,彼女は目ざめた。
 86546,jpn,彼女は面白いお話を作るのが得意である。
 86555,jpn,彼女は明らかに美人だが欠点もある。
@@ -1681,7 +1683,6 @@
 90145,jpn,彼女は幸せそうだ。
 90151,jpn,彼女は好奇心からというより見栄からテニスを始めた。
 90163,jpn,彼女は交通事故で記憶を失った。
-90173,jpn,彼女は午前中に英語を勉強しました。
 90174,jpn,彼女は午前中そこにいた。
 90177,jpn,彼女は午後に買い物に行かなければならない。
 90182,jpn,彼女は五歳です。
@@ -1766,6 +1767,8 @@
 91027,jpn,彼女は英語をとても上手に話します。
 91034,jpn,彼女は英語は言うに及ばず、ドイツ語とフランス語も話します。
 91040,jpn,彼女は英語の知識を習得した。
+91077,jpn,彼女は泳ぎが上手です。
+91078,jpn,彼女は泳ぎがうまい。
 91103,jpn,彼女は一目で彼に惚れ込んだ。
 91104,jpn,彼女は一目で彼が好きになった。
 91112,jpn,彼女は一晩中泣き続けた。
@@ -1847,6 +1850,7 @@
 91849,jpn,彼女はなぜ、彼らが戦ったのか理解できなかった。
 91856,jpn,彼女はナイフで手を切った。
 91862,jpn,彼女はどんな色が好きだと思いますか。
+91863,jpn,彼女はどんな色がすきか知っていますか。
 91877,jpn,彼女はドレスメーカーに洋服代を支払った。
 91886,jpn,彼女はトムのお姉さんです。
 91888,jpn,彼女はトムと同じくらい忙しい。
@@ -1940,7 +1944,6 @@
 92770,jpn,彼女はジョンの勇敢さに感服している。
 92773,jpn,彼女はジョンが以前に愛してくれていたと思った。
 92775,jpn,彼女はジョンが愛してくれていたと思った。
-92788,jpn,彼女はじょうずに料理ができません。
 92793,jpn,彼女はしゃべりすぎる傾向がある。
 92800,jpn,彼女はしばらく私を見つめてばかりいた。
 92802,jpn,彼女はしばらくは私を見つめてばかりいた。
@@ -2367,6 +2370,7 @@
 97347,jpn,彼らは給料を上げることを要求した。
 97355,jpn,彼らは休戦条件で合意した。
 97392,jpn,彼らは核戦争の心配をしている。
+97413,jpn,彼らは海岸をぶらぶらと歩いた。
 97415,jpn,彼らは海岸で一夜を明かした。
 97420,jpn,彼らは会社の倒産を彼のせいにした。
 97437,jpn,彼らは我々のチームを３ゴール差で打ち負かした。
@@ -2709,6 +2713,7 @@
 100735,jpn,彼は秘密を知っているといわれている。
 100738,jpn,彼は秘密を解明した。
 100755,jpn,彼は疲れていたので、早く寝た。
+100756,jpn,彼は疲れていたけれども働いた。
 100780,jpn,彼は悲しい死をとげた。
 100809,jpn,彼は彼女を救うために命をかけた。
 100840,jpn,彼は彼女より３つ年上です。
@@ -2748,7 +2753,6 @@
 101194,jpn,彼は彼の今度の劇の原稿を私に見せてくれた。
 101210,jpn,彼は晩年を自伝を書くことに献げた。
 101234,jpn,彼は抜け目がないというよりついているのだ。
-101240,jpn,彼は罰せられるだろう。
 101243,jpn,彼は髪を切ってもらった。
 101252,jpn,彼は肌着を裏返しに着た。
 101253,jpn,彼はとっつきやすい人だ。
@@ -3451,6 +3455,7 @@
 108653,jpn,彼は危篤状態だった。
 108654,jpn,彼は危険を冒してもそこへ行く決心をした。
 108666,jpn,彼は危険に直面してしり込みした。
+108667,jpn,彼は危険に直面した時勇敢になった。
 108684,jpn,彼は危うく死を免れた。
 108694,jpn,彼は顔に雨があたるのを感じた。
 108696,jpn,彼は顔が広い。
@@ -3510,6 +3515,8 @@
 109382,jpn,彼は何らかの解決策を提案しましたか。
 109387,jpn,彼は何も言わなかった。それで彼女は腹をたてた。
 109408,jpn,彼は何と水泳が上手なのだろう。
+109426,jpn,彼は何でも知っているように話す。
+109427,jpn,彼は何でも知っているような口振りだ。
 109430,jpn,彼は何でも知っているかのような話し方をする。
 109432,jpn,彼は何でも大げさに言う傾向がある。
 109451,jpn,彼は何ヶ月もヨーロッパを放浪してきた。
@@ -3591,7 +3598,6 @@
 110107,jpn,彼は意志の弱い父親に育てられたため、甘いものが大好きだ。
 110108,jpn,彼は意志の弱い人だ。
 110138,jpn,彼は偉大な科学者だ。
-110180,jpn,彼は暗算をするほど頭が良くない。
 110195,jpn,彼は扱いにくいと思われている。
 110197,jpn,彼は圧力に屈した。
 110207,jpn,彼は悪天候をついて来た。
@@ -3606,6 +3612,7 @@
 110326,jpn,彼はロープをつかんだ。
 110332,jpn,彼はレースで１着だった。
 110348,jpn,彼はラジオをつけた。
+110357,jpn,彼はラグビー選手だった。
 110358,jpn,彼はラグビーが得意だ。
 110360,jpn,彼はライフルを拾い上げ、それで標的をねらった。
 110383,jpn,彼はよく働き、そして正直である。
@@ -3641,6 +3648,7 @@
 110722,jpn,彼はまるで何事も起こらなかったかのように話し続けた。
 110724,jpn,彼はまるで何も起こらなかったように話し続けた。
 110725,jpn,彼はまるで何もなかったかのように話しつづけた。
+110726,jpn,彼はまるで何もかも知っているように話す。
 110732,jpn,彼はまるで王様のように行動をする。
 110733,jpn,彼はまるで英国人であるかのように英語がうまい。
 110734,jpn,彼はまるでなにも起こらなかったかのように話しつづけた。
@@ -3830,6 +3838,7 @@
 112152,jpn,彼はそれ以上怒りを堪える事が出来なかった。
 112153,jpn,彼はそれ以上怒りを押さえられなかった。
 112160,jpn,彼はそれを不正な手段でした。
+112161,jpn,彼はそれを秘密にしておいた。
 112197,jpn,彼はそれをやった、しかも彼女の前で。
 112214,jpn,彼はそれをした、しかも彼女のいる前で。
 112223,jpn,彼はそれらの家をだれが建てたのか知らない。
@@ -3995,7 +4004,6 @@
 114076,jpn,彼はかわいい女の子と結婚した。
 114080,jpn,彼はかろうじて試験に受かった。
 114081,jpn,彼はかろうじて試験に合格した。
-114087,jpn,彼はカルカッタに支店を作ることを断念した。
 114117,jpn,彼はかなりうまく英語を話す。
 114121,jpn,彼はカナダから帰ってきた。
 114128,jpn,彼はかつて彼女を愛していた。
@@ -4039,7 +4047,6 @@
 114597,jpn,彼はいつもメモをつけています。
 114601,jpn,彼はいつもばかげた質問ばかりしている。
 114608,jpn,彼はいつものように自分の理想のことを語り始めた。
-114610,jpn,彼はいつものように１０時に寝た。
 114626,jpn,彼はいつもあれこれと文句をつける。
 114629,jpn,彼はいつも７時に家をでる。
 114631,jpn,彼はいつまでも彼女を愛し続けるだろう。
@@ -4085,6 +4092,8 @@
 115019,jpn,彼は８０歳を超えているが、まだ元気だ。
 115033,jpn,彼は７０歳で亡くなった。
 115034,jpn,彼は７０歳でなお活躍している。
+115048,jpn,彼は６ヶ国語を話すことができると自慢している。
+115049,jpn,彼は６カ国語話せると自慢している。
 115050,jpn,彼は６５歳で退職した。
 115054,jpn,彼は６０才で年金をもらって退職した。
 115077,jpn,彼は５時にここに来ると約束した。
@@ -4107,6 +4116,7 @@
 115258,jpn,彼は１時間ねむった。
 115259,jpn,彼は１時間で追いつくだろう。
 115273,jpn,彼は１９７０年６月５日の朝７時に生まれた。
+115281,jpn,彼は１７歳のときに自分の生まれた村を逃げ出した。
 115294,jpn,彼は１０分たったら戻るだろう。
 115322,jpn,彼は１０の言語を話せる。
 115323,jpn,彼は１０の言語が話せる。
@@ -4168,8 +4178,10 @@
 115893,jpn,彼の理論を理解するのは難しい。
 115938,jpn,彼の友達の多くはすでにこの世にいない。
 115956,jpn,彼の勇気にはびっくりした。
+116024,jpn,彼の名前は世界中で知られています。
 116038,jpn,彼の名前はこの地方すべての人に知られている。
 116045,jpn,彼の名前が口の先まで出かかっている。
+116050,jpn,彼の名は世界中で知られている。
 116062,jpn,彼の娘は美しい女になった。
 116076,jpn,彼の無謀な運転が死を招いた。
 116085,jpn,彼の無作法には我慢ならない。
@@ -4266,7 +4278,6 @@
 117005,jpn,彼の収入は退職後半減した。
 117019,jpn,彼の趣味は古い切手を集めることです。
 117020,jpn,彼の趣味は絵を描くことです。
-117035,jpn,彼の手紙に返事を出さなくちゃいけないかしら。
 117058,jpn,彼の若さを考慮しなければならない。
 117063,jpn,彼の借金は合計１０００ドル以上になる。
 117069,jpn,彼の借金は１００ドルに達した。
@@ -4371,6 +4382,7 @@
 118159,jpn,彼の意見は私のと一致している。
 118167,jpn,彼の意見はその問題に新しい見方を加える。
 118212,jpn,彼のよい振る舞いに最も強い印象を受けた。
+118226,jpn,彼のむすこには音楽の才能がある。
 118279,jpn,彼のところを訪ねる前に、彼が家にいるかどうか確かめた方がいいよ。
 118293,jpn,彼のスラックスはしわくちゃだ。
 118299,jpn,彼のスピーチは心を打った。
@@ -4444,6 +4456,7 @@
 119224,jpn,彼とは幼なじみです。
 119226,jpn,彼とは仲のよい間柄だ。
 119238,jpn,彼とはどうも呼吸が合わない。
+119267,jpn,彼とうまくやっていくのは難しいよ。
 119281,jpn,彼って長野に住んでいるはずなのに、なんで東京駅にいる？
 119292,jpn,彼その川を泳いで渡ろうとして失敗した。
 119295,jpn,彼こそ本当の天才だ。
@@ -4452,6 +4465,7 @@
 119311,jpn,彼ぐらいハンサムだったらいいのになあ。
 119327,jpn,彼が恋をしているのは明らかだ。
 119338,jpn,彼が来週には帰るという保証はない。
+119343,jpn,彼が来る見込みはありますか。
 119351,jpn,彼が来るのか来ないのかは私にとってはどうでもいい。
 119362,jpn,彼が来るか来ないかは私にはどうでもいいことだ。
 119363,jpn,彼が来るか来ないかは私にとって重要ではない。
@@ -4762,6 +4776,7 @@
 122995,jpn,肉には白ワインよりも赤ワインのほうが合うと言われています。
 123004,jpn,匂いをたどってみよう。
 123013,jpn,二日後に彼は帰ってきた。
+123019,jpn,二度と来るな。
 123021,jpn,二度と彼女に会うことはないだろう。
 123028,jpn,二度と再び彼女に会うことはないだろう。
 123031,jpn,二度と顔を出すな。
@@ -5155,6 +5170,7 @@
 126448,jpn,中東で戦争が起こるかどうかはだれにも分からない。
 126450,jpn,中島さんは英語に加えて、ドイツ語も流暢に話せる。
 126457,jpn,中村さんはご在宅ですか。
+126466,jpn,中心部にあるので商店やオフィスに行くのに便利です。
 126473,jpn,中国人は朝食に何を食べますか。
 126474,jpn,中国人は勤勉な国民である。
 126475,jpn,中国人はよく働く国民です。
@@ -5179,7 +5195,6 @@
 126710,jpn,遅れてすみません。
 126714,jpn,遅れてごめん。
 126723,jpn,遅れたことをお許しください。
-126734,jpn,遅くまでおきていない方が良い。
 126737,jpn,遅くなっても何もないよりはまし。
 126740,jpn,遅くなってごめんなさい。
 126743,jpn,遅くなったので家に帰った。
@@ -5333,7 +5348,6 @@
 137068,jpn,誰かが水を出しっぱなしにしておいたにちがいない。
 137073,jpn,誰かが手伝ってくれたら、せめて「ありがとう」ぐらいは言ったって良さそうなものだったのに。
 137077,jpn,誰かが私の有り金全部を盗んだ。
-137079,jpn,誰かが私の名前を呼んでいた。
 137084,jpn,誰かが私のスーツケースを盗んだ。
 137086,jpn,誰かが私のお金を全部盗んだ。
 137087,jpn,誰かが私にふれた。
@@ -5344,12 +5358,14 @@
 137129,jpn,誰かお宅へ車で迎えに行くよう手配しておきましょうか。
 137130,jpn,誰かいる？
 137131,jpn,誰かいるの？
+137137,jpn,誰があなたに左手でものを書けと言ったのか。
 137139,jpn,誰が、私に電報をよこしたのか。
 137149,jpn,棚を片付けなさい、そうすれば本をそこへ置けます。
 137161,jpn,凧揚げをしよう。
 137163,jpn,凧を飛ばすのは危険になることがある。
 137175,jpn,第二次世界大戦は１９４５年に終わった。
 137177,jpn,第二次世界大戦が勃発したのは１９３９年でした。
+137214,jpn,第３時世界大戦が起こるのかしら。
 137216,jpn,第３四半期のＧＮＰ成長は前期比１％だった。
 137224,jpn,第２次世界大戦は１９４５年に終わったと父が教えてくれた。
 137227,jpn,第２時世界大戦は、いつ起こったか。
@@ -5473,6 +5489,7 @@
 138298,jpn,多くの本を読むことが大切です。
 138304,jpn,多くの病気が貧困から生じる。
 138314,jpn,多くの聴衆がいた。
+138324,jpn,多くの生徒がその試験に落ちた。
 138328,jpn,多くの人々が日光を誉める。
 138330,jpn,多くの人々が楽しむ冬のスポーツといえばスケートだ。
 138340,jpn,多くの人が爆発で死んだ。
@@ -5603,6 +5620,7 @@
 140910,jpn,全くありふれた人間にすぎない。
 140912,jpn,全くあなたのおっしゃる通りです。
 140916,jpn,善人も悪人も同じ衣服を着ることができるのである。
+140943,jpn,前者より後者の方がいい。
 140951,jpn,前記参照。
 140953,jpn,前回の議事録は承認されました。
 140973,jpn,前もってお知らせします。
@@ -5979,6 +5997,7 @@
 144784,jpn,親切はいつまでも忘れません。
 144791,jpn,親切な助言に感謝いたします。
 144793,jpn,親切なお手紙を有り難うございます。
+144815,jpn,親は子供が悪さをするのをしかる。
 144817,jpn,親は子を愛する。
 144822,jpn,親はいつも子供の将来のことを心配している。
 144837,jpn,親と言い合いした事ありますか。
@@ -6055,6 +6074,7 @@
 145555,jpn,心臓発作を起こしました。
 145602,jpn,心づくしのおもてなしを感謝します。
 145604,jpn,心ここに在らざれば聞けども聴こえず。
+145605,jpn,心が痛みます。
 145606,jpn,心が動くね。
 145613,jpn,審判は両チームに対して公平でなければならない。
 145639,jpn,寝過ごしちゃった。
@@ -6177,6 +6197,7 @@
 146712,jpn,少女はまだ涙でぬれている顔を上げた。
 146713,jpn,少女はまだ１０歳だというのに字がうまい。
 146738,jpn,少女が公園でスピーチをしていた。
+146758,jpn,少なくとも「ありがとう」くらい言ってくれてもいいのに。
 146769,jpn,少し離れて見ると、その岩は人の顔のようでした。
 146771,jpn,少し離れたところから見ればそれはボールのように見える。
 146774,jpn,少し眠りたい。
@@ -6212,6 +6233,7 @@
 147198,jpn,勝ち負けの確率は五分五分だ。
 147201,jpn,傷口を見せてください。
 147215,jpn,傷から流れる血をなんとかしなさい。
+147219,jpn,鋤は鋤と呼べ。
 147237,jpn,女性を教育する大学はほとんど無かった。
 147254,jpn,女性はふつう男性より長生きする。
 147256,jpn,女性はたいてい買い物が好きです。
@@ -6296,7 +6318,7 @@
 148153,jpn,臭いをたどってみよう。
 148168,jpn,終身雇用で給料のよい仕事を見つけるのは難しい。
 148171,jpn,終わり良ければ全て良し。
-148172,jpn,終わり善ければすべてよし。
+148172,jpn,終わりよければすべてよし。
 148174,jpn,終わりまで一生懸命に努力しなければならない。
 148185,jpn,秋は読書にもってこいの季節だ。
 148199,jpn,秋は１年で最も美しい季節だと思います。
@@ -6359,7 +6381,6 @@
 148826,jpn,若い頃よく野球の試合をみにいったものでした。
 148829,jpn,若い頃は、ときどき夜遅くまで勉強したものだ。
 148836,jpn,若いなあ。
-148848,jpn,若いとき、もっと勉強しておけばよかったのになあ。
 148878,jpn,借金を返したがっている。
 148881,jpn,借金を全て払ってしまうと、私には金が残らないだろう。
 148885,jpn,借金で足掻きがとれない。
@@ -6402,6 +6423,7 @@
 149264,jpn,芝生を踏みつけるな。
 149265,jpn,芝生の上を歩くな。
 149271,jpn,芝生に腰を下ろしましょう。
+149274,jpn,芝生から出なさい。
 149350,jpn,実行の伴わない理論は何の役にもたたない。
 149352,jpn,実行するより口で言うほうが容易だ。
 149362,jpn,実験はすべてフィルムに記録された。
@@ -7016,6 +7038,8 @@
 154698,jpn,私は日曜に彼といっしょによくテニスをしたものだった。
 154705,jpn,私は日本史を勉強している。
 154709,jpn,私は日本語を勉強しなければなりません。
+154711,jpn,私は日本語を上手に話すアメリカ人を知っている。
+154713,jpn,私は日本語をとても上手に話すアメリカ人の女の子を知っています。
 154725,jpn,私は日本はとても安全な国だと思います。
 154746,jpn,私は日焼けをしたくない。
 154748,jpn,私は日陰に立っている。
@@ -7236,6 +7260,7 @@
 156321,jpn,私は自動車を２、３日のうちになおしてもらわなければならない。
 156342,jpn,私は次々とページをめくった。
 156344,jpn,私は次の試験の準備で忙しい。
+156346,jpn,私は次の駅で降りるつもりです。
 156347,jpn,私は次の駅で降ります。
 156348,jpn,私は次の駅で降りなければならない。
 156367,jpn,私は時折学校で彼女に会う。
@@ -7305,6 +7330,7 @@
 156889,jpn,私は困惑した。
 156890,jpn,私は昆虫の研究に興味がある。
 156908,jpn,私は今忙しい。
+156909,jpn,私は今勉強をしている。
 156912,jpn,私は今風邪です。
 156920,jpn,私は今晩は出かける気がしない。
 156935,jpn,私は今日彼女から手紙を受け取った。
@@ -7374,6 +7400,8 @@
 157396,jpn,私は君を車でお宅までお送りしたほうがよい。
 157401,jpn,私は君より背が高い。
 157403,jpn,私は君よりもずっと若い。
+157405,jpn,私は君ほど文学に興味はない。
+157408,jpn,私は君ほど文学には興味がない。
 157414,jpn,私は君の提案に同意する。
 157415,jpn,私は君の弟と同じ辞書を持っている。
 157419,jpn,私は君の助力が必要だ。
@@ -7472,6 +7500,7 @@
 158170,jpn,私は何か飲物が欲しい。
 158171,jpn,私は何か飲む物がほしい。
 158189,jpn,私は音楽を聴くこと、とりわけジャズを聞くのが好きです。
+158201,jpn,私は音楽に興味があります。
 158219,jpn,私は王子その人にあいました。
 158220,jpn,私は横浜に住んでいる。
 158222,jpn,私は横浜で育った。
@@ -7617,7 +7646,6 @@
 159242,jpn,私はトムに、ドアを閉めてくれるように頼んだ。
 159254,jpn,私はどのクラブにも所属していない。
 159265,jpn,私はとても忙しい。
-159278,jpn,私はとても幸福です。
 159279,jpn,私はとても喉が渇いている。
 159281,jpn,私はとても孤独なので誰か話し相手が欲しい。
 159285,jpn,私はとても気に入りました。
@@ -7680,6 +7708,7 @@
 159601,jpn,私はたくさんの鳥が南の方に飛んでいくのを見ました。
 159624,jpn,私はたいていの鳥が夜は目が見えないと知りませんでした。
 159625,jpn,私はたいていこのスーパーで買い物をします。
+159628,jpn,私はたいてい６時におきる。
 159633,jpn,私はたいして金を持っていない。
 159634,jpn,私はたいしてお金を持っていません。
 159635,jpn,私はダイエットしています。
@@ -7780,11 +7809,13 @@
 160357,jpn,私はそのドレスを買いたい。
 160363,jpn,私はそのときプールで泳いでいた。
 160370,jpn,私はそのチケットを３枚持っている。
+160393,jpn,私はそのことについて何も知りません。
 160414,jpn,私はそのかわいそうな犬に同情した。
 160416,jpn,私はそのかいに出席しなければならない。
 160435,jpn,私はそこへ１度行ったことがある。
 160440,jpn,私はそこに３日間滞在した。
 160441,jpn,私はそこに２、３日滞在するつもりだ。
+160474,jpn,私はするべきことがたくさんある。
 160482,jpn,私はズボンのしわをアイロンで伸ばした。
 160489,jpn,私はスポーツが得意でない。
 160491,jpn,私はスポーツがとても苦手だ。
@@ -7891,6 +7922,7 @@
 161387,jpn,私はいつも家族を誇りに思う。
 161390,jpn,私はいつもより遅く着きました。
 161392,jpn,私はいつもより少し遅く寝た。
+161405,jpn,私はいつも６時に起床します。
 161410,jpn,私はいつまでもあなたを忘れません。
 161412,jpn,私はいつの日かアフリカに行きたい。
 161419,jpn,私はいつでもあなたのお手伝いをします。
@@ -7905,7 +7937,6 @@
 161466,jpn,私はある程度まで君の意見に賛成します。
 161490,jpn,私はあらゆる音楽が好きですが、クラシックが一番好きです。
 161493,jpn,私はあらためて考えて気持ちを変えた。
-161497,jpn,私はアメリカ人の少女に会った。
 161511,jpn,私はアメリカへ２度行ったことがある。
 161513,jpn,私はアメリカの日常生活について学びたい。
 161514,jpn,私はアメリカの小説を読むのが好きだ。
@@ -8007,7 +8038,7 @@
 162010,jpn,私は１本もペンを持っていません。
 162011,jpn,私は１分間５０語タイプできます。
 162012,jpn,私は１分違いで列車に乗り遅れた。
-162013,jpn,私は１部屋立て直した。
+162013,jpn,私は１部屋建て直した。
 162014,jpn,私は１匹の黒猫がその家へ走り込むのを見た。
 162016,jpn,私は１匹の犬を飼っている。
 162017,jpn,私は１年以上もダイエットしています。
@@ -8268,6 +8299,7 @@
 163981,jpn,私の家はその通りから少し入ったところだ。
 163986,jpn,私の家はいなかにあります。
 163992,jpn,私の家の隣に高いビルを立てられた。
+163997,jpn,私の家の前に郵便局があります。
 164008,jpn,私の家の近くを小川が流れている。
 164011,jpn,私の家の近くに公園がある。
 164012,jpn,私の家の近くに学校があります。
@@ -9310,6 +9342,7 @@
 174366,jpn,午前中は在宅の予定です。
 174367,jpn,午前中の便はありますか。
 174368,jpn,午前中に部屋をきれいに掃除しなさい。
+174370,jpn,午前中に四つ授業があります。
 174371,jpn,午前中にタクシーを呼んで下さい。
 174386,jpn,午後は旅行の準備をしなければいけない。
 174389,jpn,午後は休みだった。
@@ -9442,6 +9475,7 @@
 175421,jpn,喧嘩では何事も解決しない。
 175439,jpn,健康擁護論者は職場での喫煙を制限する法律を強く要求してきた。
 175464,jpn,健康は富以上だ。
+175467,jpn,健康は富に勝る。というのも、後者は前者ほど幸福をもたらさないからだ。
 175471,jpn,健康は他の何よりも価値がある。
 175476,jpn,健康は幸福の重要な要因だ。
 175494,jpn,健康のほうが富より大事だ。
@@ -9737,7 +9771,6 @@
 177733,jpn,君はその事実を考慮に入れる必要はない。
 177738,jpn,君はその試合を見ましたか。
 177739,jpn,君はその紙を切りましたか。
-177741,jpn,君はその仕事を今した方がよい。
 177746,jpn,君はその件で僕に謝らなければならない。
 177752,jpn,君はその計画をやり通さなければならない。
 177757,jpn,君はその救済事業の資金を集めなければならない。
@@ -9753,7 +9786,6 @@
 177847,jpn,君はこの漢字が読めますか。
 177851,jpn,君はこのチャンスを利用すべきだ。
 177854,jpn,君はこのお金をどうやって手に入れたのか。
-177865,jpn,君はここで待たないほうがよい。
 177866,jpn,君はここで歌うつもりですか。
 177870,jpn,君はここからすぐに逃げたほうがよい。
 177879,jpn,君はカナダのどこ出身なの？
@@ -10078,6 +10110,7 @@
 179725,jpn,金は色が真鍮と似ている。
 179727,jpn,金は少ししかない。
 179729,jpn,金は諸悪の根源。
+179732,jpn,金は銀より重い。
 179739,jpn,金はいくらも持ってない。
 179740,jpn,金はいくらかあります。
 179745,jpn,金の値段は日ごとに変わる。
@@ -10233,6 +10266,7 @@
 182588,jpn,急いては事を仕損じる。
 182589,jpn,急いで、トム。
 182597,jpn,急いでいるんですか。
+182605,jpn,急いだ方がいいですよ。列車は３時にでます。
 182633,jpn,休息しろ。
 182640,jpn,休憩はいつごろですか。
 182642,jpn,休憩の間にコーヒーを飲みましょう。
@@ -10554,6 +10588,7 @@
 185109,jpn,海の見える席がありますか。
 185119,jpn,海に住む大半の生物は汚染による悪影響を受けている。
 185125,jpn,海で泳ぐ時には注意しなさい。
+185141,jpn,改札口で切符をお見せください。
 185152,jpn,懐かしい家に帰るんだ。
 185191,jpn,回りくどい言い方はしないで。
 185200,jpn,解決しなければならない問題が多い。
@@ -10659,6 +10694,7 @@
 186023,jpn,我々はそれらをあちこちさがした。
 186043,jpn,我々はその泥棒を捕らえた。
 186058,jpn,我々はその国の新政府との友好関係を樹立した。
+186059,jpn,我々はその候補者に賛成投票した。
 186064,jpn,我々はその建物に入る秘密の扉を発見した。
 186070,jpn,我々はその間ずっとお互いにしゃべっていた。
 186085,jpn,我々はすぐに出発しなければなりません。
@@ -10753,6 +10789,7 @@
 186797,jpn,果物を自由に召し上がってください。
 186798,jpn,果物を御自由に取ってお食べください。
 186800,jpn,果物をご遠慮なく。
+186812,jpn,暇潰しに街をぶらぶらした。
 186813,jpn,暇潰しにテレビゲームをしよう。
 186815,jpn,暇な時間が多ければ多いほど、それだけ彼は楽しい。
 186818,jpn,暇なやつだ。
@@ -10861,6 +10898,7 @@
 187619,jpn,何をしたらいいのかわかりません。
 187628,jpn,何をお飲みになりますか。
 187631,jpn,何をおっしゃりたいのですか。
+187633,jpn,何れにせよありがとう。
 187651,jpn,何よりもまず第一に、うそをつくな。
 187662,jpn,何も変わらない。
 187663,jpn,何も怖がることはない。
@@ -11265,8 +11303,6 @@
 190890,jpn,医者に見てもらった方がいいですよ。
 190892,jpn,医者に見てもらったほうがいい。
 190893,jpn,医者に見てもらう必要がありますね。
-190896,jpn,医者に見せなければならない。
-190899,jpn,医者にみてもらわなければならない。
 190901,jpn,医者にみてもらったほうかいい。
 190902,jpn,医者にみてもらうべきですよ。
 190914,jpn,医者たる者は最新の医学の発達についていくべきだ。
@@ -11353,9 +11389,9 @@
 191770,jpn,わたしは歩いて丘を登った。
 191778,jpn,わたしは彼の言うことを聞かなかったことを後悔している。
 191783,jpn,わたしは彼が逃げていくのを観た。
+191786,jpn,わたしは日本語をとてもじょうずに話すアメリカの女の子を知っています。
 191826,jpn,わたしはピザが大好きです。
 191828,jpn,わたしはパーティーには出席できませんが、それでも御招待ありがとう。
-191831,jpn,わたしはとても楽しい。
 191843,jpn,わたしはその曲をしらなかった。
 191858,jpn,わたしはコーヒーよりも茶をこのむ。
 191860,jpn,わたしはきみにあうとかならずおとうとのことを思い出します。
@@ -11595,6 +11631,8 @@
 193647,jpn,もし私が暇だったら君を手伝うことができるのに。
 193651,jpn,もし私がその事を知っていたら、計画を変更していただろう。
 193653,jpn,もし私がそのことを知ったら、計画を変更していただろうに。
+193656,jpn,もし私があの時その絵を買っていたら、今では金持ちだろうに。
+193657,jpn,もし私があのときその絵を買っていれば、今では金持ちだっただろうに。
 193659,jpn,もし私があなたの立場なら、彼女を信用する。
 193661,jpn,もし私があなたの立場だったら、仕事をやめてロンドンにでるでしょう。
 193664,jpn,もし私があなたなら、奨学金の申し込みをするのですが。
@@ -11697,6 +11735,8 @@
 194382,jpn,もうとっくに学校へ出かけている時間じゃないの。
 194383,jpn,もうどこもうるさすぎて家の中では勉強できない。
 194387,jpn,もうちょっと上品にできないの。
+194392,jpn,もうちょっとゆっくり言って下さい。
+194395,jpn,もうちょっと。
 194400,jpn,もうそろそろ髪を切っても良いころだ。
 194401,jpn,もうそろそろ出発の時間です。
 194408,jpn,もうそれで十分だ。
@@ -11748,6 +11788,7 @@
 194721,jpn,メアリーは日本語が話せる。
 194722,jpn,メアリーは日本に行くためにお金を貯めている。
 194727,jpn,メアリーは中国語がわかります。
+194730,jpn,メアリーは他の何よりもスキーが好きだ。
 194738,jpn,メアリーは先週ずっと病気であったそうだが、今は元気に見える。
 194748,jpn,メアリーは若いころ立派な歌手だったと言われている。
 194767,jpn,メアリーは国語の宿題を済ませた。
@@ -12221,6 +12262,7 @@
 198807,jpn,なんと美しい庭だこと。
 198826,jpn,なんと厳しい風だろう。
 198829,jpn,なんとゆう驚き。
+198831,jpn,なんとも面目ありません。
 198839,jpn,なんとご親切に。
 198853,jpn,なんという偶然だろう。
 198856,jpn,なんというけちん坊だ、君は。
@@ -12355,6 +12397,7 @@
 200068,jpn,トムはスペイン語を話すし、ベティもそうだ。
 200079,jpn,トムはジョンと仲がよい。
 200099,jpn,トムはクラスの少年の中で一番背が高い。
+200134,jpn,トムは、病気で床についています。
 200137,jpn,トムは、世界でいちばんハンサムな男優だ。
 200153,jpn,トムの他はみな出席した。
 200156,jpn,トムの教室はどこですか。
@@ -12385,7 +12428,6 @@
 200404,jpn,どのくらい日本にいるのですか。
 200405,jpn,どのくらい日本にいらっしゃいますか。
 200406,jpn,どのくらい停車しますか。
-200414,jpn,どのくらい広い？
 200416,jpn,どのくらい英語を勉強していますか。
 200417,jpn,どのくらいバスを待っているのですか。
 200424,jpn,どのくらいの期間、滞在する予定ですか。
@@ -12668,7 +12710,6 @@
 202971,jpn,チャールズウォルコットはハトの方位磁石を探した。
 202989,jpn,チケットを持ってないの。
 202991,jpn,チケットを３枚予約したいのです。
-203011,jpn,チェックアウトしたいのですが。
 203016,jpn,チェスを一番どうですか。
 203020,jpn,チェスのやり方を教えてくれませんか。
 203024,jpn,チェコスロバキア製のセーターが買いたいのです。
@@ -13021,6 +13062,7 @@
 206914,jpn,その服役囚は２ヶ月間刑務所にいた。
 206917,jpn,その服は彼女にとても良く似合う。
 206927,jpn,その風景は筆舌に尽くせないほど美しい。
+206928,jpn,その風景は言い表せないほど美しい。
 206930,jpn,その風が最後のろうそくを消した。
 206934,jpn,その部族は祖先を崇拝している。
 206939,jpn,その部屋をすみずみまできれいにしましょう。
@@ -13043,6 +13085,7 @@
 206986,jpn,その部屋には明日ペンキが塗られるでしょう。
 206989,jpn,その部屋には多くの家具があった。
 206995,jpn,その部屋にはほとんどなにもなかった。
+207009,jpn,その浮気は内輪の秘密だ。
 207011,jpn,その婦人は良家の出身であった。
 207012,jpn,その婦人は黙ったままだった。
 207013,jpn,その婦人は真珠のネックレスをかけていた。
@@ -13143,7 +13186,6 @@
 207413,jpn,その道路は幅が１０フィートだ。
 207414,jpn,その道路は川と並行している。
 207424,jpn,その道は東京から大阪まで続いている。
-207425,jpn,その道は車で混雑している。
 207427,jpn,その道は狭すぎて車は通れない。
 207428,jpn,その道は緩やかに西にカーブしている。
 207429,jpn,その道は駅に通じている。
@@ -13184,6 +13226,7 @@
 207833,jpn,その著名な哲学者に敬意を表して、巨大な石碑が建てられた。
 207852,jpn,その池は泳ぐには浅すぎる。
 207853,jpn,その池はとても深い。
+207866,jpn,その地図はどこで手に入りますか。
 207868,jpn,その地図がなかったら、彼は道に迷っていただろう。
 207872,jpn,その地震は何もかもめちゃくちゃにした。
 207882,jpn,その地区はもはや住むのに安全なところではない。
@@ -13402,14 +13445,17 @@
 210820,jpn,その語の正確な意味は何ですか。
 210824,jpn,その語にはいくつかの意味がある。
 210833,jpn,その後はまた生活が楽しくなり、徐々に回復していった。
+210858,jpn,その湖の氷は薄すぎて、君の体重を支えられない。
 210869,jpn,その戸を開けてください。
 210894,jpn,その古い家は何年もほっておかれている。
 210917,jpn,その現場では１０人の警官がいた。
+210949,jpn,その犬は尾を震えさせていた。
 210957,jpn,その犬は凍死した。
 210971,jpn,その犬は主人を知っていた。
 210980,jpn,その犬は死に掛けている。
 210981,jpn,その犬は死にかけていた。
 210988,jpn,その犬は空腹に違いない。
+211001,jpn,その犬はしっぽを振っていた。
 211003,jpn,その犬はかみついたりしませんよ。
 211015,jpn,その犬に近寄ってはいけない。
 211017,jpn,その犬に近づいてはいけません。
@@ -13811,6 +13857,7 @@
 215250,jpn,ジョンは速く走るには太りすぎている。
 215256,jpn,ジョンは生まれつき非常に正直のように思われる。
 215257,jpn,ジョンは生まれつきテニスに向いている。
+215279,jpn,ジョンは次に何をするべきかわからない。
 215287,jpn,ジョンは私の親しい友人です。
 215324,jpn,ジョンは級友のだれよりもフランス語ができる。
 215337,jpn,ジョンは英国史を隅から隅まで知っている。
@@ -14105,6 +14152,7 @@
 218508,jpn,これはよい教科書だ。
 218520,jpn,これはまだ捨てるには惜しい。
 218521,jpn,これはまさに私が読みたかった本だ。
+218524,jpn,これはほんの冗談のつもりだった。
 218526,jpn,これはポケット型の辞書だ。
 218532,jpn,これはブラウンさんが書いた手紙です。
 218542,jpn,これはなんと言う宝石ですか。
@@ -14141,6 +14189,7 @@
 218874,jpn,これが実際に彼らの関係に影響するのだろうか。
 218881,jpn,これが私の電話番号です。
 218882,jpn,これが私の知っているすべてです。
+218886,jpn,これが私の小切手番号です。
 218896,jpn,これが私たちのやり方です。
 218900,jpn,これが私が必要とするものです。
 218906,jpn,これが私が子供の頃住んでいた家だ。
@@ -14174,6 +14223,7 @@
 219248,jpn,この薬を飲めば痛みが少し治まりますよ。
 219249,jpn,この薬を飲めば気分がよくなるでしょう。
 219259,jpn,この薬を飲めば、気分良くなるでしょう。
+219261,jpn,この薬を飲めば、気分が良くなりますよ。
 219266,jpn,この薬を飲むと痛みがやわらぐよ。
 219267,jpn,この薬を飲むと胃の痙攣が治ります。
 219269,jpn,この薬を飲まなければ行けませんか。
@@ -14258,7 +14308,6 @@
 220194,jpn,この箱の中に何があるか。
 220232,jpn,この肉は腐った臭いがする。
 220281,jpn,この道を行けばあなたは町の中心に行けます。
-220285,jpn,この道を行くと郵便局があります。
 220286,jpn,この道を行くと駅に出ます。
 220290,jpn,この道を交通信号まで行き、左に曲がりなさい。
 220292,jpn,この道をまっすぐ行ってください。
@@ -14430,6 +14479,7 @@
 222722,jpn,この花は独特の香りがする。
 222733,jpn,この花は黄色だが、ほかの花はみな青い。
 222736,jpn,この花はバラの一種です。
+222742,jpn,この花はいい匂いがする。
 222757,jpn,この歌劇は５幕ものです。
 222786,jpn,この歌はいつも私に学生時代をおもいださせる。
 222791,jpn,この果物は摘み取られるほどのは成長していない。
@@ -14482,7 +14532,6 @@
 223329,jpn,このバッグは４キロの重量オーバーです。
 223330,jpn,このバッグの中には何が入っていますか。
 223339,jpn,このパズルには５００の断片がある。
-223342,jpn,このバスは街の中心街へ行きますか。
 223371,jpn,このパジャマはよく汗を吸収します。
 223373,jpn,このはしごをしっかりと押さえておいて下さい。
 223376,jpn,このはさみは、よく切れる。
@@ -14836,6 +14885,7 @@
 226691,jpn,お腹がすいていませんか。
 226692,jpn,お腹がグーグー鳴っている。
 226693,jpn,お腹がいっぱいです。
+226698,jpn,お風呂に入る時間です。
 226703,jpn,お父上がお亡くなりになったと聞いてお気の毒に思います。
 226706,jpn,お父さんは料理コンテストに出て優勝したのよ。
 226713,jpn,お父さんは誕生日にぼくに小犬をくれた。
@@ -15120,6 +15170,7 @@
 228928,jpn,いったいそのニュースは本当だろうか。
 228941,jpn,いったいあなたはどこで彼と会ったのですか。
 228956,jpn,いっしょに来なさい。
+228977,jpn,いっこうに存じません。
 229000,jpn,いつから英語を習っているのか。
 229022,jpn,いつかあなたを訪問してもいいですか。
 229023,jpn,いつかあなたの国へ行きます。
@@ -15173,6 +15224,7 @@
 229464,jpn,アンを私の秘書にしてやった。
 229477,jpn,アンは病気のようだ。
 229481,jpn,アンは小さな女の子です。
+229487,jpn,アンは根気よく編み物をしている。
 229491,jpn,アンは階下に降りてきた。
 229493,jpn,アンはヘンリーの求婚を受け入れた。
 229498,jpn,アンはチョコレートに目がない。
@@ -15204,6 +15256,7 @@
 229741,jpn,あれはきっと校長先生だ。
 229742,jpn,あれはキジです。
 229745,jpn,あれはバス停です。
+229779,jpn,ある貿易会社に勤めています。
 229802,jpn,ある日ある少女が私をたずねてきました。
 229820,jpn,ある程度まで私はあなたの言う事に賛成です。
 229855,jpn,ある少女の職業は娼婦だったが、彼女は自分のおばあちゃんにこのことを知られたくなかった。
@@ -15454,7 +15507,6 @@
 232638,jpn,あなたはそこで彼女に会ったのですか。
 232645,jpn,あなたはスケートができますか。
 232647,jpn,あなたはすぐ日本食になれますよ。
-232649,jpn,あなたはすぐ自分の宿題をした方がよい。
 232651,jpn,あなたはすぐ医者に診てもらわねばならない。
 232660,jpn,あなたはすぐに出発したほうがよい。
 232662,jpn,あなたはすぐに宿題をしなければならない。
@@ -15519,6 +15571,7 @@
 233204,jpn,あなたの周りの人々の普通の行いに悪意があると考えてはいけない。
 233227,jpn,あなたの写真を撮ってもいいですか。
 233235,jpn,あなたの辞書を借りてもよいですか。
+233241,jpn,あなたの自転車は私のよりよい。
 233247,jpn,あなたの時計は机の上にある。
 233253,jpn,あなたの氏名は何ですか。
 233260,jpn,あなたの仕事を続けなさい。
@@ -15544,6 +15597,8 @@
 233561,jpn,あなたのクラスには何人の生徒がいますか。
 233570,jpn,あなたのお名前は？
 233578,jpn,あなたのお母さんは、今御在宅ですか。
+233588,jpn,あなたのお父さんは何歳ですか。
+233594,jpn,あなたのお父さんはおいくつですか。
 233598,jpn,あなたのお父さんが何処に行ったか知っていますか。
 233603,jpn,あなたのお姉さんはどこの学校へ行っているのですか。
 233618,jpn,あなたのおっしゃる事に賛成です。
@@ -15587,6 +15642,7 @@
 234031,jpn,あなたが私を必要とするときはいつでも、喜んでお手伝いします。
 234033,jpn,あなたが私の立場にいたら、何をしますか。
 234038,jpn,あなたが私のふりをしなさい。
+234040,jpn,あなたか私のどちらかが彼女を訪問するべきだ。
 234041,jpn,あなたか私のどちらかが一位を取るだろう。
 234055,jpn,あなたが始めて彼女に会ったのはいつでしたか。
 234063,jpn,あなたが昨日私の事務所で会った人はベルギーの人です。
@@ -15595,7 +15651,6 @@
 234069,jpn,あなたが今日彼にお会いに成るのは難しそうです。
 234071,jpn,あなたが今でかければ、きっと交通渋滞に出くわすでしょう。
 234072,jpn,あなたが今あるのはだれのおかげなのですか。
-234073,jpn,あなたが行ってしまったら寂しくなります。
 234076,jpn,あなたが行こうがとどまろうと私にとってはまったく変わりがない。
 234082,jpn,あなたが好きなだけお取り下さい。
 234083,jpn,あなたが好きです。
@@ -16150,6 +16205,7 @@
 349388,pol,Mają bliźniaczki.
 349390,pol,Postaram się nie przeszkadzać ci w nauce.
 349391,pol,Jesteś bez serca.
+349397,pol,Nie mam usprawiedliwienia.
 349401,pol,Kupił mi nowy słownik.
 349402,pol,"Przepraszam, że kazałem ci czekać tak długo."
 349412,pol,Tak właśnie myślałem.
@@ -17088,7 +17144,6 @@
 356941,pol,Zawieźli go do szpitala helikopterem.
 356945,pol,Wczoraj o tej godzinie oglądałem telewizję.
 356946,pol,Zajmowała się myciem naczyń.
-356947,pol,Ma wszelkie szanse odnieść sukces.
 356949,pol,Nie rób dwóch rzeczy na raz.
 356951,pol,"Ma dobre zdrowie, a poza tym jest mądry."
 356953,pol,Dwieście dolarów to dla mnie dużo.
@@ -17424,7 +17479,6 @@
 358297,jpn,残念・・・。
 358687,pol,Sporządziliśmy listę potencjalnych klientów.
 358688,pol,Na ile dni planuje pan pobyt?
-358689,pol,Spotkałem się z młodą Amerykanką.
 358690,pol,Tylko pokój może uratować świat.
 358691,pol,"Powiedziała szefowi, o czym myśli."
 358692,pol,Ważne jest czytanie wielu książek.
@@ -17586,6 +17640,7 @@
 358954,pol,Nie kładź portfela na grzejniku.
 358955,pol,"Jeśli zjesz choćby jedno ciastko, dostaniesz w łeb."
 358956,pol,To aktywny polityk.
+358957,pol,Zatrzymał to w tajemnicy.
 358960,pol,Przed śmiercią zgromadził wielką fortunę.
 358963,pol,Marszand ręczył za autentyczność tego obrazu.
 359111,pol,Małe miasto położone jest między wielkimi.
@@ -17852,7 +17907,6 @@
 360223,pol,Po dziesięciu minutach od nokautu bokser odzyskał świadomość.
 360228,pol,Zaraz skończę czytać tę powieść.
 360229,pol,Nie ma się z czego śmiać.
-360231,pol,Nie siedź w nocy.
 360235,pol,Podobno liczba bezrobotnych ostatnio wzrosła.
 360236,pol,Śnieg padał cztery dni.
 360237,pol,Posłał bagaż wcześniej.
@@ -17936,6 +17990,7 @@
 360500,pol,"Obserwatorzy patrzyli, jak wchodził do samolotu."
 360503,pol,Ona przyjaźni się ze wszystkimi kolegami z klasy.
 360506,pol,Wypadek samochodowy był dla niej strasznym doświadczeniem.
+360507,pol,Pies merdał ogonem.
 360511,pol,Poproszę plan miasta.
 360512,pol,Ojciec mówił nawet o moich kolegach.
 360514,pol,Porozmawiam o tym z szefem.
@@ -17948,7 +18003,6 @@
 360977,pol,"Nie myślałem, że jest taki nieśmiały."
 360978,pol,W porównaniu z zawodnikiem sumo jesteś drobny.
 360979,pol,Grałeś wczoraj w tenisa?
-360980,pol,Ktoś wołał mnie po imieniu.
 360984,pol,"Kupiłem książkę po angielsku, ale trudno mi było ją zrozumieć."
 360987,pol,"My, Niemcy, boimy się Boga, i nikogo więcej."
 360989,pol,"Nie znalazłem ojca ani w jego pokoju, ani w ogrodzie."
@@ -18071,6 +18125,7 @@
 361929,pol,"Jeśli cię zapytają o twoje mocne punkty, miej przygotowaną odpowiedź."
 361997,pol,Byłem u fryzjera ściąć włosy.
 362006,pol,Przez ponad tydzień składałem model statku.
+362008,pol,Był rugbystą.
 362009,pol,Zrób to jeszcze raz.
 362010,pol,Oboje jego rodzice nie żyją.
 362012,pol,Te psy są duże.
@@ -18471,7 +18526,6 @@
 364141,pol,"Monitor wyświetla sygnał graficzny, ruchomy i nieruchomy, wytworzony przez komputer lub urządzenie podobne."
 364145,pol,Został podkupiony przez konkurencję.
 364146,pol,"Właśnie miała brać kąpiel, kiedy zadzwonił dzwonek."
-364150,pol,Chciałbym to sprawdzić.
 364151,pol,"Chwali się, że mówi sześcioma językami."
 364153,pol,Rozwiązał to zadanie bez trudu.
 364154,pol,Znokautował przeciwnika.
@@ -19041,7 +19095,6 @@
 366811,pol,Firma próbuje poprawić swój wizerunek.
 366928,pol,Kiedyś w tym budynku był szpital.
 366933,pol,"Już najwyższy czas iść do szkoły, czyż nie?"
-366934,pol,Pożegnał sie z nadzieją otwarcia biura w Kalkucie.
 366943,pol,Musiał opuścić wioskę.
 366945,pol,"Przepraszam, którędy do zoo?"
 366946,pol,Jej zmarły mąż był skrzypkiem.
@@ -19391,7 +19444,6 @@
 392975,pol,Trzymaj się!
 392977,pol,Jego występ był fascynujący.
 392980,pol,To jest przystanek autobusowy.
-392983,pol,One nie umie dobrze gotować.
 392984,pol,Umyj ręce mydłem.
 392989,pol,Bieganie to dobre ćwiczenie.
 392990,pol,Mydło podrażniło mi oczy.
@@ -19492,6 +19544,7 @@
 393346,pol,Mój dziadek lubi spacerować.
 393347,pol,Nie ma zasady bez wyjątków.
 393348,pol,Lato się skończyło.
+393349,pol,John nie wie co dalej robić.
 393351,pol,Uczniowie wstają gdy ich nauczyciel wchodzi.
 393352,pol,On jest moim bliskim przyjacielem.
 393794,jpn,最上川の川べりを歩いたのは初めて。
@@ -19910,6 +19963,7 @@
 484540,pol,Moja mama zostawiła mi wiadomość.
 484542,pol,Moja mama pierze ubrania codziennie.
 484560,pol,Moja mama nuciła sobie coś pod nosem doglądając potraw w kuchni.
+484589,pol,"Poczujesz się lepiej, jeśli wypijesz ten lek."
 485450,jpn,安全運転しなさい。
 488586,jpn,彼らは自分の息子をジョンと名づけた。
 491110,jpn,サイトの空気を悪くする書き込みを控えてください。
@@ -20027,6 +20081,7 @@
 521482,pol,Możesz mi to skopiować?
 521491,pol,Zapamiętaj sobie te zasady.
 521511,pol,W moim pokoju jest radio.
+521526,pol,Jeszcze trochę.
 521596,jpn,車はいくつお持ちですか？
 522125,pol,Mamy jeszcze dużo czasu.
 522196,jpn,彼はすごく色気がある。
@@ -20324,7 +20379,6 @@
 525816,pol,Chłopiec sięgnął po kolejny kawałek ciasta.
 525822,pol,Wszystkie drogi prowadzą do Rzymu.
 525825,pol,Nie ma to jak w domu.
-525882,pol,"On nie jest na tyle mądry, żeby dodawać liczby w pamięci."
 525904,pol,Zraniłem Twoje uczucia?
 525907,pol,Ten pies nie zrobi Ci krzywdy.
 525927,pol,"Jak daleko sięgali wzrokiem, nie było tam nic oprócz piasku."
@@ -20364,7 +20418,6 @@
 526340,pol,Poszerzyli swoje terytorium przez podbój.
 526345,pol,Słyszeliśmy tygrysy ryczące w oddali.
 526347,pol,Droga prowadzi z Tokio do Osaki.
-526348,pol,Drogi są zablokowane samochodami.
 526349,pol,Droga jest za wąska dla samochodów.
 526350,pol,Droga skręca łagodnie na zachód.
 526352,pol,Droga prowadzi do stacji.
@@ -20725,7 +20778,6 @@
 532972,pol,To jest dobry pomysł.
 533119,pol,Wytrzyj oczy.
 533120,pol,Osusz swoje oczy.
-533124,pol,Poszedł do łóżka jak zwykle o dziesiątej.
 533477,pol,"Dlaczego w Stanach mówią na jesień ""fall"" zamiast ""autumn""?"
 533487,pol,"Dlaczego jestem jedyną osobą, na którą się skarżą? Chcą bym stał się ostrzeżeniem dla innych i wykorzystują mnie jako kozła ofiarnego."
 533670,pol,Był władcą imperium Inków.
@@ -21003,7 +21055,6 @@
 543390,pol,Twoje słowa zachęty znaczyły wiele dla mnie.
 543395,pol,Oprowadził mnie po parku.
 543493,pol,Na pokładzie samolotu było 150 pasażerów.
-543727,pol,Ze łzami w oczach opowiadała tą historię.
 544393,pol,Szliśmy wzdłuż plaży.
 544395,pol,Czy pożyczysz mi trochę pieniędzy?
 544396,pol,"To nie jest powód, aby się irytować."
@@ -21400,7 +21451,6 @@
 563622,pol,On zaniedbał swoje obowiązki.
 563625,pol,Puśćmy latawiec.
 563947,pol,On podniósł swoje ręce.
-563948,pol,Jestem bardzo szczęśliwy.
 563955,pol,Czy umiesz mówić po francusku?
 563958,pol,O! To okropne.
 563967,pol,Zapalił zapałkę.
@@ -21510,7 +21560,7 @@
 567151,pol,Odpowiedziała cała we łzach.
 567152,pol,Nigdy go nie spotkałem.
 567154,pol,Nie zgodził się z moją radą.
-567157,pol,Ona nie lubi swojego męża.
+567157,pol,Ona nie lubiła swojego męża.
 567232,pol,To prawdziwa okazja.
 567234,pol,Jack nie jeździ szybko.
 567333,pol,To niebezpieczne!
@@ -21528,7 +21578,6 @@
 568112,pol,Co powiedziałaś?
 568116,pol,Jane ma pięć torebek.
 568126,pol,Babcia Toma zdrowo wygląda.
-568130,pol,Nie powinieneś iść.
 568132,pol,Kate mu współczuje.
 568247,pol,Podszedł do niej.
 568250,pol,Mary nie jest tak wysoka jak on.
@@ -21757,7 +21806,6 @@
 579158,pol,Jak możesz powiedzieć coś takiego?
 579160,pol,Przeprowadził się w moje sąsiedztwo.
 579171,pol,On już był na Hokkaido.
-579172,pol,Nie powinieneś tutaj czekać.
 579173,pol,Stracił wszystko co posiadał.
 579174,pol,Studiował ekonomię w koledżu.
 579175,pol,Grał w baseball po szkole.
@@ -21972,6 +22020,7 @@
 590555,pol,Wolę herbatę od kawy.
 590556,pol,Gardło mnie boli.
 590560,pol,Rozczarowałem się nim.
+590699,pol,Mam dużo do zrobienia.
 590712,pol,Gdzie uczyłeś się języka włoskiego?
 590744,pol,On ma wiele trudności z widzeniem bez okularów.
 590753,pol,Musimy płacić podatek.
@@ -22207,6 +22256,7 @@
 596526,pol,On jest tenisistą.
 596577,pol,John jest zbyt gruby by biec szybko.
 596582,pol,"Czy te wszystkie samochody są twoje? Tak, są moje."
+596632,pol,Pracujesz za dużo.
 596636,pol,Pan pracuje za dużo.
 596638,pol,"Aby zrobić karierę, trzeba być człowiekiem energicznym."
 596724,pol,Pożyczę ci tą książkę.
@@ -22256,7 +22306,6 @@
 597692,pol,Osiągnąłem sukces głównie dzięki twojej pomocy.
 597694,pol,Osobiście doglądnę abyś dostał podwyżkę po pierwszym roku.
 597698,pol,Tam droga ostro skręca w prawo.
-597816,pol,Musisz iść do lekarza.
 597837,pol,Bob gra nie tylko na gitarze ale i na flecie.
 597847,pol,"Jako dziecko, po szkole, grałem zwykle w baseball."
 597848,pol,Byliśmy wykończeni z powodu tej pięciogodzinnej wycieczki.
@@ -22721,7 +22770,6 @@
 635015,pol,Ten bagaż ma 4 kilogramy nadwagi.
 635035,jpn,体が丈夫な限りはがんばりたいです。
 635073,pol,Należy dbać o siebie.
-635154,jpn,私はとっても嬉しいです。
 635409,pol,Ale twoja siostra jest ładna!
 635413,pol,Powiedz mi jak się obsługuje pralkę.
 635815,pol,Moją ulubioną dyscypliną jest futbol amerykański.
@@ -23019,7 +23067,6 @@
 676835,pol,"Tak, idę."
 676837,pol,Oświadczył się młodej kobiecie.
 676838,pol,Poklepałem go po plecach.
-676839,pol,Czy ten autobus jedzie do centrum miasta?
 676840,pol,Stacja jest sto metrów stąd.
 676842,pol,Gdzie jest dworzec kolejowy?
 676844,pol,Przyjąłem jego członkowstwo za oczywiste.
@@ -23471,6 +23518,7 @@
 749149,pol,Nie wszyscy lekarze dużo zarabiają.
 749211,pol,"Za chwilę dalszy ciąg muzyki, proszę nas słuchać."
 749216,pol,Oglądałeś kiedyś sumo?
+749486,pol,Ile lat ma twój ojciec?
 749510,pol,Kiedy zacznie się spektakl?
 749821,jpn,昼ごはんを持ってこなくてもいいです。
 750355,pol,Nie wolno mi używać tego telefonu.
@@ -23711,7 +23759,6 @@
 776351,pol,Stan pacjentów zmienia się z każdym dniem.
 776352,pol,Spotkałem na ulicy grupę studentów.
 776353,pol,"Miałem ze sobą parasol, ale mój przyjaciel nie miał."
-776356,pol,Możesz równie dobrze wykonać zadanie teraz.
 776357,pol,Nie da się być za bardzo ostrożnym jadąc rowerem.
 776363,pol,Tom schował się pod stołem.
 776452,pol,Wyniki były następujące.
@@ -23909,6 +23956,7 @@
 827784,pol,W końcu nie przyszedł.
 827802,pol,On potrzebuje czegoś do picia.
 827812,pol,Pierwszą porą roku jest wiosna.
+827814,pol,Serce mnie boli.
 830307,pol,Ależ silny wiatr!
 830375,pol,Pracują osiem godzin dziennie.
 830380,pol,Susan się bała.
@@ -23918,6 +23966,7 @@
 831696,pol,Byłem zaskoczony tą wiadomością.
 831738,pol,Nie ciągnij mnie za rękaw.
 831831,pol,Codziennie używamy wielu rzeczy wynalezionych przez Edisona.
+831839,pol,Złoto jest cięższe od srebra.
 831842,pol,"Pospiesz się, inaczej spóźnisz się na pociąg."
 831843,pol,Oni są pilotami.
 831844,pol,Mogę ci obszernie wyjaśnić powody.
@@ -24467,6 +24516,7 @@
 944262,pol,Czy szkoła jest daleko od domu?
 944274,pol,Czy to ty zostawiłeś otwarte drzwi wczoraj wieczorem?
 944780,pol,"Przepraszam, która godzina?"
+945793,pol,To jest numer mojego czeku.
 945841,pol,Jesteś panem swego losu.
 945866,pol,Mam mało pieniędzy.
 945871,pol,Nie pozwolą nam wejść do ogrodu.
@@ -24515,7 +24565,6 @@
 959183,pol,"Zanim zaczniesz kochać innych, musisz umieć kochać siebie."
 959203,pol,Zaufaj mi.
 959204,pol,Czy muszę odpowiedzieć na wszystkie pytania?
-959221,pol,Pomożesz mi w opiece nad dziećmi?
 959231,pol,"Pamiętasz pierwszy raz, kiedy usłyszałeś Bitlesów?"
 959265,pol,Ona właśnie je kolację.
 959547,pol,"Czy sądzisz, że urodziny są ważne?"
@@ -24565,7 +24614,6 @@
 967002,pol,Nigdy bym się tego nie spodziewał.
 967011,pol,"Nie spodziewałem się, że będziemy dziś rozmawiać na ten temat."
 967021,pol,"Nie sądziłem, że tak trudno będzie napisać aplikację na iPada."
-967023,pol,"Kiedy rano wkładałem tę gumkę do kieszeni, nie przypuszczałem, że tak bardzo się przyda."
 967027,pol,Teraz patrzę na życie inaczej niż dotychczas.
 967051,pol,"Położyłem na stole ciastka, a dzieci zjadły je natychmiast."
 967061,pol,Widziałem UFO.
@@ -24968,6 +25016,7 @@
 1087689,jpn,彼を除いて、他の誰もパーティーには来なかった。
 1087714,jpn,彼は既婚者で二人の子持ちだ。
 1090098,jpn,あなたは幸せですか？
+1090100,jpn,きみのお父さんて何歳？
 1090692,pol,Napisałem tę piosenkę dla niej.
 1090696,pol,Szef rozdzielił zadania pomiędzy swoich ludzi.
 1090698,pol,Mój awans zależy od jego decyzji.
@@ -24975,8 +25024,6 @@
 1090705,pol,Mój ojciec zmarł na raka płuc.
 1091875,jpn,その絵の背景には城が描かれている。
 1097528,jpn,米アマゾンに本を注文した。
-1097537,jpn,彼は暗算が出来るほど頭が良くない。
-1097538,jpn,彼は暗算が出来るほどの頭脳を持ち合わせていない。
 1098406,jpn,教室でおしゃべりをしてはいけません。
 1098413,jpn,こんなにたくさんの文字を覚えられません。
 1098415,jpn,そんなにたくさんの文字を記憶できません。
@@ -25222,7 +25269,6 @@
 1165188,pol,Czuję się dzisiaj trochę słabo.
 1165196,pol,Mogę to pożyczyć na dwa lub trzy dni?
 1165202,pol,Trzęsienie ziemi o sile 5 stopni w skali Richtera nawiedziło Tokyo.
-1165204,pol,"Żałuję, że nie uczyłem się więcej w młodości."
 1165211,pol,"Nie wiem, jak zinterpretować jego słowa."
 1165213,pol,Jego celem życiowym jest oszczędzanie pieniędzy.
 1165214,pol,"Zdjął płaszcz, po czym założył go ponownie."
@@ -25576,6 +25622,7 @@
 1233566,pol,Wstał i sięgnął po kapelusz.
 1233569,pol,Kto odkrył rad?
 1233571,pol,"Wszyscy podatnicy mają prawo wiedzieć, na co idą ich pieniądze."
+1233573,pol,Twój rower jest lepszy od mojego.
 1233793,jpn,彼はその音に文句を言った。
 1235865,jpn,彼の上達ぶりに満足しています。
 1235873,jpn,老後に向けて貯金している。
@@ -26463,6 +26510,7 @@
 1361829,pol,Nasz nauczyciel wygląda bardzo młodo.
 1361830,pol,Czasami słyszę ojca spiewającego w łazience.
 1361838,pol,Zadzwonię do nich jutro kiedy wrócę.
+1362464,jpn,ただの冗談のつもりだった。
 1366405,pol,W Nowym Yorku jest mnóstwo wysokich budynków.
 1366444,pol,Potrafi prowadzić auto.
 1369595,pol,Japończycy mają ciemne oczy.
@@ -26529,7 +26577,6 @@
 1453089,pol,"Jego zachowanie nigdy nie pokrywało się z tym, co mówi."
 1453090,pol,Wyjeżdżam w niedzielę.
 1453092,pol,Podczas wojny mieszkali na wsi.
-1453095,pol,"Zastanawiam się, czy powinienem odpisać na jego list."
 1453096,pol,Zaprosiła mnie na obiad.
 1453109,pol,"Poradził mi, żebym tam poszedł."
 1453117,pol,"Centrala korporacji IBM znajduje się w Armonk, w stanie Nowy Jork."
@@ -26754,6 +26801,7 @@
 1549678,pol,W naszej szkole wycofano mundurki w zeszłym roku.
 1549684,pol,Matka uszyła jej spódnicę.
 1550582,pol,Ona urodziła się w Ameryce.
+1552419,pol,Moje serce boli.
 1552481,pol,"Sądzę, że jesteśmy spóźnieni."
 1552483,pol,Powinieneś iść teraz do domu.
 1552484,pol,"Idź do domu, teraz."
@@ -26959,6 +27007,7 @@
 1609530,pol,Czy zrobiłeś swoją pracę domową sam?
 1609531,pol,Czy zrobiłeś to sam?
 1611614,pol,Nie ma w Europie miasta tak dużego jak Tokio.
+1612709,pol,Interesuję się muzyką.
 1614224,jpn,これが愛なのか？
 1614291,pol,Czy to jest miłość?
 1614344,pol,Wygrali.
@@ -27116,6 +27165,7 @@
 1689582,jpn,電車で行くのをおすすめします。
 1689593,jpn,彼らは賃上げを求めた。
 1689646,pol,"Brakuje mu świadomości tego, że jest członkiem społeczeństwa."
+1689649,pol,Nie przychodź więcej.
 1691406,pol,To pokazuje jego zaplecze teoretyczne.
 1691411,pol,Ile szkół jest w pańskim mieście?
 1691412,pol,Proszę wpaść do mnie.
@@ -27658,6 +27708,7 @@
 2139123,pol,Wielu ludzi ginie w wypadkach drogowych.
 2139140,pol,Twój mąż jest w domu?
 2139144,pol,Proszę nie robić tu zdjęć.
+2140080,jpn,ほんの冗談だったんだ。
 2140081,pol,Nikt nie szanował kogoś takiego jak on.
 2140632,pol,Obciąż moje konto.
 2140634,pol,Uważaj! Tam jest wielka dziura.
@@ -28091,7 +28142,6 @@
 2280872,jpn,あんなに早く起きなければよかった。
 2280899,jpn,テーブルにクッキーを置いていたら、子供たちがあっという間に食べつくしてしまった。
 2280930,jpn,以前とは人生観も変わった。
-2280942,jpn,今朝この輪ゴムをポケットに入れたときには、これが役に立つことになろうとは思ってもみなかった。
 2280958,jpn,iPadアプリを作るのがこんなに大変だとは思ってもみなかった。
 2280973,jpn,今日この話題になるとは全く予期していませんでした。
 2280985,jpn,想定の範囲外だ。
@@ -28170,7 +28220,6 @@
 2298531,jpn,きょうだいはいますか？
 2298534,jpn,誕生日って大事だと思う？
 2298538,jpn,初めてビートルズを聴いたときのことを思い出せますか？
-2298540,jpn,子供たちのお世話を手伝ってくれない？
 2298543,jpn,他人を愛せるようになる前に、まず自分を愛せるようにならなければならない。
 2298546,jpn,なんでトムは電話してくれなかったんだろう。
 2299169,pol,Nie wolno tu palić.
@@ -28389,9 +28438,6 @@
 2470050,pol,Pochłonęła go manga.
 2470061,pol,Rozbiliśmy obóz w pobliżu jeziora.
 2470063,pol,Sahara jest największą pustynią na świecie.
-2470069,pol,"Będę za tobą tęsknić, kiedy odejdziesz."
-2470070,pol,"Będę za tobą tęsknił, kiedy odejdziesz."
-2470071,pol,"Będę za tobą tęskniła, kiedy odejdziesz."
 2470082,pol,"Jest tym, co nazywamy molem książkowym."
 2470083,pol,Mam z nim wiele wspólnego.
 2470084,pol,Nie zgasiłem światła.
@@ -28419,6 +28465,7 @@
 2493544,pol,Ojciec jest na mnie zły.
 2495896,pol,No co ty!
 2495960,pol,Dwa lata temu miałam skrobankę.
+2499541,pol,Gdzie mogę dostać mapę?
 2499638,pol,On martwi się o swoją przyszłość.
 2500333,pol,Kompozytorzy tworzą muzykę.
 2503987,jpn,それはこっちの台詞だよ。
@@ -28450,6 +28497,7 @@
 2575798,pol,Zrobił się czerwony ze wstydu.
 2576112,pol,Lubię muzykę klasyczną.
 2577849,jpn,我思う、ゆえに我あり。
+2579433,jpn,任せて。
 2585283,pol,Karnawał w Rio odbywa się w lutym.
 2586929,pol,Gdzie jest najbliższy posterunek?
 2586931,pol,Następnego ranka byliśmy bardzo śpiący.
@@ -28482,7 +28530,6 @@
 2604602,jpn,私たちは声を振り絞って助けを求めた。
 2605110,pol,Zwierzyła mu się ze swoich problemów.
 2605112,pol,Powinieneś bardziej o siebie zadbać.
-2605117,pol,Tą drogą dojedziesz na pocztę.
 2605137,pol,Opanowanie języka obcego wymaga cierpliwości.
 2607502,pol,Pękła rura wodociągu.
 2607525,pol,Dlaczego to zrobiłeś?
@@ -28520,6 +28567,7 @@
 2672638,jpn,こんなのちょろいちょろい。
 2673540,pol,Wygrałam pierwszą nagrodę!
 2673983,pol,Teraz gram w siatkówkę.
+2679081,pol,Czy mógłbyś mówić trochę wolniej?
 2679327,pol,Przeszedł ci już katar?
 2679330,pol,Jeszcze trochę cierpliwości.
 2679333,pol,Nie zniosę tego dłużej.
@@ -28682,7 +28730,6 @@
 2778611,pol,Tą firmą zarządza cudzoziemiec.
 2778613,pol,Poszłyśmy do muzeum.
 2779447,pol,Czym się interesujecie?
-2780204,jpn,すごくうれしいです。
 2782395,pol,Chcę nauczyć się pływać.
 2782929,pol,"Zapytałem ją, czy była kiedyś w Meksyku."
 2782939,pol,Nie jesteś dziś sobą.
@@ -28857,6 +28904,7 @@
 2974394,jpn,こんなヒドイ映画見たことない。
 2974497,pol,"Poznałem go, kiedy byłem studentem."
 2974498,pol,"Poznałam go, kiedy byłam studentką."
+2975170,pol,Siarka jest używana do produkcji zapałek.
 2975238,pol,On ma mało pieniędzy przy sobie.
 2975731,pol,Spośród pór roku najbardziej lubię wiosnę.
 2975732,pol,Wysłuchaliśmy jego wykładu w radio.
@@ -29050,6 +29098,7 @@
 3017700,pol,"Jest pewna kobieta, która chciałaby się z tobą zobaczyć."
 3017702,pol,"To, ile ci zapłacimy, zależy od twoich umiejętności."
 3017948,pol,Zawsze będzie ją kochał.
+3017951,pol,Zazwyczaj wstaje o szóstej.
 3017961,pol,On zawsze wychodzi z domu o siódmej.
 3017962,pol,On wiecznie na wszystko narzeka.
 3018119,pol,Jestem tylko klientem.
@@ -29199,7 +29248,6 @@
 3041410,pol,Widziałeś ją tam?
 3041418,pol,Umiesz jeździć na łyżwach?
 3041420,pol,Niedługo przyzwyczaisz się do japońskiego jedzenia.
-3041422,pol,Lepiej od razu zrób zadanie domowe.
 3041428,pol,"Choroba zazwyczaj ma sporo przyczyn, nie tylko jedną."
 3041429,pol,"Co powinniśmy zrobić z ludźmi, którzy są ciężko chorzy lub ranni i nie polepsza im się?"
 3041433,pol,Możemy zapobiegać chorobom?
@@ -29383,6 +29431,7 @@
 3070773,pol,W zoo jest mnóstwo gatunków zwierząt.
 3073523,jpn,高すぎる！
 3073588,jpn,泣けばよいのか悪いのか。
+3073603,jpn,この川は太平洋に流れ込みます。
 3078156,pol,"Kto sieje wiatr, zbiera burzę."
 3078179,jpn,お客様、お飲み物はいかがなさいますか？
 3079802,pol,Umyła naczynia i wytarła je.
@@ -29534,7 +29583,6 @@
 3116123,jpn,雨がやむまで待とう。
 3116521,pol,Z daleka ten kamień wygląda jak ludzka twarz.
 3116531,pol,Mocno padało przez cały dzień.
-3116540,pol,Weszła ze łzami w oczach.
 3116546,pol,Innego dnia odkryłem książkę napisaną przez mojego ojca.
 3116547,pol,Będzie mi miło pokazać ci miasto.
 3116549,pol,Rozmawialiśmy ze sobą przez cały czas.
@@ -29614,6 +29662,7 @@
 3141089,pol,Jak długo możemy się opierać przeważającym siłom wroga?
 3141093,pol,Przez chwilę tylko się na mnie gapiła.
 3141344,pol,Tu jest kosz pełen warzyw.
+3143812,jpn,あなたがたのお父さんは何歳ですか？
 3143867,pol,To portret mojego zmarłego ojca.
 3143868,pol,Jaki jest twój ulubiony program telewizyjny?
 3143885,pol,"Moje stawy bolą, gdy robi się zimno."
@@ -29877,6 +29926,7 @@
 3400787,pol,Nie musisz brać tego faktu pod uwagę.
 3400864,jpn,趣味は音楽鑑賞です。
 3400944,jpn,お住まいはどちらですか。
+3401002,pol,Lepiej się pospiesz. Pociąg odjeżdża o trzeciej.
 3401005,pol,"To trwa zaledwie 2, 3 minuty."
 3401006,pol,"Myślę, że to tylko przypadek."
 3401021,pol,Te dwie linie przecinają się pod kątem prostym.
@@ -30491,7 +30541,6 @@
 3711115,pol,"Przekonał swoją żonę, żeby się nie rozwodzili."
 3711146,pol,"Przykro mi, lot jest pełen."
 3712732,pol,Byłem pod wrażeniem jego muzyki.
-3713578,pol,Zachowała się niezwykle odważnie.
 3713580,pol,Wszyscy oczekujemy twojego przyjazdu.
 3716607,pol,"Przyniósłbyś mi, proszę, jeszcze jeden?"
 3716632,pol,Powinien dotrzeć na lotnisko przed 9:00.
@@ -30511,7 +30560,6 @@
 3741138,pol,Co powiesz na filiżankę herbaty?
 3741266,pol,Dżentelmen nie zrobiłby czegoś takiego.
 3742929,pol,Są słowniki i słowniki.
-3743322,pol,Jak duży?
 3743329,pol,Jak głupio z twojej strony!
 3743335,pol,Nikt tego nie lubi.
 3743337,pol,Lubisz słonie.
@@ -30697,6 +30745,7 @@
 3855054,pol,"Na twoim miejscu, pomógłbym mu."
 3855060,pol,"Gdybym był wolny, mógłbym ci pomóc."
 3855063,pol,"Gdybym wtedy o tym wiedział, zmieniłbym swój plan."
+3855077,pol,"Gdybym wtedy kupił ten obraz, teraz byłbym bogaty."
 3855080,pol,"Na twoim miejscu, rzuciłbym pracę i wyjechał z Londynu."
 3855082,pol,"Na twoim miejscu, ubiegałbym się o stypendium."
 3855089,pol,"Gdyby tutaj teraz była, mógłbym jej powiedzieć prawdę."
@@ -30946,6 +30995,7 @@
 3898885,pol,"Będzie mi miło panu pomóc, kiedykolwiek będzie taka potrzeba."
 3898910,pol,Udawaj mnie.
 3898912,pol,"Udawaj, że jesteś mną."
+3898919,pol,"Albo ty, albo ja powinienem ją odwiedzić."
 3898923,pol,"Albo ty, albo ja, dostanę pierwszą nagrodę."
 3899313,pol,"Musiała być piękna, kiedy była młoda."
 3899385,pol,Byłem zmuszony pomóc złodziejom.
@@ -31403,7 +31453,6 @@
 4804653,jpn,靴を脱いでください。
 4805233,pol,Jest błąd w systemie elektronicznym.
 4806851,jpn,上げて。
-4806864,jpn,どのくらい大きい？
 4806867,jpn,すっごく背が高いね!
 4812478,pol,Gwóźdź przebił oponę.
 4812480,pol,Był moim dobrym kompanem.
@@ -31514,6 +31563,7 @@
 4930737,pol,Pora spać.
 4931203,pol,Mogę iść do domu?
 4933765,pol,On śpi w dzień i pracuje w nocy.
+4934435,jpn,後者より前者の方がいい。
 4940284,pol,"Jeśli rozumiesz, podnieś rękę."
 4943995,pol,On jest bardzo rozgniewany.
 4947505,pol,O której?
@@ -31548,6 +31598,7 @@
 5097508,pol,Książę został zamieniony w żabę.
 5097510,pol,"Słyszałem, że mój wujek zmarł na raka."
 5097532,pol,On zaprojektował samochód.
+5103413,jpn,日本は気候が穏やかである。
 5105314,pol,Ile lat ma wasz dziadek?
 5113690,pol,"Powiedz jej, by nie zbliżała się do tego psa."
 5140010,pol,Proszę to powiedzieć z pamięci.
@@ -31653,6 +31704,7 @@
 5336552,pol,"W nagłych wypadkach, zadzwoń 119."
 5336671,pol,Prawie jesteśmy na miejscu.
 5366895,pol,Głośniej.
+5366900,pol,Prawie.
 5366901,pol,Przepraszam...
 5369969,pol,Prawdopodobnie masz rację.
 5369987,pol,SI
@@ -31849,6 +31901,7 @@
 5932941,pol,Nie wiem jak można odczytać plik z rozszerzeniem .art.
 5932947,pol,"Kiedy próbuję słuchać muzyki w odtwarzaczu, występuje błąd i nie mogę odtworzyć pliku."
 5933036,pol,Ten komputer działa na baterii.
+5933543,jpn,いいえ！
 5934305,pol,"Ponieważ nasz telefon nie działa, oddam go do naprawy."
 5947057,pol,Borsuki wykopują głębokie dziury.
 5954540,pol,Czemu zrezygnowałeś z pomysłu nauki francuskiego?
@@ -31890,9 +31943,9 @@
 6030095,pol,Rano mocno padało.
 6030099,pol,Wstań wcześnie rano.
 6030106,pol,Przyszedł wcześnie rano.
-6030114,pol,Uczyła się angielskiego rano.
 6030116,pol,Wyszła wcześnie rano.
 6030148,pol,"Proszę, zadzwoń rano po taksówkę."
+6030150,pol,Mamy rano cztery lekcje.
 6030152,pol,Posprzątaj pokój rano.
 6030153,pol,Czy jest jakiś lot rano?
 6030154,pol,Wyszliśmy do domu wcześnie rano.
@@ -32132,6 +32185,7 @@
 6308135,pol,Zaczerwieniła się na twarzy.
 6308152,pol,Policzki jej poczerwieniały.
 6308156,pol,Zarumienił się ze wstydu.
+6309216,pol,Uspokój się!
 6309312,pol,Bezpiecznej podróży.
 6309349,pol,Ale z jakiego powodu?
 6313070,pol,Czy w tym parku jest zoo?
@@ -32207,10 +32261,8 @@
 6320744,pol,Wyglądasz głupio.
 6320810,pol,Proszę zamówić.
 6320811,pol,Proszę splunąć.
-6320815,pol,Uspokój się!
 6320817,pol,Poznaj siebie.
 6320906,pol,Sprzedaje warzywa.
-6322086,jpn,今日は月曜日です。
 6322258,pol,Niosła swoje dziecko w ramionach.
 6322261,pol,Jak mogę się tam dostać?
 6322263,pol,Jak mogę tam dojść?
@@ -32366,7 +32418,7 @@
 6554191,pol,On jest na mnie zły.
 6554192,pol,On się na mnie gniewa.
 6554197,pol,Jest na mnie wkurzony.
-6554200,pol,Gniewa się na mnie.
+6554199,pol,Gniewa się na mnie.
 6554221,pol,Jest na mnie okropnie wściekła.
 6554222,pol,Jest na mnie bardzo wkurzona.
 6554259,pol,Zwolnią go.
@@ -32436,7 +32488,6 @@
 6602692,pol,Ból w końcu przejdzie.
 6602706,pol,Ile będziesz miał lat za rok?
 6602725,pol,W niedalekiej przyszłości podróże kosmiczne nie będą więcej marzeniem.
-6602755,pol,Zostanie ukarany.
 6602784,pol,"Znałem go, gdy był niemowlęciem."
 6602895,pol,"Nie wiedziałem, że psy potrafią dobrze pływać."
 6602962,pol,"Miałem dużo czasu, więc nie musiałem się spieszyć."
@@ -32447,9 +32498,9 @@
 6627140,pol,Ona ledwo mówi.
 6627141,pol,On potrafi ledwo mówić.
 6627159,pol,Zdrówko!
-6627375,jpn,彼女はトイレにいます。
 6634820,pol,Jego hobby to zbieranie starych znaczków.
 6635764,pol,Rolnicy uprawiają ryż
+6670415,pol,Mogę usiąść obok ciebie?
 6671432,pol,Mężczyzna wyszedł z restauracji nie płacąc rachunku.
 6672598,pol,Żelazo jest twarde.
 6681840,pol,Co najmniej dwadzieścia domów spłonęło.
@@ -32481,3 +32532,46 @@
 6733896,pol,Uwaga na podróbki.
 6740495,pol,Moje połączenie internetowe zostało zerwane.
 6769110,pol,Musiałem wracać do domu piechotą.
+6794219,pol,Jego syn ma talent do muzyki.
+6794816,pol,Pierwszy jest lepszy od drugiego.
+6794820,pol,Zdrowie jest ponad bogactwem; to drugie daje mniej szczęścia niż to pierwsze.
+6797177,pol,"Aby zacząć, musimy poradzić sobie z problemem."
+6797339,pol,"Czy jest jakiekolwiek prawdopodobieństwo, że on przyjdzie?"
+6838401,pol,Rodzice karają swoje dzieci za złe zachowanie.
+6844678,pol,Gotowanie zajmuje za dużo czasu.
+6844681,pol,Czas na kąpiel.
+6855085,pol,Ona dobrze pływa.
+6859067,pol,Nie interesuje mnie literatura tak jak ciebie.
+6860367,jpn,イカには腕が10本ある。
+6879565,pol,Ten romans to sekret rodzinny.
+6879692,pol,Nazywaj rzeczy po imieniu.
+6879705,pol,Schroniliśmy się pod drzewem.
+6883671,pol,Gdzie dostanę mapę?
+6885203,pol,"Mimo, że był zmęczony to pracował."
+6886824,pol,"Widok jest piękny, aż brak mi słów."
+6903819,pol,Zejdź z trawnika!
+6903853,pol,Anna cierpliwie robi na drutach.
+6935635,pol,"Lód na jeziorze jest zbyt cienki, aby utrzymać twój ciężar."
+6935643,pol,Kto kazał ci pisać lewą ręką?
+6935647,pol,"Znam jedną Amerykankę, która bardzo dobrze mówi po japońsku."
+6935671,pol,Czy wiesz jaki kolor ona lubi?
+6935673,pol,Możesz przynajmniej podziękować.
+6935766,pol,Grzmot stał się głośniejszy.
+6935773,pol,Zapewniamy stosunek jakości do ceny.
+6935777,pol,Proszę dodaj moje nazwisko do listy.
+6935780,pol,Mary lubi jeździć na nartach najbardziej ze wszystkich.
+6935787,pol,Lokalizacja w centrum zapewnia łatwy dostęp do sklepów i biur.
+6935788,pol,Pracuję dla firmy handlowej.
+6935795,pol,Przed moim domem jest poczta.
+6935800,pol,W wieku siedemnastu lat uciekł z rodzinnej wioski.
+6935805,pol,Zagłosowaliśmy za kandydatem.
+6935834,pol,Jestem ciekawy czy wybuchnie trzecia wojna światowa.
+6935839,pol,Jego imię jest znane na całym świecie.
+6935843,pol,"Jestem zaskoczony, że wygrałeś nagrodę."
+6935850,pol,Nic o tym nie wiem.
+6936673,pol,Tom leży chory w łóżku.
+6936923,jpn,午前中に授業四つがあります。
+6937978,pol,Pokaż bilet przy barierkach.
+6937997,pol,Oni przechadzali się wzdłuż plaży.
+6938001,pol,"Przechadzałem się ulicami, aby zabić czas."
+6951589,pol,Stał się odważny w obliczu zagrożenia.
