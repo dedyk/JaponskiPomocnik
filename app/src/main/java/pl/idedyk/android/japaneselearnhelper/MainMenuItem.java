@@ -10,6 +10,7 @@ public class MainMenuItem {
 
 	public MainMenuItem(String kanji, String text) {
 		this.kanji = kanji;
+		this.kanjiSize = 20.0f;
 		this.text = text;
 	}
 
