@@ -295,7 +295,7 @@ public class KanjiTest extends Activity {
 				@Override
 				public void onClick(View v) {
 
-					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance()
+					final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance()
 							.getDictionaryManager(KanjiTest.this);
 
 					final String correctKanji = getCurrentTestPosCorrectKanji();

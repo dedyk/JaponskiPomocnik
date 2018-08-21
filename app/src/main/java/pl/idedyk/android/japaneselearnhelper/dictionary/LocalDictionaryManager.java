@@ -76,8 +76,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 
 	private WordTestSM2Manager wordTestSM2Manager;
 
-	private DataManager dataManager;
-
 	private LuceneDatabase luceneDatabase;
 
 	public LocalDictionaryManager() {
@@ -96,55 +94,17 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	}
 
 	@Override
-	public void init(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
+	public void init2(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
 
 		try {
-			// init
-			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
-
-			// check external storage state
-			if (checkExternalStorageState(loadWithProgress, resources) == false) {
-				return;
-			}
-			
 			try {
 				// delete old database file
 				deleteOldDatabaseFile(packageName);
 
 			} catch (IOException e) {
-				loadWithProgress
-						.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
 
 				return;
-			}
-			
-			// create base dir in external storage
-			File externalStorageDirectory = Environment.getExternalStorageDirectory();
-
-			// create base dir
-			File baseDir = new File(externalStorageDirectory, "JaponskiPomocnik");
-
-			if (baseDir.isDirectory() == false) {
-
-				if (baseDir.mkdirs() == false) {
-					loadWithProgress
-							.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
-
-					return;
-				}
-			}
-
-			// create directory dir
-			File databaseDir = new File(baseDir, "db");
-
-			if (databaseDir.isDirectory() == false) {
-
-				if (databaseDir.mkdirs() == false) {
-					loadWithProgress
-							.setError(resources.getString(R.string.dictionary_manager_create_directories_error));
-
-					return;
-				}
 			}
 
 			File sqliteDatabaseFile = new File(databaseDir, DATABASE_FILE);
@@ -303,72 +263,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 				return;
 			}
 
-			// create data manager
-			dataManager = new DataManager(databaseDir);
-
-			// open data manager
-			try {
-				dataManager.open();
-			} catch (DataManagerException e) {
-				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
-
-				return;
-			}
-
-			// migrate old own group from kanji test
-			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_migrate_old_own_groups_from_kanji_test));
-			loadWithProgress.setCurrentPos(0);
-
-			final ConfigManager.KanjiTestConfig kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance()
-					.getConfigManager(activity).getKanjiTestConfig();
-
-			List<String> kanjiTestOldOwnGroupList = kanjiTestConfig.getOwnGroupList();
-
-			if (kanjiTestOldOwnGroupList != null && kanjiTestOldOwnGroupList.size() > 0) {
-
-				for (String kanjiTestOldOwnGroupName : kanjiTestOldOwnGroupList) {
-
-					String kanjiTestOldOwnGroupNameMigrate = kanjiTestOldOwnGroupName + " " + resources.getString(R.string.dictionary_manager_migrate_old_own_groups_from_kanji_test_group_postfix);
-
-					//
-
-					List<UserGroupEntity> userGroupEntityList = dataManager.findUserGroupEntity(UserGroupEntity.Type.USER_GROUP, kanjiTestOldOwnGroupNameMigrate);
-
-					UserGroupEntity userGroupEntity = null;
-
-					if (userGroupEntityList == null || userGroupEntityList.size() == 0) {
-
-						userGroupEntity = new UserGroupEntity(null, UserGroupEntity.Type.USER_GROUP, kanjiTestOldOwnGroupNameMigrate);
-
-						dataManager.addUserGroup(userGroupEntity);
-
-						userGroupEntityList = dataManager.findUserGroupEntity(UserGroupEntity.Type.USER_GROUP, kanjiTestOldOwnGroupNameMigrate);
-					}
-
-					userGroupEntity = userGroupEntityList.get(0);
-
-					//
-
-					Set<String> ownGroupKanjiList = kanjiTestConfig.getOwnGroupKanjiList(kanjiTestOldOwnGroupName);
-
-					for (String kanji : ownGroupKanjiList) {
-
-						KanjiEntry kanjiEntry = findKanji(kanji);
-
-						if (kanjiEntry != null) {
-
-							boolean isItemIdExists = dataManager.isItemIdExistsInUserGroup(userGroupEntity, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
-
-							if (isItemIdExists == false) {
-								dataManager.addItemIdToUserGroup(userGroupEntity, UserGroupItemEntity.Type.KANJI_ENTRY, kanjiEntry.getId());
-							}
-						}
-					}
-
-					kanjiTestConfig.deleteOwnGroup(kanjiTestOldOwnGroupName);
-				}
-			}
-
 			//
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
@@ -402,19 +296,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 
 			databaseDirFile.delete();
 		}		
-	}
-
-	private boolean checkExternalStorageState(ILoadWithProgress loadWithProgress, Resources resources) {
-
-		String state = Environment.getExternalStorageState();
-
-		if (Environment.MEDIA_MOUNTED.equals(state) == false) {
-			loadWithProgress.setError(resources.getString(R.string.dictionary_manager_bad_external_storage_state));
-
-			return false;
-		}
-
-		return true;
 	}
 
 	private void saveDatabaseVersion(File databaseVersionFile, int versionCode) throws IOException {
@@ -776,10 +657,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 		return wordTestSM2Manager;
 	}
 
-	public DataManager getDataManager() {
-		return dataManager;
-	}
-
 	@Override
 	public KanaHelper getKanaHelper() {
 		return kanaHelper;
@@ -797,11 +674,10 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 
 	@Override
 	protected void finalize() throws Throwable {
+
 		super.finalize();
 
 		wordTestSM2Manager.close();
-
-		dataManager.close();
 
 		luceneDatabase.close();
 

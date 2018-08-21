@@ -129,7 +129,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		indexPos++;
 		
 		// dictionary manager
-		DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 		
 		List<TransitiveIntransitivePair> transitiveIntransitivePairsList = dictionaryManager.getTransitiveIntransitivePairsList();
 
