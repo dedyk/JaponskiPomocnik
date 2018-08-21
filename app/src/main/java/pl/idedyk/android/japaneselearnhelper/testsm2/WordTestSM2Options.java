@@ -4,7 +4,7 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Config;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 
@@ -59,7 +59,7 @@ public class WordTestSM2Options extends Activity {
 			        switch (which){
 			        case DialogInterface.BUTTON_POSITIVE:
 			        	
-						final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this);
+						final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this);
 						
 						final WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
 					
@@ -288,8 +288,8 @@ public class WordTestSM2Options extends Activity {
 
 						} catch (NameNotFoundException e) {        	
 						}
-						
-						DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this);
+
+						DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2Options.this);
 						
 						WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
 						

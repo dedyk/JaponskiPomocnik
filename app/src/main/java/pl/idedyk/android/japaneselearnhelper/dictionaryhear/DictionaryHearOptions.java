@@ -12,7 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHear
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperDictionaryHearContext;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
@@ -352,7 +352,7 @@ public class DictionaryHearOptions extends Activity {
 							List<GroupEnum> chosenWordGroupsNumberList = new ArrayList<GroupEnum>();
 							List<Integer> chosenWordUserGroupsNumberList = new ArrayList<Integer>();
 
-							DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(DictionaryHearOptions.this);
+							DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(DictionaryHearOptions.this);
 
 							for (int wordGroupCheckBoxListIdx = 0; wordGroupCheckBoxListIdx < wordGroupCheckBoxList.size(); ++wordGroupCheckBoxListIdx) {
 

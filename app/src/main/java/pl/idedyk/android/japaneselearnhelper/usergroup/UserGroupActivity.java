@@ -33,7 +33,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
@@ -221,7 +221,7 @@ public class UserGroupActivity extends Activity {
 
     private void loadUserGroups() {
 
-        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+        DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 
         DataManager dataManager = dictionaryManager.getDataManager();
 
@@ -269,7 +269,7 @@ public class UserGroupActivity extends Activity {
                     @Override
                     public void onClick(View view) {
 
-                        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(UserGroupActivity.this);
+                        DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(UserGroupActivity.this);
 
                         DataManager dataManager = dictionaryManager.getDataManager();
 
@@ -386,7 +386,7 @@ public class UserGroupActivity extends Activity {
 
     public void addItemIdToUserGroupEntity(final UserGroupEntity userGroupEntity) {
 
-        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+        DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 
         final DataManager dataManager = dictionaryManager.getDataManager();
 
@@ -474,7 +474,7 @@ public class UserGroupActivity extends Activity {
 
     private void deleteUserGroup(final UserGroupEntity userGroupEntity) {
 
-        DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+        DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 
         final DataManager dataManager = dictionaryManager.getDataManager();
 

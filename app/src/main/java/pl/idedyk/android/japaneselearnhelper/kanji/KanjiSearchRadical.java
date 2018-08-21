@@ -9,7 +9,7 @@ import java.util.TreeSet;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
@@ -244,8 +244,8 @@ public class KanjiSearchRadical extends Activity {
 				String[] selectedRadicalsArray = new String[selectedRadicals.size()];
 				
 				selectedRadicals.toArray(selectedRadicalsArray);
-				
-				DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchRadical.this);
+
+				DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchRadical.this);
 				
 				return dictionaryManager.findAllAvailableRadicals(selectedRadicalsArray);
 			}

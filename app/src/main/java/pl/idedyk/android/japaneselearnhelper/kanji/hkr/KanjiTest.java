@@ -12,7 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiTestConfi
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext.TestAnswer;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -414,7 +414,7 @@ public class KanjiTest extends Activity {
 
 	private void processAnswer(boolean correctAnswer, final String correctKanji, TestAnswer testAnswer) {
 
-		final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance()
+		final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getDictionaryManager(this);
 
 		kanjiTestContext.getTestAnswers().add(testAnswer);

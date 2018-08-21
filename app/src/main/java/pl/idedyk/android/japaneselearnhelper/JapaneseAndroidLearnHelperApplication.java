@@ -6,7 +6,7 @@ import com.google.android.gms.analytics.Tracker;
 
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue;
 import android.app.Activity;
@@ -29,7 +29,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	
 	private JapaneseAndroidLearnHelperContext context;
 	
-	private DictionaryManager dictionaryManager;
+	private DictionaryManagerCommon dictionaryManager;
 	
 	private ConfigManager configManager;
 	
@@ -74,7 +74,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		return context;
 	}
 
-	public DictionaryManager getDictionaryManager(final Activity activity) {
+	public DictionaryManagerCommon getDictionaryManager(final Activity activity) {
 		
 		Resources resources = activity.getResources();
 		AssetManager assets = activity.getAssets();
@@ -111,7 +111,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				}
 			};
 						
-			dictionaryManager = new DictionaryManager();
+			dictionaryManager = DictionaryManagerCommon.getDictionaryManager();
 			
 			dictionaryManager.init(activity, loadWithProgress, resources, assets, getPackageName(), versionCode);
 		}
@@ -119,7 +119,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		return dictionaryManager;
 	}
 
-	public void setDictionaryManager(DictionaryManager dictionaryManager) {
+	public void setDictionaryManager(DictionaryManagerCommon dictionaryManager) {
 		this.dictionaryManager = dictionaryManager;
 	}
 

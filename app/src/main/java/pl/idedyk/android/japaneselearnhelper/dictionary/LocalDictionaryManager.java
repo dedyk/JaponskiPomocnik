@@ -44,7 +44,7 @@ import android.os.Environment;
 
 import com.csvreader.CsvReader;
 
-public class DictionaryManager extends DictionaryManagerAbstract {
+public class LocalDictionaryManager extends DictionaryManagerCommon {
 
 	private static final String KANJI_RECOGNIZE_MODEL_DB_FILE = "kanji_recognizer.model.db";
 
@@ -80,7 +80,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 
 	private LuceneDatabase luceneDatabase;
 
-	public DictionaryManager() {
+	public LocalDictionaryManager() {
 		
 		super();
 		
@@ -95,8 +95,8 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		// noop		
 	}
 
-	public void init(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName,
-					 int versionCode) {
+	@Override
+	public void init(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
 
 		try {
 			// init
@@ -684,6 +684,7 @@ public class DictionaryManager extends DictionaryManagerAbstract {
 		}
 	}
 
+	@Override
 	public void close() {
 		try {
 			luceneDatabase.close();

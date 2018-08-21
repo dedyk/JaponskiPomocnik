@@ -15,6 +15,7 @@ import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestOptionsActivity;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -367,7 +368,7 @@ public class WordDictionaryDetails extends Activity {
 
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 
-		DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 
 		String prefixKana = dictionaryEntry.getPrefixKana();
 		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
@@ -1338,7 +1339,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 	}
 
-	private Image createFavouriteWordStar(DictionaryManager dictionaryManager, final DictionaryEntry dictionaryEntry) {
+	private Image createFavouriteWordStar(DictionaryManagerCommon dictionaryManager, final DictionaryEntry dictionaryEntry) {
 
 		final DataManager dataManager = dictionaryManager.getDataManager();
 

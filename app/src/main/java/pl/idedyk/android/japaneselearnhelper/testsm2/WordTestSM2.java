@@ -7,7 +7,7 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Config;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -39,7 +39,7 @@ import android.widget.Toast;
 
 public class WordTestSM2 extends Activity {
 
-	private DictionaryManager dictionaryManager = null;
+	private DictionaryManagerCommon dictionaryManager = null;
 	private WordTestSM2Manager wordTestSM2Manager = null;
 
 	private WordTestSM2WordStat currentNextWordStat = null;

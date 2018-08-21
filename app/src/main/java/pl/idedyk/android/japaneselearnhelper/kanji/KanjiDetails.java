@@ -10,7 +10,7 @@ import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
@@ -168,7 +168,7 @@ public class KanjiDetails extends Activity {
 		
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 
-		DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 		
 		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
 
@@ -369,7 +369,7 @@ public class KanjiDetails extends Activity {
 		return report;
 	}
 
-	private Image createFavouriteKanjiStar(DictionaryManager dictionaryManager, final KanjiEntry kanjiEntry) {
+	private Image createFavouriteKanjiStar(DictionaryManagerCommon dictionaryManager, final KanjiEntry kanjiEntry) {
 
 		final DataManager dataManager = dictionaryManager.getDataManager();
 

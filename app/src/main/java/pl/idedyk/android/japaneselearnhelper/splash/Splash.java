@@ -5,7 +5,7 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperMainActiv
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.SplashConfig;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 
 import android.Manifest;
@@ -123,7 +123,7 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 		final AssetManager assets = getAssets();
 
 		// create dictionary manager
-		final DictionaryManager dictionaryManager = new DictionaryManager();
+		final DictionaryManagerCommon dictionaryManager = DictionaryManagerCommon.getDictionaryManager();
 
 		class ProgressInfo {
 			Integer progressBarMaxValue;

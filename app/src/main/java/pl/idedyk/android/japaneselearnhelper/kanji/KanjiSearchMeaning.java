@@ -10,7 +10,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
 import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.KanjiSearchMeaningConfig;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
@@ -380,7 +380,7 @@ public class KanjiSearchMeaning extends Activity {
 				@Override
 				protected FindKanjiResultAndSuggestionList doInBackground(Void... params) {
 					
-					final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchMeaning.this);
+					final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchMeaning.this);
 					
 					FindKanjiResult findKanjiResult = dictionaryManager.findKanji(findKanjiRequest);
 					

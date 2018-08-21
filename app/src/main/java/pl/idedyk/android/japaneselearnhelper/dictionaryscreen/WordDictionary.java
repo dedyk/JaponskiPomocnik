@@ -10,7 +10,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
 import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
-import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue.QueueEntry;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
@@ -814,7 +814,7 @@ public class WordDictionary extends Activity {
 			        					
 					if (findWordRequest.searchGrammaFormAndExamples == false && findWordRequest.searchName == false && findWordRequest.wordPlaceSearch != WordPlaceSearch.ANY_PLACE) { // szukanie lokalne
 						
-						final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
+						final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
 						
 						findWordResult = dictionaryManager.findWord(findWordRequest);
 						
@@ -830,7 +830,7 @@ public class WordDictionary extends Activity {
 								findWordRequest.wordPlaceSearch = WordPlaceSearch.START_WITH;
 							}
 														
-							final DictionaryManager dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
+							final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
 							
 							findWordResult = dictionaryManager.findWord(findWordRequest);							
 						}						
