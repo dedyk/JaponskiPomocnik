@@ -202,6 +202,10 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
     }
 
     public static DictionaryManagerCommon getDictionaryManager() {
-        return new LocalDictionaryManager();
+
+        // FIXME !!!!!!!!!!!!!!!!!!!!!!!
+        return new RemoteDictionaryManager();
+
+        //return new LocalDictionaryManager();
     }
 }
