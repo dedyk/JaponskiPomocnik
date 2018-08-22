@@ -1,5 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary.remote;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 import java.util.Set;
 
@@ -15,6 +17,9 @@ import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 public class RemoteLuceneConnector implements IDatabaseConnector {
+
+    private Gson gson = new Gson();
+
     @Override
     public int getDictionaryEntriesSize() {
 
@@ -41,6 +46,9 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
     @Override
     public FindWordResult findDictionaryEntries(FindWordRequest findWordRequest) throws DictionaryException {
+
+        String json = gson.toJson(findWordRequest);
+
 
         // FIXME !!!!!!!!!!!!!!!!!!!
 

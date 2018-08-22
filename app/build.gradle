@@ -86,6 +86,7 @@ android {
 dependencies {
     implementation 'com.google.android.gms:play-services:+'
     implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
     implementation files('libs/JapaneseDictionaryAPI-1.0-SNAPSHOT.jar')
     implementation files('libs/JapaneseDictionaryLuceneCommon-1.0-SNAPSHOT.jar')
     implementation files('libs/javacsv-2.1.jar')
