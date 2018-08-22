@@ -39,8 +39,8 @@ import android.util.Log;
 
 public class ServerClient {
 	
-	//private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
-	private static final String PREFIX_URL = "http://www.japonski-pomocnik.pl"; // prod
+	private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
+	//private static final String PREFIX_URL = "http://www.japonski-pomocnik.pl"; // prod
 		
 	private static final String SEND_MISSING_WORD_URL = PREFIX_URL + "/android/sendMissingWord";
 	private static final String SEARCH_URL = PREFIX_URL + "/android/search";
@@ -48,7 +48,9 @@ public class ServerClient {
 	private static final String AUTOCOMPLETE_URL = PREFIX_URL + "/android/autocomplete";
 	
 	private static final String SPELL_CHECKER_SUGGESTION_URL = PREFIX_URL + "/android/spellCheckerSuggestion";
-	
+
+	private static final String REMOTE_DATABASE_CONNECTOR_BASE_URL = PREFIX_URL + "/android/remoteDatabaseConnector/";
+
 	private static final int TIMEOUT = 10000;
 	
 	public ServerClient() {
@@ -597,8 +599,87 @@ public class ServerClient {
 			return null;
 		}
 	}
-	
-	public static enum AutoCompleteSuggestionType {
+
+    public String callRemoteDictionaryConnectorMethod(PackageInfo packageInfo, String methodName, String jsonRequest) throws Exception {
+
+        boolean connected = isConnected();
+
+        if (connected == false) {
+            return null;
+        }
+
+        try {
+            // parametry do polaczenia
+            HttpParams httpParams = new BasicHttpParams();
+
+            HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
+            HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
+
+            // klient do http
+            DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
+
+            HttpPost httpPost = new HttpPost(REMOTE_DATABASE_CONNECTOR_BASE_URL + methodName);
+
+            // ustaw naglowki
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Content-type", "application/json");
+            httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
+
+            // dane wejsciowe
+            StringEntity stringEntity = new StringEntity(jsonRequest, "UTF-8");
+
+            httpPost.setEntity(stringEntity);
+
+            // wywolaj serwer
+            HttpResponse httpResponse = httpClient.execute(httpPost);
+
+            // sprawdz odpowiedz
+            StatusLine statusLine = httpResponse.getStatusLine();
+
+            int statusCode = statusLine.getStatusCode();
+
+            if (statusCode != 200) {
+                Log.e("ServerClient", "Error callRemoteDictionaryConnectorMethod: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
+
+                return null;
+            }
+
+            HttpEntity entity = httpResponse.getEntity();
+
+            if (entity == null) {
+                return null;
+            }
+
+            InputStream contentInputStream = entity.getContent();
+
+            BufferedReader contentInputStreamReader = new BufferedReader(new InputStreamReader(contentInputStream));
+
+            String readLine = null;
+
+            StringBuffer jsonResponseSb = new StringBuffer();
+
+            while (true) {
+                readLine = contentInputStreamReader.readLine();
+
+                if (readLine == null) {
+                    break;
+                }
+
+                jsonResponseSb.append(readLine);
+            }
+
+            contentInputStreamReader.close();
+
+            return jsonResponseSb.toString();
+
+        } catch (Exception e) {
+            Log.e("ServerClient", "Error callRemoteDictionaryConnectorMethod: ", e);
+
+            throw e;
+        }
+    }
+
+    public static enum AutoCompleteSuggestionType {
 		
 		WORD_DICTIONARY("wordDictionaryEntry"),
 		

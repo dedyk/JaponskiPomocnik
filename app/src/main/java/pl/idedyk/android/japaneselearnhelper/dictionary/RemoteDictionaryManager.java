@@ -1,6 +1,8 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 import android.app.Activity;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 
@@ -31,7 +33,17 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
 
     @Override
     public void init2(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
-        // FIXME !!!!!!!!!!!!!!!!!!!!!!!
+
+        // get package info
+        PackageInfo packageInfo = null;
+
+        try {
+            packageInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
+
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+
+        //
 
         // create word test sm2 manager
         if (initWordTestSM2Manager(activity, loadWithProgress, resources) == false) {
@@ -43,7 +55,7 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
             return;
         }
 
-        databaseConnector = new RemoteLuceneConnector();
+        databaseConnector = new RemoteLuceneConnector(packageInfo);
 
         //
 
