@@ -12,7 +12,7 @@ import org.xdump.android.zinnia.Zinnia;
 
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 
-public class ZinniaManager {
+public class LocalZinniaManager extends ZinniaManagerCommon {
 	
 	private File kanjiRecognizeModelDbFile = null;
 	
@@ -20,7 +20,7 @@ public class ZinniaManager {
 	
 	private long zinniaHandler = 0;
 	
-	ZinniaManager(File kanjiRecognizeModelDbFile) {
+	LocalZinniaManager(File kanjiRecognizeModelDbFile) {
 		this.kanjiRecognizeModelDbFile = kanjiRecognizeModelDbFile;
 	}
 	

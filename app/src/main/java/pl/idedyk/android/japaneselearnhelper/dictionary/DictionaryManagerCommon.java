@@ -16,6 +16,7 @@ import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
+import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 
@@ -26,7 +27,11 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
     //
 
+    private WordTestSM2Manager wordTestSM2Manager;
+
     private DataManager dataManager;
+
+    protected ZinniaManagerCommon zinniaManager;
 
     public final void init(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
 
@@ -65,6 +70,12 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
             }
         }
 
+        // dalsze czynnosci
+        init2(activity, loadWithProgress, resources, assets, packageName, versionCode);
+    }
+
+    protected boolean initDataManager(Activity activity, ILoadWithProgress loadWithProgress, Resources resources) {
+
         // create data manager
         dataManager = new DataManager(databaseDir);
 
@@ -74,7 +85,7 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
         } catch (DataManagerException e) {
             loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
 
-            return;
+            return false;
         }
 
         // migrate old own group from kanji test
@@ -131,8 +142,23 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
             }
         }
 
-        // dalsze czynnosci
-        init2(activity, loadWithProgress, resources, assets, packageName, versionCode);
+        return true;
+    }
+
+    protected boolean initWordTestSM2Manager(Activity activity, ILoadWithProgress loadWithProgress, Resources resources) {
+
+        wordTestSM2Manager = new WordTestSM2Manager(databaseDir);
+
+        // open word test sm2 manager
+        try {
+            wordTestSM2Manager.open();
+        } catch (TestSM2ManagerException e) {
+            loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
+
+            return false;
+        }
+
+        return true;
     }
 
     private boolean checkExternalStorageState(ILoadWithProgress loadWithProgress, Resources resources) {
@@ -157,12 +183,22 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
         return dataManager;
     }
 
+    public WordTestSM2Manager getWordTestSM2Manager() {
+        return wordTestSM2Manager;
+    }
+
+    public ZinniaManagerCommon getZinniaManager() {
+        return zinniaManager;
+    }
+
     @Override
     protected void finalize() throws Throwable {
 
         super.finalize();
 
         dataManager.close();
+
+        wordTestSM2Manager.close();
     }
 
     public static DictionaryManagerCommon getDictionaryManager() {

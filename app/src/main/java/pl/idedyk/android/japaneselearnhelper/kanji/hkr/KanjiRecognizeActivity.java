@@ -7,8 +7,8 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
-import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
-import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager.Character;
+import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon;
+import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon.Character;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 import android.app.Activity;

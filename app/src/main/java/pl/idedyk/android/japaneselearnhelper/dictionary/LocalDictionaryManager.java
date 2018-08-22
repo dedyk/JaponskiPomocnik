@@ -64,8 +64,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 
 	// private AndroidSqliteDatabase androidSqliteDatabase;
 
-	private ZinniaManager zinniaManager;
-
 	private List<RadicalInfo> radicalList = null;
 
 	private List<TransitiveIntransitivePair> transitiveIntransitivePairsList = null;
@@ -73,8 +71,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	private KanaHelper kanaHelper;
 
 	private final KeigoHelper keigoHeper;
-
-	private WordTestSM2Manager wordTestSM2Manager;
 
 	private LuceneDatabase luceneDatabase;
 
@@ -235,7 +231,7 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 			fakeProgress(loadWithProgress);
 
 			// copy kanji recognize model db data
-			zinniaManager = new ZinniaManager(databaseRecognizeModelFile);
+			zinniaManager = new LocalZinniaManager(databaseRecognizeModelFile);
 
 			loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kanji_recognize));
 			loadWithProgress.setCurrentPos(0);
@@ -244,7 +240,7 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 			try {
 				InputStream kanjiRecognizeModelInputStream = assets.open(KANJI_RECOGNIZE_MODEL_DB_FILE);
 
-				zinniaManager.copyKanjiRecognizeModelToData(kanjiRecognizeModelInputStream, loadWithProgress);
+				((LocalZinniaManager)zinniaManager).copyKanjiRecognizeModelToData(kanjiRecognizeModelInputStream, loadWithProgress);
 			} catch (IOException e) {
 				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
 
@@ -252,14 +248,12 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 			}
 
 			// create word test sm2 manager
-			wordTestSM2Manager = new WordTestSM2Manager(databaseDir);
+			if (initWordTestSM2Manager(activity, loadWithProgress, resources) == false) {
+				return;
+			}
 
-			// open word test sm2 manager
-			try {
-				wordTestSM2Manager.open();
-			} catch (TestSM2ManagerException e) {
-				loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
-
+			// create data manager
+			if (initDataManager(activity, loadWithProgress, resources) == false) {
 				return;
 			}
 
@@ -649,14 +643,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 		//return lucene3Database.getGrammaFormAndExamplesEntriesSize();
 	}
 
-	public ZinniaManager getZinniaManager() {
-		return zinniaManager;
-	}
-
-	public WordTestSM2Manager getWordTestSM2Manager() {
-		return wordTestSM2Manager;
-	}
-
 	@Override
 	public KanaHelper getKanaHelper() {
 		return kanaHelper;
@@ -676,8 +662,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	protected void finalize() throws Throwable {
 
 		super.finalize();
-
-		wordTestSM2Manager.close();
 
 		luceneDatabase.close();
 

@@ -13,7 +13,7 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanjiTestContext.TestAnswer;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
-import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager;
+import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
@@ -316,11 +316,11 @@ public class KanjiTest extends Activity {
 						return;
 					}
 
-					ZinniaManager zinniaManager = dictionaryManager.getZinniaManager();
+					ZinniaManagerCommon zinniaManager = dictionaryManager.getZinniaManager();
 
 					zinniaManager.open();
 
-					pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManager.Character zinniaCharacter = zinniaManager
+					pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon.Character zinniaCharacter = zinniaManager
 							.createNewCharacter();
 
 					currentTestAnswer.setWidth(drawView.getWidth());
