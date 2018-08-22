@@ -8,7 +8,6 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon;
-import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon.Character;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 import android.app.Activity;
@@ -116,11 +115,11 @@ public class KanjiRecognizeActivity extends Activity {
 
 						DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiRecognizeActivity.this);
 						
-						ZinniaManager zinniaManager = dictionaryManager.getZinniaManager();
+						ZinniaManagerCommon zinniaManager = dictionaryManager.getZinniaManager();
 						
-						zinniaManager.open();
-						
-						Character zinniaCharacter = zinniaManager.createNewCharacter();
+						// zinniaManager.open();
+
+                        ZinniaManagerCommon.IZinnaManagerCharacter zinniaCharacter = zinniaManager.createNewCharacter();
 						
 						strokesStringBuffer.append("Width: " + drawView.getWidth()).append("\n\n");
 						strokesStringBuffer.append("Height: " + drawView.getHeight()).append("\n");

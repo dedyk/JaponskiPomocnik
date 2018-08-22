@@ -318,10 +318,9 @@ public class KanjiTest extends Activity {
 
 					ZinniaManagerCommon zinniaManager = dictionaryManager.getZinniaManager();
 
-					zinniaManager.open();
+					// zinniaManager.open();
 
-					pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon.Character zinniaCharacter = zinniaManager
-							.createNewCharacter();
+					ZinniaManagerCommon.IZinnaManagerCharacter zinniaCharacter = zinniaManager.createNewCharacter();
 
 					currentTestAnswer.setWidth(drawView.getWidth());
 					currentTestAnswer.setHeight(drawView.getHeight());

@@ -61,7 +61,8 @@ public class LocalZinniaManager extends ZinniaManagerCommon {
 			}
 		}
 	}
-	
+
+	@Override
 	public Character createNewCharacter() {
 		
 		open();
@@ -69,30 +70,35 @@ public class LocalZinniaManager extends ZinniaManagerCommon {
 		return new Character();		
 	}
 	
-	public class Character {
+	public class Character implements IZinnaManagerCharacter {
 		
 		private long character;
 		
 		private Character() {
 			character = zinnia.zinnia_character_new();
 		}
-		
+
+		@Override
 		public void clear() {
 			zinnia.zinnia_character_clear(character);
 		}
-		
+
+        @Override
 		public void setWidth(int width) {
 			zinnia.zinnia_character_set_width(character, width);
 		}
-		
+
+        @Override
 		public void setHeight(int width) {
 			zinnia.zinnia_character_set_height(character, width);
 		}
-		
+
+        @Override
 		public void add(int strokeNo, int x, int y) {
 			zinnia.zinnia_character_add(character, strokeNo, x, y);
 		}
-		
+
+        @Override
 		public List<KanjiRecognizerResultItem> recognize(int limit) {
 			
 			List<KanjiRecognizerResultItem> result = new ArrayList<KanjiRecognizerResultItem>();
@@ -109,7 +115,8 @@ public class LocalZinniaManager extends ZinniaManagerCommon {
 			
 			return result;
 		}
-		
+
+		@Override
 		public void destroy() {
 			zinnia.zinnia_character_destroy(character);
 		}
