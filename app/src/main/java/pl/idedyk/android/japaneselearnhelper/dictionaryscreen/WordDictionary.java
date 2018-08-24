@@ -23,6 +23,8 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -811,37 +813,53 @@ public class WordDictionary extends Activity {
 			        }
 			        
 			        //
-			        					
-					if (findWordRequest.searchGrammaFormAndExamples == false && findWordRequest.searchName == false && findWordRequest.wordPlaceSearch != WordPlaceSearch.ANY_PLACE) { // szukanie lokalne
-						
-						final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
-						
-						findWordResult = dictionaryManager.findWord(findWordRequest);
-						
-					} else { // szukanie na serwerze
-						
-						findWordResult = serverClient.search(packageInfo, findWordRequest);
-						
-						if (findWordResult == null) { // jesli szukanie nie powiodlo sie, szukaj lokalnie
-														
-							localSearchWrapper.tryServerSearchThenPerformLocalSearch = Boolean.TRUE;
-							
-							if (findWordRequest.wordPlaceSearch == WordPlaceSearch.ANY_PLACE) {
-								findWordRequest.wordPlaceSearch = WordPlaceSearch.START_WITH;
-							}
-														
+
+					DictionaryException dictionaryException = null;
+
+					try {
+						if (findWordRequest.searchGrammaFormAndExamples == false && findWordRequest.searchName == false && findWordRequest.wordPlaceSearch != WordPlaceSearch.ANY_PLACE) { // szukanie lokalne
+
 							final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
-							
-							findWordResult = dictionaryManager.findWord(findWordRequest);							
-						}						
+
+							findWordResult = dictionaryManager.findWord(findWordRequest);
+
+						} else { // szukanie na serwerze
+
+							findWordResult = serverClient.search(packageInfo, findWordRequest);
+
+							if (findWordResult == null) { // jesli szukanie nie powiodlo sie, szukaj lokalnie
+
+								localSearchWrapper.tryServerSearchThenPerformLocalSearch = Boolean.TRUE;
+
+								if (findWordRequest.wordPlaceSearch == WordPlaceSearch.ANY_PLACE) {
+									findWordRequest.wordPlaceSearch = WordPlaceSearch.START_WITH;
+								}
+
+								final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
+
+								findWordResult = dictionaryManager.findWord(findWordRequest);
+							}
+						}
+
+					} catch (DictionaryException e) {
+						dictionaryException = e;
 					}
-					
+
+					if (findWordResult == null) {
+						findWordResult = new FindWordResult();
+
+						findWordResult.setResult(new ArrayList<ResultItem>());
+					}
+
+					//
+
 			        FindWordResultAndSuggestionList findWordResultAndSuggestionList = new FindWordResultAndSuggestionList();
 			        
 			        findWordResultAndSuggestionList.findWordResult = findWordResult;
-			        
+					findWordResultAndSuggestionList.dictionaryException = dictionaryException;
+
 			        // szukanie sugestii
-			        if (findWordResult.result.size() == 0 && searchOptionsUseSuggestionCheckBox.isChecked() == true) {
+			        if (dictionaryException == null && findWordResult.result.size() == 0 && searchOptionsUseSuggestionCheckBox.isChecked() == true) {
 			        	
 			        	List<String> suggestionList = serverClient.getSuggestionList(packageInfo, findWordRequest.word, AutoCompleteSuggestionType.WORD_DICTIONARY);
 			        				        	
@@ -855,8 +873,8 @@ public class WordDictionary extends Activity {
 			    protected void onPostExecute(FindWordResultAndSuggestionList findWordResultAndSuggestionList) {
 			    	
 			        super.onPostExecute(findWordResultAndSuggestionList);
-			        
-			        FindWordResult foundWord = findWordResultAndSuggestionList.findWordResult;
+
+					FindWordResult foundWord = findWordResultAndSuggestionList.findWordResult;
 			        List<String> suggestionList = findWordResultAndSuggestionList.suggestionList;
 			        
 					wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
@@ -883,15 +901,18 @@ public class WordDictionary extends Activity {
 					if (progressDialog != null && progressDialog.isShowing()) {
 						progressDialog.dismiss();
 					}
-			        
-			        if (localSearchWrapper.tryServerSearchThenPerformLocalSearch != null && localSearchWrapper.tryServerSearchThenPerformLocalSearch == Boolean.TRUE) {
+
+					if (findWordResultAndSuggestionList.dictionaryException != null) {
+						Toast.makeText(WordDictionary.this, getString(R.string.dictionary_exception_common_error_message, findWordResultAndSuggestionList.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
+
+					} else if (localSearchWrapper.tryServerSearchThenPerformLocalSearch != null && localSearchWrapper.tryServerSearchThenPerformLocalSearch == Boolean.TRUE) {
 			        	
 			        	Toast toast = Toast.makeText(WordDictionary.this, getString(R.string.word_dictionary_search_options_search_word_server_client_error), Toast.LENGTH_SHORT);
 						
 						toast.show();			        	
 			        }
 			        
-			        if (foundWord.result.size() == 0 && automaticSendMissingWordCheckBox.isChecked() == true) {	
+			        if (findWordResultAndSuggestionList.dictionaryException == null && foundWord.result.size() == 0 && automaticSendMissingWordCheckBox.isChecked() == true) {
 			        	
 			        	if (findWordRequest.searchGrammaFormAndExamples == false && findWordRequest.searchName == false) { // tylko dla szukania lokalnego
 			        		sendMissingWord(findWordRequest);
@@ -977,6 +998,8 @@ public class WordDictionary extends Activity {
 		
 		public FindWordResult findWordResult;
 		
-		public List<String> suggestionList;		
+		public List<String> suggestionList;
+
+		public DictionaryException dictionaryException;
 	}
 }

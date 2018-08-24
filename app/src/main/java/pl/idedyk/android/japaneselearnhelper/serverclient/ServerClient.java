@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.serverclient;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -605,7 +606,7 @@ public class ServerClient {
         boolean connected = isConnected();
 
         if (connected == false) {
-            return null;
+            throw new IOException("Not connected");
         }
 
         try {

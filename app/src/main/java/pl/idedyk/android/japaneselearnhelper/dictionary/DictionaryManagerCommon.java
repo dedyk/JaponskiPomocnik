@@ -5,8 +5,17 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Environment;
 
+import com.csvreader.CsvReader;
+import com.google.android.gms.wearable.Asset;
+
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -18,9 +27,19 @@ import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
+import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
+import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary.api.keigo.KeigoHelper;
+import pl.idedyk.japanese.dictionary.api.tools.KanaHelper;
 
 public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract {
+
+    protected static final String KANA_FILE = "kana.csv";
+
+    protected static final String RADICAL_FILE = "radical.csv";
 
     protected File baseDir;
     protected File databaseDir;
@@ -32,6 +51,18 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
     private DataManager dataManager;
 
     protected ZinniaManagerCommon zinniaManager;
+
+    //
+
+    private List<RadicalInfo> radicalList = null;
+
+    private KanaHelper kanaHelper;
+
+    protected final KeigoHelper keigoHeper;
+
+    protected DictionaryManagerCommon() {
+        keigoHeper = new KeigoHelper();
+    }
 
     public final void init(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
 
@@ -161,6 +192,129 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
         return true;
     }
 
+    protected boolean initKana(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets) {
+
+        loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_kana));
+        loadWithProgress.setCurrentPos(0);
+
+        try {
+            InputStream kanaFileInputStream = assets.open(KANA_FILE);
+            int kanaFileSize = getWordSize(kanaFileInputStream);
+            loadWithProgress.setMaxValue(kanaFileSize);
+
+            kanaFileInputStream = assets.open(KANA_FILE);
+            readKanaFile(kanaFileInputStream, loadWithProgress);
+
+        } catch (IOException e) {
+            loadWithProgress
+                    .setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private void readKanaFile(InputStream kanaFileInputStream, ILoadWithProgress loadWithProgress) throws IOException {
+
+        CsvReader csvReader = new CsvReader(new InputStreamReader(kanaFileInputStream), ',');
+
+        int currentPos = 1;
+
+        Map<String, List<KanjivgEntry>> kanaAndStrokePaths = new HashMap<String, List<KanjivgEntry>>();
+
+        while (csvReader.readRecord()) {
+
+            currentPos++;
+
+            loadWithProgress.setCurrentPos(currentPos);
+
+            //int id = Integer.parseInt(csvReader.get(0));
+
+            String kana = csvReader.get(1);
+
+            String strokePath1String = csvReader.get(2);
+
+            String strokePath2String = csvReader.get(3);
+
+            List<KanjivgEntry> strokePaths = new ArrayList<KanjivgEntry>();
+
+            strokePaths.add(new KanjivgEntry(Utils.parseStringIntoList(strokePath1String, false)));
+
+            if (strokePath2String == null || strokePath2String.equals("") == false) {
+                strokePaths.add(new KanjivgEntry(Utils.parseStringIntoList(strokePath2String, false)));
+            }
+
+            kanaAndStrokePaths.put(kana, strokePaths);
+        }
+
+        kanaHelper = new KanaHelper(kanaAndStrokePaths);
+
+        csvReader.close();
+    }
+
+    protected boolean initRadical(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets) throws DictionaryException {
+
+        loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_radical));
+        loadWithProgress.setCurrentPos(0);
+
+        try {
+            InputStream radicalInputStream = assets.open(RADICAL_FILE);
+            int radicalFileSize = getWordSize(radicalInputStream);
+            loadWithProgress.setMaxValue(radicalFileSize);
+
+            radicalInputStream = assets.open(RADICAL_FILE);
+            readRadicalEntriesFromCsv(radicalInputStream, loadWithProgress);
+
+        } catch (IOException e) {
+            loadWithProgress
+                    .setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.toString()));
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private void readRadicalEntriesFromCsv(InputStream radicalInputStream, ILoadWithProgress loadWithProgress)
+            throws IOException, DictionaryException {
+
+        radicalList = new ArrayList<RadicalInfo>();
+
+        CsvReader csvReader = new CsvReader(new InputStreamReader(radicalInputStream), ',');
+
+        int currentPos = 1;
+
+        while (csvReader.readRecord()) {
+
+            currentPos++;
+
+            loadWithProgress.setCurrentPos(currentPos);
+
+            int id = Integer.parseInt(csvReader.get(0));
+
+            String radical = csvReader.get(1);
+
+            if (radical.equals("") == true) {
+                throw new DictionaryException("Empty radical: " + radical);
+            }
+
+            String strokeCountString = csvReader.get(2);
+
+            int strokeCount = Integer.parseInt(strokeCountString);
+
+            RadicalInfo entry = new RadicalInfo();
+
+            entry.setId(id);
+            entry.setRadical(radical);
+            entry.setStrokeCount(strokeCount);
+
+            radicalList.add(entry);
+        }
+
+        csvReader.close();
+    }
+
     private boolean checkExternalStorageState(ILoadWithProgress loadWithProgress, Resources resources) {
 
         String state = Environment.getExternalStorageState();
@@ -174,6 +328,20 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
         return true;
     }
 
+    protected int getWordSize(InputStream dictionaryInputStream) throws IOException {
+
+        int size = 0;
+
+        CsvReader csvReader = new CsvReader(new InputStreamReader(dictionaryInputStream), ',');
+
+        while (csvReader.readRecord()) {
+            size++;
+        }
+
+        dictionaryInputStream.close();
+
+        return size;
+    }
 
     public abstract void init2(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode);
 
@@ -189,6 +357,21 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
     public ZinniaManagerCommon getZinniaManager() {
         return zinniaManager;
+    }
+
+    @Override
+    public KanaHelper getKanaHelper() {
+        return kanaHelper;
+    }
+
+    @Override
+    public KeigoHelper getKeigoHelper() {
+        return keigoHeper;
+    }
+
+    @Override
+    public List<RadicalInfo> getRadicalList() {
+        return radicalList;
     }
 
     @Override

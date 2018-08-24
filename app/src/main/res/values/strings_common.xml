@@ -64,4 +64,6 @@
     <string name="report_problem">Zgłoś sugestię</string>
     
     <string name="choose_email_client">Wybierz klienta poczty:</string>
+
+    <string name="dictionary_exception_common_error_message">Niestety w trakcie korzystania z bazy danych wystąpił błąd. Sprawdź połączenie internetowe, spróbuj ponownie później lub skontaktuj się z autorem aplikacji. Komunikat błędu: %1$s</string>
 </resources>

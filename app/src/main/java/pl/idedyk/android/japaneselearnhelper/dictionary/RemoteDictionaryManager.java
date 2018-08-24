@@ -22,13 +22,8 @@ import pl.idedyk.japanese.dictionary.lucene.LuceneDatabase;
 
 public class RemoteDictionaryManager extends DictionaryManagerCommon {
 
-    private final KeigoHelper keigoHeper;
-
     public RemoteDictionaryManager() {
-
         super();
-
-        keigoHeper = new KeigoHelper();
     }
 
     @Override
@@ -44,6 +39,22 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
         }
 
         //
+
+        // wczytanie informacji o pisaniu znakow kana
+        if (initKana(activity, loadWithProgress, resources, assets) == false) {
+            return;
+        }
+
+        // wczytywanie informacji o znakach podstawowych
+        try {
+
+            if (initRadical(activity, loadWithProgress, resources, assets) == false) {
+                return;
+            }
+
+        } catch (DictionaryException e) {
+            throw new RuntimeException(e);
+        }
 
         // create word test sm2 manager
         if (initWordTestSM2Manager(activity, loadWithProgress, resources) == false) {
@@ -231,17 +242,6 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
     }
 
     @Override
-    public KanaHelper getKanaHelper() {
-        // FIXME !!!!!!!!!!!!!!!!!!!!!!!
-        return null;
-    }
-
-    @Override
-    public KeigoHelper getKeigoHelper() {
-        return keigoHeper;
-    }
-
-    @Override
     public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
         // FIXME !!!!!!!!!!!!!!!!!!!!!!!
         return null;
@@ -250,11 +250,5 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
     @Override
     public void waitForDatabaseReady() {
         // FIXME !!!!!!!!!!!!!!!!!!!!!!!
-    }
-
-    @Override
-    public List<RadicalInfo> getRadicalList() {
-        // FIXME !!!!!!!!!!!!!!!!!!!!!!!
-        return null;
     }
 }

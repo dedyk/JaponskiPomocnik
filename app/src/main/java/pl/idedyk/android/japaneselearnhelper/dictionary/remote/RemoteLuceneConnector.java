@@ -60,18 +60,20 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
         String requestJson = gson.toJson(findWordRequest);
 
+        String responseJson = null;
+
+        FindWordResult result = null;
+
         try {
-            serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findDictionaryEntries", requestJson);
+            responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findDictionaryEntries", requestJson);
+
+            result = gson.fromJson(responseJson, FindWordResult.class);
 
         } catch (Exception e) {
             throw new DictionaryException(e);
         }
 
-
-
-        // FIXME !!!!!!!!!!!!!!!!!!!
-
-        return null;
+        return result;
     }
 
     @Override

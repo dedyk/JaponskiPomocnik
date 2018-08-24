@@ -26,6 +26,8 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -533,10 +535,22 @@ public class KanjiTestOptionsActivity extends Activity {
 						getString(R.string.kanji_test_options_prepare1),
 						getString(R.string.kanji_test_options_prepare2));
 
-				class PrepareAsyncTask extends AsyncTask<Void, Void, Void> {
+				class PrepareAsyncTaskResult {
+
+					private DictionaryException dictionaryException;
+
+					public PrepareAsyncTaskResult() {
+					}
+
+					public PrepareAsyncTaskResult(DictionaryException dictionaryException) {
+						this.dictionaryException = dictionaryException;
+					}
+				}
+
+				class PrepareAsyncTask extends AsyncTask<Void, Void, PrepareAsyncTaskResult> {
 
 					@Override
-					protected Void doInBackground(Void... arg) {
+					protected PrepareAsyncTaskResult doInBackground(Void... arg) {
 
 						// get kanji test context
 						JapaneseAndroidLearnHelperKanjiTestContext kanjiTestContext = JapaneseAndroidLearnHelperApplication
@@ -598,9 +612,16 @@ public class KanjiTestOptionsActivity extends Activity {
 									findWordRequest.word = currentKanjiEntry.getKanji();
 
 									// find word with this kanji
-									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance()
-											.getDictionaryManager(KanjiTestOptionsActivity.this)
-											.findWord(findWordRequest);
+									FindWordResult findWordResult = null;
+
+									try {
+										findWordResult = JapaneseAndroidLearnHelperApplication.getInstance()
+												.getDictionaryManager(KanjiTestOptionsActivity.this)
+												.findWord(findWordRequest);
+
+									} catch (DictionaryException e) {
+										return new PrepareAsyncTaskResult(e);
+									}
 
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
@@ -628,9 +649,16 @@ public class KanjiTestOptionsActivity extends Activity {
 									}
 
 									// find word with this kanji
-									FindWordResult findWordResult = JapaneseAndroidLearnHelperApplication.getInstance()
-											.getDictionaryManager(KanjiTestOptionsActivity.this)
-											.findWord(findWordRequest);
+									FindWordResult findWordResult = null;
+
+									try {
+										findWordResult = JapaneseAndroidLearnHelperApplication.getInstance()
+												.getDictionaryManager(KanjiTestOptionsActivity.this)
+												.findWord(findWordRequest);
+
+									} catch (DictionaryException e) {
+										return new PrepareAsyncTaskResult(e);
+									}
 
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
@@ -768,16 +796,23 @@ public class KanjiTestOptionsActivity extends Activity {
 							kanjiTestContext.setDictionaryEntryWithRemovedKanji(entryOrderList);
 						}
 
-						return null;
+						return new PrepareAsyncTaskResult();
 					}
 
 					@SuppressWarnings("deprecation")
 					@Override
-					protected void onPostExecute(Void arg) {
-						super.onPostExecute(arg);
+					protected void onPostExecute(PrepareAsyncTaskResult result) {
+						super.onPostExecute(result);
 
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
+						}
+
+						if (result.dictionaryException != null) {
+
+							Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
+
+							return;
 						}
 
 						AlertDialog alertDialog = new AlertDialog.Builder(KanjiTestOptionsActivity.this).create();
@@ -947,6 +982,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			@Override
 			protected List<KanjiEntry> doInBackground(Void... arg) {
+
+				// INFO: Gdy bedziesz to zmienial, sprawdz obsluge DictionaryException przy findWord !!!!
 
 				return JapaneseAndroidLearnHelperApplication.getInstance()
 						.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, true);
