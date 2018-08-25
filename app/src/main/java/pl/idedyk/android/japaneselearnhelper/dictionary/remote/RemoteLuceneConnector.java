@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary.remote;
 import android.content.pm.PackageInfo;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 import java.util.Set;
@@ -121,15 +122,35 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public DictionaryEntry getDictionaryEntryNameById(String id) throws DictionaryException {
+    public DictionaryEntry getDictionaryEntryNameById(final String id) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(id);
+
+                String responseJson = null;
+
+                DictionaryEntry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntryNameById", requestJson);
+
+                    result = gson.fromJson((String) responseJson, DictionaryEntry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, DictionaryEntry.class);
     }
 
     @Override
-    public KanjiEntry getKanjiEntryById(String s) throws DictionaryException {
+    public KanjiEntry getKanjiEntryById(String id) throws DictionaryException {
 
         // FIXME !!!!!!!!!!!!!!!!!!!
 
@@ -137,7 +158,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public KanjiEntry getKanjiEntry(String s) throws DictionaryException {
+    public KanjiEntry getKanjiEntry(String kanji) throws DictionaryException {
 
         // FIXME !!!!!!!!!!!!!!!!!!!
 
@@ -169,11 +190,35 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public Set<String> findAllAvailableRadicals(String[] strings) throws DictionaryException {
+    public Set<String> findAllAvailableRadicals(final String[] radicals) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(radicals);
+
+                String responseJson = null;
+
+                Set<String> result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findAllAvailableRadicals", requestJson);
+
+                    result = gson.fromJson((String) responseJson, new TypeToken<Set<String>>(){}.getType());
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                if (result == null) {
+                    throw new DictionaryException("");
+                }
+
+                return result;
+            }
+        }, Set.class);
     }
 
     @Override
