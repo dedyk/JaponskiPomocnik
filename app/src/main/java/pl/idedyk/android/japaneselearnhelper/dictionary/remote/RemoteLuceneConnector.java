@@ -6,6 +6,10 @@ import com.google.gson.Gson;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.japanese.dictionary.api.dictionary.IDatabaseConnector;
@@ -56,24 +60,31 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public FindWordResult findDictionaryEntries(FindWordRequest findWordRequest) throws DictionaryException {
+    public FindWordResult findDictionaryEntries(final FindWordRequest findWordRequest) throws DictionaryException {
 
-        String requestJson = gson.toJson(findWordRequest);
+        return callInServerThread(new Callable<Object>() {
 
-        String responseJson = null;
+            @Override
+            public Object call() throws Exception {
 
-        FindWordResult result = null;
+                String requestJson = gson.toJson(findWordRequest);
 
-        try {
-            responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findDictionaryEntries", requestJson);
+                String responseJson = null;
 
-            result = gson.fromJson(responseJson, FindWordResult.class);
+                FindWordResult result = null;
 
-        } catch (Exception e) {
-            throw new DictionaryException(e);
-        }
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findDictionaryEntries", requestJson);
 
-        return result;
+                    result = gson.fromJson(responseJson, FindWordResult.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, FindWordResult.class);
     }
 
     @Override
@@ -82,17 +93,37 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public DictionaryEntry getDictionaryEntryById(String s) throws DictionaryException {
+    public DictionaryEntry getDictionaryEntryById(final String id) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(id);
+
+                String responseJson = null;
+
+                DictionaryEntry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntryById", requestJson);
+
+                    result = gson.fromJson((String) responseJson, DictionaryEntry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, DictionaryEntry.class);
     }
 
     @Override
-    public DictionaryEntry getDictionaryEntryNameById(String s) throws DictionaryException {
+    public DictionaryEntry getDictionaryEntryNameById(String id) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        // FIXME !!!!!!!!!!!!!!!!!!!!!!!!
 
         return null;
     }
@@ -182,5 +213,47 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
         // FIXME !!!!!!!!!!!!!!!!!!!
 
+    }
+
+    private <T> T callInServerThread(Callable<Object> callable, Class<T> resultClass) throws DictionaryException {
+
+        ExecutorService executorService = null;
+
+        try {
+            executorService = Executors.newFixedThreadPool(1);
+
+            Future<Object> resultFuture = executorService.submit(callable);
+
+            Object resultObject = null;
+
+            try {
+                resultObject = resultFuture.get();
+
+            } catch (Exception e) {
+                throw new DictionaryException(e);
+            }
+
+            if (resultObject == null) {
+                return null;
+
+            } else if (resultObject instanceof DictionaryException) {
+                throw (DictionaryException) resultObject;
+
+            } else if (resultObject instanceof Exception) {
+                throw new DictionaryException((Exception) resultObject);
+
+            } else if (resultClass.isInstance(resultObject) == true) {
+                return (T) resultObject;
+
+            } else {
+                throw new RuntimeException("Unknown object: " + resultObject);
+            }
+
+        } finally {
+
+            if (executorService != null) {
+                executorService.shutdown();
+            }
+        }
     }
 }
