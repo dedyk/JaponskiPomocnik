@@ -174,19 +174,59 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<KanjiEntry> findKanjiFromRadicals(String[] strings) throws DictionaryException {
+    public List<KanjiEntry> findKanjiFromRadicals(final String[] radicals) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(radicals);
+
+                String responseJson = null;
+
+                List<String> result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findKanjiFromRadicals", requestJson);
+
+                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiEntry>>(){}.getType());
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, List.class);
     }
 
     @Override
-    public FindKanjiResult findKanjisFromStrokeCount(int i, int i1) throws DictionaryException {
+    public FindKanjiResult findKanjisFromStrokeCount(final int from, final int to) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(new FindKanjisFromStrokeCountWrapper(from, to));
+
+                String responseJson = null;
+
+                FindKanjiResult result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findKanjisFromStrokeCount", requestJson);
+
+                    result = gson.fromJson((String) responseJson, FindKanjiResult.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, FindKanjiResult.class);
     }
 
     @Override
@@ -213,7 +253,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 }
 
                 if (result == null) {
-                    throw new DictionaryException("");
+                    return new DictionaryException("");
                 }
 
                 return result;
