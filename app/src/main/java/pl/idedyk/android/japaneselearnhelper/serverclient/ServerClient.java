@@ -642,13 +642,13 @@ public class ServerClient {
             if (statusCode != 200) {
                 Log.e("ServerClient", "Error callRemoteDictionaryConnectorMethod: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
 
-                return null;
+                throw new IOException(statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
             }
 
             HttpEntity entity = httpResponse.getEntity();
 
             if (entity == null) {
-                return null;
+				throw new IOException();
             }
 
             InputStream contentInputStream = entity.getContent();

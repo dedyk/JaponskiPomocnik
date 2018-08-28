@@ -150,27 +150,87 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public KanjiEntry getKanjiEntryById(String id) throws DictionaryException {
+    public KanjiEntry getKanjiEntryById(final String id) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(id);
+
+                String responseJson = null;
+
+                KanjiEntry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getKanjiEntryById", requestJson);
+
+                    result = gson.fromJson((String) responseJson, KanjiEntry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, KanjiEntry.class);
     }
 
     @Override
-    public KanjiEntry getKanjiEntry(String kanji) throws DictionaryException {
+    public KanjiEntry getKanjiEntry(final String kanji) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(kanji);
+
+                String responseJson = null;
+
+                KanjiEntry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getKanjiEntry", requestJson);
+
+                    result = gson.fromJson((String) responseJson, KanjiEntry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, KanjiEntry.class);
     }
 
     @Override
-    public List<KanjiEntry> getAllKanjis(boolean b, boolean b1) throws DictionaryException {
+    public List<KanjiEntry> getAllKanjis(final boolean withDetails, final boolean onlyUsed) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(new GetAllKanjisWrapper(withDetails, onlyUsed));
+
+                String responseJson = null;
+
+                List<String> result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getAllKanjis", requestJson);
+
+                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiEntry>>(){}.getType());
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, List.class);
     }
 
     @Override
@@ -262,11 +322,31 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public FindKanjiResult findKanji(FindKanjiRequest findKanjiRequest) throws DictionaryException {
+    public FindKanjiResult findKanji(final FindKanjiRequest findKanjiRequest) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(findKanjiRequest);
+
+                String responseJson = null;
+
+                FindKanjiResult result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findKanji", requestJson);
+
+                    result = gson.fromJson(responseJson, FindKanjiResult.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, FindKanjiResult.class);
     }
 
     @Override
