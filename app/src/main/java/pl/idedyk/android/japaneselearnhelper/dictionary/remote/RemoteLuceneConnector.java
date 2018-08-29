@@ -358,19 +358,59 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<DictionaryEntry> getGroupDictionaryEntries(GroupEnum groupEnum) throws DictionaryException {
+    public List<DictionaryEntry> getGroupDictionaryEntries(final GroupEnum groupEnum) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(groupEnum);
+
+                String responseJson = null;
+
+                List<DictionaryEntry> result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getGroupDictionaryEntries", requestJson);
+
+                    result = gson.fromJson(responseJson, new TypeToken<List<DictionaryEntry>>(){}.getType());
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, List.class);
     }
 
     @Override
-    public GroupWithTatoebaSentenceList getTatoebaSentenceGroup(String s) throws DictionaryException {
+    public GroupWithTatoebaSentenceList getTatoebaSentenceGroup(final String groupId) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(groupId);
+
+                String responseJson = null;
+
+                GroupWithTatoebaSentenceList result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getTatoebaSentenceGroup", requestJson);
+
+                    result = gson.fromJson(responseJson, GroupWithTatoebaSentenceList.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, GroupWithTatoebaSentenceList.class);
     }
 
     @Override
