@@ -37,19 +37,55 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public int getDictionaryEntriesSize() {
+    public int getDictionaryEntriesSize() throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return 0;
+            @Override
+            public Object call() throws Exception {
+
+                String responseJson = null;
+
+                Integer result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntriesSize", "");
+
+                    result = gson.fromJson(responseJson, Integer.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, Integer.class);
     }
 
     @Override
-    public int getDictionaryEntriesNameSize() {
+    public int getDictionaryEntriesNameSize() throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return 0;
+            @Override
+            public Object call() throws Exception {
+
+                String responseJson = null;
+
+                Integer result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntriesNameSize", "");
+
+                    result = gson.fromJson(responseJson, Integer.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, Integer.class);
     }
 
     @Override
