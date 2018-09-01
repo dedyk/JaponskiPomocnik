@@ -18,6 +18,8 @@ import pl.idedyk.android.japaneselearnhelper.test.WordTestOptions;
 import pl.idedyk.android.japaneselearnhelper.testsm2.WordTestSM2Options;
 import pl.idedyk.android.japaneselearnhelper.transitiveintransitive.TransitiveIntransitivePairsTable;
 import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -45,6 +47,18 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 		// init menu actions
 		initMenuActions();
+
+		//
+
+		// FIXME !!!!!!!!!!!!!!!
+		try {
+			JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(JapaneseAndroidLearnHelperMainActivity.this).
+ 				getDictionaryEntryGroupTypes();
+
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 	private void createMenuList() {

@@ -90,10 +90,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
     @Override
     public DictionaryEntry getNthDictionaryEntry(int i) throws DictionaryException {
-
-        // FIXME !!!!!!!!!!!!!!!!!!!
-
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -126,7 +123,10 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
     @Override
     public void findDictionaryEntriesInGrammaFormAndExamples(FindWordRequest findWordRequest, FindWordResult findWordResult) throws DictionaryException {
-        // FIXME !!!!!!!!!!!!!!!!!!!
+
+        // wyszukiwanie po formach gramatycznych i przykladach odbywa sie z uzyciem metody w ServerClient
+        // na razie nie ma potrzeby implementowania tej metody
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -386,11 +386,29 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<GroupEnum> getDictionaryEntryGroupTypes() {
+    public List<GroupEnum> getDictionaryEntryGroupTypes() throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
+        return callInServerThread(new Callable<Object>() {
 
-        return null;
+            @Override
+            public Object call() throws Exception {
+
+                String responseJson = null;
+
+                List<GroupEnum> result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntryGroupTypes", "");
+
+                    result = gson.fromJson(responseJson, new TypeToken<List<GroupEnum>>(){}.getType());
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, List.class);
     }
 
     @Override
@@ -452,8 +470,9 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public void findDictionaryEntriesInNames(FindWordRequest findWordRequest, FindWordResult findWordResult) throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!
-
+        // wyszukiwanie po formach gramatycznych i przykladach odbywa sie z uzyciem metody w ServerClient
+        // na razie nie ma potrzeby implementowania tej metody
+        throw new UnsupportedOperationException();
     }
 
     private <T> T callInServerThread(Callable<Object> callable, Class<T> resultClass) throws DictionaryException {
