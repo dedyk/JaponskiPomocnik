@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionary;
 import java.util.List;
 
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 public abstract class ZinniaManagerCommon {
 

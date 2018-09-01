@@ -68,6 +68,9 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
 
         databaseConnector = new RemoteLuceneConnector(packageInfo);
 
+        // init zinnia manager
+        zinniaManager = new RemoteZinniaManager();
+
         //
 
         loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_ready));
@@ -238,7 +241,7 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
 
     @Override
     public void close() {
-        // FIXME !!!!!!!!!!!!!!!!!!!!!!!
+        // noop
     }
 
     @Override
@@ -249,6 +252,6 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
 
     @Override
     public void waitForDatabaseReady() {
-        // FIXME !!!!!!!!!!!!!!!!!!!!!!!
+       // noop
     }
 }

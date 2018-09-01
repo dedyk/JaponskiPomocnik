@@ -47,18 +47,6 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 		// init menu actions
 		initMenuActions();
-
-		//
-
-		// FIXME !!!!!!!!!!!!!!!
-		try {
-			JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(JapaneseAndroidLearnHelperMainActivity.this).
- 				getDictionaryEntryGroupTypes();
-
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-
 	}
 
 	private void createMenuList() {
