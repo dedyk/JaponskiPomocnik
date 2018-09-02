@@ -10,6 +10,8 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -107,11 +109,26 @@ public class KanjiRecognizeActivity extends Activity {
 						getString(R.string.kanji_recognizer_recoginize2));
 				
 				final StringBuffer strokesStringBuffer = new StringBuffer();
-				
-				class RecognizeAsyncTask extends AsyncTask<Void, Void, List<KanjiEntry>> {
+
+				class RecognizeAsyncTaskResult {
+
+					private DictionaryException dictionaryException;
+
+					private List<KanjiEntry> kanjiEntryList;
+
+					public RecognizeAsyncTaskResult(DictionaryException dictionaryException) {
+						this.dictionaryException = dictionaryException;
+					}
+
+					public RecognizeAsyncTaskResult(List<KanjiEntry> kanjiEntryList) {
+						this.kanjiEntryList = kanjiEntryList;
+					}
+				}
+
+				class RecognizeAsyncTask extends AsyncTask<Void, Void, RecognizeAsyncTaskResult> {
 
 					@Override
-					protected List<KanjiEntry> doInBackground(Void... arg0) {
+					protected RecognizeAsyncTaskResult doInBackground(Void... arg0) {
 
 						DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiRecognizeActivity.this);
 						
@@ -144,11 +161,19 @@ public class KanjiRecognizeActivity extends Activity {
 							
 							strokesStringBuffer.append("\n\n");
 						}
-						
-						List<KanjiRecognizerResultItem> recognizeResult = zinniaCharacter.recognize(50);
-						
-						zinniaCharacter.destroy();
-						
+
+						List<KanjiRecognizerResultItem> recognizeResult = null;
+
+						try {
+							recognizeResult = zinniaCharacter.recognize(50);
+
+						} catch (DictionaryException e) {
+							return new RecognizeAsyncTaskResult(e);
+
+						} finally {
+							zinniaCharacter.destroy();
+						}
+
 						List<KanjiEntry> kanjiEntries = new ArrayList<KanjiEntry>();
 						
 						for (KanjiRecognizerResultItem currentRecognizeResult : recognizeResult) {
@@ -162,22 +187,30 @@ public class KanjiRecognizeActivity extends Activity {
 							kanjiEntries.add(kanjiEntry);							
 						}						
 
-						return kanjiEntries;
+						return new RecognizeAsyncTaskResult(kanjiEntries);
 					}
 					
 				    @Override
-				    protected void onPostExecute(List<KanjiEntry> kanjiEntries) {
-				        super.onPostExecute(kanjiEntries);
+				    protected void onPostExecute(RecognizeAsyncTaskResult result) {
+
+				        super.onPostExecute(result);
 
 				        if (progressDialog != null && progressDialog.isShowing()) {
 				        	progressDialog.dismiss();
 				        }
-				        
+
+						if (result.dictionaryException != null) {
+
+							Toast.makeText(KanjiRecognizeActivity.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
+
+							return;
+						}
+
 						Intent intent = new Intent(getApplicationContext(), KanjiRecognizerResult.class);
 						
-						KanjiEntry[] kanjiEntriesAsArray = new KanjiEntry[kanjiEntries.size()];
-						
-						kanjiEntries.toArray(kanjiEntriesAsArray);
+						KanjiEntry[] kanjiEntriesAsArray = new KanjiEntry[result.kanjiEntryList.size()];
+
+						result.kanjiEntryList.toArray(kanjiEntriesAsArray);
 						
 						intent.putExtra("kanjiRecognizeResult", kanjiEntriesAsArray);
 						intent.putExtra("kanjiRecognizeResultStrokes", strokesStringBuffer.toString());

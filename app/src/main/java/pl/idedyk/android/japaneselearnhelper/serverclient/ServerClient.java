@@ -9,6 +9,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -32,6 +36,8 @@ import pl.idedyk.japanese.dictionary.api.dto.AttributeType;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.net.ConnectivityManager;
@@ -680,7 +686,49 @@ public class ServerClient {
         }
     }
 
-    public static enum AutoCompleteSuggestionType {
+	public static <T> T callInServerThread(Callable<Object> callable, Class<T> resultClass) throws DictionaryException {
+
+		ExecutorService executorService = null;
+
+		try {
+			executorService = Executors.newFixedThreadPool(1);
+
+			Future<Object> resultFuture = executorService.submit(callable);
+
+			Object resultObject = null;
+
+			try {
+				resultObject = resultFuture.get();
+
+			} catch (Exception e) {
+				throw new DictionaryException(e);
+			}
+
+			if (resultObject == null) {
+				return null;
+
+			} else if (resultObject instanceof DictionaryException) {
+				throw (DictionaryException) resultObject;
+
+			} else if (resultObject instanceof Exception) {
+				throw new DictionaryException((Exception) resultObject);
+
+			} else if (resultClass.isInstance(resultObject) == true) {
+				return (T) resultObject;
+
+			} else {
+				throw new RuntimeException("Unknown object: " + resultObject);
+			}
+
+		} finally {
+
+			if (executorService != null) {
+				executorService.shutdown();
+			}
+		}
+	}
+
+	public static enum AutoCompleteSuggestionType {
 		
 		WORD_DICTIONARY("wordDictionaryEntry"),
 		

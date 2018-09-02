@@ -19,6 +19,6 @@ public abstract class ZinniaManagerCommon {
 
         public void add(int strokeNo, int x, int y);
 
-        public List<KanjiRecognizerResultItem> recognize(int limit);
+        public List<KanjiRecognizerResultItem> recognize(int limit) throws DictionaryException;
     }
 }

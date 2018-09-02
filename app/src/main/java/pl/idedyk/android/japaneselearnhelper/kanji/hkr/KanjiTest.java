@@ -24,6 +24,8 @@ import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -354,9 +356,20 @@ public class KanjiTest extends Activity {
 
 					final int maxRecognizeResult = 5;
 
-					List<KanjiRecognizerResultItem> recognizeResult = zinniaCharacter.recognize(maxRecognizeResult);
+					List<KanjiRecognizerResultItem> recognizeResult = null;
 
-					zinniaCharacter.destroy();
+					try {
+						recognizeResult = zinniaCharacter.recognize(maxRecognizeResult);
+
+					} catch (DictionaryException e) {
+
+						Toast.makeText(KanjiTest.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+						return;
+
+					} finally {
+						zinniaCharacter.destroy();
+					}
 
 					currentTestAnswer.setRecognizeResult(recognizeResult);
 

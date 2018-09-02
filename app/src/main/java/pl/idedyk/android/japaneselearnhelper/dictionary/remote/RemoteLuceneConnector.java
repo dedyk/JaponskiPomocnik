@@ -39,7 +39,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public int getDictionaryEntriesSize() throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -65,7 +65,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public int getDictionaryEntriesNameSize() throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -96,7 +96,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public FindWordResult findDictionaryEntries(final FindWordRequest findWordRequest) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -124,6 +124,14 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public void findDictionaryEntriesInGrammaFormAndExamples(FindWordRequest findWordRequest, FindWordResult findWordResult) throws DictionaryException {
 
+        if (findWordRequest.searchGrammaFormAndExamples == false) {
+            return;
+        }
+
+        if (findWordResult.moreElemetsExists == true) {
+            return;
+        }
+
         // wyszukiwanie po formach gramatycznych i przykladach odbywa sie z uzyciem metody w ServerClient
         // na razie nie ma potrzeby implementowania tej metody
         throw new UnsupportedOperationException();
@@ -132,7 +140,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public DictionaryEntry getDictionaryEntryById(final String id) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -160,7 +168,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public DictionaryEntry getDictionaryEntryNameById(final String id) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -188,7 +196,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public KanjiEntry getKanjiEntryById(final String id) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -216,7 +224,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public KanjiEntry getKanjiEntry(final String kanji) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -244,7 +252,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public List<KanjiEntry> getAllKanjis(final boolean withDetails, final boolean onlyUsed) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -272,7 +280,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public List<KanjiEntry> findKanjiFromRadicals(final String[] radicals) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -300,7 +308,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public FindKanjiResult findKanjisFromStrokeCount(final int from, final int to) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -328,7 +336,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public Set<String> findAllAvailableRadicals(final String[] radicals) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -360,7 +368,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public FindKanjiResult findKanji(final FindKanjiRequest findKanjiRequest) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -388,7 +396,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public List<GroupEnum> getDictionaryEntryGroupTypes() throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -414,7 +422,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public List<DictionaryEntry> getGroupDictionaryEntries(final GroupEnum groupEnum) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -442,7 +450,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public GroupWithTatoebaSentenceList getTatoebaSentenceGroup(final String groupId) throws DictionaryException {
 
-        return callInServerThread(new Callable<Object>() {
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
@@ -470,50 +478,16 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public void findDictionaryEntriesInNames(FindWordRequest findWordRequest, FindWordResult findWordResult) throws DictionaryException {
 
+        if (findWordRequest.searchName == false) {
+            return;
+        }
+
+        if (findWordResult.moreElemetsExists == true) {
+            return;
+        }
+
         // wyszukiwanie po formach gramatycznych i przykladach odbywa sie z uzyciem metody w ServerClient
         // na razie nie ma potrzeby implementowania tej metody
         throw new UnsupportedOperationException();
-    }
-
-    private <T> T callInServerThread(Callable<Object> callable, Class<T> resultClass) throws DictionaryException {
-
-        ExecutorService executorService = null;
-
-        try {
-            executorService = Executors.newFixedThreadPool(1);
-
-            Future<Object> resultFuture = executorService.submit(callable);
-
-            Object resultObject = null;
-
-            try {
-                resultObject = resultFuture.get();
-
-            } catch (Exception e) {
-                throw new DictionaryException(e);
-            }
-
-            if (resultObject == null) {
-                return null;
-
-            } else if (resultObject instanceof DictionaryException) {
-                throw (DictionaryException) resultObject;
-
-            } else if (resultObject instanceof Exception) {
-                throw new DictionaryException((Exception) resultObject);
-
-            } else if (resultClass.isInstance(resultObject) == true) {
-                return (T) resultObject;
-
-            } else {
-                throw new RuntimeException("Unknown object: " + resultObject);
-            }
-
-        } finally {
-
-            if (executorService != null) {
-                executorService.shutdown();
-            }
-        }
     }
 }

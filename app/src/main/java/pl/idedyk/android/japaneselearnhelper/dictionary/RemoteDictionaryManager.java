@@ -69,7 +69,7 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
         databaseConnector = new RemoteLuceneConnector(packageInfo);
 
         // init zinnia manager
-        zinniaManager = new RemoteZinniaManager();
+        zinniaManager = new RemoteZinniaManager(packageInfo);
 
         //
 
