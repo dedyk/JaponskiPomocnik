@@ -246,8 +246,7 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
 
     @Override
     public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
-        // FIXME !!!!!!!!!!!!!!!!!!!!!!!
-        return null;
+        return ((RemoteLuceneConnector)databaseConnector).getTransitiveIntransitivePairsList();
     }
 
     @Override

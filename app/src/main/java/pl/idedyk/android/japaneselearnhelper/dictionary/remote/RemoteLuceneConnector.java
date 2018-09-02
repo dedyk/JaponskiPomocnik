@@ -8,9 +8,6 @@ import com.google.gson.reflect.TypeToken;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.japanese.dictionary.api.dictionary.IDatabaseConnector;
@@ -22,6 +19,7 @@ import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.GroupWithTatoebaSentenceList;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 public class RemoteLuceneConnector implements IDatabaseConnector {
@@ -489,5 +487,39 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
         // wyszukiwanie po formach gramatycznych i przykladach odbywa sie z uzyciem metody w ServerClient
         // na razie nie ma potrzeby implementowania tej metody
         throw new UnsupportedOperationException();
+    }
+
+    public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
+
+        // FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        try {
+            return ServerClient.callInServerThread(new Callable<Object>() {
+
+                @Override
+                public Object call() throws Exception {
+
+                    String requestJson = gson.toJson("");
+
+                    String responseJson = null;
+
+                    List<TransitiveIntransitivePair> result = null;
+
+                    try {
+                        responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getTransitiveIntransitivePairsList", requestJson);
+
+                        result = gson.fromJson(responseJson, new TypeToken<List<TransitiveIntransitivePair>>() {}.getType());
+
+                    } catch (Exception e) {
+                        return e;
+                    }
+
+                    return result;
+                }
+            }, List.class);
+
+        } catch (DictionaryException e) {
+            throw new RuntimeException(e); // FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        }
     }
 }
