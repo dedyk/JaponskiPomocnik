@@ -28,6 +28,7 @@ import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPowerList;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
@@ -50,6 +51,8 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 
 	private static final String TRANSITIVE_INTRANSTIVE_PAIRS_FILE = "transitive_intransitive_pairs.csv";
 
+	private static final String WORD_POWER_FILE = "word-power.csv";
+
 	private static final String DATABASE_FILE = "dictionary.db";
 	
 	private static final String LUCENE_ZIP_FILE = "dictionary.zip";
@@ -65,6 +68,8 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	//
 
 	private LuceneDatabase luceneDatabase;
+
+	private AssetManager assets;
 
 	public LocalDictionaryManager() {
 		
@@ -83,6 +88,8 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 
 	@Override
 	public void init2(Activity activity, ILoadWithProgress loadWithProgress, Resources resources, AssetManager assets, String packageName, int versionCode) {
+
+		this.assets = assets;
 
 		try {
 			try {
@@ -513,6 +520,42 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	@Override
 	public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
 		return transitiveIntransitivePairsList;
+	}
+
+	@Override
+	public WordPowerList getWordPowerList() throws DictionaryException {
+
+		CsvReader wordPowerInputStreamCsvReader = null;
+
+		try {
+			WordPowerList wordPowerList = new WordPowerList();
+
+			wordPowerInputStreamCsvReader = new CsvReader(new InputStreamReader(assets.open(WORD_POWER_FILE)), ',');
+
+			while (wordPowerInputStreamCsvReader.readRecord()) {
+
+				int columnCount = wordPowerInputStreamCsvReader.getColumnCount();
+
+				int power = Integer.parseInt(wordPowerInputStreamCsvReader.get(0));
+
+				for (int columnNo = 1; columnNo < columnCount; ++columnNo) {
+
+					int currentDictionaryEntryIdx = Integer.parseInt(wordPowerInputStreamCsvReader.get(columnNo));
+
+					wordPowerList.addPower(power, currentDictionaryEntryIdx);
+				}
+			}
+
+			return wordPowerList;
+
+		} catch (IOException e) {
+			throw new DictionaryException(e);
+
+		} finally {
+			if (wordPowerInputStreamCsvReader != null) {
+				wordPowerInputStreamCsvReader.close();
+			}
+		}
 	}
 
 	@Override

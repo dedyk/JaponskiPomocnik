@@ -6,9 +6,15 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestSM2Config;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
+import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTest;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPowerList;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import com.csvreader.CsvReader;
 
@@ -273,11 +279,23 @@ public class WordTestSM2Options extends Activity {
 				progressDialog.setMax(1);
 
 				progressDialog.show();
-				
-				class PrepareAsyncTask extends AsyncTask<Void, Void, Void> {
+
+				class PrepareAsyncTaskResult {
+
+					private DictionaryException dictionaryException;
+
+					public PrepareAsyncTaskResult() {
+					}
+
+					public PrepareAsyncTaskResult(DictionaryException dictionaryException) {
+						this.dictionaryException = dictionaryException;
+					}
+				}
+
+				class PrepareAsyncTask extends AsyncTask<Void, Void, PrepareAsyncTaskResult> {
 
 					@Override
-					protected Void doInBackground(Void... arg) {
+					protected PrepareAsyncTaskResult doInBackground(Void... arg) {
 						
 						int versionCode = 0;
 
@@ -301,7 +319,7 @@ public class WordTestSM2Options extends Activity {
 							
 							int currentProgressNo = 0;
 							
-							try {		
+							try {
 								
 								int transactionCounter = 0;
 																
@@ -311,21 +329,21 @@ public class WordTestSM2Options extends Activity {
 								
 								progressDialog.setMax(dictionaryEntriesSize);
 								
-								// otwarcie pliku z mocami
-								AssetManager assets = getAssets();
-								
-								wordPowerInputStreamCsvReader = new CsvReader(new InputStreamReader(assets.open("word-power.csv")),  ',');
-								
-								while (wordPowerInputStreamCsvReader.readRecord()) {
-									
-									int columnCount = wordPowerInputStreamCsvReader.getColumnCount();
-									
-									int power = Integer.parseInt(wordPowerInputStreamCsvReader.get(0));
-									
-									for (int columnNo = 1; columnNo < columnCount; ++columnNo) {
-										
-										int currentDictionaryEntryIdx = Integer.parseInt(wordPowerInputStreamCsvReader.get(columnNo));
-										
+								// pobierz plik z mocami
+								WordPowerList wordPowerList = dictionaryManager.getWordPowerList();
+
+								Iterator<Map.Entry<Integer, List<Integer>>> wordPowerListEntryIterator = wordPowerList.getWordPowerMap().entrySet().iterator();
+
+								while (wordPowerListEntryIterator.hasNext() == true) {
+
+									Map.Entry<Integer, List<Integer>> entrySet = wordPowerListEntryIterator.next();
+
+									int power = entrySet.getKey();
+
+									List<Integer> dictionaryEntryListForPower = entrySet.getValue();
+
+									for (Integer currentDictionaryEntryIdx : dictionaryEntryListForPower) {
+
 										// sprawdzanie, czy taki rekord istnieje
 										boolean dictionaryEntryExistsInWordStat = wordTestSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
 										
@@ -359,8 +377,8 @@ public class WordTestSM2Options extends Activity {
 																
 								wordTestSM2Manager.commitTransaction();
 								
-							} catch (Exception e) {								
-								throw new RuntimeException(e);
+							} catch (Exception e) {
+								return new PrepareAsyncTaskResult(new DictionaryException(e));
 								
 							} finally {
 								wordTestSM2Manager.endTransaction();
@@ -371,15 +389,23 @@ public class WordTestSM2Options extends Activity {
 							}							
 						}
 
-						return null;
+						return new PrepareAsyncTaskResult();
 					}
 
 					@Override
-					protected void onPostExecute(Void arg) {
-						super.onPostExecute(arg);
+					protected void onPostExecute(PrepareAsyncTaskResult result) {
+
+						super.onPostExecute(result);
 
 						if (progressDialog != null && progressDialog.isShowing()) {
 							progressDialog.dismiss();
+						}
+
+						if (result.dictionaryException != null) {
+
+							Toast.makeText(WordTestSM2Options.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
+
+							return;
 						}
 						
 						finish();

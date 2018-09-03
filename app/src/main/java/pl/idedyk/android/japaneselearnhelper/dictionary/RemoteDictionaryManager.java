@@ -13,6 +13,7 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.remote.RemoteLuceneConnector;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPowerList;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
@@ -252,5 +253,10 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
     @Override
     public void waitForDatabaseReady() {
        // noop
+    }
+
+    @Override
+    public WordPowerList getWordPowerList() throws DictionaryException {
+        return ((RemoteLuceneConnector)databaseConnector).getWordPowerList();
     }
 }

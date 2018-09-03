@@ -15,6 +15,7 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPowerList;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.GroupWithTatoebaSentenceList;
@@ -521,5 +522,32 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
         } catch (DictionaryException e) {
             throw new RuntimeException(e); // FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
+    }
+
+    public WordPowerList getWordPowerList() throws DictionaryException {
+
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson("");
+
+                String responseJson = null;
+
+                WordPowerList result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getWordPowerList", requestJson);
+
+                    result = gson.fromJson(responseJson, WordPowerList.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, WordPowerList.class);
     }
 }
