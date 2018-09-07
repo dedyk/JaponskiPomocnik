@@ -21,6 +21,7 @@ import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.GroupWithTatoebaSentenceList;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
+import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 public class RemoteLuceneConnector implements IDatabaseConnector {
@@ -490,38 +491,31 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
         throw new UnsupportedOperationException();
     }
 
-    public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
+    public List<TransitiveIntransitivePairWithDictionaryEntry> getTransitiveIntransitivePairsList() throws DictionaryException {
 
-        // FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        return ServerClient.callInServerThread(new Callable<Object>() {
 
-        try {
-            return ServerClient.callInServerThread(new Callable<Object>() {
+            @Override
+            public Object call() throws Exception {
 
-                @Override
-                public Object call() throws Exception {
+                String requestJson = gson.toJson("");
 
-                    String requestJson = gson.toJson("");
+                String responseJson = null;
 
-                    String responseJson = null;
+                List<TransitiveIntransitivePairWithDictionaryEntry> result = null;
 
-                    List<TransitiveIntransitivePair> result = null;
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getTransitiveIntransitivePairsList", requestJson);
 
-                    try {
-                        responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getTransitiveIntransitivePairsList", requestJson);
+                    result = gson.fromJson(responseJson, new TypeToken<List<TransitiveIntransitivePairWithDictionaryEntry>>() {}.getType());
 
-                        result = gson.fromJson(responseJson, new TypeToken<List<TransitiveIntransitivePair>>() {}.getType());
-
-                    } catch (Exception e) {
-                        return e;
-                    }
-
-                    return result;
+                } catch (Exception e) {
+                    return e;
                 }
-            }, List.class);
 
-        } catch (DictionaryException e) {
-            throw new RuntimeException(e); // FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        }
+                return result;
+            }
+        }, List.class);
     }
 
     public WordPowerList getWordPowerList() throws DictionaryException {

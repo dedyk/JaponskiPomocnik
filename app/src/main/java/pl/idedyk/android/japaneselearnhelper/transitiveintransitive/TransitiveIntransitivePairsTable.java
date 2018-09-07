@@ -16,6 +16,9 @@ import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
+import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -27,6 +30,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class TransitiveIntransitivePairsTable extends Activity {
 	
@@ -53,8 +57,8 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_transitive_intransitive_pairs_table));
 		
-		int transitiveVerbId = getIntent().getIntExtra("transitive_verb_id", -1);
-		int intransitiveVerbId = getIntent().getIntExtra("intransitive_verb_id", -1);
+		DictionaryEntry transitiveVerb = (DictionaryEntry)getIntent().getSerializableExtra("transitive_verb");
+		DictionaryEntry intransitiveVerb = (DictionaryEntry)getIntent().getSerializableExtra("intransitive_verb");
 		
 		setContentView(R.layout.transitive_intransitive_pairs_table);
 		
@@ -62,14 +66,20 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		
 		final List<IScreenItem> report = new ArrayList<IScreenItem>();
 		
-		if (transitiveVerbId == -1 || intransitiveVerbId == -1) {
+		if (transitiveVerb == null || intransitiveVerb == null) {
 			
 			// generate index
-			generateIndex(report);
+			try {
+				generateIndex(report);
+
+			} catch (DictionaryException e) {
+
+				Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+			}
 			
 		} else {
 			// generate pairs report body
-			generatePairsReportBody(report, transitiveVerbId, intransitiveVerbId);			
+			generatePairsReportBody(report, transitiveVerb, intransitiveVerb);
 		}
 		
 		// fill mail layout
@@ -114,7 +124,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		});
 	}
 	
-	private void generateIndex(List<IScreenItem> report) {
+	private void generateIndex(List<IScreenItem> report) throws DictionaryException {
 		
 		// add index
 		int indexPos = 0;
@@ -131,15 +141,12 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		// dictionary manager
 		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 		
-		List<TransitiveIntransitivePair> transitiveIntransitivePairsList = dictionaryManager.getTransitiveIntransitivePairsList();
+		List<TransitiveIntransitivePairWithDictionaryEntry> transitiveIntransitivePairsList = dictionaryManager.getTransitiveIntransitivePairsList();
 
-		for (TransitiveIntransitivePair transitiveIntransitivePair : transitiveIntransitivePairsList) {
-			
-			Integer transitiveId = transitiveIntransitivePair.getTransitiveId();
-			Integer intransitiveId = transitiveIntransitivePair.getIntransitiveId();
-			
-			final DictionaryEntry transitivityDictionaryEntry = dictionaryManager.getDictionaryEntryById(transitiveId);
-			final DictionaryEntry intransitivityDictionaryEntry = dictionaryManager.getDictionaryEntryById(intransitiveId);
+		for (TransitiveIntransitivePairWithDictionaryEntry transitiveIntransitivePair : transitiveIntransitivePairsList) {
+
+			final DictionaryEntry transitivityDictionaryEntry = transitiveIntransitivePair.getTransitiveDictionaryEntry();
+			final DictionaryEntry intransitivityDictionaryEntry = transitiveIntransitivePair.getTransitiveDictionaryEntry();
 
 			// title			
 			StringValue titleStringValue = new StringValue(transitivityDictionaryEntry.getKanji() + " [" + transitivityDictionaryEntry.getRomaji() + "] - " 
@@ -151,8 +158,8 @@ public class TransitiveIntransitivePairsTable extends Activity {
 					
 					Intent intent = new Intent(getApplicationContext(), TransitiveIntransitivePairsTable.class);
 					
-					intent.putExtra("transitive_verb_id", transitivityDictionaryEntry.getId());
-					intent.putExtra("intransitive_verb_id", intransitivityDictionaryEntry.getId());
+					intent.putExtra("transitive_verb", transitivityDictionaryEntry);
+					intent.putExtra("intransitive_verb", intransitivityDictionaryEntry);
 					
 					startActivity(intent);
 				}
@@ -166,17 +173,14 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		report.add(indexPos, new StringValue("", 12.0f, 2));		
 	}
 
-	private void generatePairsReportBody(List<IScreenItem> report, int transitiveVerbId, int intransitiveVerbId) {
+	private void generatePairsReportBody(List<IScreenItem> report, DictionaryEntry transitivityDictionaryEntry, DictionaryEntry intransitivityDictionaryEntry) {
 				
 		// dictionary manager
 		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 		
 		// title
 		report.add(new TitleItem(getString(R.string.transitive_intransitive_pairs_table_title), 0));
-		
-		DictionaryEntry transitivityDictionaryEntry = dictionaryManager.getDictionaryEntryById(transitiveVerbId);
-		DictionaryEntry intransitivityDictionaryEntry = dictionaryManager.getDictionaryEntryById(intransitiveVerbId);
-		
+
 		// title 2
 		TitleItem titleItem = new TitleItem(transitivityDictionaryEntry.getKanji() + " [" + transitivityDictionaryEntry.getRomaji() + "] - " 
 				+ intransitivityDictionaryEntry.getKanji() + " [" + intransitivityDictionaryEntry.getRomaji() + "]", 1);

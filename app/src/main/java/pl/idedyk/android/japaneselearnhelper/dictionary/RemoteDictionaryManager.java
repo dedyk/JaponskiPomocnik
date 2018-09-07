@@ -11,7 +11,7 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.remote.RemoteLuceneConnector;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPowerList;
-import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
+import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 public class RemoteDictionaryManager extends DictionaryManagerCommon {
@@ -78,7 +78,7 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
     }
 
     @Override
-    public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
+    public List<TransitiveIntransitivePairWithDictionaryEntry> getTransitiveIntransitivePairsList() throws DictionaryException {
         return ((RemoteLuceneConnector)databaseConnector).getTransitiveIntransitivePairsList();
     }
 

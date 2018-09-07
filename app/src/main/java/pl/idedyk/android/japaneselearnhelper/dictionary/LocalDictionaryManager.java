@@ -33,6 +33,7 @@ import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
+import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary.api.keigo.KeigoHelper;
 import pl.idedyk.japanese.dictionary.api.tools.KanaHelper;
@@ -518,8 +519,31 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	}
 
 	@Override
-	public List<TransitiveIntransitivePair> getTransitiveIntransitivePairsList() {
-		return transitiveIntransitivePairsList;
+	public List<TransitiveIntransitivePairWithDictionaryEntry> getTransitiveIntransitivePairsList() {
+
+		List<TransitiveIntransitivePairWithDictionaryEntry> result = new ArrayList<>();
+
+		for (TransitiveIntransitivePair currentTransitiveIntransitivePair : transitiveIntransitivePairsList) {
+
+			Integer transitiveId = currentTransitiveIntransitivePair.getTransitiveId();
+			Integer intransitiveId = currentTransitiveIntransitivePair.getIntransitiveId();
+
+			//
+
+			TransitiveIntransitivePairWithDictionaryEntry newTransitiveIntransitivePairWithDictionaryEntry = new TransitiveIntransitivePairWithDictionaryEntry();
+
+			newTransitiveIntransitivePairWithDictionaryEntry.setTransitiveId(transitiveId);
+			newTransitiveIntransitivePairWithDictionaryEntry.setTransitiveDictionaryEntry(getDictionaryEntryById(transitiveId));
+
+			newTransitiveIntransitivePairWithDictionaryEntry.setIntransitiveId(intransitiveId);
+			newTransitiveIntransitivePairWithDictionaryEntry.setIntransitiveDictionaryEntry(getDictionaryEntryById(intransitiveId));
+
+			//
+
+			result.add(newTransitiveIntransitivePairWithDictionaryEntry);
+		}
+
+		return result;
 	}
 
 	@Override
