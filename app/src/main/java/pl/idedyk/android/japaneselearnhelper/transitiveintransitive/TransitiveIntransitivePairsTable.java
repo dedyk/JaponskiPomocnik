@@ -146,7 +146,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		for (TransitiveIntransitivePairWithDictionaryEntry transitiveIntransitivePair : transitiveIntransitivePairsList) {
 
 			final DictionaryEntry transitivityDictionaryEntry = transitiveIntransitivePair.getTransitiveDictionaryEntry();
-			final DictionaryEntry intransitivityDictionaryEntry = transitiveIntransitivePair.getTransitiveDictionaryEntry();
+			final DictionaryEntry intransitivityDictionaryEntry = transitiveIntransitivePair.getIntransitiveDictionaryEntry();
 
 			// title			
 			StringValue titleStringValue = new StringValue(transitivityDictionaryEntry.getKanji() + " [" + transitivityDictionaryEntry.getRomaji() + "] - " 
