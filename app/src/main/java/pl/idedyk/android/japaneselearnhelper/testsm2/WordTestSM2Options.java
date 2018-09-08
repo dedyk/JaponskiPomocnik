@@ -312,7 +312,7 @@ public class WordTestSM2Options extends Activity {
 						WordTestSM2Manager wordTestSM2Manager = dictionaryManager.getWordTestSM2Manager();
 						
 						Integer dbVersion = wordTestSM2Manager.getVersion();
-						
+
 						if (dbVersion == null || dbVersion.intValue() != versionCode) { // update db
 							
 							CsvReader wordPowerInputStreamCsvReader = null;
@@ -377,7 +377,7 @@ public class WordTestSM2Options extends Activity {
 																
 								wordTestSM2Manager.commitTransaction();
 								
-							} catch (Exception e) {
+							} catch (DictionaryException e) {
 								return new PrepareAsyncTaskResult(new DictionaryException(e));
 								
 							} finally {

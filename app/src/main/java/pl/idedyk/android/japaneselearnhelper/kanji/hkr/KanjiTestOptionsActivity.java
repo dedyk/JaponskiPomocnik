@@ -101,8 +101,18 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					String kanjiValue = input.getText().toString();
 
-					List<KanjiEntry> knownKanjiList = JapaneseAndroidLearnHelperApplication.getInstance()
-							.getDictionaryManager(KanjiTestOptionsActivity.this).findKnownKanji(kanjiValue);
+					List<KanjiEntry> knownKanjiList = null;
+
+					try {
+						knownKanjiList = JapaneseAndroidLearnHelperApplication.getInstance()
+								.getDictionaryManager(KanjiTestOptionsActivity.this).findKnownKanji(kanjiValue);
+
+					} catch (DictionaryException e) {
+
+						Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+						return;
+					}
 
 					List<String> allKanjisInGroup = new ArrayList<String>();
 
@@ -978,19 +988,52 @@ public class KanjiTestOptionsActivity extends Activity {
 		final ProgressDialog progressDialog = ProgressDialog.show(this, getString(R.string.kanji_test_options_loading),
 				getString(R.string.kanji_test_options_loading2));
 
-		class PrepareAsyncTask extends AsyncTask<Void, Void, List<KanjiEntry>> {
+		class PrepareAsyncTaskResult {
+
+			private List<KanjiEntry> kanjiEntryList;
+
+			private DictionaryException dictionaryException;
+
+			public PrepareAsyncTaskResult(List<KanjiEntry> kanjiEntryList) {
+				this.kanjiEntryList = kanjiEntryList;
+			}
+
+			public PrepareAsyncTaskResult(DictionaryException dictionaryException) {
+				this.dictionaryException = dictionaryException;
+			}
+		}
+
+		class PrepareAsyncTask extends AsyncTask<Void, Void, PrepareAsyncTaskResult> {
 
 			@Override
-			protected List<KanjiEntry> doInBackground(Void... arg) {
+			protected PrepareAsyncTaskResult doInBackground(Void... arg) {
 
 				// INFO: Gdy bedziesz to zmienial, sprawdz obsluge DictionaryException przy findWord !!!!
 
-				return JapaneseAndroidLearnHelperApplication.getInstance()
-						.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, true);
+				try {
+					return new PrepareAsyncTaskResult(JapaneseAndroidLearnHelperApplication.getInstance()
+							.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, true));
+
+				} catch (DictionaryException e) {
+					return new PrepareAsyncTaskResult(e);
+				}
 			}
 
 			@Override
-			protected void onPostExecute(List<KanjiEntry> allKanjis) {
+			protected void onPostExecute(PrepareAsyncTaskResult result) {
+
+				if (progressDialog != null && progressDialog.isShowing()) {
+					progressDialog.dismiss();
+				}
+
+				if (result.dictionaryException != null) {
+
+					Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
+
+					return;
+				}
+
+				List<KanjiEntry> allKanjis = result.kanjiEntryList;
 
 				Map<GroupEnum, Set<String>> kanjiGroups = new TreeMap<GroupEnum, Set<String>>();
 
@@ -1089,10 +1132,6 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				showSelectedKanji();
-
-				if (progressDialog != null && progressDialog.isShowing()) {
-					progressDialog.dismiss();
-				}
 			}
 		}
 

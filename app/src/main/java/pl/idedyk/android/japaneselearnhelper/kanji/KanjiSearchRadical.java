@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -17,6 +18,8 @@ import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -235,26 +238,55 @@ public class KanjiSearchRadical extends Activity {
 		final ProgressDialog progressDialog = ProgressDialog.show(this, 
 				getString(R.string.kanji_entry_searching1),
 				getString(R.string.kanji_entry_searching2));
-		
-		class FindKanjiAsyncTask extends AsyncTask<Void, Void, Set<String>> {
+
+		class PrepareAsyncTaskResult {
+
+			private Set<String> findAllAvailableRadicalsResult;
+
+			private DictionaryException dictionaryException;
+
+			public PrepareAsyncTaskResult(Set<String> findAllAvailableRadicalsResult) {
+				this.findAllAvailableRadicalsResult = findAllAvailableRadicalsResult;
+			}
+
+			public PrepareAsyncTaskResult(DictionaryException dictionaryException) {
+				this.dictionaryException = dictionaryException;
+
+				this.findAllAvailableRadicalsResult = new HashSet<>();
+			}
+		}
+
+		class FindKanjiAsyncTask extends AsyncTask<Void, Void, PrepareAsyncTaskResult> {
 			
 			@Override
-			protected Set<String> doInBackground(Void... params) {
+			protected PrepareAsyncTaskResult doInBackground(Void... params) {
 				
 				String[] selectedRadicalsArray = new String[selectedRadicals.size()];
 				
 				selectedRadicals.toArray(selectedRadicalsArray);
 
 				DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchRadical.this);
-				
-				return dictionaryManager.findAllAvailableRadicals(selectedRadicalsArray);
+
+				try {
+					return new PrepareAsyncTaskResult(dictionaryManager.findAllAvailableRadicals(selectedRadicalsArray));
+
+				} catch (DictionaryException e) {
+					return new PrepareAsyncTaskResult(e);
+				}
 			}
 			
 		    @Override
-		    protected void onPostExecute(Set<String> allAvailableRadicals) {
-		        super.onPostExecute(allAvailableRadicals);
-		        
-		        for (StringValue currentRadicalStringValue : radicalStringValueList) {
+		    protected void onPostExecute(PrepareAsyncTaskResult result) {
+
+		        super.onPostExecute(result);
+
+				if (result.dictionaryException != null) {
+					Toast.makeText(KanjiSearchRadical.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
+				}
+
+				Set<String> allAvailableRadicals = result.findAllAvailableRadicalsResult;
+
+				for (StringValue currentRadicalStringValue : radicalStringValueList) {
 					
 		        	String currentRadicalStringValueValue = currentRadicalStringValue.getValue();
 		        	

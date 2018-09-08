@@ -42,6 +42,7 @@ import pl.idedyk.japanese.dictionary.api.dto.TatoebaSentence;
 import pl.idedyk.japanese.dictionary.api.example.ExampleManager;
 import pl.idedyk.japanese.dictionary.api.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.japanese.dictionary.api.example.dto.ExampleResult;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary.api.gramma.GrammaConjugaterManager;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResult;
@@ -842,8 +843,14 @@ public class WordDictionaryDetails extends Activity {
 		List<KanjiEntry> knownKanji = null;
 
 		if (dictionaryEntry.isKanjiExists() == true) {
-			knownKanji = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this)
-					.findKnownKanji(dictionaryEntry.getKanji());
+
+			try {
+				knownKanji = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this)
+						.findKnownKanji(dictionaryEntry.getKanji());
+
+			} catch (DictionaryException e) {
+				Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+			}
 		}
 
 		if (knownKanji != null && knownKanji.size() > 0) {
@@ -934,10 +941,18 @@ public class WordDictionaryDetails extends Activity {
 			tatoebaSentenceGroupList = new ArrayList<GroupWithTatoebaSentenceList>();
 			
 	    	for (String currentExampleSentenceGroupId : exampleSentenceGroupIdsList) {
-				
-	    		GroupWithTatoebaSentenceList tatoebaSentenceGroup = JapaneseAndroidLearnHelperApplication.getInstance()
-						.getDictionaryManager(this).getTatoebaSentenceGroup(currentExampleSentenceGroupId);
-	    		
+
+				GroupWithTatoebaSentenceList tatoebaSentenceGroup = null;
+	    		try {
+					tatoebaSentenceGroup = JapaneseAndroidLearnHelperApplication.getInstance()
+							.getDictionaryManager(this).getTatoebaSentenceGroup(currentExampleSentenceGroupId);
+
+				} catch (DictionaryException e) {
+					Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+					break;
+				}
+
 	    		if (tatoebaSentenceGroup != null) {    			
 	    			tatoebaSentenceGroupList.add(tatoebaSentenceGroup);
 	    		}

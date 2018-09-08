@@ -22,6 +22,8 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -45,6 +47,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class KanjiSearchMeaning extends Activity {
 
@@ -381,25 +384,41 @@ public class KanjiSearchMeaning extends Activity {
 				protected FindKanjiResultAndSuggestionList doInBackground(Void... params) {
 					
 					final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchMeaning.this);
-					
-					FindKanjiResult findKanjiResult = dictionaryManager.findKanji(findKanjiRequest);
-					
+
+					FindKanjiResultAndSuggestionList findKanjiResultAndSuggestionList = new FindKanjiResultAndSuggestionList();
+
+					FindKanjiResult findKanjiResult = null;
+
+					try {
+						findKanjiResult = dictionaryManager.findKanji(findKanjiRequest);
+
+					} catch (DictionaryException e) {
+						findKanjiResultAndSuggestionList.dictionaryException = e;
+
+						findKanjiResult = new FindKanjiResult();
+
+						findKanjiResult.setResult(new ArrayList<KanjiEntry>());
+					}
+
 					// jesli nic nie znaleziono, proba pobrania znakow z napisu
-					if (findKanjiResult.getResult().size() == 0 && findKanjiRequest.word != null && findKanjiRequest.word.trim().equals("") == false) {
-						
-						List<KanjiEntry> findKnownKanjiResult = dictionaryManager.findKnownKanji(findKanjiRequest.word);
-						
-						findKanjiResult.setResult(findKnownKanjiResult);
+					if (findKanjiResult.getResult().size() == 0 && findKanjiRequest.word != null && findKanjiRequest.word.trim().equals("") == false && findKanjiResultAndSuggestionList.dictionaryException == null) {
+
+						try {
+							List<KanjiEntry> findKnownKanjiResult = dictionaryManager.findKnownKanji(findKanjiRequest.word);
+
+							findKanjiResult.setResult(findKnownKanjiResult);
+
+						} catch (DictionaryException e) {
+							findKanjiResultAndSuggestionList.dictionaryException = e;
+						}
 					}
 					
 					//
-					
-					FindKanjiResultAndSuggestionList findKanjiResultAndSuggestionList = new FindKanjiResultAndSuggestionList();
 										
 					findKanjiResultAndSuggestionList.findKanjiResult = findKanjiResult;
 					
 					// szukanie sugestii
-					if (findKanjiResult.result.size() == 0 && searchOptionsUseSuggestionCheckBox.isChecked() == true) {
+					if (findKanjiResult.result.size() == 0 && searchOptionsUseSuggestionCheckBox.isChecked() == true && findKanjiResultAndSuggestionList.dictionaryException == null) {
 						
 						ServerClient serverClient = new ServerClient();
 
@@ -423,8 +442,13 @@ public class KanjiSearchMeaning extends Activity {
 			    protected void onPostExecute(FindKanjiResultAndSuggestionList findKanjiResultAndSuggestionList) {
 			    	
 			        super.onPostExecute(findKanjiResultAndSuggestionList);
-			        
-			        FindKanjiResult findKanjiResult = findKanjiResultAndSuggestionList.findKanjiResult;
+
+					if (findKanjiResultAndSuggestionList.dictionaryException != null) {
+
+						Toast.makeText(KanjiSearchMeaning.this, getString(R.string.dictionary_exception_common_error_message, findKanjiResultAndSuggestionList.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
+					}
+
+					FindKanjiResult findKanjiResult = findKanjiResultAndSuggestionList.findKanjiResult;
 			        List<String> suggestionList = findKanjiResultAndSuggestionList.suggestionList;
 			        
 			        kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "" + findKanjiResult.result.size() +
@@ -475,6 +499,8 @@ public class KanjiSearchMeaning extends Activity {
 
 		public FindKanjiResult findKanjiResult;
 
-		public List<String> suggestionList;		
+		public List<String> suggestionList;
+
+		public DictionaryException dictionaryException;
 	}
 }
