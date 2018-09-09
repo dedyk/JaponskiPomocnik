@@ -348,7 +348,7 @@ public class KanjiTestOptionsActivity extends Activity {
 		kanjiGroupList = new ArrayList<CheckBox>();
 		// kanjiOwnGroupList = new ArrayList<CheckBox>(); // stary mechanizm!!!
 
-		Button startTestButton = (Button) findViewById(R.id.kanji_test_options_start_test);
+		final Button startTestButton = (Button) findViewById(R.id.kanji_test_options_start_test);
 
 		startTestButton.setOnClickListener(new View.OnClickListener() {
 
@@ -1027,6 +1027,8 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				if (result.dictionaryException != null) {
+
+					startTestButton.setEnabled(false);
 
 					Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
 

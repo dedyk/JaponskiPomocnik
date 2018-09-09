@@ -17,6 +17,8 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -144,11 +146,25 @@ public class WordTestOptions extends Activity {
 			}
 		});
 
+		// start button
+		final Button startButton = (Button)findViewById(R.id.word_test_options_start);
+
 		// groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 
 		// loading word groups
-		final List<GroupEnum> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getDictionaryEntryGroupTypes();
+		List<GroupEnum> groupsNames;
+
+		try {
+			groupsNames = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getDictionaryEntryGroupTypes();
+
+		} catch (DictionaryException e) {
+			Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+			startButton.setEnabled(false);
+
+			groupsNames = new ArrayList<>();
+		}
 		
 		Set<String> chosenWordGroups = wordTestConfig.getChosenWordGroups();
 
@@ -188,9 +204,6 @@ public class WordTestOptions extends Activity {
 			mainLayout.addView(checkbox);
 		}
 
-		// start button
-		final Button startButton = (Button)findViewById(R.id.word_test_options_start);
-		
 		// start action		
 		startButton.setOnClickListener(new View.OnClickListener() {
 			

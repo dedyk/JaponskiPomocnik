@@ -18,6 +18,8 @@ import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -88,13 +90,27 @@ public class DictionaryHearOptions extends Activity {
 
 		randomCheckBox.setChecked(dictionaryHearConfig.getRandom());
 
+		final Button startButton = (Button) findViewById(R.id.dictionary_hear_start);
+
 		// groups
 		final List<CheckBox> wordGroupCheckBoxList = new ArrayList<CheckBox>();
 
 		// loading word groups
 
-		final List<GroupEnum> groupsNames = JapaneseAndroidLearnHelperApplication.getInstance()
-				.getDictionaryManager(this).getDictionaryEntryGroupTypes();
+		List<GroupEnum> groupsNames;
+
+		try {
+			groupsNames = JapaneseAndroidLearnHelperApplication.getInstance()
+					.getDictionaryManager(this).getDictionaryEntryGroupTypes();
+
+		} catch (DictionaryException e) {
+
+			startButton.setEnabled(false);
+
+			Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+			groupsNames = new ArrayList<>();
+		}
 
 		Set<String> chosenWordGroups = dictionaryHearConfig.getChosenWordGroups();
 
@@ -133,8 +149,6 @@ public class DictionaryHearOptions extends Activity {
 
 			mainLayout.addView(checkbox);
 		}
-
-		final Button startButton = (Button) findViewById(R.id.dictionary_hear_start);
 
 		// check TTS
 		if (japanaeseTtsConnector != null) {
