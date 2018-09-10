@@ -458,9 +458,18 @@ public class KanjiTestOptionsActivity extends Activity {
 					// przeglad i wczytywanie slow dla wybranych wbudowanych slow
 					for (String currentKanjiGroup : chosenKanjiGroupList) {
 
-						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
-								.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
-								.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
+
+						try {
+							currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
+									.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
+									.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
+
+						} catch (DictionaryException e) {
+							Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+							return;
+						}
 
 						dictionaryEntrySize += currentWordsGroupDictionaryEntryList.size();
 					}
@@ -703,10 +712,16 @@ public class KanjiTestOptionsActivity extends Activity {
 								// wczytywanie dedykowanych slow dla wybranych wbudowanych grup
 								for (String currentKanjiGroup : chosenKanjiGroupList) {
 
-									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
-											.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
-											.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
+									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
 
+									try {
+										currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
+												.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
+												.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
+
+									} catch (DictionaryException e) {
+										return new PrepareAsyncTaskResult(e);
+									}
 									for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
 
 										for (DictionaryEntry currentDictionaryEntry : currentWordsGroupDictionaryEntryList) {

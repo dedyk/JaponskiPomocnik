@@ -13,6 +13,8 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -31,6 +33,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class KanjiSearchRadicalResult extends Activity {
 	
@@ -105,19 +108,47 @@ public class KanjiSearchRadicalResult extends Activity {
 				getString(R.string.kanji_entry_searching2));
 		
 		final Resources resources = getResources();
-		
-		class FindKanjiAsyncTask extends AsyncTask<Void, Void, List<KanjiEntry>> {
+
+		class PrepareAsyncTaskResult {
+
+			private List<KanjiEntry> kanjiEntryList;
+
+			private DictionaryException dictionaryException;
+
+			public PrepareAsyncTaskResult(List<KanjiEntry> kanjiEntryList) {
+				this.kanjiEntryList = kanjiEntryList;
+			}
+
+			public PrepareAsyncTaskResult(DictionaryException dictionaryException) {
+				this.dictionaryException = dictionaryException;
+
+				this.kanjiEntryList = new ArrayList<>();
+			}
+		}
+
+		class FindKanjiAsyncTask extends AsyncTask<Void, Void, PrepareAsyncTaskResult> {
 			
 			@Override
-			protected List<KanjiEntry> doInBackground(Void... params) {							
-				return dictionaryManager.findKnownKanjiFromRadicals(selectedRadicals);
+			protected PrepareAsyncTaskResult doInBackground(Void... params) {
+				try {
+					return new PrepareAsyncTaskResult(dictionaryManager.findKnownKanjiFromRadicals(selectedRadicals));
+
+				} catch (DictionaryException e) {
+					return new PrepareAsyncTaskResult(e);
+				}
 			}
 			
 		    @Override
-		    protected void onPostExecute(List<KanjiEntry> foundKanjis) {
-		        super.onPostExecute(foundKanjis);
-		        
-		        kanjiDictionarySearchElementsNoTextView.setText(resources.getString(R.string.kanji_entry_elements_no, String.valueOf(foundKanjis.size())));
+		    protected void onPostExecute(PrepareAsyncTaskResult result) {
+		        super.onPostExecute(result);
+
+				if (result.dictionaryException != null) {
+					Toast.makeText(KanjiSearchRadicalResult.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
+				}
+
+				List<KanjiEntry> foundKanjis = result.kanjiEntryList;
+
+				kanjiDictionarySearchElementsNoTextView.setText(resources.getString(R.string.kanji_entry_elements_no, String.valueOf(foundKanjis.size())));
 		        				
 				for (KanjiEntry currentKanjiEntry : foundKanjis) {
 					

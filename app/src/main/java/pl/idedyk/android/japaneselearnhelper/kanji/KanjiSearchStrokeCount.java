@@ -12,6 +12,8 @@ import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -142,23 +144,54 @@ public class KanjiSearchStrokeCount extends Activity {
 				final ProgressDialog progressDialog = ProgressDialog.show(KanjiSearchStrokeCount.this, 
 						getString(R.string.kanji_entry_searching1),
 						getString(R.string.kanji_entry_searching2));
+
+				class PrepareAsyncTaskResult {
+
+					private FindKanjiResult findKanjiResult;
+
+					private DictionaryException dictionaryException;
+
+					public PrepareAsyncTaskResult(FindKanjiResult findKanjiResult) {
+						this.findKanjiResult = findKanjiResult;
+					}
+
+					public PrepareAsyncTaskResult(DictionaryException dictionaryException) {
+						this.dictionaryException = dictionaryException;
+
+						this.findKanjiResult = new FindKanjiResult();
+
+						this.findKanjiResult.setResult(new ArrayList<KanjiEntry>());
+					}
+				}
 				
-				class FindKanjiAsyncTask extends AsyncTask<Void, Void, FindKanjiResult> {
+				class FindKanjiAsyncTask extends AsyncTask<Void, Void, PrepareAsyncTaskResult> {
 					
 					@Override
-					protected FindKanjiResult doInBackground(Void... params) {		
-						
-						return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchStrokeCount.this).
-								findKanjisFromStrokeCount(fromInt, toInt);
+					protected PrepareAsyncTaskResult doInBackground(Void... params) {
+
+						try {
+							return new PrepareAsyncTaskResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchStrokeCount.this).
+									findKanjisFromStrokeCount(fromInt, toInt));
+
+						} catch (DictionaryException e) {
+							return new PrepareAsyncTaskResult(e);
+						}
 					}
 					
 				    @Override
-				    protected void onPostExecute(FindKanjiResult foundKanjis) {
-				        super.onPostExecute(foundKanjis);
+				    protected void onPostExecute(PrepareAsyncTaskResult result) {
+				        super.onPostExecute(result);
 
 				        if (progressDialog != null && progressDialog.isShowing()) {
 				        	progressDialog.dismiss();
 				        }
+
+						if (result.dictionaryException != null) {
+
+							Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
+						}
+
+						FindKanjiResult foundKanjis = result.findKanjiResult;
 				        
 						if (foundKanjis.isMoreElemetsExists() == true) {					
 							Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_result_limited), Toast.LENGTH_SHORT);

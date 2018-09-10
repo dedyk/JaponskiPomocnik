@@ -433,7 +433,14 @@ public class WordDictionaryDetails extends Activity {
 		boolean isAddFavouriteWordStar = false;
 
 		// check furigana
-		List<FuriganaEntry> furiganaEntries = dictionaryManager.getFurigana(dictionaryEntry);
+		List<FuriganaEntry> furiganaEntries = null;
+
+		try {
+			furiganaEntries = dictionaryManager.getFurigana(dictionaryEntry);
+
+		} catch (DictionaryException e) {
+			Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+		}
 
 		if (furiganaEntries != null && furiganaEntries.size() > 0 && addKanjiWrite == true) {
 
