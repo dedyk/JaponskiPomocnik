@@ -490,8 +490,17 @@ public class KanjiTestOptionsActivity extends Activity {
 
 							if (userGroupItemEntity.getType() == UserGroupItemEntity.Type.DICTIONARY_ENTRY) {
 
-								DictionaryEntry dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
-										getDictionaryEntryById(userGroupItemEntity.getItemId());
+								DictionaryEntry dictionaryEntry = null;
+
+								try {
+									dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
+											getDictionaryEntryById(userGroupItemEntity.getItemId());
+
+								} catch (DictionaryException e) {
+									Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+									return;
+								}
 
 								if (dictionaryEntry != null) {
 
@@ -722,6 +731,7 @@ public class KanjiTestOptionsActivity extends Activity {
 									} catch (DictionaryException e) {
 										return new PrepareAsyncTaskResult(e);
 									}
+
 									for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
 
 										for (DictionaryEntry currentDictionaryEntry : currentWordsGroupDictionaryEntryList) {
@@ -768,8 +778,15 @@ public class KanjiTestOptionsActivity extends Activity {
 
 										if (userGroupItemEntity.getType() == UserGroupItemEntity.Type.DICTIONARY_ENTRY) {
 
-											DictionaryEntry dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
-													getDictionaryEntryById(userGroupItemEntity.getItemId());
+											DictionaryEntry dictionaryEntry = null;
+
+											try {
+												dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
+														getDictionaryEntryById(userGroupItemEntity.getItemId());
+
+											} catch (DictionaryException e) {
+												return new PrepareAsyncTaskResult(e);
+											}
 
 											if (dictionaryEntry != null) {
 
@@ -1188,8 +1205,18 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					if (userGroupItemEntity.getType() == UserGroupItemEntity.Type.KANJI_ENTRY) {
 
-						KanjiEntry kanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance()
-								.getDictionaryManager(KanjiTestOptionsActivity.this).getKanjiEntryById(userGroupItemEntity.getItemId());
+						KanjiEntry kanjiEntry = null;
+
+						try {
+							kanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance()
+									.getDictionaryManager(KanjiTestOptionsActivity.this).getKanjiEntryById(userGroupItemEntity.getItemId());
+
+						} catch (DictionaryException e) {
+
+							Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+							break;
+						}
 
 						if (kanjiEntry != null) {
 							kanjiSet.add(kanjiEntry.getKanji());

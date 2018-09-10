@@ -353,7 +353,16 @@ public class WordTestOptions extends Activity {
 
 								if (userGroupItemEntity.getType() == UserGroupItemEntity.Type.DICTIONARY_ENTRY) {
 
-									DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(userGroupItemEntity.getItemId());
+									DictionaryEntry dictionaryEntry = null;
+
+									try {
+										dictionaryEntry = dictionaryManager.getDictionaryEntryById(userGroupItemEntity.getItemId());
+
+									} catch (DictionaryException e) {
+										Toast.makeText(WordTestOptions.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+										return;
+									}
 
 									if (dictionaryEntry != null) {
 										currentWordsGroupDictionaryEntryList.add(dictionaryEntry);

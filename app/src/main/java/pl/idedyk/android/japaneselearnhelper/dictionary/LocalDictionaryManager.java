@@ -519,7 +519,7 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	}
 
 	@Override
-	public List<TransitiveIntransitivePairWithDictionaryEntry> getTransitiveIntransitivePairsList() {
+	public List<TransitiveIntransitivePairWithDictionaryEntry> getTransitiveIntransitivePairsList() throws DictionaryException {
 
 		List<TransitiveIntransitivePairWithDictionaryEntry> result = new ArrayList<>();
 

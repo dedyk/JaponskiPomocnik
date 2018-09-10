@@ -412,8 +412,20 @@ public class WordDictionaryDetails extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				List<KanjivgEntry> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance()
-						.getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(kanjiSb.toString());
+
+				List<KanjivgEntry> strokePathsForWord = null;
+
+				try {
+
+					strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance()
+							.getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(kanjiSb.toString());
+
+				} catch (DictionaryException e) {
+
+					Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+					return;
+				}
 
 				StrokePathInfo strokePathInfo = new StrokePathInfo();
 
@@ -606,8 +618,19 @@ public class WordDictionaryDetails extends Activity {
 
 				@Override
 				public void onClick(View v) {
-					List<KanjivgEntry> strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance()
-							.getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(sb.toString());
+
+					List<KanjivgEntry> strokePathsForWord = null;
+
+					try {
+						strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance()
+								.getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(sb.toString());
+
+					} catch (DictionaryException e) {
+
+						Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+						return;
+					}
 
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 
@@ -747,9 +770,21 @@ public class WordDictionaryDetails extends Activity {
 
 					Integer referenceWordId = Integer.parseInt(currentAttribute.getAttributeValue().get(0));
 
-					final DictionaryEntry referenceDictionaryEntry = JapaneseAndroidLearnHelperApplication
-							.getInstance().getDictionaryManager(WordDictionaryDetails.this)
-							.getDictionaryEntryById(referenceWordId);
+					DictionaryEntry referenceDictionaryEntryNonFinal = null;
+
+					try {
+						referenceDictionaryEntryNonFinal = JapaneseAndroidLearnHelperApplication
+								.getInstance().getDictionaryManager(WordDictionaryDetails.this)
+								.getDictionaryEntryById(referenceWordId);
+
+					} catch (DictionaryException e) {
+
+						Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+						referenceDictionaryEntryNonFinal = null;
+					}
+
+					final DictionaryEntry referenceDictionaryEntry = referenceDictionaryEntryNonFinal;
 
 					if (referenceDictionaryEntry != null) {
 

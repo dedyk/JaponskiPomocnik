@@ -35,6 +35,7 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 public class UserGroupContentsActivity extends Activity {
 
@@ -224,6 +225,7 @@ public class UserGroupContentsActivity extends Activity {
         List<UserGroupItemEntityAndObject> dictionaryEntryList = new ArrayList<>();
         List<UserGroupItemEntityAndObject> kanjiEntryList = new ArrayList<>();
 
+        BEFORE_FOR:
         for (UserGroupItemEntity userGroupItemEntity : userGroupItemEntityList) {
 
             Integer itemId = userGroupItemEntity.getItemId();
@@ -234,7 +236,16 @@ public class UserGroupContentsActivity extends Activity {
 
                 case DICTIONARY_ENTRY:
 
-                    DictionaryEntry dictionaryEntry = dictionaryManager.getDictionaryEntryById(itemId);
+                    DictionaryEntry dictionaryEntry = null;
+
+                    try {
+                        dictionaryEntry = dictionaryManager.getDictionaryEntryById(itemId);
+
+                    } catch (DictionaryException e) {
+                        Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+                        break BEFORE_FOR;
+                    }
 
                     if (dictionaryEntry == null) {
                         continue;
@@ -246,7 +257,16 @@ public class UserGroupContentsActivity extends Activity {
 
                 case KANJI_ENTRY:
 
-                    KanjiEntry kanjiEntry = dictionaryManager.getKanjiEntryById(itemId);
+                    KanjiEntry kanjiEntry = null;
+
+                    try {
+                        kanjiEntry = dictionaryManager.getKanjiEntryById(itemId);
+
+                    } catch (DictionaryException e) {
+                        Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+                        break BEFORE_FOR;
+                    }
 
                     if (kanjiEntry == null) {
                         continue;

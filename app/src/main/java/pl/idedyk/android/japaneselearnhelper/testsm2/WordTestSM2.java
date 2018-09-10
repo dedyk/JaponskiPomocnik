@@ -14,6 +14,8 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.ListUtil;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -400,7 +402,29 @@ public class WordTestSM2 extends Activity {
 
 		} else {
 
-			currentWordDictionaryEntry = dictionaryManager.getDictionaryEntryById(currentNextWordStat.getId());
+			try {
+				currentWordDictionaryEntry = dictionaryManager.getDictionaryEntryById(currentNextWordStat.getId());
+
+			} catch (DictionaryException e) {
+
+				AlertDialog alertDialog = new AlertDialog.Builder(WordTestSM2.this).create();
+
+				alertDialog.setMessage(getString(R.string.dictionary_exception_common_error_message, e.getMessage()));
+
+				alertDialog.setCancelable(false);
+				alertDialog.setButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+						finish();
+					}
+				});
+
+				alertDialog.show();
+
+				return;
+			}
 
 			String kanji = currentWordDictionaryEntry.getKanji();
 			String prefixKana = currentWordDictionaryEntry.getPrefixKana();
