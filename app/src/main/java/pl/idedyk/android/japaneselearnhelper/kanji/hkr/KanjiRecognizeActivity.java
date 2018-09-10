@@ -177,8 +177,15 @@ public class KanjiRecognizeActivity extends Activity {
 						List<KanjiEntry> kanjiEntries = new ArrayList<KanjiEntry>();
 						
 						for (KanjiRecognizerResultItem currentRecognizeResult : recognizeResult) {
-							
-							KanjiEntry kanjiEntry = dictionaryManager.findKanji(currentRecognizeResult.getKanji());
+
+							KanjiEntry kanjiEntry = null;
+
+							try {
+								kanjiEntry = dictionaryManager.findKanji(currentRecognizeResult.getKanji());
+
+							} catch (DictionaryException e) {
+								return new RecognizeAsyncTaskResult(e);
+							}
 							
 							if (kanjiEntry == null) {
 								throw new RuntimeException("kanjiEntry == null: " + currentRecognizeResult.getKanji());

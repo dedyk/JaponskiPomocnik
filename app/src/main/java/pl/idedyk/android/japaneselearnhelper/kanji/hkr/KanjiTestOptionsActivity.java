@@ -380,13 +380,21 @@ public class KanjiTestOptionsActivity extends Activity {
 				for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
 
 					// get kanji with details
-					currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance()
-							.getDictionaryManager(KanjiTestOptionsActivity.this)
-							.findKanji(currentCheckBoxKanjiEntry.getKanji());
+
+					try {
+						currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance()
+								.getDictionaryManager(KanjiTestOptionsActivity.this)
+								.findKanji(currentCheckBoxKanjiEntry.getKanji());
+
+					} catch (DictionaryException e) {
+
+						Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+						return;
+					}
 
 					chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
 					kanjiEntryList.add(currentCheckBoxKanjiEntry);
-
 				}
 
 				kanjiTestConfig.setChosenKanji(chosenKanjiList);

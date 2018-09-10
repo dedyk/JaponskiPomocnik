@@ -157,7 +157,16 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
                 for (String kanji : ownGroupKanjiList) {
 
-                    KanjiEntry kanjiEntry = findKanji(kanji);
+                    KanjiEntry kanjiEntry = null;
+
+                    try {
+                        kanjiEntry = findKanji(kanji);
+
+                    } catch (DictionaryException e) {
+                        loadWithProgress.setError(resources.getString(R.string.dictionary_manager_generic_ioerror, e.getMessage()));
+
+                        return false;
+                    }
 
                     if (kanjiEntry != null) {
 

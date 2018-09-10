@@ -373,7 +373,17 @@ public class KanjiTest extends Activity {
 
 					currentTestAnswer.setRecognizeResult(recognizeResult);
 
-					int correctKanjiStrokeNo = getCurrentTestPosCorrectStrokeNo();
+					int correctKanjiStrokeNo = 0;
+
+					try {
+						correctKanjiStrokeNo = getCurrentTestPosCorrectStrokeNo();
+
+					} catch (DictionaryException e) {
+
+						Toast.makeText(KanjiTest.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+						return;
+					}
 
 					currentTestAnswer.setKanji(correctKanji);
 					currentTestAnswer.setKanjiCorrectStrokeNo(correctKanjiStrokeNo);
@@ -477,12 +487,20 @@ public class KanjiTest extends Activity {
 
 				@Override
 				public void onClick(View view) {
-										
-					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
-					intent.putExtra("item", dictionaryManager.findKanji(correctKanji));
+					try {
+						Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
-					startActivity(intent);				
+						intent.putExtra("item", dictionaryManager.findKanji(correctKanji));
+
+						startActivity(intent);
+
+					} catch (DictionaryException e) {
+
+						Toast.makeText(KanjiTest.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+						return;
+					}
 				}
 			});
 			
@@ -491,17 +509,25 @@ public class KanjiTest extends Activity {
 				@Override
 				public void onClick(View view) {
 
-					StrokePathInfo strokePathInfo = new StrokePathInfo();
+					try {
+						StrokePathInfo strokePathInfo = new StrokePathInfo();
 
-					List<KanjivgEntry> strokePathsList = new ArrayList<KanjivgEntry>();
-					strokePathsList.add(dictionaryManager.findKanji(correctKanji).getKanjivgEntry());
-					strokePathInfo.setStrokePaths(strokePathsList);
+						List<KanjivgEntry> strokePathsList = new ArrayList<KanjivgEntry>();
+						strokePathsList.add(dictionaryManager.findKanji(correctKanji).getKanjivgEntry());
+						strokePathInfo.setStrokePaths(strokePathsList);
 
-					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
+						Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 
-					intent.putExtra("strokePathsInfo", strokePathInfo);
+						intent.putExtra("strokePathsInfo", strokePathInfo);
 
-					startActivity(intent);
+						startActivity(intent);
+
+					} catch (DictionaryException e) {
+
+						Toast.makeText(KanjiTest.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+						return;
+					}
 				}
 			});
 			
@@ -827,7 +853,7 @@ public class KanjiTest extends Activity {
 		}
 	}
 
-	private int getCurrentTestPosCorrectStrokeNo() {
+	private int getCurrentTestPosCorrectStrokeNo() throws DictionaryException {
 
 		KanjiTestMode kanjiTestMode = kanjiTestConfig.getKanjiTestMode();
 
