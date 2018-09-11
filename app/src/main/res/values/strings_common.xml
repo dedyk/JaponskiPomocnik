@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Japoński pomocnik</string>
+    <string name="app_name">Japoński pomocnik - slim</string>
     
     <string name="main_menu_kana_text">Tablica hiragana i katakana</string>
     <string name="main_menu_kana_text_short">Kana</string>

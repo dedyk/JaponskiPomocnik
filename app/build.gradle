@@ -16,7 +16,7 @@ android {
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-        applicationId "pl.idedyk.android.japaneselearnhelper"
+        applicationId "pl.idedyk.android.japaneselearnhelper.slim"
         minSdkVersion 14
         targetSdkVersion 26
         multiDexEnabled true
