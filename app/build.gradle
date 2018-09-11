@@ -67,7 +67,7 @@ android {
 		def versionCode = manifestParser.getVersionCode()
 
 		def outputRelease = "release/release_" + versionCode + "_" + versionName
-		def outputName = "JapaneseAndroidLearnHelper_release_" + versionCode + "_" + versionName
+		def outputName = "JapaneseAndroidLearnHelper_slim_release_" + versionCode + "_" + versionName
 
 		mkdir("../" + outputRelease)
 
