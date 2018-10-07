@@ -13,13 +13,16 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "27.0.3"
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "pl.idedyk.android.japaneselearnhelper.slim"
         minSdkVersion 14
         targetSdkVersion 26
         multiDexEnabled true
+
+        versionCode 619
+        versionName "20181007"
     }
 
     signingConfigs {
@@ -61,10 +64,8 @@ android {
 	} else {
 
 	    if (task.name == 'assembleRelease') {
-    		def manifestParser = new DefaultManifestParser(android.sourceSets.main.manifest.srcFile)
-
-		def versionName = manifestParser.getVersionName()
-		def versionCode = manifestParser.getVersionCode()
+		def versionName = defaultConfig.versionName
+		def versionCode = defaultConfig.versionCode
 
 		def outputRelease = "release/release_" + versionCode + "_" + versionName
 		def outputName = "JapaneseAndroidLearnHelper_slim_release_" + versionCode + "_" + versionName

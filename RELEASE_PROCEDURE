@@ -1,7 +1,7 @@
 1. git status, git log, sprawdzamy, czy wszystko jest zakomitowane
 2. git tag -l, sprawdzamy, czy jest tag z poprzedniej wersji
 3. kopiowanie bazy do db
-4. w pliku app/src/main/AndroidManifest.xml podbicie wersji na release_xxx_20RRMMDD i zapisaniu na boku
+4. w pliku app/build.gradle zmiana versionCode i versionName (laczna postac release_xxx_20RRMMDD) i zapisaniu na boku
 5. git status
 6. git add -u
 7. git commit -m "Release xxx - 20RRMMDD: Tresc"
