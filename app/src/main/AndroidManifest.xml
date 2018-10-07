@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.idedyk.android.japaneselearnhelper"
-    android:versionCode="618"
-    android:versionName="20180930"
+    android:versionCode="619"
+    android:versionName="20181007"
     android:installLocation="auto" >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
