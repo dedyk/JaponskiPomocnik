@@ -53,10 +53,10 @@ public class KanjiRecognizerResult extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_recognizer_result);
+
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_recognizer_result));
-		
-		setContentView(R.layout.kanji_recognizer_result);
-		
+
 		final Object[] kanjiRecognizeResult = (Object[])getIntent().getSerializableExtra("kanjiRecognizeResult");
 		final String kanjiRecognizeResultStrokes = getIntent().getStringExtra("kanjiRecognizeResultStrokes");
 		

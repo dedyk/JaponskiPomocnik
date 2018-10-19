@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.screen;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
 import android.content.Context;
 import android.content.res.Resources;
@@ -27,7 +28,8 @@ public class TitleItem implements IScreenItem {
 		textView = new TextView(context);
 		
 		textView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-		textView.setBackgroundColor(resources.getColor(R.color.title_background));
+
+		textView.setBackgroundColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsColor());
 		textView.setTextSize(16.0f);
 		
 		StringBuffer titleSb = new StringBuffer();

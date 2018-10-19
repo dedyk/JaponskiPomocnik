@@ -55,11 +55,11 @@ public class KanjiSearchStrokeCount extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_stroke_count);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_search_stroke_count));
-		
-		setContentView(R.layout.kanji_search_stroke_count);
-		
+
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_stroke_count_main_layout);
 		
 		final List<IScreenItem> screenItems = generateScreen();

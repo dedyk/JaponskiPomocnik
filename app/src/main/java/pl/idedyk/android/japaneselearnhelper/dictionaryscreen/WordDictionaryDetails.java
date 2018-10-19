@@ -287,10 +287,10 @@ public class WordDictionaryDetails extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_dictionary_details);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_dictionary_details));
-
-		setContentView(R.layout.word_dictionary_details);
 
 		dictionaryEntry = (DictionaryEntry) getIntent().getSerializableExtra("item");
 		forceDictionaryEntryType = (DictionaryEntryType) getIntent().getSerializableExtra(

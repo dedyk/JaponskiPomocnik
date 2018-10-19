@@ -42,7 +42,7 @@ public class WordTestOptions extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-		
+
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 		
 		return true;
@@ -59,11 +59,11 @@ public class WordTestOptions extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_test_options);
+
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test_options));
-		
-		setContentView(R.layout.word_test_options);
-		
+
 		final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordTestConfig();
 		
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.word_test_options_main_layout);

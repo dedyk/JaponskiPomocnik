@@ -12,6 +12,8 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
+    dataBinding.enabled = true
+
     compileSdkVersion 26
     buildToolsVersion '28.0.3'
 

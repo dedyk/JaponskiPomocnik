@@ -19,11 +19,11 @@ public class KanjiTestSummary extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_test_summary);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_test_summary));
-		
-		setContentView(R.layout.kanji_test_summary);
-		
+
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_test_summary_main_layout);
 		
 		List<IScreenItem> screenItems = generateScreen();

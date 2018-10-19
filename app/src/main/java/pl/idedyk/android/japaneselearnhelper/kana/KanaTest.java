@@ -110,9 +110,9 @@ public class KanaTest extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kana_test);
+
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kana_test));
-		
-		setContentView(R.layout.kana_test);
 
 		generateDatas();
 

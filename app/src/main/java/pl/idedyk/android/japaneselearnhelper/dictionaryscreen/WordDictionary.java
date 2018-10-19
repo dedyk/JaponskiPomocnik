@@ -186,11 +186,11 @@ public class WordDictionary extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 				
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_dictionary);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_dictionary));
-		
-		setContentView(R.layout.word_dictionary);
-		
+
 		wordDictionarySearchElementsNoTextView = (TextView)findViewById(R.id.word_dictionary_elements_no);
 		
 		searchResultListView = (ListView)findViewById(R.id.word_dictionary_search_result_list);

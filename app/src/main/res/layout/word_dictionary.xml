@@ -1,316 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="right"
-    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/word_dictionary_search_label"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:text="@string/word_dictionary_search_label" >
-    </TextView>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication"/>
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:gravity="right"
+        android:orientation="vertical" >
 
-        <pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView
-            android:id="@+id/word_dictionary_search_value"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/word_dictionary_search_label"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.00"
-            android:inputType="text"
-            android:dropDownWidth="match_parent">
-        </pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView>
-
-        <Button
-            android:id="@+id/word_dictionary_search_search_button"
-            style="@android:style/Widget.Button"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="@string/word_dictionary_search_search_button"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/word_dictionary_search_options_button"
-            style="@android:style/Widget.Button"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="@string/word_dictionary_search_options_button" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/word_dictionary_search_show_history_button"
-            style="@android:style/Widget.Button"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/word_dictionary_search_show_history_button" />
-
-    </RelativeLayout>
-
-    <ScrollView
-        android:id="@+id/word_dictionary_search_options_scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" >
+            android:layout_marginRight="10dp"
+            android:text="@string/word_dictionary_search_label" >
+        </TextView>
 
         <LinearLayout
-            android:id="@+id/word_dictionary_search_options_scrollview_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView
+                android:id="@+id/word_dictionary_search_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.00"
+                android:inputType="text"
+                android:dropDownWidth="match_parent">
+            </pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView>
+
+            <Button
+                android:id="@+id/word_dictionary_search_search_button"
+                style="@android:style/Widget.Button"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="@string/word_dictionary_search_search_button"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/word_dictionary_search_options_button"
+                style="@android:style/Widget.Button"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="@string/word_dictionary_search_options_button" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/word_dictionary_search_show_history_button"
+                style="@android:style/Widget.Button"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/word_dictionary_search_show_history_button" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/word_dictionary_search_options_scrollview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:visibility="gone" >
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="@android:color/darker_gray" />
-
-            <TextView
-                android:id="@+id/word_dictionary_search_options_improve_dict_label"
+            <LinearLayout
+                android:id="@+id/word_dictionary_search_options_scrollview_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/title_background"
-                android:text="@string/word_dictionary_search_options_improve_dict_label" />
+                android:orientation="vertical" >
 
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_improve_dict_automatic_send_missing_word_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/word_dictionary_search_options_improve_dict_automatic_send_missing_word"
-                android:textSize="12sp" />
-            
-            <TextView
-                android:id="@+id/word_dictionary_search_options_search_mode_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/title_background"
-                android:text="@string/word_dictionary_search_options_search_mode_label" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@android:color/darker_gray" />
 
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_search_each_change_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/word_dictionary_search_options_search_each_change"
-                android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/word_dictionary_search_options_improve_dict_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsDrawable()}"
+                    android:text="@string/word_dictionary_search_options_improve_dict_label" />
 
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_search_use_autocomplete_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/word_dictionary_search_options_search_use_autocomplete_checkbox"
-                android:textSize="12sp" />
-
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_search_use_suggestion_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/word_dictionary_search_options_search_use_suggestion_checkbox"
-                android:textSize="12sp" />
-            
-            <TextView
-                android:id="@+id/word_dictionary_search_options_search_place_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/title_background"
-                android:text="@string/word_dictionary_search_options_search_place_label" />
-
-            <RadioGroup
-                android:id="@+id/word_dictionary_search_options_search_place_radiogroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-				<RadioButton
-                    android:id="@+id/word_dictionary_search_options_search_startwith_radiobutton"
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_improve_dict_automatic_send_missing_word_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="@string/word_dictionary_search_options_search_startwith_radiobutton"
+                    android:text="@string/word_dictionary_search_options_improve_dict_automatic_send_missing_word"
                     android:textSize="12sp" />
-                
-            	<RadioButton
-                    android:id="@+id/word_dictionary_search_options_search_any_place_radiobutton"
+
+                <TextView
+                    android:id="@+id/word_dictionary_search_options_search_mode_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsDrawable()}"
+                    android:text="@string/word_dictionary_search_options_search_mode_label" />
+
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_search_each_change_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/word_dictionary_search_options_search_any_place_radiobutton"
+                    android:checked="true"
+                    android:text="@string/word_dictionary_search_options_search_each_change"
                     android:textSize="12sp" />
 
-                <RadioButton
-                    android:id="@+id/word_dictionary_search_options_search_exact_radiobutton"
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_search_use_autocomplete_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/word_dictionary_search_options_search_exact_radiobutton"
+                    android:checked="true"
+                    android:text="@string/word_dictionary_search_options_search_use_autocomplete_checkbox"
                     android:textSize="12sp" />
-            </RadioGroup>
+
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_search_use_suggestion_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/word_dictionary_search_options_search_use_suggestion_checkbox"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/word_dictionary_search_options_search_place_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsDrawable()}"
+                    android:text="@string/word_dictionary_search_options_search_place_label" />
+
+                <RadioGroup
+                    android:id="@+id/word_dictionary_search_options_search_place_radiogroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <RadioButton
+                        android:id="@+id/word_dictionary_search_options_search_startwith_radiobutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/word_dictionary_search_options_search_startwith_radiobutton"
+                        android:textSize="12sp" />
+
+                    <RadioButton
+                        android:id="@+id/word_dictionary_search_options_search_any_place_radiobutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/word_dictionary_search_options_search_any_place_radiobutton"
+                        android:textSize="12sp" />
+
+                    <RadioButton
+                        android:id="@+id/word_dictionary_search_options_search_exact_radiobutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/word_dictionary_search_options_search_exact_radiobutton"
+                        android:textSize="12sp" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/word_dictionary_search_options_search_in_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsDrawable()}"
+                    android:text="@string/word_dictionary_search_options_search_in_label" />
+
+                 <CheckBox
+                    android:id="@+id/word_dictionary_search_options_search_gramma_examples_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/word_dictionary_search_options_search_gramma_examples"
+                    android:textSize="12sp" />
+    <!--
+                <TextView
+                    android:id="@+id/word_dictionary_search_options_search_gramma_examples_warning_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/word_dictionary_search_options_search_gramma_examples_warning"
+                    android:textSize="10sp" />
+    -->
+
+                 <CheckBox
+                    android:id="@+id/word_dictionary_search_options_search_names_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/word_dictionary_search_options_search_names"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="10dp" />
+
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_only_common_words_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/word_dictionary_search_options_only_common_words_checkbox"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="10dp" />
+
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_kanji_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/word_dictionary_search_options_kanji_checkbox"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_kana_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/word_dictionary_search_options_kana_checkbox"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_romaji_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/word_dictionary_search_options_romaji_checkbox"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_translate_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/word_dictionary_search_options_translate_checkbox"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/word_dictionary_search_options_info_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/word_dictionary_search_options_info_checkbox"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/word_dictionary_search_options_search_word_entry_type_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsDrawable()}"
+                    android:text="@string/word_dictionary_search_options_search_word_entry_type_label" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@android:color/darker_gray" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ListView
+            android:id="@+id/word_dictionary_search_result_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+        </ListView>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:padding="5dp" >
 
             <TextView
-                android:id="@+id/word_dictionary_search_options_search_in_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/title_background"
-                android:text="@string/word_dictionary_search_options_search_in_label" />
-
-             <CheckBox
-                android:id="@+id/word_dictionary_search_options_search_gramma_examples_checkbox"
+                android:id="@+id/word_dictionary_report_problem_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="@string/word_dictionary_search_options_search_gramma_examples"
+                android:layout_gravity="left"
+                android:text="@string/word_dictionary_search_report_problem"
                 android:textSize="12sp" />
-<!--  
-            <TextView
-                android:id="@+id/word_dictionary_search_options_search_gramma_examples_warning_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:text="@string/word_dictionary_search_options_search_gramma_examples_warning"
-                android:textSize="10sp" />
--->
-
-             <CheckBox
-                android:id="@+id/word_dictionary_search_options_search_names_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="@string/word_dictionary_search_options_search_names"
-                android:textSize="12sp" />
-
-		    <View
-		        android:layout_width="fill_parent"
-		        android:layout_height="10dp" />
-
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_only_common_words_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="@string/word_dictionary_search_options_only_common_words_checkbox"
-                android:textSize="12sp" />
-
-            <View
-		        android:layout_width="fill_parent"
-		        android:layout_height="10dp" />
-                        
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_kanji_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/word_dictionary_search_options_kanji_checkbox"
-                android:textSize="12sp" />
-
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_kana_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/word_dictionary_search_options_kana_checkbox"
-                android:textSize="12sp" />
-
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_romaji_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/word_dictionary_search_options_romaji_checkbox"
-                android:textSize="12sp" />
-
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_translate_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/word_dictionary_search_options_translate_checkbox"
-                android:textSize="12sp" />
-
-            <CheckBox
-                android:id="@+id/word_dictionary_search_options_info_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/word_dictionary_search_options_info_checkbox"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/word_dictionary_search_options_search_word_entry_type_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/title_background"
-                android:text="@string/word_dictionary_search_options_search_word_entry_type_label" />
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
-                android:background="@android:color/darker_gray" />
         </LinearLayout>
-    </ScrollView>
 
-    <ListView
-        android:id="@+id/word_dictionary_search_result_list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
-    </ListView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+            <Button
+                android:id="@+id/word_dictionary_report_problem_button"
+                style="@android:style/Widget.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="@string/report_problem" />
 
-    <LinearLayout
-        android:id="@+id/LinearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:orientation="vertical"
-        android:padding="5dp" >
+            <TextView
+                android:id="@+id/word_dictionary_elements_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:text="@string/word_dictionary_elements_no" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/word_dictionary_report_problem_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="@string/word_dictionary_search_report_problem"
-            android:textSize="12sp" />
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/word_dictionary_report_problem_button"
-            style="@android:style/Widget.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="@string/report_problem" />
-
-        <TextView
-            android:id="@+id/word_dictionary_elements_no"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:text="@string/word_dictionary_elements_no" />
-    </RelativeLayout>
-
-</LinearLayout>
+</layout>

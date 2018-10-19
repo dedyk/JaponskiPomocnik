@@ -104,11 +104,11 @@ public class KanjiDetails extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_details);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_details));
-		
-		setContentView(R.layout.kanji_details);
-		
+
 		kanjiEntry = (KanjiEntry)getIntent().getSerializableExtra("item");
 		
 		LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.kanji_details_main_layout);

@@ -32,11 +32,11 @@ public class KanaTestOptions extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kana_test_options);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kana_test_options));
-		
-		setContentView(R.layout.kana_test_options);
-		
+
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kana_test_options_main_layout);
 		
 		final List<IScreenItem> screenItems = generateOptionsScreen();

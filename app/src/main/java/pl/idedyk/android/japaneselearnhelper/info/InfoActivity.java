@@ -15,11 +15,11 @@ public class InfoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
     	
         super.onCreate(savedInstanceState);
+
+        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.info);
         
         JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_info));
-        
-        setContentView(R.layout.info);
-        
+
         TextView titleVersion = (TextView)findViewById(R.id.info_title_version);
         
         String versionName = "";

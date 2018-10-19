@@ -165,10 +165,10 @@ public class WordTestSM2 extends Activity {
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
 		super.onCreate(savedInstanceState);
-		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test_sm2));
 
-		setContentView(R.layout.word_test_sm2);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_test_sm2);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test_sm2));
 
 		fillScreen();
 

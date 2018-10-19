@@ -16,7 +16,10 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.databinding.DataBindingUtil;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.multidex.MultiDexApplication;
 
 public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
@@ -38,7 +41,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	private Typeface babelStoneHanSubset = null;
 	
 	private Tracker tracker = null;
-	
+
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
@@ -159,7 +162,17 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		
 		return babelStoneHanSubset;
 	}
-	
+
+	public void setContentViewAndTheme(Activity activity, int contentViewId) {
+		activity.setTheme(getThemeType().styleId);
+
+		DataBindingUtil.setContentView(activity, contentViewId);
+	}
+
+	public ThemeType getThemeType() {
+		return ThemeType.BLACK;
+	}
+
 	public Tracker getTracker() {
 		
 		if (tracker != null) {
@@ -193,5 +206,42 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				.setAction(actionName).
 				setLabel(label).
 				build());		
+	}
+
+	public enum ThemeType {
+
+		BLACK(	R.style.JapaneseDictionaryBlackStyle,
+				R.color.title_background_for_black,
+				android.R.color.white),
+
+		WHITE(	R.style.JapaneseDictionaryWhiteStyle,
+				R.color.title_background_for_white,
+				android.R.color.black);
+
+		private int styleId;
+
+		private int titleItemBackgroundColorId;
+
+		private int kanjiStrokeColorId;
+
+		private ThemeType(int styleId, int titleItemBackgroundColorId, int kanjiStrokeColorId) {
+			this.styleId = styleId;
+			this.titleItemBackgroundColorId = titleItemBackgroundColorId;
+			this.kanjiStrokeColorId = kanjiStrokeColorId;
+		}
+
+		public int getTitleItemBackgroundColorAsColor() {
+			return getInstance().getResources().getColor(titleItemBackgroundColorId);
+		}
+
+		public Drawable getTitleItemBackgroundColorAsDrawable() {
+			ColorDrawable colorDrawable = new ColorDrawable(getTitleItemBackgroundColorAsColor());
+
+			return colorDrawable;
+		}
+
+		public int getKanjiStrokeColorAsColor() {
+			return getInstance().getResources().getColor(kanjiStrokeColorId);
+		}
 	}
 }

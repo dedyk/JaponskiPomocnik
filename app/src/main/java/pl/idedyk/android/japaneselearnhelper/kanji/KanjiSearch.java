@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.kanji;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import android.app.TabActivity;
@@ -33,7 +34,7 @@ public class KanjiSearch extends TabActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.kanji_search);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search);
 
 		TabHost tabHost = getTabHost();
 

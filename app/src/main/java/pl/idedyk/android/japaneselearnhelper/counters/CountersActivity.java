@@ -54,11 +54,11 @@ public class CountersActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.counters);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_counters));
-		
-		setContentView(R.layout.counters);
-		
+
 		final ScrollView scrollMainLayout = (ScrollView)findViewById(R.id.counters_main_layout_scroll);
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.counters_main_layout);
 		

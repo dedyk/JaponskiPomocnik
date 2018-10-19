@@ -54,14 +54,14 @@ public class TransitiveIntransitivePairsTable extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.transitive_intransitive_pairs_table);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_transitive_intransitive_pairs_table));
 		
 		DictionaryEntry transitiveVerb = (DictionaryEntry)getIntent().getSerializableExtra("transitive_verb");
 		DictionaryEntry intransitiveVerb = (DictionaryEntry)getIntent().getSerializableExtra("intransitive_verb");
-		
-		setContentView(R.layout.transitive_intransitive_pairs_table);
-		
+
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.transitive_intransitive_pairs_table_main_layout);
 		
 		final List<IScreenItem> report = new ArrayList<IScreenItem>();
@@ -245,7 +245,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		report.add(tableLayout);
 	}
 	
-	private void addRowValue(TableLayout tableLayout, String title, String value, OnClickListener goToVerbDictionaryEntryDetails) {
+	private void addRowVcalue(TableLayout tableLayout, String title, String value, OnClickListener goToVerbDictionaryEntryDetails) {
 		
 		TableRow tableRow = new TableRow();
 		
@@ -255,8 +255,8 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		titleStringValue.setMarginLeft(5);
 		titleStringValue.setMarginRight(5);
 		titleStringValue.setMarginBottom(0);
-		
-		titleStringValue.setBackgroundColor(getResources().getColor(R.color.title_background));
+
+		titleStringValue.setBackgroundColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsColor());
 		
 		titleStringValue.setOnClickListener(goToVerbDictionaryEntryDetails);
 		
