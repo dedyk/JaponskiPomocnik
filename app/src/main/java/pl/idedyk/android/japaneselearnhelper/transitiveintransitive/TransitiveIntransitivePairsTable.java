@@ -245,7 +245,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		report.add(tableLayout);
 	}
 	
-	private void addRowVcalue(TableLayout tableLayout, String title, String value, OnClickListener goToVerbDictionaryEntryDetails) {
+	private void addRowValue(TableLayout tableLayout, String title, String value, OnClickListener goToVerbDictionaryEntryDetails) {
 		
 		TableRow tableRow = new TableRow();
 		

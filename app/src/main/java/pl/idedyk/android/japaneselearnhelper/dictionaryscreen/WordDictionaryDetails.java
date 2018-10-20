@@ -527,7 +527,7 @@ public class WordDictionaryDetails extends Activity {
 				TableRow actionTableRow = new TableRow();
 
 				// speak image
-				Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
+				Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 0);
 				speakImage.setOnClickListener(new TTSJapaneseSpeak(null, currentFuriganaEntry.getKanaPartJoined()));
 				actionTableRow.addScreenItem(speakImage);
 
@@ -561,7 +561,7 @@ public class WordDictionaryDetails extends Activity {
 				TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
 				TableRow actionTableRow = new TableRow();
 
-				Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
+				Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 0);
 
 				if (kanaList != null && kanaList.size() > 0) {
 					speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanaList.get(0)));
@@ -651,7 +651,7 @@ public class WordDictionaryDetails extends Activity {
 			TableRow actionTableRow = new TableRow();
 
 			// speak image		
-			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 0);
+			Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 0);
 			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanaList.get(idx)));
 			actionTableRow.addScreenItem(speakImage);
 
@@ -862,7 +862,7 @@ public class WordDictionaryDetails extends Activity {
 				OnClickListener deleteItemIdFromUserGroupOnClickListener = createDeleteItemIdFromUserGroupOnClickListener(dataManager, dictionaryEntry, currentUserGroupEntity, userGroupTableRow);
 
 				StringValue userGroupNameStringValue = new StringValue(currentUserGroupEntity.getName(), 15.0f, 0);
-				Image userGroupNameDeleteImage = new Image(getResources().getDrawable(R.drawable.delete), 0);
+				Image userGroupNameDeleteImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getDeleteIconId()), 0);
 
 				userGroupNameStringValue.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
 				userGroupNameDeleteImage.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
@@ -1187,7 +1187,7 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
 
 			// speak image
-			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 2);
+			Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 2);
 			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, grammaFormKanaList.get(idx)));
 			actionTableRow.addScreenItem(speakImage);
 
@@ -1275,7 +1275,7 @@ public class WordDictionaryDetails extends Activity {
 			}
 
 			// speak image
-			Image speakImage = new Image(getResources().getDrawable(android.R.drawable.ic_lock_silent_mode_off), 2);
+			Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 2);
 			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, exampleKanaList.get(idx)));
 			actionTableRow.addScreenItem(speakImage);
 

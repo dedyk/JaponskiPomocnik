@@ -5,6 +5,7 @@ import android.text.Html;
 import android.text.SpannableString;
 import android.text.Spanned;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 
@@ -60,7 +61,7 @@ public class UserGroupListItem {
 
         STAR_GROUP(R.layout.user_group_simplerow, 0, android.R.drawable.star_big_on),
 
-        USER_GROUP(R.layout.user_group_simplerow, 0, R.drawable.user_group_list);
+        USER_GROUP(R.layout.user_group_simplerow, 0, JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getUserGroupListIconId());
 
         private int layoutResourceId;
 

@@ -17,6 +17,7 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -170,7 +171,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	}
 
 	public ThemeType getThemeType() {
-		return ThemeType.BLACK;
+		return ThemeType.WHITE;
 	}
 
 	public Tracker getTracker() {
@@ -212,11 +213,19 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
 		BLACK(	R.style.JapaneseDictionaryBlackStyle,
 				R.color.title_background_for_black,
-				android.R.color.white),
+				android.R.color.white,
+				Color.DKGRAY,
+				R.drawable.delete_for_black,
+				R.drawable.user_group_list_for_black,
+				R.drawable.listening_for_black),
 
 		WHITE(	R.style.JapaneseDictionaryWhiteStyle,
 				R.color.title_background_for_white,
-				android.R.color.black);
+				android.R.color.black,
+				Color.WHITE,
+				R.drawable.delete_for_white,
+				R.drawable.user_group_list_for_white,
+				R.drawable.listening_for_white);
 
 		private int styleId;
 
@@ -224,10 +233,22 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
 		private int kanjiStrokeColorId;
 
-		private ThemeType(int styleId, int titleItemBackgroundColorId, int kanjiStrokeColorId) {
+		private int kanjiSearchRadicalInactiveColorId;
+
+		private int deleteIconId;
+
+		private int userGroupListIconId;
+
+		private int listenIconId;
+
+		private ThemeType(int styleId, int titleItemBackgroundColorId, int kanjiStrokeColorId, int kanjiSearchRadicalInactiveColorId, int deleteIconId, int userGroupListIconId, int listenIconId) {
 			this.styleId = styleId;
 			this.titleItemBackgroundColorId = titleItemBackgroundColorId;
 			this.kanjiStrokeColorId = kanjiStrokeColorId;
+			this.kanjiSearchRadicalInactiveColorId = kanjiSearchRadicalInactiveColorId;
+			this.deleteIconId = deleteIconId;
+			this.userGroupListIconId = userGroupListIconId;
+			this.listenIconId = listenIconId;
 		}
 
 		public int getTitleItemBackgroundColorAsColor() {
@@ -242,6 +263,26 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
 		public int getKanjiStrokeColorAsColor() {
 			return getInstance().getResources().getColor(kanjiStrokeColorId);
+		}
+
+		public int getKanjiSearchRadicalInactiveColorId() {
+			return kanjiSearchRadicalInactiveColorId;
+		}
+
+		public int getDeleteIconId() {
+			return deleteIconId;
+		}
+
+		public int getUserGroupListIconId() {
+			return userGroupListIconId;
+		}
+
+		public Drawable getUserGroupListIconAsDrawable() {
+			return getInstance().getResources().getDrawable(userGroupListIconId);
+		}
+
+		public int getListenIconId() {
+			return listenIconId;
 		}
 	}
 }

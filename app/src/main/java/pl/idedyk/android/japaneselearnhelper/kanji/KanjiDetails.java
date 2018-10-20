@@ -321,7 +321,7 @@ public class KanjiDetails extends Activity {
 			OnClickListener	deleteItemIdFromUserGroupOnClickListener = createDeleteItemIdFromUserGroupOnClickListener(dataManager, kanjiEntry, currentUserGroupEntity, userGroupTableRow);
 
 			StringValue	userGroupNameStringValue = new StringValue(currentUserGroupEntity.getName(), 15.0f, 0);
-			Image userGroupNameDeleteImage = new Image(getResources().getDrawable(R.drawable.delete), 0);
+			Image userGroupNameDeleteImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getDeleteIconId()), 0);
 
 			userGroupNameStringValue.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
 			userGroupNameDeleteImage.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);

@@ -1484,7 +1484,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			deleteImageView.setLayoutParams(imageLayoutParams);
 
-			deleteImageView.setImageDrawable(getResources().getDrawable(R.drawable.delete));
+			deleteImageView.setImageDrawable(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getDeleteIconId()));
 
 			linearLayout.addView(kanjiTextView);
 			linearLayout.addView(deleteImageView);

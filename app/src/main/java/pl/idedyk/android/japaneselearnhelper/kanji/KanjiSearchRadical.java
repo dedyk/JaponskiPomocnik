@@ -204,7 +204,7 @@ public class KanjiSearchRadical extends Activity {
 					
 					int currentColor = textView.getTextColors().getDefaultColor();
 					
-					if (currentColor == Color.DKGRAY) {
+					if (currentColor == JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getKanjiSearchRadicalInactiveColorId()) {
 						return;
 					}
 
@@ -295,7 +295,7 @@ public class KanjiSearchRadical extends Activity {
 		        	} else if (allAvailableRadicals.contains(currentRadicalStringValueValue) == true) {
 		        		currentRadicalStringValue.setTextColor(currentRadicalStringValue.getDefaultTextColor());
 		        	} else {
-		        		currentRadicalStringValue.setTextColor(Color.DKGRAY);
+		        		currentRadicalStringValue.setTextColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getKanjiSearchRadicalInactiveColorId());
 		        	}
 				}
 		        
