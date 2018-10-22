@@ -49,7 +49,7 @@
                     android:focusable="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
     
                 <EditText
                     android:id="@+id/word_test_kanji_input"
@@ -60,7 +60,7 @@
                     android:focusable="false"
                     android:inputType="textMultiLine"
                     android:singleLine="false"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
             </TableRow>
     
             <TableRow
@@ -88,7 +88,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
     
                 <EditText
                     android:id="@+id/word_test_word_input1"
@@ -98,7 +98,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
             </TableRow>
     
             <TableRow
@@ -127,7 +127,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -138,7 +138,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -168,7 +168,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -179,7 +179,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -209,7 +209,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -220,7 +220,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -250,7 +250,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -261,7 +261,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -291,7 +291,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -302,7 +302,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -332,7 +332,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -343,7 +343,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -373,7 +373,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -384,7 +384,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -414,7 +414,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -425,7 +425,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -455,7 +455,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -466,7 +466,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -496,7 +496,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -507,7 +507,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -537,7 +537,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -548,7 +548,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -578,7 +578,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -589,7 +589,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -619,7 +619,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -630,7 +630,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -660,7 +660,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -671,7 +671,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -701,7 +701,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -712,7 +712,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -742,7 +742,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -753,7 +753,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -783,7 +783,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -794,7 +794,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -824,7 +824,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -835,7 +835,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -865,7 +865,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -876,7 +876,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -906,7 +906,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -917,7 +917,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -947,7 +947,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -958,7 +958,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -988,7 +988,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -999,7 +999,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -1029,7 +1029,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -1040,7 +1040,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -1070,7 +1070,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -1081,7 +1081,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -1111,7 +1111,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -1122,7 +1122,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -1152,7 +1152,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -1163,7 +1163,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -1193,7 +1193,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -1204,7 +1204,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
     
@@ -1234,7 +1234,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -1245,7 +1245,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
             
@@ -1275,7 +1275,7 @@
                     android:enabled="false"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
     
                 <EditText
@@ -1286,7 +1286,7 @@
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
-                    android:textColor="@android:color/white"
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
             </TableRow>
             
@@ -1316,7 +1316,7 @@
                     android:focusable="false"
                     android:inputType="text|textMultiLine"
                     android:singleLine="false"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
             </TableRow>
     
             <TableRow
@@ -1345,7 +1345,7 @@
                     android:focusable="false"
                     android:inputType="text|textMultiLine"
                     android:singleLine="false"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
             </TableRow>
     
             <TableRow
