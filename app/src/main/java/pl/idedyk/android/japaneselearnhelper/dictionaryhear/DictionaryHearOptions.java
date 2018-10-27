@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -67,10 +68,10 @@ public class DictionaryHearOptions extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.dictionary_hear_options);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_dictionary_hear_options));
-
-		setContentView(R.layout.dictionary_hear_options);
 
 		final DictionaryHearConfig dictionaryHearConfig = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getConfigManager(this).getDictionaryHearConfig();

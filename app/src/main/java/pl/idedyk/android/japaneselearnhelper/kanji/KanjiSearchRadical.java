@@ -60,11 +60,11 @@ public class KanjiSearchRadical extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_radical);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_search_radical));
-		
-		setContentView(R.layout.kanji_search_radical);
-				
+
 		List<RadicalInfo> radicalList = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchRadical.this).getRadicalList();
 		
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kanji_search_radical_main_layout);
@@ -204,7 +204,7 @@ public class KanjiSearchRadical extends Activity {
 					
 					int currentColor = textView.getTextColors().getDefaultColor();
 					
-					if (currentColor == Color.DKGRAY) {
+					if (currentColor == JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getKanjiSearchRadicalInactiveColorId()) {
 						return;
 					}
 
@@ -295,7 +295,7 @@ public class KanjiSearchRadical extends Activity {
 		        	} else if (allAvailableRadicals.contains(currentRadicalStringValueValue) == true) {
 		        		currentRadicalStringValue.setTextColor(currentRadicalStringValue.getDefaultTextColor());
 		        	} else {
-		        		currentRadicalStringValue.setTextColor(Color.DKGRAY);
+		        		currentRadicalStringValue.setTextColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getKanjiSearchRadicalInactiveColorId());
 		        	}
 				}
 		        

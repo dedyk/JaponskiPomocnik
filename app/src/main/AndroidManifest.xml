@@ -11,8 +11,7 @@
     <application
         android:icon="@drawable/japan"
         android:label="@string/app_name" android:name=".JapaneseAndroidLearnHelperApplication"
-        android:allowBackup="true"
-        android:theme="@style/JapaneseDictionaryStyle">
+        android:allowBackup="true">
         
         <activity android:name=".splash.Splash">
 

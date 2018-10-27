@@ -35,6 +35,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.databinding.DataBindingUtil;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -276,13 +277,13 @@ public class KanjiTestOptionsActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_test_options);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_test_options));
 
 		final KanjiTestConfig kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getConfigManager(this).getKanjiTestConfig();
-
-		setContentView(R.layout.kanji_test_options);
 
 		final TextView testModeTextView = (TextView) findViewById(R.id.kanji_test_options_test_mode);
 
@@ -1483,7 +1484,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 			deleteImageView.setLayoutParams(imageLayoutParams);
 
-			deleteImageView.setImageDrawable(getResources().getDrawable(R.drawable.delete));
+			deleteImageView.setImageDrawable(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getDeleteIconId()));
 
 			linearLayout.addView(kanjiTextView);
 			linearLayout.addView(deleteImageView);

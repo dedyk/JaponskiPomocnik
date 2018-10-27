@@ -19,6 +19,8 @@ public class KanaTestSummary extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kana_test_summary);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kana_test_summary));
 		
@@ -29,9 +31,7 @@ public class KanaTestSummary extends Activity {
 			
 			return;
 		}
-		
-		setContentView(R.layout.kana_test_summary);
-		
+
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kana_test_summary_main_layout);
 		
 		List<IScreenItem> screenItems = generateScreen();

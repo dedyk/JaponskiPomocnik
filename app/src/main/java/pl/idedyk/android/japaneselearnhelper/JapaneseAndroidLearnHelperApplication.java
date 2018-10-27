@@ -16,7 +16,11 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.multidex.MultiDexApplication;
 
 public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
@@ -38,7 +42,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	private Typeface babelStoneHanSubset = null;
 	
 	private Tracker tracker = null;
-	
+
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
@@ -159,7 +163,17 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		
 		return babelStoneHanSubset;
 	}
-	
+
+	public void setContentViewAndTheme(Activity activity, int contentViewId) {
+		activity.setTheme(getThemeType().styleId);
+
+		DataBindingUtil.setContentView(activity, contentViewId);
+	}
+
+	public ThemeType getThemeType() {
+		return ThemeType.BLACK;
+	}
+
 	public Tracker getTracker() {
 		
 		if (tracker != null) {
@@ -193,5 +207,95 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				.setAction(actionName).
 				setLabel(label).
 				build());		
+	}
+
+	public enum ThemeType {
+
+		BLACK(	R.style.JapaneseDictionaryBlackStyle,
+				android.R.color.white,
+				R.color.title_background_for_black,
+				android.R.color.white,
+				Color.DKGRAY,
+				R.drawable.delete_for_black,
+				R.drawable.user_group_list_for_black,
+				R.drawable.listening_for_black),
+
+		WHITE(	R.style.JapaneseDictionaryWhiteStyle,
+				android.R.color.black,
+				R.color.title_background_for_white,
+				android.R.color.black,
+				Color.WHITE,
+				R.drawable.delete_for_white,
+				R.drawable.user_group_list_for_white,
+				R.drawable.listening_for_white);
+
+		private int styleId;
+
+		private int textColorId;
+
+		private int titleItemBackgroundColorId;
+
+		private int kanjiStrokeColorId;
+
+		private int kanjiSearchRadicalInactiveColorId;
+
+		private int deleteIconId;
+
+		private int userGroupListIconId;
+
+		private int listenIconId;
+
+		private ThemeType(int styleId, int textColorId, int titleItemBackgroundColorId, int kanjiStrokeColorId, int kanjiSearchRadicalInactiveColorId, int deleteIconId, int userGroupListIconId, int listenIconId) {
+			this.styleId = styleId;
+			this.textColorId = textColorId;
+			this.titleItemBackgroundColorId = titleItemBackgroundColorId;
+			this.kanjiStrokeColorId = kanjiStrokeColorId;
+			this.kanjiSearchRadicalInactiveColorId = kanjiSearchRadicalInactiveColorId;
+			this.deleteIconId = deleteIconId;
+			this.userGroupListIconId = userGroupListIconId;
+			this.listenIconId = listenIconId;
+		}
+
+		public int getTextColorId() {
+			return textColorId;
+		}
+
+		public int getTextColorAsColor() {
+			return getInstance().getResources().getColor(textColorId);
+		}
+
+		public int getTitleItemBackgroundColorAsColor() {
+			return getInstance().getResources().getColor(titleItemBackgroundColorId);
+		}
+
+		public Drawable getTitleItemBackgroundColorAsDrawable() {
+			ColorDrawable colorDrawable = new ColorDrawable(getTitleItemBackgroundColorAsColor());
+
+			return colorDrawable;
+		}
+
+		public int getKanjiStrokeColorAsColor() {
+			return getInstance().getResources().getColor(kanjiStrokeColorId);
+		}
+
+		public int getKanjiSearchRadicalInactiveColorId() {
+			return kanjiSearchRadicalInactiveColorId;
+		}
+
+		public int getDeleteIconId() {
+			return deleteIconId;
+		}
+
+		public int getUserGroupListIconId() {
+			return userGroupListIconId;
+		}
+
+		public Drawable getUserGroupListIconAsDrawable() {
+			return getInstance().getResources().getDrawable(userGroupListIconId);
+		}
+
+		public int getListenIconId() {
+			return listenIconId;
+		}
 	}
 }

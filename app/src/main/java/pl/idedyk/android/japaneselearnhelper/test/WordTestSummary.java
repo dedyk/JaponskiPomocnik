@@ -16,11 +16,11 @@ public class WordTestSummary extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_test_summary);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test_summary));
-		
-		setContentView(R.layout.word_test_summary);
-		
+
 		fillScreen();
 	}
 	

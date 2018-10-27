@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
@@ -60,7 +61,7 @@ public class WordDictionaryTab extends TabActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.word_dictionary_tab);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_dictionary_tab);
 
 		TabHost tabHost = getTabHost();
 

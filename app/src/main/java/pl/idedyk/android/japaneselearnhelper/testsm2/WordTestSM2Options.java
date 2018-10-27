@@ -44,7 +44,7 @@ public class WordTestSM2Options extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-		
+
 		menu.add(Menu.NONE, R.id.word_test_sm2_options_set_next_day, Menu.NONE, getString(R.string.word_test_sm2_options_set_next_day));
 		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
@@ -98,11 +98,11 @@ public class WordTestSM2Options extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_test_sm2_options);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test_sm2_options));
-		
-		setContentView(R.layout.word_test_sm2_options);
-		
+
 		final WordTestSM2Config wordTestSM2Config = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getWordTestSM2Config();
 		
 		// get max new number

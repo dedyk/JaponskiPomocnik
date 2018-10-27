@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.usergroup;
 
 import android.app.Activity;
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +72,7 @@ public class UserGroupContentsListItemAdapter extends BaseAdapter {
         if(convertView == null) {
 
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-            convertView = inflater.inflate(UserGroupContentsListItem.ItemType.getLayoutResourceId(itemViewType), parent, false);
+            convertView = DataBindingUtil.inflate(inflater, UserGroupContentsListItem.ItemType.getLayoutResourceId(itemViewType), parent, false).getRoot();
 
             holder = new UserGroupContentsListItemHolder();
 

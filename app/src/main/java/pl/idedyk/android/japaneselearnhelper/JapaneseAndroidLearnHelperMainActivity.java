@@ -35,10 +35,10 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.main);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_main_menu));
-		
-		setContentView(R.layout.main);
 
 		// create menu
 		createMenuList();

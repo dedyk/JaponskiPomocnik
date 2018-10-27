@@ -12,6 +12,8 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
+    dataBinding.enabled = true
+
     compileSdkVersion 26
     buildToolsVersion '28.0.3'
 
@@ -21,8 +23,8 @@ android {
         targetSdkVersion 26
         multiDexEnabled true
 
-        versionCode 619
-        versionName "20181007"
+        versionCode 621
+        versionName "20181021"
     }
 
     signingConfigs {

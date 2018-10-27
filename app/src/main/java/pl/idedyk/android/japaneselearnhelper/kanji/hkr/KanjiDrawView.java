@@ -15,6 +15,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+
 public class KanjiDrawView extends View {
 
     private static final float STROKE_WIDTH = 8f;
@@ -53,7 +55,7 @@ public class KanjiDrawView extends View {
         setFocusableInTouchMode(true);
 
         strokePaint = new Paint();
-        strokePaint.setColor(Color.WHITE);
+        strokePaint.setColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getKanjiStrokeColorAsColor());
         strokePaint.setStyle(Paint.Style.STROKE);
         strokePaint.setAntiAlias(true);
         strokePaint.setDither(true);

@@ -104,11 +104,11 @@ public class KanjiDetails extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_details);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_details));
-		
-		setContentView(R.layout.kanji_details);
-		
+
 		kanjiEntry = (KanjiEntry)getIntent().getSerializableExtra("item");
 		
 		LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.kanji_details_main_layout);
@@ -321,7 +321,7 @@ public class KanjiDetails extends Activity {
 			OnClickListener	deleteItemIdFromUserGroupOnClickListener = createDeleteItemIdFromUserGroupOnClickListener(dataManager, kanjiEntry, currentUserGroupEntity, userGroupTableRow);
 
 			StringValue	userGroupNameStringValue = new StringValue(currentUserGroupEntity.getName(), 15.0f, 0);
-			Image userGroupNameDeleteImage = new Image(getResources().getDrawable(R.drawable.delete), 0);
+			Image userGroupNameDeleteImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getDeleteIconId()), 0);
 
 			userGroupNameStringValue.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
 			userGroupNameDeleteImage.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);

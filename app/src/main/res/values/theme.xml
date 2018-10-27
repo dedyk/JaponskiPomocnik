@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="JapaneseDictionaryStyle" parent="android:Theme.Holo">
-    </style>
+    <style name="JapaneseDictionaryBlackStyle" parent="android:Theme.Holo"/>
+    <style name="JapaneseDictionaryWhiteStyle" parent="android:Theme.Holo.Light" />
 </resources>

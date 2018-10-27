@@ -76,9 +76,9 @@ public class DictionaryHear extends Activity {
 
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_dictionary_hear));
-		
-		setContentView(R.layout.dictionary_hear);
+        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.dictionary_hear);
+
+        JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_dictionary_hear));
 
 		mainLayout = (LinearLayout) findViewById(R.id.dictionary_hear_main_layout);
 

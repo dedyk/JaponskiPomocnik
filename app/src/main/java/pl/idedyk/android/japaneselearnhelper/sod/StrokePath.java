@@ -23,6 +23,8 @@ import android.graphics.PointF;
 import android.util.Log;
 import android.util.Xml;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+
 public class StrokePath {
 
     private static final String TAG = StrokePath.class.getSimpleName();
@@ -50,7 +52,7 @@ public class StrokePath {
 
     private void initPaints() {
         strokePaint = new Paint();
-        strokePaint.setColor(Color.WHITE);
+        strokePaint.setColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getKanjiStrokeColorAsColor());
         strokePaint.setStyle(Style.STROKE);
         strokePaint.setAntiAlias(true);
         strokePaint.setStrokeWidth(STROKE_WIDTH);

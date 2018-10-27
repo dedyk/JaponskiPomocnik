@@ -47,11 +47,11 @@ public class KeigoTable extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.keigo_table);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_keigo_table));
-		
-		setContentView(R.layout.keigo_table);
-		
+
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.keigo_table_main_layout);
 		
 		final List<IScreenItem> report = new ArrayList<IScreenItem>();
@@ -278,8 +278,8 @@ public class KeigoTable extends Activity {
 		titleStringValue.setMarginLeft(5);
 		titleStringValue.setMarginRight(5);
 		titleStringValue.setMarginBottom(0);
-		
-		titleStringValue.setBackgroundColor(getResources().getColor(R.color.title_background));
+
+		titleStringValue.setBackgroundColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsColor());
 		
 		StringValue valueStringValue = new StringValue(value, 14.0f, 0);
 		
