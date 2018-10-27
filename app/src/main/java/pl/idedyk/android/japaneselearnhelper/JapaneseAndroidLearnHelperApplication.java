@@ -171,7 +171,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	}
 
 	public ThemeType getThemeType() {
-		return ThemeType.WHITE;
+		return ThemeType.BLACK;
 	}
 
 	public Tracker getTracker() {
