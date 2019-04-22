@@ -1,8 +1,8 @@
 package pl.idedyk.android.japaneselearnhelper;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
+//import com.google.android.gms.analytics.GoogleAnalytics;
+//import com.google.android.gms.analytics.HitBuilders;
+//import com.google.android.gms.analytics.Tracker;
 
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
@@ -41,7 +41,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	
 	private Typeface babelStoneHanSubset = null;
 	
-	private Tracker tracker = null;
+	// private Tracker tracker = null;
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
@@ -174,6 +174,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		return ThemeType.BLACK;
 	}
 
+	/*
 	public Tracker getTracker() {
 		
 		if (tracker != null) {
@@ -188,25 +189,34 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		
 		return tracker;		
 	}
+	*/
 	
 	public void logScreen(String screenName) {
-		
+
+	    /*
 		Tracker tracker = getTracker();
 		
 		tracker.setScreenName(screenName);
 		
-		tracker.send(new HitBuilders.AppViewBuilder().build());		
+		tracker.send(new HitBuilders.AppViewBuilder().build());
+		*/
+
+	    // noop
 	}
 	
 	public void logEvent(String screenName, String actionName, String label) {
-		
+
+	    /*
 		Tracker tracker = getTracker();
 		
 		tracker.send(new HitBuilders.EventBuilder()
 				.setCategory(screenName)
 				.setAction(actionName).
 				setLabel(label).
-				build());		
+				build());
+		*/
+
+	    // noop
 	}
 
 	public enum ThemeType {

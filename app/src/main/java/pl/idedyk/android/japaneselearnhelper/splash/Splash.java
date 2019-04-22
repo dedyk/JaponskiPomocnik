@@ -41,7 +41,7 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 		super.onCreate(savedInstanceState);
 
 		// init google analytics
-		JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
+		// JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 

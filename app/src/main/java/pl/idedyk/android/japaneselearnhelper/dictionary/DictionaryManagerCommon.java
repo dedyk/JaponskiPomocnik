@@ -6,7 +6,7 @@ import android.content.res.Resources;
 import android.os.Environment;
 
 import com.csvreader.CsvReader;
-import com.google.android.gms.wearable.Asset;
+//import com.google.android.gms.wearable.Asset;
 
 import java.io.File;
 import java.io.IOException;
