@@ -16,6 +16,7 @@ import java.util.concurrent.Future;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.apache.http.StatusLine;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -73,48 +74,28 @@ public class ServerClient {
 		}
 		
 		try {
-			// parametry do polaczenia
-			HttpParams httpParams = new BasicHttpParams();
-			
-			HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
-			HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
-			
-			// klient do http
-			DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
-			
-			HttpPost httpPost = new HttpPost(SEND_MISSING_WORD_URL);
-			
-			// ustaw naglowki
-			httpPost.setHeader("Accept", "application/json");
-			httpPost.setHeader("Content-type", "application/json");
-			httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
-			
 			// przygotuj dane wejsciowe
 			Map<String, Object> requestDataMap = new HashMap<String, Object>();
-			
+
 			requestDataMap.put("word", word);
 			requestDataMap.put("wordPlaceSearch", wordPlaceSearch.toString());
-			
-			StringEntity stringEntity = new StringEntity(convertMapToJSONObject(requestDataMap).toString(), "UTF-8");
-			
-			httpPost.setEntity(stringEntity);			
-			
-			// wywolaj serwer
-			HttpResponse httpResponse = httpClient.execute(httpPost);
-			
+
+			HttpResponse httpResponse = callRemoteService(packageInfo, SEND_MISSING_WORD_URL, convertMapToJSONObject(requestDataMap).toString());
+
 			// sprawdz odpowiedz
 			StatusLine statusLine = httpResponse.getStatusLine();
-			
-			int statusCode = statusLine.getStatusCode();			
-			
+
+			int statusCode = statusLine.getStatusCode();
+
 			if (statusCode < 200 || statusCode >= 300) {
+
 				Log.e("ServerClient", "Error send missing word: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
-				
+
 				return false;
-			}			
-			
+			}
+
 			return true;
-			
+
 		} catch (Exception e) {
 			Log.e("ServerClient", "Error send missing word: ", e);
 			
@@ -141,44 +122,25 @@ public class ServerClient {
 			return null;
 		}
 
-		try {			
-			// parametry do polaczenia
-			HttpParams httpParams = new BasicHttpParams();
-			
-			HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
-			HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
-			
-			// klient do http
-			DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
-			
-			HttpPost httpPost = new HttpPost(SEARCH_URL);
-			
-			// ustaw naglowki
-			httpPost.setHeader("Accept", "application/json");
-			httpPost.setHeader("Content-type", "application/json");
-			httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
-			
+		try {
 			// przygotuj dane wejsciowe
 			Map<String, Object> requestDataMap = createMapFromFindWordRequest(findWordRequest);
-						
-			StringEntity stringEntity = new StringEntity(convertMapToJSONObject(requestDataMap).toString(), "UTF-8");
-			
-			httpPost.setEntity(stringEntity);			
-			
-			// wywolaj serwer
-			HttpResponse httpResponse = httpClient.execute(httpPost);
-			
+
+			HttpResponse httpResponse = callRemoteService(packageInfo, SEARCH_URL, convertMapToJSONObject(requestDataMap).toString());
+
 			// sprawdz odpowiedz
 			StatusLine statusLine = httpResponse.getStatusLine();
-			
-			int statusCode = statusLine.getStatusCode();			
-			
-			if (statusCode != 200) {
+
+			int statusCode = statusLine.getStatusCode();
+
+			if (statusCode != HttpStatus.SC_OK) {
+
 				Log.e("ServerClient", "Error search: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
 				
 				return null;
 			}
-			
+
+			// pobierz odpowiedz
 			HttpEntity entity = httpResponse.getEntity();
 			
 			if (entity == null) {
@@ -420,41 +382,21 @@ public class ServerClient {
 		}
 		
 		try {
-			// parametry do polaczenia
-			HttpParams httpParams = new BasicHttpParams();
-			
-			HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
-			HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
-			
-			// klient do http
-			DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
-			
-			HttpPost httpPost = new HttpPost(AUTOCOMPLETE_URL);
-			
-			// ustaw naglowki
-			httpPost.setHeader("Accept", "application/json");
-			httpPost.setHeader("Content-type", "application/json");
-			httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
-			
 			// przygotuj dane wejsciowe
 			Map<String, Object> requestDataMap = new HashMap<String, Object>();
-			
+
 			requestDataMap.put("word", word);
 			requestDataMap.put("type", autoCompleteSuggestionType.getType());
-			
-			StringEntity stringEntity = new StringEntity(convertMapToJSONObject(requestDataMap).toString(), "UTF-8");
-			
-			httpPost.setEntity(stringEntity);			
-			
-			// wywolaj serwer
-			HttpResponse httpResponse = httpClient.execute(httpPost);
-			
+
+			HttpResponse httpResponse = callRemoteService(packageInfo, AUTOCOMPLETE_URL, convertMapToJSONObject(requestDataMap).toString());
+
 			// sprawdz odpowiedz
 			StatusLine statusLine = httpResponse.getStatusLine();
-			
-			int statusCode = statusLine.getStatusCode();			
-			
+
+			int statusCode = statusLine.getStatusCode();
+
 			if (statusCode < 200 || statusCode >= 300) {
+
 				Log.e("ServerClient", "Error send missing word: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
 				
 				return null;
@@ -520,40 +462,19 @@ public class ServerClient {
 		}
 		
 		try {
-			// parametry do polaczenia
-			HttpParams httpParams = new BasicHttpParams();
-			
-			HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
-			HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
-			
-			// klient do http
-			DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
-			
-			HttpPost httpPost = new HttpPost(SPELL_CHECKER_SUGGESTION_URL);
-			
-			// ustaw naglowki
-			httpPost.setHeader("Accept", "application/json");
-			httpPost.setHeader("Content-type", "application/json");
-			httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
-			
 			// przygotuj dane wejsciowe
 			Map<String, Object> requestDataMap = new HashMap<String, Object>();
-			
+
 			requestDataMap.put("word", word);
 			requestDataMap.put("type", autoCompleteSuggestionType.getType());
-			
-			StringEntity stringEntity = new StringEntity(convertMapToJSONObject(requestDataMap).toString(), "UTF-8");
-			
-			httpPost.setEntity(stringEntity);			
-			
-			// wywolaj serwer
-			HttpResponse httpResponse = httpClient.execute(httpPost);
-			
+
+			HttpResponse httpResponse = callRemoteService(packageInfo, SPELL_CHECKER_SUGGESTION_URL, convertMapToJSONObject(requestDataMap).toString());
+
 			// sprawdz odpowiedz
 			StatusLine statusLine = httpResponse.getStatusLine();
-			
-			int statusCode = statusLine.getStatusCode();			
-			
+
+			int statusCode = statusLine.getStatusCode();
+
 			if (statusCode < 200 || statusCode >= 300) {
 				Log.e("ServerClient", "Error send missing word: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
 				
@@ -616,36 +537,14 @@ public class ServerClient {
         }
 
         try {
-            // parametry do polaczenia
-            HttpParams httpParams = new BasicHttpParams();
+			HttpResponse httpResponse = callRemoteService(packageInfo, REMOTE_DATABASE_CONNECTOR_BASE_URL + methodName, jsonRequest);
 
-            HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
-            HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
+			// sprawdz odpowiedz
+			StatusLine statusLine = httpResponse.getStatusLine();
 
-            // klient do http
-            DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
+			int statusCode = statusLine.getStatusCode();
 
-            HttpPost httpPost = new HttpPost(REMOTE_DATABASE_CONNECTOR_BASE_URL + methodName);
-
-            // ustaw naglowki
-            httpPost.setHeader("Accept", "application/json");
-            httpPost.setHeader("Content-type", "application/json");
-            httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
-
-            // dane wejsciowe
-            StringEntity stringEntity = new StringEntity(jsonRequest, "UTF-8");
-
-            httpPost.setEntity(stringEntity);
-
-            // wywolaj serwer
-            HttpResponse httpResponse = httpClient.execute(httpPost);
-
-            // sprawdz odpowiedz
-            StatusLine statusLine = httpResponse.getStatusLine();
-
-            int statusCode = statusLine.getStatusCode();
-
-            if (statusCode != 200) {
+			if (statusCode != HttpStatus.SC_OK) {
                 Log.e("ServerClient", "Error callRemoteDictionaryConnectorMethod: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
 
                 throw new IOException(statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
@@ -726,6 +625,36 @@ public class ServerClient {
 				executorService.shutdown();
 			}
 		}
+	}
+
+	private HttpResponse callRemoteService(PackageInfo packageInfo, String url, String requestPostString) throws Exception {
+
+		// parametry do polaczenia
+		HttpParams httpParams = new BasicHttpParams();
+
+		HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
+		HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
+
+		// tworzenie posta
+		HttpPost httpPost = new HttpPost(url);
+
+		// ustaw naglowki
+		httpPost.setHeader("Accept", "application/json");
+		httpPost.setHeader("Content-type", "application/json");
+		httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
+
+		// dane wejsciowe
+		StringEntity stringEntity = new StringEntity(requestPostString, "UTF-8");
+
+		httpPost.setEntity(stringEntity);
+
+		// klient do http
+		DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
+
+		// wywolaj serwer
+		HttpResponse httpResponse = httpClient.execute(httpPost);
+
+		return httpResponse;
 	}
 
 	public static enum AutoCompleteSuggestionType {
