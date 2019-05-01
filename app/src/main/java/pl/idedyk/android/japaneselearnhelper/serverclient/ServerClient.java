@@ -1,9 +1,14 @@
 package pl.idedyk.android.japaneselearnhelper.serverclient;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -14,16 +19,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.StatusLine;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,8 +43,8 @@ import android.util.Log;
 public class ServerClient {
 	
 	//private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
-	private static final String PREFIX_URL = "http://www.japonski-pomocnik.pl"; // prod
-		
+	private static final String PREFIX_URL = "https://www.japonski-pomocnik.pl"; // prod
+
 	private static final String SEND_MISSING_WORD_URL = PREFIX_URL + "/android/sendMissingWord";
 	private static final String SEARCH_URL = PREFIX_URL + "/android/search";
 
@@ -72,6 +67,8 @@ public class ServerClient {
 		if (connected == false) {			
 			return false;
 		}
+
+		HttpURLConnection httpURLConnection = null;
 		
 		try {
 			// przygotuj dane wejsciowe
@@ -80,16 +77,14 @@ public class ServerClient {
 			requestDataMap.put("word", word);
 			requestDataMap.put("wordPlaceSearch", wordPlaceSearch.toString());
 
-			HttpResponse httpResponse = callRemoteService(packageInfo, SEND_MISSING_WORD_URL, convertMapToJSONObject(requestDataMap).toString());
+			httpURLConnection = callRemoteService(packageInfo, SEND_MISSING_WORD_URL, convertMapToJSONObject(requestDataMap).toString());
 
 			// sprawdz odpowiedz
-			StatusLine statusLine = httpResponse.getStatusLine();
-
-			int statusCode = statusLine.getStatusCode();
+			int statusCode = httpURLConnection.getResponseCode();
 
 			if (statusCode < 200 || statusCode >= 300) {
 
-				Log.e("ServerClient", "Error send missing word: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
+				Log.e("ServerClient", "Error send missing word: " + httpURLConnection.getResponseCode() + " - " + httpURLConnection.getResponseMessage());
 
 				return false;
 			}
@@ -100,6 +95,12 @@ public class ServerClient {
 			Log.e("ServerClient", "Error send missing word: ", e);
 			
 			return false;
+
+		} finally {
+
+			if (httpURLConnection != null) {
+				httpURLConnection.disconnect();
+			}
 		}
 	}
 	
@@ -122,41 +123,33 @@ public class ServerClient {
 			return null;
 		}
 
+		HttpURLConnection httpURLConnection = null;
+
+		BufferedReader contentInputStreamReader = null;
+
 		try {
 			// przygotuj dane wejsciowe
 			Map<String, Object> requestDataMap = createMapFromFindWordRequest(findWordRequest);
 
-			HttpResponse httpResponse = callRemoteService(packageInfo, SEARCH_URL, convertMapToJSONObject(requestDataMap).toString());
+			httpURLConnection = callRemoteService(packageInfo, SEARCH_URL, convertMapToJSONObject(requestDataMap).toString());
 
 			// sprawdz odpowiedz
-			StatusLine statusLine = httpResponse.getStatusLine();
+			int statusCode = httpURLConnection.getResponseCode();
 
-			int statusCode = statusLine.getStatusCode();
+			if (statusCode < 200 || statusCode >= 300) {
 
-			if (statusCode != HttpStatus.SC_OK) {
-
-				Log.e("ServerClient", "Error search: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
+				Log.e("ServerClient", "Error search: " + httpURLConnection.getResponseCode() + " - " + httpURLConnection.getResponseMessage());
 				
 				return null;
 			}
 
 			// pobierz odpowiedz
-			HttpEntity entity = httpResponse.getEntity();
-			
-			if (entity == null) {
-				return null;
-			}
-			
-			InputStream contentInputStream = entity.getContent();
-			
-			BufferedReader contentInputStreamReader = new BufferedReader(new InputStreamReader(contentInputStream));
-			
-			String readLine = null;
-			
+			contentInputStreamReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+
 			StringBuffer jsonResponseSb = new StringBuffer();
 			
 			while (true) {		
-				readLine = contentInputStreamReader.readLine();
+				String readLine = contentInputStreamReader.readLine();
 				
 				if (readLine == null) {
 					break;
@@ -165,8 +158,10 @@ public class ServerClient {
 				jsonResponseSb.append(readLine);			
 			}
 
-			contentInputStreamReader.close();
-			
+			if (jsonResponseSb.length() == 0) {
+				return null;
+			}
+
 			JSONObject responseJSON = new JSONObject(jsonResponseSb.toString());
 			
 			return createFindWordResultFromJSON(responseJSON);
@@ -175,7 +170,23 @@ public class ServerClient {
 			Log.e("ServerClient", "Error search: ", e);
 			
 			return null;
-		}		
+
+		} finally {
+
+			if (contentInputStreamReader != null) {
+
+				try {
+					contentInputStreamReader.close();
+
+				} catch (IOException e) {
+					// noop
+				}
+			}
+
+			if (httpURLConnection != null) {
+				httpURLConnection.disconnect();
+			}
+		}
 	}
 
 	private boolean isConnected() {
@@ -380,6 +391,10 @@ public class ServerClient {
 		if (word == null || word.length() < 2) {
 			return null;
 		}
+
+		HttpURLConnection httpURLConnection = null;
+
+		BufferedReader contentInputStreamReader = null;
 		
 		try {
 			// przygotuj dane wejsciowe
@@ -388,37 +403,25 @@ public class ServerClient {
 			requestDataMap.put("word", word);
 			requestDataMap.put("type", autoCompleteSuggestionType.getType());
 
-			HttpResponse httpResponse = callRemoteService(packageInfo, AUTOCOMPLETE_URL, convertMapToJSONObject(requestDataMap).toString());
+			httpURLConnection = callRemoteService(packageInfo, AUTOCOMPLETE_URL, convertMapToJSONObject(requestDataMap).toString());
 
 			// sprawdz odpowiedz
-			StatusLine statusLine = httpResponse.getStatusLine();
-
-			int statusCode = statusLine.getStatusCode();
+			int statusCode = httpURLConnection.getResponseCode();
 
 			if (statusCode < 200 || statusCode >= 300) {
 
-				Log.e("ServerClient", "Error send missing word: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
+				Log.e("ServerClient", "Error send missing word: " + httpURLConnection.getResponseCode() + " - " + httpURLConnection.getResponseMessage());
 				
 				return null;
 			}
 			
 			// pobranie odpowiedzi
-			HttpEntity entity = httpResponse.getEntity();
-			
-			if (entity == null) {
-				return null;
-			}
-			
-			InputStream contentInputStream = entity.getContent();
-			
-			BufferedReader contentInputStreamReader = new BufferedReader(new InputStreamReader(contentInputStream));
-			
-			String readLine = null;
-			
+			contentInputStreamReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+
 			StringBuffer jsonResponseSb = new StringBuffer();
 			
 			while (true) {		
-				readLine = contentInputStreamReader.readLine();
+				String readLine = contentInputStreamReader.readLine();
 				
 				if (readLine == null) {
 					break;
@@ -427,8 +430,10 @@ public class ServerClient {
 				jsonResponseSb.append(readLine);			
 			}
 
-			contentInputStreamReader.close();
-			
+			if (jsonResponseSb.length() == 0) {
+				return null;
+			}
+
 			JSONArray responseJSON = new JSONArray(jsonResponseSb.toString());
 
 			List<String> result = new ArrayList<String>();
@@ -446,6 +451,22 @@ public class ServerClient {
 			Log.e("ServerClient", "Error send missing word: ", e);
 			
 			return null;
+
+		} finally {
+
+			if (contentInputStreamReader != null) {
+
+				try {
+					contentInputStreamReader.close();
+
+				} catch (IOException e) {
+					// noop
+				}
+			}
+
+			if (httpURLConnection != null) {
+				httpURLConnection.disconnect();
+			}
 		}
 	}
 	
@@ -460,6 +481,10 @@ public class ServerClient {
 		if (word == null || word.length() < 2) {
 			return null;
 		}
+
+		HttpURLConnection httpURLConnection = null;
+
+		BufferedReader contentInputStreamReader = null;
 		
 		try {
 			// przygotuj dane wejsciowe
@@ -468,36 +493,24 @@ public class ServerClient {
 			requestDataMap.put("word", word);
 			requestDataMap.put("type", autoCompleteSuggestionType.getType());
 
-			HttpResponse httpResponse = callRemoteService(packageInfo, SPELL_CHECKER_SUGGESTION_URL, convertMapToJSONObject(requestDataMap).toString());
+			httpURLConnection = callRemoteService(packageInfo, SPELL_CHECKER_SUGGESTION_URL, convertMapToJSONObject(requestDataMap).toString());
 
 			// sprawdz odpowiedz
-			StatusLine statusLine = httpResponse.getStatusLine();
-
-			int statusCode = statusLine.getStatusCode();
+			int statusCode = httpURLConnection.getResponseCode();
 
 			if (statusCode < 200 || statusCode >= 300) {
-				Log.e("ServerClient", "Error send missing word: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
+				Log.e("ServerClient", "Error send missing word: " + httpURLConnection.getResponseCode() + " - " + httpURLConnection.getResponseMessage());
 				
 				return null;
 			}
 			
 			// pobranie odpowiedzi
-			HttpEntity entity = httpResponse.getEntity();
-			
-			if (entity == null) {
-				return null;
-			}
-			
-			InputStream contentInputStream = entity.getContent();
-			
-			BufferedReader contentInputStreamReader = new BufferedReader(new InputStreamReader(contentInputStream));
-			
-			String readLine = null;
-			
+			contentInputStreamReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+
 			StringBuffer jsonResponseSb = new StringBuffer();
 			
 			while (true) {		
-				readLine = contentInputStreamReader.readLine();
+				String readLine = contentInputStreamReader.readLine();
 				
 				if (readLine == null) {
 					break;
@@ -506,8 +519,10 @@ public class ServerClient {
 				jsonResponseSb.append(readLine);			
 			}
 
-			contentInputStreamReader.close();
-			
+			if (jsonResponseSb.length() == 0) {
+				return null;
+			}
+
 			JSONArray responseJSON = new JSONArray(jsonResponseSb.toString());
 
 			List<String> result = new ArrayList<String>();
@@ -525,6 +540,22 @@ public class ServerClient {
 			Log.e("ServerClient", "Error send missing word: ", e);
 			
 			return null;
+
+		} finally {
+
+			if (contentInputStreamReader != null) {
+
+				try {
+					contentInputStreamReader.close();
+
+				} catch (IOException e) {
+					// noop
+				}
+			}
+
+			if (httpURLConnection != null) {
+				httpURLConnection.disconnect();
+			}
 		}
 	}
 
@@ -536,36 +567,29 @@ public class ServerClient {
             throw new IOException("Not connected");
         }
 
+		HttpURLConnection httpURLConnection = null;
+
+		BufferedReader contentInputStreamReader = null;
+
         try {
-			HttpResponse httpResponse = callRemoteService(packageInfo, REMOTE_DATABASE_CONNECTOR_BASE_URL + methodName, jsonRequest);
+			httpURLConnection = callRemoteService(packageInfo, REMOTE_DATABASE_CONNECTOR_BASE_URL + methodName, jsonRequest);
 
 			// sprawdz odpowiedz
-			StatusLine statusLine = httpResponse.getStatusLine();
+			int statusCode = httpURLConnection.getResponseCode();
 
-			int statusCode = statusLine.getStatusCode();
+			if (statusCode < 200 || statusCode >= 300) {
+                Log.e("ServerClient", "Error callRemoteDictionaryConnectorMethod: " + httpURLConnection.getResponseCode() + " - " + httpURLConnection.getResponseMessage());
 
-			if (statusCode != HttpStatus.SC_OK) {
-                Log.e("ServerClient", "Error callRemoteDictionaryConnectorMethod: " + statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
-
-                throw new IOException(statusLine.getStatusCode() + " - " + statusLine.getReasonPhrase());
+                throw new IOException(httpURLConnection.getResponseCode() + " - " + httpURLConnection.getResponseMessage());
             }
 
-            HttpEntity entity = httpResponse.getEntity();
-
-            if (entity == null) {
-				throw new IOException();
-            }
-
-            InputStream contentInputStream = entity.getContent();
-
-            BufferedReader contentInputStreamReader = new BufferedReader(new InputStreamReader(contentInputStream));
-
-            String readLine = null;
+			// pobranie odpowiedzi
+            contentInputStreamReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 
             StringBuffer jsonResponseSb = new StringBuffer();
 
             while (true) {
-                readLine = contentInputStreamReader.readLine();
+                String readLine = contentInputStreamReader.readLine();
 
                 if (readLine == null) {
                     break;
@@ -574,15 +598,33 @@ public class ServerClient {
                 jsonResponseSb.append(readLine);
             }
 
-            contentInputStreamReader.close();
+			if (jsonResponseSb.length() == 0) {
+				throw new IOException();
+			}
 
-            return jsonResponseSb.toString();
+			return jsonResponseSb.toString();
 
         } catch (Exception e) {
             Log.e("ServerClient", "Error callRemoteDictionaryConnectorMethod: ", e);
 
             throw e;
-        }
+
+		} finally {
+
+			if (contentInputStreamReader != null) {
+
+				try {
+					contentInputStreamReader.close();
+
+				} catch (IOException e) {
+					// noop
+				}
+			}
+
+			if (httpURLConnection != null) {
+				httpURLConnection.disconnect();
+			}
+		}
     }
 
 	public static <T> T callInServerThread(Callable<Object> callable, Class<T> resultClass) throws DictionaryException {
@@ -627,34 +669,64 @@ public class ServerClient {
 		}
 	}
 
-	private HttpResponse callRemoteService(PackageInfo packageInfo, String url, String requestPostString) throws Exception {
+	private HttpURLConnection callRemoteService(PackageInfo packageInfo, String urlString, String requestPostString) throws Exception {
+
+		// url
+		URL url = new URL(urlString);
+
+		// tworzymy polaczenie
+		HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+
+		httpURLConnection.setRequestMethod("POST");
 
 		// parametry do polaczenia
-		HttpParams httpParams = new BasicHttpParams();
+		httpURLConnection.setUseCaches(false);
+		httpURLConnection.setAllowUserInteraction(false);
+		httpURLConnection.setConnectTimeout(TIMEOUT);
+		httpURLConnection.setReadTimeout(TIMEOUT);
 
-		HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
-		HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
-
-		// tworzenie posta
-		HttpPost httpPost = new HttpPost(url);
+		httpURLConnection.setDoInput(true);
+		httpURLConnection.setDoOutput(true);
 
 		// ustaw naglowki
-		httpPost.setHeader("Accept", "application/json");
-		httpPost.setHeader("Content-type", "application/json");
-		httpPost.setHeader("User-Agent", createUserAgent(packageInfo));
+		httpURLConnection.setRequestProperty("Accept", "application/json");
+		httpURLConnection.setRequestProperty("Content-type", "application/json");
+		httpURLConnection.setRequestProperty("User-Agent", createUserAgent(packageInfo));
 
-		// dane wejsciowe
-		StringEntity stringEntity = new StringEntity(requestPostString, "UTF-8");
+		httpURLConnection.setRequestProperty("Content-Type", "application/json; utf-8");
 
-		httpPost.setEntity(stringEntity);
-
-		// klient do http
-		DefaultHttpClient httpClient = new DefaultHttpClient(httpParams);
+		//
 
 		// wywolaj serwer
-		HttpResponse httpResponse = httpClient.execute(httpPost);
+		httpURLConnection.connect();
 
-		return httpResponse;
+		// dane wejsciowe
+		BufferedOutputStream bufferedOutputStream = null;
+
+		try {
+			bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
+
+			bufferedOutputStream.write(requestPostString.getBytes("UTF-8"));
+
+			bufferedOutputStream.flush();
+
+		} catch(IOException exception) {
+			throw exception;
+
+		} finally {
+
+			if (bufferedOutputStream != null) {
+
+				try {
+					bufferedOutputStream.close();
+
+				} catch (IOException e) {
+					// noop
+				}
+			}
+		}
+
+		return httpURLConnection;
 	}
 
 	public static enum AutoCompleteSuggestionType {
