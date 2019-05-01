@@ -23,8 +23,8 @@ android {
         targetSdkVersion 26
         multiDexEnabled true
 
-        versionCode 644
-        versionName "20190331"
+        versionCode 648
+        versionName "20190428"
     }
 
     signingConfigs {
@@ -52,8 +52,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-    useLibrary 'org.apache.http.legacy'
 
     lintOptions {
 	abortOnError false
@@ -87,7 +85,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.gms:play-services:+'
+    // implementation 'com.google.android.gms:play-services:+'
     implementation 'com.android.support:multidex:1.0.1'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation files('libs/JapaneseDictionaryAPI-1.0-SNAPSHOT.jar')
