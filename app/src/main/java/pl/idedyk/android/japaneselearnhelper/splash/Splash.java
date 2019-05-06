@@ -279,6 +279,9 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 									startActivity(intent);
 
 									finish();
+
+									// start queue thread
+									JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread();
 								}
 							});
 
@@ -293,6 +296,9 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 					startActivity(intent);
 
 					finish();
+
+					// start queue thread
+					JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread();
 				}
 			}
 		}

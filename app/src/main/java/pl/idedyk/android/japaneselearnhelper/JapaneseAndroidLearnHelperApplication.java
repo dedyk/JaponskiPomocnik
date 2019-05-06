@@ -4,6 +4,7 @@ package pl.idedyk.android.japaneselearnhelper;
 //import com.google.android.gms.analytics.HitBuilders;
 //import com.google.android.gms.analytics.Tracker;
 
+import pl.idedyk.android.japaneselearnhelper.common.queue.QueueThread;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
@@ -38,6 +39,8 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	private ConfigManager configManager;
 	
 	private WordDictionaryMissingWordQueue wordDictionaryMissingWordQueue;
+
+	private QueueThread queueThread;
 	
 	private Typeface babelStoneHanSubset = null;
 	
@@ -67,6 +70,8 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		if (dictionaryManager != null) {
 			dictionaryManager.close();
 		}
+
+		stopQueueThread();
 	}
 	
 	public JapaneseAndroidLearnHelperContext getContext() {
@@ -201,7 +206,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		tracker.send(new HitBuilders.AppViewBuilder().build());
 		*/
 
-	    // noop
+	    queueThread.logScreen(screenName);
 	}
 	
 	public void logEvent(String screenName, String actionName, String label) {
@@ -216,7 +221,32 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				build());
 		*/
 
-	    // noop
+		queueThread.logEvent(screenName, actionName, label);
+	}
+
+	public void startQueueThread() {
+
+		if (queueThread == null || queueThread.isAlive() == false) {
+
+			queueThread = new QueueThread();
+
+			queueThread.start();
+		}
+	}
+
+	public void stopQueueThread() {
+
+		if (queueThread != null && queueThread.isAlive() == true) {
+
+			queueThread.requestStop();
+
+			try {
+				queueThread.join(11000);
+
+			} catch (InterruptedException e) {
+				// noop
+			}
+		}
 	}
 
 	public enum ThemeType {

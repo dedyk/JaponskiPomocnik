@@ -45,6 +45,17 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 		// init menu actions
 		initMenuActions();
+
+		// start queue thread
+		JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+
+		// start queue thread
+		JapaneseAndroidLearnHelperApplication.getInstance().stopQueueThread();
 	}
 
 	private void createMenuList() {
