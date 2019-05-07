@@ -4,14 +4,13 @@ package pl.idedyk.android.japaneselearnhelper;
 //import com.google.android.gms.analytics.HitBuilders;
 //import com.google.android.gms.analytics.Tracker;
 
-import pl.idedyk.android.japaneselearnhelper.common.queue.QueueThread;
+import pl.idedyk.android.japaneselearnhelper.common.queue.QueueEventThread;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue;
 import android.app.Activity;
-import android.app.Application;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
@@ -40,7 +39,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	
 	private WordDictionaryMissingWordQueue wordDictionaryMissingWordQueue;
 
-	private QueueThread queueThread;
+	private QueueEventThread queueEventThread;
 	
 	private Typeface babelStoneHanSubset = null;
 	
@@ -206,7 +205,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		tracker.send(new HitBuilders.AppViewBuilder().build());
 		*/
 
-	    queueThread.logScreen(screenName);
+	    queueEventThread.logScreen(screenName);
 	}
 	
 	public void logEvent(String screenName, String actionName, String label) {
@@ -221,27 +220,27 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				build());
 		*/
 
-		queueThread.logEvent(screenName, actionName, label);
+        queueEventThread.logEvent(screenName, actionName, label);
 	}
 
 	public void startQueueThread() {
 
-		if (queueThread == null || queueThread.isAlive() == false) {
+		if (queueEventThread == null || queueEventThread.isAlive() == false) {
 
-			queueThread = new QueueThread();
+            queueEventThread = new QueueEventThread();
 
-			queueThread.start();
+            queueEventThread.start();
 		}
 	}
 
 	public void stopQueueThread() {
 
-		if (queueThread != null && queueThread.isAlive() == true) {
+		if (queueEventThread != null && queueEventThread.isAlive() == true) {
 
-			queueThread.requestStop();
+            queueEventThread.requestStop();
 
 			try {
-				queueThread.join(11000);
+                queueEventThread.join(11000);
 
 			} catch (InterruptedException e) {
 				// noop

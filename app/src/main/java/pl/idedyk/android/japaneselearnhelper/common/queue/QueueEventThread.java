@@ -2,7 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.common.queue;
 
 import android.util.Log;
 
-public class QueueThread extends Thread {
+public class QueueEventThread extends Thread {
 
     private boolean stop = false;
 
