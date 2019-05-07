@@ -5,6 +5,8 @@ package pl.idedyk.android.japaneselearnhelper;
 //import com.google.android.gms.analytics.Tracker;
 
 import pl.idedyk.android.japaneselearnhelper.common.queue.QueueEventThread;
+import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogEventEvent;
+import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogScreenEvent;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
@@ -205,7 +207,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		tracker.send(new HitBuilders.AppViewBuilder().build());
 		*/
 
-	    queueEventThread.logScreen(screenName);
+	    queueEventThread.addEvent(new StatLogScreenEvent(screenName));
 	}
 	
 	public void logEvent(String screenName, String actionName, String label) {
@@ -220,14 +222,14 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				build());
 		*/
 
-        queueEventThread.logEvent(screenName, actionName, label);
+        queueEventThread.addEvent(new StatLogEventEvent(screenName, actionName, label));
 	}
 
-	public void startQueueThread() {
+	public void startQueueThread(Activity activity) {
 
 		if (queueEventThread == null || queueEventThread.isAlive() == false) {
 
-            queueEventThread = new QueueEventThread();
+            queueEventThread = new QueueEventThread(activity);
 
             queueEventThread.start();
 		}

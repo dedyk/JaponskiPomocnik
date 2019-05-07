@@ -47,7 +47,7 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 		initMenuActions();
 
 		// start queue thread
-		JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread();
+		JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread(this);
 	}
 
 	@Override
