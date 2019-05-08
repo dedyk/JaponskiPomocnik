@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StatLogScreenEvent extends QueryEventCommon {
+public class StatLogScreenEvent extends QueueEventCommon {
 
     private String screenName;
 
@@ -15,13 +15,22 @@ public class StatLogScreenEvent extends QueryEventCommon {
         this.screenName = screenName;
     }
 
+    public StatLogScreenEvent(String uuid, Date createDate, String params) {
+
+        super(uuid, createDate);
+
+        Map<String, String> paramsMap = getParamsFromString(params);
+
+        this.screenName = paramsMap.get("screenName");
+    }
+
     public String getUUID() {
         return uuid;
     }
 
     @Override
-    public QueryEventOperation getQueryEventOperation() {
-        return QueryEventOperation.STAT_LOG_SCREEN_EVENT;
+    public QueueEventOperation getQueryEventOperation() {
+        return QueueEventOperation.STAT_LOG_SCREEN_EVENT;
     }
 
     @Override

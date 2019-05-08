@@ -1,6 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.common.queue.event;
 
-public enum QueryEventOperation {
+public enum QueueEventOperation {
 
     STAT_LOG_SCREEN_EVENT,
 

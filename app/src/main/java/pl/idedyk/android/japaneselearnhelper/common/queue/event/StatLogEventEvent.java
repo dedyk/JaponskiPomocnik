@@ -1,9 +1,10 @@
 package pl.idedyk.android.japaneselearnhelper.common.queue.event;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StatLogEventEvent extends QueryEventCommon {
+public class StatLogEventEvent extends QueueEventCommon {
 
     private String screenName;
     private String actionName;
@@ -18,9 +19,20 @@ public class StatLogEventEvent extends QueryEventCommon {
         this.label = label;
     }
 
+    public StatLogEventEvent(String uuid, Date createDate, String params) {
+
+        super(uuid, createDate);
+
+        Map<String, String> paramsMap = getParamsFromString(params);
+
+        this.screenName = paramsMap.get("screenName");
+        this.actionName = paramsMap.get("actionName");
+        this.label = paramsMap.get("label");
+    }
+
     @Override
-    public QueryEventOperation getQueryEventOperation() {
-        return QueryEventOperation.STAT_LOG_EVENT_EVENT;
+    public QueueEventOperation getQueryEventOperation() {
+        return QueueEventOperation.STAT_LOG_EVENT_EVENT;
     }
 
     @Override

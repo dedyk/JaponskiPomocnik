@@ -28,7 +28,7 @@ import android.support.multidex.MultiDexApplication;
 public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	
 	private static JapaneseAndroidLearnHelperApplication singleton;
-	
+
 	public static JapaneseAndroidLearnHelperApplication getInstance() {
 		return singleton;
 	}
@@ -207,7 +207,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		tracker.send(new HitBuilders.AppViewBuilder().build());
 		*/
 
-	    queueEventThread.addEvent(new StatLogScreenEvent(screenName));
+	    queueEventThread.addQueueEvent(new StatLogScreenEvent(screenName));
 	}
 	
 	public void logEvent(String screenName, String actionName, String label) {
@@ -222,7 +222,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				build());
 		*/
 
-        queueEventThread.addEvent(new StatLogEventEvent(screenName, actionName, label));
+        queueEventThread.addQueueEvent(new StatLogEventEvent(screenName, actionName, label));
 	}
 
 	public void startQueueThread(Activity activity) {
