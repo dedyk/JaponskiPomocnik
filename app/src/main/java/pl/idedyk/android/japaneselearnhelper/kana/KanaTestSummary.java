@@ -22,7 +22,7 @@ public class KanaTestSummary extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kana_test_summary);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kana_test_summary));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kana_test_summary));
 		
 		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanaTestContext();
 

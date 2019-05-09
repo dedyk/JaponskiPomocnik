@@ -35,7 +35,7 @@ public class KanaTestOptions extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kana_test_options);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kana_test_options));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kana_test_options));
 
 		LinearLayout mainLayout = (LinearLayout)findViewById(R.id.kana_test_options_main_layout);
 		

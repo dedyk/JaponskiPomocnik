@@ -107,7 +107,7 @@ public class KanjiDetails extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_details);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_details));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_details));
 
 		kanjiEntry = (KanjiEntry)getIntent().getSerializableExtra("item");
 		

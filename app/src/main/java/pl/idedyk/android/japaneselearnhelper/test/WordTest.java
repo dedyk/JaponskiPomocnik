@@ -184,7 +184,7 @@ public class WordTest extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_test);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_test));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_word_test));
 
 		fillScreen();
 

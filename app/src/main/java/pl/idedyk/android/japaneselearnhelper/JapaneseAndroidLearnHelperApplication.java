@@ -68,12 +68,12 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	@Override
 	public void onTerminate() {
 		super.onTerminate();
-		
+
+		stopQueueThread();
+
 		if (dictionaryManager != null) {
 			dictionaryManager.close();
 		}
-
-		stopQueueThread();
 	}
 	
 	public JapaneseAndroidLearnHelperContext getContext() {
@@ -207,7 +207,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	}
 	*/
 	
-	public void logScreen(String screenName) {
+	public void logScreen(Activity activity, String screenName) {
 
 	    /*
 		Tracker tracker = getTracker();
@@ -217,10 +217,12 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		tracker.send(new HitBuilders.AppViewBuilder().build());
 		*/
 
-	    queueEventThread.addQueueEvent(new StatLogScreenEvent(screenName));
+	    startQueueThread(activity);
+
+	    queueEventThread.addQueueEvent(activity, new StatLogScreenEvent(screenName));
 	}
 	
-	public void logEvent(String screenName, String actionName, String label) {
+	public void logEvent(Activity activity, String screenName, String actionName, String label) {
 
 	    /*
 		Tracker tracker = getTracker();
@@ -232,14 +234,16 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				build());
 		*/
 
-        queueEventThread.addQueueEvent(new StatLogEventEvent(screenName, actionName, label));
+		startQueueThread(activity);
+
+        queueEventThread.addQueueEvent(activity, new StatLogEventEvent(screenName, actionName, label));
 	}
 
 	public void startQueueThread(Activity activity) {
 
 		if (queueEventThread == null || queueEventThread.isAlive() == false) {
 
-            queueEventThread = new QueueEventThread(activity);
+            queueEventThread = new QueueEventThread();
 
             queueEventThread.start();
 		}

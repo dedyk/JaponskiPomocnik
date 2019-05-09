@@ -29,11 +29,15 @@ public class QueueEventThread extends Thread {
 
         QueueEventFactory queueEventFactory = new QueueEventFactory();
 
+        int counter = 0;
+
         while(true) {
 
-            if (stop == true) {
+            if (stop == true || counter > 120) {
                 break;
             }
+
+            Log.d("AAAAAA", "PPPPPPPP: " + counter);
 
             DataManager dataManager = JapaneseAndroidLearnHelperApplication.getInstance().getDataManager();
 
@@ -42,6 +46,8 @@ public class QueueEventThread extends Thread {
                 List<IQueueEvent> queueEventList = dataManager.getQueueEventList(queueEventFactory);
 
                 for (IQueueEvent queueEvent : queueEventList) {
+
+                    counter = 0;
 
                     Log.d("AAAAA", "BBBB: " + queueEvent.getUUID() + " - " + queueEvent.getQueryEventOperation() + " - " + queueEvent.getParamsAsString());
 
@@ -75,6 +81,8 @@ public class QueueEventThread extends Thread {
             try {
                 Thread.sleep(1000);
 
+                counter++;
+
             } catch (InterruptedException e) {
                 // noop
             }
@@ -85,7 +93,7 @@ public class QueueEventThread extends Thread {
 
     public void addQueueEvent(Activity activity, IQueueEvent queueEvent) {
 
-        JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(activity).getDataManager();
+        DataManager dataManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(activity).getDataManager();
 
         dataManager.addQueueEvent(queueEvent);
     }

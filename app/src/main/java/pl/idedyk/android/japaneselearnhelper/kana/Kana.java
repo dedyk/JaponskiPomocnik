@@ -38,7 +38,7 @@ public class Kana extends Activity {
 		
 		super.onCreateOptionsMenu(menu);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kana));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kana));
 		
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 

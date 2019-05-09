@@ -18,7 +18,7 @@ public class InfoActivity extends Activity {
 
         JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.info);
         
-        JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_info));
+        JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_info));
 
         TextView titleVersion = (TextView)findViewById(R.id.info_title_version);
         

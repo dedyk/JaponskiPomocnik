@@ -71,7 +71,7 @@ public class DictionaryHearOptions extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.dictionary_hear_options);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_dictionary_hear_options));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_dictionary_hear_options));
 
 		final DictionaryHearConfig dictionaryHearConfig = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getConfigManager(this).getDictionaryHearConfig();

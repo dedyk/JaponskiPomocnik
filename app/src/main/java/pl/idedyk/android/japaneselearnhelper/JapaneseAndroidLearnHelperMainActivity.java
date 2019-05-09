@@ -38,24 +38,18 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.main);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_main_menu));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_main_menu));
 
 		// create menu
 		createMenuList();
 
 		// init menu actions
 		initMenuActions();
-
-		// start queue thread
-		JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread(this);
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-
-		// start queue thread
-		JapaneseAndroidLearnHelperApplication.getInstance().stopQueueThread();
 	}
 
 	private void createMenuList() {

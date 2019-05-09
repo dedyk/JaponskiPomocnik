@@ -57,7 +57,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.transitive_intransitive_pairs_table);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_transitive_intransitive_pairs_table));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_transitive_intransitive_pairs_table));
 		
 		DictionaryEntry transitiveVerb = (DictionaryEntry)getIntent().getSerializableExtra("transitive_verb");
 		DictionaryEntry intransitiveVerb = (DictionaryEntry)getIntent().getSerializableExtra("intransitive_verb");
