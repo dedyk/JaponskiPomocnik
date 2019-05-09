@@ -3,6 +3,8 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.android.japaneselearnhelper.common.queue.event.WordDictionaryMissingWordEvent;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import android.app.Activity;
 import android.content.Context;
@@ -19,9 +21,10 @@ public class WordDictionaryMissingWordQueue {
         preferences = activity.getSharedPreferences("wordDictionaryMissingWordQueue", Context.MODE_PRIVATE);
 
 	}
-	
+
+	/*
 	public synchronized boolean addMissingWordToQueue(QueueEntry queueEntry) {
-				
+
 		try {	
 			// pobranie danych
 			JSONObject jsonQueue = getJSONQueue();
@@ -47,7 +50,9 @@ public class WordDictionaryMissingWordQueue {
 			return false;
 		}
 	}
-	
+	*/
+
+	@Deprecated
 	public synchronized QueueEntry getNextQueueEntryFromQueue() {
 		
 		try {			
@@ -70,7 +75,8 @@ public class WordDictionaryMissingWordQueue {
 			return null;
 		}		
 	}
-	
+
+	@Deprecated
 	public synchronized boolean removeFirstQueueEntryFromQueue() {
 		
 		try {			
@@ -143,11 +149,11 @@ public class WordDictionaryMissingWordQueue {
 		
 		preferencesEditor.commit();
 	}
-	
+
 	public static class QueueEntry {
-		
+
 		private String word;
-		
+
 		private WordPlaceSearch wordPlaceSearch;
 
 		public QueueEntry(String word, WordPlaceSearch wordPlaceSearch) {
@@ -161,6 +167,12 @@ public class WordDictionaryMissingWordQueue {
 
 		public WordPlaceSearch getWordPlaceSearch() {
 			return wordPlaceSearch;
-		}		
+		}
+
+		//
+
+		public WordDictionaryMissingWordEvent toWordDictionaryMissingWordEvent() {
+			return new WordDictionaryMissingWordEvent(word, wordPlaceSearch);
+		}
 	}
 }

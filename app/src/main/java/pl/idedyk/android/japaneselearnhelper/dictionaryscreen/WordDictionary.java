@@ -8,6 +8,7 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
+import pl.idedyk.android.japaneselearnhelper.common.queue.event.WordDictionaryMissingWordEvent;
 import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
@@ -936,52 +937,34 @@ public class WordDictionary extends Activity {
 	}
 	
 	private void sendMissingWord(final FindWordRequest findWordRequest) {
-		
+
+		// dodanie do kolejki
+		JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(this, new WordDictionaryMissingWordEvent(findWordRequest.word, findWordRequest.wordPlaceSearch));
+
+		// stary kod obslugi wysylki brakujacych slow
 		final WordDictionaryMissingWordQueue wordDictionaryMissingWordQueue = JapaneseAndroidLearnHelperApplication.getInstance().getWordDictionaryMissingWordQueue(this);
-		
-		final boolean addMissingWordToQueueResult = wordDictionaryMissingWordQueue.addMissingWordToQueue(new QueueEntry(findWordRequest.word, findWordRequest.wordPlaceSearch));
-		
+
 		class SendMissingWordTask extends AsyncTask<Void, Void, Void> {
 
 			@Override
 			protected Void doInBackground(Void... params) {				
 				
 				try {
-					PackageInfo packageInfo = null;
-			        
-			        try {
-			        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-			        	
-			        } catch (NameNotFoundException e) {        	
-			        }			
-			        
-			        ServerClient serverClient = new ServerClient();
-			        
-			        if (addMissingWordToQueueResult == false) { // nie udalo sie wstawic slowka do kolejki, wyslij od razu
-			        	
-			        	serverClient.sendMissingWord(packageInfo, findWordRequest.word, findWordRequest.wordPlaceSearch);
-			        	
-			        } else { // wysylaj slowka z kolejki
-			        	
-				        while (true) {
-				        	
-				        	QueueEntry queueEntry = wordDictionaryMissingWordQueue.getNextQueueEntryFromQueue();
-				        	
-				        	if (queueEntry == null) { // brak slow do pobrania
-				        		break;
-				        	}
-				        	
-				        	// wyslanie slowka
-				        	boolean sendMissingWordResult = serverClient.sendMissingWord(packageInfo, queueEntry.getWord(), queueEntry.getWordPlaceSearch());
-				        	
-				        	if (sendMissingWordResult == false) { // nie udalo wyslac slowka, sprobujemy nastepnym razem
-				        		break;			        		
-				        	}
-				        	
-				        	// usuniecie pierwszego slowka z kolejki
-				        	wordDictionaryMissingWordQueue.removeFirstQueueEntryFromQueue();
-				        }			        	
-			        }			        
+					while (true) {
+
+						// kopiowanie ze starej implementacji do kolejek
+						QueueEntry queueEntry = wordDictionaryMissingWordQueue.getNextQueueEntryFromQueue();
+
+						if (queueEntry == null) { // brak slow do pobrania
+							break;
+						}
+
+						// dodanie do kolejki
+						JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(WordDictionary.this, queueEntry.toWordDictionaryMissingWordEvent());
+
+						// usuniecie pierwszego slowka z kolejki
+						wordDictionaryMissingWordQueue.removeFirstQueueEntryFromQueue();
+					}
 			        					
 				} catch (Exception e) {
 					// noop

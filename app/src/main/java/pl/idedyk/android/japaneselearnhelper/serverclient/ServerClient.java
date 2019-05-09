@@ -385,11 +385,11 @@ public class ServerClient {
 		boolean connected = isConnected();
 		
 		if (connected == false) {			
-			return null;
+			return new ArrayList<>();
 		}
 		
 		if (word == null || word.length() < 2) {
-			return null;
+			return new ArrayList<>();
 		}
 
 		HttpURLConnection httpURLConnection = null;
@@ -411,8 +411,8 @@ public class ServerClient {
 			if (statusCode < 200 || statusCode >= 300) {
 
 				Log.e("ServerClient", "Error send missing word: " + httpURLConnection.getResponseCode() + " - " + httpURLConnection.getResponseMessage());
-				
-				return null;
+
+				return new ArrayList<>();
 			}
 			
 			// pobranie odpowiedzi

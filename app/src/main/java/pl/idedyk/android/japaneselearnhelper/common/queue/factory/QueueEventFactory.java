@@ -8,6 +8,7 @@ import pl.idedyk.android.japaneselearnhelper.common.queue.event.IQueueEvent;
 import pl.idedyk.android.japaneselearnhelper.common.queue.event.QueueEventOperation;
 import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogEventEvent;
 import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogScreenEvent;
+import pl.idedyk.android.japaneselearnhelper.common.queue.event.WordDictionaryMissingWordEvent;
 
 public class QueueEventFactory implements IQueueEventFactory {
 
@@ -53,6 +54,12 @@ public class QueueEventFactory implements IQueueEventFactory {
             case STAT_LOG_EVENT_EVENT:
 
                 queueEvent = new StatLogEventEvent(uuid, createDateDate, params);
+
+                break;
+
+            case WORD_DICTIONARY_MISSING_WORD_EVENT:
+
+                queueEvent = new WordDictionaryMissingWordEvent(uuid, createDateDate, params);
 
                 break;
 

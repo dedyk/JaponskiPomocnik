@@ -24,10 +24,6 @@ public class StatLogScreenEvent extends QueueEventCommon {
         this.screenName = paramsMap.get("screenName");
     }
 
-    public String getUUID() {
-        return uuid;
-    }
-
     @Override
     public QueueEventOperation getQueryEventOperation() {
         return QueueEventOperation.STAT_LOG_SCREEN_EVENT;

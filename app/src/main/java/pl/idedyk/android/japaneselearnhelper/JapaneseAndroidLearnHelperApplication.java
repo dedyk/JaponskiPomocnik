@@ -5,6 +5,7 @@ package pl.idedyk.android.japaneselearnhelper;
 //import com.google.android.gms.analytics.Tracker;
 
 import pl.idedyk.android.japaneselearnhelper.common.queue.QueueEventThread;
+import pl.idedyk.android.japaneselearnhelper.common.queue.event.IQueueEvent;
 import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogEventEvent;
 import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogScreenEvent;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
@@ -206,6 +207,13 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		return tracker;		
 	}
 	*/
+
+	public synchronized void addQueueEvent(Activity activity, IQueueEvent queueEvent) {
+
+		startQueueThread(activity);
+
+		queueEventThread.addQueueEvent(activity, queueEvent);
+	}
 	
 	public void logScreen(Activity activity, String screenName) {
 
@@ -217,9 +225,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		tracker.send(new HitBuilders.AppViewBuilder().build());
 		*/
 
-	    startQueueThread(activity);
-
-	    queueEventThread.addQueueEvent(activity, new StatLogScreenEvent(screenName));
+		addQueueEvent(activity, new StatLogScreenEvent(screenName));
 	}
 	
 	public void logEvent(Activity activity, String screenName, String actionName, String label) {
@@ -234,22 +240,20 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				build());
 		*/
 
-		startQueueThread(activity);
-
-        queueEventThread.addQueueEvent(activity, new StatLogEventEvent(screenName, actionName, label));
+		addQueueEvent(activity, new StatLogEventEvent(screenName, actionName, label));
 	}
 
-	public void startQueueThread(Activity activity) {
+	public synchronized void startQueueThread(Activity activity) {
 
 		if (queueEventThread == null || queueEventThread.isAlive() == false) {
 
-            queueEventThread = new QueueEventThread();
+            queueEventThread = new QueueEventThread(activity.getPackageManager(), activity.getPackageName());
 
             queueEventThread.start();
 		}
 	}
 
-	public void stopQueueThread() {
+	public synchronized void stopQueueThread() {
 
 		if (queueEventThread != null && queueEventThread.isAlive() == true) {
 
