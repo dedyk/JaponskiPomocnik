@@ -9,6 +9,7 @@ import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogEventEven
 import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogScreenEvent;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
+import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue;
@@ -131,6 +132,15 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
 	public void setDictionaryManager(DictionaryManagerCommon dictionaryManager) {
 		this.dictionaryManager = dictionaryManager;
+	}
+
+	public DataManager getDataManager() {
+
+		if (dictionaryManager == null) {
+			return null;
+		}
+
+		return dictionaryManager.getDataManager();
 	}
 
 	public ConfigManager getConfigManager(Activity activity) {

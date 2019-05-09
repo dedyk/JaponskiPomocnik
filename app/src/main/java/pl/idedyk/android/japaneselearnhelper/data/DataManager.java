@@ -288,6 +288,10 @@ public class DataManager {
 
     public synchronized List<IQueueEvent> getQueueEventList(IQueueEventFactory queueEventFactory) {
 
+        if (sqliteDatabase.isOpen() == false) {
+            return new ArrayList<>();
+        }
+
         Cursor cursor = null;
 
         try {
@@ -331,6 +335,11 @@ public class DataManager {
     }
 
     public synchronized void deleteQueueEvent(String uuid) {
+
+        if (sqliteDatabase.isOpen() == false) {
+            return;
+        }
+
         sqliteDatabase.execSQL(SQLiteStatic.queue_events_sql_delete_uuid, new Object[] { uuid  });
     }
 

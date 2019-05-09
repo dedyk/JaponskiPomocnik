@@ -14,10 +14,8 @@ public class QueueEventThread extends Thread {
 
     private boolean stop = false;
 
-    private DataManager dataManager;
-
-    public QueueEventThread(Activity activity) {
-        this.dataManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(activity).getDataManager();
+    public QueueEventThread() {
+        // noop
     }
 
     public void requestStop() {
@@ -37,35 +35,40 @@ public class QueueEventThread extends Thread {
                 break;
             }
 
-            List<IQueueEvent> queueEventList = dataManager.getQueueEventList(queueEventFactory);
+            DataManager dataManager = JapaneseAndroidLearnHelperApplication.getInstance().getDataManager();
 
-            for (IQueueEvent queueEvent : queueEventList) {
+            if (dataManager != null) {
 
-                Log.d("AAAAA", "BBBB: " + queueEvent.getUUID() + " - " + queueEvent.getQueryEventOperation() + " - " + queueEvent.getParamsAsString());
+                List<IQueueEvent> queueEventList = dataManager.getQueueEventList(queueEventFactory);
 
-                boolean processed = false;
+                for (IQueueEvent queueEvent : queueEventList) {
 
-                // przetwarzamy zdarzenie
-                switch (queueEvent.getQueryEventOperation()) {
+                    Log.d("AAAAA", "BBBB: " + queueEvent.getUUID() + " - " + queueEvent.getQueryEventOperation() + " - " + queueEvent.getParamsAsString());
 
-                    case STAT_LOG_SCREEN_EVENT:
+                    boolean processed = false;
+
+                    // przetwarzamy zdarzenie
+                    switch (queueEvent.getQueryEventOperation()) {
+
+                        case STAT_LOG_SCREEN_EVENT:
 
 
-                        break;
+                            break;
 
-                    case STAT_LOG_EVENT_EVENT:
+                        case STAT_LOG_EVENT_EVENT:
 
 
-                        break;
+                            break;
 
-                    default:
-                        // noop
-                }
+                        default:
+                            // noop
+                    }
 
-                processed = true; // !!!!!!!!!!!!!!! FIXME
+                    processed = true; // !!!!!!!!!!!!!!! FIXME
 
-                if (processed == true) {
-                    dataManager.deleteQueueEvent(queueEvent.getUUID());
+                    if (processed == true) {
+                        dataManager.deleteQueueEvent(queueEvent.getUUID());
+                    }
                 }
             }
 
@@ -80,7 +83,10 @@ public class QueueEventThread extends Thread {
 
     //
 
-    public void addQueueEvent(IQueueEvent queueEvent) {
+    public void addQueueEvent(Activity activity, IQueueEvent queueEvent) {
+
+        JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(activity).getDataManager();
+
         dataManager.addQueueEvent(queueEvent);
     }
 }
