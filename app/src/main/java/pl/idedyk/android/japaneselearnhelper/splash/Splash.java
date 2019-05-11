@@ -7,6 +7,7 @@ import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.SplashConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.StatStartAppEvent;
 
 import android.Manifest;
 import android.app.Activity;
@@ -282,6 +283,9 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 
 									// start queue thread
 									JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread(Splash.this);
+
+									// send start event
+									JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(Splash.this, new StatStartAppEvent());
 								}
 							});
 
@@ -299,6 +303,9 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 
 					// start queue thread
 					JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread(Splash.this);
+
+					// send start event
+					JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(Splash.this, new StatStartAppEvent());
 				}
 			}
 		}

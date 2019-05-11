@@ -4,7 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
-import pl.idedyk.android.japaneselearnhelper.common.queue.event.WordDictionaryMissingWordEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.WordDictionaryMissingWordEvent;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import android.app.Activity;
 import android.content.Context;

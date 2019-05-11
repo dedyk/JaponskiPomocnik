@@ -5,9 +5,9 @@ package pl.idedyk.android.japaneselearnhelper;
 //import com.google.android.gms.analytics.Tracker;
 
 import pl.idedyk.android.japaneselearnhelper.common.queue.QueueEventThread;
-import pl.idedyk.android.japaneselearnhelper.common.queue.event.IQueueEvent;
-import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogEventEvent;
-import pl.idedyk.android.japaneselearnhelper.common.queue.event.StatLogScreenEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.IQueueEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.StatLogEventEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.StatLogScreenEvent;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.data.DataManager;

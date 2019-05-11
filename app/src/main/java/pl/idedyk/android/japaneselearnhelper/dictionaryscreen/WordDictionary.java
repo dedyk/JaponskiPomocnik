@@ -8,7 +8,7 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
-import pl.idedyk.android.japaneselearnhelper.common.queue.event.WordDictionaryMissingWordEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.WordDictionaryMissingWordEvent;
 import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;

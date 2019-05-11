@@ -8,11 +8,12 @@ import android.util.Log;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
-import pl.idedyk.android.japaneselearnhelper.common.queue.event.IQueueEvent;
-import pl.idedyk.android.japaneselearnhelper.common.queue.event.WordDictionaryMissingWordEvent;
-import pl.idedyk.android.japaneselearnhelper.common.queue.factory.QueueEventFactory;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.IQueueEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.StatLogScreenEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.WordDictionaryMissingWordEvent;
 import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
+import pl.idedyk.japanese.dictionary.api.android.queue.factory.QueueEventFactory;
 
 public class QueueEventThread extends Thread {
 
@@ -45,19 +46,19 @@ public class QueueEventThread extends Thread {
 
         while(true) {
 
-            if (stop == true || counter > 120) {
+            if (stop == true || counter > 60) {
                 break;
             }
 
             DataManager dataManager = JapaneseAndroidLearnHelperApplication.getInstance().getDataManager();
+
+            int sleepMode = 0;
 
             if (dataManager != null) {
 
                 List<IQueueEvent> queueEventList = dataManager.getQueueEventList(queueEventFactory);
 
                 for (IQueueEvent queueEvent : queueEventList) {
-
-                    counter = 0;
 
                     Log.d("JapaneseAndroidLearn", "QueueEventThread - processing: " + queueEvent.getUUID() + " - " + queueEvent.getQueryEventOperation() + " - " + queueEvent.getParamsAsString());
 
@@ -66,17 +67,21 @@ public class QueueEventThread extends Thread {
                     // przetwarzamy zdarzenie
                     switch (queueEvent.getQueryEventOperation()) {
 
+                        case STAT_START_APP_EVENT:
+
+                            processed = processStatStartAppEvent(queueEvent);
+
+                            break;
+
                         case STAT_LOG_SCREEN_EVENT:
 
-                            // noop
-                            processed = true;
+                            processed = processStatLogScreenEvent(queueEvent);
 
                             break;
 
                         case STAT_LOG_EVENT_EVENT:
 
-                            // noop
-                            processed = true;
+                            processed = processStatLogEventEvent(queueEvent);
 
                             break;
 
@@ -92,12 +97,27 @@ public class QueueEventThread extends Thread {
 
                     if (processed == true) {
                         dataManager.deleteQueueEvent(queueEvent.getUUID());
+
+                        counter = 0;
+                        sleepMode = 1;
                     }
                 }
             }
 
+            long sleepTime;
+
+            if (sleepMode == 0) {
+                sleepTime = 5000;
+
+            } else if (sleepMode == 1) {
+                sleepTime = 1000;
+
+            } else {
+                sleepTime = 5000;
+            }
+
             try {
-                Thread.sleep(1000);
+                Thread.sleep(sleepTime);
 
                 counter++;
 
@@ -118,6 +138,8 @@ public class QueueEventThread extends Thread {
         }
     }
 
+    //
+
     private boolean processWordDictionaryMissingWordEvent(IQueueEvent queueEvent) {
 
         WordDictionaryMissingWordEvent wordDictionaryMissingWordEvent = (WordDictionaryMissingWordEvent)queueEvent;
@@ -127,5 +149,26 @@ public class QueueEventThread extends Thread {
         ServerClient serverClient = new ServerClient();
 
         return serverClient.sendMissingWord(packageInfo, wordDictionaryMissingWordEvent.getWord(), wordDictionaryMissingWordEvent.getWordPlaceSearch());
+    }
+
+    private boolean processStatLogScreenEvent(IQueueEvent queueEvent) {
+
+        ServerClient serverClient = new ServerClient();
+
+        return serverClient.sendQueueEvent(packageInfo, queueEvent);
+    }
+
+    private boolean processStatLogEventEvent(IQueueEvent queueEvent) {
+
+        ServerClient serverClient = new ServerClient();
+
+        return serverClient.sendQueueEvent(packageInfo, queueEvent);
+    }
+
+    private boolean processStatStartAppEvent(IQueueEvent queueEvent) {
+
+        ServerClient serverClient = new ServerClient();
+
+        return serverClient.sendQueueEvent(packageInfo, queueEvent);
     }
 }

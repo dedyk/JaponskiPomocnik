@@ -10,12 +10,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import pl.idedyk.android.japaneselearnhelper.common.queue.event.IQueueEvent;
-import pl.idedyk.android.japaneselearnhelper.common.queue.factory.IQueueEventFactory;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.IQueueEvent;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.utils.SQLiteDatabaseHelper;
+import pl.idedyk.japanese.dictionary.api.android.queue.factory.IQueueEventFactory;
 
 public class DataManager {
 

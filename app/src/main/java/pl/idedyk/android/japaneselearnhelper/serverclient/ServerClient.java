@@ -24,6 +24,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.IQueueEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.QueueEventWrapper;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
@@ -40,6 +42,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 public class ServerClient {
 	
 	//private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
@@ -51,6 +55,8 @@ public class ServerClient {
 	private static final String AUTOCOMPLETE_URL = PREFIX_URL + "/android/autocomplete";
 	
 	private static final String SPELL_CHECKER_SUGGESTION_URL = PREFIX_URL + "/android/spellCheckerSuggestion";
+
+	private static final String SEND_QUEUE_EVENT_URL = PREFIX_URL + "/android/receiveQueueEvent";
 
 	private static final String REMOTE_DATABASE_CONNECTOR_BASE_URL = PREFIX_URL + "/android/remoteDatabaseConnector/";
 
@@ -727,6 +733,57 @@ public class ServerClient {
 		}
 
 		return httpURLConnection;
+	}
+
+	public boolean sendQueueEvent(PackageInfo packageInfo, IQueueEvent queueEvent) {
+
+		boolean connected = isConnected();
+
+		if (connected == false) {
+			return false;
+		}
+
+		HttpURLConnection httpURLConnection = null;
+
+		BufferedReader contentInputStreamReader = null;
+
+		try {
+			String jsonRequest = new Gson().toJson(new QueueEventWrapper(queueEvent.getUUID(), queueEvent.getQueryEventOperation(), queueEvent.getCreateDateAsString(), queueEvent.getParams()));
+
+			httpURLConnection = callRemoteService(packageInfo, SEND_QUEUE_EVENT_URL, jsonRequest);
+
+			// sprawdz odpowiedz
+			int statusCode = httpURLConnection.getResponseCode();
+
+			if (statusCode < 200 || statusCode >= 300) {
+				Log.e("ServerClient", "Error sendQueueEvent: " + httpURLConnection.getResponseCode() + " - " + httpURLConnection.getResponseMessage());
+
+				return false;
+			}
+
+			return true;
+
+		} catch (Exception e) {
+			Log.e("ServerClient", "Error sendQueueEvent: ", e);
+
+			return false;
+
+		} finally {
+
+			if (contentInputStreamReader != null) {
+
+				try {
+					contentInputStreamReader.close();
+
+				} catch (IOException e) {
+					// noop
+				}
+			}
+
+			if (httpURLConnection != null) {
+				httpURLConnection.disconnect();
+			}
+		}
 	}
 
 	public static enum AutoCompleteSuggestionType {
