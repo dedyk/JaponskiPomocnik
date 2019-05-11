@@ -208,13 +208,6 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	}
 	*/
 
-	public synchronized void addQueueEvent(Activity activity, IQueueEvent queueEvent) {
-
-		startQueueThread(activity);
-
-		queueEventThread.addQueueEvent(activity, queueEvent);
-	}
-	
 	public void logScreen(Activity activity, String screenName) {
 
 	    /*
@@ -265,6 +258,15 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 			} catch (InterruptedException e) {
 				// noop
 			}
+		}
+	}
+
+	public synchronized void addQueueEvent(Activity activity, IQueueEvent queueEvent) {
+
+		startQueueThread(activity);
+
+		if (queueEventThread != null) {
+			queueEventThread.addQueueEvent(activity, queueEvent);
 		}
 	}
 

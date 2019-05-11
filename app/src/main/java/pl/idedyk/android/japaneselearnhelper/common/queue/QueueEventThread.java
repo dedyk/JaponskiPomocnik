@@ -113,7 +113,9 @@ public class QueueEventThread extends Thread {
 
         DataManager dataManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(activity).getDataManager();
 
-        dataManager.addQueueEvent(queueEvent);
+        if (dataManager != null) {
+            dataManager.addQueueEvent(queueEvent);
+        }
     }
 
     private boolean processWordDictionaryMissingWordEvent(IQueueEvent queueEvent) {
