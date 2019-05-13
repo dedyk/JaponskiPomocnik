@@ -46,8 +46,8 @@ import com.google.gson.Gson;
 
 public class ServerClient {
 	
-	//private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
-	private static final String PREFIX_URL = "https://www.japonski-pomocnik.pl"; // prod
+	private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
+	//private static final String PREFIX_URL = "https://www.japonski-pomocnik.pl"; // prod
 
 	private static final String SEND_MISSING_WORD_URL = PREFIX_URL + "/android/sendMissingWord";
 	private static final String SEARCH_URL = PREFIX_URL + "/android/search";
@@ -748,7 +748,7 @@ public class ServerClient {
 		BufferedReader contentInputStreamReader = null;
 
 		try {
-			String jsonRequest = new Gson().toJson(new QueueEventWrapper(queueEvent.getUUID(), queueEvent.getQueryEventOperation(), queueEvent.getCreateDateAsString(), queueEvent.getParams()));
+			String jsonRequest = new Gson().toJson(new QueueEventWrapper(queueEvent.getId(), queueEvent.getUserId(), queueEvent.getQueryEventOperation(), queueEvent.getCreateDateAsString(), queueEvent.getParams()));
 
 			httpURLConnection = callRemoteService(packageInfo, SEND_QUEUE_EVENT_URL, jsonRequest);
 

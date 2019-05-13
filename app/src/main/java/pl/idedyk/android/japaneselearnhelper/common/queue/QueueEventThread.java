@@ -60,7 +60,7 @@ public class QueueEventThread extends Thread {
 
                 for (IQueueEvent queueEvent : queueEventList) {
 
-                    Log.d("JapaneseAndroidLearn", "QueueEventThread - processing: " + queueEvent.getUUID() + " - " + queueEvent.getQueryEventOperation() + " - " + queueEvent.getParamsAsString());
+                    Log.d("JapaneseAndroidLearn", "QueueEventThread - processing: " + queueEvent.getId() + " - " + queueEvent.getQueryEventOperation() + " - " + queueEvent.getParamsAsString());
 
                     boolean processed = false;
 
@@ -96,7 +96,7 @@ public class QueueEventThread extends Thread {
                     }
 
                     if (processed == true) {
-                        dataManager.deleteQueueEvent(queueEvent.getUUID());
+                        dataManager.deleteQueueEvent(queueEvent);
 
                         counter = 0;
                         sleepMode = 1;

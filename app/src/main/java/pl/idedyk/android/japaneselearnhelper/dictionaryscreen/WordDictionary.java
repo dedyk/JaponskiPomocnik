@@ -8,6 +8,7 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
+import pl.idedyk.android.japaneselearnhelper.splash.Splash;
 import pl.idedyk.japanese.dictionary.api.android.queue.event.WordDictionaryMissingWordEvent;
 import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
@@ -939,7 +940,9 @@ public class WordDictionary extends Activity {
 	private void sendMissingWord(final FindWordRequest findWordRequest) {
 
 		// dodanie do kolejki
-		JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(this, new WordDictionaryMissingWordEvent(findWordRequest.word, findWordRequest.wordPlaceSearch));
+		JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(this, new WordDictionaryMissingWordEvent(
+		        JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getCommonConfig().getOrGenerateUniqueUserId(),
+                findWordRequest.word, findWordRequest.wordPlaceSearch));
 
 		// stary kod obslugi wysylki brakujacych slow
 		final WordDictionaryMissingWordQueue wordDictionaryMissingWordQueue = JapaneseAndroidLearnHelperApplication.getInstance().getWordDictionaryMissingWordQueue(this);
@@ -960,7 +963,7 @@ public class WordDictionary extends Activity {
 						}
 
 						// dodanie do kolejki
-						JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(WordDictionary.this, queueEntry.toWordDictionaryMissingWordEvent());
+						JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(WordDictionary.this, queueEntry.toWordDictionaryMissingWordEvent(WordDictionary.this));
 
 						// usuniecie pierwszego slowka z kolejki
 						wordDictionaryMissingWordQueue.removeFirstQueueEntryFromQueue();

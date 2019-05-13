@@ -218,7 +218,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		tracker.send(new HitBuilders.AppViewBuilder().build());
 		*/
 
-		addQueueEvent(activity, new StatLogScreenEvent(screenName));
+		addQueueEvent(activity, new StatLogScreenEvent(getConfigManager(activity).getCommonConfig().getOrGenerateUniqueUserId(), screenName));
 	}
 	
 	public void logEvent(Activity activity, String screenName, String actionName, String label) {
@@ -233,7 +233,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				build());
 		*/
 
-		addQueueEvent(activity, new StatLogEventEvent(screenName, actionName, label));
+		addQueueEvent(activity, new StatLogEventEvent(getConfigManager(activity).getCommonConfig().getOrGenerateUniqueUserId(), screenName, actionName, label));
 	}
 
 	public synchronized void startQueueThread(Activity activity) {

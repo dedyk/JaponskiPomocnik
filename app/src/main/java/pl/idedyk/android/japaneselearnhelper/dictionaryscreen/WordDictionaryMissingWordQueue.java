@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.android.japaneselearnhelper.splash.Splash;
 import pl.idedyk.japanese.dictionary.api.android.queue.event.WordDictionaryMissingWordEvent;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import android.app.Activity;
@@ -171,8 +172,9 @@ public class WordDictionaryMissingWordQueue {
 
 		//
 
-		public WordDictionaryMissingWordEvent toWordDictionaryMissingWordEvent() {
-			return new WordDictionaryMissingWordEvent(word, wordPlaceSearch);
+		public WordDictionaryMissingWordEvent toWordDictionaryMissingWordEvent(Activity activity) {
+			return new WordDictionaryMissingWordEvent(JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(activity).getCommonConfig().getOrGenerateUniqueUserId(),
+					word, wordPlaceSearch);
 		}
 	}
 }

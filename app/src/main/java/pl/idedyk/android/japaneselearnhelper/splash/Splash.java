@@ -285,7 +285,8 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 									JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread(Splash.this);
 
 									// send start event
-									JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(Splash.this, new StatStartAppEvent());
+									JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(Splash.this, new StatStartAppEvent(
+                                            JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(Splash.this).getCommonConfig().getOrGenerateUniqueUserId()));
 								}
 							});
 
@@ -305,7 +306,8 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 					JapaneseAndroidLearnHelperApplication.getInstance().startQueueThread(Splash.this);
 
 					// send start event
-					JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(Splash.this, new StatStartAppEvent());
+					JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(Splash.this, new StatStartAppEvent(
+                            JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(Splash.this).getCommonConfig().getOrGenerateUniqueUserId()));
 				}
 			}
 		}

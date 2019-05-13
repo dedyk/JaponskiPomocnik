@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.data;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -283,7 +284,17 @@ public class DataManager {
     }
 
     public synchronized void addQueueEvent(IQueueEvent queueEvent) {
-        sqliteDatabase.execSQL(SQLiteStatic.queue_events_sql_insert, new Object[] { queueEvent.getUUID(), queueEvent.getQueryEventOperation().toString(), queueEvent.getCreateDateAsString(), queueEvent.getParamsAsString() });
+
+        ContentValues values = new ContentValues();
+
+        values.put(SQLiteStatic.queue_events_column_userId, queueEvent.getUserId());
+        values.put(SQLiteStatic.queue_events_column_operation, queueEvent.getQueryEventOperation().toString());
+        values.put(SQLiteStatic.queue_events_column_createDate, queueEvent.getCreateDateAsString());
+        values.put(SQLiteStatic.queue_events_column_params, queueEvent.getParamsAsString());
+
+        long id = sqliteDatabase.insert(SQLiteStatic.queue_events_table_name, null, values);
+
+        queueEvent.setId(id);
     }
 
     public synchronized List<IQueueEvent> getQueueEventList(IQueueEventFactory queueEventFactory) {
@@ -317,13 +328,13 @@ public class DataManager {
         }
 
         do {
-            //Integer id = cursor.getInt(0);
-            String uuid = cursor.getString(1);
+            Long id = cursor.getLong(0);
+            String userId = cursor.getString(1);
             String operation = cursor.getString(2);
             String createDate = cursor.getString(3);
             String params = cursor.getString(4);
 
-            IQueueEvent queueEvent = queueEventFactory.createQueueEvent(uuid, operation, createDate, params);
+            IQueueEvent queueEvent = queueEventFactory.createQueueEvent(id, userId, operation, createDate, params);
 
             if (queueEvent != null) {
                 result.add(queueEvent);
@@ -334,13 +345,13 @@ public class DataManager {
         return result;
     }
 
-    public synchronized void deleteQueueEvent(String uuid) {
+    public synchronized void deleteQueueEvent(IQueueEvent queueEvent) {
 
         if (sqliteDatabase.isOpen() == false) {
             return;
         }
 
-        sqliteDatabase.execSQL(SQLiteStatic.queue_events_sql_delete_uuid, new Object[] { uuid  });
+        sqliteDatabase.execSQL(SQLiteStatic.queue_events_sql_delete_id, new Object[] { queueEvent.getId() });
     }
 
     private static class SQLiteStatic {
@@ -365,7 +376,7 @@ public class DataManager {
         public static final String queue_events_table_name = "queue_events";
 
         public static final String queue_events_column_id = "id";
-        public static final String queue_events_column_uuid = "uuid";
+        public static final String queue_events_column_userId = "userId";
         public static final String queue_events_column_operation = "operation";
         public static final String queue_events_column_createDate = "createDate";
         public static final String queue_events_column_params = "params";
@@ -391,7 +402,7 @@ public class DataManager {
         public static final String queue_events_sql_create =
                 "create table " + queue_events_table_name + "(" +
                         queue_events_column_id + " integer primary key, " +
-                        queue_events_column_uuid + " varchar(40) not null, " +
+                        queue_events_column_userId + " varchar(40) not null, " +
                         queue_events_column_operation + " varchar(50) not null, " +
                         queue_events_column_createDate + " text not null, " +
                         queue_events_column_params + " text null);";
@@ -446,14 +457,10 @@ public class DataManager {
 
         //
 
-        public static final String queue_events_sql_insert =
-                String.format("insert into %s (%s, %s, %s, %s) values (?, ?, ?, ?)", queue_events_table_name,
-                        queue_events_column_uuid, queue_events_column_operation, queue_events_column_createDate, queue_events_column_params);
-
         public static final String queue_events_sql_select =
                 String.format("select * from %s order by %s limit 10", queue_events_table_name, queue_events_column_id);
 
-        public static final String queue_events_sql_delete_uuid =
-                String.format("delete from %s where %s = ?", queue_events_table_name, queue_events_column_uuid);
+        public static final String queue_events_sql_delete_id =
+                String.format("delete from %s where %s = ?", queue_events_table_name, queue_events_column_id);
     }
 }
