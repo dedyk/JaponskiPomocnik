@@ -14,10 +14,12 @@ import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestOptionsActivity;
 import pl.idedyk.android.japaneselearnhelper.keigo.KeigoTable;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.splash.Splash;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestOptions;
 import pl.idedyk.android.japaneselearnhelper.testsm2.WordTestSM2Options;
 import pl.idedyk.android.japaneselearnhelper.transitiveintransitive.TransitiveIntransitivePairsTable;
 import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.StatEndAppEvent;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -50,6 +52,16 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+	}
+
+	@Override
+	public void onBackPressed() {
+
+		super.onBackPressed();
+
+		JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(this, new StatEndAppEvent(
+				JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getCommonConfig().getOrGenerateUniqueUserId()
+		));
 	}
 
 	private void createMenuList() {

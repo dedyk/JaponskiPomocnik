@@ -73,6 +73,12 @@ public class QueueEventThread extends Thread {
 
                             break;
 
+                        case STAT_END_APP_EVENT:
+
+                            processed = processStatEndAppEvent(queueEvent);
+
+                            break;
+
                         case STAT_LOG_SCREEN_EVENT:
 
                             processed = processStatLogScreenEvent(queueEvent);
@@ -166,6 +172,13 @@ public class QueueEventThread extends Thread {
     }
 
     private boolean processStatStartAppEvent(IQueueEvent queueEvent) {
+
+        ServerClient serverClient = new ServerClient();
+
+        return serverClient.sendQueueEvent(packageInfo, queueEvent);
+    }
+
+    private boolean processStatEndAppEvent(IQueueEvent queueEvent) {
 
         ServerClient serverClient = new ServerClient();
 
