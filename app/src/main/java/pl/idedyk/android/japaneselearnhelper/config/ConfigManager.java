@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.UUID;
 
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.RangeTest;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode1;
@@ -29,6 +30,10 @@ public class ConfigManager {
         // init config manager
         preferences = activity.getSharedPreferences("config", Context.MODE_PRIVATE);
 	}
+
+	public CommonConfig getCommonConfig() {
+		return new CommonConfig();
+	};
 	
 	public KanaTestConfig getKanaTestConfig() {
 		return new KanaTestConfig();
@@ -60,6 +65,32 @@ public class ConfigManager {
 
 	public WordTestSM2Config getWordTestSM2Config() {
 		return new WordTestSM2Config();
+	}
+
+	public class CommonConfig {
+
+		private final String commonConfigPrefix = "commonConfig_";
+
+		private final String userIdPostfix = "userId";
+
+		public String getOrGenerateUniqueUserId() {
+
+			String userId = preferences.getString(commonConfigPrefix + userIdPostfix, null);
+
+			if (userId == null) { // generujemy losowy identyfikator
+
+				userId = UUID.randomUUID().toString();
+
+				// zapisujemy
+				Editor editor = preferences.edit();
+
+				editor.putString(commonConfigPrefix + userIdPostfix, userId);
+
+				editor.commit();
+			}
+
+			return userId;
+		}
 	}
 	
 	public class KanaTestConfig {

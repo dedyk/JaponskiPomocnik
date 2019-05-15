@@ -244,7 +244,7 @@ public class KanjiTest extends Activity {
 
 		super.onCreate(savedInstanceState);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_test));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_test));
 
 		kanjiTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this)
 				.getKanjiTestConfig();

@@ -8,6 +8,8 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.common.adapter.AutoCompleteAdapter;
+import pl.idedyk.android.japaneselearnhelper.splash.Splash;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.WordDictionaryMissingWordEvent;
 import pl.idedyk.android.japaneselearnhelper.common.view.DelayAutoCompleteTextView;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordDictionarySearchConfig;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
@@ -189,7 +191,7 @@ public class WordDictionary extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_dictionary);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_word_dictionary));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_word_dictionary));
 
 		wordDictionarySearchElementsNoTextView = (TextView)findViewById(R.id.word_dictionary_elements_no);
 		
@@ -706,7 +708,7 @@ public class WordDictionary extends Activity {
 	private void performRealSearch(final String findWord) {
 		
 		// logowanie
-		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(getString(R.string.logs_word_dictionary), getString(R.string.logs_word_dictionary_search_event),
+		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(this, getString(R.string.logs_word_dictionary), getString(R.string.logs_word_dictionary_search_event),
 				findWord);
 			
 		searchResultList.clear();
@@ -936,52 +938,36 @@ public class WordDictionary extends Activity {
 	}
 	
 	private void sendMissingWord(final FindWordRequest findWordRequest) {
-		
+
+		// dodanie do kolejki
+		JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(this, new WordDictionaryMissingWordEvent(
+		        JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getCommonConfig().getOrGenerateUniqueUserId(),
+                findWordRequest.word, findWordRequest.wordPlaceSearch));
+
+		// stary kod obslugi wysylki brakujacych slow
 		final WordDictionaryMissingWordQueue wordDictionaryMissingWordQueue = JapaneseAndroidLearnHelperApplication.getInstance().getWordDictionaryMissingWordQueue(this);
-		
-		final boolean addMissingWordToQueueResult = wordDictionaryMissingWordQueue.addMissingWordToQueue(new QueueEntry(findWordRequest.word, findWordRequest.wordPlaceSearch));
-		
+
 		class SendMissingWordTask extends AsyncTask<Void, Void, Void> {
 
 			@Override
 			protected Void doInBackground(Void... params) {				
 				
 				try {
-					PackageInfo packageInfo = null;
-			        
-			        try {
-			        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-			        	
-			        } catch (NameNotFoundException e) {        	
-			        }			
-			        
-			        ServerClient serverClient = new ServerClient();
-			        
-			        if (addMissingWordToQueueResult == false) { // nie udalo sie wstawic slowka do kolejki, wyslij od razu
-			        	
-			        	serverClient.sendMissingWord(packageInfo, findWordRequest.word, findWordRequest.wordPlaceSearch);
-			        	
-			        } else { // wysylaj slowka z kolejki
-			        	
-				        while (true) {
-				        	
-				        	QueueEntry queueEntry = wordDictionaryMissingWordQueue.getNextQueueEntryFromQueue();
-				        	
-				        	if (queueEntry == null) { // brak slow do pobrania
-				        		break;
-				        	}
-				        	
-				        	// wyslanie slowka
-				        	boolean sendMissingWordResult = serverClient.sendMissingWord(packageInfo, queueEntry.getWord(), queueEntry.getWordPlaceSearch());
-				        	
-				        	if (sendMissingWordResult == false) { // nie udalo wyslac slowka, sprobujemy nastepnym razem
-				        		break;			        		
-				        	}
-				        	
-				        	// usuniecie pierwszego slowka z kolejki
-				        	wordDictionaryMissingWordQueue.removeFirstQueueEntryFromQueue();
-				        }			        	
-			        }			        
+					while (true) {
+
+						// kopiowanie ze starej implementacji do kolejek
+						QueueEntry queueEntry = wordDictionaryMissingWordQueue.getNextQueueEntryFromQueue();
+
+						if (queueEntry == null) { // brak slow do pobrania
+							break;
+						}
+
+						// dodanie do kolejki
+						JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(WordDictionary.this, queueEntry.toWordDictionaryMissingWordEvent(WordDictionary.this));
+
+						// usuniecie pierwszego slowka z kolejki
+						wordDictionaryMissingWordQueue.removeFirstQueueEntryFromQueue();
+					}
 			        					
 				} catch (Exception e) {
 					// noop

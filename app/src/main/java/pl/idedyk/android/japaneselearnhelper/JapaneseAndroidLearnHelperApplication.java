@@ -4,13 +4,17 @@ package pl.idedyk.android.japaneselearnhelper;
 //import com.google.android.gms.analytics.HitBuilders;
 //import com.google.android.gms.analytics.Tracker;
 
+import pl.idedyk.android.japaneselearnhelper.common.queue.QueueEventThread;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.IQueueEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.StatLogEventEvent;
+import pl.idedyk.japanese.dictionary.api.android.queue.event.StatLogScreenEvent;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
+import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue;
 import android.app.Activity;
-import android.app.Application;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
@@ -26,7 +30,7 @@ import android.support.multidex.MultiDexApplication;
 public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	
 	private static JapaneseAndroidLearnHelperApplication singleton;
-	
+
 	public static JapaneseAndroidLearnHelperApplication getInstance() {
 		return singleton;
 	}
@@ -38,6 +42,8 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	private ConfigManager configManager;
 	
 	private WordDictionaryMissingWordQueue wordDictionaryMissingWordQueue;
+
+	private QueueEventThread queueEventThread;
 	
 	private Typeface babelStoneHanSubset = null;
 	
@@ -63,7 +69,9 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	@Override
 	public void onTerminate() {
 		super.onTerminate();
-		
+
+		stopQueueThread();
+
 		if (dictionaryManager != null) {
 			dictionaryManager.close();
 		}
@@ -125,6 +133,15 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
 	public void setDictionaryManager(DictionaryManagerCommon dictionaryManager) {
 		this.dictionaryManager = dictionaryManager;
+	}
+
+	public DataManager getDataManager() {
+
+		if (dictionaryManager == null) {
+			return null;
+		}
+
+		return dictionaryManager.getDataManager();
 	}
 
 	public ConfigManager getConfigManager(Activity activity) {
@@ -190,8 +207,8 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		return tracker;		
 	}
 	*/
-	
-	public void logScreen(String screenName) {
+
+	public void logScreen(Activity activity, String screenName) {
 
 	    /*
 		Tracker tracker = getTracker();
@@ -201,10 +218,10 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		tracker.send(new HitBuilders.AppViewBuilder().build());
 		*/
 
-	    // noop
+		addQueueEvent(activity, new StatLogScreenEvent(getConfigManager(activity).getCommonConfig().getOrGenerateUniqueUserId(), screenName));
 	}
 	
-	public void logEvent(String screenName, String actionName, String label) {
+	public void logEvent(Activity activity, String screenName, String actionName, String label) {
 
 	    /*
 		Tracker tracker = getTracker();
@@ -216,7 +233,41 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 				build());
 		*/
 
-	    // noop
+		addQueueEvent(activity, new StatLogEventEvent(getConfigManager(activity).getCommonConfig().getOrGenerateUniqueUserId(), screenName, actionName, label));
+	}
+
+	public synchronized void startQueueThread(Activity activity) {
+
+		if (queueEventThread == null || queueEventThread.isAlive() == false) {
+
+            queueEventThread = new QueueEventThread(activity.getPackageManager(), activity.getPackageName());
+
+            queueEventThread.start();
+		}
+	}
+
+	public synchronized void stopQueueThread() {
+
+		if (queueEventThread != null && queueEventThread.isAlive() == true) {
+
+            queueEventThread.requestStop();
+
+			try {
+                queueEventThread.join(11000);
+
+			} catch (InterruptedException e) {
+				// noop
+			}
+		}
+	}
+
+	public synchronized void addQueueEvent(Activity activity, IQueueEvent queueEvent) {
+
+		startQueueThread(activity);
+
+		if (queueEventThread != null) {
+			queueEventThread.addQueueEvent(activity, queueEvent);
+		}
 	}
 
 	public enum ThemeType {

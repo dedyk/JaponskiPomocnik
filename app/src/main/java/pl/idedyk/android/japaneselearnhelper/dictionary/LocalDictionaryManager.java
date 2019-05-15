@@ -476,7 +476,11 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	public void close() {
 		try {
 			luceneDatabase.close();
-			
+
+			getDataManager().close();
+
+			getWordTestSM2Manager().close();
+
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

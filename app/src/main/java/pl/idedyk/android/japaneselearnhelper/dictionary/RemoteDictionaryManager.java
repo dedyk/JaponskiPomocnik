@@ -74,7 +74,9 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
 
     @Override
     public void close() {
-        // noop
+        getDataManager().close();
+
+        getWordTestSM2Manager().close();
     }
 
     @Override

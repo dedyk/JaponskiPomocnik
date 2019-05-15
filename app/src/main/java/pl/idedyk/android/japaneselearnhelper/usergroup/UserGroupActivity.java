@@ -101,7 +101,7 @@ public class UserGroupActivity extends Activity {
 
         JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.user_group);
 
-        JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_user_group));
+        JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_user_group));
 
         //
 

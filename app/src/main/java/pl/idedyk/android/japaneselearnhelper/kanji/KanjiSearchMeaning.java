@@ -96,7 +96,7 @@ public class KanjiSearchMeaning extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_meaning);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_search_meaning));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_meaning));
 
 		kanjiSearchMeaningElementsNoTextView = (TextView)findViewById(R.id.kanji_search_meaning_elements_no);
 		
@@ -354,7 +354,7 @@ public class KanjiSearchMeaning extends Activity {
 	private void performSearch(final String findWord) {
 		
 		// logowanie
-		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(getString(R.string.logs_kanji_search_meaning), getString(R.string.logs_kanji_search_meaning_search_event), findWord);
+		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(this, getString(R.string.logs_kanji_search_meaning), getString(R.string.logs_kanji_search_meaning_search_event), findWord);
 			
 		searchResultList.clear();
 						

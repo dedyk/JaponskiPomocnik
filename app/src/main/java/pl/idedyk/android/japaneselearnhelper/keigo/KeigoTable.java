@@ -50,7 +50,7 @@ public class KeigoTable extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.keigo_table);
 		
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_keigo_table));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_keigo_table));
 
 		final LinearLayout mainLayout = (LinearLayout)findViewById(R.id.keigo_table_main_layout);
 		

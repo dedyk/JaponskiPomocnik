@@ -1,5 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.data;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,13 +11,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import pl.idedyk.japanese.dictionary.api.android.queue.event.IQueueEvent;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
-import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.utils.SQLiteDatabaseHelper;
-import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary.api.android.queue.factory.IQueueEventFactory;
 
 public class DataManager {
 
@@ -51,6 +51,10 @@ public class DataManager {
                 sqliteDatabase.execSQL(SQLiteStatic.user_groups_items_sql_index);
             }
 
+            if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase, "table", SQLiteStatic.queue_events_table_name) == false) {
+                sqliteDatabase.execSQL(SQLiteStatic.queue_events_sql_create);
+            }
+
         } catch (SQLException e) {
             throw new DataManagerException(e.toString());
         }
@@ -63,23 +67,23 @@ public class DataManager {
         }
     }
 
-    public void addUserGroup(UserGroupEntity userGroupEntity) {
+    public synchronized void addUserGroup(UserGroupEntity userGroupEntity) {
         sqliteDatabase.execSQL(SQLiteStatic.user_group_sql_insert,
                 new Object[] { userGroupEntity.getType().name(), userGroupEntity.getName() });
     }
 
-    public void updateUserGroup(UserGroupEntity userGroupEntity) {
+    public synchronized void updateUserGroup(UserGroupEntity userGroupEntity) {
         sqliteDatabase.execSQL(SQLiteStatic.user_group_sql_name_update, new Object[] { userGroupEntity.getName(), userGroupEntity.getId() });
     }
 
-    public void deleteUserGroup(UserGroupEntity userGroupEntity) {
+    public synchronized void deleteUserGroup(UserGroupEntity userGroupEntity) {
 
         for (String sql : SQLiteStatic.user_group_sql_delete) {
             sqliteDatabase.execSQL(sql, new Object[] { userGroupEntity.getId() });
         }
     }
 
-    public List<UserGroupEntity> getAllUserGroupList() {
+    public synchronized List<UserGroupEntity> getAllUserGroupList() {
 
         Cursor cursor = null;
 
@@ -139,7 +143,7 @@ public class DataManager {
         return result;
     }
 
-    public List<UserGroupEntity> findUserGroupEntity(UserGroupEntity.Type type, String name) {
+    public synchronized List<UserGroupEntity> findUserGroupEntity(UserGroupEntity.Type type, String name) {
 
         List<UserGroupEntity> allUserGroupList = getAllUserGroupList();
 
@@ -161,7 +165,7 @@ public class DataManager {
         return result;
     }
 
-    public UserGroupEntity getStarUserGroup() throws DataManagerException {
+    public synchronized UserGroupEntity getStarUserGroup() throws DataManagerException {
 
         List<UserGroupEntity> allUserGroupList = getAllUserGroupList();
 
@@ -175,7 +179,7 @@ public class DataManager {
         throw new DataManagerException("No star user group");
     }
 
-    public List<UserGroupEntity> getUserGroupEntityListForItemId(UserGroupEntity.Type userGroupEntityType, UserGroupItemEntity.Type userGroupItemEntityType, Integer itemId) {
+    public synchronized List<UserGroupEntity> getUserGroupEntityListForItemId(UserGroupEntity.Type userGroupEntityType, UserGroupItemEntity.Type userGroupItemEntityType, Integer itemId) {
 
         Cursor cursor = null;
 
@@ -191,12 +195,12 @@ public class DataManager {
         }
     }
 
-    public boolean isItemIdExistsInUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
+    public synchronized boolean isItemIdExistsInUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
         return isExists(SQLiteStatic.user_groups_items_sql_count_group_id_type_item_id, new String[] {
                 String.valueOf(userGroupEntity.getId()), type.name(), String.valueOf(itemId) });
     }
 
-    public void addItemIdToUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
+    public synchronized void addItemIdToUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
 
         boolean alreadyExists = isItemIdExistsInUserGroup(userGroupEntity, type, itemId);
 
@@ -205,7 +209,7 @@ public class DataManager {
         }
     }
 
-    public void deleteItemIdFromUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
+    public synchronized void deleteItemIdFromUserGroup(UserGroupEntity userGroupEntity, UserGroupItemEntity.Type type, Integer itemId) {
 
         boolean alreadyExists = isItemIdExistsInUserGroup(userGroupEntity, type, itemId);
 
@@ -214,7 +218,7 @@ public class DataManager {
         }
     }
 
-    public List<UserGroupItemEntity> getUserGroupItemListForUserEntity(UserGroupEntity userGroupEntity) {
+    public synchronized List<UserGroupItemEntity> getUserGroupItemListForUserEntity(UserGroupEntity userGroupEntity) {
 
         Cursor cursor = null;
 
@@ -279,6 +283,77 @@ public class DataManager {
         }
     }
 
+    public synchronized void addQueueEvent(IQueueEvent queueEvent) {
+
+        ContentValues values = new ContentValues();
+
+        values.put(SQLiteStatic.queue_events_column_userId, queueEvent.getUserId());
+        values.put(SQLiteStatic.queue_events_column_operation, queueEvent.getQueryEventOperation().toString());
+        values.put(SQLiteStatic.queue_events_column_createDate, queueEvent.getCreateDateAsString());
+        values.put(SQLiteStatic.queue_events_column_params, queueEvent.getParamsAsString());
+
+        long id = sqliteDatabase.insert(SQLiteStatic.queue_events_table_name, null, values);
+
+        queueEvent.setId(id);
+    }
+
+    public synchronized List<IQueueEvent> getQueueEventList(IQueueEventFactory queueEventFactory) {
+
+        if (sqliteDatabase.isOpen() == false) {
+            return new ArrayList<>();
+        }
+
+        Cursor cursor = null;
+
+        try {
+            cursor = sqliteDatabase.rawQuery(SQLiteStatic.queue_events_sql_select, new String[] { });
+
+            return createQueueEventListFromCursor(queueEventFactory, cursor);
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    private List<IQueueEvent> createQueueEventListFromCursor(IQueueEventFactory queueEventFactory, Cursor cursor) {
+
+        List<IQueueEvent> result = new ArrayList<>();
+
+        boolean moveToFirst = cursor.moveToFirst();
+
+        if (moveToFirst == false) {
+            return result;
+        }
+
+        do {
+            Long id = cursor.getLong(0);
+            String userId = cursor.getString(1);
+            String operation = cursor.getString(2);
+            String createDate = cursor.getString(3);
+            String params = cursor.getString(4);
+
+            IQueueEvent queueEvent = queueEventFactory.createQueueEvent(id, userId, operation, createDate, params);
+
+            if (queueEvent != null) {
+                result.add(queueEvent);
+            }
+
+        } while (cursor.moveToNext());
+
+        return result;
+    }
+
+    public synchronized void deleteQueueEvent(IQueueEvent queueEvent) {
+
+        if (sqliteDatabase.isOpen() == false) {
+            return;
+        }
+
+        sqliteDatabase.execSQL(SQLiteStatic.queue_events_sql_delete_id, new Object[] { queueEvent.getId() });
+    }
+
     private static class SQLiteStatic {
 
         public static final String user_groups_table_name = "user_groups";
@@ -298,6 +373,16 @@ public class DataManager {
 
         //
 
+        public static final String queue_events_table_name = "queue_events";
+
+        public static final String queue_events_column_id = "id";
+        public static final String queue_events_column_userId = "userId";
+        public static final String queue_events_column_operation = "operation";
+        public static final String queue_events_column_createDate = "createDate";
+        public static final String queue_events_column_params = "params";
+
+        //
+
         public static final String user_groups_sql_create =
                 "create table " + user_groups_table_name + "(" +
                         user_groups_column_id + " integer primary key, " +
@@ -313,6 +398,15 @@ public class DataManager {
                         user_groups_items_column_type + " varchar(30) not null, " +
                         user_groups_items_column_item_id + " integer not null, " +
                         "foreign key (" + user_groups_items_column_user_group_id + ") references " + user_groups_table_name + "(" + user_groups_column_id + "));";
+
+        public static final String queue_events_sql_create =
+                "create table " + queue_events_table_name + "(" +
+                        queue_events_column_id + " integer primary key, " +
+                        queue_events_column_userId + " varchar(40) not null, " +
+                        queue_events_column_operation + " varchar(50) not null, " +
+                        queue_events_column_createDate + " text not null, " +
+                        queue_events_column_params + " text null);";
+
 
         public static final String user_groups_items_sql_index =
                 String.format("create index %s_%s_%s_%s_idx on %s(%s,%s,%s)", user_groups_items_table_name,
@@ -360,5 +454,13 @@ public class DataManager {
 
         public static final String user_groups_items_sql_get_list_for_user_group =
                 String.format("select * from %s where %s = ?", user_groups_items_table_name, user_groups_items_column_user_group_id);
+
+        //
+
+        public static final String queue_events_sql_select =
+                String.format("select * from %s order by %s limit 10", queue_events_table_name, queue_events_column_id);
+
+        public static final String queue_events_sql_delete_id =
+                String.format("delete from %s where %s = ?", queue_events_table_name, queue_events_column_id);
     }
 }

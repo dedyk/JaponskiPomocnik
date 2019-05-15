@@ -52,7 +52,7 @@ public class KanjiSearchStrokeCountResult extends Activity {
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_stroke_count_result);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(getString(R.string.logs_kanji_search_stroke_count_result));
+		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_stroke_count_result));
 
 		final Object[] kanjiStrokeCountResult = (Object[])getIntent().getSerializableExtra("kanjiStrokeCountResult");
 		
