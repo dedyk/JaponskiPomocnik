@@ -1370,6 +1370,8 @@
 86478,jpn,彼女は約２０分で化粧をした。
 86489,jpn,彼女は夜、学校に通っている。
 86514,jpn,彼女は目をそらした。
+86521,jpn,彼女は目に涙を浮かべて入ってきた。
+86522,jpn,彼女は目に涙を浮かべてその話をした。
 86530,jpn,彼女は目ざめた。
 86546,jpn,彼女は面白いお話を作るのが得意である。
 86555,jpn,彼女は明らかに美人だが欠点もある。
@@ -4188,6 +4190,7 @@
 115508,jpn,彼は、私の提案を拒絶した。
 115513,jpn,彼は、私の２倍の年齢です。
 115520,jpn,彼は、私が信じるに、約束を守る人です。
+115523,jpn,彼は、死んだも同然である。
 115551,jpn,彼は、決して約束を破らない。
 115559,jpn,彼は、喫煙のくせがついた。
 115572,jpn,彼は、家族を犠牲にして仕事をした。
@@ -9895,6 +9898,7 @@
 177733,jpn,君はその事実を考慮に入れる必要はない。
 177738,jpn,君はその試合を見ましたか。
 177739,jpn,君はその紙を切りましたか。
+177741,jpn,君はその仕事を今した方がよい。
 177746,jpn,君はその件で僕に謝らなければならない。
 177752,jpn,君はその計画をやり通さなければならない。
 177757,jpn,君はその救済事業の資金を集めなければならない。
@@ -15694,6 +15698,8 @@
 232551,jpn,あなたはそれを自分でやらなければならない。
 232563,jpn,あなたはそれが何か知っていますか。
 232582,jpn,あなたはその窓を開けることが出来ますか。
+232612,jpn,あなたはその機会を利用したほうが良い。
+232615,jpn,あなたはその機会をぜひ利用すべきだ。
 232619,jpn,あなたはそのボタンを軽く押しさえすればよい。
 232620,jpn,あなたはそのボタンを押しさえすれば良い。
 232624,jpn,あなたはそのチームを誰が生み出したか知っていますか。
@@ -15704,6 +15710,7 @@
 232638,jpn,あなたはそこで彼女に会ったのですか。
 232645,jpn,あなたはスケートができますか。
 232647,jpn,あなたはすぐ日本食になれますよ。
+232649,jpn,あなたはすぐ自分の宿題をした方がよい。
 232651,jpn,あなたはすぐ医者に診てもらわねばならない。
 232660,jpn,あなたはすぐに出発したほうがよい。
 232662,jpn,あなたはすぐに宿題をしなければならない。
@@ -21268,6 +21275,7 @@
 543390,pol,Twoje słowa zachęty znaczyły wiele dla mnie.
 543395,pol,Oprowadził mnie po parku.
 543493,pol,Na pokładzie samolotu było 150 pasażerów.
+543727,pol,Ze łzami w oczach opowiadała tą historię.
 544393,pol,Szliśmy wzdłuż plaży.
 544395,pol,Czy pożyczysz mi trochę pieniędzy?
 544396,pol,"To nie jest powód, aby się irytować."
@@ -23984,6 +23992,7 @@
 776351,pol,Stan pacjentów zmienia się z każdym dniem.
 776352,pol,Spotkałem na ulicy grupę studentów.
 776353,pol,"Miałem ze sobą parasol, ale mój przyjaciel nie miał."
+776356,pol,Możesz równie dobrze wykonać zadanie teraz.
 776357,pol,Nie da się być za bardzo ostrożnym jadąc rowerem.
 776363,pol,Tom schował się pod stołem.
 776450,pol,"To, co powiedziała nie miało sensu."
@@ -29503,6 +29512,7 @@
 3038573,pol,Musisz znać siebie.
 3038574,pol,Powinieneś wykonać swój własny plan.
 3039557,pol,Podnieś ołówek z podłogi.
+3041384,pol,Lepiej wykorzystaj okazję.
 3041387,pol,"Wszystko, co mam zrobić, to nacisnąć przycisk."
 3041395,pol,Masz tylko nacisnąć przycisk.
 3041397,pol,"Wiesz, kto powołał ten zespół do życia?"
@@ -29512,6 +29522,7 @@
 3041410,pol,Widziałeś ją tam?
 3041418,pol,Umiesz jeździć na łyżwach?
 3041420,pol,Niedługo przyzwyczaisz się do japońskiego jedzenia.
+3041422,pol,Lepiej od razu zrób zadanie domowe.
 3041428,pol,"Choroba zazwyczaj ma sporo przyczyn, nie tylko jedną."
 3041429,pol,"Co powinniśmy zrobić z ludźmi, którzy są ciężko chorzy lub ranni i nie polepsza im się?"
 3041433,pol,Możemy zapobiegać chorobom?
@@ -29848,6 +29859,7 @@
 3116123,jpn,雨がやむまで待とう。
 3116521,pol,Z daleka ten kamień wygląda jak ludzka twarz.
 3116531,pol,Mocno padało przez cały dzień.
+3116540,pol,Weszła ze łzami w oczach.
 3116546,pol,Innego dnia odkryłem książkę napisaną przez mojego ojca.
 3116547,pol,Będzie mi miło pokazać ci miasto.
 3116549,pol,Rozmawialiśmy ze sobą przez cały czas.
@@ -30887,6 +30899,7 @@
 3782976,pol,"Wyjaśnił, dlaczego był nieobecny."
 3782980,pol,Mieszka w dużym domu.
 3783049,pol,"Tak w ogóle, skąd jesteś?"
+3788221,pol,On jest praktycznie martwy.
 3788259,pol,Proszę nie zapomnieć o załączeniu swojego zdjęcia do formularza aplikacyjnego.
 3788513,pol,"On nie potrafi nawet czytać, nie mówiąc już o pisaniu."
 3789742,pol,Musisz dotrzymać obietnicy.
