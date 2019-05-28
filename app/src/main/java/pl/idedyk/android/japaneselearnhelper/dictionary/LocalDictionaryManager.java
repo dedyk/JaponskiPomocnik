@@ -347,7 +347,15 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	            	 throw new IOException("Zip input directory file is not supported");
 	             }
 
-	             FileOutputStream fout = new FileOutputStream(new File(dbLuceneFile, filename));
+				 File file = new File(dbLuceneFile, filename);
+
+	             String fileCanonicalPath = file.getCanonicalPath();
+
+				 if (fileCanonicalPath.startsWith(dbLuceneFile.getPath()) == false) {
+				 	throw new SecurityException("Incorrect zip");
+				 }
+
+	             FileOutputStream fout = new FileOutputStream(file);
 
 	             while ((count = zis.read(buffer)) != -1) {
 	                 fout.write(buffer, 0, count);             
