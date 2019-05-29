@@ -478,6 +478,11 @@ public class DictionaryHear extends Activity {
 					break;
 				}
 
+				// logowanie
+				JapaneseAndroidLearnHelperApplication.getInstance().logEvent(DictionaryHear.this, getString(R.string.logs_dictionary_hear), getString(R.string.logs_dictionary_hear_in_progress), null);
+
+				//
+
 				DictionaryEntry currentDictionaryEntry = dictionaryEntryList.get(dictionaryEntryListIdx);
 
 				publishProgress(new SpeakAsyncTaskStatus(currentDictionaryEntry, dictionaryEntryListIdx,

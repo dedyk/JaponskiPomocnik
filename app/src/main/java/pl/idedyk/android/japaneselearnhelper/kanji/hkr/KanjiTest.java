@@ -436,6 +436,10 @@ public class KanjiTest extends Activity {
 
 	private void processAnswer(boolean correctAnswer, final String correctKanji, TestAnswer testAnswer) {
 
+		// logowanie
+		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(this, getString(R.string.logs_kanji_test), getString(R.string.logs_kanji_test_check), null);
+
+
 		final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getDictionaryManager(this);
 

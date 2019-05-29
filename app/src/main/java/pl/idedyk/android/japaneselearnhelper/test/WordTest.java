@@ -202,6 +202,11 @@ public class WordTest extends Activity {
 	@SuppressWarnings("deprecation")
 	private void checkUserAnswer() {
 
+		// logowanie
+		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(this, getString(R.string.logs_word_test), getString(R.string.logs_word_test_check), null);
+
+		//
+
 		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getContext();
 		final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();

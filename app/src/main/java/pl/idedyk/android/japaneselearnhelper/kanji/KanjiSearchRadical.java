@@ -260,7 +260,10 @@ public class KanjiSearchRadical extends Activity {
 			
 			@Override
 			protected PrepareAsyncTaskResult doInBackground(Void... params) {
-				
+
+				// logowanie
+				JapaneseAndroidLearnHelperApplication.getInstance().logEvent(KanjiSearchRadical.this, getString(R.string.logs_search_radical), getString(R.string.logs_search_radical_search_radical), selectedRadicals.toString());
+
 				String[] selectedRadicalsArray = new String[selectedRadicals.size()];
 				
 				selectedRadicals.toArray(selectedRadicalsArray);

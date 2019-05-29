@@ -510,6 +510,9 @@ public class KanaTest extends Activity {
 	private void checkUserAnswer(final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext,
 			final boolean untilSuccess, String userAnswer) {
 
+		// logowanie
+		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(this, getString(R.string.logs_kana_test), getString(R.string.logs_kana_test_answer_check), null);
+
 		KanaTestConfig kanaTestConfig = JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this)
 				.getKanaTestConfig();
 
