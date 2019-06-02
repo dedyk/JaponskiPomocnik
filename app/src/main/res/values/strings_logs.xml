@@ -2,11 +2,13 @@
 <resources>
     <string name="logs_counters">Klasyfikatory</string>
     <string name="logs_dictionary_hear">Słuchanie słów</string>
+    <string name="logs_dictionary_hear_in_progress">Słuchanie słów</string>
     <string name="logs_dictionary_hear_options">Opcje słuchania słów</string>
     <string name="logs_info">Informacje</string>
     <string name="logs_main_menu">Menu główne</string>
     <string name="logs_kana">Kana</string>
     <string name="logs_kana_test">Kana test</string>
+    <string name="logs_kana_test_answer_check">Kana test - sprawdzanie</string>
     <string name="logs_kana_test_options">Opcje testu kana</string>
     <string name="logs_kana_test_summary">Podsumowanie testu kana</string>
     <string name="logs_kanji_details">Szczegóły kanji</string>
@@ -15,10 +17,12 @@
     <string name="logs_kanji_search_meaning">Wyszukiwanie kanji po znaczeniu</string>
     <string name="logs_kanji_search_meaning_search_event">Wyszukiwanie kanji po znaczeniu</string>
     <string name="logs_search_radical">Wyszukiwanie kanji po elementach podstawowych</string>
+    <string name="logs_search_radical_search_radical">Uaktualnienie dostępnych elementów podstawowych w trakcie wyszukiwania kanji</string>
     <string name="logs_kanji_search_radical_result">Wynik wyszukiwania kanji po elementach podstawowych</string>
     <string name="logs_kanji_search_stroke_count">Wyszukiwanie kanji po liczbie kresek</string>
     <string name="logs_kanji_search_stroke_count_result">Wynik wyszukiwania kanji po liczbie kresek</string>
     <string name="logs_kanji_test">Test kanji</string>
+    <string name="logs_kanji_test_check">Test kanji - sprawdzanie</string>
     <string name="logs_kanji_test_options">Opcje testu kanji</string>
     <string name="logs_kanji_test_summary">wynik testu kanji</string>
     <string name="logs_keigo_table">Tablica keigo</string>
@@ -28,8 +32,10 @@
     <string name="logs_word_dictionary_search_event">Wyszukiwanie słów</string>
     <string name="logs_word_dictionary_details">Szczegóły słowa</string>
     <string name="logs_word_test">Test ze słówek</string>
+    <string name="logs_word_test_check">Test ze słówek - sprawdzanie</string>
     <string name="logs_word_test_options">Opcje testu ze słówek</string>
     <string name="logs_word_test_sm2">Test ze słówek metodą sm2</string>
+    <string name="logs_word_test_sm2_check">Test ze słówek metodą sm2 - sprawdzanie</string>
     <string name="logs_word_test_sm2_options">Opcje testu ze słówek metodą sm2</string>
     <string name="logs_word_test_summary">Podsumowanie testu ze słówek</string>
     <string name="logs_user_group">Grupy użytkownika</string>

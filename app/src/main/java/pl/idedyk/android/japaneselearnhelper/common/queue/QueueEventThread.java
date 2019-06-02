@@ -3,9 +3,11 @@ package pl.idedyk.android.japaneselearnhelper.common.queue;
 import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.util.Log;
 
 import java.util.List;
+import java.util.Locale;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.japanese.dictionary.api.android.queue.event.IQueueEvent;
@@ -136,6 +138,20 @@ public class QueueEventThread extends Thread {
     //
 
     public void addQueueEvent(Activity activity, IQueueEvent queueEvent) {
+
+        Locale locale = null;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            locale = activity.getResources().getConfiguration().getLocales().get(0);
+        } else{
+            locale = activity.getResources().getConfiguration().locale;
+        }
+
+        // uaktualniamy zdarzenie o informacje z jezyka uzytkownika
+        queueEvent.setLocaleCountry(locale.getDisplayCountry(Locale.ENGLISH));
+        queueEvent.setLocaleLanguage(locale.getDisplayLanguage(Locale.ENGLISH));
+
+        //
 
         DataManager dataManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(activity).getDataManager();
 

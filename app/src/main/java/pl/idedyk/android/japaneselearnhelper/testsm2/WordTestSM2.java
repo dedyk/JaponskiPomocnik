@@ -185,6 +185,11 @@ public class WordTestSM2 extends Activity {
 
 	private void checkUserAnswer() {
 
+		// logowanie
+		JapaneseAndroidLearnHelperApplication.getInstance().logEvent(this, getString(R.string.logs_word_test_sm2), getString(R.string.logs_word_test_sm2_check), null);
+
+		//
+
 		final WordTestSM2Config wordTestSM2Config = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getConfigManager(WordTestSM2.this).getWordTestSM2Config();
 
