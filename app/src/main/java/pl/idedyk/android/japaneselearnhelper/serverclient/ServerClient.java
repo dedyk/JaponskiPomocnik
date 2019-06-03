@@ -112,7 +112,7 @@ public class ServerClient {
 	
 	private String createUserAgent(PackageInfo packageInfo) {
 		
-		StringBuffer sb = new StringBuffer("JapaneseAndroidLearnHelper");
+		StringBuffer sb = new StringBuffer("JapaneseAndroidLearnHelperSlim");
 		
 		if (packageInfo != null) {			
 			sb.append("/" + packageInfo.versionCode + "/" + packageInfo.versionName);
