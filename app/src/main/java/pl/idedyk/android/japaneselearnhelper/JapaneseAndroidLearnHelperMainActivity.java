@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.config.ConfigManager;
 import pl.idedyk.android.japaneselearnhelper.counters.CountersActivity;
 import pl.idedyk.android.japaneselearnhelper.dictionaryhear.DictionaryHearOptions;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryTab;
@@ -14,6 +15,7 @@ import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestOptionsActivity;
 import pl.idedyk.android.japaneselearnhelper.keigo.KeigoTable;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.android.japaneselearnhelper.splash.Splash;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestOptions;
 import pl.idedyk.android.japaneselearnhelper.testsm2.WordTestSM2Options;
@@ -22,14 +24,19 @@ import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
 import pl.idedyk.japanese.dictionary.api.android.queue.event.StatEndAppEvent;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
@@ -47,6 +54,9 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 		// init menu actions
 		initMenuActions();
+
+		// check and show message for user
+		checkAndShowMessageForUser();
 	}
 
 	@Override
@@ -256,5 +266,76 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				}
 			}
 		});
+	}
+
+	public void checkAndShowMessageForUser() {
+
+		class GetMessageAsyncTask extends AsyncTask<Void, Void, ServerClient.GetMessageResult> {
+
+			@Override
+			protected ServerClient.GetMessageResult doInBackground(Void... params) {
+
+				PackageInfo packageInfo = null;
+
+				try {
+					packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+
+				} catch (NameNotFoundException e) {
+				}
+
+				// pobieramy komunikat
+				ServerClient serverClient = new ServerClient();
+
+				return serverClient.getMessage(packageInfo);
+			}
+
+			@Override
+			protected void onPostExecute(final ServerClient.GetMessageResult getMessageResult) {
+
+				// nic nie robimy
+				if (getMessageResult == null) {
+					return;
+				}
+
+				// sprawdzamy, czy nalezy wyswietlic komunikat
+				final ConfigManager.CommonConfig commonConfig = JapaneseAndroidLearnHelperApplication.getInstance()
+						.getConfigManager(JapaneseAndroidLearnHelperMainActivity.this).getCommonConfig();
+
+				String messageLastTimestamp = commonConfig.getMessageLastTimestamp();
+
+				// wyswietlamy, nowy komunikat
+				if (messageLastTimestamp == null || getMessageResult.timestamp.equals(messageLastTimestamp) == false) {
+
+					// wyswietlamy okienko
+					AlertDialog alertDialog = new AlertDialog.Builder(JapaneseAndroidLearnHelperMainActivity.this).create();
+
+					LayoutInflater layoutInflater = LayoutInflater.from(JapaneseAndroidLearnHelperMainActivity.this);
+
+					View alertDialogView = layoutInflater.inflate(R.layout.main_menu_message_for_user, null);
+
+					TextView alertDialogMessage = (TextView) alertDialogView.findViewById(R.id.main_menu_message_for_user_message);
+
+					alertDialogMessage.setText(getMessageResult.message);
+
+					alertDialog.setView(alertDialogView);
+					alertDialog.setCancelable(false);
+
+					alertDialog.setButton(getString(R.string.ok),
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									commonConfig.setMessageLastTimestamp(getMessageResult.timestamp);
+								}
+							});
+
+					if (isFinishing() == false) {
+						alertDialog.show();
+					}
+				}
+			}
+		}
+
+		new GetMessageAsyncTask().execute();
 	}
 }

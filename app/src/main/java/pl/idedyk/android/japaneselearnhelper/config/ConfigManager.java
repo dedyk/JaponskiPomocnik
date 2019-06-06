@@ -73,6 +73,8 @@ public class ConfigManager {
 
 		private final String userIdPostfix = "userId";
 
+		private final String messageLastTimestampPostfix = "messageLastTimestamp";
+
 		public String getOrGenerateUniqueUserId() {
 
 			String userId = preferences.getString(commonConfigPrefix + userIdPostfix, null);
@@ -90,6 +92,19 @@ public class ConfigManager {
 			}
 
 			return userId;
+		}
+
+		public String getMessageLastTimestamp() {
+			return preferences.getString(commonConfigPrefix + messageLastTimestampPostfix, null);
+		}
+
+		public void setMessageLastTimestamp(String messageLastTimestamp) {
+
+			Editor editor = preferences.edit();
+
+			editor.putString(commonConfigPrefix + messageLastTimestampPostfix, messageLastTimestamp);
+
+			editor.commit();
 		}
 	}
 	

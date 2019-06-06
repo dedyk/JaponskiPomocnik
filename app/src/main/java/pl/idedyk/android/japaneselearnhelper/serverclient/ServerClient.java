@@ -51,6 +51,7 @@ public class ServerClient {
 
 	private static final String SEND_MISSING_WORD_URL = PREFIX_URL + "/android/sendMissingWord";
 	private static final String SEARCH_URL = PREFIX_URL + "/android/search";
+	private static final String GET_MESSAGE_URL = PREFIX_URL + "/android/getMessage";
 
 	private static final String AUTOCOMPLETE_URL = PREFIX_URL + "/android/autocomplete";
 	
@@ -767,6 +768,99 @@ public class ServerClient {
 			Log.e("ServerClient", "Error sendQueueEvent: ", e);
 
 			return false;
+
+		} finally {
+
+			if (contentInputStreamReader != null) {
+
+				try {
+					contentInputStreamReader.close();
+
+				} catch (IOException e) {
+					// noop
+				}
+			}
+
+			if (httpURLConnection != null) {
+				httpURLConnection.disconnect();
+			}
+		}
+	}
+
+	public static class GetMessageResult {
+
+		public String message;
+
+		public String timestamp;
+	}
+
+	public GetMessageResult getMessage(PackageInfo packageInfo) {
+
+		boolean connected = isConnected();
+
+		if (connected == false) {
+			return null;
+		}
+
+		HttpURLConnection httpURLConnection = null;
+
+		BufferedReader contentInputStreamReader = null;
+
+		try {
+			httpURLConnection = callRemoteService(packageInfo, GET_MESSAGE_URL, new JSONObject().toString());
+
+			// sprawdz odpowiedz
+			int statusCode = httpURLConnection.getResponseCode();
+
+			if (statusCode < 200 || statusCode >= 300) {
+
+				Log.e("ServerClient", "Error search: " + httpURLConnection.getResponseCode() + " - " + httpURLConnection.getResponseMessage());
+
+				return null;
+			}
+
+			// pobierz odpowiedz
+			contentInputStreamReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+
+			StringBuffer jsonResponseSb = new StringBuffer();
+
+			while (true) {
+				String readLine = contentInputStreamReader.readLine();
+
+				if (readLine == null) {
+					break;
+				}
+
+				jsonResponseSb.append(readLine);
+			}
+
+			if (jsonResponseSb.length() == 0) {
+				return null;
+			}
+
+			JSONObject responseJSON = new JSONObject(jsonResponseSb.toString());
+
+			String message = responseJSON.optString("message");
+			String timestamp = responseJSON.optString("timestamp");
+
+			// mamy jakis komunikat
+			if (message != null && message.trim().equals("") == false && timestamp != null && timestamp.trim().equals("") == false) {
+
+				GetMessageResult getMessageResult = new GetMessageResult();
+
+				getMessageResult.message = message.trim();
+				getMessageResult.timestamp = timestamp.trim();
+
+				return getMessageResult;
+
+			} else {
+				return null;
+			}
+
+		} catch (Exception e) {
+			Log.e("ServerClient", "Error search: ", e);
+
+			return null;
 
 		} finally {
 
