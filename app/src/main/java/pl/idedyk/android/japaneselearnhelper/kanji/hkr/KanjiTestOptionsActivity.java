@@ -374,28 +374,24 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				kanjiTestConfig.setDedicateExample(dedicateExampleCheckBox.isChecked());
 
-				final List<KanjiEntry> kanjiEntryList = new ArrayList<KanjiEntry>();
-
 				List<String> chosenKanjiList = new ArrayList<String>();
 
 				for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
-
-					// get kanji with details
-
-					try {
-						currentCheckBoxKanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance()
-								.getDictionaryManager(KanjiTestOptionsActivity.this)
-								.findKanji(currentCheckBoxKanjiEntry.getKanji());
-
-					} catch (DictionaryException e) {
-
-						Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
-
-						return;
-					}
-
 					chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
-					kanjiEntryList.add(currentCheckBoxKanjiEntry);
+				}
+
+				// find kanji entry list / get kanji with details
+				final List<KanjiEntry> kanjiEntryList;
+
+				try {
+					kanjiEntryList = JapaneseAndroidLearnHelperApplication.getInstance()
+							.getDictionaryManager(KanjiTestOptionsActivity.this)
+							.findKanjiList(chosenKanjiList);
+				} catch (DictionaryException e) {
+
+					Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+					return;
 				}
 
 				kanjiTestConfig.setChosenKanji(chosenKanjiList);
