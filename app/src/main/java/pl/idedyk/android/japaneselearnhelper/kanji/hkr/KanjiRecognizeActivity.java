@@ -174,25 +174,19 @@ public class KanjiRecognizeActivity extends Activity {
 							zinniaCharacter.destroy();
 						}
 
-						List<KanjiEntry> kanjiEntries = new ArrayList<KanjiEntry>();
-						
+						List<String> findKanjiListRequest = new ArrayList<>();
+
 						for (KanjiRecognizerResultItem currentRecognizeResult : recognizeResult) {
+							findKanjiListRequest.add(currentRecognizeResult.getKanji());
+						}
 
-							KanjiEntry kanjiEntry = null;
+						List<KanjiEntry> kanjiEntries = null;
 
-							try {
-								kanjiEntry = dictionaryManager.findKanji(currentRecognizeResult.getKanji());
-
-							} catch (DictionaryException e) {
-								return new RecognizeAsyncTaskResult(e);
-							}
-							
-							if (kanjiEntry == null) {
-								throw new RuntimeException("kanjiEntry == null: " + currentRecognizeResult.getKanji());
-							}
-							
-							kanjiEntries.add(kanjiEntry);							
-						}						
+						try {
+							kanjiEntries = dictionaryManager.findKanjiList(findKanjiListRequest);
+						} catch (DictionaryException e) {
+							return new RecognizeAsyncTaskResult(e);
+						}
 
 						return new RecognizeAsyncTaskResult(kanjiEntries);
 					}
