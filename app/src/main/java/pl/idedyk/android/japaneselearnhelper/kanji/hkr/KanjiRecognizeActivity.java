@@ -165,7 +165,7 @@ public class KanjiRecognizeActivity extends Activity {
 						List<KanjiRecognizerResultItem> recognizeResult = null;
 
 						try {
-							recognizeResult = zinniaCharacter.recognize(50);
+							recognizeResult = zinniaCharacter.recognize(100);
 
 						} catch (DictionaryException e) {
 							return new RecognizeAsyncTaskResult(e);
