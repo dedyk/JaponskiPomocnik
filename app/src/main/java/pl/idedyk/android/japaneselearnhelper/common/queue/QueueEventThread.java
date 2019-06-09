@@ -147,6 +147,11 @@ public class QueueEventThread extends Thread {
             locale = activity.getResources().getConfiguration().locale;
         }
 
+        //uaktualniamy informacje o urzadzeniu i wersji androida
+        queueEvent.setAndroidDeviceManufacturer(Build.MANUFACTURER);
+        queueEvent.setAndroidDeviceModel(Build.MODEL);
+        queueEvent.setAndroidVersion(Build.VERSION.RELEASE);
+
         // uaktualniamy zdarzenie o informacje z jezyka uzytkownika
         queueEvent.setLocaleCountry(locale.getDisplayCountry(Locale.ENGLISH));
         queueEvent.setLocaleLanguage(locale.getDisplayLanguage(Locale.ENGLISH));
