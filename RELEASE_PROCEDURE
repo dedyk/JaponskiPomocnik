@@ -11,4 +11,4 @@
 11. git pull ; git push ; git push --tag
 12. ./clean.sh
 13. ./generate-result-db.sh
-14. ./gradlew clean assembleRelease | ./gradlew clean bundleRelease
+14. ./gradlew clean assembleRelease bundleRelease
