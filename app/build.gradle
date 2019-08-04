@@ -14,17 +14,17 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 android {
     dataBinding.enabled = true
 
-    compileSdkVersion 26
+    compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "pl.idedyk.android.japaneselearnhelper.slim"
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion 28
         multiDexEnabled true
 
-        versionCode 654
-        versionName "20190609"
+        versionCode 662
+        versionName "20190804"
     }
 
     signingConfigs {
