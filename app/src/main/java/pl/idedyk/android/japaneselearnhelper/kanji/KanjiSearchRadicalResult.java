@@ -69,19 +69,20 @@ public class KanjiSearchRadicalResult extends Activity {
 
 		// konfiguracja zakladek
 		TabHost host = (TabHost)findViewById(R.id.kanji_entry_search_radical_tab_host);
+
 		host.setup();
 
 		// Zakladka ogolna
-		TabHost.TabSpec tabGeneral = host.newTabSpec("Tab One - FIXME!");
-		tabGeneral.setContent(R.id.kanji_entry_search_radical_tab_content_tab1);
-		tabGeneral.setIndicator("Tab One - FIXME");
-		host.addTab(tabGeneral);
+		TabHost.TabSpec generalTab = host.newTabSpec(getString(R.string.kanji_entry_search_radical_generalTab_label));
+		generalTab.setContent(R.id.kanji_entry_search_radical_tab_content_tab1);
+		generalTab.setIndicator(getString(R.string.kanji_entry_search_radical_generalTab_label));
+		host.addTab(generalTab);
 
-		// Zakladka ze szczegolami
-		TabHost.TabSpec tabDetails = host.newTabSpec("Tab Two - FIXME!");
-		tabDetails.setContent(R.id.kanji_entry_search_radical_tab_content_tab2);
-		tabDetails.setIndicator("Tab Two - FIXME");
-		host.addTab(tabDetails);
+		// Zakladka ze szczegolami (lista)
+		TabHost.TabSpec detailsTab = host.newTabSpec(getString(R.string.kanji_entry_search_radical_detailsTab_label));
+		detailsTab.setContent(R.id.kanji_entry_search_radical_tab_content_tab2);
+		detailsTab.setIndicator(getString(R.string.kanji_entry_search_radical_detailsTab_label));
+		host.addTab(detailsTab);
 
 		// wypelnianie zawartosci
 
@@ -196,6 +197,9 @@ public class KanjiSearchRadicalResult extends Activity {
 		reportProblemButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {
+
+				// FIXME !!!!!!!!!!!!!!!!1
+				int fixme = 1;
 								
 				StringBuffer searchListText = new StringBuffer();
 				

@@ -38,6 +38,8 @@
     <string name="kanji_search_meaning_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu znaczenia kanji</string>
     <string name="kanji_search_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n\n</string>
     <string name="kanji_entry_search_radical_label">Wybrane elementy podstawowe</string>
+    <string name="kanji_entry_search_radical_generalTab_label">Ogólny wynik</string>
+    <string name="kanji_entry_search_radical_detailsTab_label">Ogólny szczegółowy</string>
     <string name="kanji_entry_elements_no">Liczba elementów: %1$s</string>
     <string name="kanji_entry_search_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_entry_search_result_view_label">Znalezione kanji</string>
