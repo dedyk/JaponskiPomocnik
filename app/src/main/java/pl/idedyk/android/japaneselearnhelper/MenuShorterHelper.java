@@ -24,7 +24,7 @@ public class MenuShorterHelper {
 		menu.add(Menu.NONE, R.id.main_menu_transitive_intransitive_pairs_table_text_menu_item, Menu.NONE, R.string.main_menu_transitive_intransitive_pairs_table_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_dictionary_text_menu_item, Menu.NONE, R.string.main_menu_dictionary_text);
 		menu.add(Menu.NONE, R.id.main_menu_kanji_text_menu_item, Menu.NONE, R.string.main_menu_kanji_text_short);
-		menu.add(Menu.NONE, R.id.main_menu_kanji_recognizer_text_menu_item, Menu.NONE, R.string.main_menu_kanji_recognizer_text_short);
+		// menu.add(Menu.NONE, R.id.main_menu_kanji_recognizer_text_menu_item, Menu.NONE, R.string.main_menu_kanji_recognizer_text_short);
 		menu.add(Menu.NONE, R.id.main_menu_show_user_group_menu_item, Menu.NONE, R.string.main_menu_show_user_group_text);
 	}
 	
@@ -73,14 +73,14 @@ public class MenuShorterHelper {
 			activity.startActivity(intent);
 			
 			return true;
-		} else if (itemId == R.id.main_menu_kanji_recognizer_text_menu_item) { // kanji recognize
+		/* } else if (itemId == R.id.main_menu_kanji_recognizer_text_menu_item) { // kanji recognize
 			
 			Intent intent = new Intent(applicationContext, KanjiRecognizeActivity.class);
 
 			activity.startActivity(intent);	
 			
 			return true;
-
+		*/
 		} else if (itemId == R.id.main_menu_show_user_group_menu_item) { // pokaz grupy uzytkownika
 
 			Intent intent = new Intent(applicationContext, UserGroupActivity.class);
