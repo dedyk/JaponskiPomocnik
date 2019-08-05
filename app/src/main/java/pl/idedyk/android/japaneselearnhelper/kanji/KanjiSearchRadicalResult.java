@@ -191,7 +191,8 @@ public class KanjiSearchRadicalResult extends Activity {
 		}
 		
 		new FindKanjiAsyncTask().execute();
-		
+
+		/*
 		Button reportProblemButton = (Button)findViewById(R.id.kanji_entry_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new View.OnClickListener() {
@@ -231,5 +232,6 @@ public class KanjiSearchRadicalResult extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 }

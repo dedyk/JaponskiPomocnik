@@ -70,6 +70,7 @@ public class KeigoTable extends Activity {
 		// fill mail layout
 		fillMainLayout(report, mainLayout);
 
+		/*
 		// report problem
 		Button reportProblemButton = (Button)findViewById(R.id.keigo_table_report_problem_button);
 		
@@ -106,7 +107,8 @@ public class KeigoTable extends Activity {
 				
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
-		});	
+		});
+		*/
 	}
 	
 	private void addKeigoHighEntryList(List<IScreenItem> report, KeigoHelper keigoHelper) {

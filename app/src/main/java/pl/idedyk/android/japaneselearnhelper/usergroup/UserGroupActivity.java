@@ -117,7 +117,7 @@ public class UserGroupActivity extends Activity {
 
         //
 
-        createReportProblemButton();
+        // createReportProblemButton();
     }
 
     @Override
@@ -516,6 +516,7 @@ public class UserGroupActivity extends Activity {
         }
     }
 
+    /*
     private void createReportProblemButton() {
 
         Button reportProblemButton = (Button)findViewById(R.id.user_group_report_problem_button);
@@ -554,4 +555,5 @@ public class UserGroupActivity extends Activity {
             }
         });
     }
+    */
 }

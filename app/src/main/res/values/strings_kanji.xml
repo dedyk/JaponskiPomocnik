@@ -156,6 +156,7 @@
     <string name="kanji_test_quit_question_yes">Tak</string>
     <string name="kanji_test_quit_question_no">Nie</string>
     <string name="kanji_search_type_radical">Elementy podstawowe</string>
+    <string name="kanji_search_type_kanji_recognizer">Rozpoznawanie kanji</string>
     <string name="kanji_search_stroke_count">Liczba kresek</string>
     <string name="kanji_search_stroke_count_from_incorrect">Niepoprawna wartość pola od: \'%1$s\'</string>
     <string name="kanji_search_stroke_count_to_incorrect">Niepoprawna wartość pola do: \'%1$s\'</string>
@@ -184,4 +185,5 @@
     <string name="kanji_search_meaning_searching2">Proszę czekać</string>
     <string name="kanji_search_meaning_suggestion_title">Nie znaleziono wyników, czy chodziło Ci o:</string>
     <string name="kanji_search_meaning_show_history_title">Historia wyszukiwania:</string>
+    <string name="kanji_search_info">Górne menu jest przesuwalne.</string>
 </resources>

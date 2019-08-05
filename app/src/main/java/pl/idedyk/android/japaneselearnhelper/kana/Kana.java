@@ -73,6 +73,7 @@ public class Kana extends Activity {
 
 		fillMainLayout(screenItems, mainTableLayout);
 
+		/*
 		Button reportProblemButton = (Button) findViewById(R.id.word_kana_report_problem_button);
 
 		reportProblemButton.setOnClickListener(new OnClickListener() {
@@ -110,6 +111,7 @@ public class Kana extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 
 	private void generateHiraganaTable(List<IScreenItem> screenItems, Map<String, KanaEntry> kanaCache, Typeface babelStoneHanTypeface) {

@@ -3,13 +3,20 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
+
 import android.app.TabActivity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+import android.widget.TextView;
+import android.widget.Toast;
 
 @SuppressWarnings("deprecation")
 public class KanjiSearch extends TabActivity {
@@ -46,13 +53,13 @@ public class KanjiSearch extends TabActivity {
 
 		tabHost.addTab(kanjiSearchRadicalTabSpec);
 
-		// kanji search stroke count
-		Intent kanjiSearchStrokeCountIntent = new Intent().setClass(this, KanjiSearchStrokeCount.class);
+		// kanji recognizer
+		Intent kanjiRecognizeIntent = new Intent().setClass(this, KanjiRecognizeActivity.class);
 
-		TabSpec kanjiSearchStrokeCountTabSpec = tabHost.newTabSpec("KanjiSearchStrokeCount")
-				.setIndicator(getString(R.string.kanji_search_stroke_count)).setContent(kanjiSearchStrokeCountIntent);
+		TabSpec kanjiRecognizeTabSpec = tabHost.newTabSpec("kanjiRecognizeTab")
+				.setIndicator(getString(R.string.kanji_search_type_kanji_recognizer)).setContent(kanjiRecognizeIntent);
 
-		tabHost.addTab(kanjiSearchStrokeCountTabSpec);
+		tabHost.addTab(kanjiRecognizeTabSpec);
 
 		// kanji search meaning
 		Intent kanjiSearchMeaningIntent = new Intent().setClass(this, KanjiSearchMeaning.class);
@@ -62,6 +69,18 @@ public class KanjiSearch extends TabActivity {
 
 		tabHost.addTab(kanjiSearchMeaningTabSpec);
 
+		// kanji search stroke count
+		Intent kanjiSearchStrokeCountIntent = new Intent().setClass(this, KanjiSearchStrokeCount.class);
+
+		TabSpec kanjiSearchStrokeCountTabSpec = tabHost.newTabSpec("KanjiSearchStrokeCount")
+				.setIndicator(getString(R.string.kanji_search_stroke_count)).setContent(kanjiSearchStrokeCountIntent);
+
+		tabHost.addTab(kanjiSearchStrokeCountTabSpec);
+
 		tabHost.setCurrentTab(0);
+
+		//
+
+		Toast.makeText(this, getString(R.string.kanji_search_info), Toast.LENGTH_SHORT).show();
 	}
 }

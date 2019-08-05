@@ -10,11 +10,23 @@
         android:orientation="vertical"
         android:padding="5dp" >
 
-        <TabWidget
-            android:id="@android:id/tabs"
+        <HorizontalScrollView
+            android:id="@+id/kanji_search_horizontal_scroll_view"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
-        </TabWidget>
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="horizontal"
+            android:fadingEdgeLength="100dp"
+            android:overScrollMode="always"
+            android:requiresFadingEdge="horizontal">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </TabWidget>
+
+        </HorizontalScrollView>
 
         <FrameLayout
             android:id="@android:id/tabcontent"

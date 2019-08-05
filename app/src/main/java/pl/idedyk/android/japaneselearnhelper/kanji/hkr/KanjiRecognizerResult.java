@@ -105,7 +105,8 @@ public class KanjiRecognizerResult extends Activity {
 				}				
 			}
 		});
-		
+
+		/*
 		Button reportProblemButton = (Button)findViewById(R.id.kanji_recognizer_result_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new View.OnClickListener() {
@@ -142,5 +143,6 @@ public class KanjiRecognizerResult extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 }

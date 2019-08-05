@@ -483,6 +483,7 @@ public class DictionaryHearOptions extends Activity {
 			}
 		});
 
+		/*
 		// report problem button
 		Button reportProblemButton = (Button) findViewById(R.id.dictionary_hear_options_report_problem_button);
 
@@ -561,6 +562,7 @@ public class DictionaryHearOptions extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 	
 	@Override
