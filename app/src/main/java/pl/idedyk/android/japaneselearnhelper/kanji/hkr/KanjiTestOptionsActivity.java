@@ -891,6 +891,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			}
 		});
 
+		/*
 		Button reportProblemButton = (Button) findViewById(R.id.kanji_test_options_report_problem_button);
 
 		reportProblemButton.setOnClickListener(new OnClickListener() {
@@ -966,7 +967,7 @@ public class KanjiTestOptionsActivity extends Activity {
 							.append("\n");
 				}
 
-				/*
+				/ *
 				// stary mechanizm wlasnych grup
 				final TextView chooseOwnKanjiGroup = (TextView)findViewById(R.id.kanji_test_options_choose_own_kanji_group);
 				
@@ -982,7 +983,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								.append("\n");
 					}					
 				}
-				*/
+				* /
 				
 				detailsSb.append("\n***" + chosenKanjiTextView.getText() + "***\n\n");
 
@@ -1019,6 +1020,7 @@ public class KanjiTestOptionsActivity extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 
 		// loading kanji
 

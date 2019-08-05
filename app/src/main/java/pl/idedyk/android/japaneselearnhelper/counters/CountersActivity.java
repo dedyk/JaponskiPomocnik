@@ -187,7 +187,8 @@ public class CountersActivity extends Activity {
 		
 		// fill mail layout
 		fillMainLayout(report, mainLayout);
-		
+
+		/*
 		// report problem
 		Button reportProblemButton = (Button)findViewById(R.id.counters_report_problem_button);
 		
@@ -224,7 +225,8 @@ public class CountersActivity extends Activity {
 				
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
-		});		
+		});
+		*/
 	}
 	
 	@Override

@@ -214,7 +214,8 @@ public class KanaTestOptions extends Activity {
 		result.add(new StringValue("", 12.0f, 0));
 		
 		result.add(startButton);
-		
+
+		/*
 		Button reportProblemButton = (Button)findViewById(R.id.kana_test_options_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new OnClickListener() {
@@ -251,6 +252,7 @@ public class KanaTestOptions extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 		
 		return result;
 	}

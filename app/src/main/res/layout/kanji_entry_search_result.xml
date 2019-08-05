@@ -48,6 +48,7 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray" />
 
+    <!--
     <LinearLayout
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
@@ -64,11 +65,13 @@
             android:text="@string/kanji_entry_search_report_problem"
             android:textSize="12sp" />
     </LinearLayout>
+    -->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
+        <!--
         <Button
             android:id="@+id/kanji_entry_report_problem_button"
             style="@android:style/Widget.Button"
@@ -77,6 +80,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:text="@string/report_problem" />
+        -->
 
         <TextView
             android:id="@+id/kanji_entry_elements_no"

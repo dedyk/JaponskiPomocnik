@@ -85,6 +85,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		// fill mail layout
 		fillMainLayout(report, mainLayout);
 
+		/*
 		// report problem
 		Button reportProblemButton = (Button)findViewById(R.id.transitive_intransitive_pairs_table_report_problem_button);
 		
@@ -122,6 +123,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 	
 	private void generateIndex(List<IScreenItem> report) throws DictionaryException {

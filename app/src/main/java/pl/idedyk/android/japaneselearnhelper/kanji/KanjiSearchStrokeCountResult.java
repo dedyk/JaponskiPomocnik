@@ -101,7 +101,8 @@ public class KanjiSearchStrokeCountResult extends Activity {
 				}
 			}
 		});
-		
+
+		/*
 		Button reportProblemButton = (Button)findViewById(R.id.kanji_search_stroke_count_result_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new View.OnClickListener() {
@@ -138,5 +139,6 @@ public class KanjiSearchStrokeCountResult extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 }

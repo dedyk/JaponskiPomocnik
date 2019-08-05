@@ -103,7 +103,7 @@ public class UserGroupContentsActivity extends Activity {
 
         //
 
-        createReportProblemButton();
+        // createReportProblemButton();
     }
 
     private void createUserGroupContentsListView() {
@@ -403,6 +403,7 @@ public class UserGroupContentsActivity extends Activity {
         }
     }
 
+    /*
     private void createReportProblemButton() {
 
         Button reportProblemButton = (Button)findViewById(R.id.user_group_contents_report_problem_button);
@@ -441,4 +442,5 @@ public class UserGroupContentsActivity extends Activity {
             }
         });
     }
+    */
 }

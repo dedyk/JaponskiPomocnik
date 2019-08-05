@@ -123,6 +123,7 @@
             android:layout_marginTop="0dp"
             android:background="@android:color/darker_gray" />
 
+        <!--
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -142,6 +143,7 @@
                 android:text="@string/dictionary_hear_options_report_problem"
                 android:textSize="12sp" />
         </LinearLayout>
+        -->
 
     </LinearLayout>
 </layout>

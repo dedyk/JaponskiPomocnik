@@ -65,7 +65,8 @@ public class KanjiSearchStrokeCount extends Activity {
 		final List<IScreenItem> screenItems = generateScreen();
 		
 		fillMainLayout(screenItems, mainLayout);
-		
+
+		/*
 		Button reportProblemButton = (Button)findViewById(R.id.kanji_search_stroke_count_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new OnClickListener() {
@@ -102,6 +103,7 @@ public class KanjiSearchStrokeCount extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 		
 		Button searchKanjiButton = (Button)findViewById(R.id.kanji_search_stroke_count_kanji_button);
 		

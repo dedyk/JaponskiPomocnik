@@ -25,6 +25,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp" />
 
+    <!--
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
@@ -51,5 +52,6 @@
             android:text="@string/kana_test_options_report_problem"
             android:textSize="12sp" />
     </LinearLayout>
+    -->
 
 </LinearLayout>
