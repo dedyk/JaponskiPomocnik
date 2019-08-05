@@ -32,6 +32,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,15 +59,33 @@ public class KanjiSearchRadicalResult extends Activity {
 				
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_entry_search_result);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_entry_search_radical_result);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_radical_result));
 
 		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
 		final String[] selectedRadicals = (String[])getIntent().getSerializableExtra("search");
-		
-		final TextView searchValueTextView = (TextView)findViewById(R.id.kanji_entry_search_value);
+
+		// konfiguracja zakladek
+		TabHost host = (TabHost)findViewById(R.id.kanji_entry_search_radical_tab_host);
+		host.setup();
+
+		// Zakladka ogolna
+		TabHost.TabSpec tabGeneral = host.newTabSpec("Tab One - FIXME!");
+		tabGeneral.setContent(R.id.kanji_entry_search_radical_tab_content_tab1);
+		tabGeneral.setIndicator("Tab One - FIXME");
+		host.addTab(tabGeneral);
+
+		// Zakladka ze szczegolami
+		TabHost.TabSpec tabDetails = host.newTabSpec("Tab Two - FIXME!");
+		tabDetails.setContent(R.id.kanji_entry_search_radical_tab_content_tab2);
+		tabDetails.setIndicator("Tab Two - FIXME");
+		host.addTab(tabDetails);
+
+		// wypelnianie zawartosci
+
+		final TextView searchValueTextView = (TextView)findViewById(R.id.kanji_entry_search_radical_value);
 		
 		searchValueTextView.setTypeface(babelStoneHanTypeface);
 		searchValueTextView.setText(Arrays.toString(selectedRadicals));
@@ -77,7 +96,7 @@ public class KanjiSearchRadicalResult extends Activity {
 		
 		final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 		
-		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_result_list);
+		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_radical_result_list);
 		
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
 		
