@@ -124,7 +124,7 @@ public class KanjiSearchRadical extends Activity {
 				
 				if (selectedRadicals.size() == 0) {
 					
-					Toast toast = Toast.makeText(KanjiSearchRadical.this, getString(R.string.kanji_entry_search_button_empty_radicals), Toast.LENGTH_SHORT);
+					Toast toast = Toast.makeText(KanjiSearchRadical.this, getString(R.string.kanji_search_radical_button_empty_radicals), Toast.LENGTH_SHORT);
 					
 					toast.show();
 

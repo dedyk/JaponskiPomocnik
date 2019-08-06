@@ -11,12 +11,10 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
-import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
-import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -65,7 +63,7 @@ public class KanjiSearchRadicalResult extends Activity {
 				
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_entry_search_radical_result);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_radical_result);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_radical_result));
 
@@ -79,15 +77,15 @@ public class KanjiSearchRadicalResult extends Activity {
 		host.setup();
 
 		// Zakladka ogolna
-		TabHost.TabSpec generalTab = host.newTabSpec(getString(R.string.kanji_entry_search_radical_generalTab_label));
+		TabHost.TabSpec generalTab = host.newTabSpec(getString(R.string.kanji_search_radical_generalTab_label));
 		generalTab.setContent(R.id.kanji_entry_search_radical_tab_content_tab1);
-		generalTab.setIndicator(getString(R.string.kanji_entry_search_radical_generalTab_label));
+		generalTab.setIndicator(getString(R.string.kanji_search_radical_generalTab_label));
 		host.addTab(generalTab);
 
 		// Zakladka ze szczegolami (lista)
-		TabHost.TabSpec detailsTab = host.newTabSpec(getString(R.string.kanji_entry_search_radical_detailsTab_label));
+		TabHost.TabSpec detailsTab = host.newTabSpec(getString(R.string.kanji_search_radical_detailsTab_label));
 		detailsTab.setContent(R.id.kanji_entry_search_radical_tab_content_tab2);
-		detailsTab.setIndicator(getString(R.string.kanji_entry_search_radical_detailsTab_label));
+		detailsTab.setIndicator(getString(R.string.kanji_search_radical_detailsTab_label));
 		host.addTab(detailsTab);
 
 		final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);

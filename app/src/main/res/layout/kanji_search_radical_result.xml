@@ -10,11 +10,11 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/kanji_entry_search_radical_label"
+            android:id="@+id/kanji_search_radical_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="@string/kanji_entry_search_radical_label"
+            android:text="@string/kanji_search_radical_label"
             android:textSize="16sp" >
 
         </TextView>
