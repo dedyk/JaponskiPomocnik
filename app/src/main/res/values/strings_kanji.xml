@@ -60,6 +60,8 @@
     <string name="kanji_recognizer_result_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_recognizer_result_label">Wynik rozpoznawania znaków kanji</string>
     <string name="kanji_recognizer_result_elements_no">Liczba elementów: %1$s</string>
+    <string name="kanji_recognizer_generalTab_label">Ogólny wynik</string>
+    <string name="kanji_recognizer_detailsTab_label">Ogólny szczegółowy</string>
     <string name="kanji_recognizer_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w rozpoznawaniu znaków kanji</string>
     <string name="kanji_recognizer_result_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n---\n%2$s\n</string>
     <string name="kanji_test_options_label">Opcje testu</string>

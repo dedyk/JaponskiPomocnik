@@ -201,82 +201,10 @@ public class KanjiSearchRadicalResult extends Activity {
 
 				// wypelnianie czesci ogolnej
 				{
-					final int maxElementsInTableRow = 7;
-
 					// lista z elementami
 					List<IScreenItem> screenItemList = new ArrayList<IScreenItem>();
 
-					// glowny layout
-					TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, null, true);
-
-					screenItemList.add(tableLayout);
-
-					TableRow tableRow = null;
-
-					String lastStrokeCount = null;
-
-					for (final KanjiEntry currentKanjiEntry : foundKanjis) {
-
-						if (tableRow == null) {
-							tableRow = new TableRow();
-
-							tableLayout.addTableRow(tableRow);
-						}
-
-						String currentKanjiEntryStrokeCount = currentKanjiEntry.getKanjiDic2Entry() != null ?
-								String.valueOf(currentKanjiEntry.getKanjiDic2Entry().getStrokeCount()) : "-";
-
-						// dodajemy pole z liczba kresek
-						if (lastStrokeCount == null || lastStrokeCount.equals(currentKanjiEntryStrokeCount) == false) {
-
-							lastStrokeCount = currentKanjiEntryStrokeCount;
-
-							StringValue strokeCountTitle = new StringValue(" " + currentKanjiEntryStrokeCount + " ", 30.0f, 0);
-
-							strokeCountTitle.setNullMargins(true);
-							strokeCountTitle.setGravity(Gravity.CENTER);
-							strokeCountTitle.setBackgroundColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsColor());
-
-							tableRow.addScreenItem(strokeCountTitle);
-						}
-
-						// czy nowy wiersz
-						if (tableRow.getScreenItemSize() >= maxElementsInTableRow) {
-
-							tableRow = new TableRow();
-
-							tableLayout.addTableRow(tableRow);
-						}
-
-						// dodajemy znak
-						StringValue kanjiValue = new StringValue(currentKanjiEntry.getKanji(), 25.0f, 0);
-
-						kanjiValue.setNullMargins(true);
-						kanjiValue.setGravity(Gravity.CENTER);
-
-						// dodanie czynnosci
-						kanjiValue.setOnClickListener(new View.OnClickListener() {
-
-							public void onClick(View view) {
-
-								Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
-
-								intent.putExtra("item", currentKanjiEntry);
-
-								startActivity(intent);
-							}
-						});
-
-						tableRow.addScreenItem(kanjiValue);
-
-						// czy nowy wiersz
-						if (tableRow.getScreenItemSize() >= maxElementsInTableRow) {
-
-							tableRow = new TableRow();
-
-							tableLayout.addTableRow(tableRow);
-						}
-					}
+					KanjiSearchUtils.generateKanjiSearchGeneralResult(KanjiSearchRadicalResult.this, foundKanjis, screenItemList, true);
 
 					// generowanie zawartosci ekranu
 					generalLinearLayout.removeAllViews();
