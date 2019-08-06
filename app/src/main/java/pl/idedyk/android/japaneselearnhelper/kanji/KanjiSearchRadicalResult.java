@@ -2,6 +2,8 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -23,23 +25,17 @@ import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -108,121 +104,7 @@ public class KanjiSearchRadicalResult extends Activity {
 		kanjiDictionarySearchElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "???"));
 
 		// czesc ogolna - inicjacja
-		LinearLayout generalLinearLayout = (LinearLayout) findViewById(R.id.kanji_entry_search_radical_tab_content_tab1);
-
-		List<IScreenItem> generalScreenItemList = new ArrayList<IScreenItem>();
-
-		TableLayout tableLayout = new pl.idedyk.android.japaneselearnhelper.screen.TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, null, true);
-
-		generalScreenItemList.add(tableLayout);
-
-		pl.idedyk.android.japaneselearnhelper.screen.TableRow currentRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-
-		tableLayout.addTableRow(currentRow);
-
-		//
-
-		int testI = 1;
-
-		//int itemsWidth = 0;
-
-		//int counter = 0;
-
-		int counter2 = 0;
-
-
-		// result.add(tableLayout);
-
-		// tableRow = new TableRow();
-
-
-		for (int i = 0; i < 40; ++i) {
-
-			if (i % 10 == 0) {
-				StringValue sv = new StringValue(String.valueOf(testI), 25.0f, 0);
-
-				testI++;
-
-				/*
-				sv.setMarginLeft(0);
-				sv.setMarginRight(10);
-				sv.setMarginBottom(0);
-				sv.setMarginTop(0);
-				*/
-
-				sv.setNullMargins(true);
-
-				sv.setGravity(Gravity.CENTER);
-
-				sv.setBackgroundColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsColor());
-
-				currentRow.addScreenItem(sv);
-
-				//
-
-				// itemsWidth += sv.getWidthOnDisplay(this, getResources(), generalLinearLayout, display);;
-
-				//
-
-				//counter++;
-
-				if (currentRow.getScreenItemSize() > 5) {
-
-					// counter = 0;
-
-					currentRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-
-					tableLayout.addTableRow(currentRow);
-
-					//itemsWidth = 0;
-				}
-			}
-
-			counter2++;
-
-			//StringValue stringValue = new StringValue(String.valueOf(counter2) + " 猫" , 25.0f, 0);
-			StringValue stringValue = new StringValue("猫" , 25.0f, 0);
-
-			// stringValue.setMarginRight(90);
-
-			/*
-			stringValue.setMarginLeft(0);
-			stringValue.setMarginRight(10);
-			stringValue.setMarginBottom(0);
-			stringValue.setMarginTop(0);
-			*/
-
-			stringValue.setNullMargins(true);
-
-			stringValue.setGravity(Gravity.CENTER);
-
-			currentRow.addScreenItem(stringValue);
-
-			// itemsWidth += stringValue.getWidthOnDisplay(this, getResources(), generalLinearLayout, display);
-
-			// counter++;
-
-			//if (itemsWidth > display.getWidth() - 80) {
-			if (currentRow.getScreenItemSize() > 5) {
-
-				// counter = 0;
-
-				currentRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
-
-				tableLayout.addTableRow(currentRow);
-
-				//itemsWidth = 0;
-			}
-		}
-
-		// generalLinearLayout.removeAllViews();
-
-		for (IScreenItem currentScreenItem : generalScreenItemList) {
-			currentScreenItem.generate(this, getResources(), generalLinearLayout);
-		}
-
-
-		////////////////
+		final LinearLayout generalLinearLayout = (LinearLayout) findViewById(R.id.kanji_entry_search_radical_tab_content_tab1);
 
 		// czesc szczegolowa - inicjacja
 		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_radical_result_list);
@@ -297,7 +179,116 @@ public class KanjiSearchRadicalResult extends Activity {
 				List<KanjiEntry> foundKanjis = result.kanjiEntryList;
 
 				kanjiDictionarySearchElementsNoTextView.setText(resources.getString(R.string.kanji_entry_elements_no, String.valueOf(foundKanjis.size())));
-		        				
+
+				// posortowanie po liczbie kresek
+				Collections.sort(foundKanjis, new Comparator<KanjiEntry>() {
+
+					@Override
+					public int compare(KanjiEntry k1, KanjiEntry k2) {
+
+						KanjiDic2Entry k1Dic2Entry = k1.getKanjiDic2Entry();
+						KanjiDic2Entry k2Dic2Entry = k2.getKanjiDic2Entry();
+
+						if (k1Dic2Entry == null) {
+							return -1;
+						}
+
+						if (k2Dic2Entry == null) {
+							return 1;
+						}
+
+						return k1Dic2Entry.getStrokeCount() < k2Dic2Entry.getStrokeCount() ? -1 : k1Dic2Entry.getStrokeCount() > k2Dic2Entry.getStrokeCount() ? 1 : 0;
+					}
+				});
+
+				// wypelnianie czesci ogolnej
+				{
+					final int maxElementsInTableRow = 7;
+
+					// lista z elementami
+					List<IScreenItem> screenItemList = new ArrayList<IScreenItem>();
+
+					// glowny layout
+					TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, null, true);
+
+					screenItemList.add(tableLayout);
+
+					TableRow tableRow = null;
+
+					String lastStrokeCount = null;
+
+					for (final KanjiEntry currentKanjiEntry : foundKanjis) {
+
+						if (tableRow == null) {
+							tableRow = new TableRow();
+
+							tableLayout.addTableRow(tableRow);
+						}
+
+						String currentKanjiEntryStrokeCount = currentKanjiEntry.getKanjiDic2Entry() != null ?
+								String.valueOf(currentKanjiEntry.getKanjiDic2Entry().getStrokeCount()) : "-";
+
+						// dodajemy pole z liczba kresek
+						if (lastStrokeCount == null || lastStrokeCount.equals(currentKanjiEntryStrokeCount) == false) {
+
+							lastStrokeCount = currentKanjiEntryStrokeCount;
+
+							StringValue strokeCountTitle = new StringValue(" " + currentKanjiEntryStrokeCount + " ", 30.0f, 0);
+
+							strokeCountTitle.setNullMargins(true);
+							strokeCountTitle.setGravity(Gravity.CENTER);
+							strokeCountTitle.setBackgroundColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsColor());
+
+							tableRow.addScreenItem(strokeCountTitle);
+						}
+
+						// czy nowy wiersz
+						if (tableRow.getScreenItemSize() >= maxElementsInTableRow) {
+
+							tableRow = new TableRow();
+
+							tableLayout.addTableRow(tableRow);
+						}
+
+						// dodajemy znak
+						StringValue kanjiValue = new StringValue(currentKanjiEntry.getKanji(), 25.0f, 0);
+
+						kanjiValue.setNullMargins(true);
+						kanjiValue.setGravity(Gravity.CENTER);
+
+						// dodanie czynnosci
+						kanjiValue.setOnClickListener(new View.OnClickListener() {
+
+							public void onClick(View view) {
+
+								Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
+
+								intent.putExtra("item", currentKanjiEntry);
+
+								startActivity(intent);
+							}
+						});
+
+						tableRow.addScreenItem(kanjiValue);
+
+						// czy nowy wiersz
+						if (tableRow.getScreenItemSize() >= maxElementsInTableRow) {
+
+							tableRow = new TableRow();
+
+							tableLayout.addTableRow(tableRow);
+						}
+					}
+
+					// generowanie zawartosci ekranu
+					generalLinearLayout.removeAllViews();
+
+					for (IScreenItem currentScreenItem : screenItemList) {
+						currentScreenItem.generate(KanjiSearchRadicalResult.this, getResources(), generalLinearLayout);
+					}
+				}
+
+				// wypelnianie czesci szczegolowej
 				for (KanjiEntry currentKanjiEntry : foundKanjis) {
 					
 					KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
