@@ -66,7 +66,7 @@ public class KanjiTest extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 
-		menu.add(Menu.NONE, R.id.report_problem_menu_item, Menu.NONE, R.string.report_problem);
+		// menu.add(Menu.NONE, R.id.report_problem_menu_item, Menu.NONE, R.string.report_problem);
 
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 
@@ -78,7 +78,7 @@ public class KanjiTest extends Activity {
 		super.onOptionsItemSelected(item);
 
 		// report problem
-		if (item.getItemId() == R.id.report_problem_menu_item) {
+		if (item.getItemId() == R.id.report_problem_menu_item) { // opcja ukryta (niedostepna)
 
 			StringBuffer detailsSb = new StringBuffer();
 
@@ -412,11 +412,13 @@ public class KanjiTest extends Activity {
 
 		setScreen();
 
+		/*
 		// set report problem info
 		Toast toast = Toast.makeText(KanjiTest.this, getString(R.string.kanji_test_report_problem_info),
 				Toast.LENGTH_LONG);
 
 		toast.show();
+		*/
 	}
 
 	private void processChooseAnswer(String chosenKanji) {

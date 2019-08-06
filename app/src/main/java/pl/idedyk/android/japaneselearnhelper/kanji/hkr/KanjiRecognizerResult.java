@@ -10,7 +10,10 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItemAdapter;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearchRadicalResult;
+import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearchUtils;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -27,7 +30,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.TextView;
 
 public class KanjiRecognizerResult extends Activity {
@@ -59,9 +64,57 @@ public class KanjiRecognizerResult extends Activity {
 
 		final Object[] kanjiRecognizeResult = (Object[])getIntent().getSerializableExtra("kanjiRecognizeResult");
 		final String kanjiRecognizeResultStrokes = getIntent().getStringExtra("kanjiRecognizeResultStrokes");
-		
+
+		// konfiguracja zakladek
+		TabHost host = (TabHost)findViewById(R.id.kanji_recognizer_tab_host);
+
+		host.setup();
+
+		// Zakladka ogolna
+		TabHost.TabSpec generalTab = host.newTabSpec(getString(R.string.kanji_recognizer_generalTab_label));
+		generalTab.setContent(R.id.kanji_recognizer_tab_content_tab1);
+		generalTab.setIndicator(getString(R.string.kanji_recognizer_generalTab_label));
+		host.addTab(generalTab);
+
+		// Zakladka ze szczegolami (lista)
+		TabHost.TabSpec detailsTab = host.newTabSpec(getString(R.string.kanji_recognizer_detailsTab_label));
+		detailsTab.setContent(R.id.kanji_recognizer_tab_content_tab2);
+		detailsTab.setIndicator(getString(R.string.kanji_recognizer_detailsTab_label));
+		host.addTab(detailsTab);
+
+		//
+
+		// czesc ogolna - inicjacja
+		final LinearLayout generalLinearLayout = (LinearLayout) findViewById(R.id.kanji_recognizer_tab_content_tab1);
+
+		// czesc szczegolowa - inicjacja
 		final ListView kanjiRecognizerResultListView = (ListView)findViewById(R.id.kanji_recognizer_result_list);
-		
+
+		// wypelnianie czesci ogolnej
+		{
+			// lista z elementami
+			List<IScreenItem> screenItemList = new ArrayList<IScreenItem>();
+
+			List<KanjiEntry> kanjiEntryList = new ArrayList<KanjiEntry>();
+
+			for (Object currentKanjiEntryAsObject : kanjiRecognizeResult) {
+
+				KanjiEntry currentKanjiEntry = (KanjiEntry) currentKanjiEntryAsObject;
+
+				kanjiEntryList.add(currentKanjiEntry);
+			}
+
+			KanjiSearchUtils.generateKanjiSearchGeneralResult(KanjiRecognizerResult.this, kanjiEntryList, screenItemList, false);
+
+			// generowanie zawartosci ekranu
+			generalLinearLayout.removeAllViews();
+
+			for (IScreenItem currentScreenItem : screenItemList) {
+				currentScreenItem.generate(KanjiRecognizerResult.this, getResources(), generalLinearLayout);
+			}
+		}
+
+		// wypelnianie czesci szczegolowej
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
 		
 		for (Object currentKanjiEntryAsObject : kanjiRecognizeResult) {
@@ -88,7 +141,7 @@ public class KanjiRecognizerResult extends Activity {
 		TextView kanjiRecognizerResultElementsNo = (TextView)findViewById(R.id.kanji_recognizer_result_elements_no);
 		
 		kanjiRecognizerResultElementsNo.setText(getString(R.string.kanji_recognizer_result_elements_no, searchResultList.size()));
-		
+
 		kanjiRecognizerResultListView.setOnItemClickListener(new OnItemClickListener() {
 
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -105,7 +158,8 @@ public class KanjiRecognizerResult extends Activity {
 				}				
 			}
 		});
-		
+
+		/*
 		Button reportProblemButton = (Button)findViewById(R.id.kanji_recognizer_result_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new View.OnClickListener() {
@@ -142,5 +196,6 @@ public class KanjiRecognizerResult extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 }

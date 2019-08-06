@@ -32,16 +32,20 @@
     <string name="kanji_search_stroke_count_title">Proszę wpisać ilość kresek</string>
     <string name="kanji_search_stroke_count_from">Od</string>
     <string name="kanji_search_stroke_count_to">Do</string>
+    <string name="kanji_search_stroke_count_generalTab_label">Wynik ogólny</string>
+    <string name="kanji_search_stroke_count_detailsTab_label">Wynik szczegółowy</string>
     <string name="kanji_search_kanji">Szukaj kanji</string>
     <string name="kanji_search_radicals_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu elementów podstawowych kanji</string>
     <string name="kanji_search_stroke_count_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu liczby kresek kanji</string>
     <string name="kanji_search_meaning_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w wyszukiwaniu znaczenia kanji</string>
     <string name="kanji_search_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n\n</string>
-    <string name="kanji_entry_search_label">Wybrane elementy podstawowe</string>
+    <string name="kanji_search_radical_label">Wybrane elementy podstawowe</string>
+    <string name="kanji_search_radical_generalTab_label">Wynik ogólny</string>
+    <string name="kanji_search_radical_detailsTab_label">Wynik szczegółowy</string>
     <string name="kanji_entry_elements_no">Liczba elementów: %1$s</string>
-    <string name="kanji_entry_search_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="kanji_search_radical_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_entry_search_result_view_label">Znalezione kanji</string>
-    <string name="kanji_entry_search_button_empty_radicals">Proszę zaznaczyć co najmniej jeden element podstawowy</string>
+    <string name="kanji_search_radical_button_empty_radicals">Proszę zaznaczyć co najmniej jeden element podstawowy</string>
     <string name="kanji_entry_searching1">Szukanie</string>
     <string name="kanji_entry_searching2">Proszę czekać</string>
     <string name="kanji_search_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia na liście wyszukiwania elementów podstawowych kanji</string>
@@ -58,6 +62,8 @@
     <string name="kanji_recognizer_result_report_problem">Widzisz błąd, brakuje szukanego znaku, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
     <string name="kanji_recognizer_result_label">Wynik rozpoznawania znaków kanji</string>
     <string name="kanji_recognizer_result_elements_no">Liczba elementów: %1$s</string>
+    <string name="kanji_recognizer_generalTab_label">Wynik ogólny</string>
+    <string name="kanji_recognizer_detailsTab_label">Wynik szczegółowy</string>
     <string name="kanji_recognizer_result_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w rozpoznawaniu znaków kanji</string>
     <string name="kanji_recognizer_result_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n---\n%2$s\n</string>
     <string name="kanji_test_options_label">Opcje testu</string>
@@ -154,6 +160,7 @@
     <string name="kanji_test_quit_question_yes">Tak</string>
     <string name="kanji_test_quit_question_no">Nie</string>
     <string name="kanji_search_type_radical">Elementy podstawowe</string>
+    <string name="kanji_search_type_kanji_recognizer">Rozpoznawanie kanji</string>
     <string name="kanji_search_stroke_count">Liczba kresek</string>
     <string name="kanji_search_stroke_count_from_incorrect">Niepoprawna wartość pola od: \'%1$s\'</string>
     <string name="kanji_search_stroke_count_to_incorrect">Niepoprawna wartość pola do: \'%1$s\'</string>
@@ -182,4 +189,5 @@
     <string name="kanji_search_meaning_searching2">Proszę czekać</string>
     <string name="kanji_search_meaning_suggestion_title">Nie znaleziono wyników, czy chodziło Ci o:</string>
     <string name="kanji_search_meaning_show_history_title">Historia wyszukiwania:</string>
+    <string name="kanji_search_info">Górne menu jest przesuwalne.</string>
 </resources>

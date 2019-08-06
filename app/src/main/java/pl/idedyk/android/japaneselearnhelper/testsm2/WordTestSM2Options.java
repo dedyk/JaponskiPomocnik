@@ -419,7 +419,8 @@ public class WordTestSM2Options extends Activity {
 				new PrepareAsyncTask().execute();				
 			}
 		});
-		
+
+		/*
 		// report problem button
 		Button reportProblemButton = (Button)findViewById(R.id.word_test_sm2_options_report_problem_button);
 
@@ -472,6 +473,7 @@ public class WordTestSM2Options extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 		
 		/*
 		// show alert

@@ -2,6 +2,8 @@ package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -9,7 +11,10 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
-import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
+import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
+import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
+import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -18,20 +23,20 @@ import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,15 +63,36 @@ public class KanjiSearchRadicalResult extends Activity {
 				
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_entry_search_result);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_radical_result);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_radical_result));
 
 		Typeface babelStoneHanTypeface = JapaneseAndroidLearnHelperApplication.getInstance().getBabelStoneHanSubset(getAssets());
 		
 		final String[] selectedRadicals = (String[])getIntent().getSerializableExtra("search");
-		
-		final TextView searchValueTextView = (TextView)findViewById(R.id.kanji_entry_search_value);
+
+		// konfiguracja zakladek
+		TabHost host = (TabHost)findViewById(R.id.kanji_search_radical_tab_host);
+
+		host.setup();
+
+		// Zakladka ogolna
+		TabHost.TabSpec generalTab = host.newTabSpec(getString(R.string.kanji_search_radical_generalTab_label));
+		generalTab.setContent(R.id.kanji_search_radical_tab_content_tab1);
+		generalTab.setIndicator(getString(R.string.kanji_search_radical_generalTab_label));
+		host.addTab(generalTab);
+
+		// Zakladka ze szczegolami (lista)
+		TabHost.TabSpec detailsTab = host.newTabSpec(getString(R.string.kanji_search_radical_detailsTab_label));
+		detailsTab.setContent(R.id.kanji_search_radical_tab_content_tab2);
+		detailsTab.setIndicator(getString(R.string.kanji_search_radical_detailsTab_label));
+		host.addTab(detailsTab);
+
+		final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
+		// wypelnianie zawartosci (czesc wspolna) - inicjacja
+
+		final TextView searchValueTextView = (TextView)findViewById(R.id.kanji_search_radical_value);
 		
 		searchValueTextView.setTypeface(babelStoneHanTypeface);
 		searchValueTextView.setText(Arrays.toString(selectedRadicals));
@@ -74,10 +100,12 @@ public class KanjiSearchRadicalResult extends Activity {
 		final TextView kanjiDictionarySearchElementsNoTextView = (TextView)findViewById(R.id.kanji_entry_elements_no);
 		
 		kanjiDictionarySearchElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "???"));
-		
-		final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
-		
-		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_result_list);
+
+		// czesc ogolna - inicjacja
+		final LinearLayout generalLinearLayout = (LinearLayout) findViewById(R.id.kanji_search_radical_tab_content_tab1);
+
+		// czesc szczegolowa - inicjacja
+		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_search_radical_result_list);
 		
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
 		
@@ -149,7 +177,44 @@ public class KanjiSearchRadicalResult extends Activity {
 				List<KanjiEntry> foundKanjis = result.kanjiEntryList;
 
 				kanjiDictionarySearchElementsNoTextView.setText(resources.getString(R.string.kanji_entry_elements_no, String.valueOf(foundKanjis.size())));
-		        				
+
+				// posortowanie po liczbie kresek
+				Collections.sort(foundKanjis, new Comparator<KanjiEntry>() {
+
+					@Override
+					public int compare(KanjiEntry k1, KanjiEntry k2) {
+
+						KanjiDic2Entry k1Dic2Entry = k1.getKanjiDic2Entry();
+						KanjiDic2Entry k2Dic2Entry = k2.getKanjiDic2Entry();
+
+						if (k1Dic2Entry == null) {
+							return -1;
+						}
+
+						if (k2Dic2Entry == null) {
+							return 1;
+						}
+
+						return k1Dic2Entry.getStrokeCount() < k2Dic2Entry.getStrokeCount() ? -1 : k1Dic2Entry.getStrokeCount() > k2Dic2Entry.getStrokeCount() ? 1 : 0;
+					}
+				});
+
+				// wypelnianie czesci ogolnej
+				{
+					// lista z elementami
+					List<IScreenItem> screenItemList = new ArrayList<IScreenItem>();
+
+					KanjiSearchUtils.generateKanjiSearchGeneralResult(KanjiSearchRadicalResult.this, foundKanjis, screenItemList, true);
+
+					// generowanie zawartosci ekranu
+					generalLinearLayout.removeAllViews();
+
+					for (IScreenItem currentScreenItem : screenItemList) {
+						currentScreenItem.generate(KanjiSearchRadicalResult.this, getResources(), generalLinearLayout);
+					}
+				}
+
+				// wypelnianie czesci szczegolowej
 				for (KanjiEntry currentKanjiEntry : foundKanjis) {
 					
 					KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
@@ -171,13 +236,14 @@ public class KanjiSearchRadicalResult extends Activity {
 		}
 		
 		new FindKanjiAsyncTask().execute();
-		
+
+		/*
 		Button reportProblemButton = (Button)findViewById(R.id.kanji_entry_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {
-								
+
 				StringBuffer searchListText = new StringBuffer();
 				
 				for (int searchResultArrayAdapterIdx = 0; searchResultArrayAdapterIdx < searchResultArrayAdapter.size(); ++searchResultArrayAdapterIdx) {
@@ -208,5 +274,6 @@ public class KanjiSearchRadicalResult extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 }

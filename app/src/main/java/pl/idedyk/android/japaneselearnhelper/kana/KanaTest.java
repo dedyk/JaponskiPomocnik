@@ -127,6 +127,7 @@ public class KanaTest extends Activity {
 
 		fillScreenValue();
 
+		/*
 		android.widget.Button reportProblemButton = (android.widget.Button) findViewById(R.id.kana_test_report_problem_button);
 
 		reportProblemButton.setOnClickListener(new OnClickListener() {
@@ -168,7 +169,7 @@ public class KanaTest extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
-
+		*/
 	}
 
 	private void generateDatas() {

@@ -1,13 +1,17 @@
 package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
+import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizerResult;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -24,7 +28,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.TextView;
 
 public class KanjiSearchStrokeCountResult extends Activity {
@@ -55,15 +61,83 @@ public class KanjiSearchStrokeCountResult extends Activity {
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_stroke_count_result));
 
 		final Object[] kanjiStrokeCountResult = (Object[])getIntent().getSerializableExtra("kanjiStrokeCountResult");
-		
+
+		List<KanjiEntry> kanjiEntryList = new ArrayList<KanjiEntry>();
+
+		for (Object currentKanjiEntryAsObject : kanjiStrokeCountResult) {
+
+			KanjiEntry currentKanjiEntry = (KanjiEntry) currentKanjiEntryAsObject;
+
+			kanjiEntryList.add(currentKanjiEntry);
+		}
+
+		// posortowanie wyniku po liczbie kresek
+		Collections.sort(kanjiEntryList, new Comparator<KanjiEntry>() {
+
+			@Override
+			public int compare(KanjiEntry k1, KanjiEntry k2) {
+
+				KanjiDic2Entry k1Dic2Entry = k1.getKanjiDic2Entry();
+				KanjiDic2Entry k2Dic2Entry = k2.getKanjiDic2Entry();
+
+				if (k1Dic2Entry == null) {
+					return -1;
+				}
+
+				if (k2Dic2Entry == null) {
+					return 1;
+				}
+
+				return k1Dic2Entry.getStrokeCount() < k2Dic2Entry.getStrokeCount() ? -1 : k1Dic2Entry.getStrokeCount() > k2Dic2Entry.getStrokeCount() ? 1 : 0;
+			}
+		});
+
+
+		// konfiguracja zakladek
+		TabHost host = (TabHost)findViewById(R.id.kanji_search_stroke_count_tab_host);
+
+		host.setup();
+
+		// Zakladka ogolna
+		TabHost.TabSpec generalTab = host.newTabSpec(getString(R.string.kanji_search_stroke_count_generalTab_label));
+		generalTab.setContent(R.id.kanji_search_stroke_count_tab_content_tab1);
+		generalTab.setIndicator(getString(R.string.kanji_search_stroke_count_generalTab_label));
+		host.addTab(generalTab);
+
+		// Zakladka ze szczegolami (lista)
+		TabHost.TabSpec detailsTab = host.newTabSpec(getString(R.string.kanji_search_stroke_count_detailsTab_label));
+		detailsTab.setContent(R.id.kanji_search_stroke_count_tab_content_tab2);
+		detailsTab.setIndicator(getString(R.string.kanji_search_stroke_count_detailsTab_label));
+		host.addTab(detailsTab);
+
+		//
+
+		// czesc ogolna - inicjacja
+		final LinearLayout generalLinearLayout = (LinearLayout) findViewById(R.id.kanji_search_stroke_count_tab_content_tab1);
+
+		// czesc szczegolowa - inicjacja
 		final ListView kanjiStrokeCountResultListView = (ListView)findViewById(R.id.kanji_search_stroke_count_result_list);
-		
+
+		// wypelnianie czesci ogolnej
+		{
+			// lista z elementami
+			List<IScreenItem> screenItemList = new ArrayList<IScreenItem>();
+
+			KanjiSearchUtils.generateKanjiSearchGeneralResult(KanjiSearchStrokeCountResult.this, kanjiEntryList, screenItemList, true);
+
+			// generowanie zawartosci ekranu
+			generalLinearLayout.removeAllViews();
+
+			for (IScreenItem currentScreenItem : screenItemList) {
+				currentScreenItem.generate(KanjiSearchStrokeCountResult.this, getResources(), generalLinearLayout);
+			}
+		}
+
+		// wypelnianie czesci szczegolowej
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
 		
-		for (Object currentKanjiEntryAsObject : kanjiStrokeCountResult) {
-			
-			KanjiEntry currentKanjiEntry = (KanjiEntry)currentKanjiEntryAsObject;
-			
+		for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
+
 			KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
 
 			String currentKanjiEntryFullText = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(currentKanjiEntry);
@@ -101,7 +175,8 @@ public class KanjiSearchStrokeCountResult extends Activity {
 				}
 			}
 		});
-		
+
+		/*
 		Button reportProblemButton = (Button)findViewById(R.id.kanji_search_stroke_count_result_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new View.OnClickListener() {
@@ -138,5 +213,6 @@ public class KanjiSearchStrokeCountResult extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 }

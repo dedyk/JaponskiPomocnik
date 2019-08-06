@@ -76,7 +76,8 @@ public class KanjiSearchRadical extends Activity {
 		final List<IScreenItem> screenItems = generateScreen(radicalList, selectedRadicals, radicalStringValueList);
 		
 		fillMainLayout(screenItems, mainLayout);
-		
+
+		/*
 		Button reportProblemButton = (Button)findViewById(R.id.kanji_search_radical_report_problem_button);
 		
 		reportProblemButton.setOnClickListener(new OnClickListener() {
@@ -113,6 +114,7 @@ public class KanjiSearchRadical extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 		
 		Button searchKanjiButton = (Button)findViewById(R.id.kanji_search_radical_kanji_button);
 		
@@ -122,7 +124,7 @@ public class KanjiSearchRadical extends Activity {
 				
 				if (selectedRadicals.size() == 0) {
 					
-					Toast toast = Toast.makeText(KanjiSearchRadical.this, getString(R.string.kanji_entry_search_button_empty_radicals), Toast.LENGTH_SHORT);
+					Toast toast = Toast.makeText(KanjiSearchRadical.this, getString(R.string.kanji_search_radical_button_empty_radicals), Toast.LENGTH_SHORT);
 					
 					toast.show();
 

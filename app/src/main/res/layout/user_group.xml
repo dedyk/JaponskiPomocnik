@@ -53,7 +53,8 @@
             android:layout_height="0dp"
             android:layout_weight="1" >
         </ListView>
-    
+
+        <!--
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
@@ -89,6 +90,7 @@
                 android:layout_centerVertical="true"
                 android:text="@string/report_problem" />
         </RelativeLayout>
+        -->
     
     </LinearLayout>
 </layout>

@@ -452,7 +452,8 @@ public class WordTestOptions extends Activity {
 				startActivity(intent);
 			}
 		});
-		
+
+		/*
 		// report problem button
 		Button reportProblemButton = (Button)findViewById(R.id.word_test_options_report_problem_button);
 
@@ -545,6 +546,7 @@ public class WordTestOptions extends Activity {
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
 			}
 		});
+		*/
 	}
 	
 	private void setUntilSuccessNewWordLimitCheckBoxEnabled(CheckBox untilSuccessCheckBox, CheckBox untilSuccessNewWordLimitCheckBox) {

@@ -121,9 +121,11 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				getString(R.string.main_menu_kanji_kanji),
 				getString(R.string.main_menu_kanji_text)));
 
+		/*
 		mainMenuListItems.add(new MainMenuItem(
 				getString(R.string.main_menu_kanji_recognizer_kanji),
 				getString(R.string.main_menu_kanji_recognizer_text)));
+		*/
 
 		mainMenuListItems.add(new MainMenuItem(
 				getString(R.string.main_menu_kanji_test_kanji),
@@ -217,12 +219,12 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 					startActivity(intent);
 					
-				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kanji_recognizer_text)) == true) { // kanji recognizer
+				/*} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kanji_recognizer_text)) == true) { // kanji recognizer
 
 					Intent intent = new Intent(getApplicationContext(), KanjiRecognizeActivity.class);
 
 					startActivity(intent);					
-
+				*/
 				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_kanji_test_text)) == true) { // kanji test
 
 					Intent intent = new Intent(getApplicationContext(), KanjiTestOptionsActivity.class);
