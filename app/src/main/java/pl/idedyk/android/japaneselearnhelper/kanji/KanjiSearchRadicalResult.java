@@ -10,6 +10,9 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
+import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
+import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
@@ -21,18 +24,23 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -84,7 +92,9 @@ public class KanjiSearchRadicalResult extends Activity {
 		detailsTab.setIndicator(getString(R.string.kanji_entry_search_radical_detailsTab_label));
 		host.addTab(detailsTab);
 
-		// wypelnianie zawartosci
+		final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
+		// wypelnianie zawartosci (czesc wspolna) - inicjacja
 
 		final TextView searchValueTextView = (TextView)findViewById(R.id.kanji_entry_search_radical_value);
 		
@@ -94,9 +104,75 @@ public class KanjiSearchRadicalResult extends Activity {
 		final TextView kanjiDictionarySearchElementsNoTextView = (TextView)findViewById(R.id.kanji_entry_elements_no);
 		
 		kanjiDictionarySearchElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "???"));
-		
-		final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
-		
+
+		// czesc ogolna - inicjacja
+		TableLayout generalLinearLayout = (TableLayout) findViewById(R.id.kanji_entry_search_radical_tab_content_tab1);
+
+		List<IScreenItem> generalScreenItemList = new ArrayList<IScreenItem>();
+
+		pl.idedyk.android.japaneselearnhelper.screen.TableRow currentRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
+
+		generalScreenItemList.add(currentRow);
+		//
+
+		int testI = 1;
+
+		int counter = 0;
+
+		for (int i = 0; i < 40; ++i) {
+
+			if (i % 10 == 0) {
+				StringValue sv = new StringValue(" " + String.valueOf(testI) + " ", 30.0f, 0);
+
+				testI++;
+
+				sv.setMarginLeft(0);
+				sv.setMarginRight(10);
+				sv.setMarginBottom(0);
+				sv.setMarginTop(0);
+
+				sv.setGravity(Gravity.CENTER);
+
+				sv.setBackgroundColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsColor());
+
+				currentRow.addScreenItem(sv);
+
+				counter++;
+			}
+
+			StringValue stringValue = new StringValue("猫", 30.0f, 0);
+
+			// stringValue.setMarginRight(90);
+
+			stringValue.setMarginLeft(0);
+			stringValue.setMarginRight(10);
+			stringValue.setMarginBottom(0);
+			stringValue.setMarginTop(0);
+
+			stringValue.setGravity(Gravity.CENTER);
+
+			currentRow.addScreenItem(stringValue);
+			counter++;
+
+			if (counter == 8) {
+				counter = 0;
+
+				currentRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
+
+				generalScreenItemList.add(currentRow);
+			}
+		}
+
+		// generalLinearLayout.removeAllViews();
+
+		for (IScreenItem currentScreenItem : generalScreenItemList) {
+			currentScreenItem.generate(this, getResources(), generalLinearLayout);
+		}
+
+
+		////////////////
+
+		// czesc szczegolowa - inicjacja
 		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_radical_result_list);
 		
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
@@ -199,9 +275,6 @@ public class KanjiSearchRadicalResult extends Activity {
 			
 			public void onClick(View view) {
 
-				// FIXME !!!!!!!!!!!!!!!!1
-				int fixme = 1;
-								
 				StringBuffer searchListText = new StringBuffer();
 				
 				for (int searchResultArrayAdapterIdx = 0; searchResultArrayAdapterIdx < searchResultArrayAdapter.size(); ++searchResultArrayAdapterIdx) {

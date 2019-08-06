@@ -57,18 +57,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <LinearLayout
+                <TableLayout
                     android:id="@+id/kanji_entry_search_radical_tab_content_tab1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Test!!!!!" />
-
-                </LinearLayout>
+                </TableLayout>
 
                 <LinearLayout
                     android:id="@+id/kanji_entry_search_radical_tab_content_tab2"
