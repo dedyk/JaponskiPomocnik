@@ -12,6 +12,8 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
+import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
+import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
@@ -30,6 +32,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,7 +43,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -106,30 +108,49 @@ public class KanjiSearchRadicalResult extends Activity {
 		kanjiDictionarySearchElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "???"));
 
 		// czesc ogolna - inicjacja
-		TableLayout generalLinearLayout = (TableLayout) findViewById(R.id.kanji_entry_search_radical_tab_content_tab1);
+		LinearLayout generalLinearLayout = (LinearLayout) findViewById(R.id.kanji_entry_search_radical_tab_content_tab1);
 
 		List<IScreenItem> generalScreenItemList = new ArrayList<IScreenItem>();
 
+		TableLayout tableLayout = new pl.idedyk.android.japaneselearnhelper.screen.TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, null, true);
+
+		generalScreenItemList.add(tableLayout);
+
 		pl.idedyk.android.japaneselearnhelper.screen.TableRow currentRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
-		generalScreenItemList.add(currentRow);
+		tableLayout.addTableRow(currentRow);
+
 		//
 
 		int testI = 1;
 
-		int counter = 0;
+		//int itemsWidth = 0;
+
+		//int counter = 0;
+
+		int counter2 = 0;
+
+
+		// result.add(tableLayout);
+
+		// tableRow = new TableRow();
+
 
 		for (int i = 0; i < 40; ++i) {
 
 			if (i % 10 == 0) {
-				StringValue sv = new StringValue(" " + String.valueOf(testI) + " ", 30.0f, 0);
+				StringValue sv = new StringValue(String.valueOf(testI), 25.0f, 0);
 
 				testI++;
 
+				/*
 				sv.setMarginLeft(0);
 				sv.setMarginRight(10);
 				sv.setMarginBottom(0);
 				sv.setMarginTop(0);
+				*/
+
+				sv.setNullMargins(true);
 
 				sv.setGravity(Gravity.CENTER);
 
@@ -137,29 +158,60 @@ public class KanjiSearchRadicalResult extends Activity {
 
 				currentRow.addScreenItem(sv);
 
-				counter++;
+				//
+
+				// itemsWidth += sv.getWidthOnDisplay(this, getResources(), generalLinearLayout, display);;
+
+				//
+
+				//counter++;
+
+				if (currentRow.getScreenItemSize() > 5) {
+
+					// counter = 0;
+
+					currentRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
+
+					tableLayout.addTableRow(currentRow);
+
+					//itemsWidth = 0;
+				}
 			}
 
-			StringValue stringValue = new StringValue("猫", 30.0f, 0);
+			counter2++;
+
+			//StringValue stringValue = new StringValue(String.valueOf(counter2) + " 猫" , 25.0f, 0);
+			StringValue stringValue = new StringValue("猫" , 25.0f, 0);
 
 			// stringValue.setMarginRight(90);
 
+			/*
 			stringValue.setMarginLeft(0);
 			stringValue.setMarginRight(10);
 			stringValue.setMarginBottom(0);
 			stringValue.setMarginTop(0);
+			*/
+
+			stringValue.setNullMargins(true);
 
 			stringValue.setGravity(Gravity.CENTER);
 
 			currentRow.addScreenItem(stringValue);
-			counter++;
 
-			if (counter == 8) {
-				counter = 0;
+			// itemsWidth += stringValue.getWidthOnDisplay(this, getResources(), generalLinearLayout, display);
+
+			// counter++;
+
+			//if (itemsWidth > display.getWidth() - 80) {
+			if (currentRow.getScreenItemSize() > 5) {
+
+				// counter = 0;
 
 				currentRow = new pl.idedyk.android.japaneselearnhelper.screen.TableRow();
 
-				generalScreenItemList.add(currentRow);
+				tableLayout.addTableRow(currentRow);
+
+				//itemsWidth = 0;
 			}
 		}
 
