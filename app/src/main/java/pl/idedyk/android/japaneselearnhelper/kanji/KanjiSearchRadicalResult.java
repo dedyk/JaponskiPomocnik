@@ -72,19 +72,19 @@ public class KanjiSearchRadicalResult extends Activity {
 		final String[] selectedRadicals = (String[])getIntent().getSerializableExtra("search");
 
 		// konfiguracja zakladek
-		TabHost host = (TabHost)findViewById(R.id.kanji_entry_search_radical_tab_host);
+		TabHost host = (TabHost)findViewById(R.id.kanji_search_radical_tab_host);
 
 		host.setup();
 
 		// Zakladka ogolna
 		TabHost.TabSpec generalTab = host.newTabSpec(getString(R.string.kanji_search_radical_generalTab_label));
-		generalTab.setContent(R.id.kanji_entry_search_radical_tab_content_tab1);
+		generalTab.setContent(R.id.kanji_search_radical_tab_content_tab1);
 		generalTab.setIndicator(getString(R.string.kanji_search_radical_generalTab_label));
 		host.addTab(generalTab);
 
 		// Zakladka ze szczegolami (lista)
 		TabHost.TabSpec detailsTab = host.newTabSpec(getString(R.string.kanji_search_radical_detailsTab_label));
-		detailsTab.setContent(R.id.kanji_entry_search_radical_tab_content_tab2);
+		detailsTab.setContent(R.id.kanji_search_radical_tab_content_tab2);
 		detailsTab.setIndicator(getString(R.string.kanji_search_radical_detailsTab_label));
 		host.addTab(detailsTab);
 
@@ -92,7 +92,7 @@ public class KanjiSearchRadicalResult extends Activity {
 
 		// wypelnianie zawartosci (czesc wspolna) - inicjacja
 
-		final TextView searchValueTextView = (TextView)findViewById(R.id.kanji_entry_search_radical_value);
+		final TextView searchValueTextView = (TextView)findViewById(R.id.kanji_search_radical_value);
 		
 		searchValueTextView.setTypeface(babelStoneHanTypeface);
 		searchValueTextView.setText(Arrays.toString(selectedRadicals));
@@ -102,10 +102,10 @@ public class KanjiSearchRadicalResult extends Activity {
 		kanjiDictionarySearchElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "???"));
 
 		// czesc ogolna - inicjacja
-		final LinearLayout generalLinearLayout = (LinearLayout) findViewById(R.id.kanji_entry_search_radical_tab_content_tab1);
+		final LinearLayout generalLinearLayout = (LinearLayout) findViewById(R.id.kanji_search_radical_tab_content_tab1);
 
 		// czesc szczegolowa - inicjacja
-		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_entry_search_radical_result_list);
+		final ListView searchResultListView = (ListView)findViewById(R.id.kanji_search_radical_result_list);
 		
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
 		
