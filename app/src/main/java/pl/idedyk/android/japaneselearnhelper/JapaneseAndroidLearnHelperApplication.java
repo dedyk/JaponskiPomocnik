@@ -20,6 +20,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -191,6 +192,19 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		return ThemeType.BLACK;
 	}
 
+	public int getLinkColor() {
+
+		TypedArray typedArray = getTheme().obtainStyledAttributes(
+				getThemeType().getStyleId(),
+				new int[] { android.R.attr.textColorLink });
+
+		int intColor = typedArray.getColor(0, 0);
+
+		typedArray.recycle();
+
+		return intColor;
+	}
+
 	/*
 	public Tracker getTracker() {
 		
@@ -315,6 +329,10 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 			this.deleteIconId = deleteIconId;
 			this.userGroupListIconId = userGroupListIconId;
 			this.listenIconId = listenIconId;
+		}
+
+		public int getStyleId() {
+			return styleId;
 		}
 
 		public int getTextColorId() {

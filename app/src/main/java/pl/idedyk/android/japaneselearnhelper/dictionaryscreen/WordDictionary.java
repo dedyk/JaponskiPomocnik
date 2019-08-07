@@ -511,6 +511,42 @@ public class WordDictionary extends Activity {
 		
 		searchOptionsLinearLayout.addView(searchDictionaryEntryListCheckBox[searchDictionaryEntryListCheckBox.length - 1], 
 				searchOptionsLinearLayout.getChildCount() - 1);
+
+		//
+
+		TextView selectAllWordEntryTypeLink = (TextView)findViewById(R.id.word_dictionary_search_options_search_word_entry_type_select_all_link);
+
+		selectAllWordEntryTypeLink.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+
+				for (CheckBox checkBox : searchDictionaryEntryListCheckBox) {
+					checkBox.setChecked(true);
+				}
+
+				if (searchOptionsEachChangeCheckBox.isChecked() == true) {
+					performSearch(searchValueEditText.getText().toString());
+				}
+			}
+		});
+
+		TextView deselectAllWordEntryTypeLink = (TextView)findViewById(R.id.word_dictionary_search_options_search_word_entry_type_deselect_all_link);
+
+		deselectAllWordEntryTypeLink.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+
+				for (CheckBox checkBox : searchDictionaryEntryListCheckBox) {
+					checkBox.setChecked(false);
+				}
+
+				if (searchOptionsEachChangeCheckBox.isChecked() == true) {
+					performSearch(searchValueEditText.getText().toString());
+				}
+			}
+		});
+
+		//
 		
 		// search from other activity
 		FindWordRequest findWordRequest = (FindWordRequest)getIntent().getSerializableExtra("findWordRequest");
