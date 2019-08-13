@@ -142,78 +142,14 @@ public class KanjiSearchStrokeCount extends Activity {
 
 					return;							
 				}
-				
-				final ProgressDialog progressDialog = ProgressDialog.show(KanjiSearchStrokeCount.this, 
-						getString(R.string.kanji_entry_searching1),
-						getString(R.string.kanji_entry_searching2));
 
-				class PrepareAsyncTaskResult {
+				// uruchomienie wyszukiwania
+				Intent intent = new Intent(getApplicationContext(), KanjiSearchStrokeCountResult.class);
 
-					private FindKanjiResult findKanjiResult;
+				intent.putExtra("from", fromInt);
+				intent.putExtra("to", toInt);
 
-					private DictionaryException dictionaryException;
-
-					public PrepareAsyncTaskResult(FindKanjiResult findKanjiResult) {
-						this.findKanjiResult = findKanjiResult;
-					}
-
-					public PrepareAsyncTaskResult(DictionaryException dictionaryException) {
-						this.dictionaryException = dictionaryException;
-
-						this.findKanjiResult = new FindKanjiResult();
-
-						this.findKanjiResult.setResult(new ArrayList<KanjiEntry>());
-					}
-				}
-				
-				class FindKanjiAsyncTask extends AsyncTask<Void, Void, PrepareAsyncTaskResult> {
-					
-					@Override
-					protected PrepareAsyncTaskResult doInBackground(Void... params) {
-
-						try {
-							return new PrepareAsyncTaskResult(JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiSearchStrokeCount.this).
-									findKanjisFromStrokeCount(fromInt, toInt));
-
-						} catch (DictionaryException e) {
-							return new PrepareAsyncTaskResult(e);
-						}
-					}
-					
-				    @Override
-				    protected void onPostExecute(PrepareAsyncTaskResult result) {
-				        super.onPostExecute(result);
-
-				        if (progressDialog != null && progressDialog.isShowing()) {
-				        	progressDialog.dismiss();
-				        }
-
-						if (result.dictionaryException != null) {
-
-							Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
-						}
-
-						FindKanjiResult foundKanjis = result.findKanjiResult;
-				        
-						if (foundKanjis.isMoreElemetsExists() == true) {					
-							Toast toast = Toast.makeText(KanjiSearchStrokeCount.this, getString(R.string.kanji_search_stroke_count_result_limited), Toast.LENGTH_SHORT);
-							
-							toast.show();					
-						}
-						
-						Intent intent = new Intent(getApplicationContext(), KanjiSearchStrokeCountResult.class);
-						
-						KanjiEntry[] kanjiEntriesAsArray = new KanjiEntry[foundKanjis.getResult().size()];
-						
-						foundKanjis.getResult().toArray(kanjiEntriesAsArray);
-						
-						intent.putExtra("kanjiStrokeCountResult", kanjiEntriesAsArray);
-						
-						startActivity(intent);
-				    }
-				}
-				
-				new FindKanjiAsyncTask().execute();
+				startActivity(intent);
 			}
 			
 			private Integer getInt(String textString, int defaultValue) {
