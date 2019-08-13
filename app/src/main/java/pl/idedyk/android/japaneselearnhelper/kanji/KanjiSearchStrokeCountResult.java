@@ -134,24 +134,24 @@ public class KanjiSearchStrokeCountResult extends Activity {
 			protected void onPostExecute(PrepareAsyncTaskResult result) {
 				super.onPostExecute(result);
 
-				if (progressDialog != null && progressDialog.isShowing()) {
-					progressDialog.dismiss();
-				}
-
 				if (result.dictionaryException != null) {
 					Toast.makeText(KanjiSearchStrokeCountResult.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
 				}
 
 				FindKanjiResult foundKanjis = result.findKanjiResult;
 
+				// wypelnienie ekranu zawartoscia
+				fillScreen(foundKanjis);
+
+                if (progressDialog != null && progressDialog.isShowing()) {
+                    progressDialog.dismiss();
+                }
+
 				if (foundKanjis.isMoreElemetsExists() == true) {
 					Toast toast = Toast.makeText(KanjiSearchStrokeCountResult.this, getString(R.string.kanji_search_stroke_count_result_limited), Toast.LENGTH_SHORT);
 
 					toast.show();
 				}
-
-				// wypelnienie ekranu zawartoscia
-				fillScreen(foundKanjis);
 			}
 		}
 
