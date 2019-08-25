@@ -38,6 +38,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -298,7 +299,7 @@ public class WordDictionary extends Activity {
 		searchOptionsUseAutocompleteCheckBox.setChecked(wordDictionarySearchConfig.getUseAutocomplete());
 		
 		searchValueEditText.setUseAutocompleteCheckBox(searchOptionsUseAutocompleteCheckBox);
-		
+
 		searchOptionsUseAutocompleteCheckBox.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
@@ -387,7 +388,23 @@ public class WordDictionary extends Activity {
 			public void afterTextChanged(Editable s) {				
 			}
 		});
-		
+
+		searchValueEditText.setOnKeyListener(new View.OnKeyListener() {
+			public boolean onKey(View view, int keyCode, KeyEvent keyevent) {
+
+				// nacisniecie entera
+				if ((keyevent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+					if (searchOptionsEachChangeCheckBox.isChecked() == false) {
+						performSearch(searchValueEditText.getText().toString());
+					}
+
+					return true;
+				}
+				return false;
+			}
+		});
+
 		searchValueEditText.setAdapter(new AutoCompleteAdapter(this, AutoCompleteSuggestionType.WORD_DICTIONARY));
 				
 		wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, 0));
