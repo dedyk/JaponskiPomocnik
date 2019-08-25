@@ -35,6 +35,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -239,6 +240,22 @@ public class KanjiSearchMeaning extends Activity {
 			}
 			
 			public void afterTextChanged(Editable s) {				
+			}
+		});
+
+		searchValueEditText.setOnKeyListener(new View.OnKeyListener() {
+			public boolean onKey(View view, int keyCode, KeyEvent keyevent) {
+
+				// nacisniecie entera
+				if ((keyevent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+					if (searchOptionsEachChangeCheckBox.isChecked() == false) {
+						performSearch(searchValueEditText.getText().toString());
+					}
+
+					return true;
+				}
+				return false;
 			}
 		});
 
