@@ -24,7 +24,7 @@
     <string name="logs_kanji_test">Test kanji</string>
     <string name="logs_kanji_test_check">Test kanji - sprawdzanie</string>
     <string name="logs_kanji_test_options">Opcje testu kanji</string>
-    <string name="logs_kanji_test_summary">wynik testu kanji</string>
+    <string name="logs_kanji_test_summary">Wynik testu kanji</string>
     <string name="logs_keigo_table">Tablica keigo</string>
     <string name="logs_sod">Rysowanie znaku</string>
     <string name="logs_transitive_intransitive_pairs_table">Tablica par czasowników przechodnich nieprzechodnich</string>
