@@ -954,6 +954,10 @@ public class WordDictionaryDetails extends Activity {
 
 			for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : grammaFormConjugateGroupTypeElementsList) {
 
+				if (currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().isShow() == false) {
+					continue;
+				}
+
 				report.add(new TitleItem(currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType()
 						.getName(), 1));
 
