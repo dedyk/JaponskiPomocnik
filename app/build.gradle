@@ -23,8 +23,8 @@ android {
         targetSdkVersion 28
         multiDexEnabled true
 
-        versionCode 670
-        versionName "20190929"
+        versionCode 687
+        versionName "20200126"
     }
 
     signingConfigs {
@@ -40,16 +40,12 @@ android {
         release {
             minifyEnabled false
             shrinkResources false
-            useProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
 
         debug {
             minifyEnabled false
             shrinkResources false
-            useProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
