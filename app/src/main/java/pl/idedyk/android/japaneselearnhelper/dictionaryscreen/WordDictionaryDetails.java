@@ -312,9 +312,30 @@ public class WordDictionaryDetails extends Activity {
 
 				StringBuffer detailsSb = new StringBuffer();
 
+				/*
 				for (IScreenItem currentGeneratedDetails : generatedDetails) {
 					detailsSb.append(currentGeneratedDetails.toString()).append("\n\n");
 				}
+				 */
+
+				detailsSb.append("\nId: " + dictionaryEntry.getId()).append("\n\n");
+				detailsSb.append("Kanji: " + (dictionaryEntry.getKanji() != null ? dictionaryEntry.getKanji() : "")).append("\n\n");
+				detailsSb.append("Kana: " + dictionaryEntry.getKana()).append("\n\n");
+				detailsSb.append("Romaji: " + dictionaryEntry.getRomaji()).append("\n\n");
+				detailsSb.append("Tłumaczenie: \n");
+
+				List<String> translates = dictionaryEntry.getTranslates();
+
+				if (translates != null) {
+
+					for (String currentTranslate : translates) {
+						detailsSb.append("     ").append(currentTranslate).append("\n");
+					}
+
+					detailsSb.append("\n");
+				}
+
+				detailsSb.append("Informacje dodatkowe: " + (dictionaryEntry.getInfo() != null ? dictionaryEntry.getInfo() : "")).append("\n\n");
 
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
 
