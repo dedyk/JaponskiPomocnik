@@ -23,8 +23,8 @@ android {
         targetSdkVersion 28
         multiDexEnabled true
 
-        versionCode 706
-        versionName "20200607"
+        versionCode 707
+        versionName "20200614"
     }
 
     signingConfigs {
