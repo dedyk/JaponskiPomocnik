@@ -12,15 +12,21 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
-    dataBinding.enabled = true
 
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    buildFeatures {
+        dataBinding true
+
+        // for view binding:
+        // viewBinding true
+    }
+
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
         applicationId "pl.idedyk.android.japaneselearnhelper"
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         multiDexEnabled true
 
         versionCode 713
