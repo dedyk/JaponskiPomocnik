@@ -23,13 +23,17 @@ android {
     compileSdkVersion 29
     buildToolsVersion '29.0.2'
 
+    // uwaga jesli kiedys w przyszlosci ustawisz targetSdkVersion na 30 lub wiecej to prawdopodobnie przestanie dzialac opcja
+    // android:requestLegacyExternalStorage="true", ktore jest wymagane dla Android 10+
+    // trzeba bedzie to zmienic i sprawdzic, czy aplikacja dziala
+
     defaultConfig {
         applicationId "pl.idedyk.android.japaneselearnhelper"
         minSdkVersion 14
         targetSdkVersion 29
         multiDexEnabled true
 
-        versionCode 717
+        versionCode 718
         versionName "20200823"
     }
 
