@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.dictionary;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Environment;
@@ -12,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -69,13 +71,52 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
         // init
         loadWithProgress.setDescription(resources.getString(R.string.dictionary_manager_load_init));
 
+        // detect external storage legacy
+        boolean externalStorageLegacy = true;
+
+        try {
+            Method isExternalStorageLegacyMethod = Environment.class.getMethod("isExternalStorageLegacy");
+
+            externalStorageLegacy = (Boolean)isExternalStorageLegacyMethod.invoke(null);
+
+        } catch (Exception e) {
+            externalStorageLegacy = true;
+
+        }
+
         // check external storage state
         if (checkExternalStorageState(loadWithProgress, resources) == false) {
             return;
         }
 
-        // create base dir in external storage
-        File externalStorageDirectory = Environment.getExternalStorageDirectory();
+        File externalStorageDirectory;
+
+        if (externalStorageLegacy == true) { // old way
+
+            // create base dir in external storage
+            externalStorageDirectory = Environment.getExternalStorageDirectory();
+
+        } else { // new way Android 11+
+
+            externalStorageDirectory = activity.getExternalFilesDir(null);
+
+            if (externalStorageDirectory == null) { // try to create external storage
+
+                externalStorageDirectory = new File(Environment.getExternalStorageDirectory(), "/Android/data/" + activity.getPackageName() + "/files");
+
+                externalStorageDirectory.mkdirs();
+
+                //
+
+                externalStorageDirectory = activity.getExternalFilesDir(null);
+            }
+        }
+
+        if (externalStorageDirectory == null) {
+            loadWithProgress.setError(resources.getString(R.string.dictionary_manager_null_external_storage));
+
+            return;
+        }
 
         // create base dir
         baseDir = new File(externalStorageDirectory, "JaponskiPomocnik");
