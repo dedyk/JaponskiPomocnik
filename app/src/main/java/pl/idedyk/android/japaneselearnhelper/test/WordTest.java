@@ -3,6 +3,7 @@ package pl.idedyk.android.japaneselearnhelper.test;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -234,10 +235,10 @@ public class WordTest extends Activity {
 		if (wordTestMode == WordTestMode.INPUT) {
 
 			// check user answer
-			boolean isCorrectAnswers = false;
+			IsCorrectKanjiOrKanaAnswersResult isCorrectKanjiOrKanaAnswersResult;
 
 			try {
-				isCorrectAnswers = isCorrectKanjiOrKanaAnswers(context);
+				isCorrectKanjiOrKanaAnswersResult = isCorrectKanjiOrKanaAnswers(context);
 
 			} catch (DictionaryException e) {
 				Toast.makeText(WordTest.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
@@ -246,13 +247,15 @@ public class WordTest extends Activity {
 			}
 
 			wordTestContext.addWordTestAnswers(kanaList.size());
-			wordTestContext.addWordTestCorrectAnswers(isCorrectAnswers == true ? 1 : 0);
-			wordTestContext.addWordTestIncorrentAnswers(isCorrectAnswers == false ? 1 : 0);
+			wordTestContext.addWordTestCorrectAnswers(isCorrectKanjiOrKanaAnswersResult.isCorrect == true ? 1 : 0);
+			wordTestContext.addWordTestIncorrentAnswers(isCorrectKanjiOrKanaAnswersResult.isCorrect == false ? 1 : 0);
 
-			if (isCorrectAnswers == true) {
+			if (isCorrectKanjiOrKanaAnswersResult.isCorrect == true) {
 
-				Toast toast = null;
+				Toast toast = Toast.makeText(WordTest.this, getString(R.string.word_test_correct_without_translate),
+						Toast.LENGTH_SHORT);
 
+				/*
 				if (showTranslate == true) {
 					toast = Toast.makeText(WordTest.this, getString(R.string.word_test_correct_without_translate),
 							Toast.LENGTH_SHORT);
@@ -262,6 +265,7 @@ public class WordTest extends Activity {
 							getString(R.string.word_test_correct_with_translate,
 									ListUtil.getListAsString(translateList, "\n")), Toast.LENGTH_SHORT);
 				}
+				*/
 
 				toast.setGravity(Gravity.TOP, 0, 110);
 
@@ -276,6 +280,11 @@ public class WordTest extends Activity {
 
 				AlertDialog alertDialog = new AlertDialog.Builder(WordTest.this).create();
 
+				alertDialog.setMessage(getString(R.string.word_test_incorrect_with_translate,
+						ListUtil.getListAsString(new ArrayList<String>(isCorrectKanjiOrKanaAnswersResult.correctAnswers), "\n"),
+						ListUtil.getListAsString(translateList, "\n")));
+
+				/*
 				if (showTranslate == true) {
 					alertDialog.setMessage(getString(R.string.word_test_incorrect_without_translate,
 							ListUtil.getListAsString(kanaList, "\n")));
@@ -283,6 +292,7 @@ public class WordTest extends Activity {
 					alertDialog.setMessage(getString(R.string.word_test_incorrect_with_translate,
 							ListUtil.getListAsString(kanaList, "\n"), ListUtil.getListAsString(translateList, "\n")));
 				}
+				 */
 
 				alertDialog.setCancelable(false);
 				alertDialog.setButton(getString(R.string.word_test_incorrect_ok),
@@ -397,7 +407,7 @@ public class WordTest extends Activity {
 		}
 	}
 
-	private boolean isCorrectKanjiOrKanaAnswers(JapaneseAndroidLearnHelperContext context) throws DictionaryException {
+	private IsCorrectKanjiOrKanaAnswersResult isCorrectKanjiOrKanaAnswers(JapaneseAndroidLearnHelperContext context) throws DictionaryException {
 
 		final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getConfigManager(WordTest.this).getWordTestConfig();
@@ -466,6 +476,8 @@ public class WordTest extends Activity {
 		}
 
 		// sprawdzamy to co uzytkownik wpisal
+		LinkedHashSet<String> correctAnswers = new LinkedHashSet<String>();
+
 		boolean isCorrectAnswer = false;
 
 		String currentUserAnswer = textViewAndEditTextForWordAsArray[0].editText.getText().toString().trim();
@@ -473,18 +485,31 @@ public class WordTest extends Activity {
 		for (DictionaryEntry currentDictionaryEntryInAlternatives : currentWordDictionaryGroupEntryList) {
 
 			// sprawdzanie, czy uzytkownik wpisal poprawne kanji
-			if (checkKanji == true && currentDictionaryEntryInAlternatives.isKanjiExists() == true && currentDictionaryEntryInAlternatives.getKanji().equals(currentUserAnswer) == true) {
-				isCorrectAnswer = true;
+			if (checkKanji == true && currentDictionaryEntryInAlternatives.isKanjiExists() == true) {
+
+				if (currentDictionaryEntryInAlternatives.getKanji().equals(currentUserAnswer) == true) {
+					isCorrectAnswer = true;
+				} else {
+					correctAnswers.add(currentDictionaryEntryInAlternatives.getKanji());
+				}
 			}
 
-			if (checkKana == true && currentDictionaryEntryInAlternatives.getKana().equals(currentUserAnswer) == true) {
-				isCorrectAnswer = true;
+			if (checkKana == true) {
+
+				if (currentDictionaryEntryInAlternatives.getKana().equals(currentUserAnswer) == true) {
+					isCorrectAnswer = true;
+				} else {
+					correctAnswers.add(currentDictionaryEntryInAlternatives.getKana());
+				}
 			}
 		}
 
-		fixme_pokazywanie_prawidlowej_odpowiedzi();
+		IsCorrectKanjiOrKanaAnswersResult result = new IsCorrectKanjiOrKanaAnswersResult();
 
-		return isCorrectAnswer;
+		result.isCorrect = isCorrectAnswer;
+		result.correctAnswers = correctAnswers;
+
+		return result;
 	}
 
 	@Override
@@ -917,5 +942,13 @@ public class WordTest extends Activity {
 			this.editPrefix = editPrefix;
 			this.editText = editText;
 		}
+	}
+
+	private static class IsCorrectKanjiOrKanaAnswersResult {
+
+		boolean isCorrect;
+
+		LinkedHashSet<String> correctAnswers;
+
 	}
 }
