@@ -712,7 +712,9 @@ public class WordDictionaryDetails extends Activity {
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_additional_info_label), 0));
 
 		if (isSmTsukiNiKawatteOshiokiYo(kanjiSb.toString()) == true) {
-			report.add(createSmTsukiNiKawatteOshiokiYo());
+			report.add(createSpecialAAText(R.string.sm_tsuki_ni_kawatte_oshioki_yo));
+		} else if (isButaMoOdateryaKiNiNoboru(kanjiSb.toString()) == true) {
+			report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
 		} else {
 			String info = dictionaryEntry.getInfo();
 
@@ -1349,9 +1351,22 @@ public class WordDictionaryDetails extends Activity {
 		return false;
 	}
 
-	private StringValue createSmTsukiNiKawatteOshiokiYo() {
+	private boolean isButaMoOdateryaKiNiNoboru(String value) {
 
-		StringValue smStringValue = new StringValue(getString(R.string.sm_tsuki_ni_kawatte_oshioki_yo), 2.8f, 0);
+		if (value == null) {
+			return false;
+		}
+
+		if (value.equals("豚もおだてりゃ木に登る") == true || value.equals("ブタもおだてりゃ木に登る") == true || value.equals("豚も煽てりゃ木に登る") == true) {
+			return true;
+		}
+
+		return false;
+	}
+
+	private StringValue createSpecialAAText(int stringId) {
+
+		StringValue smStringValue = new StringValue(getString(stringId), 3.8f, 0);
 
 		smStringValue.setTypeface(Typeface.MONOSPACE);
 		smStringValue.setTextColor(Color.BLACK);
