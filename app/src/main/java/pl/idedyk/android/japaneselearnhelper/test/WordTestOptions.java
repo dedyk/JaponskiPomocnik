@@ -101,7 +101,8 @@ public class WordTestOptions extends Activity {
 		
 		if (wordTestMode == WordTestMode.INPUT) {
 			testModeInputRadioButton.setChecked(true);
-			showKanaCheckBox.setEnabled(false);			
+			showKanaCheckBox.setEnabled(false);
+			showKanaCheckBox.setChecked(false);
 		} else if (wordTestMode == WordTestMode.OVERVIEW) {
 			testModeOverviewRadioButton.setChecked(true);
 			showKanaCheckBox.setEnabled(true);
@@ -136,6 +137,7 @@ public class WordTestOptions extends Activity {
 			
 			public void onClick(View v) {
 				showKanaCheckBox.setEnabled(false);
+				showKanaCheckBox.setChecked(false);
 			}
 		});
 
@@ -377,7 +379,9 @@ public class WordTestOptions extends Activity {
 
 								if (chosenWordTestMode == WordTestMode.INPUT) {
 
-									if (showTranslate == true || currentDictionaryEntry.isKanjiExists() == true) {
+									if (showKanji == false && showKana == true && currentDictionaryEntry.isKanjiExists() == false) { // gdy bedziemy wpisywac kanji na podstawie kana, ale kanji nie ma
+										wasFilteredWords = true;
+									} else if (showTranslate == true || currentDictionaryEntry.isKanjiExists() == true) {
 										chosenAllDictionaryEntryList.add(currentDictionaryEntry);
 									} else {
 										wasFilteredWords = true;

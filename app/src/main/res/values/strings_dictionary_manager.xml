@@ -12,6 +12,7 @@
     <string name="dictionary_manager_migrate_old_own_groups_from_kanji_test">Migracja grup z testu kanji</string>
     <string name="dictionary_manager_migrate_old_own_groups_from_kanji_test_group_postfix">(zmigrowanie)</string>
     <string name="dictionary_manager_optimize">Optymalizacja</string>
+    <string name="dictionary_manager_null_external_storage">W obecnej chwili pamięć urządzenia nie jest dostępna. Proszę ponownie uruchomić aplikację, sprawdzić czy pamięć urządzenia jest dostępna, zrestartować urządzenia, a jak to nie pomoże to prośba o kontakt z autorem aplikacji.</string>
     <string name="dictionary_manager_bad_external_storage_state">Zewnętrzna pamięć urządzenia nie jest dostępna do zapisu</string>
     <string name="dictionary_manager_create_directories_error">Błąd tworzenia struktury katalogów na zewnętrznej pamięci urządzenia. Sprawdź ilość wolnego miejsca.</string>
     <string name="dictionary_manager_ioerror">Błąd przygotowywania bazy danych na zewnętrznej pamięci urządzenia. Sprawdź ilość wolnego miejsca.</string>
