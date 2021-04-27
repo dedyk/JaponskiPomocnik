@@ -10,10 +10,13 @@ import com.csvreader.CsvReader;
 //import com.google.android.gms.wearable.Asset;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -95,6 +98,15 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
             // create base dir in external storage
             externalStorageDirectory = Environment.getExternalStorageDirectory();
+
+            // test przeniesienia danych!!!!!!!!!!!!!!!!!!!!!
+
+            boolean moveFileResult = moveFile(new File(externalStorageDirectory, "JaponskiPomocnik"), new File(activity.getExternalFilesDir(null), "JaponskiPomocnik"));
+
+            // sprawdzenie wyniku !!!!!!!!!!!!!!!!!!
+
+            // test !!!!!!!!!!!!!!!!!
+            return;
 
         } else { // new way Android 11+
 
@@ -373,6 +385,81 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
             loadWithProgress.setError(resources.getString(R.string.dictionary_manager_bad_external_storage_state));
 
             return false;
+        }
+
+        return true;
+    }
+
+    private static boolean moveFile(File sourceFile, File destinationFile) {
+
+        if (sourceFile.isFile() == true) {
+
+            // kopiujemy zawartosc
+            byte[] buffer = new byte[1024];
+            int count;
+
+            FileInputStream sourceFileInputStream = null;
+            FileOutputStream destinationFileOutputStream = null;
+
+            try {
+                sourceFileInputStream = new FileInputStream(sourceFile);
+                destinationFileOutputStream = new FileOutputStream(destinationFile);
+
+                while ((count = sourceFileInputStream.read(buffer)) != -1) {
+                    destinationFileOutputStream.write(buffer, 0, count);
+                }
+
+            } catch (IOException e) {
+                return false;
+
+            } finally {
+
+                if (sourceFileInputStream != null) {
+
+                    try {
+                        sourceFileInputStream.close();
+                    } catch (IOException e) {
+                        //noop
+                    }
+                }
+
+                if (destinationFileOutputStream != null) {
+                    try {
+                        destinationFileOutputStream.close();
+                    } catch (IOException e) {
+                        //noop
+                    }
+                }
+
+                if (sourceFile.delete() == false) {
+                    return false;
+                }
+            }
+
+        } else if (sourceFile.isDirectory() == true) {
+
+            if (destinationFile.isDirectory() == false) {
+
+                if (destinationFile.mkdir() == false) {
+                    return false;
+                }
+            }
+
+            File[] sourceDirFileList = sourceFile.listFiles();
+
+            for (File currentSourceDirFile : sourceDirFileList) {
+
+                if (moveFile(currentSourceDirFile, new File(destinationFile, currentSourceDirFile.getName())) == false) {
+                    return false;
+                }
+            }
+
+            if (sourceFile.delete() == false) {
+                return false;
+            }
+
+        } else {
+            throw new RuntimeException();
         }
 
         return true;
