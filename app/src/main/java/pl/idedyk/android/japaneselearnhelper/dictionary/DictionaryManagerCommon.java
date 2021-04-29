@@ -104,7 +104,7 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
             if (oldStorageDirFile.exists() == true) { // jezeli stara lokalizacja istnieje to przenies to w nowe miejsce
 
-                boolean moveStorageResult = moveFile(oldStorageDirFile, newStorageDirFile);
+                boolean moveStorageResult = moveFile(calculateBaseDir(oldStorageDirFile), calculateBaseDir(newStorageDirFile));
 
                 if (moveStorageResult == false) { // operacja nie udala sie
 
@@ -128,7 +128,7 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
         }
 
         // create base dir
-        baseDir = calculateMainDir(externalStorageDirectory);
+        baseDir = calculateBaseDir(externalStorageDirectory);
 
         if (baseDir.isDirectory() == false) {
 
@@ -155,7 +155,7 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
         init2(activity, loadWithProgress, resources, assets, packageName, versionCode);
     }
 
-    private File calculateMainDir(File dir) {
+    private File calculateBaseDir(File dir) {
         return new File(dir, "JaponskiPomocnik");
     }
 
