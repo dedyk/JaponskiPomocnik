@@ -98,13 +98,15 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
             // pobranie glownego katalogu to storage
             File oldStorageDirFile = Environment.getExternalStorageDirectory();
+            File oldBaseDir = calculateBaseDir(oldStorageDirFile);
 
             // pobranie nowej lokalizacji
             File newStorageDirFile = getNewStorageDirFile(activity);
+            File newBaseDir = calculateBaseDir(newStorageDirFile);
 
-            if (oldStorageDirFile.exists() == true) { // jezeli stara lokalizacja istnieje to przenies to w nowe miejsce
+            if (oldBaseDir.exists() == true) { // jezeli stara lokalizacja istnieje to przenies to w nowe miejsce
 
-                boolean moveStorageResult = moveFile(calculateBaseDir(oldStorageDirFile), calculateBaseDir(newStorageDirFile));
+                boolean moveStorageResult = moveFile(oldBaseDir, newBaseDir);
 
                 if (moveStorageResult == false) { // operacja nie udala sie
 
