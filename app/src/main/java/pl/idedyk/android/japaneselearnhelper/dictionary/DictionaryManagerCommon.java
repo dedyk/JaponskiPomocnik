@@ -94,34 +94,31 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
         File externalStorageDirectory;
 
-        if (externalStorageLegacy == true) { // old way
+        if (externalStorageLegacy == true) { // stary sposob
 
-            // create base dir in external storage
-            externalStorageDirectory = Environment.getExternalStorageDirectory();
+            // pobranie glownego katalogu to storage
+            File oldStorageDirFile = Environment.getExternalStorageDirectory();
 
-            // test przeniesienia danych!!!!!!!!!!!!!!!!!!!!!
+            // pobranie nowej lokalizacji
+            File newStorageDirFile = getNewStorageDirFile(activity);
 
-            boolean moveFileResult = moveFile(new File(externalStorageDirectory, "JaponskiPomocnik"), new File(activity.getExternalFilesDir(null), "JaponskiPomocnik"));
+            if (oldStorageDirFile.exists() == true) { // jezeli stara lokalizacja istnieje to przenies to w nowe miejsce
 
-            // sprawdzenie wyniku !!!!!!!!!!!!!!!!!!
+                boolean moveStorageResult = moveFile(oldStorageDirFile, newStorageDirFile);
 
-            // test !!!!!!!!!!!!!!!!!
-            return;
+                if (moveStorageResult == false) { // operacja nie udala sie
+
+                    loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
+
+                    return;
+                }
+            }
+
+            // ustawienie nowej glownej lokalizacji
+            externalStorageDirectory = newStorageDirFile;
 
         } else { // new way Android 11+
-
-            externalStorageDirectory = activity.getExternalFilesDir(null);
-
-            if (externalStorageDirectory == null) { // try to create external storage
-
-                externalStorageDirectory = new File(Environment.getExternalStorageDirectory(), "/Android/data/" + activity.getPackageName() + "/files");
-
-                externalStorageDirectory.mkdirs();
-
-                //
-
-                externalStorageDirectory = activity.getExternalFilesDir(null);
-            }
+            externalStorageDirectory = getNewStorageDirFile(activity);
         }
 
         if (externalStorageDirectory == null) {
@@ -131,7 +128,7 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
         }
 
         // create base dir
-        baseDir = new File(externalStorageDirectory, "JaponskiPomocnik");
+        baseDir = calculateMainDir(externalStorageDirectory);
 
         if (baseDir.isDirectory() == false) {
 
@@ -156,6 +153,28 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
         // dalsze czynnosci
         init2(activity, loadWithProgress, resources, assets, packageName, versionCode);
+    }
+
+    private File calculateMainDir(File dir) {
+        return new File(dir, "JaponskiPomocnik");
+    }
+
+    private File getNewStorageDirFile(Activity activity) {
+
+        File newStorageDirFile = activity.getExternalFilesDir(null);
+
+        if (newStorageDirFile == null) { // to chyba nie powinno zadarzyc sie
+
+            newStorageDirFile = new File(Environment.getExternalStorageDirectory(), "/Android/data/" + activity.getPackageName() + "/files");
+
+            newStorageDirFile.mkdirs();
+
+            //
+
+            //newStorageDirFile = activity.getExternalFilesDir(null);
+        }
+
+        return newStorageDirFile;
     }
 
     protected boolean initDataManager(Activity activity, ILoadWithProgress loadWithProgress, Resources resources) {
