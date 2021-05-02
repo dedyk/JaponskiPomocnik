@@ -496,6 +496,7 @@ public class WordDictionary extends Activity {
 				wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, historyEntryList.size()));
 
 				searchResultArrayAdapter.notifyDataSetChanged();
+				searchResultListView.setSelection(0);
 			}
 		});
 		
@@ -952,6 +953,7 @@ public class WordDictionary extends Activity {
 					}
 
 					searchResultArrayAdapter.notifyDataSetChanged();
+					searchResultListView.setSelection(0);
 			        
 					if (progressDialog != null && progressDialog.isShowing()) {
 						progressDialog.dismiss();
@@ -983,8 +985,9 @@ public class WordDictionary extends Activity {
 			
 			new FindWordAsyncTask().execute();
 			
-		} else {					
+		} else {
 			searchResultArrayAdapter.notifyDataSetChanged();
+			searchResultListView.setSelection(0);
 			
 			wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, 0));
 		}		
