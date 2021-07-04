@@ -101,7 +101,7 @@
                     android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
             </TableRow>
     
-            <TableRow
+<!--            <TableRow
                 android:id="@+id/word_test_word2_row"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
@@ -2518,7 +2518,7 @@
                     android:singleLine="true"
                     android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}"
                     android:visibility="gone" />
-            </TableRow>
+            </TableRow> -->
 
             <TableRow
                 android:id="@+id/word_test_translate_row"

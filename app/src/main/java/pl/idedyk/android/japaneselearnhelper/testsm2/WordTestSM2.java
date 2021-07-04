@@ -464,9 +464,11 @@ public class WordTestSM2 extends Activity {
 
 			List<String> kanaList = currentWordDictionaryEntry.getKanaList();
 
+			/*
 			if (kanaList.size() >= Utils.MAX_LIST_SIZE) {
 				throw new RuntimeException("Kana list size: " + kanaList);
 			}
+			 */
 
 			createTextViewAndEditTextForWordAsArray(kanaList.size() - 1);
 
@@ -707,6 +709,7 @@ public class WordTestSM2 extends Activity {
 		EditText wordPrefix1 = (EditText) findViewById(R.id.word_test_sm2_word_prefix1);
 		EditText wordInput1 = (EditText) findViewById(R.id.word_test_sm2_word_input1);
 
+		/*
 		TextView wordLabel2 = (TextView) findViewById(R.id.word_test_sm2_word_label2);
 		EditText wordPrefix2 = (EditText) findViewById(R.id.word_test_sm2_word_prefix2);
 		EditText wordInput2 = (EditText) findViewById(R.id.word_test_sm2_word_input2);
@@ -942,10 +945,12 @@ public class WordTestSM2 extends Activity {
 		TextView wordLabel60 = (TextView) findViewById(R.id.word_test_sm2_word_label60);
 		EditText wordPrefix60 = (EditText) findViewById(R.id.word_test_sm2_word_prefix60);
 		EditText wordInput60 = (EditText) findViewById(R.id.word_test_sm2_word_input60);
+		 */
 
-		textViewAndEditTextForWordAsArray = new TextViewAndEditText[Utils.MAX_LIST_SIZE];
+		textViewAndEditTextForWordAsArray = new TextViewAndEditText[1]; //Utils.MAX_LIST_SIZE];
 
 		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordPrefix1, wordInput1);
+		/*
 		textViewAndEditTextForWordAsArray[1] = new TextViewAndEditText(wordLabel2, wordPrefix2, wordInput2);
 		textViewAndEditTextForWordAsArray[2] = new TextViewAndEditText(wordLabel3, wordPrefix3, wordInput3);
 		textViewAndEditTextForWordAsArray[3] = new TextViewAndEditText(wordLabel4, wordPrefix4, wordInput4);
@@ -1005,6 +1010,7 @@ public class WordTestSM2 extends Activity {
 		textViewAndEditTextForWordAsArray[57] = new TextViewAndEditText(wordLabel58, wordPrefix58, wordInput58);
 		textViewAndEditTextForWordAsArray[58] = new TextViewAndEditText(wordLabel59, wordPrefix59, wordInput59);
 		textViewAndEditTextForWordAsArray[59] = new TextViewAndEditText(wordLabel60, wordPrefix60, wordInput60);
+		*/
 
 		for (int idx = 0; idx < textViewAndEditTextForWordAsArray.length; ++idx) {
 
