@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
 
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.RangeTest;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode1;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperKanaTestContext.TestMode2;
@@ -75,6 +76,8 @@ public class ConfigManager {
 
 		private final String messageLastTimestampPostfix = "messageLastTimestamp";
 
+		private final String themeTypePostfix = "themeType";
+
 		public String getOrGenerateUniqueUserId() {
 
 			String userId = preferences.getString(commonConfigPrefix + userIdPostfix, null);
@@ -103,6 +106,31 @@ public class ConfigManager {
 			Editor editor = preferences.edit();
 
 			editor.putString(commonConfigPrefix + messageLastTimestampPostfix, messageLastTimestamp);
+
+			editor.commit();
+		}
+
+		public JapaneseAndroidLearnHelperApplication.ThemeType getThemeType(JapaneseAndroidLearnHelperApplication.ThemeType defaultThemeType) {
+
+			String themeTypeString = preferences.getString(commonConfigPrefix + themeTypePostfix, defaultThemeType.name());
+
+			if (themeTypeString != null) {
+				try {
+					return JapaneseAndroidLearnHelperApplication.ThemeType.valueOf(themeTypeString);
+
+				} catch (Exception e) {
+					// noop, zostanie uzyta warotsc domyslna
+				}
+			}
+
+			return defaultThemeType;
+		}
+
+		public void setThemeType(JapaneseAndroidLearnHelperApplication.ThemeType themeType) {
+
+			Editor editor = preferences.edit();
+
+			editor.putString(commonConfigPrefix + themeTypePostfix, themeType.name());
 
 			editor.commit();
 		}

@@ -29,6 +29,8 @@ import android.graphics.drawable.Drawable;
 import android.support.multidex.MultiDexApplication;
 
 public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
+
+	public static final ThemeType defaultThemeType = ThemeType.WHITE;
 	
 	private static JapaneseAndroidLearnHelperApplication singleton;
 
@@ -183,13 +185,32 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	}
 
 	public void setContentViewAndTheme(Activity activity, int contentViewId) {
-		activity.setTheme(getThemeType().styleId);
+		activity.setTheme(getThemeType(activity).styleId);
 
 		DataBindingUtil.setContentView(activity, contentViewId);
 	}
 
 	public ThemeType getThemeType() {
-		return ThemeType.WHITE;
+		return getThemeType(null);
+	}
+
+	private ThemeType getThemeType(Activity activity) {
+
+		if (configManager != null) {
+			return configManager.getCommonConfig().getThemeType(defaultThemeType);
+		}
+
+		if (activity == null) {
+			return defaultThemeType;
+		}
+
+		getConfigManager(activity);
+
+		if (configManager != null) {
+			return configManager.getCommonConfig().getThemeType(defaultThemeType);
+		}
+
+		return defaultThemeType;
 	}
 
 	public int getLinkColor() {
@@ -280,7 +301,10 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		startQueueThread(activity);
 
 		if (queueEventThread != null) {
-			queueEventThread.addQueueEvent(activity, queueEvent);
+
+			ThemeType themeType = getThemeType(activity);
+
+			queueEventThread.addQueueEvent(activity, themeType, queueEvent);
 		}
 	}
 

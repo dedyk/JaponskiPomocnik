@@ -54,7 +54,10 @@
 
     <string name="main_menu_information_text">Informacje</string>
     <string name="main_menu_information_kanji">情報</string>
-    
+
+    <string name="main_menu_black_white_switcher_text">Przełącz kolory aplikacji</string>
+    <string name="main_menu_black_white_switcher_kanji">黒白</string>
+
     <string name="main_menu_email_subject">Japoński pomocnik - sugestia</string>
     <string name="main_menu_email_body">Treść sugestii:\n\n</string>
     
@@ -68,4 +71,6 @@
     <string name="choose_email_client">Wybierz klienta poczty:</string>
 
     <string name="dictionary_exception_common_error_message">Niestety w trakcie korzystania z bazy danych wystąpił błąd. Sprawdź połączenie internetowe, spróbuj ponownie później lub skontaktuj się z autorem aplikacji. Komunikat błędu: %1$s</string>
+
+    <string name="main_menu_black_white_switcher_alert_dialog">Aby zmiana odniosła skutek konieczne jest zrestartowanie aplikacji.\n\nProszę ponownie uruchomić aplikację.</string>
 </resources>

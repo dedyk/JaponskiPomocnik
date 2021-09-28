@@ -137,7 +137,7 @@ public class QueueEventThread extends Thread {
 
     //
 
-    public void addQueueEvent(Activity activity, IQueueEvent queueEvent) {
+    public void addQueueEvent(Activity activity, JapaneseAndroidLearnHelperApplication.ThemeType themeType, IQueueEvent queueEvent) {
 
         Locale locale = null;
 
@@ -155,6 +155,11 @@ public class QueueEventThread extends Thread {
         // uaktualniamy zdarzenie o informacje z jezyka uzytkownika
         queueEvent.setLocaleCountry(locale.getDisplayCountry(Locale.ENGLISH));
         queueEvent.setLocaleLanguage(locale.getDisplayLanguage(Locale.ENGLISH));
+
+        // informacja o kolorach aplikacji
+        if (themeType != null) {
+            queueEvent.setThemeType(themeType.name());
+        }
 
         //
 
