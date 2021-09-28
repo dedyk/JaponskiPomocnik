@@ -183,13 +183,34 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	}
 
 	public void setContentViewAndTheme(Activity activity, int contentViewId) {
-		activity.setTheme(getThemeType().styleId);
+		activity.setTheme(getThemeType(activity).styleId);
 
 		DataBindingUtil.setContentView(activity, contentViewId);
 	}
 
 	public ThemeType getThemeType() {
-		return ThemeType.BLACK;
+		return getThemeType(null);
+	}
+
+	private ThemeType getThemeType(Activity activity) {
+
+		ThemeType defaultThemeType = ThemeType.WHITE;
+
+		if (configManager != null) {
+			return configManager.getCommonConfig().getThemeType(defaultThemeType);
+		}
+
+		if (activity == null) {
+			return defaultThemeType;
+		}
+
+		getConfigManager(activity);
+
+		if (configManager != null) {
+			return configManager.getCommonConfig().getThemeType(defaultThemeType);
+		}
+
+		return defaultThemeType;
 	}
 
 	public int getLinkColor() {
