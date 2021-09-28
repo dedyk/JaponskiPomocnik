@@ -6,6 +6,7 @@
     <string name="logs_dictionary_hear_options">Opcje słuchania słów</string>
     <string name="logs_info">Informacje</string>
     <string name="logs_main_menu">Menu główne</string>
+    <string name="logs_main_menu_black_white_switcher_event">Zmiana kolorów aplikacji</string>
     <string name="logs_kana">Kana</string>
     <string name="logs_kana_test">Kana test</string>
     <string name="logs_kana_test_answer_check">Kana test - sprawdzanie</string>

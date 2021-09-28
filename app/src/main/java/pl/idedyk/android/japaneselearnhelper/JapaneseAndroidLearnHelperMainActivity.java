@@ -286,6 +286,9 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 					commonConfig.setThemeType(themeType);
 
+					// logowanie
+					JapaneseAndroidLearnHelperApplication.getInstance().logEvent(JapaneseAndroidLearnHelperMainActivity.this, getString(R.string.logs_main_menu), getString(R.string.logs_main_menu_black_white_switcher_event), themeType.name());
+
 					// wyswietlenie informacji uzytkownikowi o koniecznosci wylaczenia aplikacji
 					AlertDialog.Builder builder = new AlertDialog.Builder(JapaneseAndroidLearnHelperMainActivity.this);
 
