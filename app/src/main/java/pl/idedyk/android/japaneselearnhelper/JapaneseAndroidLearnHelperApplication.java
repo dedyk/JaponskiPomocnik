@@ -301,7 +301,10 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		startQueueThread(activity);
 
 		if (queueEventThread != null) {
-			queueEventThread.addQueueEvent(activity, queueEvent);
+
+			ThemeType themeType = getThemeType(activity);
+
+			queueEventThread.addQueueEvent(activity, themeType, queueEvent);
 		}
 	}
 
