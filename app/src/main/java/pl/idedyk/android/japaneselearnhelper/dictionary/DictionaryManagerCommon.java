@@ -10,10 +10,13 @@ import com.csvreader.CsvReader;
 //import com.google.android.gms.wearable.Asset;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -91,25 +94,33 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
         File externalStorageDirectory;
 
-        if (externalStorageLegacy == true) { // old way
+        if (externalStorageLegacy == true) { // stary sposob
 
-            // create base dir in external storage
-            externalStorageDirectory = Environment.getExternalStorageDirectory();
+            // pobranie glownego katalogu to storage
+            File oldStorageDirFile = Environment.getExternalStorageDirectory();
+            File oldBaseDir = calculateBaseDir(oldStorageDirFile);
+
+            // pobranie nowej lokalizacji
+            File newStorageDirFile = getNewStorageDirFile(activity);
+            File newBaseDir = calculateBaseDir(newStorageDirFile);
+
+            if (oldBaseDir.exists() == true) { // jezeli stara lokalizacja istnieje to przenies to w nowe miejsce
+
+                boolean moveStorageResult = moveFile(oldBaseDir, newBaseDir);
+
+                if (moveStorageResult == false) { // operacja nie udala sie
+
+                    loadWithProgress.setError(resources.getString(R.string.dictionary_manager_ioerror));
+
+                    return;
+                }
+            }
+
+            // ustawienie nowej glownej lokalizacji
+            externalStorageDirectory = newStorageDirFile;
 
         } else { // new way Android 11+
-
-            externalStorageDirectory = activity.getExternalFilesDir(null);
-
-            if (externalStorageDirectory == null) { // try to create external storage
-
-                externalStorageDirectory = new File(Environment.getExternalStorageDirectory(), "/Android/data/" + activity.getPackageName() + "/files");
-
-                externalStorageDirectory.mkdirs();
-
-                //
-
-                externalStorageDirectory = activity.getExternalFilesDir(null);
-            }
+            externalStorageDirectory = getNewStorageDirFile(activity);
         }
 
         if (externalStorageDirectory == null) {
@@ -119,7 +130,7 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
         }
 
         // create base dir
-        baseDir = new File(externalStorageDirectory, "JaponskiPomocnik");
+        baseDir = calculateBaseDir(externalStorageDirectory);
 
         if (baseDir.isDirectory() == false) {
 
@@ -144,6 +155,28 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
         // dalsze czynnosci
         init2(activity, loadWithProgress, resources, assets, packageName, versionCode);
+    }
+
+    private File calculateBaseDir(File dir) {
+        return new File(dir, "JaponskiPomocnik");
+    }
+
+    private File getNewStorageDirFile(Activity activity) {
+
+        File newStorageDirFile = activity.getExternalFilesDir(null);
+
+        if (newStorageDirFile == null) { // to chyba nie powinno zadarzyc sie
+
+            newStorageDirFile = new File(Environment.getExternalStorageDirectory(), "/Android/data/" + activity.getPackageName() + "/files");
+
+            newStorageDirFile.mkdirs();
+
+            //
+
+            //newStorageDirFile = activity.getExternalFilesDir(null);
+        }
+
+        return newStorageDirFile;
     }
 
     protected boolean initDataManager(Activity activity, ILoadWithProgress loadWithProgress, Resources resources) {
@@ -289,10 +322,10 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
             List<KanjivgEntry> strokePaths = new ArrayList<KanjivgEntry>();
 
-            strokePaths.add(new KanjivgEntry(Utils.parseStringIntoList(strokePath1String, false)));
+            strokePaths.add(new KanjivgEntry(Utils.parseStringIntoList(strokePath1String /*, false */)));
 
             if (strokePath2String == null || strokePath2String.equals("") == false) {
-                strokePaths.add(new KanjivgEntry(Utils.parseStringIntoList(strokePath2String, false)));
+                strokePaths.add(new KanjivgEntry(Utils.parseStringIntoList(strokePath2String /*, false */)));
             }
 
             kanaAndStrokePaths.put(kana, strokePaths);
@@ -373,6 +406,81 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
             loadWithProgress.setError(resources.getString(R.string.dictionary_manager_bad_external_storage_state));
 
             return false;
+        }
+
+        return true;
+    }
+
+    private static boolean moveFile(File sourceFile, File destinationFile) {
+
+        if (sourceFile.isFile() == true) {
+
+            // kopiujemy zawartosc
+            byte[] buffer = new byte[1024];
+            int count;
+
+            FileInputStream sourceFileInputStream = null;
+            FileOutputStream destinationFileOutputStream = null;
+
+            try {
+                sourceFileInputStream = new FileInputStream(sourceFile);
+                destinationFileOutputStream = new FileOutputStream(destinationFile);
+
+                while ((count = sourceFileInputStream.read(buffer)) != -1) {
+                    destinationFileOutputStream.write(buffer, 0, count);
+                }
+
+            } catch (IOException e) {
+                return false;
+
+            } finally {
+
+                if (sourceFileInputStream != null) {
+
+                    try {
+                        sourceFileInputStream.close();
+                    } catch (IOException e) {
+                        //noop
+                    }
+                }
+
+                if (destinationFileOutputStream != null) {
+                    try {
+                        destinationFileOutputStream.close();
+                    } catch (IOException e) {
+                        //noop
+                    }
+                }
+
+                if (sourceFile.delete() == false) {
+                    return false;
+                }
+            }
+
+        } else if (sourceFile.isDirectory() == true) {
+
+            if (destinationFile.isDirectory() == false) {
+
+                if (destinationFile.mkdir() == false) {
+                    return false;
+                }
+            }
+
+            File[] sourceDirFileList = sourceFile.listFiles();
+
+            for (File currentSourceDirFile : sourceDirFileList) {
+
+                if (moveFile(currentSourceDirFile, new File(destinationFile, currentSourceDirFile.getName())) == false) {
+                    return false;
+                }
+            }
+
+            if (sourceFile.delete() == false) {
+                return false;
+            }
+
+        } else {
+            throw new RuntimeException();
         }
 
         return true;

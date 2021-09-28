@@ -282,6 +282,7 @@ public class KanjiSearchMeaning extends Activity {
 				kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, historyEntryList.size()));
 
 				searchResultArrayAdapter.notifyDataSetChanged();
+				searchResultListView.setSelection(0);
 			}
 		});
 
@@ -491,6 +492,7 @@ public class KanjiSearchMeaning extends Activity {
 					}
 
 					searchResultArrayAdapter.notifyDataSetChanged();
+					searchResultListView.setSelection(0);
 			        
 					if (progressDialog != null && progressDialog.isShowing()) {
 						progressDialog.dismiss();
@@ -507,6 +509,7 @@ public class KanjiSearchMeaning extends Activity {
 			
 		} else {					
 			searchResultArrayAdapter.notifyDataSetChanged();
+			searchResultListView.setSelection(0);
 			
 			kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, 0));
 		}		
