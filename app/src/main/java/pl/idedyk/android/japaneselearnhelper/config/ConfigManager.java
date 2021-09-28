@@ -76,7 +76,7 @@ public class ConfigManager {
 
 		private final String messageLastTimestampPostfix = "messageLastTimestamp";
 
-		private final String themeType = "themeType";
+		private final String themeTypePostfix = "themeType";
 
 		public String getOrGenerateUniqueUserId() {
 
@@ -112,7 +112,7 @@ public class ConfigManager {
 
 		public JapaneseAndroidLearnHelperApplication.ThemeType getThemeType(JapaneseAndroidLearnHelperApplication.ThemeType defaultThemeType) {
 
-			String themeTypeString = preferences.getString(commonConfigPrefix + messageLastTimestampPostfix, defaultThemeType.name());
+			String themeTypeString = preferences.getString(commonConfigPrefix + themeTypePostfix, defaultThemeType.name());
 
 			if (themeTypeString != null) {
 				try {
@@ -124,6 +124,15 @@ public class ConfigManager {
 			}
 
 			return defaultThemeType;
+		}
+
+		public void setThemeType(JapaneseAndroidLearnHelperApplication.ThemeType themeType) {
+
+			Editor editor = preferences.edit();
+
+			editor.putString(commonConfigPrefix + themeTypePostfix, themeType.name());
+
+			editor.commit();
 		}
 	}
 	

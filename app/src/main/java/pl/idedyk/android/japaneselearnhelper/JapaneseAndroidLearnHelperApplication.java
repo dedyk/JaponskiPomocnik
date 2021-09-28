@@ -29,6 +29,8 @@ import android.graphics.drawable.Drawable;
 import android.support.multidex.MultiDexApplication;
 
 public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
+
+	public static final ThemeType defaultThemeType = ThemeType.BLACK;
 	
 	private static JapaneseAndroidLearnHelperApplication singleton;
 
@@ -193,8 +195,6 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 	}
 
 	private ThemeType getThemeType(Activity activity) {
-
-		ThemeType defaultThemeType = ThemeType.WHITE;
 
 		if (configManager != null) {
 			return configManager.getCommonConfig().getThemeType(defaultThemeType);

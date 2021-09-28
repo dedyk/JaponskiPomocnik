@@ -136,6 +136,10 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 				getString(R.string.main_menu_show_user_group_text)));
 
 		mainMenuListItems.add(new MainMenuItem(
+				getString(R.string.main_menu_black_white_switcher_kanji),
+				getString(R.string.main_menu_black_white_switcher_text)));
+
+		mainMenuListItems.add(new MainMenuItem(
 				getString(R.string.main_menu_suggestion_kanji),
 				getString(R.string.main_menu_suggestion_text)));
 
@@ -259,12 +263,44 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 					Intent reportSuggestionIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody, versionName, versionCode); 
 
 					startActivity(Intent.createChooser(reportSuggestionIntent, chooseEmailClientTitle));
+
 				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_information_text)) == true) { // info
 					
 					Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
 
 					startActivity(intent);
-					
+
+				} else if (mainMenuChosenItemText.equals(getString(R.string.main_menu_black_white_switcher_text)) == true) { // przelaczenie aplikacji
+
+					final ConfigManager.CommonConfig commonConfig = JapaneseAndroidLearnHelperApplication.getInstance()
+							.getConfigManager(JapaneseAndroidLearnHelperMainActivity.this).getCommonConfig();
+
+					JapaneseAndroidLearnHelperApplication.ThemeType themeType = commonConfig.getThemeType(JapaneseAndroidLearnHelperApplication.defaultThemeType);
+
+					if (themeType == JapaneseAndroidLearnHelperApplication.ThemeType.BLACK) {
+						themeType = JapaneseAndroidLearnHelperApplication.ThemeType.WHITE;
+
+					} else {
+						themeType = JapaneseAndroidLearnHelperApplication.ThemeType.BLACK;
+					}
+
+					commonConfig.setThemeType(themeType);
+
+					// wyswietlenie informacji uzytkownikowi o koniecznosci wylaczenia aplikacji
+					AlertDialog.Builder builder = new AlertDialog.Builder(JapaneseAndroidLearnHelperMainActivity.this);
+
+					builder.setCancelable(false);
+
+					DialogInterface.OnClickListener positiveButtonOnClickListener = new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialogInterface, int i) {
+							finish();
+						}
+					};
+
+					builder.setMessage(getString(R.string.main_menu_black_white_switcher_alert_dialog))
+							.setPositiveButton(getString(R.string.ok), positiveButtonOnClickListener).show();
 				}
 			}
 		});
