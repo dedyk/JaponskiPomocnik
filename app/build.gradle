@@ -20,7 +20,7 @@ android {
         // viewBinding true
     }
 
-    compileSdkVersion 29
+    compileSdkVersion 31
     buildToolsVersion '30.0.3'
 
     // uwaga jesli kiedys w przyszlosci ustawisz targetSdkVersion na 30 lub wiecej to prawdopodobnie przestanie dzialac opcja
@@ -30,7 +30,7 @@ android {
     defaultConfig {
         applicationId "pl.idedyk.android.japaneselearnhelper"
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 30
         multiDexEnabled true
 
         versionCode 766
@@ -119,7 +119,8 @@ android {
 
 dependencies {
     // implementation 'com.google.android.gms:play-services:+'
-    implementation 'com.android.support:multidex:1.0.1'
+    implementation "androidx.core:core-ktx:+"
+    implementation 'androidx.multidex:multidex:2.0.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation files('libs/JapaneseDictionaryAPI-1.0-SNAPSHOT.jar')
     implementation files('libs/JapaneseDictionaryLuceneCommon-1.0-SNAPSHOT.jar')
