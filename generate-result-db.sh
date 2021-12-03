@@ -21,6 +21,7 @@ db/sentences_groups.csv \
 db/kanji.csv \
 db/radical.csv \
 db/names.csv \
+db/word2.xml \
 db-lucene
 
 cp db/kana.csv app/src/main/assets/
