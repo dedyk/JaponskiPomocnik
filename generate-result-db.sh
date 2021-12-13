@@ -5,6 +5,7 @@
 japanese_dictionary_api_version=1.0-SNAPSHOT
 japanese_dictionary_lucene_common_version=1.0-SNAPSHOT
 lucene_version=4.7.2
+gson_version=2.8.5
 
 CLASSPATH=app/libs/javacsv-2.1.jar
 CLASSPATH=$CLASSPATH:app/libs/JapaneseDictionaryAPI-${japanese_dictionary_api_version}.jar
@@ -12,6 +13,7 @@ CLASSPATH=$CLASSPATH:app/libs/JapaneseDictionaryLuceneCommon-${japanese_dictiona
 CLASSPATH=$CLASSPATH:app/libs/lucene-analyzers-common-${lucene_version}.jar
 CLASSPATH=$CLASSPATH:libs-db-generator/lucene-core-${lucene_version}.jar
 CLASSPATH=$CLASSPATH:libs-db-generator/lucene-suggest-${lucene_version}.jar
+CLASSPATH=$CLASSPATH:libs-db-generator/gson-${gson_version}.jar
 
 java -cp $CLASSPATH pl.idedyk.japanese.dictionary.lucene.LuceneDBGenerator \
 android \

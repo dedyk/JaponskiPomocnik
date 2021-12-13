@@ -47,6 +47,9 @@ import pl.idedyk.japanese.dictionary.api.gramma.GrammaConjugaterManager;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateGroupTypeElements;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResultType;
+import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -396,6 +399,39 @@ public class WordDictionaryDetails extends Activity {
 
 		if (prefixKana != null && prefixKana.length() == 0) {
 			prefixKana = null;
+		}
+
+		// pobranie slow w formacie dictionary 2/JMdict
+		JMdict.Entry dictionaryEntry2 = null;
+		Dictionary2HelperCommon.KanjiKanaPair dictionaryEntry2KanjiKanaPair;
+
+		// sprawdzenie, czy wystepuje slowo w formacie JMdict
+		List<Attribute> jmdictEntryIdAttributeList = dictionaryEntry.getAttributeList().getAttributeList(AttributeType.JMDICT_ENTRY_ID);
+
+		if (jmdictEntryIdAttributeList != null && jmdictEntryIdAttributeList.size() > 0) { // cos jest
+
+			// pobieramy entry id
+			Integer entryId = Integer.parseInt(jmdictEntryIdAttributeList.get(0).getAttributeValue().get(0));
+
+			try {
+				// pobieramy z bazy danych
+				dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ById(entryId);
+
+			} catch (DictionaryException e) { // wystapil blad, idziemy dalej
+				Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+			}
+		}
+
+		// pobieramy sens dla wybranej pary kanji i kana
+		if (dictionaryEntry2 != null) {
+
+			List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2);
+
+			// szukamy konkretnego znaczenia dla naszego slowa
+			dictionaryEntry2KanjiKanaPair = Dictionary2HelperCommon.findKanjiKanaPair(kanjiKanaPairList, dictionaryEntry);
+
+		} else {
+			dictionaryEntry2KanjiKanaPair = null;
 		}
 
 		// info dla slow typu name
