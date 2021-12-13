@@ -49,6 +49,8 @@ import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResultType;
 import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.KanjiAdditionalInfoEnum;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.ReadingAdditionalInfoEnum;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -647,6 +649,18 @@ public class WordDictionaryDetails extends Activity {
 			}
 		}
 
+		// informacje dodatkowe do kanji
+		if (addKanjiWrite == true && dictionaryEntry2KanjiKanaPair != null && dictionaryEntry2KanjiKanaPair.getKanjiInfo() != null) {
+
+			List<KanjiAdditionalInfoEnum> kanjiAdditionalInfoList = dictionaryEntry2KanjiKanaPair.getKanjiInfo().getKanjiAdditionalInfoList();
+
+			List<String> kanjiAdditionalInfoListString = Dictionary2HelperCommon.translateToPolishKanjiAdditionalInfoEnum(kanjiAdditionalInfoList);
+
+			if (kanjiAdditionalInfoList != null && kanjiAdditionalInfoList.size() > 0) {
+				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(kanjiAdditionalInfoListString, "; "), 15.0f, 0));
+			}
+		}
+
 		// Reading
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
 		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
@@ -733,6 +747,18 @@ public class WordDictionaryDetails extends Activity {
 			actionButtons.addTableRow(actionTableRow);
 
 			report.add(actionButtons);
+		}
+
+		// informacje dodatkowe do czytania
+		if (dictionaryEntry2KanjiKanaPair != null && dictionaryEntry2KanjiKanaPair.getReadingInfo() != null) {
+
+			List<ReadingAdditionalInfoEnum> readingAdditionalInfoList = dictionaryEntry2KanjiKanaPair.getReadingInfo().getReadingAdditionalInfoList();
+
+			List<String> readingAdditionalInfoListString = Dictionary2HelperCommon.translateToPolishReadingAdditionalInfoEnum(readingAdditionalInfoList);
+
+			if (readingAdditionalInfoList != null && readingAdditionalInfoList.size() > 0) {
+				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(readingAdditionalInfoListString, "; "), 15.0f, 0));
+			}
 		}
 
 		// Translate
