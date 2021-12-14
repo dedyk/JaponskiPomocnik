@@ -667,7 +667,7 @@ public class WordDictionaryDetails extends Activity {
 			List<String> kanjiAdditionalInfoListString = Dictionary2HelperCommon.translateToPolishKanjiAdditionalInfoEnum(kanjiAdditionalInfoList);
 
 			if (kanjiAdditionalInfoList != null && kanjiAdditionalInfoList.size() > 0) {
-				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(kanjiAdditionalInfoListString, "; "), 15.0f, 0));
+				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(kanjiAdditionalInfoListString, "; "), 13.0f, 0));
 			}
 		}
 
@@ -767,7 +767,7 @@ public class WordDictionaryDetails extends Activity {
 			List<String> readingAdditionalInfoListString = Dictionary2HelperCommon.translateToPolishReadingAdditionalInfoEnum(readingAdditionalInfoList);
 
 			if (readingAdditionalInfoList != null && readingAdditionalInfoList.size() > 0) {
-				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(readingAdditionalInfoListString, "; "), 15.0f, 0));
+				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(readingAdditionalInfoListString, "; "), 13.0f, 0));
 			}
 		}
 
@@ -830,7 +830,7 @@ public class WordDictionaryDetails extends Activity {
 
 					//
 
-					report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(translateToPolishPartOfSpeechEnum, "; "), 15.0f, 0));
+					report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(translateToPolishPartOfSpeechEnum, "; "), 13.0f, 0));
 				}
 
 				// znaczenie
@@ -894,7 +894,7 @@ public class WordDictionaryDetails extends Activity {
 				}
 
 				if (additionalInfoToAddList.size() > 0) {
-					report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(additionalInfoToAddList, "; "), 15.0f, 0));
+					report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(additionalInfoToAddList, "; "), 13.0f, 0));
 				}
 
 				// przerwa
