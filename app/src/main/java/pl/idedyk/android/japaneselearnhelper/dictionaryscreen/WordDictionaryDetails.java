@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -48,9 +50,17 @@ import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateGroupType
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResultType;
 import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.DialectEnum;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.FieldEnum;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.Gloss;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.KanjiAdditionalInfoEnum;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.LanguageSource;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.MiscEnum;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.PartOfSpeechEnum;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.ReadingAdditionalInfoEnum;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.Sense;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.SenseAdditionalInfo;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -764,26 +774,151 @@ public class WordDictionaryDetails extends Activity {
 		// Translate
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_translate_label), 0));
 
-		List<String> translates = dictionaryEntry.getTranslates();
+		if (dictionaryEntry2KanjiKanaPair == null) { // generowanie po staremu
 
-		for (int idx = 0; idx < translates.size(); ++idx) {
-			report.add(new StringValue(translates.get(idx), 20.0f, 0));
+			List<String> translates = dictionaryEntry.getTranslates();
+
+			for (int idx = 0; idx < translates.size(); ++idx) {
+				report.add(new StringValue(translates.get(idx), 20.0f, 0));
+			}
+
+		} else { // generowanie z danych zawartych w dictionaryEntry2
+
+			// mamy znaczenia
+			for (int senseIdx = 0; senseIdx < dictionaryEntry2KanjiKanaPair.getSenseList().size(); ++senseIdx) {
+
+				Sense sense = dictionaryEntry2KanjiKanaPair.getSenseList().get(senseIdx);
+
+				List<Gloss> glossList = sense.getGlossList();
+				List<SenseAdditionalInfo> senseAdditionalInfoList = sense.getAdditionalInfoList();
+				List<LanguageSource> senseLanguageSourceList = sense.getLanguageSourceList();
+				List<FieldEnum> senseFieldList = sense.getFieldList();
+				List<MiscEnum> senseMiscList = sense.getMiscList();
+				List<DialectEnum> senseDialectList = sense.getDialectList();
+				List<PartOfSpeechEnum> partOfSpeechList = sense.getPartOfSpeechList();
+
+				// numer znaczenia
+				report.add(new StringValue("" + (senseIdx + 1), 20.0f, 0));
+
+				// pobieramy polskie tlumaczenia
+				List<Gloss> glossPolList = new ArrayList<>();
+
+				for (Gloss currentGloss : glossList) {
+
+					if (currentGloss.getLang().equals("pol") == true) {
+						glossPolList.add(currentGloss);
+					}
+				}
+
+				// i informacje dodatkowe
+				SenseAdditionalInfo senseAdditionalPol = null;
+
+				for (SenseAdditionalInfo currentSenseAdditionalInfo : senseAdditionalInfoList) {
+
+					if (currentSenseAdditionalInfo.getLang().equals("pol") == true) {
+
+						senseAdditionalPol = currentSenseAdditionalInfo;
+
+						break;
+					}
+				}
+
+				// czesci mowy
+				if (partOfSpeechList.size() > 0) {
+
+					List<String> translateToPolishPartOfSpeechEnum = Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(partOfSpeechList);
+
+					//
+
+					report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(translateToPolishPartOfSpeechEnum, "; "), 15.0f, 0));
+				}
+
+				// znaczenie
+				for (Gloss currentGlossPol : glossPolList) {
+
+					String currentGlossPolReportValue = currentGlossPol.getValue();
+
+					// sprawdzenie, czy wystepuje dodatkowy typ znaczenia
+					if (currentGlossPol.getGType() != null) {
+						currentGlossPolReportValue += " (" + Dictionary2HelperCommon.translateToPolishGlossType(currentGlossPol.getGType()) + ")";
+					}
+
+					report.add(new StringValue(currentGlossPolReportValue, 20.0f, 0));
+				}
+
+				// informacje dodatkowe
+				List<String> additionalInfoToAddList = new ArrayList<>();
+
+				// dziedzina
+				if (senseFieldList.size() > 0) {
+					additionalInfoToAddList.addAll(Dictionary2HelperCommon.translateToPolishFieldEnumList(senseFieldList));
+				}
+
+				// rozne informacje
+				if (senseMiscList.size() > 0) {
+					additionalInfoToAddList.addAll(Dictionary2HelperCommon.translateToPolishMiscEnumList(senseMiscList));
+				}
+
+				// dialekt
+				if (senseDialectList.size() > 0) {
+					additionalInfoToAddList.addAll(Dictionary2HelperCommon.translateToPolishDialectEnumList(senseDialectList));
+				}
+
+				if (senseAdditionalPol != null) { // czy informacje dodatkowe istnieja
+
+					String senseAdditionalPolOptionalValue = senseAdditionalPol.getValue();
+
+					additionalInfoToAddList.add(senseAdditionalPolOptionalValue);
+				}
+
+				// czy sa informacje o zagranicznym pochodzeniu slow
+				if (senseLanguageSourceList != null && senseLanguageSourceList.size() > 0) {
+
+					for (LanguageSource languageSource : senseLanguageSourceList) {
+
+						String languageCodeInPolish = Dictionary2HelperCommon.translateToPolishLanguageCode(languageSource.getLang());
+						String languageValue = languageSource.getValue();
+						String languageLsWasei = Dictionary2HelperCommon.translateToPolishLanguageSourceLsWaseiEnum(languageSource.getLsWasei());
+
+						if (languageValue != null && languageValue.trim().equals("") == false) {
+							additionalInfoToAddList.add(languageCodeInPolish + ": " + languageValue);
+
+						} else {
+							additionalInfoToAddList.add(Dictionary2HelperCommon.translateToPolishLanguageCodeWithoutValue(languageSource.getLang()));
+						}
+
+						if (languageLsWasei != null) {
+							additionalInfoToAddList.add(languageLsWasei);
+						}
+					}
+				}
+
+				if (additionalInfoToAddList.size() > 0) {
+					report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(additionalInfoToAddList, "; "), 15.0f, 0));
+				}
+
+				// przerwa
+				report.add(new StringValue("", 10.0f, 0));
+			}
 		}
 
 		// Additional info
-		report.add(new TitleItem(getString(R.string.word_dictionary_details_additional_info_label), 0));
+		if (dictionaryEntry2KanjiKanaPair == null) { // generowanie tylko dla slownika w starym formacie, w nowym formacie informacje te znajda sie w sekcji znaczen
 
-		if (isSmTsukiNiKawatteOshiokiYo(kanjiSb.toString()) == true) {
-			report.add(createSpecialAAText(R.string.sm_tsuki_ni_kawatte_oshioki_yo));
-		} else if (isButaMoOdateryaKiNiNoboru(kanjiSb.toString()) == true) {
-			report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
-		} else {
-			String info = dictionaryEntry.getInfo();
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_additional_info_label), 0));
 
-			if (info != null && info.length() > 0) {
-				report.add(new StringValue(info, 20.0f, 0));
+			if (isSmTsukiNiKawatteOshiokiYo(kanjiSb.toString()) == true) {
+				report.add(createSpecialAAText(R.string.sm_tsuki_ni_kawatte_oshioki_yo));
+			} else if (isButaMoOdateryaKiNiNoboru(kanjiSb.toString()) == true) {
+				report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
 			} else {
-				report.add(new StringValue("-", 20.0f, 0));
+				String info = dictionaryEntry.getInfo();
+
+				if (info != null && info.length() > 0) {
+					report.add(new StringValue(info, 20.0f, 0));
+				} else {
+					report.add(new StringValue("-", 20.0f, 0));
+				}
 			}
 		}
 
