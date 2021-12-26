@@ -23,6 +23,7 @@ import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 public class RemoteLuceneConnector implements IDatabaseConnector {
 
@@ -163,6 +164,34 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 return result;
             }
         }, DictionaryEntry.class);
+    }
+
+    @Override
+    public JMdict.Entry getDictionaryEntry2ById(final Integer id) throws DictionaryException {
+
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(id);
+
+                String responseJson = null;
+
+                JMdict.Entry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntry2ById", requestJson);
+
+                    result = gson.fromJson((String) responseJson, JMdict.Entry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, JMdict.Entry.class);
     }
 
     @Override

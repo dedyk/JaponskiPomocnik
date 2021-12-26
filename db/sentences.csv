@@ -8749,7 +8749,6 @@
 162906,jpn,私の父が死んでから１０年が経つ。
 162934,jpn,私の髪はジェーンの髪より長い。
 162948,jpn,私の年齢を言い当てれますか。
-162992,jpn,私の弟は記憶力がよい。
 163005,jpn,私の庭には狭い庭しかない。
 163011,jpn,私の町には大きな城があった。
 163012,jpn,私の町には城があります。
@@ -12842,7 +12841,6 @@
 196177,jpn,ホテルまでに車に乗せてくれませんか。
 196183,jpn,ホテルはその夜、満員だったので、遅い客は何人か断らざるをえなかった。
 196193,jpn,ホテルの中に花屋がありますか。
-196194,jpn,ホテルの中にみやげ品展はありますか。
 196204,jpn,ホテルに本屋はありますか。
 196210,jpn,ホテルには、ほかに５人の客がいます。
 196220,jpn,ポテトのＬを１つ、コーラのＭを２つ。
@@ -16417,6 +16415,7 @@
 229741,jpn,あれはきっと校長先生だ。
 229742,jpn,あれはキジです。
 229745,jpn,あれはバス停です。
+229750,jpn,アレックスは何台クルマを持っているの？
 229774,jpn,ある夕方、一人の男がやってきた。
 229779,jpn,ある貿易会社に勤めています。
 229802,jpn,ある日ある少女が私をたずねてきました。
@@ -16923,6 +16922,7 @@
 234698,jpn,ああ思い出したぞ。
 234702,jpn,ああ嬉しい。
 234708,jpn,ああまた失敗した。
+234712,jpn,アーッ、そうだ、今日８時に友達と渋谷で約束してたんだ。
 234717,jpn,ああ、お腹が空いた。
 234747,jpn,ああ、行くよ。
 234761,jpn,ああ、ところで彼女が今どこに住んでいるか知ってるかしら。
@@ -21424,6 +21424,7 @@
 515844,jpn,クソくらえ！
 516355,pol,"Ona jest nie tylko piękna, ale i uprzejma dla wszystkich."
 516388,pol,Wszystko w porządku.
+516411,pol,Ile samochodów ma Alex?
 516422,pol,Prawdziwych przyjaciół poznaje się w biedzie.
 516424,pol,"Gdy się człowiek spieszy, to się diabeł cieszy."
 516426,pol,"Nie wszystko złoto, co się świeci."
@@ -21527,7 +21528,6 @@
 524566,pol,Samolot wylądował na farmie mojego ojca.
 524568,pol,Te pomysły są obce dla naszego sposobu myślenia.
 524570,pol,Zrobię wszystko dla dobra ludzkości.
-524573,pol,Czy w hotelu jest sklep z pamiątkami?
 524583,pol,W pewnym sensie jest reprezentantem swojej firmy.
 524584,pol,Jego dom jest po drugiej stronie ulicy.
 524586,pol,"Sądzę, że dobra z niej tancerka."
@@ -21864,7 +21864,6 @@
 527274,jpn,ウサギは耳が長い。
 527346,pol,Picasso namalował ten obraz w 1950.
 527351,pol,Chciałbym potwierdzić godzinę odjazdu.
-527354,pol,Mój brat ma dobrą pamięć.
 527378,pol,Jakie jest Twoje życzenie?
 527381,pol,Śniadanie gotowe.
 527382,pol,Śniadanie jest gotowe.
@@ -21949,7 +21948,6 @@
 528484,pol,Lekarze nie zawsze długo żyją.
 528493,pol,Opowiadanie kończy się wraz z jego śmiercią.
 528500,pol,Mam przyjaciela którego ojciec jest znanym aktorem.
-528524,jpn,兄は記憶力がいい。
 528528,pol,To najgorszy film jaki kiedykolwiek widziałem.
 528536,pol,On nie jest głupi.
 528754,pol,Woda składa się z tlenu i wodoru.
@@ -22037,7 +22035,6 @@
 529753,pol,Lubię sporty takie jak piłka nożna i rugby.
 529949,pol,Rozwiodła się z mężem.
 529956,pol,On umie prowadzić samochód.
-529965,jpn,弟は記憶力がいいです。
 530058,jpn,彼女は野菜を売っています。
 530099,jpn,彼は車の運転の仕方を習っている。
 530428,pol,Ten styl uczesania pierwszy raz pojawił się na początku XIX wieku.
@@ -22891,6 +22888,7 @@
 565337,pol,Meg mówi za dużo.
 565340,pol,Wszyscy to wiedzą.
 565432,pol,Chcę trochę pieniędzy.
+565535,pol,Teraz muszę już iść.
 565539,pol,Jest ósma rano.
 565545,pol,Wystarczy na dzisiaj.
 565547,pol,Każdy gracz dał z siebie wszystko.
@@ -30823,6 +30821,7 @@
 3000261,pol,"Dziękujemy za cierpliwość, ponieważ musimy odpowiadać na wiele połączeń."
 3000265,pol,"Kiedy zadzwonił telefon, wyskoczył z łóżka."
 3002144,pol,"Ta praca nie była szczególnie ciekawa. Jednakże, pensja była dobra."
+3002152,pol,"O tak, to prawda. Musiałem odwiedzić paru przyjaciół w Shibuyi o ósmej."
 3002153,pol,"Chociaż jest bardzo stary, jest silny."
 3002160,pol,Jest ładną dziewczyną?
 3002163,pol,"Jest nie tylko ładna, ale i bystra."
