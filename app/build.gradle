@@ -33,8 +33,8 @@ android {
         targetSdkVersion 30
         multiDexEnabled true
 
-        versionCode 770
-        versionName "20220206"
+        versionCode 771
+        versionName "20220306"
     }
 
     signingConfigs {
