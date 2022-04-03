@@ -1,14 +1,15 @@
 1. git status, git log, sprawdzamy, czy wszystko jest zakomitowane
 2. git tag -l, sprawdzamy, czy jest tag z poprzedniej wersji
-3. kopiowanie bazy do db
-4. w pliku app/build.gradle zmiana versionCode i versionName (laczna postac release_xxx_20RRMMDD) i zapisujemy na boku
-5. git status
-6. git add -u
-7. git commit -m "Release xxx - 20RRMMDD: Tresc"
-8. git tag release_509_20160911
-9. git log
-10. git tag -l | grep release_xxx_20RRMMDD
-11. git pull ; git push ; git push --tag
-12. ./clean.sh
-13. ./generate-result-db.sh
-14. ./gradlew clean assembleRelease bundleRelease
+3. sprawdzenie i skopiowanie pliku JapaneseDictionaryAPI-1.0-SNAPSHOT.jar
+4. kopiowanie bazy do db
+5. w pliku app/build.gradle zmiana versionCode i versionName (laczna postac release_xxx_20RRMMDD) i zapisujemy na boku
+6. git status
+7. git add -u
+8. git commit -m "Release xxx - 20RRMMDD: Tresc"
+9. git tag release_509_20160911
+10. git log
+11. git tag -l | grep release_xxx_20RRMMDD
+12. git pull ; git push ; git push --tag
+13. ./clean.sh
+14. ./generate-result-db.sh
+15. ./gradlew clean assembleRelease bundleRelease
