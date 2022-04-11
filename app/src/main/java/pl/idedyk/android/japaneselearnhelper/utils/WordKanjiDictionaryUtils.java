@@ -1,5 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.utils;
 
+import android.util.Log;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -8,6 +10,7 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 public class WordKanjiDictionaryUtils {
 
@@ -55,7 +58,7 @@ public class WordKanjiDictionaryUtils {
         return result.toString();
     }
 
-    public static String getWordFullTextWithMark(FindWordResult.ResultItem resultItem, String findWord, FindWordRequest findWordRequest) {
+    public static String getWordFullTextWithMark(FindWordResult.ResultItem resultItem, JMdict.Entry dictionaryEntry2, String findWord, FindWordRequest findWordRequest) {
 
         String kanji = resultItem.getKanji();
         String prefixKana = resultItem.getPrefixKana();
@@ -89,14 +92,28 @@ public class WordKanjiDictionaryUtils {
 
         if (translates != null && translates.size() > 0) {
             result.append("\n\n");
-            result.append(getStringWithMark(toString(translates, null), findWord, findWordRequest.searchTranslate));
+
+            for (int idx = 0; idx < translates.size(); ++idx) {
+                String currentTranslate = translates.get(idx);
+
+                result.append(getStringWithMark(currentTranslate, findWord, findWordRequest.searchTranslate));
+
+                if (idx != translates.size() - 1) {
+                    result.append("\n");
+                }
+            }
         }
 
         if (info != null && info.equals("") == false) {
-            result.append(" - ").append(getStringWithMark(info, findWord, findWordRequest.searchInfo));
+            result.append("\n");
+            result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(info, findWord, findWordRequest.searchInfo));
         }
 
-        return result.toString();
+        int fixme = 1; // !!!!!!!!!!!!!!!!!!!!!
+
+        //
+
+        return result.toString().replaceAll("\n", "<br/>");
     }
 
     public static String getKanjiFullTextWithMark(KanjiEntry kanjiEntry) {
