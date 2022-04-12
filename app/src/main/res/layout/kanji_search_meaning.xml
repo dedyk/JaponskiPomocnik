@@ -162,7 +162,8 @@
             android:id="@+id/kanji_search_meaning_result_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:dividerHeight="5dp">
         </ListView>
 
         <View
