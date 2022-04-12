@@ -56,6 +56,11 @@ public class WordDictionaryListItemAdapter extends BaseAdapter { // ArrayAdapter
     
 	@Override
 	public int getItemViewType(int position) {
+
+		if (position < 0 || position >= data.size()) { // takie zabezpieczenie
+    		return ItemType.TITLE.getViewTypeId();
+		}
+
 		return data.get(position).getItemType().getViewTypeId();
 	}
 
