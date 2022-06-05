@@ -5,7 +5,7 @@
 japanese_dictionary_api_version=1.0-SNAPSHOT
 japanese_dictionary_lucene_common_version=1.0-SNAPSHOT
 lucene_version=4.7.2
-gson_version=2.8.5
+gson_version=2.8.9
 
 CLASSPATH=app/libs/javacsv-2.1.jar
 CLASSPATH=$CLASSPATH:app/libs/JapaneseDictionaryAPI-${japanese_dictionary_api_version}.jar
