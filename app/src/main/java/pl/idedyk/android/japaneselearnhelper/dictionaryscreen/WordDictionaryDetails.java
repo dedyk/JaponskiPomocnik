@@ -81,6 +81,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -911,6 +912,13 @@ public class WordDictionaryDetails extends Activity {
 				report.add(createSpecialAAText(R.string.sm_tsuki_ni_kawatte_oshioki_yo));
 			} else if (isButaMoOdateryaKiNiNoboru(kanjiSb.toString()) == true) {
 				report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
+			} else if (isTakakoOkamura(kanjiSb.toString()) == true) {
+				Image takakoOkamuraImage = new Image(getResources().getDrawable(R.drawable.takako_okamura), 0);
+
+				takakoOkamuraImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
+				takakoOkamuraImage.setAdjustViewBounds(true);
+
+				report.add(takakoOkamuraImage);
 			} else {
 				String info = dictionaryEntry.getInfo();
 
@@ -1556,6 +1564,19 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		if (value.equals("豚もおだてりゃ木に登る") == true || value.equals("ブタもおだてりゃ木に登る") == true || value.equals("豚も煽てりゃ木に登る") == true) {
+			return true;
+		}
+
+		return false;
+	}
+
+	private boolean isTakakoOkamura(String value) {
+
+		if (value == null) {
+			return false;
+		}
+
+		if (value.equals("岡村孝子") == true) {
 			return true;
 		}
 

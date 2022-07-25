@@ -20,6 +20,10 @@ public class Image implements IScreenItem {
 	private Drawable image;
 	
 	private int level;
+
+	private ImageView.ScaleType scaleType;
+
+	private Boolean adjustViewBounds;
 	
 	private OnClickListener onClickListener;
 	
@@ -38,6 +42,14 @@ public class Image implements IScreenItem {
 	
 	public void setOnClickListener(OnClickListener onClickListener) {
 		this.onClickListener = onClickListener;		
+	}
+
+	public void setScaleType(ImageView.ScaleType scaleType) {
+		this.scaleType = scaleType;
+	}
+
+	public void setAdjustViewBounds(Boolean adjustViewBounds) {
+		this.adjustViewBounds = adjustViewBounds;
 	}
 
 	public void generate(Context context, Resources resources, ViewGroup layout) {
@@ -73,7 +85,15 @@ public class Image implements IScreenItem {
 		} else {
 			throw new RuntimeException(String.valueOf(layout.getClass()));
 		}
-		
+
+		if (scaleType != null) {
+			imageView.setScaleType(scaleType);
+		}
+
+		if (adjustViewBounds != null) {
+			imageView.setAdjustViewBounds(adjustViewBounds.booleanValue());
+		}
+
 		imageView.setImageDrawable(image);
 		
 		imageView.setOnClickListener(onClickListener);
