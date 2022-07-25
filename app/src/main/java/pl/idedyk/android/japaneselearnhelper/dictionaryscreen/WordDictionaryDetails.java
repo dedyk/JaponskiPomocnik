@@ -913,7 +913,7 @@ public class WordDictionaryDetails extends Activity {
 			} else if (isButaMoOdateryaKiNiNoboru(kanjiSb.toString()) == true) {
 				report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
 			} else if (isTakakoOkamura(kanjiSb.toString()) == true) {
-				Image takakoOkamuraImage = new Image(getResources().getDrawable(R.drawable.takako_okamura), 0);
+				Image takakoOkamuraImage = new Image(getResources().getDrawable(R.drawable.takako_okamura2), 0);
 
 				takakoOkamuraImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
 				takakoOkamuraImage.setAdjustViewBounds(true);
