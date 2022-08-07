@@ -959,6 +959,7 @@
 81782,jpn,僕は彼女が好きになった。
 81797,jpn,僕は彼に単刀直入に尋ねたよ。
 81800,jpn,僕は彼になけなしのお金を与えた。
+81803,jpn,僕は彼があの店から逃げて行くのを見つけた。
 81816,jpn,僕は的に向けて銃のねらいを定めた。
 81818,jpn,僕は追い込まれると一番仕事をする。
 81821,jpn,僕は単刀直入に尋ねたよ。
@@ -14498,7 +14499,6 @@
 204825,jpn,それは無料です。
 204830,jpn,それは夢のように思われます。
 204843,jpn,それは本当にすばらしい意見ですよ。
-204861,jpn,それは僕のズボンです。
 204869,jpn,それは法律違反です。
 204882,jpn,それは部屋というよりはむしろ広間だ。
 204890,jpn,それは必ず自分でしなさい。
@@ -15300,7 +15300,6 @@
 212736,jpn,そのバスは一日に何本ありますか。
 212738,jpn,そのバスに乗れば、市の中心部に行けます。
 212743,jpn,そのはさみは切れない。
-212744,jpn,そのバケツは水でいっぱいだった。
 212748,jpn,そのバイクは電柱にぶつかった。
 212749,jpn,そのハイキングは八時間もかかるでしょう。
 212773,jpn,そのノートは君のではなくて彼のです。
@@ -15333,7 +15332,6 @@
 212959,jpn,そのテーブルの上の新聞を手渡してもらえませんか。
 212979,jpn,そのチーズは羊の乳から作られています。
 212993,jpn,そのダイヤモンドは本物らしい。
-213001,jpn,そのズボンに似合いますよ。
 213003,jpn,そのスポーツはだんだん人気を得た。
 213016,jpn,そのスキャンダルは彼の政治的将来に致命的であった。
 213028,jpn,そのスーパーマーケットは月曜から土曜まで営業している。
@@ -18352,7 +18350,6 @@
 351350,pol,On nosi okulary.
 351397,pol,On mnie kopie!
 351435,pol,Czy jesteś zajęty w niedzielę po południu?
-351436,pol,Wiadro było pełne wody.
 351438,pol,Postanowił odłożyć swój odjazd.
 351439,pol,"Wyszedł wcześnie, inaczej nie zdążyłby na ten pociąg."
 351444,pol,"Kiedy usłyszała tę straszną wiadomość, wybuchnęła płaczem."
@@ -23484,7 +23481,6 @@
 556041,pol,To nie jest wina Jacka.
 556047,pol,Fred kopnął piłkę.
 556053,pol,Tokio jest większe od Jokohamy.
-557002,pol,To moje majtki.
 557006,pol,Trzęsienia ziemi często są w Japonii.
 557008,pol,Postanowiła zrezygnować.
 557009,pol,Są śmiertelnymi wrogami.
@@ -23596,7 +23592,6 @@
 561574,pol,A co z tobą?
 561575,pol,Pociemniało mi w oczach.
 561580,pol,Dbaj o siebie.
-561592,pol,To moje spodnie.
 561597,pol,Wszyscy atakowali moje stanowisko.
 561600,pol,Spotkajmy się wkrótce ponownie.
 561614,pol,Będę cię obserwował.
@@ -32565,6 +32560,7 @@
 3289032,pol,"Nie tylko ty, ale i on nie zna prawdy."
 3289033,pol,"Jedz nie tylko ryby, ale i mięso."
 3289034,pol,"Lisa mówi nie tylko po angielsku, ale i po francusku."
+3289224,pol,"Zauważyłem go, jak uciekał z tamtego sklepu."
 3289664,pol,Jesteś tylko studentem.
 3289668,pol,Tylko cud może ją teraz uratować.
 3292926,pol,Wymieniłem jeny na dolary.
@@ -33205,7 +33201,6 @@
 3631709,pol,Nie pozwól psu wejść.
 3632500,pol,Lektura jest dla umysłu tym czym ćwiczenia dla ciała.
 3632767,pol,To zdanie może być zinterpretowane na dwa sposoby.
-3633642,pol,To są moje spodnie.
 3634073,pol,Urodziłem się i wychowałem w Matsuyama.
 3634074,pol,Urodziłam się i wychowałam w Matsuyama.
 3634378,pol,Jesteś moją najlepszą przyjaciółką.
@@ -35307,8 +35302,6 @@
 6484979,pol,Nasz plan nie zadziałał w praktyce.
 6484982,pol,"Proszę, poczęstujcie się słodyczami."
 6484983,pol,On lubi galaretkę.
-6484989,pol,Dobrze pasuje do twoich spodni.
-6484990,pol,Ładnie wygląda z twoimi spodniami.
 6487272,pol,Pieniądze nie rosną na drzewach.
 6533048,pol,Wypożyczyliśmy łódź na godziny.
 6533049,pol,Wynajęliśmy łódkę na godziny.
