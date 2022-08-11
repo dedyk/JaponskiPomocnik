@@ -33,7 +33,6 @@
 
         <Button
             android:id="@+id/kanji_details_report_problem_button"
-            style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/report_problem" />

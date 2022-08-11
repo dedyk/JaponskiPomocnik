@@ -52,7 +52,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer1"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -61,7 +60,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer2"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -70,7 +68,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer3"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -85,7 +82,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer4"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -94,7 +90,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer5"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -103,7 +98,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer6"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -118,7 +112,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer7"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -127,7 +120,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer8"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -136,7 +128,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer9"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -151,7 +142,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer10"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -160,7 +150,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer11"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -169,7 +158,6 @@
 
                 <Button
                     android:id="@+id/kanji_test_choose_answer12"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"

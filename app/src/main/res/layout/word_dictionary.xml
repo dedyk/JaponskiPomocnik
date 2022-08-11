@@ -35,7 +35,6 @@
 
             <Button
                 android:id="@+id/word_dictionary_search_search_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/word_dictionary_search_search_button"
@@ -43,7 +42,6 @@
 
             <Button
                 android:id="@+id/word_dictionary_search_options_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/word_dictionary_search_options_button" />
@@ -55,7 +53,6 @@
 
             <Button
                 android:id="@+id/word_dictionary_search_show_history_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -335,7 +332,6 @@
 
             <Button
                 android:id="@+id/word_dictionary_report_problem_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"

@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="JapaneseDictionaryBlackStyle" parent="android:Theme.Holo"/>
-    <style name="JapaneseDictionaryWhiteStyle" parent="android:Theme.Holo.Light" />
+    <style name="JapaneseDictionaryBlackStyle" parent="android:Theme.Holo">
+        <item name="android:buttonStyle">@style/JapaneseDictionaryBlackStyleButton</item>
+        <item name="android:actionBarStyle">@style/JapaneseDictionaryBlackStyleActionBar</item>
+    </style>
+    <style name="JapaneseDictionaryWhiteStyle" parent="android:Theme.Holo.Light">
+        <item name="android:buttonStyle">@style/JapaneseDictionaryWhiteStyleButton</item>
+        <item name="android:actionBarStyle">@style/JapaneseDictionaryWhiteStyleActionBar</item>
+    </style>
+
+    <style name="JapaneseDictionaryBlackStyleButton" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+    <style name="JapaneseDictionaryWhiteStyleButton" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="JapaneseDictionaryBlackStyleActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@color/yellow</item>
+    </style>
+    <style name="JapaneseDictionaryWhiteStyleActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">@color/red</item>
+    </style>
 </resources>

@@ -34,7 +34,6 @@
 
             <Button
                 android:id="@+id/kanji_search_meaning_search_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/kanji_search_meaning_search_button"
@@ -42,7 +41,6 @@
 
             <Button
                 android:id="@+id/kanji_search_meaning_options_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/kanji_search_meaning_options_button" />
@@ -54,7 +52,6 @@
 
             <Button
                 android:id="@+id/kanji_search_meaning_show_history_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -196,7 +193,6 @@
 
             <Button
                 android:id="@+id/kanji_search_meaning_report_problem_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/report_problem" />
