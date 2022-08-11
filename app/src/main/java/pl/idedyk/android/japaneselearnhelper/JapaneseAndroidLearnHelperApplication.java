@@ -15,6 +15,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ILoadWithProgress;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryMissingWordQueue;
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
@@ -313,6 +314,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
 		BLACK(	R.style.JapaneseDictionaryBlackStyle,
 				android.R.color.white,
+				R.color.red,
 				R.color.title_background_for_black,
 				android.R.color.white,
 				Color.DKGRAY,
@@ -322,6 +324,7 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
 		WHITE(	R.style.JapaneseDictionaryWhiteStyle,
 				android.R.color.black,
+				R.color.yellow,
 				R.color.title_background_for_white,
 				android.R.color.black,
 				Color.WHITE,
@@ -332,6 +335,8 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		private int styleId;
 
 		private int textColorId;
+
+		private int buttonTextColorId;
 
 		private int titleItemBackgroundColorId;
 
@@ -345,9 +350,11 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
 		private int listenIconId;
 
-		private ThemeType(int styleId, int textColorId, int titleItemBackgroundColorId, int kanjiStrokeColorId, int kanjiSearchRadicalInactiveColorId, int deleteIconId, int userGroupListIconId, int listenIconId) {
+		private ThemeType(int styleId, int textColorId, int buttonTextColorId, int titleItemBackgroundColorId, int kanjiStrokeColorId, int kanjiSearchRadicalInactiveColorId,
+						  int deleteIconId, int userGroupListIconId, int listenIconId) {
 			this.styleId = styleId;
 			this.textColorId = textColorId;
+			this.buttonTextColorId = buttonTextColorId;
 			this.titleItemBackgroundColorId = titleItemBackgroundColorId;
 			this.kanjiStrokeColorId = kanjiStrokeColorId;
 			this.kanjiSearchRadicalInactiveColorId = kanjiSearchRadicalInactiveColorId;
@@ -366,6 +373,10 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
 		public int getTextColorAsColor() {
 			return getInstance().getResources().getColor(textColorId);
+		}
+
+		public int getButtonTextColorAsColor() {
+			return getInstance().getResources().getColor(buttonTextColorId);
 		}
 
 		public int getTitleItemBackgroundColorAsColor() {
