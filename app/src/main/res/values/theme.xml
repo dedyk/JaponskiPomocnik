@@ -10,16 +10,16 @@
     </style>
 
     <style name="JapaneseDictionaryBlackStyleButton" parent="@android:style/Widget.Button">
-        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="JapaneseDictionaryWhiteStyleButton" parent="@android:style/Widget.Button">
-        <item name="android:textColor">@color/red</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="JapaneseDictionaryBlackStyleActionBar" parent="@android:style/Widget.Holo.ActionBar">
-        <item name="android:background">@color/yellow</item>
+        <item name="android:background">@color/black</item>
     </style>
     <style name="JapaneseDictionaryWhiteStyleActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
-        <item name="android:background">@color/red</item>
+        <item name="android:background">@color/white</item>
     </style>
 </resources>
