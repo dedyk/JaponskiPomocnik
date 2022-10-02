@@ -921,13 +921,10 @@ public class WordDictionary extends Activity {
 						for (ResultItem resultItem : findWordResult.getResult()) {
 							if (resultItem.getDictionaryEntry() != null && resultItem.getDictionaryEntry().isName() == false) {
 
-								List<Attribute> jmdictEntryIdAttributeList = resultItem.getDictionaryEntry().getAttributeList().getAttributeList(AttributeType.JMDICT_ENTRY_ID);
+								// pobieramy entry id
+								Integer entryId = resultItem.getDictionaryEntry().getJmdictEntryId();
 
-								if (jmdictEntryIdAttributeList != null && jmdictEntryIdAttributeList.size() > 0) { // cos jest
-
-									// pobieramy entry id
-									Integer entryId = Integer.parseInt(jmdictEntryIdAttributeList.get(0).getAttributeValue().get(0));
-
+								if (entryId != null) {
 									if (dictionaryEntry2Map.containsKey(entryId) == false) {
 
 										// pobieramy z bazy danych
@@ -979,13 +976,10 @@ public class WordDictionary extends Activity {
 
 						JMdict.Entry dictionaryEntry2 = null;
 
-						List<Attribute> jmdictEntryIdAttributeList = currentFoundWord.getDictionaryEntry().getAttributeList().getAttributeList(AttributeType.JMDICT_ENTRY_ID);
+						// pobieramy entry id
+						Integer entryId = currentFoundWord.getDictionaryEntry().getJmdictEntryId();
 
-						if (jmdictEntryIdAttributeList != null && jmdictEntryIdAttributeList.size() > 0) { // cos jest
-
-							// pobieramy entry id
-							Integer entryId = Integer.parseInt(jmdictEntryIdAttributeList.get(0).getAttributeValue().get(0));
-
+						if (entryId != null) {
 							dictionaryEntry2 = dictionaryEntry2Map.get(entryId);
 						}
 

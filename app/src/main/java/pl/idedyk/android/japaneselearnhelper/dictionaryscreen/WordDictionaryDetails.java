@@ -419,13 +419,10 @@ public class WordDictionaryDetails extends Activity {
 		Dictionary2HelperCommon.KanjiKanaPair dictionaryEntry2KanjiKanaPair;
 
 		// sprawdzenie, czy wystepuje slowo w formacie JMdict
-		List<Attribute> jmdictEntryIdAttributeList = dictionaryEntry.getAttributeList().getAttributeList(AttributeType.JMDICT_ENTRY_ID);
+		// pobieramy entry id
+		Integer entryId = dictionaryEntry.getJmdictEntryId();
 
-		if (jmdictEntryIdAttributeList != null && jmdictEntryIdAttributeList.size() > 0) { // cos jest
-
-			// pobieramy entry id
-			Integer entryId = Integer.parseInt(jmdictEntryIdAttributeList.get(0).getAttributeValue().get(0));
-
+		if (entryId != null) {
 			try {
 				// pobieramy z bazy danych
 				dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ById(entryId);
