@@ -826,6 +826,7 @@
 80777,jpn,名前は何とおっしゃいますか。
 80778,jpn,名前は何ですか。
 80779,jpn,名前はリンダで、トニーより１つ年下でした。
+80785,jpn,名前だけでしか彼を知らない。
 80830,jpn,娘は歯を矯正中です。
 80836,jpn,娘はやっと１５歳です。
 80853,jpn,霧の中から突然船が現れた。
@@ -2296,6 +2297,7 @@
 93899,jpn,彼女の目から涙が溢れてきた。
 93904,jpn,彼女の命は危ない。
 93907,jpn,彼女の名前は当時アグネスだった。
+93913,jpn,彼女の名前だけは知っている。
 93917,jpn,彼女の娘は若い作家と駆け落ちしたよ。
 93925,jpn,彼女の夢はいつか実現するだろう。
 93946,jpn,彼女の亡夫はバイオリニストであった。
@@ -4911,6 +4913,7 @@
 118315,jpn,彼のジョークは最高だ。
 118318,jpn,彼のジョークに笑ったよ。
 118325,jpn,彼のコンサートは最高だった。
+118343,jpn,彼のことは名前だけは知っています。
 118344,jpn,彼のことは無視していなさい。
 118348,jpn,彼のことはまったく知りません。
 118353,jpn,彼のことについて私は何も知りません。
@@ -6561,7 +6564,6 @@
 143646,jpn,水道管が破裂した。
 143686,jpn,水泳は健康によい。
 143699,jpn,水泳か魚つりに行っていいわよ。
-143707,jpn,水を出しっぱなしにしておくな。
 143712,jpn,水を一杯下さい。
 143724,jpn,お水を一杯ください。
 143727,jpn,水も空気も両方とも流動体である。
@@ -8348,7 +8350,6 @@
 157844,jpn,私は学生だが彼はちがう。
 157850,jpn,私は学校へ歩いていく。
 157859,jpn,私は学校に遅刻しないように急いだ。
-157863,jpn,私は学校に時間どおりに着いた。
 157875,jpn,私は学校での勉強とは別に、詩を書いている。
 157885,jpn,私は学びたいので、学校へ行く。
 157889,jpn,私は覚悟ができている。
@@ -9119,6 +9120,7 @@
 162906,jpn,私の父が死んでから１０年が経つ。
 162934,jpn,私の髪はジェーンの髪より長い。
 162948,jpn,私の年齢を言い当てれますか。
+162992,jpn,私の弟は記憶力がよい。
 163005,jpn,私の庭には狭い庭しかない。
 163011,jpn,私の町には大きな城があった。
 163012,jpn,私の町には城があります。
@@ -11888,7 +11890,6 @@
 184938,jpn,絵を書くのはとても面白いし、リラックスする。
 184949,jpn,絵が曲がって掛かっている。
 184959,jpn,皆満足だった。
-184967,jpn,皆は、時間通りにクラスにきた。
 184979,jpn,皆さんはお元気？
 184987,jpn,皆さんどうぞお楽に。
 184989,jpn,皆さんお乗りください。
@@ -17049,7 +17050,6 @@
 228168,jpn,うちの庭は雑草だらけだった。
 228179,jpn,うちの息子は戦死した。
 228181,jpn,うちの息子は去年身長が５インチ伸びた。
-228186,jpn,うちの先生はいつも時間通りに授業に来る。
 228205,jpn,うちの犬は犬小屋にいる。
 228212,jpn,うちの犬がかみつくことはめったに無い。
 228216,jpn,うちの牛は全く乳が出ない。
@@ -17358,7 +17358,6 @@
 231031,jpn,あの高い建物を見てご覧なさい。
 231034,jpn,あの工場では古い食用油で石鹸をつくっている。
 231035,jpn,あの候補者は自由貿易の擁護者である。
-231050,jpn,あの犬を放し飼いにしておくのは危険だ。
 231086,jpn,あの橋はなんてすばらしいのでしょう。
 231100,jpn,あの汽車に乗らなきゃならない。
 231104,jpn,あの喜劇役者は大変こっけいだ。
@@ -18120,7 +18119,6 @@
 348626,pol,Spójrz na dom z czerwonym dachem.
 348627,pol,Pogoda pogarszała się z upływem dnia.
 348632,pol,Jestem w ciąży.
-348634,pol,Nasz nauczyciel zawsze przychodzi punktualnie na zajęcia.
 348636,pol,Jutro mnie nie ma.
 348637,pol,Przyjdź też jutro!
 348638,pol,Idźcie prosto tą ulicą.
@@ -22726,6 +22724,7 @@
 527274,jpn,ウサギは耳が長い。
 527346,pol,Picasso namalował ten obraz w 1950.
 527351,pol,Chciałbym potwierdzić godzinę odjazdu.
+527354,pol,Mój brat ma dobrą pamięć.
 527378,pol,Jakie jest Twoje życzenie?
 527381,pol,Śniadanie gotowe.
 527382,pol,Śniadanie jest gotowe.
@@ -22809,6 +22808,7 @@
 528484,pol,Lekarze nie zawsze długo żyją.
 528493,pol,Opowiadanie kończy się wraz z jego śmiercią.
 528500,pol,Mam przyjaciela którego ojciec jest znanym aktorem.
+528524,jpn,兄は記憶力がいい。
 528528,pol,To najgorszy film jaki kiedykolwiek widziałem.
 528754,pol,Woda składa się z tlenu i wodoru.
 528776,pol,Prawie wszystkie psy są żywe.
@@ -22894,6 +22894,7 @@
 529753,pol,Lubię sporty takie jak piłka nożna i rugby.
 529949,pol,Rozwiodła się z mężem.
 529956,pol,On umie prowadzić samochód.
+529965,jpn,弟は記憶力がいいです。
 530058,jpn,彼女は野菜を売っています。
 530099,jpn,彼は車の運転の仕方を習っている。
 530428,pol,Ten styl uczesania pierwszy raz pojawił się na początku XIX wieku.
@@ -24039,7 +24040,6 @@
 578747,pol,Poproszę o coś do picia.
 578748,pol,Czy mógłbyś zarekomendować inny hotel?
 578755,pol,Przejrzał mój raport.
-578758,pol,Nie zostawiaj niezakręconej wody.
 579145,pol,On spełnia warunki na prezydenta.
 579146,pol,Bill zadzwonił do mnie wczoraj w nocy.
 579150,pol,Przeszedł obok tego domu.
@@ -26456,7 +26456,6 @@
 866035,pol,Prawdopodobnie nie skończę pracy do jutra.
 866040,pol,"Pamiętaj, żeby pochwalić jej nową sukienkę."
 866079,pol,O 7:00 ojciec jedzie metrem do pracy.
-866081,pol,Ten pies jest zbyt niebezpieczny by biegać luzem.
 866829,jpn,電話が鳴り続けていた。
 867126,pol,Lubisz japońskią kuchnię?
 867450,pol,Wyglądasz ładnie z krótkimi włosami.
@@ -26646,7 +26645,6 @@
 892409,pol,Mój ojciec wrócił ostatniej nocy bardzo późno.
 892412,pol,Zadzwoniła do mnie bardzo późno ostatniej nocy.
 892416,pol,Był w pracy aż do późnej nocy.
-892423,pol,Wszyscy przyszli do klasy na czas.
 892440,pol,"Nie mówili, że będzie ładna pogoda aż do teraz."
 892449,pol,Wiele prac jest wykonywanych przez komputery.
 892460,pol,Jim zwariował na punkcie swojej dziewczyny.
@@ -26857,7 +26855,6 @@
 925913,pol,Jest najstarszy w klasie.
 926739,jpn,お願いします。
 927436,pol,Mój rower potrzebuje naprawy.
-928043,pol,Przyszedłem do szkoły na czas.
 928045,pol,Jestem nową studentką.
 928165,pol,Jesteś szalony.
 928168,pol,Wyłaź z łózka!
@@ -37111,7 +37108,6 @@
 10091754,jpn,公園に人だかりができてたよ。
 10091756,jpn,公園に人が大勢集まっていました。
 10091844,jpn,うちの伯父さん、何年も海外で暮らしてたんだよ。
-10092041,jpn,水を出しっぱなしにしないで。
 10093772,jpn,彼は短編小説を書いてみました。
 10094148,jpn,僕の部屋には窓が２つあるんだ。
 10094188,jpn,このナイフは切れが悪い。
@@ -37419,6 +37415,7 @@
 10542714,pol,Podnieś to.
 10542819,pol,Zawsze jestem humorzasty.
 10542836,pol,Czy masz jakiś dowód tożsamości?
+10543468,pol,Znam ją z imienia.
 10543471,pol,Skręciłem w prawo.
 10543682,pol,Czuję się odświeżony.
 10543996,pol,Spędziłem cały dzień na czytaniu tej powieści.
