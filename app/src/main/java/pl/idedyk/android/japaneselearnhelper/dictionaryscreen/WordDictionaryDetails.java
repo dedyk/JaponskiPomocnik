@@ -1195,6 +1195,12 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new TitleItem(currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType()
 						.getName(), 1));
 
+				String grammaFormConjugateGroupTypeInfo = currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().getInfo();
+
+				if (grammaFormConjugateGroupTypeInfo != null) {
+					report.add(new StringValue(grammaFormConjugateGroupTypeInfo, 12.0f, 1));
+				}
+
 				List<GrammaFormConjugateResult> grammaFormConjugateResults = currentGrammaFormConjugateGroupTypeElements
 						.getGrammaFormConjugateResults();
 
@@ -1202,6 +1208,12 @@ public class WordDictionaryDetails extends Activity {
 
 					if (currentGrammaFormConjugateResult.getResultType().isShow() == true) {
 						report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
+
+						String info = currentGrammaFormConjugateResult.getResultType().getInfo();
+
+						if (info != null) {
+							report.add(new StringValue(info, 12.0f, 2));
+						}
 					}
 
 					addGrammaFormConjugateResult(report, currentGrammaFormConjugateResult);
@@ -1387,6 +1399,8 @@ public class WordDictionaryDetails extends Activity {
 		String prefixKana = grammaFormConjugateResult.getPrefixKana();
 		String prefixRomaji = grammaFormConjugateResult.getPrefixRomaji();
 
+		String info = grammaFormConjugateResult.getInfo();
+
 		StringBuffer grammaFormKanjiSb = new StringBuffer();
 
 		if (grammaFormKanji != null) {
@@ -1423,6 +1437,10 @@ public class WordDictionaryDetails extends Activity {
 			grammaFormRomajiSb.append(grammaFormRomajiList.get(idx));
 
 			report.add(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
+
+			if (info != null) {
+				report.add(new StringValue(info, 12.0f, 2));
+			}
 
 			// speak image
 			Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 2);
