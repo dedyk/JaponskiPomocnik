@@ -20,8 +20,8 @@ android {
         // viewBinding true
     }
 
-    compileSdkVersion 31
-    buildToolsVersion '33.0.1'
+    compileSdkVersion 33
+    buildToolsVersion '34.0.0'
 
     // uwaga jesli kiedys w przyszlosci ustawisz targetSdkVersion na 30 lub wiecej to prawdopodobnie przestanie dzialac opcja
     // android:requestLegacyExternalStorage="true", ktore jest wymagane dla Android 10+
@@ -106,10 +106,10 @@ android {
 
 		copy {
 		    from('build/outputs/bundle/release') {
-			include 'app.aab'
+			include 'app-release.aab'
 		    }
 		    into '../' + outputRelease
-		    rename ("app.aab", outputName + ".aab")
+		    rename ("app-release.aab", outputName + ".aab")
 		}
 	    }
 
