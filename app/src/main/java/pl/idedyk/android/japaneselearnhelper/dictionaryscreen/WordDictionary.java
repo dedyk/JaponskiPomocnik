@@ -578,7 +578,7 @@ public class WordDictionary extends Activity {
 					 // schowek zawiera tekst, pobranie go
 					 ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
 
-					 textFromClipboard = item.getText().toString();
+					 textFromClipboard = item.getText() != null ? item.getText().toString() : null;
 				 }
 
 				 if (textFromClipboard != null && textFromClipboard.length() > 0) {
