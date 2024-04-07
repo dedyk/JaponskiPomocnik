@@ -306,14 +306,7 @@ public class KanjiSearchMeaning extends Activity {
 					toast.show();
 
 					return;
-
-				} else if (clipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN) == false) {
-					Toast toast = Toast.makeText(KanjiSearchMeaning.this, getString(R.string.kanji_search_meaning_paste_from_clipboard_incorrect_data_mimetype), Toast.LENGTH_SHORT);
-
-					toast.show();
-
-					return;
-
+					
 				} else {
 					// schowek zawiera tekst, pobranie go
 					ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);

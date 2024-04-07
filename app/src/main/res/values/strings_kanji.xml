@@ -177,7 +177,6 @@
     <string name="kanji_search_meaning_show_history_button">Pokaż historię wyszukiwania</string>
     <string name="kanji_search_meaning_paste_from_clipboard_button">Wklej ze schowka</string>
     <string name="kanji_search_meaning_paste_from_clipboard_no_clipboard_data">Brak danych w schowku</string>
-    <string name="kanji_search_meaning_paste_from_clipboard_incorrect_data_mimetype">Nieobsługiwany typ danych w schowku</string>
     <string name="kanji_search_meaning_options_search_mode_label">Sposób wyszukiwania</string>
     <string name="kanji_search_meaning_options_search_each_change">Szukaj z każdą zmianą frazy</string>
     <string name="kanji_search_meaning_options_search_use_autocomplete">Używaj autouzupełniania (uwaga: funkcja do działania potrzebuje internetu)</string>
