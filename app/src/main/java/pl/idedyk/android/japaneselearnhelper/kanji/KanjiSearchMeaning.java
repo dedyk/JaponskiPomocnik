@@ -26,6 +26,10 @@ import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -283,6 +287,50 @@ public class KanjiSearchMeaning extends Activity {
 
 				searchResultArrayAdapter.notifyDataSetChanged();
 				searchResultListView.setSelection(0);
+			}
+		});
+
+		final Button pasteFromCliboardButton = (Button)findViewById(R.id.kanji_search_meaning_paste_from_clipboard_button);
+
+		pasteFromCliboardButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String textFromClipboard = null;
+
+				// pobranie managera schowka
+				ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+
+				if (clipboard.hasPrimaryClip() == false) {
+					Toast toast = Toast.makeText(KanjiSearchMeaning.this, getString(R.string.kanji_search_meaning_paste_from_clipboard_no_clipboard_data), Toast.LENGTH_SHORT);
+
+					toast.show();
+
+					return;
+
+				} else if (clipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN) == false) {
+					Toast toast = Toast.makeText(KanjiSearchMeaning.this, getString(R.string.kanji_search_meaning_paste_from_clipboard_incorrect_data_mimetype), Toast.LENGTH_SHORT);
+
+					toast.show();
+
+					return;
+
+				} else {
+					// schowek zawiera tekst, pobranie go
+					ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
+
+					textFromClipboard = item.getText().toString();
+				}
+
+				if (textFromClipboard != null && textFromClipboard.length() > 0) {
+					// wstawienie napisu
+					searchValueEditText.setText(textFromClipboard);
+
+					// resetowanie ustawien wyszukiwania
+					searchOptionsStartWithPlaceRadioButton.setChecked(true);
+
+					// wykonanie wyszukiwania
+					performSearch(searchValueEditText.getText().toString());
+				}
 			}
 		});
 

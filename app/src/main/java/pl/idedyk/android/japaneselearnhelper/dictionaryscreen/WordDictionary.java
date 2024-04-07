@@ -567,7 +567,6 @@ public class WordDictionary extends Activity {
 				 // pobranie managera schowka
 				 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 
-				 // If it does contain data, decide if you can handle the data.
 				 if (clipboard.hasPrimaryClip() == false) {
 					 Toast toast = Toast.makeText(WordDictionary.this, getString(R.string.word_dictionary_search_paste_from_clipboard_no_clipboard_data), Toast.LENGTH_SHORT);
 
@@ -589,26 +588,28 @@ public class WordDictionary extends Activity {
 					 textFromClipboard = item.getText().toString();
 				 }
 
-				 // wstawienie napisu
-				 searchValueEditText.setText(textFromClipboard);
+				 if (textFromClipboard != null && textFromClipboard.length() > 0) {
+					 // wstawienie napisu
+					 searchValueEditText.setText(textFromClipboard);
 
-				 // resetowanie ustawien wyszukiwania
-				 searchOptionsOnlyCommonWordsCheckbox.setChecked(false);
+					 // resetowanie ustawien wyszukiwania
+					 searchOptionsOnlyCommonWordsCheckbox.setChecked(false);
 
-				 searchOptionsKanjiCheckbox.setChecked(true);
-				 searchOptionsKanaCheckbox.setChecked(true);
-				 searchOptionsRomajiCheckbox.setChecked(true);
-				 searchOptionsTranslateCheckbox.setChecked(true);
-				 searchOptionsInfoCheckbox.setChecked(true);
+					 searchOptionsKanjiCheckbox.setChecked(true);
+					 searchOptionsKanaCheckbox.setChecked(true);
+					 searchOptionsRomajiCheckbox.setChecked(true);
+					 searchOptionsTranslateCheckbox.setChecked(true);
+					 searchOptionsInfoCheckbox.setChecked(true);
 
-				 searchOptionsStartWithPlaceRadioButton.setChecked(true);
+					 searchOptionsStartWithPlaceRadioButton.setChecked(true);
 
-				 for (int idx = 0; idx < searchDictionaryEntryListCheckBox.length; ++idx) {
-					 searchDictionaryEntryListCheckBox[idx].setChecked(true);
+					 for (int idx = 0; idx < searchDictionaryEntryListCheckBox.length; ++idx) {
+						 searchDictionaryEntryListCheckBox[idx].setChecked(true);
+					 }
+
+					 // wykonanie wyszukiwania
+					 performSearch(searchValueEditText.getText().toString());
 				 }
-
-				 // wykonanie wyszukiwania
-				 performSearch(searchValueEditText.getText().toString());
 			 }
 		 });
 
