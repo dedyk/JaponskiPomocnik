@@ -562,7 +562,6 @@ public class WordDictionary extends Activity {
 		pasteFromCliboardButton.setOnClickListener(new OnClickListener() {
 			 @Override
 			 public void onClick(View v) {
-
 				 String textFromClipboard = null;
 
 				 // pobranie managera schowka
@@ -570,37 +569,25 @@ public class WordDictionary extends Activity {
 
 				 // If it does contain data, decide if you can handle the data.
 				 if (clipboard.hasPrimaryClip() == false) {
-
-					 Toast toast = Toast.makeText(WordDictionary.this, "NIE MA", Toast.LENGTH_SHORT);
+					 Toast toast = Toast.makeText(WordDictionary.this, getString(R.string.word_dictionary_search_paste_from_clipboard_no_clipboard_data), Toast.LENGTH_SHORT);
 
 					 toast.show();
 
 					 return;
 
 				 } else if (clipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN) == false) {
-
-					 Toast toast = Toast.makeText(WordDictionary.this, "ZLY TYP", Toast.LENGTH_SHORT);
+					 Toast toast = Toast.makeText(WordDictionary.this, getString(R.string.word_dictionary_search_paste_from_clipboard_incorrect_data_mimetype), Toast.LENGTH_SHORT);
 
 					 toast.show();
 
 					 return;
 
 				 } else {
-
 					 // schowek zawiera tekst, pobranie go
 					 ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
 
 					 textFromClipboard = item.getText().toString();
-
-					 Toast toast = Toast.makeText(WordDictionary.this, "FFFF: " + textFromClipboard, Toast.LENGTH_SHORT);
-
-					 toast.show();
 				 }
-
-
-
-				 /*
-				 String textFromClipboard = "PIES";
 
 				 // wstawienie napisu
 				 searchValueEditText.setText(textFromClipboard);
@@ -622,8 +609,6 @@ public class WordDictionary extends Activity {
 
 				 // wykonanie wyszukiwania
 				 performSearch(searchValueEditText.getText().toString());
-
-				  */
 			 }
 		 });
 

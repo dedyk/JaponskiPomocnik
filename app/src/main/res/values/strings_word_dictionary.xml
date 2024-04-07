@@ -16,6 +16,8 @@
     <string name="word_dictionary_tab_tab">Zakładka %1$d</string>
     <string name="word_dictionary_search_show_history_button">Pokaż historię wyszukiwania</string>
     <string name="word_dictionary_search_paste_from_clipboard_button">Wklej ze schowka</string>
+    <string name="word_dictionary_search_paste_from_clipboard_no_clipboard_data">Brak danych w schowku</string>
+    <string name="word_dictionary_search_paste_from_clipboard_incorrect_data_mimetype">Nieobsługiwany typ danych w schowku</string>
     <string name="word_dictionary_search_options_button">Opcje</string>
     <string name="word_dictionary_search_search_button">Szukaj</string>
     <string name="word_dictionary_search_options_button_hide">Schowaj</string>
