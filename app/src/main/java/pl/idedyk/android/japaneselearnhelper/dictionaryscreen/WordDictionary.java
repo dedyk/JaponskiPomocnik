@@ -34,6 +34,10 @@ import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -552,6 +556,76 @@ public class WordDictionary extends Activity {
 				}
 			}
 		});
+
+		final Button pasteFromCliboardButton = (Button)findViewById(R.id.word_dictionary_search_paste_from_clipboard_button);
+
+		pasteFromCliboardButton.setOnClickListener(new OnClickListener() {
+			 @Override
+			 public void onClick(View v) {
+
+				 String textFromClipboard = null;
+
+				 // pobranie managera schowka
+				 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+
+				 // If it does contain data, decide if you can handle the data.
+				 if (clipboard.hasPrimaryClip() == false) {
+
+					 Toast toast = Toast.makeText(WordDictionary.this, "NIE MA", Toast.LENGTH_SHORT);
+
+					 toast.show();
+
+					 return;
+
+				 } else if (clipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN) == false) {
+
+					 Toast toast = Toast.makeText(WordDictionary.this, "ZLY TYP", Toast.LENGTH_SHORT);
+
+					 toast.show();
+
+					 return;
+
+				 } else {
+
+					 // schowek zawiera tekst, pobranie go
+					 ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
+
+					 textFromClipboard = item.getText().toString();
+
+					 Toast toast = Toast.makeText(WordDictionary.this, "FFFF: " + textFromClipboard, Toast.LENGTH_SHORT);
+
+					 toast.show();
+				 }
+
+
+
+				 /*
+				 String textFromClipboard = "PIES";
+
+				 // wstawienie napisu
+				 searchValueEditText.setText(textFromClipboard);
+
+				 // resetowanie ustawien wyszukiwania
+				 searchOptionsOnlyCommonWordsCheckbox.setChecked(false);
+
+				 searchOptionsKanjiCheckbox.setChecked(true);
+				 searchOptionsKanaCheckbox.setChecked(true);
+				 searchOptionsRomajiCheckbox.setChecked(true);
+				 searchOptionsTranslateCheckbox.setChecked(true);
+				 searchOptionsInfoCheckbox.setChecked(true);
+
+				 searchOptionsStartWithPlaceRadioButton.setChecked(true);
+
+				 for (int idx = 0; idx < searchDictionaryEntryListCheckBox.length; ++idx) {
+					 searchDictionaryEntryListCheckBox[idx].setChecked(true);
+				 }
+
+				 // wykonanie wyszukiwania
+				 performSearch(searchValueEditText.getText().toString());
+
+				  */
+			 }
+		 });
 
 		TextView deselectAllWordEntryTypeLink = (TextView)findViewById(R.id.word_dictionary_search_options_search_word_entry_type_deselect_all_link);
 
