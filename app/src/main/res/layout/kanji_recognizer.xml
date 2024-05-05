@@ -19,7 +19,6 @@
 
         <Button
             android:id="@+id/kanji_recognizer_recognize_button"
-            style="@android:style/Widget.Button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1.1"
@@ -27,7 +26,6 @@
 
         <Button
             android:id="@+id/kanji_recognizer_undo_button"
-            style="@android:style/Widget.Button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="0.9"
@@ -35,7 +33,6 @@
 
         <Button
             android:id="@+id/kanji_recognizer_clear_button"
-            style="@android:style/Widget.Button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"

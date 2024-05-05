@@ -496,26 +496,23 @@ public class DictionaryHear extends Activity {
 
 				List<String> translates = currentDictionaryEntry.getTranslates();
 
-				StringBuffer polishTranslateSb = new StringBuffer();
+				List<String> polishTranslateToRead = new ArrayList<>();
 
 				for (int idx = 0; idx < translates.size(); ++idx) {
-					polishTranslateSb.append(translates.get(idx));
-
-					if (idx != translates.size() - 1) {
-						polishTranslateSb.append(". ");
-					} else {
-						polishTranslateSb.append(". ");
-					}
+					polishTranslateToRead.add(translates.get(idx));
 				}
 
 				String info = currentDictionaryEntry.getInfo();
 
 				if (info != null && info.length() > 0) {
-					polishTranslateSb.append(info).append(", ");
+					polishTranslateToRead.add(info);
 				}
 
 				japanaeseTtsConnector.speakAndWait(kana);
-				polishTtsConnector.speakAndWait(polishTranslateSb.toString());
+
+				for (String currentPolishTranslateToRead : polishTranslateToRead) {
+					polishTtsConnector.speakAndWait(currentPolishTranslateToRead);
+				}
 
 				try {
 					Thread.sleep(dictionaryHearConfig.getDelayNumber() * 1000);

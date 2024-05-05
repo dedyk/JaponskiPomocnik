@@ -33,7 +33,6 @@
 
         <Button
             android:id="@+id/kanji_search_stroke_count_kanji_button"
-            style="@android:style/Widget.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/kanji_search_kanji" />
@@ -53,7 +52,6 @@
 
         <Button
             android:id="@+id/kanji_search_stroke_count_report_problem_button"
-            style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/report_problem" />

@@ -13,6 +13,9 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
+
+import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
+import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient.AutoCompleteSuggestionType;
 
@@ -55,7 +58,8 @@ public class AutoCompleteAdapter extends BaseAdapter implements Filterable {
         }
         
         ((TextView) convertView.findViewById(android.R.id.text1)).setText(getItem(position));
-        
+        ((TextView) convertView.findViewById(android.R.id.text1)).setBackgroundColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsColor());
+
         return convertView;
     }
     

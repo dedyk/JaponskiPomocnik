@@ -2609,7 +2609,6 @@
 
             <Button
                 android:id="@+id/word_test_sm2_next_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -2640,7 +2639,6 @@
 
                 <Button
                     android:id="@+id/word_test_sm2_incorrect_sm2_buttons_quality0"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -2649,7 +2647,6 @@
 
                 <Button
                     android:id="@+id/word_test_sm2_incorrect_sm2_buttons_quality1"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -2658,7 +2655,6 @@
 
                 <Button
                     android:id="@+id/word_test_sm2_incorrect_sm2_buttons_quality2"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -2674,7 +2670,6 @@
 
                 <Button
                     android:id="@+id/word_test_sm2_correct_sm2_buttons_quality3"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -2683,7 +2678,6 @@
 
                 <Button
                     android:id="@+id/word_test_sm2_correct_sm2_buttons_quality4"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -2692,7 +2686,6 @@
 
                 <Button
                     android:id="@+id/word_test_sm2_correct_sm2_buttons_quality5"
-                    style="@android:style/Widget.Button"
                     android:layout_width="0px"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"

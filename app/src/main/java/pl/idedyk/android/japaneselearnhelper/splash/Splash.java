@@ -62,40 +62,46 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 		// poproszenie o uprawnienie
 
 		progressDesc.setText(getString(R.string.splash_check_permission));
+		
+		if (android.os.Build.VERSION.SDK_INT <= 29) { // dla Androida w wersji nizszej niz 29 musimy poprosic o uprawnienie w dostepie do plikow
 
-		// sprawdzamy, czy mam nadane juz uprawnienie dostepu do pamieci urzadzenia
-		int hasStoragePermission = ContextCompat.checkSelfPermission(this,
-				Manifest.permission.WRITE_EXTERNAL_STORAGE);
+			// sprawdzamy, czy mam nadane juz uprawnienie dostepu do pamieci urzadzenia
+			int hasStoragePermission = ContextCompat.checkSelfPermission(this,
+					Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-		if (hasStoragePermission != PackageManager.PERMISSION_GRANTED) {
+			if (hasStoragePermission != PackageManager.PERMISSION_GRANTED) {
 
-			// metoda shouldShowRequestPermissionRationale zwraca false, gdy uruchamiamy aplikacje pierwszy raz lub uzytkownik zablokowal pokazywanie prosb o uprawnienie
-			//if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == false) {
+				// metoda shouldShowRequestPermissionRationale zwraca false, gdy uruchamiamy aplikacje pierwszy raz lub uzytkownik zablokowal pokazywanie prosb o uprawnienie
+				//if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == false) {
 
-			AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
+				AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
 
-			alertDialog.setCancelable(false);
+				alertDialog.setCancelable(false);
 
-			alertDialog.setTitle(getString(R.string.splash_permission_request_message_box_title));
-			alertDialog.setMessage(getString(R.string.splash_permission_request_message_box_message));
+				alertDialog.setTitle(getString(R.string.splash_permission_request_message_box_title));
+				alertDialog.setMessage(getString(R.string.splash_permission_request_message_box_message));
 
-			alertDialog.setButton(getString(R.string.splash_ok),
-					new DialogInterface.OnClickListener() {
+				alertDialog.setButton(getString(R.string.splash_ok),
+						new DialogInterface.OnClickListener() {
 
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
 
-							ActivityCompat.requestPermissions(Splash.this,
-									new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
-									REQUEST_CODE_ASK_PERMISSIONS);
-						}
-					});
+								ActivityCompat.requestPermissions(Splash.this,
+										new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},
+										REQUEST_CODE_ASK_PERMISSIONS);
+							}
+						});
 
-			if (isFinishing() == false) {
-				alertDialog.show();
+				if (isFinishing() == false) {
+					alertDialog.show();
+				}
+
+				return;
+
+			} else { // mamy juz uprawnienie
+				doInit();
 			}
-
-			return;
 
 		} else { // mamy juz uprawnienie
 			doInit();
@@ -105,7 +111,6 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 	private void doInit() {
 
 		final ProgressBar progressBar = (ProgressBar) findViewById(R.id.splash_progressbar);
-
 		final TextView progressDesc = (TextView) findViewById(R.id.splash_desc_label);
 
 		int versionCode = 0;
@@ -169,7 +174,6 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 
 				@Override
 				public void setError(String errorMessage) {
-
 					ProgressInfo progressInfo = new ProgressInfo();
 
 					progressInfo.errorMessage = errorMessage;
@@ -182,7 +186,6 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 
 			@Override
 			protected Void doInBackground(Void... params) {
-
 				LoadWithProgress loadWithProgress = new LoadWithProgress();
 
 				dictionaryManager.init(Splash.this, loadWithProgress, resources, assets, getPackageName(), finalVersionCode);
@@ -218,7 +221,6 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 			@SuppressWarnings("deprecation")
 			@Override
 			protected void onPostExecute(Void result) {
-
 				if (errorMessage != null) {
 
 					AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
@@ -333,9 +335,7 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
                     AlertDialog alertDialog = new AlertDialog.Builder(Splash.this).create();
 
                     alertDialog.setCancelable(false);
-
                     alertDialog.setMessage(getString(R.string.splash_permission_request_denied_message_box_message));
-
                     alertDialog.setButton(getString(R.string.splash_ok),
                             new DialogInterface.OnClickListener() {
 

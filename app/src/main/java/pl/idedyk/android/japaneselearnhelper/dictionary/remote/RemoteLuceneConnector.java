@@ -167,6 +167,34 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
+    public DictionaryEntry getDictionaryEntryByUniqueKey(final String uniqueKey) throws DictionaryException {
+
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(uniqueKey);
+
+                String responseJson = null;
+
+                DictionaryEntry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntryByUniqueKey", requestJson);
+
+                    result = gson.fromJson((String) responseJson, DictionaryEntry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, DictionaryEntry.class);
+    }
+
+    @Override
     public JMdict.Entry getDictionaryEntry2ById(final Integer id) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
@@ -210,6 +238,34 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntryNameById", requestJson);
+
+                    result = gson.fromJson((String) responseJson, DictionaryEntry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, DictionaryEntry.class);
+    }
+
+    @Override
+    public DictionaryEntry getDictionaryEntryNameByUniqueKey(final String uniqueKey) throws DictionaryException {
+
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(uniqueKey);
+
+                String responseJson = null;
+
+                DictionaryEntry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntryNameByUniqueKey", requestJson);
 
                     result = gson.fromJson((String) responseJson, DictionaryEntry.class);
 

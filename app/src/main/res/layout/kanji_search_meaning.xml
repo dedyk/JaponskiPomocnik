@@ -34,7 +34,6 @@
 
             <Button
                 android:id="@+id/kanji_search_meaning_search_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/kanji_search_meaning_search_button"
@@ -42,19 +41,32 @@
 
             <Button
                 android:id="@+id/kanji_search_meaning_options_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/kanji_search_meaning_options_button" />
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/kanji_search_meaning_paste_from_clipboard_button"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="false"
+                android:text="@string/kanji_search_meaning_paste_from_clipboard_button" />
+
             <Button
                 android:id="@+id/kanji_search_meaning_show_history_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -62,7 +74,7 @@
                 android:layout_alignParentTop="true"
                 android:text="@string/kanji_search_meaning_show_history_button" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <ScrollView
             android:id="@+id/kanji_search_meaning_options_scrollview"
@@ -162,7 +174,8 @@
             android:id="@+id/kanji_search_meaning_result_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:dividerHeight="5dp">
         </ListView>
 
         <View
@@ -195,7 +208,6 @@
 
             <Button
                 android:id="@+id/kanji_search_meaning_report_problem_button"
-                style="@android:style/Widget.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/report_problem" />

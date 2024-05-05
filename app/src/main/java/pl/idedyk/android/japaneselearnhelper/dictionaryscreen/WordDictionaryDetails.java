@@ -81,6 +81,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -418,13 +419,10 @@ public class WordDictionaryDetails extends Activity {
 		Dictionary2HelperCommon.KanjiKanaPair dictionaryEntry2KanjiKanaPair;
 
 		// sprawdzenie, czy wystepuje slowo w formacie JMdict
-		List<Attribute> jmdictEntryIdAttributeList = dictionaryEntry.getAttributeList().getAttributeList(AttributeType.JMDICT_ENTRY_ID);
+		// pobieramy entry id
+		Integer entryId = dictionaryEntry.getJmdictEntryId();
 
-		if (jmdictEntryIdAttributeList != null && jmdictEntryIdAttributeList.size() > 0) { // cos jest
-
-			// pobieramy entry id
-			Integer entryId = Integer.parseInt(jmdictEntryIdAttributeList.get(0).getAttributeValue().get(0));
-
+		if (entryId != null) {
 			try {
 				// pobieramy z bazy danych
 				dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ById(entryId);
@@ -911,6 +909,21 @@ public class WordDictionaryDetails extends Activity {
 				report.add(createSpecialAAText(R.string.sm_tsuki_ni_kawatte_oshioki_yo));
 			} else if (isButaMoOdateryaKiNiNoboru(kanjiSb.toString()) == true) {
 				report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
+			} else if (isTakakoOkamura(kanjiSb.toString()) == true) {
+				String info = dictionaryEntry.getInfo();
+
+				if (info != null && info.length() > 0) {
+					report.add(new StringValue(info, 20.0f, 0));
+				} else {
+					report.add(new StringValue("-", 20.0f, 0));
+				}
+
+				Image takakoOkamuraImage = new Image(getResources().getDrawable(R.drawable.takako_okamura2), 0);
+
+				takakoOkamuraImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
+				takakoOkamuraImage.setAdjustViewBounds(true);
+
+				report.add(takakoOkamuraImage);
 			} else {
 				String info = dictionaryEntry.getInfo();
 
@@ -1182,6 +1195,12 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new TitleItem(currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType()
 						.getName(), 1));
 
+				String grammaFormConjugateGroupTypeInfo = currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().getInfo();
+
+				if (grammaFormConjugateGroupTypeInfo != null) {
+					report.add(new StringValue(grammaFormConjugateGroupTypeInfo, 12.0f, 1));
+				}
+
 				List<GrammaFormConjugateResult> grammaFormConjugateResults = currentGrammaFormConjugateGroupTypeElements
 						.getGrammaFormConjugateResults();
 
@@ -1189,6 +1208,12 @@ public class WordDictionaryDetails extends Activity {
 
 					if (currentGrammaFormConjugateResult.getResultType().isShow() == true) {
 						report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
+
+						String info = currentGrammaFormConjugateResult.getResultType().getInfo();
+
+						if (info != null) {
+							report.add(new StringValue(info, 12.0f, 2));
+						}
 					}
 
 					addGrammaFormConjugateResult(report, currentGrammaFormConjugateResult);
@@ -1374,6 +1399,8 @@ public class WordDictionaryDetails extends Activity {
 		String prefixKana = grammaFormConjugateResult.getPrefixKana();
 		String prefixRomaji = grammaFormConjugateResult.getPrefixRomaji();
 
+		String info = grammaFormConjugateResult.getInfo();
+
 		StringBuffer grammaFormKanjiSb = new StringBuffer();
 
 		if (grammaFormKanji != null) {
@@ -1410,6 +1437,10 @@ public class WordDictionaryDetails extends Activity {
 			grammaFormRomajiSb.append(grammaFormRomajiList.get(idx));
 
 			report.add(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
+
+			if (info != null) {
+				report.add(new StringValue(info, 12.0f, 2));
+			}
 
 			// speak image
 			Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 2);
@@ -1556,6 +1587,19 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		if (value.equals("豚もおだてりゃ木に登る") == true || value.equals("ブタもおだてりゃ木に登る") == true || value.equals("豚も煽てりゃ木に登る") == true) {
+			return true;
+		}
+
+		return false;
+	}
+
+	private boolean isTakakoOkamura(String value) {
+
+		if (value == null) {
+			return false;
+		}
+
+		if (value.equals("岡村孝子") == true) {
 			return true;
 		}
 

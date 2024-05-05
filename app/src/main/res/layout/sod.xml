@@ -19,7 +19,6 @@
 
         <Button
             android:id="@+id/sod_draw_button"
-            style="@android:style/Widget.Button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -27,7 +26,6 @@
 
         <Button
             android:id="@+id/sod_animate_button"
-            style="@android:style/Widget.Button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -35,7 +33,6 @@
 
         <Button
             android:id="@+id/sod_clear_button"
-            style="@android:style/Widget.Button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"

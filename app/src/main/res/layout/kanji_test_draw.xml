@@ -40,7 +40,6 @@
 
         <Button
             android:id="@+id/kanji_test_recognizer_check_button"
-            style="@android:style/Widget.Button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -48,7 +47,6 @@
 
         <Button
             android:id="@+id/kanji_test_recognizer_undo_button"
-            style="@android:style/Widget.Button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"
@@ -56,7 +54,6 @@
 
         <Button
             android:id="@+id/kanji_test_recognizer_clear_button"
-            style="@android:style/Widget.Button"
             android:layout_width="0px"
             android:layout_height="fill_parent"
             android:layout_weight="1"

@@ -1,5 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.utils;
 
+import android.util.Log;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -8,6 +10,8 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 public class WordKanjiDictionaryUtils {
 
@@ -55,7 +59,7 @@ public class WordKanjiDictionaryUtils {
         return result.toString();
     }
 
-    public static String getWordFullTextWithMark(FindWordResult.ResultItem resultItem, String findWord, FindWordRequest findWordRequest) {
+    public static String getWordFullTextWithMark(FindWordResult.ResultItem resultItem, JMdict.Entry dictionaryEntry2, String findWord, FindWordRequest findWordRequest) {
 
         String kanji = resultItem.getKanji();
         String prefixKana = resultItem.getPrefixKana();
@@ -87,16 +91,69 @@ public class WordKanjiDictionaryUtils {
             result.append(getStringWithMark(toString(romajiList, tempPrefixRomaji), findWord, findWordRequest.searchRomaji));
         }
 
-        if (translates != null && translates.size() > 0) {
-            result.append("\n\n");
-            result.append(getStringWithMark(toString(translates, null), findWord, findWordRequest.searchTranslate));
+        if (dictionaryEntry2 == null) { // dane w starym formacie
+
+            if (translates != null && translates.size() > 0) {
+                result.append("\n\n");
+
+                for (int idx = 0; idx < translates.size(); ++idx) {
+                    String currentTranslate = translates.get(idx);
+
+                    result.append(getStringWithMark(currentTranslate, findWord, findWordRequest.searchTranslate));
+
+                    if (idx != translates.size() - 1) {
+                        result.append("\n");
+                    }
+                }
+            }
+
+            if (info != null && info.equals("") == false) {
+                result.append("\n");
+                result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(info, findWord, findWordRequest.searchInfo));
+            }
+
+        } else { // dane w nowym formacie
+
+            List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2);
+
+            // szukamy konkretnego znaczenia dla naszego slowa
+            Dictionary2HelperCommon.KanjiKanaPair dictionaryEntry2KanjiKanaPair = Dictionary2HelperCommon.findKanjiKanaPair(kanjiKanaPairList, resultItem.getDictionaryEntry());
+
+            Dictionary2HelperCommon.PrintableSense printableSense = Dictionary2HelperCommon.getPrintableSense(dictionaryEntry2KanjiKanaPair);
+
+            // mamy znaczenia
+            for (int senseIdx = 0; senseIdx < printableSense.getSenseEntryList().size(); ++senseIdx) {
+
+                if (senseIdx == 0) {
+                    result.append("\n\n");
+                }
+
+                Dictionary2HelperCommon.PrintableSenseEntry printableSenseEntry = printableSense.getSenseEntryList().get(senseIdx);
+
+                for (int currentGlossIdx = 0; currentGlossIdx < printableSenseEntry.getGlossList().size(); ++currentGlossIdx) {
+
+                    Dictionary2HelperCommon.PrintableSenseEntryGloss printableSenseEntryGloss = printableSenseEntry.getGlossList().get(currentGlossIdx);
+
+                    result.append(getStringWithMark(
+                            printableSenseEntryGloss.getGlossValue(), findWord, findWordRequest.searchTranslate) +
+                            (printableSenseEntryGloss.getGlossValueGType() != null ? " (" + printableSenseEntryGloss.getGlossValueGType() + ")" : "") +
+                            (currentGlossIdx != printableSenseEntry.getGlossList().size() - 1 ? "\n" : ""));
+                }
+
+                // informacje dodatkowe
+                if (printableSenseEntry.getAdditionalInfoValue() != null) {
+                    result.append("\n");
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(printableSenseEntry.getAdditionalInfoValue(), findWord, findWordRequest.searchInfo));
+                }
+
+                // przerwa
+                if (senseIdx != printableSense.getSenseEntryList().size() - 1) {
+                    result.append("\n\n");
+                }
+            }
         }
 
-        if (info != null && info.equals("") == false) {
-            result.append(" - ").append(getStringWithMark(info, findWord, findWordRequest.searchInfo));
-        }
-
-        return result.toString();
+        return result.toString().replaceAll("\n", "<br/>");
     }
 
     public static String getKanjiFullTextWithMark(KanjiEntry kanjiEntry) {

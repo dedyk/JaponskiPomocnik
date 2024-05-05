@@ -461,20 +461,49 @@ public class KanaTest extends Activity {
 
 	private List<KanaEntry> getIncorrectAnswers(KanaEntry correctKanaEntry, int maxSize) {
 
+		KanaHelper kanaHelper = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanaTest.this)
+				.getKanaHelper();
+
 		final JapaneseAndroidLearnHelperKanaTestContext kanaTestContext = JapaneseAndroidLearnHelperApplication
 				.getInstance().getContext().getKanaTestContext();
 
 		List<KanaEntry> result = new ArrayList<KanaEntry>();
 
 		Set<String> alreadyChoosenKanaEntries = new HashSet<String>();
-
 		alreadyChoosenKanaEntries.add(correctKanaEntry.getKanaJapanese());
 
+		// sprawdzenie, czy dla danego znaku sa podobnie wizualnie znaki
+		String[] visuallySimilarKana = kanaHelper.getVisuallySimilarKana(correctKanaEntry.getKanaJapanese());
+
+		// sa jakies podobne znaki, dodajemy je do propozycji odpowiedzi
+		if (visuallySimilarKana != null) {
+			Map<String, KanaEntry> kanaCache = kanaHelper.getKanaCache();
+
+			for (String currentVisuallySimilarKana : visuallySimilarKana) {
+				if (alreadyChoosenKanaEntries.contains(currentVisuallySimilarKana) == true) {
+					continue;
+				}
+
+				if (result.size() >= maxSize) {
+					break;
+				}
+
+				KanaEntry kanaEntryToAdd = kanaCache.get(currentVisuallySimilarKana);
+
+				result.add(kanaEntryToAdd);
+				alreadyChoosenKanaEntries.add(kanaEntryToAdd.getKanaJapanese());
+			}
+		}
+
+		// dodajemy pozostale znaki
 		List<KanaEntry> answers = kanaTestContext.getAllKanaEntriesGroupBy().get(getKanaEntryKey(correctKanaEntry));
 
 		Random random = new Random();
 
 		while (true) {
+			if (result.size() >= maxSize) {
+				break;
+			}
 
 			int randomAnswersIdx = random.nextInt(answers.size());
 
@@ -486,10 +515,6 @@ public class KanaTest extends Activity {
 
 			result.add(answersToCheck);
 			alreadyChoosenKanaEntries.add(answersToCheck.getKanaJapanese());
-
-			if (result.size() >= maxSize) {
-				break;
-			}
 		}
 
 		return result;
@@ -637,7 +662,17 @@ public class KanaTest extends Activity {
 				}
 			}
 
-			Arrays.sort(buttonsValuesLinear);
+			if (testMode2 == TestMode2.KANA_TO_ROMAJI) {
+				Arrays.sort(buttonsValuesLinear);
+
+			} else if (testMode2 == TestMode2.ROMAJI_TO_KANA) {
+				// losowo zmieniamy kolejnosc
+				List<String> buttonsValuesLinearList = Arrays.asList(buttonsValuesLinear);
+				Collections.shuffle(buttonsValuesLinearList);
+				buttonsValuesLinearList.toArray(buttonsValuesLinear);
+			}
+
+			//
 
 			String[][] buttonValues = new String[max_x][max_y];
 

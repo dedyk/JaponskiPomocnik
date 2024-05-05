@@ -3,6 +3,8 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -24,11 +26,18 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
+import pl.idedyk.japanese.dictionary.api.dto.Attribute;
+import pl.idedyk.japanese.dictionary.api.dto.AttributeType;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -548,6 +557,55 @@ public class WordDictionary extends Activity {
 			}
 		});
 
+		final Button pasteFromCliboardButton = (Button)findViewById(R.id.word_dictionary_search_paste_from_clipboard_button);
+
+		pasteFromCliboardButton.setOnClickListener(new OnClickListener() {
+			 @Override
+			 public void onClick(View v) {
+				 String textFromClipboard = null;
+
+				 // pobranie managera schowka
+				 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+
+				 if (clipboard.hasPrimaryClip() == false) {
+					 Toast toast = Toast.makeText(WordDictionary.this, getString(R.string.word_dictionary_search_paste_from_clipboard_no_clipboard_data), Toast.LENGTH_SHORT);
+
+					 toast.show();
+
+					 return;
+
+				 } else {
+					 // schowek zawiera tekst, pobranie go
+					 ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
+
+					 textFromClipboard = item.getText() != null ? item.getText().toString() : null;
+				 }
+
+				 if (textFromClipboard != null && textFromClipboard.length() > 0) {
+					 // wstawienie napisu
+					 searchValueEditText.setText(textFromClipboard);
+
+					 // resetowanie ustawien wyszukiwania
+					 searchOptionsOnlyCommonWordsCheckbox.setChecked(false);
+
+					 searchOptionsKanjiCheckbox.setChecked(true);
+					 searchOptionsKanaCheckbox.setChecked(true);
+					 searchOptionsRomajiCheckbox.setChecked(true);
+					 searchOptionsTranslateCheckbox.setChecked(true);
+					 searchOptionsInfoCheckbox.setChecked(true);
+
+					 searchOptionsStartWithPlaceRadioButton.setChecked(true);
+
+					 for (int idx = 0; idx < searchDictionaryEntryListCheckBox.length; ++idx) {
+						 searchDictionaryEntryListCheckBox[idx].setChecked(true);
+					 }
+
+					 // wykonanie wyszukiwania
+					 performSearch(searchValueEditText.getText().toString());
+				 }
+			 }
+		 });
+
 		TextView deselectAllWordEntryTypeLink = (TextView)findViewById(R.id.word_dictionary_search_options_search_word_entry_type_deselect_all_link);
 
 		deselectAllWordEntryTypeLink.setOnClickListener(new OnClickListener() {
@@ -907,11 +965,40 @@ public class WordDictionary extends Activity {
 						findWordResult.setResult(new ArrayList<ResultItem>());
 					}
 
+					// pobieranie slow w nowym formacie
+					Map<Integer, JMdict.Entry> dictionaryEntry2Map = new TreeMap<>();
+
+					final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
+
+					try {
+						for (ResultItem resultItem : findWordResult.getResult()) {
+							if (resultItem.getDictionaryEntry() != null && resultItem.getDictionaryEntry().isName() == false) {
+
+								// pobieramy entry id
+								Integer entryId = resultItem.getDictionaryEntry().getJmdictEntryId();
+
+								if (entryId != null) {
+									if (dictionaryEntry2Map.containsKey(entryId) == false) {
+
+										// pobieramy z bazy danych
+										JMdict.Entry dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ById(entryId);
+
+										dictionaryEntry2Map.put(entryId, dictionaryEntry2);
+									}
+								}
+							}
+						}
+
+					} catch (DictionaryException e) {
+						dictionaryException = e;
+					}
+
 					//
 
 			        FindWordResultAndSuggestionList findWordResultAndSuggestionList = new FindWordResultAndSuggestionList();
 			        
 			        findWordResultAndSuggestionList.findWordResult = findWordResult;
+			        findWordResultAndSuggestionList.dictionaryEntry2Map = dictionaryEntry2Map;
 					findWordResultAndSuggestionList.dictionaryException = dictionaryException;
 
 			        // szukanie sugestii
@@ -931,16 +1018,27 @@ public class WordDictionary extends Activity {
 			        super.onPostExecute(findWordResultAndSuggestionList);
 
 					FindWordResult foundWord = findWordResultAndSuggestionList.findWordResult;
+					Map<Integer, JMdict.Entry> dictionaryEntry2Map = findWordResultAndSuggestionList.dictionaryEntry2Map;
+
 			        List<String> suggestionList = findWordResultAndSuggestionList.suggestionList;
 			        
 					wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
 							(foundWord.moreElemetsExists == true ? "+" : "" )));
 					
 					for (ResultItem currentFoundWord : foundWord.result) {
-						
-						String currentFoundWordFullTextWithMark = WordKanjiDictionaryUtils.getWordFullTextWithMark(currentFoundWord, findWord, findWordRequest);
+
+						JMdict.Entry dictionaryEntry2 = null;
+
+						// pobieramy entry id
+						Integer entryId = currentFoundWord.getDictionaryEntry().getJmdictEntryId();
+
+						if (entryId != null) {
+							dictionaryEntry2 = dictionaryEntry2Map.get(entryId);
+						}
+
+						String currentFoundWordFullTextWithMark = WordKanjiDictionaryUtils.getWordFullTextWithMark(currentFoundWord, dictionaryEntry2, findWord, findWordRequest);
 																				
-						searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsResultItem (currentFoundWord, Html.fromHtml(currentFoundWordFullTextWithMark.replaceAll("\n", "<br/>"))));
+						searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsResultItem (currentFoundWord, Html.fromHtml(currentFoundWordFullTextWithMark)));
 					}
 					
 					if (suggestionList != null && suggestionList.size() > 0) { // pokazywanie sugestii
@@ -1039,6 +1137,8 @@ public class WordDictionary extends Activity {
 	class FindWordResultAndSuggestionList {
 		
 		public FindWordResult findWordResult;
+
+		public Map<Integer, JMdict.Entry> dictionaryEntry2Map;
 		
 		public List<String> suggestionList;
 
