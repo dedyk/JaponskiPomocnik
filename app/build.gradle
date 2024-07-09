@@ -33,7 +33,7 @@ android {
         targetSdkVersion 33
         multiDexEnabled true
 
-        versionCode 799
+        versionCode 800
         versionName "20240707"
     }
 
