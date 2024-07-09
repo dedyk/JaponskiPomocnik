@@ -47,8 +47,11 @@ import com.google.gson.Gson;
 public class ServerClient {
 	
 	//private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
-	private static final String PREFIX_URL = "http://www.japonski-pomocnik.pl"; // prod
-	//private static final String PREFIX_URL = "https://www.japonski-pomocnik.pl"; // prod-ssl
+
+	// stary Android ponizej wersji 8 nie zna certyfikatu Let's Encrypt, wiec musi byc uzyte zwykle polaczenie
+	private static final String PREFIX_PROTOCOL = android.os.Build.VERSION.SDK_INT >= 26 ? "https" : "http";
+
+	private static final String PREFIX_URL = PREFIX_PROTOCOL + "://" + "www.japonski-pomocnik.pl"; // prod
 
 	private static final String SEND_MISSING_WORD_URL = PREFIX_URL + "/android/sendMissingWord";
 	private static final String SEARCH_URL = PREFIX_URL + "/android/search";
