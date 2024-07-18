@@ -145,7 +145,13 @@ public class KanjiSearchRadical extends Activity {
 			}
 		});
 	}
-	
+
+	public void onBackPressed() {
+		super.onBackPressed();
+
+		finish();
+	}
+
 	private void fillMainLayout(List<IScreenItem> screenItems, LinearLayout mainLayout) {
 		
 		for (IScreenItem currentScreenItem : screenItems) {

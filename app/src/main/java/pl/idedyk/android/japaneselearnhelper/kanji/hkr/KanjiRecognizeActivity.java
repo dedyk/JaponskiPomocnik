@@ -56,6 +56,12 @@ public class KanjiRecognizeActivity extends Activity {
 		init();
 	}
 
+	public void onBackPressed() {
+		super.onBackPressed();
+
+		finish();
+	}
+
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);

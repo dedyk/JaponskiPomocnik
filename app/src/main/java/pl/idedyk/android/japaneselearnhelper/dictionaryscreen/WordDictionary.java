@@ -102,7 +102,14 @@ public class WordDictionary extends Activity {
 	private CheckBox[] searchDictionaryEntryListCheckBox;
 
 	private static final String wordDictionarySearchHistoryFieldName = "wordDictionarySearchHistory";
-			
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+
+		finish();
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
