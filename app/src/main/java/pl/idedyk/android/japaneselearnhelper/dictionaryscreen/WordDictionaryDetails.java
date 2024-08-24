@@ -513,9 +513,13 @@ public class WordDictionaryDetails extends Activity {
 
 		// check furigana
 		List<FuriganaEntry> furiganaEntries = null;
+		boolean isAllCharactersStrokePathsAvailableForWord = false;
 
 		try {
 			furiganaEntries = dictionaryManager.getFurigana(dictionaryEntry);
+
+			// sprawdzenie, czy mamy dane do pisania wszystkich znakow
+			isAllCharactersStrokePathsAvailableForWord = dictionaryManager.isAllCharactersStrokePathsAvailableForWord(dictionaryEntry.getKanji());
 
 		} catch (DictionaryException e) {
 			Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
@@ -523,7 +527,9 @@ public class WordDictionaryDetails extends Activity {
 
 		if (furiganaEntries != null && furiganaEntries.size() > 0 && addKanjiWrite == true) {
 
-			report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+			if (isAllCharactersStrokePathsAvailableForWord == true) {
+				report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+			}
 
 			for (FuriganaEntry currentFuriganaEntry : furiganaEntries) {
 
@@ -557,7 +563,9 @@ public class WordDictionaryDetails extends Activity {
 						currentKanaPartStringValue.setGravity(Gravity.CENTER);
 						currentKanaPartStringValue.setNullMargins(true);
 
-						currentKanaPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
+						if (isAllCharactersStrokePathsAvailableForWord == true) {
+							currentKanaPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
+						}
 
 						readingRow.addScreenItem(currentKanaPartStringValue);
 					}
@@ -580,7 +588,9 @@ public class WordDictionaryDetails extends Activity {
 						currentKanjiPartStringValue.setGravity(Gravity.CENTER);
 						currentKanjiPartStringValue.setNullMargins(true);
 
-						currentKanjiPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
+						if (isAllCharactersStrokePathsAvailableForWord == true) {
+							currentKanjiPartStringValue.setOnClickListener(kanjiDrawOnClickListener);
+						}
 
 						kanjiRow.addScreenItem(currentKanjiPartStringValue);
 					}
@@ -619,9 +629,11 @@ public class WordDictionaryDetails extends Activity {
 			if (addKanjiWrite == true) {
 				StringValue kanjiStringValue = new StringValue(kanjiSb.toString(), 35.0f, 0);
 
-				report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+				if (isAllCharactersStrokePathsAvailableForWord == true) {
+					report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 
-				kanjiStringValue.setOnClickListener(kanjiDrawOnClickListener);
+					kanjiStringValue.setOnClickListener(kanjiDrawOnClickListener);
+				}
 
 				report.add(kanjiStringValue);
 
