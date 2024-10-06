@@ -918,9 +918,25 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_additional_info_label), 0));
 
 			if (isSmTsukiNiKawatteOshiokiYo(kanjiSb.toString()) == true) {
-				report.add(createSpecialAAText(R.string.sm_tsuki_ni_kawatte_oshioki_yo));
+				// report.add(createSpecialAAText(R.string.sm_tsuki_ni_kawatte_oshioki_yo));
+
+				Image smTsukiNiKawatteOshiokoYo = new Image(getResources().getDrawable(R.drawable.sm_tsuki_ni_kawatte_oshioki_yo), 0);
+
+				smTsukiNiKawatteOshiokoYo.setScaleType(ImageView.ScaleType.FIT_CENTER);
+				smTsukiNiKawatteOshiokoYo.setAdjustViewBounds(true);
+
+				report.add(smTsukiNiKawatteOshiokoYo);
+
 			} else if (isButaMoOdateryaKiNiNoboru(kanjiSb.toString()) == true) {
-				report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
+				// report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
+
+				Image butamoodateryakininoboru = new Image(getResources().getDrawable(R.drawable.buta_mo_odaterya_ki_ni_noboru), 0);
+
+				butamoodateryakininoboru.setScaleType(ImageView.ScaleType.FIT_CENTER);
+				butamoodateryakininoboru.setAdjustViewBounds(true);
+
+				report.add(butamoodateryakininoboru);
+
 			} else if (isTakakoOkamura(kanjiSb.toString()) == true) {
 				String info = dictionaryEntry.getInfo();
 
