@@ -394,7 +394,13 @@ public class KanjiSearchMeaning extends Activity {
 		
 		setSearchButtonVisible();
 	}
-	
+
+	public void onBackPressed() {
+		super.onBackPressed();
+
+		finish();
+	}
+
 	private void setSearchButtonVisible() {
 		
 		if (searchOptionsEachChangeCheckBox.isChecked() == false) {
