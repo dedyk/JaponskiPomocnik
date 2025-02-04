@@ -13,6 +13,7 @@
     <string name="kanji_details_radicals">Elementy podstawowe</string>
     <string name="kanji_details_kun_reading">Czytanie kun\'yomi (rdzennie japońskie)</string>
     <string name="kanji_details_on_reading">Odczyty on\'yomi (sinojapońskie)</string>
+    <string name="kanji_details_nanori_reading">Odczyty nanori</string>
     <string name="kanji_details_find_kanji_in_words">Szukaj wystąpień znaku w słowniku</string>
     <string name="kanji_details_clipboard_copy">Skopiowano \'%1$s\' do schowka</string>
     <string name="kanji_details_add_to_star_group">Dodano gwiazdkę</string>
@@ -121,6 +122,7 @@
     <string name="kanji_test_info_choose_kanji_in_word">Proszę wybrać właściwy znak w pustym miejscu:</string>
     <string name="kanji_test_info_kunyomi">czytania kun\'yomi</string>
     <string name="kanji_test_info_onyomi">czytania on\'yomi</string>
+    <string name="kanji_test_info_nanori">czytania nanori</string>
     <string name="kanji_test_correct_answer_title">Niepoprawna odpowiedź.</string>
     <string name="kanji_test_correct_answer_message">Prawidłowa odpowiedź to:</string>
     <string name="kanji_test_incorrect_ok">OK</string>

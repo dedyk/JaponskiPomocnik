@@ -251,10 +251,10 @@ public class KanjiDetails extends Activity {
 				
 		// Kun reading
 		report.add(new TitleItem(getString(R.string.kanji_details_kun_reading), 0));
+
+		List<String> kunReading = kanjiDic2Entry != null ? kanjiDic2Entry.getKunReading() : null;
 		
-		if (kanjiDic2Entry != null) {
-			List<String> kunReading = kanjiDic2Entry.getKunReading();
-			
+		if (kunReading != null && kunReading.size() > 0) {
 			for (String currentKun : kunReading) {
 				report.add(new StringValue(currentKun, 20.0f, 0));
 			}
@@ -264,12 +264,25 @@ public class KanjiDetails extends Activity {
 		
 		// On reading
 		report.add(new TitleItem(getString(R.string.kanji_details_on_reading), 0));
-		
-		if (kanjiDic2Entry != null) {
-			List<String> onReading = kanjiDic2Entry.getOnReading();
-			
+
+		List<String> onReading = kanjiDic2Entry != null ? kanjiDic2Entry.getOnReading() : null;
+
+		if (onReading != null && onReading.size() > 0) {
 			for (String currentOn : onReading) {
 				report.add(new StringValue(currentOn, 20.0f, 0));
+			}
+		} else {
+			report.add(new StringValue("-", 20.0f, 0));
+		}
+
+		// nanori reading
+		report.add(new TitleItem(getString(R.string.kanji_details_nanori_reading), 0));
+
+		List<String> nanoriReading = kanjiDic2Entry != null ? kanjiDic2Entry.getNanoriReading() : null;
+
+		if (nanoriReading != null && nanoriReading.size() > 0) {
+			for (String currentNanori : nanoriReading) {
+				report.add(new StringValue(currentNanori, 20.0f, 0));
 			}
 		} else {
 			report.add(new StringValue("-", 20.0f, 0));

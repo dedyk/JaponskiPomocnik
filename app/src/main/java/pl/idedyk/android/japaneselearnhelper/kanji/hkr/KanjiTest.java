@@ -642,6 +642,22 @@ public class KanjiTest extends Activity {
 					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_onyomi))
 							.append("</b>: ").append(toString(onReading)).append("</small>");
 				}
+
+				List<String> nanoriReading = kanjiDic2Entry.getNanoriReading();
+
+				if (nanoriReading != null && nanoriReading.size() > 0) {
+
+					if (addedSpace == false) {
+						kanjiInfoSb.append("<br/><br/>");
+
+						addedSpace = true;
+					} else {
+						kanjiInfoSb.append("<br/>");
+					}
+
+					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_nanori))
+							.append("</b>: ").append(toString(nanoriReading)).append("</small>");
+				}
 			}
 
 			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
