@@ -1,7 +1,6 @@
 package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import android.text.Spanned;
 
 public class KanjiEntryListItem {

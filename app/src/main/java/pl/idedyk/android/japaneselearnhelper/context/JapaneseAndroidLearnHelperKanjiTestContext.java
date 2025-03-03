@@ -5,7 +5,6 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 
 public class JapaneseAndroidLearnHelperKanjiTestContext {

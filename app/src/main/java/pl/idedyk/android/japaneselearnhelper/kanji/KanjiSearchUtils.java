@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.Gravity;
 import android.view.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -13,7 +12,6 @@ import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 
 public class KanjiSearchUtils {
 

@@ -12,12 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
-import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
-import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
-import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 import android.app.Activity;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
-import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import android.graphics.Matrix;
 
 public class SodStrokeParser {

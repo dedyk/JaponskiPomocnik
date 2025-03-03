@@ -31,10 +31,8 @@ import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
-import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 public class UserGroupContentsActivity extends Activity {
