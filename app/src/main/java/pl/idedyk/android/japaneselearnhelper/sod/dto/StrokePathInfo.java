@@ -7,13 +7,13 @@ public class StrokePathInfo implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private List<KanjivgEntry> strokePaths;
+	private List<String> strokePaths;
 
-	public List<KanjivgEntry> getStrokePaths() {
+	public List<String> getStrokePaths() {
 		return strokePaths;
 	}
 
-	public void setStrokePaths(List<KanjivgEntry> strokePaths) {
+	public void setStrokePaths(List<String> strokePaths) {
 		this.strokePaths = strokePaths;
 	}	
 }
