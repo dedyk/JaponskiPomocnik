@@ -16,13 +16,14 @@ import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperK
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
+import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
-import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -95,7 +96,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					String kanjiValue = input.getText().toString();
 
-					List<KanjiEntry> knownKanjiList = null;
+					List<KanjiCharacterInfo> knownKanjiList = null;
 
 					try {
 						knownKanjiList = JapaneseAndroidLearnHelperApplication.getInstance()
@@ -112,12 +113,10 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					StringBuffer allKanjiTest = new StringBuffer();
 
-					for (KanjiEntry currentKanjiEntry : knownKanjiList) {
+					for (KanjiCharacterInfo currentKanjiEntry : knownKanjiList) {
 
-						if (currentKanjiEntry.isUsed() == true
-								&& allKanjisInGroup.contains(currentKanjiEntry.getKanji()) == false) {
+						if (currentKanjiEntry.getMisc2().isUsed() == true && allKanjisInGroup.contains(currentKanjiEntry.getKanji()) == false) {
 							allKanjisInGroup.add(currentKanjiEntry.getKanji());
-
 							allKanjiTest.append(currentKanjiEntry.getKanji());
 						}
 					}
@@ -362,26 +361,25 @@ public class KanjiTestOptionsActivity extends Activity {
 				}
 
 				kanjiTestConfig.setUntilSuccess(untilSuccessCheckBox.isChecked());
-
 				kanjiTestConfig.setUntilSuccessNewWordLimitPostfix(untilSuccessNewWordLimitCheckBox.isChecked());
 
 				kanjiTestConfig.setDedicateExample(dedicateExampleCheckBox.isChecked());
 
 				List<String> chosenKanjiList = new ArrayList<String>();
 
-				for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
+				for (KanjiCharacterInfo currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
 					chosenKanjiList.add(currentCheckBoxKanjiEntry.getKanji());
 				}
 
 				// find kanji entry list / get kanji with details
-				final List<KanjiEntry> kanjiEntryList;
+				final List<KanjiCharacterInfo> kanjiEntryList;
 
 				try {
 					kanjiEntryList = JapaneseAndroidLearnHelperApplication.getInstance()
 							.getDictionaryManager(KanjiTestOptionsActivity.this)
 							.findKanjiList(chosenKanjiList);
-				} catch (DictionaryException e) {
 
+				} catch (DictionaryException e) {
 					Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
 
 					return;
@@ -398,7 +396,6 @@ public class KanjiTestOptionsActivity extends Activity {
 				for (CheckBox currentKanjiGroupListCheckBox : kanjiGroupList) {
 
 					if (currentKanjiGroupListCheckBox.isChecked() == true) {
-
 						CheckBoxTag currentKanjiGroupCheckBoxTag = (CheckBoxTag)currentKanjiGroupListCheckBox.getTag();
 
 						if (currentKanjiGroupCheckBoxTag.groupType == CheckBoxGroupType.INTERNAL_GROUP) { // grupa wbudowana
@@ -429,7 +426,6 @@ public class KanjiTestOptionsActivity extends Activity {
 				*/
 
 				if (chosenKanjiList.size() == 0) {
-
 					Toast toast = Toast.makeText(KanjiTestOptionsActivity.this,
 							getString(R.string.kanji_test_options_choose_kanji_info), Toast.LENGTH_SHORT);
 
@@ -442,7 +438,6 @@ public class KanjiTestOptionsActivity extends Activity {
 						&& dedicateExampleCheckBox.isChecked() == true) {
 
 					if (chosenKanjiGroupList.size() == 0 && chosenUserGroupEntityList.size() == 0) {
-
 						Toast toast = Toast.makeText(KanjiTestOptionsActivity.this,
 								getString(R.string.kanji_test_options_choose_kanji_group_info), Toast.LENGTH_SHORT);
 
@@ -502,7 +497,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 								if (dictionaryEntry != null) {
 
-									for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
+									for (KanjiCharacterInfo currentKanjiEntry : kanjiEntryList) {
 
 										String currentDictionaryEntryKanji = dictionaryEntry.getKanji();
 
@@ -585,7 +580,7 @@ public class KanjiTestOptionsActivity extends Activity {
 						// reset test
 						kanjiTestContext.resetTest();
 						
-						List<KanjiEntry> kanjiEntryList2 = kanjiEntryList;
+						List<KanjiCharacterInfo> kanjiEntryList2 = kanjiEntryList;
 
 						Collections.shuffle(kanjiEntryList2);
 						
@@ -594,7 +589,7 @@ public class KanjiTestOptionsActivity extends Activity {
 						
 						if (kanjiEntryList2.size() > maxTestSize) {
 							
-							List<KanjiEntry> newKanjiEntryList = new ArrayList<KanjiEntry>();
+							List<KanjiCharacterInfo> newKanjiEntryList = new ArrayList<KanjiCharacterInfo>();
 							
 							for (int kanjiEntryListIdx = 0; kanjiEntryListIdx < maxTestSize; ++kanjiEntryListIdx) {
 								newKanjiEntryList.add(kanjiEntryList2.get(kanjiEntryListIdx));
@@ -603,13 +598,13 @@ public class KanjiTestOptionsActivity extends Activity {
 							kanjiEntryList2 = newKanjiEntryList;
 						}						
 
-						EntryOrderList<KanjiEntry> kanjiEntryListEntryOrderList = null;
+						EntryOrderList<KanjiCharacterInfo> kanjiEntryListEntryOrderList = null;
 
 						if (untilSuccessCheckBox.isChecked() == true && untilSuccessNewWordLimitCheckBox.isChecked() == true) {
-							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList2, 10);
+							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiCharacterInfo>(kanjiEntryList2, 10);
 
 						} else {
-							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiEntry>(kanjiEntryList2, kanjiEntryList2.size());
+							kanjiEntryListEntryOrderList = new EntryOrderList<KanjiCharacterInfo>(kanjiEntryList2, kanjiEntryList2.size());
 						}
 
 						// set kanji entry list in context
@@ -633,7 +628,7 @@ public class KanjiTestOptionsActivity extends Activity {
 								findWordRequest.wordPlaceSearch = WordPlaceSearch.START_WITH;
 								findWordRequest.dictionaryEntryTypeList = null;
 
-								for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
+								for (KanjiCharacterInfo currentKanjiEntry : kanjiEntryList2) {
 
 									findWordRequest.word = currentKanjiEntry.getKanji();
 
@@ -652,9 +647,9 @@ public class KanjiTestOptionsActivity extends Activity {
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
-
-										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
-												currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
+										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
+												new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
+													currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
 
 										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
 
@@ -668,8 +663,7 @@ public class KanjiTestOptionsActivity extends Activity {
 									}
 								}
 
-								for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
-
+								for (KanjiCharacterInfo currentKanjiEntry : kanjiEntryList2) {
 									if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
 										break;
 									}
@@ -689,9 +683,7 @@ public class KanjiTestOptionsActivity extends Activity {
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
-
-										DictionaryEntry currentDictionaryEntry = currentFindWordResultResult
-												.getDictionaryEntry();
+										DictionaryEntry currentDictionaryEntry = currentFindWordResultResult.getDictionaryEntry();
 
 										String currentDictionaryEntryKanji = currentDictionaryEntry.getKanji();
 
@@ -699,8 +691,9 @@ public class KanjiTestOptionsActivity extends Activity {
 											continue;
 										}
 
-										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
-												currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
+										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
+												new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
+													currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
 
 										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
 
@@ -718,7 +711,6 @@ public class KanjiTestOptionsActivity extends Activity {
 
 								// wczytywanie dedykowanych slow dla wybranych wbudowanych grup
 								for (String currentKanjiGroup : chosenKanjiGroupList) {
-
 									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
 
 									try {
@@ -730,18 +722,18 @@ public class KanjiTestOptionsActivity extends Activity {
 										return new PrepareAsyncTaskResult(e);
 									}
 
-									for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
+									for (KanjiCharacterInfo currentKanjiEntry : kanjiEntryList2) {
 
 										for (DictionaryEntry currentDictionaryEntry : currentWordsGroupDictionaryEntryList) {
-
 											String currentDictionaryEntryKanji = currentDictionaryEntry.getKanji();
 
 											if (currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == false) {
 												continue;
 											}
 
-											JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji = new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
-													currentDictionaryEntry, currentKanjiEntry.getKanji());
+											JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
+													new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
+														currentDictionaryEntry, currentKanjiEntry.getKanji());
 
 											dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
 
@@ -787,13 +779,11 @@ public class KanjiTestOptionsActivity extends Activity {
 											}
 
 											if (dictionaryEntry != null) {
-
-												for (KanjiEntry currentKanjiEntry : kanjiEntryList2) {
+												for (KanjiCharacterInfo currentKanjiEntry : kanjiEntryList2) {
 
 													String currentDictionaryEntryKanji = dictionaryEntry.getKanji();
 
 													if (currentDictionaryEntryKanji != null && currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == true) {
-
 														JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
 																new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(dictionaryEntry, currentKanjiEntry.getKanji());
 
@@ -1022,11 +1012,11 @@ public class KanjiTestOptionsActivity extends Activity {
 
 		class PrepareAsyncTaskResult {
 
-			private List<KanjiEntry> kanjiEntryList;
+			private List<KanjiCharacterInfo> kanjiEntryList;
 
 			private DictionaryException dictionaryException;
 
-			public PrepareAsyncTaskResult(List<KanjiEntry> kanjiEntryList) {
+			public PrepareAsyncTaskResult(List<KanjiCharacterInfo> kanjiEntryList) {
 				this.kanjiEntryList = kanjiEntryList;
 			}
 
@@ -1044,7 +1034,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				try {
 					return new PrepareAsyncTaskResult(JapaneseAndroidLearnHelperApplication.getInstance()
-							.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, true));
+							.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(true));
 
 				} catch (DictionaryException e) {
 					return new PrepareAsyncTaskResult(e);
@@ -1067,13 +1057,13 @@ public class KanjiTestOptionsActivity extends Activity {
 					return;
 				}
 
-				List<KanjiEntry> allKanjis = result.kanjiEntryList;
+				List<KanjiCharacterInfo> allKanjis = result.kanjiEntryList;
 
 				Map<GroupEnum, Set<String>> kanjiGroups = new TreeMap<GroupEnum, Set<String>>();
 
 				for (int allKanjisIdx = 0; allKanjisIdx < allKanjis.size(); ++allKanjisIdx) {
 
-					KanjiEntry currentKanjiEntry = allKanjis.get(allKanjisIdx);
+					KanjiCharacterInfo currentKanjiEntry = allKanjis.get(allKanjisIdx);
 
 					kanjiList.addKanjiEntry(currentKanjiEntry);
 
@@ -1202,14 +1192,13 @@ public class KanjiTestOptionsActivity extends Activity {
 				kanjiSet = new HashSet<>();
 
 				for (UserGroupItemEntity userGroupItemEntity : userGroupItemListForUserEntity) {
-
 					if (userGroupItemEntity.getType() == UserGroupItemEntity.Type.KANJI_ENTRY) {
 
-						KanjiEntry kanjiEntry = null;
+						KanjiCharacterInfo kanjiEntry = null;
 
 						try {
-							kanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance()
-									.getDictionaryManager(KanjiTestOptionsActivity.this).getKanjiEntryById(userGroupItemEntity.getItemId());
+							kanjiEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(
+									KanjiTestOptionsActivity.this).getKanjiEntryById(userGroupItemEntity.getItemId());
 
 						} catch (DictionaryException e) {
 
@@ -1245,7 +1234,7 @@ public class KanjiTestOptionsActivity extends Activity {
 		*/
 
 		// ustawienie znakow
-		for (KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getAllKanjiList()) {
+		for (KanjiCharacterInfo currentCheckBoxKanjiEntry : kanjiList.getAllKanjiList()) {
 
 			String currentCheckBoxKanjiEntryKanji = currentCheckBoxKanjiEntry.getKanji();
 
@@ -1438,7 +1427,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			}
 		}
 
-		for (final KanjiEntry currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
+		for (final KanjiCharacterInfo currentCheckBoxKanjiEntry : kanjiList.getUserSelectedKanjiList()) {
 
 			LinearLayout linearLayout = new LinearLayout(this);
 
@@ -1459,7 +1448,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			StringBuffer currentKanjiEntryText = new StringBuffer();
 
 			currentKanjiEntryText.append("<big>").append(currentCheckBoxKanjiEntry.getKanji()).append("</big> - ")
-					.append(currentCheckBoxKanjiEntry.getPolishTranslates().toString()).append("\n\n");
+					.append(Utils.getPolishTranslates(currentCheckBoxKanjiEntry).toString()).append("\n\n");
 
 			kanjiTextView.setTextSize(15.0f);
 			kanjiTextView.setText(Html.fromHtml(currentKanjiEntryText.toString()), BufferType.SPANNABLE);
@@ -1522,20 +1511,20 @@ public class KanjiTestOptionsActivity extends Activity {
 
 	private static class KanjiList {
 
-		private final List<KanjiEntry> allKanjiList = new ArrayList<KanjiEntry>();
+		private final List<KanjiCharacterInfo> allKanjiList = new ArrayList<KanjiCharacterInfo>();
 
-		private final List<KanjiEntry> userSelectedKanjiList = new ArrayList<KanjiEntry>();
+		private final List<KanjiCharacterInfo> userSelectedKanjiList = new ArrayList<KanjiCharacterInfo>();
 
-		public List<KanjiEntry> getAllKanjiList() {
+		public List<KanjiCharacterInfo> getAllKanjiList() {
 			return allKanjiList;
 		}
 
-		public List<KanjiEntry> getUserSelectedKanjiList() {
+		public List<KanjiCharacterInfo> getUserSelectedKanjiList() {
 			
-			Collections.sort(userSelectedKanjiList, new Comparator<KanjiEntry>() {
+			Collections.sort(userSelectedKanjiList, new Comparator<KanjiCharacterInfo>() {
 
 				@Override
-				public int compare(KanjiEntry lhs, KanjiEntry rhs) {
+				public int compare(KanjiCharacterInfo lhs, KanjiCharacterInfo rhs) {
 					return Integer.valueOf(lhs.getId()).compareTo(Integer.valueOf(rhs.getId()));
 				}
 			});
@@ -1547,18 +1536,16 @@ public class KanjiTestOptionsActivity extends Activity {
 			userSelectedKanjiList.clear();
 		}
 
-		public void addKanjiEntry(KanjiEntry kanjiEntry) {
+		public void addKanjiEntry(KanjiCharacterInfo kanjiEntry) {
 			allKanjiList.add(kanjiEntry);
 		}
 
 		public void setKanjiChecked(String kanji, boolean checked) {
 
-			KanjiEntry foundKanjiEntry = null;
+			KanjiCharacterInfo foundKanjiEntry = null;
 
-			for (KanjiEntry currentKanjiEntry : allKanjiList) {
-
+			for (KanjiCharacterInfo currentKanjiEntry : allKanjiList) {
 				if (currentKanjiEntry.getKanji().equals(kanji) == true) {
-
 					foundKanjiEntry = currentKanjiEntry;
 
 					break;
@@ -1570,7 +1557,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			}
 		}
 
-		public void setKanjiChecked(KanjiEntry kanjiEntry, boolean checked) {
+		public void setKanjiChecked(KanjiCharacterInfo kanjiEntry, boolean checked) {
 
 			if (checked == false) {
 				userSelectedKanjiList.remove(kanjiEntry);
@@ -1580,7 +1567,7 @@ public class KanjiTestOptionsActivity extends Activity {
 			}
 		}
 
-		public boolean isChecked(KanjiEntry kanjiEntry) {
+		public boolean isChecked(KanjiCharacterInfo kanjiEntry) {
 			return userSelectedKanjiList.contains(kanjiEntry);
 		}
 	}

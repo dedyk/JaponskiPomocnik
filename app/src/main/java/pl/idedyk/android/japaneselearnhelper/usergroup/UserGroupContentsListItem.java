@@ -12,13 +12,14 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class UserGroupContentsListItem {
 
     private UserGroupItemEntity userGroupItemEntity;
 
     private DictionaryEntry dictionaryEntry;
-    private KanjiEntry kanjiEntry;
+    private KanjiCharacterInfo kanjiEntry;
 
     //
 
@@ -29,7 +30,7 @@ public class UserGroupContentsListItem {
         this.dictionaryEntry = dictionaryEntry;
     }
 
-    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, KanjiEntry kanjiEntry) {
+    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, KanjiCharacterInfo kanjiEntry) {
         this.userGroupItemEntity = userGroupItemEntity;
         this.kanjiEntry = kanjiEntry;
     }
@@ -92,7 +93,7 @@ public class UserGroupContentsListItem {
         return dictionaryEntry;
     }
 
-    public KanjiEntry getKanjiEntry() {
+    public KanjiCharacterInfo getKanjiEntry() {
         return kanjiEntry;
     }
 

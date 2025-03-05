@@ -5,11 +5,14 @@ import android.util.Log;
 import java.util.List;
 import java.util.Locale;
 
+import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.Misc2Info;
 
 public class WordKanjiDictionaryUtils {
 
@@ -154,16 +157,16 @@ public class WordKanjiDictionaryUtils {
         return result.toString().replaceAll("\n", "<br/>");
     }
 
-    public static String getKanjiFullTextWithMark(KanjiEntry kanjiEntry) {
+    public static String getKanjiFullTextWithMark(KanjiCharacterInfo kanjiEntry) {
         return getKanjiFullTextWithMark(kanjiEntry, null);
     }
 
-    public static String getKanjiFullTextWithMark(KanjiEntry kanjiEntry, String findWord) {
+    public static String getKanjiFullTextWithMark(KanjiCharacterInfo kanjiEntry, String findWord) {
 
         String kanji = kanjiEntry.getKanji();
-        List<String> polishTranslates = kanjiEntry.getPolishTranslates();
+        List<String> polishTranslates = Utils.getPolishTranslates(kanjiEntry);
 
-        String info = kanjiEntry.getInfo();
+        String info = Utils.getPolishAdditionalInfo(kanjiEntry);
 
         StringBuffer result = new StringBuffer();
 
@@ -182,18 +185,18 @@ public class WordKanjiDictionaryUtils {
         return result.toString();
     }
 
-    public static String getKanjiRadicalTextWithMark(KanjiEntry kanjiEntry) {
+    public static String getKanjiRadicalTextWithMark(KanjiCharacterInfo kanjiEntry) {
         return getKanjiRadicalTextWithMark(kanjiEntry, null);
     }
 
-    public static String getKanjiRadicalTextWithMark(KanjiEntry kanjiEntry, String findWord) {
+    public static String getKanjiRadicalTextWithMark(KanjiCharacterInfo kanjiEntry, String findWord) {
 
-        KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
+        Misc2Info misc2Info = kanjiEntry.getMisc2();
 
         List<String> radicals = null;
 
-        if (kanjiDic2Entry != null) {
-            radicals = kanjiDic2Entry.getRadicals();
+        if (misc2Info != null) {
+            radicals = misc2Info.getRadicals();
 
             if (radicals != null && radicals.size() == 0) {
                 radicals = null;

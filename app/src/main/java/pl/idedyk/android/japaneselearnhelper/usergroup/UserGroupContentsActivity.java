@@ -34,6 +34,9 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.Misc2Info;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.Misc2InfoGroup;
 
 public class UserGroupContentsActivity extends Activity {
 
@@ -155,7 +158,7 @@ public class UserGroupContentsActivity extends Activity {
 
                                 case KANJI_ENTRY:
 
-                                    KanjiEntry kanjiEntry = userGroupContentsListItem.getKanjiEntry();
+                                    KanjiCharacterInfo kanjiEntry = userGroupContentsListItem.getKanjiEntry();
 
                                     Intent intent2 = new Intent(getApplicationContext(), KanjiDetails.class);
 
@@ -206,14 +209,14 @@ public class UserGroupContentsActivity extends Activity {
             UserGroupItemEntity userGroupItemEntity;
 
             DictionaryEntry dictionaryEntry;
-            KanjiEntry kanjiEntry;
+            KanjiCharacterInfo kanjiEntry;
 
             public UserGroupItemEntityAndObject(UserGroupItemEntity userGroupItemEntity, DictionaryEntry dictionaryEntry) {
                 this.userGroupItemEntity = userGroupItemEntity;
                 this.dictionaryEntry = dictionaryEntry;
             }
 
-            public UserGroupItemEntityAndObject(UserGroupItemEntity userGroupItemEntity, KanjiEntry kanjiEntry) {
+            public UserGroupItemEntityAndObject(UserGroupItemEntity userGroupItemEntity, KanjiCharacterInfo kanjiEntry) {
                 this.userGroupItemEntity = userGroupItemEntity;
                 this.kanjiEntry = kanjiEntry;
             }
@@ -255,7 +258,7 @@ public class UserGroupContentsActivity extends Activity {
 
                 case KANJI_ENTRY:
 
-                    KanjiEntry kanjiEntry = null;
+                    KanjiCharacterInfo kanjiEntry = null;
 
                     try {
                         kanjiEntry = dictionaryManager.getKanjiEntryById(itemId);
@@ -306,8 +309,8 @@ public class UserGroupContentsActivity extends Activity {
             @Override
             public int compare(UserGroupItemEntityAndObject o1, UserGroupItemEntityAndObject o2) {
 
-                Integer o1Power = getMinPower(o1.kanjiEntry.getGroups());
-                Integer o2Power = getMinPower(o2.kanjiEntry.getGroups());
+                Integer o1Power = getMinPower(o1.kanjiEntry);
+                Integer o2Power = getMinPower(o2.kanjiEntry);
 
                 int comparePower = o1Power.compareTo(o2Power);
 
@@ -321,18 +324,39 @@ public class UserGroupContentsActivity extends Activity {
                 return o1Id.compareTo(o2Id);
             }
 
-            private int getMinPower(List<GroupEnum> groupEnumList) {
+            private int getMinPower(KanjiCharacterInfo kanjiEntry) {
+
+                Misc2Info misc2 = kanjiEntry.getMisc2();
+
+                if (misc2 == null || misc2.getGroups().size() == 0) {
+                    return Integer.MAX_VALUE;
+                }
 
                 int power = Integer.MAX_VALUE;
 
-                for (GroupEnum groupEnum : groupEnumList) {
+                for (Misc2InfoGroup misc2InfoGroup : misc2.getGroups()) {
 
-                    if (groupEnum.getPower() < power) {
-                        power = groupEnum.getPower();
+                    int misc2InfoGroupPower = getMisc2InfoGroupIndex(misc2InfoGroup);
+
+                    if (misc2InfoGroupPower < power) {
+                        power = misc2InfoGroupPower;
                     }
                 }
 
                 return power;
+            }
+
+            private int getMisc2InfoGroupIndex(Misc2InfoGroup misc2InfoGroupToFound) {
+
+                Misc2InfoGroup[] values = Misc2InfoGroup.values();
+
+                for (int idx = 0; idx < values.length; ++idx) {
+                    if (values[idx] == misc2InfoGroupToFound) {
+                        return idx;
+                    }
+                }
+
+                return Integer.MAX_VALUE;
             }
         });
 
