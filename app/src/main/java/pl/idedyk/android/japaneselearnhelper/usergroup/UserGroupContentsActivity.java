@@ -309,8 +309,8 @@ public class UserGroupContentsActivity extends Activity {
             @Override
             public int compare(UserGroupItemEntityAndObject o1, UserGroupItemEntityAndObject o2) {
 
-                Integer o1Power = getMinPower(o1.kanjiEntry);
-                Integer o2Power = getMinPower(o2.kanjiEntry);
+                Integer o1Power = getMinPower(o1.kanjiEntry.getGroups());
+                Integer o2Power = getMinPower(o2.kanjiEntry.getGroups());
 
                 int comparePower = o1Power.compareTo(o2Power);
 
@@ -324,39 +324,18 @@ public class UserGroupContentsActivity extends Activity {
                 return o1Id.compareTo(o2Id);
             }
 
-            private int getMinPower(KanjiCharacterInfo kanjiEntry) {
-
-                Misc2Info misc2 = kanjiEntry.getMisc2();
-
-                if (misc2 == null || misc2.getGroups().size() == 0) {
-                    return Integer.MAX_VALUE;
-                }
+            private int getMinPower(List<GroupEnum> groupEnumList) {
 
                 int power = Integer.MAX_VALUE;
 
-                for (Misc2InfoGroup misc2InfoGroup : misc2.getGroups()) {
+                for (GroupEnum groupEnum : groupEnumList) {
 
-                    int misc2InfoGroupPower = getMisc2InfoGroupIndex(misc2InfoGroup);
-
-                    if (misc2InfoGroupPower < power) {
-                        power = misc2InfoGroupPower;
+                    if (groupEnum.getPower() < power) {
+                        power = groupEnum.getPower();
                     }
                 }
 
                 return power;
-            }
-
-            private int getMisc2InfoGroupIndex(Misc2InfoGroup misc2InfoGroupToFound) {
-
-                Misc2InfoGroup[] values = Misc2InfoGroup.values();
-
-                for (int idx = 0; idx < values.length; ++idx) {
-                    if (values[idx] == misc2InfoGroupToFound) {
-                        return idx;
-                    }
-                }
-
-                return Integer.MAX_VALUE;
             }
         });
 
