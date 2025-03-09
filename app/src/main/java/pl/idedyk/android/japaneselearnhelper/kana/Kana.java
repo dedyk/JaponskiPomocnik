@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.kana;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -11,6 +12,9 @@ import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
+import pl.idedyk.japanese.dictionary.api.dto.KanaEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -872,9 +876,14 @@ public class Kana extends Activity {
 				public void onClick(View v) {
 
 					List<KanjivgEntry> allStrokePaths = kanaEntry.getStrokePaths();
+					List<List<String>> allStrokePathsResult = new ArrayList<>();
+
+					for (KanjivgEntry kanjivgEntry : allStrokePaths) {
+						allStrokePathsResult.add(kanjivgEntry.getStrokePaths());
+					}
 
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
-					strokePathInfo.setStrokePaths(allStrokePaths);
+					strokePathInfo.setStrokePaths(allStrokePathsResult);
 
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 

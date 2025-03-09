@@ -14,6 +14,7 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -134,11 +135,11 @@ public class KanjiSearchRadicalResult extends Activity {
 
 		class PrepareAsyncTaskResult {
 
-			private List<KanjiEntry> kanjiEntryList;
+			private List<KanjiCharacterInfo> kanjiEntryList;
 
 			private DictionaryException dictionaryException;
 
-			public PrepareAsyncTaskResult(List<KanjiEntry> kanjiEntryList) {
+			public PrepareAsyncTaskResult(List<KanjiCharacterInfo> kanjiEntryList) {
 				this.kanjiEntryList = kanjiEntryList;
 			}
 
@@ -169,7 +170,7 @@ public class KanjiSearchRadicalResult extends Activity {
 					Toast.makeText(KanjiSearchRadicalResult.this, getString(R.string.dictionary_exception_common_error_message, result.dictionaryException.getMessage()), Toast.LENGTH_LONG).show();
 				}
 
-				List<KanjiEntry> foundKanjis = result.kanjiEntryList;
+				List<KanjiCharacterInfo> foundKanjis = result.kanjiEntryList;
 
 				kanjiDictionarySearchElementsNoTextView.setText(resources.getString(R.string.kanji_entry_elements_no, String.valueOf(foundKanjis.size())));
 
@@ -210,9 +211,7 @@ public class KanjiSearchRadicalResult extends Activity {
 				}
 
 				// wypelnianie czesci szczegolowej
-				for (KanjiEntry currentKanjiEntry : foundKanjis) {
-					
-					KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
+				for (KanjiCharacterInfo currentKanjiEntry : foundKanjis) {
 
                     String currentKanjiEntryFullText = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(currentKanjiEntry);
                     String currentKanjiEntryRadicalText = WordKanjiDictionaryUtils.getKanjiRadicalTextWithMark(currentKanjiEntry);

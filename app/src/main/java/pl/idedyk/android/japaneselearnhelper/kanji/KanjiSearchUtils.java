@@ -12,10 +12,11 @@ import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class KanjiSearchUtils {
 
-    public static void generateKanjiSearchGeneralResult(final Activity activity, List<KanjiEntry> kanjiList, List<IScreenItem> screenItemList, boolean addKanjiStrokeCountTitle) {
+    public static void generateKanjiSearchGeneralResult(final Activity activity, List<KanjiCharacterInfo> kanjiList, List<IScreenItem> screenItemList, boolean addKanjiStrokeCountTitle) {
 
         final int maxElementsInTableRow = 7;
 
@@ -28,7 +29,7 @@ public class KanjiSearchUtils {
 
         String lastStrokeCount = null;
 
-        for (final KanjiEntry currentKanjiEntry : kanjiList) {
+        for (final KanjiCharacterInfo currentKanjiEntry : kanjiList) {
 
             if (tableRow == null) {
                 tableRow = new TableRow();
@@ -36,8 +37,8 @@ public class KanjiSearchUtils {
                 tableLayout.addTableRow(tableRow);
             }
 
-            String currentKanjiEntryStrokeCount = currentKanjiEntry.getKanjiDic2Entry() != null ?
-                    String.valueOf(currentKanjiEntry.getKanjiDic2Entry().getStrokeCount()) : "-";
+            String currentKanjiEntryStrokeCount = currentKanjiEntry.getMisc().getStrokeCountList().size() > 0 ?
+                    String.valueOf(currentKanjiEntry.getMisc().getStrokeCountList().get(0)) : "-";
 
             // dodajemy pole z liczba kresek
             if (addKanjiStrokeCountTitle == true) {

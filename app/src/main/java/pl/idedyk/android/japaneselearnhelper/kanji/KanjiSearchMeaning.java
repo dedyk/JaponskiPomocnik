@@ -21,6 +21,7 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -460,14 +461,14 @@ public class KanjiSearchMeaning extends Activity {
 
 						findKanjiResult = new FindKanjiResult();
 
-						findKanjiResult.setResult(new ArrayList<KanjiEntry>());
+						findKanjiResult.setResult(new ArrayList<KanjiCharacterInfo>());
 					}
 
 					// jesli nic nie znaleziono, proba pobrania znakow z napisu
 					if (findKanjiResult.getResult().size() == 0 && findKanjiRequest.word != null && findKanjiRequest.word.trim().equals("") == false && findKanjiResultAndSuggestionList.dictionaryException == null) {
 
 						try {
-							List<KanjiEntry> findKnownKanjiResult = dictionaryManager.findKnownKanji(findKanjiRequest.word);
+							List<KanjiCharacterInfo> findKnownKanjiResult = dictionaryManager.findKnownKanji(findKanjiRequest.word);
 
 							findKanjiResult.setResult(findKnownKanjiResult);
 
@@ -517,7 +518,7 @@ public class KanjiSearchMeaning extends Activity {
 			        kanjiSearchMeaningElementsNoTextView.setText(getString(R.string.kanji_entry_elements_no, "" + findKanjiResult.result.size() +
 							(findKanjiResult.moreElemetsExists == true ? "+" : "" )));
 					
-					for (KanjiEntry currentKanjiEntry : findKanjiResult.result) {
+					for (KanjiCharacterInfo currentKanjiEntry : findKanjiResult.result) {
 						
 						String currentFoundKanjiFullTextWithMarks = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(currentKanjiEntry, findWord);
 						String currentFoundKanjiRadicalTextWithMarks = WordKanjiDictionaryUtils.getKanjiRadicalTextWithMark(currentKanjiEntry, findWord);

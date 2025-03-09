@@ -35,8 +35,6 @@ import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
-import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.Misc2Info;
-import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.Misc2InfoGroup;
 
 public class UserGroupContentsActivity extends Activity {
 
@@ -309,8 +307,8 @@ public class UserGroupContentsActivity extends Activity {
             @Override
             public int compare(UserGroupItemEntityAndObject o1, UserGroupItemEntityAndObject o2) {
 
-                Integer o1Power = getMinPower(o1.kanjiEntry.getGroups());
-                Integer o2Power = getMinPower(o2.kanjiEntry.getGroups());
+                Integer o1Power = getMinPower(o1.kanjiEntry.getMisc2().getGroups());
+                Integer o2Power = getMinPower(o2.kanjiEntry.getMisc2().getGroups());
 
                 int comparePower = o1Power.compareTo(o2Power);
 

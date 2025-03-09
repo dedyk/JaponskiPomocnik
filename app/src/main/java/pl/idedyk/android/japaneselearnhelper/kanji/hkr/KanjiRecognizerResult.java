@@ -13,6 +13,8 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearchUtils;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -88,11 +90,11 @@ public class KanjiRecognizerResult extends Activity {
 			// lista z elementami
 			List<IScreenItem> screenItemList = new ArrayList<IScreenItem>();
 
-			List<KanjiEntry> kanjiEntryList = new ArrayList<KanjiEntry>();
+			List<KanjiCharacterInfo> kanjiEntryList = new ArrayList<KanjiCharacterInfo>();
 
 			for (Object currentKanjiEntryAsObject : kanjiRecognizeResult) {
 
-				KanjiEntry currentKanjiEntry = (KanjiEntry) currentKanjiEntryAsObject;
+				KanjiCharacterInfo currentKanjiEntry = (KanjiCharacterInfo) currentKanjiEntryAsObject;
 
 				kanjiEntryList.add(currentKanjiEntry);
 			}
@@ -111,10 +113,8 @@ public class KanjiRecognizerResult extends Activity {
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
 		
 		for (Object currentKanjiEntryAsObject : kanjiRecognizeResult) {
-			
-			KanjiEntry currentKanjiEntry = (KanjiEntry)currentKanjiEntryAsObject;
-			
-			KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
+
+			KanjiCharacterInfo currentKanjiEntry = (KanjiCharacterInfo)currentKanjiEntryAsObject;
 			
 			String currentKanjiEntryFullText = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(currentKanjiEntry);
 			String currentKanjiEntryRadicalText = WordKanjiDictionaryUtils.getKanjiRadicalTextWithMark(currentKanjiEntry);
@@ -133,7 +133,7 @@ public class KanjiRecognizerResult extends Activity {
 		
 		TextView kanjiRecognizerResultElementsNo = (TextView)findViewById(R.id.kanji_recognizer_result_elements_no);
 		
-		kanjiRecognizerResultElementsNo.setText(getString(R.string.kanji_recognizer_result_elements_no, searchResultList.size()));
+		kanjiRecognizerResultElementsNo.setText(getString(R.string.kanji_recognizer_result_elements_no, String.valueOf(searchResultList.size())));
 
 		kanjiRecognizerResultListView.setOnItemClickListener(new OnItemClickListener() {
 

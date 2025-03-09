@@ -31,6 +31,7 @@ import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class UserGroupActivity extends Activity {
 
@@ -44,7 +45,7 @@ public class UserGroupActivity extends Activity {
 
     private DictionaryEntry dictionaryEntryToAdd = null;
 
-    private KanjiEntry kanjiEntryToAdd = null;
+    private KanjiCharacterInfo kanjiEntryToAdd = null;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -356,8 +357,8 @@ public class UserGroupActivity extends Activity {
 
                 itemToAddToCharSequence = WordKanjiDictionaryUtils.getWordFullTextWithMark(dictionaryEntryToAdd);
 
-            } else if (itemToAdd instanceof KanjiEntry) {
-                kanjiEntryToAdd = (KanjiEntry)itemToAdd;
+            } else if (itemToAdd instanceof KanjiCharacterInfo) {
+                kanjiEntryToAdd = (KanjiCharacterInfo)itemToAdd;
 
                 String itemToAddToString = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(kanjiEntryToAdd);
 

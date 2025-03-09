@@ -23,6 +23,7 @@ import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class RemoteLuceneConnector implements IDatabaseConnector {
 
@@ -278,7 +279,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public KanjiEntry getKanjiEntryById(final String id) throws DictionaryException {
+    public KanjiCharacterInfo getKanjiEntryById(final String id) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -289,12 +290,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 String responseJson = null;
 
-                KanjiEntry result = null;
+                KanjiCharacterInfo result = null;
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getKanjiEntryById", requestJson);
 
-                    result = gson.fromJson((String) responseJson, KanjiEntry.class);
+                    result = gson.fromJson((String) responseJson, KanjiCharacterInfo.class);
 
                 } catch (Exception e) {
                     return e;
@@ -302,11 +303,11 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 return result;
             }
-        }, KanjiEntry.class);
+        }, KanjiCharacterInfo.class);
     }
 
     @Override
-    public KanjiEntry getKanjiEntry(final String kanji) throws DictionaryException {
+    public KanjiCharacterInfo getKanjiEntry(final String kanji) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -317,12 +318,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 String responseJson = null;
 
-                KanjiEntry result = null;
+                KanjiCharacterInfo result = null;
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getKanjiEntry", requestJson);
 
-                    result = gson.fromJson((String) responseJson, KanjiEntry.class);
+                    result = gson.fromJson((String) responseJson, KanjiCharacterInfo.class);
 
                 } catch (Exception e) {
                     return e;
@@ -330,11 +331,11 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 return result;
             }
-        }, KanjiEntry.class);
+        }, KanjiCharacterInfo.class);
     }
 
     @Override
-    public List<KanjiEntry> getKanjiEntryList(final List<String> kanjiList) throws DictionaryException {
+    public List<KanjiCharacterInfo> getKanjiEntryList(final List<String> kanjiList) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -345,12 +346,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 String responseJson = null;
 
-                List<KanjiEntry> result = null;
+                List<KanjiCharacterInfo> result = null;
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getKanjiEntryList", requestJson);
 
-                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiEntry>>(){}.getType());
+                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiCharacterInfo>>(){}.getType());
 
                 } catch (Exception e) {
                     return e;
@@ -362,14 +363,14 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<KanjiEntry> getAllKanjis(final boolean withDetails, final boolean onlyUsed) throws DictionaryException {
+    public List<KanjiCharacterInfo> getAllKanjis(final boolean onlyUsed) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
 
-                String requestJson = gson.toJson(new GetAllKanjisWrapper(withDetails, onlyUsed));
+                String requestJson = gson.toJson(new GetAllKanjisWrapper(true, onlyUsed));
 
                 String responseJson = null;
 
@@ -378,7 +379,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getAllKanjis", requestJson);
 
-                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiEntry>>(){}.getType());
+                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiCharacterInfo>>(){}.getType());
 
                 } catch (Exception e) {
                     return e;
@@ -390,7 +391,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<KanjiEntry> findKanjiFromRadicals(final String[] radicals) throws DictionaryException {
+    public List<KanjiCharacterInfo> findKanjiFromRadicals(final String[] radicals) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -406,7 +407,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findKanjiFromRadicals", requestJson);
 
-                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiEntry>>(){}.getType());
+                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiCharacterInfo>>(){}.getType());
 
                 } catch (Exception e) {
                     return e;

@@ -1,13 +1,15 @@
 package pl.idedyk.android.japaneselearnhelper.kanji;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
+
 import android.text.Spanned;
 
 public class KanjiEntryListItem {
 	
 	private ItemType itemType;
 	
-	private KanjiEntry kanjiEntry;
+	private KanjiCharacterInfo kanjiEntry;
 	
 	private Spanned text;
 	
@@ -17,7 +19,7 @@ public class KanjiEntryListItem {
 
 	private String historyValue;
 
-	public static KanjiEntryListItem createKanjiEntryListItemAsKanjiEntry(KanjiEntry kanjiEntry, Spanned text, Spanned radicalText) {
+	public static KanjiEntryListItem createKanjiEntryListItemAsKanjiEntry(KanjiCharacterInfo kanjiEntry, Spanned text, Spanned radicalText) {
 
 		KanjiEntryListItem kanjiEntryListItem = new KanjiEntryListItem();
 
@@ -69,7 +71,7 @@ public class KanjiEntryListItem {
 	private KanjiEntryListItem() {
 	}
 
-	public KanjiEntry getKanjiEntry() {
+	public KanjiCharacterInfo getKanjiEntry() {
 		return kanjiEntry;
 	}
 

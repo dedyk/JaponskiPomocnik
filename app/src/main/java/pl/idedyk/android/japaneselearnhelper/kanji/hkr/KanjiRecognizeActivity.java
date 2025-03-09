@@ -10,6 +10,7 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -119,13 +120,13 @@ public class KanjiRecognizeActivity extends Activity {
 
 					private DictionaryException dictionaryException;
 
-					private List<KanjiEntry> kanjiEntryList;
+					private List<KanjiCharacterInfo> kanjiEntryList;
 
 					public RecognizeAsyncTaskResult(DictionaryException dictionaryException) {
 						this.dictionaryException = dictionaryException;
 					}
 
-					public RecognizeAsyncTaskResult(List<KanjiEntry> kanjiEntryList) {
+					public RecognizeAsyncTaskResult(List<KanjiCharacterInfo> kanjiEntryList) {
 						this.kanjiEntryList = kanjiEntryList;
 					}
 				}
@@ -185,7 +186,7 @@ public class KanjiRecognizeActivity extends Activity {
 							findKanjiListRequest.add(currentRecognizeResult.getKanji());
 						}
 
-						List<KanjiEntry> kanjiEntries = null;
+						List<KanjiCharacterInfo> kanjiEntries = null;
 
 						try {
 							kanjiEntries = dictionaryManager.findKanjiList(findKanjiListRequest);

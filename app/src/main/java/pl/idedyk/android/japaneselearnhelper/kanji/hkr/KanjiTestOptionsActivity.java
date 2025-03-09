@@ -22,6 +22,7 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
@@ -1067,7 +1068,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 					kanjiList.addKanjiEntry(currentKanjiEntry);
 
-					List<GroupEnum> currentKanjiEntryGroups = currentKanjiEntry.getGroups();
+					List<GroupEnum> currentKanjiEntryGroups = currentKanjiEntry.getMisc2().getGroups();
 
 					if (currentKanjiEntryGroups != null && currentKanjiEntryGroups.size() > 0) {
 

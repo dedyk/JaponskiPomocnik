@@ -25,8 +25,8 @@ import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
+import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
-import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.Misc2InfoGroup;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -186,7 +186,10 @@ public class KanjiDetails extends Activity {
 
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 
-					strokePathInfo.setStrokePaths(kanjiEntry.getMisc2().getStrokePaths());
+					List<List<String>> strokePathsResult = new ArrayList<>();
+					strokePathsResult.add(kanjiEntry.getMisc2().getStrokePaths());
+
+					strokePathInfo.setStrokePaths(strokePathsResult);
 					
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 										
@@ -303,13 +306,13 @@ public class KanjiDetails extends Activity {
 		}
 		
 		// kanji appearance
-		List<Misc2InfoGroup> groups = kanjiEntry.getMisc2().getGroups();
+		List<GroupEnum> groups = kanjiEntry.getMisc2().getGroups();
 		
 		if (groups != null && groups.size() > 0) {
 			report.add(new TitleItem(getString(R.string.kanji_details_kanji_appearance_label), 0));
 			
 			for (int idx = 0; idx < groups.size(); ++idx) {
-				report.add(new StringValue(groups.get(idx).value(), 20.0f, 0));
+				report.add(new StringValue(groups.get(idx).getValue(), 20.0f, 0));
 			}			
 		}
 

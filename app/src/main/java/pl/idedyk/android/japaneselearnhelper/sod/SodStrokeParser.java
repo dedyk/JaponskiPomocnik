@@ -12,13 +12,13 @@ public class SodStrokeParser {
 
 		List<StrokePath> result = new ArrayList<StrokePath>();
 
-		List<KanjivgEntry> strokePaths = strokePathsInfo.getStrokePaths();
+		List<List<String>> strokePaths = strokePathsInfo.getStrokePaths();
 
 		float moveX = 0.0f;
 
 		for (int charStrokePathsIdx = 0; charStrokePathsIdx < strokePaths.size(); ++charStrokePathsIdx) {
 
-			List<String> currentCharStrokePaths = strokePaths.get(charStrokePathsIdx).getStrokePaths();
+			List<String> currentCharStrokePaths = strokePaths.get(charStrokePathsIdx);
 
 			float currentCharMaxX = 0.0f;
 

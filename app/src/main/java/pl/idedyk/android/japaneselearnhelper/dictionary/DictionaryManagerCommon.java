@@ -33,10 +33,12 @@ import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException
 import pl.idedyk.android.japaneselearnhelper.dictionary.exception.TestSM2ManagerException;
 import pl.idedyk.japanese.dictionary.api.dictionary.DictionaryManagerAbstract;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.dto.RadicalInfo;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary.api.keigo.KeigoHelper;
 import pl.idedyk.japanese.dictionary.api.tools.KanaHelper;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract {
 
@@ -229,7 +231,7 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
                 for (String kanji : ownGroupKanjiList) {
 
-                    KanjiEntry kanjiEntry = null;
+                    KanjiCharacterInfo kanjiEntry = null;
 
                     try {
                         kanjiEntry = findKanji(kanji);
