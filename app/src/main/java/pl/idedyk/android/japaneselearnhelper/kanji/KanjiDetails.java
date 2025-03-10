@@ -177,7 +177,9 @@ public class KanjiDetails extends Activity {
 		
 		report.add(kanjiStringValue);
 
-		if (kanjiEntry.getMisc2() != null && kanjiEntry.getMisc2().getStrokePaths().size() > 0) {
+		final KanjivgEntry kanjivsEntry = kanjiEntry.getKanjivgEntry();
+
+		if (kanjivsEntry != null && kanjivsEntry.getStrokePaths().size() > 0) {
 			report.add(new StringValue(getString(R.string.kanji_details_kanji_info), 12.0f, 0));
 			
 			kanjiStringValue.setOnClickListener(new OnClickListener() {
@@ -186,10 +188,9 @@ public class KanjiDetails extends Activity {
 
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 
-					List<List<String>> strokePathsResult = new ArrayList<>();
-					strokePathsResult.add(kanjiEntry.getMisc2().getStrokePaths());
-
-					strokePathInfo.setStrokePaths(strokePathsResult);
+					List<KanjivgEntry> kanjivsEntryStrokePathsList = new ArrayList<KanjivgEntry>();
+					kanjivsEntryStrokePathsList.add(kanjivsEntry);
+					strokePathInfo.setStrokePaths(kanjivsEntryStrokePathsList);
 					
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 										

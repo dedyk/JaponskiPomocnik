@@ -876,14 +876,9 @@ public class Kana extends Activity {
 				public void onClick(View v) {
 
 					List<KanjivgEntry> allStrokePaths = kanaEntry.getStrokePaths();
-					List<List<String>> allStrokePathsResult = new ArrayList<>();
-
-					for (KanjivgEntry kanjivgEntry : allStrokePaths) {
-						allStrokePathsResult.add(kanjivgEntry.getStrokePaths());
-					}
 
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
-					strokePathInfo.setStrokePaths(allStrokePathsResult);
+					strokePathInfo.setStrokePaths(allStrokePaths);
 
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 

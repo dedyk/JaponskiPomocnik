@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import android.graphics.Matrix;
 
 public class SodStrokeParser {
@@ -12,13 +13,13 @@ public class SodStrokeParser {
 
 		List<StrokePath> result = new ArrayList<StrokePath>();
 
-		List<List<String>> strokePaths = strokePathsInfo.getStrokePaths();
+		List<KanjivgEntry> strokePaths = strokePathsInfo.getStrokePaths();
 
 		float moveX = 0.0f;
 
 		for (int charStrokePathsIdx = 0; charStrokePathsIdx < strokePaths.size(); ++charStrokePathsIdx) {
 
-			List<String> currentCharStrokePaths = strokePaths.get(charStrokePathsIdx);
+			List<String> currentCharStrokePaths = strokePaths.get(charStrokePathsIdx).getStrokePaths();
 
 			float currentCharMaxX = 0.0f;
 

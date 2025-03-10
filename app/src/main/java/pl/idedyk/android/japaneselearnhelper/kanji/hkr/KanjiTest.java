@@ -22,6 +22,7 @@ import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
@@ -517,8 +518,8 @@ public class KanjiTest extends Activity {
 					try {
 						StrokePathInfo strokePathInfo = new StrokePathInfo();
 
-						List<List<String>> strokePathsList = new ArrayList<List<String>>();
-						strokePathsList.add(dictionaryManager.findKanji(correctKanji).getMisc2().getStrokePaths());
+						List<KanjivgEntry> strokePathsList = new ArrayList<KanjivgEntry>();
+						strokePathsList.add(dictionaryManager.findKanji(correctKanji).getKanjivgEntry());
 						strokePathInfo.setStrokePaths(strokePathsList);
 
 						Intent intent = new Intent(getApplicationContext(), SodActivity.class);
