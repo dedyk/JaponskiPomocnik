@@ -175,23 +175,14 @@ public class KanjiSearchRadicalResult extends Activity {
 				kanjiDictionarySearchElementsNoTextView.setText(resources.getString(R.string.kanji_entry_elements_no, String.valueOf(foundKanjis.size())));
 
 				// posortowanie po liczbie kresek
-				Collections.sort(foundKanjis, new Comparator<KanjiEntry>() {
+				Collections.sort(foundKanjis, new Comparator<KanjiCharacterInfo>() {
 
 					@Override
-					public int compare(KanjiEntry k1, KanjiEntry k2) {
+					public int compare(KanjiCharacterInfo k1, KanjiCharacterInfo k2) {
+						Integer k1StrokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(k1, 100);
+						Integer k2StrokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(k2, 100);
 
-						KanjiDic2Entry k1Dic2Entry = k1.getKanjiDic2Entry();
-						KanjiDic2Entry k2Dic2Entry = k2.getKanjiDic2Entry();
-
-						if (k1Dic2Entry == null) {
-							return -1;
-						}
-
-						if (k2Dic2Entry == null) {
-							return 1;
-						}
-
-						return k1Dic2Entry.getStrokeCount() < k2Dic2Entry.getStrokeCount() ? -1 : k1Dic2Entry.getStrokeCount() > k2Dic2Entry.getStrokeCount() ? 1 : 0;
+						return k1StrokeNumber < k2StrokeNumber ? -1 : k1StrokeNumber > k2StrokeNumber ? 1 : 0;
 					}
 				});
 

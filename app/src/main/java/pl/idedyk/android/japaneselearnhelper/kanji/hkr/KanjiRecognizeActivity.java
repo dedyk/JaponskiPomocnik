@@ -215,7 +215,7 @@ public class KanjiRecognizeActivity extends Activity {
 
 						Intent intent = new Intent(getApplicationContext(), KanjiRecognizerResult.class);
 						
-						KanjiEntry[] kanjiEntriesAsArray = new KanjiEntry[result.kanjiEntryList.size()];
+						KanjiCharacterInfo[] kanjiEntriesAsArray = new KanjiCharacterInfo[result.kanjiEntryList.size()];
 
 						result.kanjiEntryList.toArray(kanjiEntriesAsArray);
 						

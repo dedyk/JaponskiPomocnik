@@ -22,10 +22,12 @@ import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
@@ -177,9 +179,7 @@ public class KanjiDetails extends Activity {
 		
 		report.add(kanjiStringValue);
 
-		final KanjivgEntry kanjivsEntry = kanjiEntry.getKanjivgEntry();
-
-		if (kanjivsEntry != null && kanjivsEntry.getStrokePaths().size() > 0) {
+		if (kanjiEntry.getMisc2().getStrokePaths().size() > 0) {
 			report.add(new StringValue(getString(R.string.kanji_details_kanji_info), 12.0f, 0));
 			
 			kanjiStringValue.setOnClickListener(new OnClickListener() {
@@ -189,7 +189,7 @@ public class KanjiDetails extends Activity {
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
 
 					List<KanjivgEntry> kanjivsEntryStrokePathsList = new ArrayList<KanjivgEntry>();
-					kanjivsEntryStrokePathsList.add(kanjivsEntry);
+					kanjivsEntryStrokePathsList.add(WordKanjiDictionaryUtils.createKanjivgEntry(kanjiEntry));
 					strokePathInfo.setStrokePaths(kanjivsEntryStrokePathsList);
 					
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
@@ -221,9 +221,11 @@ public class KanjiDetails extends Activity {
 
 		// Stroke count
 		report.add(new TitleItem(getString(R.string.kanji_details_stroke_count_label), 0));
-		
-		if (kanjiEntry.getMisc() != null && kanjiEntry.getMisc().getStrokeCountList().size() > 0) {
-			report.add(new StringValue(String.valueOf(kanjiEntry.getMisc().getStrokeCountList().get(0)), 20.0f, 0));
+
+		Integer strokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(kanjiEntry, null);
+
+		if (strokeNumber != null) {
+			report.add(new StringValue(String.valueOf(strokeNumber), 20.0f, 0));
 		} else {
 			report.add(new StringValue("-", 20.0f, 0));
 		}

@@ -12,6 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class KanjiSearchUtils {
@@ -37,8 +38,9 @@ public class KanjiSearchUtils {
                 tableLayout.addTableRow(tableRow);
             }
 
-            String currentKanjiEntryStrokeCount = currentKanjiEntry.getMisc().getStrokeCountList().size() > 0 ?
-                    String.valueOf(currentKanjiEntry.getMisc().getStrokeCountList().get(0)) : "-";
+            Integer strokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(currentKanjiEntry, 100);
+
+            String currentKanjiEntryStrokeCount = strokeNumber != null ? String.valueOf(strokeNumber) : "-";
 
             // dodajemy pole z liczba kresek
             if (addKanjiStrokeCountTitle == true) {

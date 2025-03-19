@@ -9,6 +9,7 @@ import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
+import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
@@ -274,5 +275,24 @@ public class WordKanjiDictionaryUtils {
         sb.append("]");
 
         return sb.toString();
+    }
+
+    public static Integer getStrokeNumber(KanjiCharacterInfo kanjiEntry, Integer defaultValue) {
+        List<Integer> strokeCountList = kanjiEntry.getMisc().getStrokeCountList();
+
+        if (strokeCountList.size() > 0) {
+            return strokeCountList.get(0);
+        } else {
+            return defaultValue;
+        }
+    }
+
+    public static KanjivgEntry createKanjivgEntry(KanjiCharacterInfo kanjiEntry) {
+        KanjivgEntry kanjivgEntry = new KanjivgEntry();
+
+        kanjivgEntry.setKanji(kanjiEntry.getKanji());
+        kanjivgEntry.setStrokePaths(kanjiEntry.getMisc2().getStrokePaths());
+
+        return kanjivgEntry;
     }
 }

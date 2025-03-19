@@ -204,19 +204,10 @@ public class KanjiSearchStrokeCountResult extends Activity {
 
 			@Override
 			public int compare(KanjiCharacterInfo k1, KanjiCharacterInfo k2) {
+				Integer k1StrokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(k1, 100);
+				Integer k2StrokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(k2, 100);
 
-				List<Integer> k1StrokeCountList = k1.getMisc().getStrokeCountList();
-				List<Integer> k2StrokeCountList = k2.getMisc().getStrokeCountList();
-
-				if (k1StrokeCountList.size() == 0) {
-					return -1;
-				}
-
-				if (k2StrokeCountList.size() == 0) {
-					return 1;
-				}
-
-				return k1StrokeCountList.get(0) < k2StrokeCountList.get(0) ? -1 : k1StrokeCountList.get(0) > k2StrokeCountList.get(0) ? 1 : 0;
+				return k1StrokeNumber < k2StrokeNumber ? -1 : k1StrokeNumber > k2StrokeNumber ? 1 : 0;
 			}
 		});
 
