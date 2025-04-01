@@ -31,6 +31,7 @@ import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
 import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
+import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dto.Attribute;
 import pl.idedyk.japanese.dictionary.api.dto.AttributeType;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
@@ -60,6 +61,7 @@ import pl.idedyk.japanese.dictionary2.jmdict.xsd.PartOfSpeechEnum;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.ReadingAdditionalInfoEnum;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Sense;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.SenseAdditionalInfo;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -1143,7 +1145,7 @@ public class WordDictionaryDetails extends Activity {
 		*/
 
 		// known kanji
-		List<KanjiEntry> knownKanji = null;
+		List<KanjiCharacterInfo> knownKanji = null;
 
 		if (dictionaryEntry.isKanjiExists() == true) {
 
@@ -1164,7 +1166,7 @@ public class WordDictionaryDetails extends Activity {
 
 			for (int knownKanjiIdx = 0; knownKanjiIdx < knownKanji.size(); ++knownKanjiIdx) {
 
-				final KanjiEntry kanjiEntry = knownKanji.get(knownKanjiIdx);
+				final KanjiCharacterInfo kanjiEntry = knownKanji.get(knownKanjiIdx);
 
 				OnClickListener kanjiOnClickListener = new OnClickListener() {
 
@@ -1182,7 +1184,7 @@ public class WordDictionaryDetails extends Activity {
 				};
 
 				StringValue knownKanjiStringValue = new StringValue(kanjiEntry.getKanji(), 16.0f, 1);
-				StringValue polishTranslateStringValue = new StringValue(kanjiEntry.getPolishTranslates().toString(),
+				StringValue polishTranslateStringValue = new StringValue(Utils.getPolishTranslates(kanjiEntry).toString(),
 						16.0f, 1);
 
 				knownKanjiStringValue.setOnClickListener(kanjiOnClickListener);
