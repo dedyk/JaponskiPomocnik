@@ -1174,9 +1174,9 @@ public class WordDictionaryDetails extends Activity {
 					public void onClick(View v) {
 
 						// show kanji details
-
 						Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
+						przekazac_id_fixme();
 						intent.putExtra("item", kanjiEntry);
 
 						startActivity(intent);

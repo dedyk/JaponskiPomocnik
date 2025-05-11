@@ -363,14 +363,14 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<KanjiCharacterInfo> getAllKanjis(final boolean onlyUsed) throws DictionaryException {
+    public List<KanjiCharacterInfo> getAllKanjis(final boolean withDetails, final boolean onlyUsed) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
             public Object call() throws Exception {
 
-                String requestJson = gson.toJson(new GetAllKanjisWrapper(true, onlyUsed));
+                String requestJson = gson.toJson(new GetAllKanjisWrapper(withDetails, onlyUsed));
 
                 String responseJson = null;
 

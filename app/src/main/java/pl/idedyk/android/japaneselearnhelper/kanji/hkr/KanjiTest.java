@@ -498,6 +498,7 @@ public class KanjiTest extends Activity {
 					try {
 						Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
+						przekazac_id_fixme();
 						intent.putExtra("item", dictionaryManager.findKanji(correctKanji));
 
 						startActivity(intent);

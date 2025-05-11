@@ -79,6 +79,7 @@ public class KanjiSearchUtils {
 
                     Intent intent = new Intent(activity.getApplicationContext(), KanjiDetails.class);
 
+                    przekazac_id_fixme();
                     intent.putExtra("item", currentKanjiEntry);
 
                     activity.startActivity(intent);

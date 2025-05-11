@@ -266,6 +266,7 @@ public class KanjiSearchStrokeCountResult extends Activity {
 
 					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
+					przekazac_id_fixme();
 					intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
 
 					startActivity(intent);

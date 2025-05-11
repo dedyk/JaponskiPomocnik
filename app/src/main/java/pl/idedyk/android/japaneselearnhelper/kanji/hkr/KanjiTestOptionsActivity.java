@@ -1035,7 +1035,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 				try {
 					return new PrepareAsyncTaskResult(JapaneseAndroidLearnHelperApplication.getInstance()
-							.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(true));
+							.getDictionaryManager(KanjiTestOptionsActivity.this).getAllKanjis(false, true));
 
 				} catch (DictionaryException e) {
 					return new PrepareAsyncTaskResult(e);

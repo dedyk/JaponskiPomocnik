@@ -144,7 +144,8 @@ public class KanjiRecognizerResult extends Activity {
 				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) { 
 					
 					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
-					
+
+					przekazac_id_fixme();
 					intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
 					
 					startActivity(intent);					
