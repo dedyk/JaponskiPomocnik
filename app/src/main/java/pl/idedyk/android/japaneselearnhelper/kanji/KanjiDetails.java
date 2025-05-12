@@ -28,6 +28,7 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
@@ -111,7 +112,16 @@ public class KanjiDetails extends Activity {
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_details));
 
-		kanjiEntry = (KanjiCharacterInfo) getIntent().getSerializableExtra("item");
+		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
+		try {
+			kanjiEntry = (KanjiCharacterInfo) dictionaryManager.getKanjiEntryById((Integer) getIntent().getSerializableExtra("id"));
+		} catch (DictionaryException e) {
+			Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+			finish();
+			return;
+		}
 		
 		LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.kanji_details_main_layout);
 		

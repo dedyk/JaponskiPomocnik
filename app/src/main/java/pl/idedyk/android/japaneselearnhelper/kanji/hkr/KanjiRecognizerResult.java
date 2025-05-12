@@ -141,12 +141,10 @@ public class KanjiRecognizerResult extends Activity {
 				
 				KanjiEntryListItem kanjiEntryListItem = (KanjiEntryListItem)searchResultArrayAdapter.getItem(position);
 				
-				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) { 
-					
+				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) {
 					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
-					przekazac_id_fixme();
-					intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
+					intent.putExtra("id", kanjiEntryListItem.getKanjiEntry().getId());
 					
 					startActivity(intent);					
 				}				

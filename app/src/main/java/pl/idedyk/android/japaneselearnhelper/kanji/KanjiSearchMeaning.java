@@ -125,8 +125,7 @@ public class KanjiSearchMeaning extends Activity {
 					
 					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
-					przekazac_id_fixme();
-					intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
+					intent.putExtra("id", kanjiEntryListItem.getKanjiEntry().getId());
 					
 					startActivity(intent);
 					

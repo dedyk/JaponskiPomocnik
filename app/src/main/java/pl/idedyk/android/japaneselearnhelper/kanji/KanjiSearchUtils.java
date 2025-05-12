@@ -76,11 +76,9 @@ public class KanjiSearchUtils {
             kanjiValue.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View view) {
-
                     Intent intent = new Intent(activity.getApplicationContext(), KanjiDetails.class);
 
-                    przekazac_id_fixme();
-                    intent.putExtra("item", currentKanjiEntry);
+                    intent.putExtra("id", currentKanjiEntry.getId());
 
                     activity.startActivity(intent);
                 }

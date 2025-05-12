@@ -160,8 +160,7 @@ public class UserGroupContentsActivity extends Activity {
 
                                     Intent intent2 = new Intent(getApplicationContext(), KanjiDetails.class);
 
-                                    przekazac_id_fixme();
-                                    intent2.putExtra("item", kanjiEntry);
+                                    intent2.putExtra("id", kanjiEntry.getId());
 
                                     startActivity(intent2);
 
