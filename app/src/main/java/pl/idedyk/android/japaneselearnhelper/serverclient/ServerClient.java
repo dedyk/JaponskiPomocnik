@@ -45,7 +45,8 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 public class ServerClient {
-	
+
+	// trzeba ustawic android:usesCleartextTraffic="true" w AndroidManifest.xml
 	//private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
 
 	// stary Android ponizej wersji 8 nie zna certyfikatu Let's Encrypt, wiec musi byc uzyte zwykle polaczenie
