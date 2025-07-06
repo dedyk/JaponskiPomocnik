@@ -35,8 +35,8 @@ android {
 
         multiDexEnabled true
 
-        versionCode 811
-        versionName "20250601"
+        versionCode 812
+        versionName "20250706"
     }
 
     signingConfigs {
