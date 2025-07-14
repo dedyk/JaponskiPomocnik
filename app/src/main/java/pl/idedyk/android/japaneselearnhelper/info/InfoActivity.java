@@ -7,7 +7,14 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.graphics.Insets;
+import androidx.core.view.OnApplyWindowInsetsListener;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class InfoActivity extends Activity {
 
@@ -16,8 +23,7 @@ public class InfoActivity extends Activity {
     	
         super.onCreate(savedInstanceState);
 
-        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.info);
-        
+        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.info);
         JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_info));
 
         TextView titleVersion = (TextView)findViewById(R.id.info_title_version);
