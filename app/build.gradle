@@ -1,6 +1,3 @@
-import com.android.builder.core.DefaultManifestParser
-import groovy.swing.SwingBuilder
-
 apply plugin: 'com.android.application'
 
 def keystorePropertiesFile = rootProject.file("app/signing.properties")
