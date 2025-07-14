@@ -55,7 +55,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.transitive_intransitive_pairs_table);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.transitive_intransitive_pairs_table);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_transitive_intransitive_pairs_table));
 		

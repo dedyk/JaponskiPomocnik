@@ -48,7 +48,7 @@ public class KeigoTable extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.keigo_table);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.keigo_table);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_keigo_table));
 

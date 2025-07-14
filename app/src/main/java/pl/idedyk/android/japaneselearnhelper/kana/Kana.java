@@ -53,7 +53,7 @@ public class Kana extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_kana);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.word_kana);
 
 		TableLayout mainTableLayout = (TableLayout) findViewById(R.id.word_kana_main_layout);
 
