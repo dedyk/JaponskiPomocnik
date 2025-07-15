@@ -3,6 +3,7 @@
 <!-- UWAGA NA BLIZNIAKA! -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -11,7 +12,7 @@
         android:id="@+id/kanji_test_info_linearlayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"
+        android:layout_gravity="start|center_vertical"
         android:layout_marginBottom="4dip"
         android:layout_marginLeft="2dip"
         android:layout_marginRight="2dip"
@@ -70,7 +71,8 @@
         android:id="@+id/kanji_test_state"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:gravity="end"
+        android:paddingEnd="10dp"
         android:text="@string/kanji_test_state" />
 
 </LinearLayout>

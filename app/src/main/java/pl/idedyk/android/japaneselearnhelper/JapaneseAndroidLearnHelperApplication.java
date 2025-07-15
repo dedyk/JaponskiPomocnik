@@ -192,10 +192,6 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		return babelStoneHanSubset;
 	}
 
-	public void setContentViewAndTheme(Activity activity, int contentViewId) {
-		throw new RuntimeException("FIXME");
-	}
-
 	public void setContentViewAndTheme(Activity activity, Integer rootViewId, int contentViewId) {
 		activity.setTheme(getThemeType(activity).styleId);
 

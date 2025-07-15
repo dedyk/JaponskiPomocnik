@@ -254,9 +254,9 @@ public class KanjiTest extends Activity {
 
 		if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
-            JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_test_choose);
+            JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.kanji_test_choose);
 		} else {
-            JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_test_draw);
+            JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.kanji_test_draw);
 		}
 
 		kanjiTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanjiTestContext();

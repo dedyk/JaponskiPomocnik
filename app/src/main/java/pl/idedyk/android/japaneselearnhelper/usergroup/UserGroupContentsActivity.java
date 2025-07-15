@@ -83,7 +83,7 @@ public class UserGroupContentsActivity extends Activity {
 
         super.onCreate(bundle);
 
-        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.user_group_contents);
+        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.user_group_contents);
 
         JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_user_group_contents));
 
