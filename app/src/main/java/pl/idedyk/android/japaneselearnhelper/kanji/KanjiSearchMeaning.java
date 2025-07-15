@@ -98,7 +98,7 @@ public class KanjiSearchMeaning extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_meaning);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, null, R.layout.kanji_search_meaning);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_meaning));
 

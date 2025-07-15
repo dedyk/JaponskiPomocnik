@@ -56,13 +56,13 @@ public class KanjiSearchStrokeCountResult extends Activity {
 
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_stroke_count_result);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.kanji_search_stroke_count_result);
 
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_stroke_count_result));
 
 		TextView kanjiStrokeCountResultElementsNo = (TextView) findViewById(R.id.kanji_search_stroke_count_result_elements_no);
 
-		kanjiStrokeCountResultElementsNo.setText(getString(R.string.kanji_search_stroke_count_result_elements_no, 0));
+		kanjiStrokeCountResultElementsNo.setText(getString(R.string.kanji_search_stroke_count_result_elements_no, "0"));
 
 		// konfiguracja zakladek
 		TabHost host = (TabHost)findViewById(R.id.kanji_search_stroke_count_tab_host);
