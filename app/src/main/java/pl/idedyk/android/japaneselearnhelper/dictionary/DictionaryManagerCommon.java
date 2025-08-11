@@ -181,6 +181,10 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
 
     protected boolean initDataManager(Activity activity, ILoadWithProgress loadWithProgress, Resources resources) {
 
+        // FM_FIXME: migracja ulubionych slow ze starego formatu do dictionary 2
+        // FM_FIXME: usuniecie wpisow z dictionary 2, ktore nie istnieja
+        fm_fixme();
+
         // create data manager
         dataManager = new DataManager(databaseDir);
 
