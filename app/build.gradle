@@ -25,15 +25,15 @@ android {
     defaultConfig {
         applicationId "pl.idedyk.android.japaneselearnhelper"
 
-        minSdkVersion 17
+        minSdkVersion 24
         compileSdk 35
         targetSdkVersion 35
         buildToolsVersion = '35.0.0'
 
         multiDexEnabled true
 
-        versionCode 813
-        versionName "20250803"
+        versionCode 814
+        versionName "20250907"
     }
 
     signingConfigs {
