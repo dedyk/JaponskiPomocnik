@@ -19,6 +19,8 @@ public class WordKanjiDictionaryUtils {
 
     public static String getWordFullTextWithMark(DictionaryEntry dictionaryEntry) {
 
+        // FM_FIXME: do analizy co z tym zrobic
+
         String kanji = dictionaryEntry.getKanji();
         String prefixKana = dictionaryEntry.getPrefixKana();
         List<String> kanaList = dictionaryEntry.getKanaList();
@@ -61,7 +63,13 @@ public class WordKanjiDictionaryUtils {
         return result.toString();
     }
 
-    public static String getWordFullTextWithMark(FindWordResult.ResultItem resultItem, JMdict.Entry dictionaryEntry2, String findWord, FindWordRequest findWordRequest) {
+    public static String getWordFullTextWithMark(FindWordResult.ResultItem resultItem, String findWord, FindWordRequest findWordRequest) {
+
+        if (1 == 1) {
+            return "FM_FIXME: " + resultItem.getEntry().getEntryId();
+        }
+
+        JMdict.Entry dictionaryEntry2 = null;
 
         // FM_FIXME: do naprawy
         /*
