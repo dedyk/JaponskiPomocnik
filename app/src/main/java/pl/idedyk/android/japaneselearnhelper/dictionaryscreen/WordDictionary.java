@@ -1006,7 +1006,7 @@ public class WordDictionary extends Activity {
 							(foundWord.moreElemetsExists == true ? "+" : "" )));
 					
 					for (ResultItem currentFoundWord : foundWord.result) {
-						String currentFoundWordFullTextWithMark = WordKanjiDictionaryUtils.getWordFullTextWithMark(currentFoundWord, findWord, findWordRequest);
+						String currentFoundWordFullTextWithMark = WordKanjiDictionaryUtils.getWordFullTextWithMark(WordDictionary.this, currentFoundWord, findWord, findWordRequest);
 																				
 						searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsResultItem (currentFoundWord, Html.fromHtml(currentFoundWordFullTextWithMark)));
 					}
