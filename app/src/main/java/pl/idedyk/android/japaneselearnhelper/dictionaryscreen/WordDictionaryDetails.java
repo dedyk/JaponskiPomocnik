@@ -435,11 +435,15 @@ public class WordDictionaryDetails extends Activity {
 
 		// pobieramy sens dla wybranej pary kanji i kana
 		if (dictionaryEntry2 != null) {
-
+			// FM_FIXME: do naprawy
+			/*
 			List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2);
 
 			// szukamy konkretnego znaczenia dla naszego slowa
 			dictionaryEntry2KanjiKanaPair = Dictionary2HelperCommon.findKanjiKanaPair(kanjiKanaPairList, dictionaryEntry);
+			*/
+
+			dictionaryEntry2KanjiKanaPair = null;
 
 		} else {
 			dictionaryEntry2KanjiKanaPair = null;
@@ -517,7 +521,8 @@ public class WordDictionaryDetails extends Activity {
 		boolean isAllCharactersStrokePathsAvailableForWord = false;
 
 		try {
-			furiganaEntries = dictionaryManager.getFurigana(dictionaryEntry);
+			// FM_FIXME: do naprawy
+			//furiganaEntries = dictionaryManager.getFurigana(dictionaryEntry);
 
 			// sprawdzenie, czy mamy dane do pisania wszystkich znakow
 			isAllCharactersStrokePathsAvailableForWord = dictionaryManager.isAllCharactersStrokePathsAvailableForWord(dictionaryEntry.getKanji());
@@ -671,6 +676,8 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// informacje dodatkowe do kanji
+		// FM_FIXME: do naprawy
+		/*
 		if (addKanjiWrite == true && dictionaryEntry2KanjiKanaPair != null && dictionaryEntry2KanjiKanaPair.getKanjiInfo() != null) {
 
 			List<KanjiAdditionalInfoEnum> kanjiAdditionalInfoList = dictionaryEntry2KanjiKanaPair.getKanjiInfo().getKanjiAdditionalInfoList();
@@ -681,6 +688,7 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(kanjiAdditionalInfoListString, "; "), 13.0f, 0));
 			}
 		}
+		 */
 
 		// Reading
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
@@ -771,6 +779,8 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// informacje dodatkowe do czytania
+		// FM_FIXME: do naprawy
+		/*
 		if (dictionaryEntry2KanjiKanaPair != null && dictionaryEntry2KanjiKanaPair.getReadingInfo() != null) {
 
 			List<ReadingAdditionalInfoEnum> readingAdditionalInfoList = dictionaryEntry2KanjiKanaPair.getReadingInfo().getReadingAdditionalInfoList();
@@ -781,6 +791,7 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(readingAdditionalInfoListString, "; "), 13.0f, 0));
 			}
 		}
+		 */
 
 		// Translate
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_translate_label), 0));
@@ -1036,9 +1047,16 @@ public class WordDictionaryDetails extends Activity {
 					DictionaryEntry referenceDictionaryEntryNonFinal = null;
 
 					try {
+						// FM_FIXME: do naprawy
+						/*
 						referenceDictionaryEntryNonFinal = JapaneseAndroidLearnHelperApplication
 								.getInstance().getDictionaryManager(WordDictionaryDetails.this)
 								.getDictionaryEntryById(referenceWordId);
+						*/
+
+						if (1 == 1) {
+							throw new DictionaryException("FM_FIXME");
+						}
 
 					} catch (DictionaryException e) {
 
@@ -1204,10 +1222,14 @@ public class WordDictionaryDetails extends Activity {
 		Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
 
 		// Conjugater
+		// FM_FIXME: do naprawy
+		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = null;
+		/*
 		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = GrammaConjugaterManager
 				.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance()
 						.getDictionaryManager(this).getKeigoHelper(), dictionaryEntry, grammaCache,
 						forceDictionaryEntryType, false);
+		*/
 
 		if (grammaFormConjugateGroupTypeElementsList != null) {
 			report.add(new StringValue("", 15.0f, 2));
@@ -1325,9 +1347,13 @@ public class WordDictionaryDetails extends Activity {
 		}		
 
 		// Example
+		// FM_FIXME: do naprawy
+		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = null;
+		/*
 		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(
 				JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getKeigoHelper(),
 				dictionaryEntry, grammaCache, forceDictionaryEntryType, false);
+		*/
 
 		if (exampleGroupTypeElementsList != null) {
 

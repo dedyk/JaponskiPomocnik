@@ -978,6 +978,8 @@ public class WordDictionary extends Activity {
 					final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
 
 					try {
+						// FM_FIXME: do naprawy
+						/*
 						for (ResultItem resultItem : findWordResult.getResult()) {
 							if (resultItem.getDictionaryEntry() != null && resultItem.getDictionaryEntry().isName() == false) {
 
@@ -994,6 +996,11 @@ public class WordDictionary extends Activity {
 									}
 								}
 							}
+						}
+						*/
+
+						if (1 == 1) {
+							throw new DictionaryException("FM_FIXME");
 						}
 
 					} catch (DictionaryException e) {
@@ -1037,11 +1044,14 @@ public class WordDictionary extends Activity {
 						JMdict.Entry dictionaryEntry2 = null;
 
 						// pobieramy entry id
+						// FM_FIXME: do naprawy
+						/*
 						Integer entryId = currentFoundWord.getDictionaryEntry().getJmdictEntryId();
 
 						if (entryId != null) {
 							dictionaryEntry2 = dictionaryEntry2Map.get(entryId);
 						}
+						 */
 
 						String currentFoundWordFullTextWithMark = WordKanjiDictionaryUtils.getWordFullTextWithMark(currentFoundWord, dictionaryEntry2, findWord, findWordRequest);
 																				

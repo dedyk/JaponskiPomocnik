@@ -63,6 +63,8 @@ public class WordKanjiDictionaryUtils {
 
     public static String getWordFullTextWithMark(FindWordResult.ResultItem resultItem, JMdict.Entry dictionaryEntry2, String findWord, FindWordRequest findWordRequest) {
 
+        // FM_FIXME: do naprawy
+        /*
         String kanji = resultItem.getKanji();
         String prefixKana = resultItem.getPrefixKana();
         List<String> kanaList = resultItem.getKanaList();
@@ -70,9 +72,12 @@ public class WordKanjiDictionaryUtils {
         List<String> romajiList = resultItem.getRomajiList();
         List<String> translates = resultItem.getTranslates();
         String info = resultItem.getInfo();
+        */
 
         StringBuffer result = new StringBuffer();
 
+        // FM_FIXME: do naprawy
+        /*
         String tempPrefixKana = prefixKana != null && prefixKana.equals("") == false ? prefixKana : null;
         String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
 
@@ -92,9 +97,12 @@ public class WordKanjiDictionaryUtils {
         if (romajiList != null && romajiList.size() > 0) {
             result.append(getStringWithMark(toString(romajiList, tempPrefixRomaji), findWord, findWordRequest.searchRomaji));
         }
+         */
 
         if (dictionaryEntry2 == null) { // dane w starym formacie
 
+            // FM_FIXME: do naprawy
+            /*
             if (translates != null && translates.size() > 0) {
                 result.append("\n\n");
 
@@ -113,9 +121,12 @@ public class WordKanjiDictionaryUtils {
                 result.append("\n");
                 result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(info, findWord, findWordRequest.searchInfo));
             }
+             */
 
         } else { // dane w nowym formacie
 
+            // FM_FIXME: do naprawy
+            /*
             List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2);
 
             // szukamy konkretnego znaczenia dla naszego slowa
@@ -153,6 +164,7 @@ public class WordKanjiDictionaryUtils {
                     result.append("\n\n");
                 }
             }
+            */
         }
 
         return result.toString().replaceAll("\n", "<br/>");

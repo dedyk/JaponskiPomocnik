@@ -358,7 +358,12 @@ public class WordTestOptions extends Activity {
 									DictionaryEntry dictionaryEntry = null;
 
 									try {
-										dictionaryEntry = dictionaryManager.getDictionaryEntryById(userGroupItemEntity.getItemId());
+										// FM_FIXME: do naprawy
+										// dictionaryEntry = dictionaryManager.getDictionaryEntryById(userGroupItemEntity.getItemId());
+
+										if (1 == 1) {
+											throw new DictionaryException("FM_FIXME");
+										}
 
 									} catch (DictionaryException e) {
 										Toast.makeText(WordTestOptions.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();

@@ -68,7 +68,10 @@ public class WordDictionaryListItem {
 	}
 	
 	public DictionaryEntry getDictionaryEntry() {
-		return resultItem.getDictionaryEntry();
+		// FM_FIXME: do naprawy
+		// return resultItem.getDictionaryEntry();
+
+		return null;
 	}
 
 	public Spanned getText() {

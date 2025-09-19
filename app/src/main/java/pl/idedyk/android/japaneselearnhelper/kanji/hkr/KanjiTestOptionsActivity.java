@@ -487,8 +487,15 @@ public class KanjiTestOptionsActivity extends Activity {
 								DictionaryEntry dictionaryEntry = null;
 
 								try {
+									// FM_FIXME: do naprawy
+									/*
 									dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
 											getDictionaryEntryById(userGroupItemEntity.getItemId());
+									*/
+
+									if (1 == 1) {
+										throw new DictionaryException("FM_FIXME");
+									}
 
 								} catch (DictionaryException e) {
 									Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
@@ -648,11 +655,14 @@ public class KanjiTestOptionsActivity extends Activity {
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
+										// FM_FIXME: do naprawy
+										/*
 										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
 												new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
 													currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
 
 										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
+										*/
 
 										if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
 											break;
@@ -684,6 +694,8 @@ public class KanjiTestOptionsActivity extends Activity {
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
+										// FM_FIXME: do naprawy
+										/*
 										DictionaryEntry currentDictionaryEntry = currentFindWordResultResult.getDictionaryEntry();
 
 										String currentDictionaryEntryKanji = currentDictionaryEntry.getKanji();
@@ -697,7 +709,7 @@ public class KanjiTestOptionsActivity extends Activity {
 													currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
 
 										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
-
+										*/
 										if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
 											break;
 										}
@@ -772,8 +784,15 @@ public class KanjiTestOptionsActivity extends Activity {
 											DictionaryEntry dictionaryEntry = null;
 
 											try {
+												// FM_FIXME: do naprawy
+												/*
 												dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
 														getDictionaryEntryById(userGroupItemEntity.getItemId());
+												*/
+
+												if (1 == 1) {
+													throw new DictionaryException("FM_FIXME");
+												}
 
 											} catch (DictionaryException e) {
 												return new PrepareAsyncTaskResult(e);

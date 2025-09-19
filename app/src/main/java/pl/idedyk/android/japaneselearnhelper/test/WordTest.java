@@ -438,12 +438,20 @@ public class WordTest extends Activity {
 
 					Integer referenceWordId = Integer.parseInt(currentWordDictionaryEntryAttribute.getAttributeValue().get(0));
 
+					// FM_FIXME: do naprawy
+					/*
 					DictionaryEntry alternativeDictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTest.this)
 							.getDictionaryEntryById(referenceWordId);
 
 					if (alternativeDictionaryEntry != null) {
 						currentWordDictionaryGroupEntryList.add(alternativeDictionaryEntry);
 					}
+					*/
+
+					if (1 == 1) {
+						throw new DictionaryException("FM_FIXME");
+					}
+
 				}
 			}
 		}

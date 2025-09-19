@@ -223,6 +223,93 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
+    public JMdict.Entry getDictionaryEntry2ByCounter(int counter) throws DictionaryException {
+
+        // FM_FIXME: do sprawdzenia, czy to dziala
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(counter);
+
+                String responseJson = null;
+
+                JMdict.Entry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntry2ByCounter", requestJson);
+
+                    result = gson.fromJson((String) responseJson, JMdict.Entry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, JMdict.Entry.class);
+    }
+
+    @Override
+    public JMdict.Entry getDictionaryEntry2ByOldPolishJapaneseDictionaryId(long oldPolishJapaneseDictionaryId) throws DictionaryException {
+
+        // FM_FIXME: do sprawdzenia, czy to dziala
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(oldPolishJapaneseDictionaryId);
+
+                String responseJson = null;
+
+                JMdict.Entry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntry2ByOldPolishJapaneseDictionaryId", requestJson);
+
+                    result = gson.fromJson((String) responseJson, JMdict.Entry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, JMdict.Entry.class);
+    }
+
+    @Override
+    public JMdict.Entry getDictionaryEntry2ByOldPolishJapaneseDictionaryUniqueKey(String uiqueKey) throws DictionaryException {
+
+        // FM_FIXME: do sprawdzenia, czy to dziala
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(uiqueKey);
+
+                String responseJson = null;
+
+                JMdict.Entry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntry2ByOldPolishJapaneseDictionaryUniqueKey", requestJson);
+
+                    result = gson.fromJson((String) responseJson, JMdict.Entry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, JMdict.Entry.class);
+    }
+
+    @Override
     public DictionaryEntry getDictionaryEntryNameById(final String id) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {

@@ -46,6 +46,8 @@ import com.google.gson.Gson;
 
 public class ServerClient {
 
+	// FM_FIXME: sprawdzic zdalna baze danych
+
 	// trzeba ustawic android:usesCleartextTraffic="true" w AndroidManifest.xml
 	//private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
 
@@ -374,8 +376,9 @@ public class ServerClient {
 			
 			// name
 			dictionaryEntry.setName(currentJsonObjectResult.getBoolean("name"));
-						
-			findWordResult.result.add(new FindWordResult.ResultItem(dictionaryEntry));
+
+			// FM_FIXME: do poprawy
+			findWordResult.result.add(new FindWordResult.ResultItem(dictionaryEntry, dictionaryEntry.isName(), false));
 		}
 		
 		return findWordResult;
