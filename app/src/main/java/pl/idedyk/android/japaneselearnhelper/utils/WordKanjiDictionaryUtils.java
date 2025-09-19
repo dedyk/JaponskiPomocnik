@@ -120,33 +120,41 @@ public class WordKanjiDictionaryUtils {
                     restrictedToKanjiKanaList.addAll(sense.getRestrictedToKanaList());
 
                     // zamiana na przetlumaczona postac
-                    String restrictedToKanjiKanaString = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "・" + context.getString(R.string.word_dictionary_search_restrictedKanjiKanaForOnly) + " " + String.join("; ", restrictedToKanjiKanaList);
+                    String restrictedToKanjiKanaString = "・" + context.getString(R.string.word_dictionary_search_restrictedKanjiKanaForOnly) + " " + String.join("; ", restrictedToKanjiKanaList);
 
-                    result.append(restrictedToKanjiKanaString).append("\n");
+                    result.append("<i>" + restrictedToKanjiKanaString + "</i>").append("\n");
                 }
 
                 // czesci mowy
                 if (sense.getPartOfSpeechList().size() > 0) {
                     // zamiana na przetlumaczona postac
-                    String translatedToPolishPartOfSpeechEnum = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(sense.getPartOfSpeechList()));
+                    String translatedToPolishPartOfSpeechEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(sense.getPartOfSpeechList()));
 
-                    result.append(translatedToPolishPartOfSpeechEnum).append("\n");
+                    result.append("<i>" + translatedToPolishPartOfSpeechEnum + "</i>").append("\n");
                 }
 
                 // kategoria slowa
                 if (sense.getFieldList().size() > 0) {
                     // zamiana na przetlumaczona postac
-                    String translatedfieldEnum = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishFieldEnumList(sense.getFieldList()));
+                    String translatedfieldEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishFieldEnumList(sense.getFieldList()));
 
-                    result.append(translatedfieldEnum).append("\n");
+                    result.append("<i>" + translatedfieldEnum + "</i>").append("\n");
                 }
 
                 // roznosci
                 if (sense.getMiscList().size() > 0) {
                     // zamiana na przetlumaczona postac
-                    String translatedMiscEnum = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishMiscEnumList(sense.getMiscList()));
+                    String translatedMiscEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishMiscEnumList(sense.getMiscList()));
 
-                    result.append(translatedMiscEnum).append("\n");
+                    result.append("<i>" + translatedMiscEnum + "</i>").append("\n");
+                }
+
+                // dialekt
+                if (sense.getDialectList().size() > 0) {
+                    // zamiana na przetlumaczona postac
+                    String translatedDialectEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishDialectEnumList(sense.getDialectList()));
+
+                    result.append("<i>" + translatedDialectEnum + "</i>").append("\n");
                 }
 
                 // znaczenie
@@ -159,10 +167,10 @@ public class WordKanjiDictionaryUtils {
 
                     Gloss gloss = polishGlossList.get(currentGlossIdx);
 
-                    result.append(getStringWithMark(
+                    result.append("<strong>" + getStringWithMark(
                             gloss.getValue(), findWord, findWordRequest.searchTranslate) +
                             (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
-                            (currentGlossIdx != polishGlossList.size() - 1 ? "\n" : ""));
+                            (currentGlossIdx != polishGlossList.size() - 1 ? "\n" : "") + "</strong>");
                 }
 
                 // informacje dodatkowe
@@ -202,18 +210,6 @@ public class WordKanjiDictionaryUtils {
 
                 Div singleSenseDiv = new Div("col-md-11");
                 translateTd.addHtmlElement(singleSenseDiv);
-
-                // dialekt
-                if (sense.getDialectList().size() > 0) {
-                    Div dialectDiv = new Div(null, "font-size: 75%; margin-top: 3px; text-align: justify");
-
-                    // zamiana na przetlumaczona postac
-                    String translatedDialectEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishDialectEnumList(sense.getDialectList()));
-
-                    dialectDiv.addHtmlElement(new Text(translatedDialectEnum + "<br/>"));
-
-                    singleSenseDiv.addHtmlElement(dialectDiv);
-                }
 
                 // zagraniczne pochodzenie slowa
                 if (sense.getLanguageSourceList().size() > 0) {
@@ -296,7 +292,7 @@ public class WordKanjiDictionaryUtils {
                 for (int idx = 0; idx < translates.size(); ++idx) {
                     String currentTranslate = translates.get(idx);
 
-                    result.append(getStringWithMark(currentTranslate, findWord, findWordRequest.searchTranslate));
+                    result.append("<strong>" + getStringWithMark(currentTranslate, findWord, findWordRequest.searchTranslate) + "</strong>");
 
                     if (idx != translates.size() - 1) {
                         result.append("\n");
