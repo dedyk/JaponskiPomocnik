@@ -65,11 +65,95 @@ public class WordKanjiDictionaryUtils {
 
     public static String getWordFullTextWithMark(FindWordResult.ResultItem resultItem, String findWord, FindWordRequest findWordRequest) {
 
-        if (1 == 1) {
-            return "FM_FIXME: " + resultItem.getEntry().getEntryId();
+        // wygenerowanie docelowego html-a
+        StringBuffer result = new StringBuffer();
+
+        // sprawdzenie, czy mamy dane w nowym, czy starym formacie
+        JMdict.Entry dictionaryEntry2 = resultItem.getEntry();
+        DictionaryEntry oldDictionaryEntry = resultItem.getOldDictionaryEntry();
+
+        if (dictionaryEntry2 != null) { // nowy format
+            // wygenerowanie wszystkich kombinacji
+            List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, true);
+
+            for (int kanjiKanaPairIdx = 0; kanjiKanaPairIdx < kanjiKanaPairList.size(); ++kanjiKanaPairIdx) {
+
+                if (kanjiKanaPairIdx != 0) {
+                    result.append("\n");
+                }
+
+                Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair = kanjiKanaPairList.get(kanjiKanaPairIdx);
+
+                // pobieramy wszystkie skladniki slowa
+                String kanji = kanjiKanaPair.getKanji();
+                String kana = kanjiKanaPair.getKana();
+                String romaji = kanjiKanaPair.getRomaji();
+
+                if (kanji != null) {
+                    result.append(getStringWithMark(kanji, findWord, findWordRequest.searchKanji)).append(" - ");
+                }
+
+                result.append(getStringWithMark(kana, findWord, findWordRequest.searchKana)).append(" - ");
+                result.append(getStringWithMark(romaji, findWord, findWordRequest.searchRomaji));
+            }
+
+            result.append("\n\n");
+
+            // FM_FIXME: dokonczyc, testy !!!!
+
+            // FM_FIXME: z wersji web
+            /*
+            	private Div createWordColumn(FindWordRequest findWordRequest, String findWord, String kanji, String kana, String romaji) {
+                Div singleWordDiv = new Div(null, "display: flex; width: 100%; ");
+
+                // kanji
+                Span singleWordKanjiSpan = new Span(null, "width: 33%; padding: 5px 15px 10px 0px; overflow-wrap: break-word;");
+
+                if (kanji != null) {
+                    singleWordKanjiSpan.addHtmlElement(new Text(WordDictionary2SenseUtils.getStringWithMark(kanji, findWord, findWordRequest.searchKanji)));
+                }
+
+                // kana
+                Span singleWordKanaSpan = new Span(null, "width: 33%; padding: 5px 15px 10px 0px; overflow-wrap: break-word;");
+                singleWordKanaSpan.addHtmlElement(new Text(WordDictionary2SenseUtils.getStringWithMark(kana, findWord, findWordRequest.searchKana)));
+
+                // romaji
+                Span singleWordRomajiSpan = new Span(null, "width: 33%; padding: 5px 0px 10px 0px; overflow-wrap: break-word;");
+                singleWordRomajiSpan.addHtmlElement(new Text(WordDictionary2SenseUtils.getStringWithMark(romaji, findWord, findWordRequest.searchRomaji)));
+
+                // dodanie elementow
+                singleWordDiv.addHtmlElement(singleWordKanjiSpan);
+                singleWordDiv.addHtmlElement(singleWordKanaSpan);
+                singleWordDiv.addHtmlElement(singleWordRomajiSpan);
+
+                return singleWordDiv;
+            }
+
+             */
+
+            // FM_FIXME: do naprawy
+            /*
+            String tempPrefixKana = prefixKana != null && prefixKana.equals("") == false ? prefixKana : null;
+            String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
+
+             */
+
+
+
+
+        } else if (oldDictionaryEntry != null) { // stary format
+            // FM_FIXME: do naprawy
+            return "FM_FIXME: oldDictionaryEntry";
+
+        } else {
+            throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
         }
 
-        JMdict.Entry dictionaryEntry2 = null;
+
+
+
+        ////////
+
 
         // FM_FIXME: do naprawy
         /*
@@ -82,30 +166,7 @@ public class WordKanjiDictionaryUtils {
         String info = resultItem.getInfo();
         */
 
-        StringBuffer result = new StringBuffer();
 
-        // FM_FIXME: do naprawy
-        /*
-        String tempPrefixKana = prefixKana != null && prefixKana.equals("") == false ? prefixKana : null;
-        String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
-
-        if (resultItem.isKanjiExists() == true) {
-
-            if (tempPrefixKana != null) {
-                result.append("(").append(getStringWithMark(tempPrefixKana, findWord, false)).append(") ");
-            }
-
-            result.append(getStringWithMark(kanji, findWord, findWordRequest.searchKanji)).append(" ");
-        }
-
-        if (kanaList != null && kanaList.size() > 0) {
-            result.append(getStringWithMark(toString(kanaList, tempPrefixKana), findWord, findWordRequest.searchKana)).append(" - ");
-        }
-
-        if (romajiList != null && romajiList.size() > 0) {
-            result.append(getStringWithMark(toString(romajiList, tempPrefixRomaji), findWord, findWordRequest.searchRomaji));
-        }
-         */
 
         if (dictionaryEntry2 == null) { // dane w starym formacie
 
