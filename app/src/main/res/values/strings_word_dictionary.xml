@@ -52,4 +52,6 @@
     <string name="word_dictionary_search_show_history_title">Historia wyszukiwania:</string>
 
     <string name="word_dictionary_search_restrictedKanjiKanaForOnly">tylko dla</string>
+    <string name="word_dictionary_search_referenceToAnotherKanjiKana">powiązane słowa:</string>
+    <string name="word_dictionary_search_referewnceToAntonymKanjiKana">przeciwieństwo:</string>
 </resources>

@@ -16,6 +16,7 @@ import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Gloss;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.LanguageSource;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Sense;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.SenseAdditionalInfo;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
@@ -96,15 +97,13 @@ public class WordKanjiDictionaryUtils {
                 String romaji = kanjiKanaPair.getRomaji();
 
                 if (kanji != null) {
-                    result.append(getStringWithMark(kanji, findWord, findWordRequest.searchKanji)).append(" - ");
+                    result.append("<strong>" + getStringWithMark(kanji, findWord, findWordRequest.searchKanji) + "</strong>").append(" - ");
                 }
 
-                result.append(getStringWithMark(kana, findWord, findWordRequest.searchKana)).append(" - ");
-                result.append(getStringWithMark(romaji, findWord, findWordRequest.searchRomaji));
+                result.append("<strong>" + getStringWithMark(kana, findWord, findWordRequest.searchKana) + "</strong>").append(" - ");
+                result.append("<strong>" + getStringWithMark(romaji, findWord, findWordRequest.searchRomaji) + "</strong>");
             }
 
-            // dodanie znaczen
-            // FM_FIXME: do dokonczenia
             for (int senseIdx = 0; senseIdx < dictionaryEntry2.getSenseList().size(); ++senseIdx) {
                 Sense sense = dictionaryEntry2.getSenseList().get(senseIdx);
 
@@ -157,6 +156,48 @@ public class WordKanjiDictionaryUtils {
                     result.append("<i>" + translatedDialectEnum + "</i>").append("\n");
                 }
 
+                // zagraniczne pochodzenie slowa
+                if (sense.getLanguageSourceList().size() > 0) {
+                    // zamiana na przetlumaczona postac
+                    List<String> singleLanguageSourceList = new ArrayList<>();
+
+                    for (LanguageSource languageSource : sense.getLanguageSourceList()) {
+
+                        StringBuffer singleLanguageSource = new StringBuffer();
+
+                        String languageCodeInPolish = Dictionary2HelperCommon.translateToPolishLanguageCode(languageSource.getLang());
+                        String languageValue = languageSource.getValue();
+                        String languageLsWasei = Dictionary2HelperCommon.translateToPolishLanguageSourceLsWaseiEnum(languageSource.getLsWasei());
+
+                        if (languageValue != null && languageValue.equals("") == false) {
+                            singleLanguageSource.append(languageCodeInPolish + ": " + languageValue);
+
+                        } else {
+                            singleLanguageSource.append(Dictionary2HelperCommon.translateToPolishLanguageCodeWithoutValue(languageSource.getLang()));
+                        }
+
+                        if (languageLsWasei != null && languageLsWasei.equals("") == false) {
+                            singleLanguageSource.append(", ").append(languageLsWasei);
+                        }
+
+                        singleLanguageSourceList.add(singleLanguageSource.toString());
+                    }
+
+                    String joinedLanguageSource = "・" + String.join("; ", singleLanguageSourceList);
+
+                    result.append("<i>" + joinedLanguageSource + "</i>").append("\n");
+                }
+
+                // odnosnic do innego slowa
+                if (sense.getReferenceToAnotherKanjiKanaList().size() > 0) {
+                    result.append("<i>" + createReferenceAntonymToAnotherKanjiKanaDiv(context, sense.getReferenceToAnotherKanjiKanaList(), R.string.word_dictionary_search_referenceToAnotherKanjiKana) + "</i>").append("\n");
+                }
+
+                // odnosnic do przeciwienstwa
+                if (sense.getAntonymList().size() > 0) {
+                    result.append("<i>" + createReferenceAntonymToAnotherKanjiKanaDiv(context, sense.getAntonymList(), R.string.word_dictionary_search_referewnceToAntonymKanjiKana) + "</i>").append("\n");
+                }
+
                 // znaczenie
                 List<Gloss> polishGlossList = Dictionary2HelperCommon.getPolishGlossList(sense.getGlossList());
                 SenseAdditionalInfo polishAdditionalInfo = Dictionary2HelperCommon.findFirstPolishAdditionalInfo(sense.getAdditionalInfoList());
@@ -185,87 +226,7 @@ public class WordKanjiDictionaryUtils {
                 }
             }
 
-
-
-            // FM_FIXME: do dokonczenia
-            // FM_FIXME: do naprawy
-
-            /*
-            FM_FIXME: z wersji web
-            for (int senseIdx = 0; senseIdx < entry.getSenseList().size(); ++senseIdx) {
-
-                Sense sense = entry.getSenseList().get(senseIdx);
-
-                if (addSenseNumber == true) {
-                    // numer znaczenia
-                    Div senseNoDiv = new Div("col-md-1");
-
-                    H senseNoDivH = new H(4, null, "margin-top: 20px; text-align: right");
-
-                    senseNoDivH.addHtmlElement(new Text("" + (senseIdx + 1)));
-                    senseNoDiv.addHtmlElement(senseNoDivH);
-
-                    translateTd.addHtmlElement(senseNoDiv);
-                }
-
-                Div singleSenseDiv = new Div("col-md-11");
-                translateTd.addHtmlElement(singleSenseDiv);
-
-                // zagraniczne pochodzenie slowa
-                if (sense.getLanguageSourceList().size() > 0) {
-                    Div languageSourceDiv = new Div(null, "font-size: 75%; margin-top: 3px; text-align: justify");
-
-                    // zamiana na przetlumaczona postac
-                    List<String> singleLanguageSourceList = new ArrayList<>();
-
-                    for (LanguageSource languageSource : sense.getLanguageSourceList()) {
-
-                        StringBuffer singleLanguageSource = new StringBuffer();
-
-                        String languageCodeInPolish = Dictionary2HelperCommon.translateToPolishLanguageCode(languageSource.getLang());
-                        String languageValue = languageSource.getValue();
-                        String languageLsWasei = Dictionary2HelperCommon.translateToPolishLanguageSourceLsWaseiEnum(languageSource.getLsWasei());
-
-                        if (languageValue != null) {
-                            singleLanguageSource.append(languageCodeInPolish + ": " + languageValue);
-
-                        } else {
-                            singleLanguageSource.append(Dictionary2HelperCommon.translateToPolishLanguageCodeWithoutValue(languageSource.getLang()));
-                        }
-
-                        if (languageLsWasei != null) {
-                            singleLanguageSource.append(", ").append(languageLsWasei);
-                        }
-
-                        singleLanguageSourceList.add(singleLanguageSource.toString());
-                    }
-
-                    String joinedLanguageSource = "・" + String.join("; ", singleLanguageSourceList);
-
-                    languageSourceDiv.addHtmlElement(new Text(joinedLanguageSource + "<br/>"));
-
-                    singleSenseDiv.addHtmlElement(languageSourceDiv);
-                }
-
-                // odnosnic do innego slowa
-                if (sense.getReferenceToAnotherKanjiKanaList().size() > 0) {
-                    createReferenceAntonymToAnotherKanjiKanaDiv(messageSource, servletContextPath, singleSenseDiv, sense.getReferenceToAnotherKanjiKanaList(), "wordDictionary.page.search.table.column.details.referenceToAnotherKanjiKana");
-                }
-
-                // odnosnic do przeciwienstwa
-                if (sense.getAntonymList().size() > 0) {
-                    createReferenceAntonymToAnotherKanjiKanaDiv(messageSource, servletContextPath, singleSenseDiv, sense.getAntonymList(), "wordDictionary.page.search.table.column.details.referewnceToAntonymKanjiKana");
-                }
-
-                // przerwa
-                if (senseIdx != entry.getSenseList().size() - 1) {
-                    Div marginDiv = new Div(null, "margin-bottom: 17px;");
-
-                    singleSenseDiv.addHtmlElement(marginDiv);
-                }
-                */
-
-            } else if (oldDictionaryEntry != null) { // stary format
+        } else if (oldDictionaryEntry != null) { // stary format
 
             // pobieramy wszystkie skladniki slowa
             String kanji = oldDictionaryEntry.getKanji();
@@ -310,6 +271,42 @@ public class WordKanjiDictionaryUtils {
         }
 
         return result.toString().replaceAll("\n", "<br/>");
+    }
+
+    private static String createReferenceAntonymToAnotherKanjiKanaDiv(Context context, List<String> wordReference, int stringIdTitle) {
+
+        List<String> wordsToCreateLinkList = new ArrayList<>();
+
+        for (String referenceToAnotherKanjiKana : wordReference) {
+            // wartosc tutaj znajduja sie moze byc w trzech wariantach: kanji, kanji i kana oraz kanji, kana i numer pozycji w tlumaczeniu
+            String[] referenceToAnotherKanjiKanaSplited = referenceToAnotherKanjiKana.split("・");
+
+            if (referenceToAnotherKanjiKanaSplited.length == 1 || referenceToAnotherKanjiKanaSplited.length == 2) {
+                wordsToCreateLinkList.add(referenceToAnotherKanjiKanaSplited[0]);
+
+            } else if (referenceToAnotherKanjiKanaSplited.length == 3) {
+                wordsToCreateLinkList.add(referenceToAnotherKanjiKanaSplited[0]);
+                wordsToCreateLinkList.add(referenceToAnotherKanjiKanaSplited[1]);
+            }
+        }
+
+        StringBuffer result = new StringBuffer();
+
+        if (wordsToCreateLinkList.size() > 0) {
+            result.append("・" + context.getString(stringIdTitle) + " ");
+
+            for (int wordsToCreateLinkListIdx = 0; wordsToCreateLinkListIdx < wordsToCreateLinkList.size(); ++wordsToCreateLinkListIdx) {
+                String currentWordsToCreateLink = wordsToCreateLinkList.get(wordsToCreateLinkListIdx);
+
+                result.append(currentWordsToCreateLink);
+
+                if (wordsToCreateLinkListIdx != wordsToCreateLinkList.size() - 1) {
+                    result.append(", ");
+                }
+            }
+        }
+
+        return result.toString();
     }
 
     public static String getKanjiFullTextWithMark(KanjiCharacterInfo kanjiEntry) {
