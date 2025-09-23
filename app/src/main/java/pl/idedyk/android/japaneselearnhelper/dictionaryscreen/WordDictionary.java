@@ -228,10 +228,10 @@ public class WordDictionary extends Activity {
 				ItemType itemType = wordDictionaryListItem.getItemType();
 				
 				if (itemType == ItemType.RESULT_ITEM) { // klikniecie w wiersz z wynikiem, otwarcie szczegolow
-					
+
 					Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
 					
-					intent.putExtra("item", wordDictionaryListItem.getDictionaryEntry());
+					intent.putExtra("item", wordDictionaryListItem.getResultItemObject());
 					
 					startActivity(intent);
 

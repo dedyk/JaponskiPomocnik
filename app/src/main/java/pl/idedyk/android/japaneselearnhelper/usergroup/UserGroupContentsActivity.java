@@ -145,6 +145,7 @@ public class UserGroupContentsActivity extends Activity {
 
                                     DictionaryEntry dictionaryEntry = userGroupContentsListItem.getDictionaryEntry();
 
+                                    // FM_FIXME: do naprawy
                                     Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
 
                                     intent.putExtra("item", dictionaryEntry);

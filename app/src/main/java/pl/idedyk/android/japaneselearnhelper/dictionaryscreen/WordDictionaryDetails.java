@@ -100,8 +100,12 @@ public class WordDictionaryDetails extends Activity {
 
 	private Integer searchScreenItemCurrentPos = null;
 
-	private DictionaryEntry dictionaryEntry = null;
-	private DictionaryEntryType forceDictionaryEntryType = null;
+	// FM_FIXME: do poprawy
+	private DictionaryEntry dictionaryEntry__ = null;
+	private JMdict.Entry dictionaryEntry2__ = null;
+
+	// FM_FIXME: do usuniecia
+	private DictionaryEntryType forceDictionaryEntryType__ = null;
 
 	//
 
@@ -152,9 +156,12 @@ public class WordDictionaryDetails extends Activity {
 
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 
+		// FM_FIXME: do naprawy
+		/*
 		if (dictionaryEntry.isName() == false) {
 			menu.add(Menu.NONE, R.id.word_dictionary_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.word_dictionary_details_menu_add_item_id_to_user_group);
 		}
+		 */
 
 		return true;
 	}
@@ -270,11 +277,15 @@ public class WordDictionaryDetails extends Activity {
 
 		} else if (item.getItemId() == R.id.word_dictionary_details_menu_add_item_id_to_user_group) {
 
+			// FM_FIXME: do naprawy - start
+			/*
 			Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
 
 			intent.putExtra("itemToAdd", dictionaryEntry);
 
 			startActivityForResult(intent, ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE);
+			// FM_FIXME: do naprawy - stop
+			*/
 
 			return true;
 
@@ -309,14 +320,26 @@ public class WordDictionaryDetails extends Activity {
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_word_dictionary_details));
 
-		dictionaryEntry = (DictionaryEntry) getIntent().getSerializableExtra("item");
-		forceDictionaryEntryType = (DictionaryEntryType) getIntent().getSerializableExtra(
-				"forceDictionaryEntryType");
+		Object item = getIntent().getSerializableExtra("item");
+
+		if (item instanceof DictionaryEntry) {
+			dictionaryEntry__ = (DictionaryEntry)item;
+
+		} else if (item instanceof JMdict.Entry) {
+			dictionaryEntry2__ = (JMdict.Entry)item;
+
+		} else {
+			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
+		}
+
+		// FM_FIXME: do usuniceia
+		// forceDictionaryEntryType = (DictionaryEntryType) getIntent().getSerializableExtra(
+		//		"forceDictionaryEntryType");
 
 		final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
 		final LinearLayout detailsMainLayout = (LinearLayout) findViewById(R.id.word_dictionary_details_main_layout);
 
-		generatedDetails = generateDetails(dictionaryEntry, forceDictionaryEntryType, scrollMainLayout);
+		generatedDetails = generateDetails(dictionaryEntry__, dictionaryEntry2__, scrollMainLayout);
 
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 
@@ -333,8 +356,10 @@ public class WordDictionaryDetails extends Activity {
 				for (IScreenItem currentGeneratedDetails : generatedDetails) {
 					detailsSb.append(currentGeneratedDetails.toString()).append("\n\n");
 				}
-				 */
+				*/
 
+				// FM_FIXME: do naprawy - start
+				/*
 				detailsSb.append("\nId: " + dictionaryEntry.getId()).append("\n\n");
 				detailsSb.append("Kanji: " + (dictionaryEntry.getKanji() != null ? dictionaryEntry.getKanji() : "")).append("\n\n");
 				detailsSb.append("Kana: " + dictionaryEntry.getKana()).append("\n\n");
@@ -377,6 +402,8 @@ public class WordDictionaryDetails extends Activity {
 						versionName, versionCode);
 
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
+				// FM_FIXME: do naprawy - stop
+				*/
 			}
 		});
 
@@ -395,17 +422,22 @@ public class WordDictionaryDetails extends Activity {
 			final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
 			final LinearLayout detailsMainLayout = (LinearLayout) findViewById(R.id.word_dictionary_details_main_layout);
 
-			generatedDetails = generateDetails(dictionaryEntry, forceDictionaryEntryType, scrollMainLayout);
+			generatedDetails = generateDetails(dictionaryEntry__, dictionaryEntry2__, scrollMainLayout);
 
 			fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 		}
 	}
 
-	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry,
-											  DictionaryEntryType forceDictionaryEntryType, final ScrollView scrollMainLayout) {
+	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry, JMdict.Entry dictionaryEntry2, final ScrollView scrollMainLayout) {
 
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 
+		if (1 == 1) {
+			// FM_FIXME: do naprawy
+			return report;
+		}
+
+		// FM_FIXME: do poprawy start
 		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 
 		String prefixKana = dictionaryEntry.getPrefixKana();
@@ -416,7 +448,9 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// pobranie slow w formacie dictionary 2/JMdict
-		JMdict.Entry dictionaryEntry2 = null;
+
+		// FM_FIXME: do usuniecia
+		// JMdict.Entry dictionaryEntry2 = null;
 		Dictionary2HelperCommon.KanjiKanaPair dictionaryEntry2KanjiKanaPair;
 
 		// sprawdzenie, czy wystepuje slowo w formacie JMdict
@@ -676,8 +710,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// informacje dodatkowe do kanji
-		// FM_FIXME: do naprawy
-		/*
+		// FM_FIXME: do naprawy - start
 		if (addKanjiWrite == true && dictionaryEntry2KanjiKanaPair != null && dictionaryEntry2KanjiKanaPair.getKanjiInfo() != null) {
 
 			List<KanjiAdditionalInfoEnum> kanjiAdditionalInfoList = dictionaryEntry2KanjiKanaPair.getKanjiInfo().getKanjiAdditionalInfoList();
@@ -688,7 +721,7 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(kanjiAdditionalInfoListString, "; "), 13.0f, 0));
 			}
 		}
-		 */
+		// FM_FIXME: do naprawy - end
 
 		// Reading
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
@@ -1011,6 +1044,7 @@ public class WordDictionaryDetails extends Activity {
 						public void onClick(View v) {
 							Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
 
+							// FM_FIXME: do naprawy
 							intent.putExtra("item", dictionaryEntry);
 							intent.putExtra("forceDictionaryEntryType", currentDictionaryEntryType);
 
@@ -1076,6 +1110,7 @@ public class WordDictionaryDetails extends Activity {
 							@Override
 							public void onClick(View v) {
 
+								// FM_FIXME: do naprawy
 								Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
 
 								intent.putExtra("item", referenceDictionaryEntry);
