@@ -459,12 +459,15 @@ public class WordDictionaryDetails extends Activity {
 		// slowa
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_words_label), 0));
 
+		// informacja o mozliwosci pisania slow
+		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+
 		if (kanjiKanaPairList != null) { // nowy format
 			for (int kanjiKanaPairIdx = 0; kanjiKanaPairIdx < kanjiKanaPairList.size(); ++kanjiKanaPairIdx) {
 				Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair = kanjiKanaPairList.get(kanjiKanaPairIdx);
 
 				// pobieramy wszystkie skladniki slowa
-				createWordKanjiKanaPairSection(report, kanjiKanaPair);
+				createWordKanjiKanaPairSection(report, kanjiKanaPair, kanjiKanaPairIdx == kanjiKanaPairList.size() - 1);
 			}
 
 		} else { // stary format
@@ -487,7 +490,7 @@ public class WordDictionaryDetails extends Activity {
 
 			Dictionary2HelperCommon.KanjiKanaPair virtualKanjiKanaPair = new Dictionary2HelperCommon.KanjiKanaPair(null, kanjiInfo, readingInfo);
 
-			createWordKanjiKanaPairSection(report, virtualKanjiKanaPair);
+			createWordKanjiKanaPairSection(report, virtualKanjiKanaPair, true);
 		}
 
 		/////////////////////////////
@@ -1176,7 +1179,7 @@ public class WordDictionaryDetails extends Activity {
 		return report;
 	}
 
-	private void createWordKanjiKanaPairSection(List<IScreenItem> report, Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair) {
+	private void createWordKanjiKanaPairSection(List<IScreenItem> report, Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair, boolean lastKanjiKanaPair) {
 		// FM_FIXME: do zaimplementowania
 
 		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
@@ -1184,9 +1187,6 @@ public class WordDictionaryDetails extends Activity {
 		String kanji = kanjiKanaPair.getKanji();
 		String kana = kanjiKanaPair.getKana();
 		String romaji = kanjiKanaPair.getRomaji();
-
-		// informacja o mozliwosci pisania slow
-		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 
 		if (kanji != null) {
 			// kanji draw on click listener
@@ -1257,10 +1257,12 @@ public class WordDictionaryDetails extends Activity {
 
 			if (furiganaEntries != null && furiganaEntries.size() > 0) {
 
-				// FM_FIXME: prawdopodobnie do zmiany
+				// FM_FIXME: prawdopodobnie do zmiany, usuniecia
+				/*
 				if (isAllCharactersStrokePathsAvailableForWord == true) {
 					report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 				}
+				*/
 
 				for (FuriganaEntry currentFuriganaEntry : furiganaEntries) {
 
@@ -1372,7 +1374,8 @@ public class WordDictionaryDetails extends Activity {
 
 				// FM_FIXME: do naprawy
 				if (isAllCharactersStrokePathsAvailableForWord == true) {
-					report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+					// FM_FIXME: prawdopodobnie do usuniecia, ten napis
+					// report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 
 					kanjiStringValue.setOnClickListener(kanjiDrawOnClickListener);
 				}
@@ -1458,94 +1461,79 @@ public class WordDictionaryDetails extends Activity {
 			}
 		}
 		// FM_FIXME: do naprawy - end
+		*/
 
 		// Reading
-		report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
-		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+		// report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
+		// report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+		StringValue readingKanaStringValue = new StringValue(kana, 20.0f, 0);
+		StringValue readingRomajiStringValue = new StringValue(romaji, 20.0f, 0);
 
-		List<String> romajiList = dictionaryEntry.getRomajiList();
+		readingKanaStringValue.setOnClickListener(new OnClickListener() {
 
-		for (int idx = 0; idx < kanaList.size(); ++idx) {
+			@Override
+			public void onClick(View v) {
 
-			final StringBuffer sb = new StringBuffer();
+				List<KanjivgEntry> strokePathsForWord = null;
 
-			if (prefixKana != null) {
-				sb.append("(").append(prefixKana).append(") ");
-			}
+				try {
+					strokePathsForWord = dictionaryManager.getStrokePathsForWord(kana);
 
-			sb.append(kanaList.get(idx)).append(" - ");
+				} catch (DictionaryException e) {
+					Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
 
-			if (prefixRomaji != null) {
-				sb.append("(").append(prefixRomaji).append(") ");
-			}
-
-			sb.append(romajiList.get(idx));
-
-			StringValue readingStringValue = new StringValue(sb.toString(), 20.0f, 0);
-
-			readingStringValue.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-
-					List<KanjivgEntry> strokePathsForWord = null;
-
-					try {
-						strokePathsForWord = JapaneseAndroidLearnHelperApplication.getInstance()
-								.getDictionaryManager(WordDictionaryDetails.this).getStrokePathsForWord(sb.toString());
-
-					} catch (DictionaryException e) {
-
-						Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
-
-						return;
-					}
-
-					StrokePathInfo strokePathInfo = new StrokePathInfo();
-
-					strokePathInfo.setStrokePaths(strokePathsForWord);
-
-					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
-
-					intent.putExtra("strokePathsInfo", strokePathInfo);
-					intent.putExtra("annotateStrokes", false);
-
-					startActivity(intent);
+					return;
 				}
-			});
 
-			report.add(readingStringValue);
+				StrokePathInfo strokePathInfo = new StrokePathInfo();
 
-			TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
-			TableRow actionTableRow = new TableRow();
+				strokePathInfo.setStrokePaths(strokePathsForWord);
 
-			// speak image
-			Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 0);
-			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanaList.get(idx)));
-			actionTableRow.addScreenItem(speakImage);
+				Intent intent = new Intent(getApplicationContext(), SodActivity.class);
 
-			// clipboard kana
-			Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
-			clipboardKana.setOnClickListener(new CopyToClipboard(kanaList.get(idx)));
-			actionTableRow.addScreenItem(clipboardKana);
+				intent.putExtra("strokePathsInfo", strokePathInfo);
+				intent.putExtra("annotateStrokes", false);
 
-			// clipboard romaji
-			Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
-			clipboardRomaji.setOnClickListener(new CopyToClipboard(romajiList.get(idx)));
-			actionTableRow.addScreenItem(clipboardRomaji);
-
-			// add to favourite word list
-			if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
-
-				isAddFavouriteWordStar = true;
-				actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
-
+				startActivity(intent);
 			}
+		});
 
-			actionButtons.addTableRow(actionTableRow);
+		report.add(readingKanaStringValue);
+		report.add(readingRomajiStringValue);
 
-			report.add(actionButtons);
+		/* FM_FIXME: do naprawy
+		// ddoac pasek z roznymi akcjami, ikonkami i etc
+		TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+		TableRow actionTableRow = new TableRow();
+
+		// speak image
+		Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 0);
+		speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanaList.get(idx)));
+		actionTableRow.addScreenItem(speakImage);
+
+		// clipboard kana
+		Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
+		clipboardKana.setOnClickListener(new CopyToClipboard(kanaList.get(idx)));
+		actionTableRow.addScreenItem(clipboardKana);
+
+		// clipboard romaji
+		Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
+		clipboardRomaji.setOnClickListener(new CopyToClipboard(romajiList.get(idx)));
+		actionTableRow.addScreenItem(clipboardRomaji);
+
+		// add to favourite word list
+		if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
+
+			isAddFavouriteWordStar = true;
+			actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
+
 		}
+
+		actionButtons.addTableRow(actionTableRow);
+
+		report.add(actionButtons);
+		 */
+		// FM_FIXME: do naprawy - end
 
 		// informacje dodatkowe do czytania
 		// FM_FIXME: do naprawy
@@ -1562,6 +1550,14 @@ public class WordDictionaryDetails extends Activity {
 		}
 		*/
 
+		if (lastKanjiKanaPair == false) { // dodajemy przerwe
+			// FM_FIXME: do ustalenia rozmiar przerwy
+			StringValue spacer = new StringValue("", 90.0f, 0);
+			spacer.setGravity(Gravity.CENTER);
+			spacer.setNullMargins(true);
+
+			report.add(spacer);
+		}
 	}
 
 	private void fillDetailsMainLayout(List<IScreenItem> generatedDetails, LinearLayout detailsMainLayout) {
