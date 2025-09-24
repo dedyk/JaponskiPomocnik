@@ -1188,6 +1188,12 @@ public class WordDictionaryDetails extends Activity {
 		String kana = kanjiKanaPair.getKana();
 		String romaji = kanjiKanaPair.getRomaji();
 
+		// tabelka z guziczkami (akcjami)
+		TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+		TableRow actionTableRow = new TableRow();
+
+		actionButtons.addTableRow(actionTableRow);
+
 		if (kanji != null) {
 			// kanji draw on click listener
 			OnClickListener kanjiDrawOnClickListener = new OnClickListener() {
@@ -1332,40 +1338,6 @@ public class WordDictionaryDetails extends Activity {
 					}
 
 					report.add(furiganaTableLayout);
-
-					// FM_FIXME: do naprawy - start
-					/*
-					TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
-					TableRow actionTableRow = new TableRow();
-
-					// speak image
-					Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 0);
-					speakImage.setOnClickListener(new TTSJapaneseSpeak(null, currentFuriganaEntry.getKanaPartJoined()));
-					actionTableRow.addScreenItem(speakImage);
-
-					// copy kanji
-					Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
-					clipboardKanji.setOnClickListener(new CopyToClipboard(kanji));
-					actionTableRow.addScreenItem(clipboardKanji);
-					// FM_FIXME: do naprawy - stop
-					 */
-
-					// add to favourite word list
-					// FM_FIXME: do naprawy - start
-					/*
-					if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
-
-						isAddFavouriteWordStar = true;
-						actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
-					}
-
-					//
-
-					actionButtons.addTableRow(actionTableRow);
-					report.add(actionButtons);
-
-					*/
-					// FM_FIXME: do naprawy - stop
 				}
 			} else {
 				// FM_FIXME: sprawdzic, czy ten kod dziala poprawnie
@@ -1381,45 +1353,6 @@ public class WordDictionaryDetails extends Activity {
 				}
 
 				report.add(kanjiStringValue);
-
-				// FM_FIXME: do naprawy - start
-				/*
-				TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
-				TableRow actionTableRow = new TableRow();
-
-				Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 0);
-
-				if (kana != null) {
-					speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kana));
-				} else {
-					speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanji));
-				}
-
-				actionTableRow.addScreenItem(speakImage);
-
-				// clipboard kanji
-				Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
-				clipboardKanji.setOnClickListener(new CopyToClipboard(kanji));
-				actionTableRow.addScreenItem(clipboardKanji);
-				// FM_FIXME: do naprawy - stop
-				*/
-
-				// add to favourite word list
-				// FM_FIXME: do naprawy - start
-				/*
-				if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
-
-					isAddFavouriteWordStar = true;
-					actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
-				}
-
-				//
-
-				actionButtons.addTableRow(actionTableRow);
-				report.add(actionButtons);
-
-				// FM_FIXME: do naprawy - stop
-				*/
 			}
 		}
 
@@ -1501,40 +1434,6 @@ public class WordDictionaryDetails extends Activity {
 		report.add(readingKanaStringValue);
 		report.add(readingRomajiStringValue);
 
-		/* FM_FIXME: do naprawy
-		// ddoac pasek z roznymi akcjami, ikonkami i etc
-		TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
-		TableRow actionTableRow = new TableRow();
-
-		// speak image
-		Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 0);
-		speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kanaList.get(idx)));
-		actionTableRow.addScreenItem(speakImage);
-
-		// clipboard kana
-		Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
-		clipboardKana.setOnClickListener(new CopyToClipboard(kanaList.get(idx)));
-		actionTableRow.addScreenItem(clipboardKana);
-
-		// clipboard romaji
-		Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
-		clipboardRomaji.setOnClickListener(new CopyToClipboard(romajiList.get(idx)));
-		actionTableRow.addScreenItem(clipboardRomaji);
-
-		// add to favourite word list
-		if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
-
-			isAddFavouriteWordStar = true;
-			actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
-
-		}
-
-		actionButtons.addTableRow(actionTableRow);
-
-		report.add(actionButtons);
-		 */
-		// FM_FIXME: do naprawy - end
-
 		// informacje dodatkowe do czytania
 		// FM_FIXME: do naprawy
 		/*
@@ -1550,9 +1449,47 @@ public class WordDictionaryDetails extends Activity {
 		}
 		*/
 
+		// tabelka z guziczkami
+		// ddoac pasek z roznymi akcjami, ikonkami i etc
+
+		// speak image
+		Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 0);
+		speakImage.setOnClickListener(new TTSJapaneseSpeak(null, kana));
+		actionTableRow.addScreenItem(speakImage);
+
+		// clipboard kanji
+		if (kanji != null) {
+			Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
+			clipboardKanji.setOnClickListener(new CopyToClipboard(kanji));
+			actionTableRow.addScreenItem(clipboardKanji);
+		}
+
+		// clipboard kana
+		Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
+		clipboardKana.setOnClickListener(new CopyToClipboard(kana));
+		actionTableRow.addScreenItem(clipboardKana);
+
+		// clipboard romaji
+		Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
+		clipboardRomaji.setOnClickListener(new CopyToClipboard(romaji));
+		actionTableRow.addScreenItem(clipboardRomaji);
+
+		// add to favourite word list
+		// FM_FIXME: do naprawy
+		/*
+		if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
+			isAddFavouriteWordStar = true;
+			actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
+		}
+		*/
+
+		report.add(actionButtons);
+
+		//
+
 		if (lastKanjiKanaPair == false) { // dodajemy przerwe
 			// FM_FIXME: do ustalenia rozmiar przerwy
-			StringValue spacer = new StringValue("", 90.0f, 0);
+			StringValue spacer = new StringValue("", 30.0f, 0);
 			spacer.setGravity(Gravity.CENTER);
 			spacer.setNullMargins(true);
 
