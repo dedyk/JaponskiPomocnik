@@ -1245,9 +1245,6 @@ public class WordDictionaryDetails extends Activity {
 				}
 			}
 
-			// FM_FIXME: do naprawy
-			boolean isAddFavouriteWordStar = false;
-
 			// check furigana
 			List<FuriganaEntry> furiganaEntries = null;
 			boolean isAllCharactersStrokePathsAvailableForWord = false;
@@ -1436,13 +1433,11 @@ public class WordDictionaryDetails extends Activity {
 		actionTableRow.addScreenItem(clipboardRomaji);
 
 		// add to favourite word list
-		// FM_FIXME: do naprawy
-		/*
-		if (isAddFavouriteWordStar == false && dictionaryEntry.isName() == false) {
-			isAddFavouriteWordStar = true;
-			actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, dictionaryEntry));
+		DictionaryEntry oldDictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+
+		if (oldDictionaryEntry != null && oldDictionaryEntry.isName() == false) {
+			actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, oldDictionaryEntry));
 		}
-		*/
 
 		report.add(actionButtons);
 
@@ -1850,8 +1845,6 @@ public class WordDictionaryDetails extends Activity {
 			}
 		};
 	}
-
-
 
 	private class CopyToClipboard implements OnClickListener {
 
