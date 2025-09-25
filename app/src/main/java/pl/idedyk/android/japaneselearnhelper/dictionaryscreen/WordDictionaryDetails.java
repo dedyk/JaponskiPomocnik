@@ -462,6 +462,13 @@ public class WordDictionaryDetails extends Activity {
 		// informacja o mozliwosci pisania slow
 		report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
 
+		// mala przerwa
+		StringValue spacer = new StringValue("", 10.0f, 0);
+		spacer.setGravity(Gravity.CENTER);
+		spacer.setNullMargins(true);
+
+		report.add(spacer);
+
 		if (kanjiKanaPairList != null) { // nowy format
 			for (int kanjiKanaPairIdx = 0; kanjiKanaPairIdx < kanjiKanaPairList.size(); ++kanjiKanaPairIdx) {
 				Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair = kanjiKanaPairList.get(kanjiKanaPairIdx);
@@ -1223,26 +1230,20 @@ public class WordDictionaryDetails extends Activity {
 				}
 			};
 
-			// FM_FIXME: informacje dodatkowe do kanji
 			// informacje dodatkowe do kanji
-			/* kod z web
-			if (kanjiKanaPair.getKanjiInfo().getKanjiAdditionalInfoList().size() > 0) {
+			if (kanjiKanaPair.getKanjiInfo() != null) {
+				List<KanjiAdditionalInfoEnum> kanjiAdditionalInfoList = kanjiKanaPair.getKanjiInfo().getKanjiAdditionalInfoList();
 
-				List<String> kanjiAdditionalInfoListString = Dictionary2HelperCommon.translateToPolishKanjiAdditionalInfoEnum(kanjiKanaPair.getKanjiInfo().getKanjiAdditionalInfoList());
+				List<String> kanjiAdditionalInfoListString = Dictionary2HelperCommon.translateToPolishKanjiAdditionalInfoEnum(kanjiAdditionalInfoList);
 
 				for (String currentKanjiAdditionalInfoListString : kanjiAdditionalInfoListString) {
-					Tr singleWordDivTableKanjiAdditionalInfoTr = new Tr();
-					singleWordTable.addHtmlElement(singleWordDivTableKanjiAdditionalInfoTr);
+					StringValue currentKanjiAdditionalInfoListStringValue = new StringValue(currentKanjiAdditionalInfoListString, 13.0f, 0);
 
-					Td singleWordDivTableKanjiAdditionalInfoTrTd = new Td(null, null);
-					singleWordDivTableKanjiAdditionalInfoTr.addHtmlElement(singleWordDivTableKanjiAdditionalInfoTrTd);
+					currentKanjiAdditionalInfoListStringValue.setTypeface(Typeface.create((String)null, Typeface.ITALIC));
 
-					singleWordDivTableKanjiAdditionalInfoTrTd.setColspan("3");
-
-					singleWordDivTableKanjiAdditionalInfoTrTd.addHtmlElement(new Text(currentKanjiAdditionalInfoListString));
+					report.add(currentKanjiAdditionalInfoListStringValue);
 				}
 			}
-			*/
 
 			// FM_FIXME: do naprawy
 			boolean isAddFavouriteWordStar = false;
@@ -1356,49 +1357,24 @@ public class WordDictionaryDetails extends Activity {
 			}
 		}
 
-		//////////////////////
-		// FM_FIXME: stary kod
-		/*
-		final StringBuffer kanjiSb = new StringBuffer();
-
-		boolean addKanjiWrite = false;
-
-		if (dictionaryEntry.isKanjiExists() == true) {
-//			if (prefixKana != null) {
-//				kanjiSb.append("(").append(prefixKana).append(") ");
-//			}
-
-//			kanjiSb.append(dictionaryEntry.getKanji());
-
-			addKanjiWrite = true;
-		} else {
-			kanjiSb.append("-");
-
-			addKanjiWrite = false;
-		}
-
-		List<String> kanaList = dictionaryEntry.getKanaList();
-
-		// FM_FIXME: wycieta czesc zmian
-
-		// informacje dodatkowe do kanji
-		// FM_FIXME: do naprawy - start
-		if (addKanjiWrite == true && dictionaryEntry2KanjiKanaPair != null && dictionaryEntry2KanjiKanaPair.getKanjiInfo() != null) {
-
-			List<KanjiAdditionalInfoEnum> kanjiAdditionalInfoList = dictionaryEntry2KanjiKanaPair.getKanjiInfo().getKanjiAdditionalInfoList();
-
-			List<String> kanjiAdditionalInfoListString = Dictionary2HelperCommon.translateToPolishKanjiAdditionalInfoEnum(kanjiAdditionalInfoList);
-
-			if (kanjiAdditionalInfoList != null && kanjiAdditionalInfoList.size() > 0) {
-				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(kanjiAdditionalInfoListString, "; "), 13.0f, 0));
-			}
-		}
-		// FM_FIXME: do naprawy - end
-		*/
-
 		// Reading
 		// report.add(new TitleItem(getString(R.string.word_dictionary_details_reading_label), 0));
 		// report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
+
+		if (kanjiKanaPair.getReadingInfo() != null) {
+			List<ReadingAdditionalInfoEnum> readingAdditionalInfoList = kanjiKanaPair.getReadingInfo().getReadingAdditionalInfoList();
+
+			List<String> readingAdditionalInfoListString = Dictionary2HelperCommon.translateToPolishReadingAdditionalInfoEnum(readingAdditionalInfoList);
+
+			for (String currentReadingAdditionalInfoListString : readingAdditionalInfoListString) {
+				StringValue currentReadingAdditionalInfoListStringValue = new StringValue(currentReadingAdditionalInfoListString, 13.0f, 0);
+
+				currentReadingAdditionalInfoListStringValue.setTypeface(Typeface.create((String)null, Typeface.ITALIC));
+
+				report.add(currentReadingAdditionalInfoListStringValue);
+			}
+		}
+
 		StringValue readingKanaStringValue = new StringValue(kana, 20.0f, 0);
 		StringValue readingRomajiStringValue = new StringValue(romaji, 20.0f, 0);
 
@@ -1433,21 +1409,6 @@ public class WordDictionaryDetails extends Activity {
 
 		report.add(readingKanaStringValue);
 		report.add(readingRomajiStringValue);
-
-		// informacje dodatkowe do czytania
-		// FM_FIXME: do naprawy
-		/*
-		if (dictionaryEntry2KanjiKanaPair != null && dictionaryEntry2KanjiKanaPair.getReadingInfo() != null) {
-
-			List<ReadingAdditionalInfoEnum> readingAdditionalInfoList = dictionaryEntry2KanjiKanaPair.getReadingInfo().getReadingAdditionalInfoList();
-
-			List<String> readingAdditionalInfoListString = Dictionary2HelperCommon.translateToPolishReadingAdditionalInfoEnum(readingAdditionalInfoList);
-
-			if (readingAdditionalInfoList != null && readingAdditionalInfoList.size() > 0) {
-				report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(readingAdditionalInfoListString, "; "), 13.0f, 0));
-			}
-		}
-		*/
 
 		// tabelka z guziczkami
 		// ddoac pasek z roznymi akcjami, ikonkami i etc
@@ -1489,7 +1450,7 @@ public class WordDictionaryDetails extends Activity {
 
 		if (lastKanjiKanaPair == false) { // dodajemy przerwe
 			// FM_FIXME: do ustalenia rozmiar przerwy
-			StringValue spacer = new StringValue("", 30.0f, 0);
+			StringValue spacer = new StringValue("", 20.0f, 0);
 			spacer.setGravity(Gravity.CENTER);
 			spacer.setNullMargins(true);
 
