@@ -14,7 +14,7 @@
         <TextView
             android:id="@+id/user_group_contents_simplerow_value"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical" />
 
     </LinearLayout>
