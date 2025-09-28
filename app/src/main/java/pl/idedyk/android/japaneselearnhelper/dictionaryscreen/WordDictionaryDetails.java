@@ -930,6 +930,8 @@ public class WordDictionaryDetails extends Activity {
 
 		if (knownKanji != null && knownKanji.size() > 0) {
 
+			zmienic_kolejnosc_teraz_ten_element();
+
 			report.add(new StringValue("", 15.0f, 2));
 			report.add(new TitleItem(getString(R.string.word_dictionary_known_kanji), 0));
 			report.add(new StringValue(getString(R.string.word_dictionary_known_kanji_info), 12.0f, 0));
