@@ -1432,10 +1432,26 @@ public class WordDictionaryDetails extends Activity {
 		clipboardRomaji.setOnClickListener(new CopyToClipboard(romaji));
 		actionTableRow.addScreenItem(clipboardRomaji);
 
-		// add to favourite word list
+		// add to user groups
 		DictionaryEntry oldDictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
 
 		if (oldDictionaryEntry != null && oldDictionaryEntry.isName() == false) {
+			Image userGroupListIcon = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getUserGroupListIconId()), 0);
+			userGroupListIcon.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
+
+					DictionaryEntry dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+
+					intent.putExtra("itemToAdd", dictionaryEntry);
+
+					startActivityForResult(intent, ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE);
+				}
+			});
+			actionTableRow.addScreenItem(userGroupListIcon);
+
+			// add to favourite word list - star
 			actionTableRow.addScreenItem(createFavouriteWordStar(dictionaryManager, oldDictionaryEntry));
 		}
 
