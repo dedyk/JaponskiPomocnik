@@ -161,12 +161,12 @@ public class WordDictionaryDetails extends Activity {
 
 		MenuShorterHelper.onCreateOptionsMenu(menu);
 
-		// FM_FIXME: do naprawy
+		// to jest stary kod, juz nieaktalny
 		/*
 		if (dictionaryEntry.isName() == false) {
 			menu.add(Menu.NONE, R.id.word_dictionary_details_menu_add_item_id_to_user_group, Menu.NONE, R.string.word_dictionary_details_menu_add_item_id_to_user_group);
 		}
-		 */
+		*/
 
 		return true;
 	}
@@ -254,6 +254,7 @@ public class WordDictionaryDetails extends Activity {
 			return true;
 
 		} else if (item.getItemId() == R.id.word_dictionary_details_menu_search_next) {
+			// FM_FIXME: sprawdzic, czy to dziala
 
 			if (searchScreenItemList == null || searchScreenItemList.size() == 0) {
 				Toast.makeText(WordDictionaryDetails.this,
@@ -281,21 +282,18 @@ public class WordDictionaryDetails extends Activity {
 			return true;
 
 		} else if (item.getItemId() == R.id.word_dictionary_details_menu_add_item_id_to_user_group) {
-
-			// FM_FIXME: do naprawy - start
+			// to jest stary kod, juz nieaktualne
 			/*
 			Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
 
 			intent.putExtra("itemToAdd", dictionaryEntry);
 
 			startActivityForResult(intent, ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE);
-			// FM_FIXME: do naprawy - stop
 			*/
 
 			return true;
 
 		} else {
-
 			return MenuShorterHelper.onOptionsItemSelected(item, getApplicationContext(), this);
 		}
 	}
