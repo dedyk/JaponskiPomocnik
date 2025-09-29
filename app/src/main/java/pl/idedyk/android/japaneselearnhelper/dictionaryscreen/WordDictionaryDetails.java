@@ -561,59 +561,21 @@ public class WordDictionaryDetails extends Activity {
 						report.add(new StringValue("", 10.0f, 1));
 					}
 				}
+
+				// mala przerwa
+				spacer = new StringValue("", 10.0f, 0);
+				spacer.setGravity(Gravity.CENTER);
+				spacer.setNullMargins(true);
+
+				report.add(spacer);
 			}
 		}
 
-
-
-
-		/////////////////////////////
-
-		/////////////////////////////
-
-		if (1 == 1) {
-			// FM_FIXME: do naprawy
-			return report;
-		}
-
-		// FM_FIXME: do poprawy start
-		String prefixKana = dictionaryEntry.getPrefixKana();
-		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
-
-		if (prefixKana != null && prefixKana.length() == 0) {
-			prefixKana = null;
-		}
-
-		// pobranie slow w formacie dictionary 2/JMdict
-
-		// FM_FIXME: do usuniecia
-		// JMdict.Entry dictionaryEntry2 = null;
-		Dictionary2HelperCommon.KanjiKanaPair dictionaryEntry2KanjiKanaPair;
-
-		// pobieramy sens dla wybranej pary kanji i kana
-		if (dictionaryEntry2 != null) {
-			// FM_FIXME: do naprawy
-			/*
-			List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2);
-
-			// szukamy konkretnego znaczenia dla naszego slowa
-			dictionaryEntry2KanjiKanaPair = Dictionary2HelperCommon.findKanjiKanaPair(kanjiKanaPairList, dictionaryEntry);
-			*/
-
-			dictionaryEntry2KanjiKanaPair = null;
-
-		} else {
-			dictionaryEntry2KanjiKanaPair = null;
-		}
-
-		// FM_FIXME: tymczasowo
-		StringBuffer kanjiSb = new StringBuffer();
-
 		// Translate
+		// FM_FIXME: do poprawy
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_translate_label), 0));
 
-		if (dictionaryEntry2KanjiKanaPair == null) { // generowanie po staremu
-
+		if (dictionaryEntry != null) { // generowanie po staremu
 			List<String> translates = dictionaryEntry.getTranslates();
 
 			for (int idx = 0; idx < translates.size(); ++idx) {
@@ -621,58 +583,102 @@ public class WordDictionaryDetails extends Activity {
 			}
 
 		} else { // generowanie z danych zawartych w dictionaryEntry2
-
 			// mamy znaczenia
-			for (int senseIdx = 0; senseIdx < dictionaryEntry2KanjiKanaPair.getSenseList().size(); ++senseIdx) {
+			for (int senseIdx = 0; senseIdx < dictionaryEntry2.getSenseList().size(); ++senseIdx) {
 
-				Sense sense = dictionaryEntry2KanjiKanaPair.getSenseList().get(senseIdx);
-
-				List<Gloss> glossList = sense.getGlossList();
-				List<SenseAdditionalInfo> senseAdditionalInfoList = sense.getAdditionalInfoList();
-				List<LanguageSource> senseLanguageSourceList = sense.getLanguageSourceList();
-				List<FieldEnum> senseFieldList = sense.getFieldList();
-				List<MiscEnum> senseMiscList = sense.getMiscList();
-				List<DialectEnum> senseDialectList = sense.getDialectList();
-				List<PartOfSpeechEnum> partOfSpeechList = sense.getPartOfSpeechList();
+				Sense sense = dictionaryEntry2.getSenseList().get(senseIdx);
 
 				// numer znaczenia
 				report.add(new StringValue("" + (senseIdx + 1), 20.0f, 0));
 
-				// pobieramy polskie tlumaczenia
-				List<Gloss> glossPolList = new ArrayList<>();
+				// ograniczone do kanji/kana
+				if (sense.getRestrictedToKanjiList().size() > 0 || sense.getRestrictedToKanaList().size() > 0) {
+					List<String> restrictedToKanjiKanaList = new ArrayList<>();
 
-				for (Gloss currentGloss : glossList) {
+					restrictedToKanjiKanaList.addAll(sense.getRestrictedToKanjiList());
+					restrictedToKanjiKanaList.addAll(sense.getRestrictedToKanaList());
 
-					if (currentGloss.getLang().equals("pol") == true) {
-						glossPolList.add(currentGloss);
-					}
-				}
+					// zamiana na przetlumaczona postac
+					String restrictedToKanjiKanaString = "・" + getString(R.string.word_dictionary_search_restrictedKanjiKanaForOnly) + " " + String.join("; ", restrictedToKanjiKanaList);
 
-				// i informacje dodatkowe
-				SenseAdditionalInfo senseAdditionalPol = null;
-
-				for (SenseAdditionalInfo currentSenseAdditionalInfo : senseAdditionalInfoList) {
-
-					if (currentSenseAdditionalInfo.getLang().equals("pol") == true) {
-
-						senseAdditionalPol = currentSenseAdditionalInfo;
-
-						break;
-					}
+					report.add(new StringValue(restrictedToKanjiKanaString, 13.0f, 0));
 				}
 
 				// czesci mowy
-				if (partOfSpeechList.size() > 0) {
+				if (sense.getPartOfSpeechList().size() > 0) {
+					String translatedToPolishPartOfSpeechEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(sense.getPartOfSpeechList()));
 
-					List<String> translateToPolishPartOfSpeechEnum = Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(partOfSpeechList);
-
-					//
-
-					report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(translateToPolishPartOfSpeechEnum, "; "), 13.0f, 0));
+					report.add(new StringValue(translatedToPolishPartOfSpeechEnum, 13.0f, 0));
 				}
 
+				// kategoria slowa
+				if (sense.getFieldList().size() > 0) {
+					// zamiana na przetlumaczona postac
+					String translatedfieldEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishFieldEnumList(sense.getFieldList()));
+
+					report.add(new StringValue(translatedfieldEnum, 13.0f, 0));
+				}
+
+				// roznosci
+				if (sense.getMiscList().size() > 0) {
+					// zamiana na przetlumaczona postac
+					String translatedMiscEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishMiscEnumList(sense.getMiscList()));
+
+					report.add(new StringValue(translatedMiscEnum, 13.0f, 0));
+				}
+
+				// dialekt
+				if (sense.getDialectList().size() > 0) {
+					// zamiana na przetlumaczona postac
+					String translatedDialectEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishDialectEnumList(sense.getDialectList()));
+
+					report.add(new StringValue(translatedDialectEnum, 13.0f, 0));
+				}
+
+				// zagraniczne pochodzenie slowa
+				if (sense.getLanguageSourceList().size() > 0) {
+					// zamiana na przetlumaczona postac
+					List<String> singleLanguageSourceList = new ArrayList<>();
+
+					for (LanguageSource languageSource : sense.getLanguageSourceList()) {
+
+						StringBuffer singleLanguageSource = new StringBuffer();
+
+						String languageCodeInPolish = Dictionary2HelperCommon.translateToPolishLanguageCode(languageSource.getLang());
+						String languageValue = languageSource.getValue();
+						String languageLsWasei = Dictionary2HelperCommon.translateToPolishLanguageSourceLsWaseiEnum(languageSource.getLsWasei());
+
+						if (languageValue != null && languageValue.equals("") == false) {
+							singleLanguageSource.append(languageCodeInPolish + ": " + languageValue);
+
+						} else {
+							singleLanguageSource.append(Dictionary2HelperCommon.translateToPolishLanguageCodeWithoutValue(languageSource.getLang()));
+						}
+
+						if (languageLsWasei != null && languageLsWasei.equals("") == false) {
+							singleLanguageSource.append(", ").append(languageLsWasei);
+						}
+
+						singleLanguageSourceList.add(singleLanguageSource.toString());
+					}
+
+					String joinedLanguageSource = "・" + String.join("; ", singleLanguageSourceList);
+
+					report.add(new StringValue(joinedLanguageSource, 13.0f, 0));
+				}
+
+				// FM_FIXME: tutaj beda elementy, dokonczyc
+
+
+
+
+
 				// znaczenie
-				for (Gloss currentGlossPol : glossPolList) {
+				List<Gloss> polishGlossList = Dictionary2HelperCommon.getPolishGlossList(sense.getGlossList());
+				SenseAdditionalInfo polishAdditionalInfo = Dictionary2HelperCommon.findFirstPolishAdditionalInfo(sense.getAdditionalInfoList());
+
+				// znaczenie
+				for (Gloss currentGlossPol : polishGlossList) {
 
 					String currentGlossPolReportValue = currentGlossPol.getValue();
 
@@ -683,6 +689,56 @@ public class WordDictionaryDetails extends Activity {
 
 					report.add(new StringValue(currentGlossPolReportValue, 20.0f, 0));
 				}
+
+
+
+				// przerwa
+				report.add(new StringValue("", 10.0f, 0));
+			}
+		}
+
+		// FM_FIXME: kod z web - start
+		/*
+		for (int senseIdx = 0; senseIdx < entry.getSenseList().size(); ++senseIdx) {
+
+			Sense sense = entry.getSenseList().get(senseIdx);
+
+			// odnosnic do innego slowa
+			if (sense.getReferenceToAnotherKanjiKanaList().size() > 0) {
+				createReferenceAntonymToAnotherKanjiKanaDiv(messageSource, servletContextPath, singleSenseDiv, sense.getReferenceToAnotherKanjiKanaList(), "wordDictionary.page.search.table.column.details.referenceToAnotherKanjiKana");
+			}
+
+			// odnosnic do przeciwienstwa
+			if (sense.getAntonymList().size() > 0) {
+				createReferenceAntonymToAnotherKanjiKanaDiv(messageSource, servletContextPath, singleSenseDiv, sense.getAntonymList(), "wordDictionary.page.search.table.column.details.referewnceToAntonymKanjiKana");
+			}
+
+			// FM_FIXME: tu bylo znaczenie
+
+			// informacje dodatkowe
+			if (polishAdditionalInfo != null) {
+				Div infoDiv = new Div(null, "margin-left: 40px; margin-top: 3px; text-align: justify; font-size: 90%");
+
+				infoDiv.addHtmlElement(new Text(getStringWithMark(polishAdditionalInfo.getValue(), findWord, true)));
+
+				singleSenseDiv.addHtmlElement(infoDiv);
+			}
+		}
+		// FM_FIXME: kod z web - koniec
+		*/
+
+
+		/*
+		// FM_FIXME: stary kod
+
+		if (dictionaryEntry2KanjiKanaPair == null) { // generowanie po staremu
+			// FM_FIXME: kod zostal juz przeniesiony
+
+		} else {
+
+			for (int senseIdx = 0; senseIdx < dictionaryEntry2KanjiKanaPair.getSenseList().size(); ++senseIdx) {
+
+				Sense sense = dictionaryEntry2KanjiKanaPair.getSenseList().get(senseIdx);
 
 				// informacje dodatkowe
 				List<String> additionalInfoToAddList = new ArrayList<>();
@@ -734,11 +790,53 @@ public class WordDictionaryDetails extends Activity {
 				if (additionalInfoToAddList.size() > 0) {
 					report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(additionalInfoToAddList, "; "), 13.0f, 0));
 				}
-
-				// przerwa
-				report.add(new StringValue("", 10.0f, 0));
 			}
 		}
+		*/
+
+
+
+		/////////////////////////////
+
+		/////////////////////////////
+
+		if (1 == 1) {
+			// FM_FIXME: do naprawy
+			return report;
+		}
+
+		// FM_FIXME: do poprawy start
+		String prefixKana = dictionaryEntry.getPrefixKana();
+		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
+
+		if (prefixKana != null && prefixKana.length() == 0) {
+			prefixKana = null;
+		}
+
+		// pobranie slow w formacie dictionary 2/JMdict
+
+		// FM_FIXME: do usuniecia
+		// JMdict.Entry dictionaryEntry2 = null;
+		Dictionary2HelperCommon.KanjiKanaPair dictionaryEntry2KanjiKanaPair;
+
+		// pobieramy sens dla wybranej pary kanji i kana
+		if (dictionaryEntry2 != null) {
+			// FM_FIXME: do naprawy
+			/*
+			List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2);
+
+			// szukamy konkretnego znaczenia dla naszego slowa
+			dictionaryEntry2KanjiKanaPair = Dictionary2HelperCommon.findKanjiKanaPair(kanjiKanaPairList, dictionaryEntry);
+			*/
+
+			dictionaryEntry2KanjiKanaPair = null;
+
+		} else {
+			dictionaryEntry2KanjiKanaPair = null;
+		}
+
+		// FM_FIXME: tymczasowo
+		StringBuffer kanjiSb = new StringBuffer();
 
 		// Additional info
 		if (dictionaryEntry2KanjiKanaPair == null) { // generowanie tylko dla slownika w starym formacie, w nowym formacie informacje te znajda sie w sekcji znaczen

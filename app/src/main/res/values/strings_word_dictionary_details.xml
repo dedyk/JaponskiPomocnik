@@ -5,7 +5,7 @@
     <string name="word_dictionary_details_words_label">Słowa</string>
     <string name="word_dictionary_details_kanji_label">Kanji</string>
     <string name="word_dictionary_details_reading_label">Czytanie</string>
-    <string name="word_dictionary_details_translate_label">Tłumaczenie</string>
+    <string name="word_dictionary_details_translate_label">Znaczenie</string>
     <string name="word_dictionary_details_additional_info_label">Informacje dodatkowe</string>
     <string name="word_dictionary_details_part_of_speech">Część mowy</string>
     <string name="word_dictionary_details_part_of_speech_press">Naciśnij na pozycję, aby zobaczyć odmianę i przykłady dla wybranej części mowy</string>
