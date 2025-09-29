@@ -668,7 +668,7 @@ public class WordDictionaryDetails extends Activity {
 				}
 
 				// FM_FIXME: tutaj beda elementy, dokonczyc
-
+				// FM_FIXME: polaczyc to z kodem dla wyszukiwania, zrobic w WordKanjiDictionaryUtils wspolny kod
 
 
 
