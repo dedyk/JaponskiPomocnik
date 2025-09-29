@@ -2,10 +2,12 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
@@ -498,6 +500,73 @@ public class WordDictionaryDetails extends Activity {
 			createWordKanjiKanaPairSection(report, virtualKanjiKanaPair, true);
 		}
 
+		// known kanji
+		Set<String> allKanjis = new LinkedHashSet<>();
+
+		if (dictionaryEntry != null && dictionaryEntry.isKanjiExists() == true) { // obsluga starego formatu
+			for (int idx = 0; idx < dictionaryEntry.getKanji().length(); ++idx) {
+				allKanjis.add("" + dictionaryEntry.getKanji().charAt(idx));
+			}
+
+		} else if (kanjiKanaPairList != null) { // nowy format
+			kanjiKanaPairList.stream().filter(f -> f.getKanjiInfo() != null).forEach(c -> {
+				for (int idx = 0; idx < c.getKanji().length(); ++idx) {
+					allKanjis.add("" + c.getKanji().charAt(idx));
+				}
+			});
+		}
+
+		if (allKanjis.size() > 0) {
+			List<KanjiCharacterInfo> knownKanji = null;
+
+			try {
+				knownKanji = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this)
+						.findKnownKanji(allKanjis.toString());
+
+			} catch (DictionaryException e) {
+				Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+			}
+
+			if (knownKanji != null && knownKanji.size() > 0) {
+				report.add(new StringValue("", 15.0f, 2));
+				report.add(new TitleItem(getString(R.string.word_dictionary_known_kanji), 0));
+				report.add(new StringValue(getString(R.string.word_dictionary_known_kanji_info), 12.0f, 0));
+
+				for (int knownKanjiIdx = 0; knownKanjiIdx < knownKanji.size(); ++knownKanjiIdx) {
+					final KanjiCharacterInfo kanjiEntry = knownKanji.get(knownKanjiIdx);
+
+					OnClickListener kanjiOnClickListener = new OnClickListener() {
+						@Override
+						public void onClick(View v) {
+							// show kanji details
+							Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
+
+							intent.putExtra("id", kanjiEntry.getId());
+
+							startActivity(intent);
+						}
+					};
+
+					StringValue knownKanjiStringValue = new StringValue(kanjiEntry.getKanji(), 16.0f, 1);
+					StringValue polishTranslateStringValue = new StringValue(Utils.getPolishTranslates(kanjiEntry).toString(),
+							16.0f, 1);
+
+					knownKanjiStringValue.setOnClickListener(kanjiOnClickListener);
+					polishTranslateStringValue.setOnClickListener(kanjiOnClickListener);
+
+					report.add(knownKanjiStringValue);
+					report.add(polishTranslateStringValue);
+
+					if (knownKanjiIdx != knownKanji.size() - 1) {
+						report.add(new StringValue("", 10.0f, 1));
+					}
+				}
+			}
+		}
+
+
+
+
 		/////////////////////////////
 
 		/////////////////////////////
@@ -913,62 +982,6 @@ public class WordDictionaryDetails extends Activity {
 
 		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));
 		*/
-
-		// known kanji
-		List<KanjiCharacterInfo> knownKanji = null;
-
-		if (dictionaryEntry.isKanjiExists() == true) {
-
-			try {
-				knownKanji = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this)
-						.findKnownKanji(dictionaryEntry.getKanji());
-
-			} catch (DictionaryException e) {
-				Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
-			}
-		}
-
-		if (knownKanji != null && knownKanji.size() > 0) {
-
-			zmienic_kolejnosc_teraz_ten_element();
-
-			report.add(new StringValue("", 15.0f, 2));
-			report.add(new TitleItem(getString(R.string.word_dictionary_known_kanji), 0));
-			report.add(new StringValue(getString(R.string.word_dictionary_known_kanji_info), 12.0f, 0));
-
-			for (int knownKanjiIdx = 0; knownKanjiIdx < knownKanji.size(); ++knownKanjiIdx) {
-
-				final KanjiCharacterInfo kanjiEntry = knownKanji.get(knownKanjiIdx);
-
-				OnClickListener kanjiOnClickListener = new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						// show kanji details
-						Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
-
-						intent.putExtra("id", kanjiEntry.getId());
-
-						startActivity(intent);
-					}
-				};
-
-				StringValue knownKanjiStringValue = new StringValue(kanjiEntry.getKanji(), 16.0f, 1);
-				StringValue polishTranslateStringValue = new StringValue(Utils.getPolishTranslates(kanjiEntry).toString(),
-						16.0f, 1);
-
-				knownKanjiStringValue.setOnClickListener(kanjiOnClickListener);
-				polishTranslateStringValue.setOnClickListener(kanjiOnClickListener);
-
-				report.add(knownKanjiStringValue);
-				report.add(polishTranslateStringValue);
-
-				if (knownKanjiIdx != knownKanji.size() - 1) {
-					report.add(new StringValue("", 10.0f, 1));
-				}
-
-			}
-		}
 
 		// index
 		int indexStartPos = report.size();
