@@ -105,7 +105,6 @@ public class WordKanjiDictionaryUtils {
             }
 
             for (int senseIdx = 0; senseIdx < dictionaryEntry2.getSenseList().size(); ++senseIdx) {
-                // FM_FIXME: chwilowo
                 Sense sense = dictionaryEntry2.getSenseList().get(senseIdx);
                 PrintableDictionaryEntry2Sense printableDictionaryEntry2Sense = new PrintableDictionaryEntry2Sense(sense);
 
