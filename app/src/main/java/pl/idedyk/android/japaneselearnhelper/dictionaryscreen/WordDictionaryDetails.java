@@ -573,7 +573,6 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// Translate
-		// FM_FIXME: do poprawy
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_translate_label), 0));
 
 		if (dictionaryEntry != null) { // generowanie po staremu
@@ -668,62 +667,18 @@ public class WordDictionaryDetails extends Activity {
 					report.add(new StringValue(currentGlossPolReportValue, 20.0f, 0));
 				}
 
-
+				// informacje dodatkowe
+				if (polishAdditionalInfo != null) { // czy informacje dodatkowe istnieja
+					report.add(new StringValue(polishAdditionalInfo.getValue(), 13.0f, 1));
+				}
 
 				// przerwa
 				report.add(new StringValue("", 10.0f, 0));
 			}
 		}
 
-		// FM_FIXME: kod z web - start
-		/*
-		for (int senseIdx = 0; senseIdx < entry.getSenseList().size(); ++senseIdx) {
-
-			Sense sense = entry.getSenseList().get(senseIdx);
-
-			// FM_FIXME: tu bylo znaczenie
-
-			// informacje dodatkowe
-			if (polishAdditionalInfo != null) {
-				Div infoDiv = new Div(null, "margin-left: 40px; margin-top: 3px; text-align: justify; font-size: 90%");
-
-				infoDiv.addHtmlElement(new Text(getStringWithMark(polishAdditionalInfo.getValue(), findWord, true)));
-
-				singleSenseDiv.addHtmlElement(infoDiv);
-			}
-		}
-		// FM_FIXME: kod z web - koniec
-		*/
-
-
-		/*
-		// FM_FIXME: stary kod
-
-		if (dictionaryEntry2KanjiKanaPair == null) { // generowanie po staremu
-			// FM_FIXME: kod zostal juz przeniesiony
-
-		} else {
-
-			for (int senseIdx = 0; senseIdx < dictionaryEntry2KanjiKanaPair.getSenseList().size(); ++senseIdx) {
-
-				Sense sense = dictionaryEntry2KanjiKanaPair.getSenseList().get(senseIdx);
-
-				// informacje dodatkowe
-				List<String> additionalInfoToAddList = new ArrayList<>();
-
-				if (senseAdditionalPol != null) { // czy informacje dodatkowe istnieja
-
-					String senseAdditionalPolOptionalValue = senseAdditionalPol.getValue();
-
-					additionalInfoToAddList.add(senseAdditionalPolOptionalValue);
-				}
-
-				if (additionalInfoToAddList.size() > 0) {
-					report.add(new StringValue(pl.idedyk.japanese.dictionary.api.dictionary.Utils.convertListToString(additionalInfoToAddList, "; "), 13.0f, 0));
-				}
-			}
-		}
-		*/
+		// FM_FIXME: informacje dodatkowe, specjalne
+		fixme();
 
 		/////////////////////////////
 
