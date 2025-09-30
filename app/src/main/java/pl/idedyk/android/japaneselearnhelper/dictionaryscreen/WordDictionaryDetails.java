@@ -669,7 +669,7 @@ public class WordDictionaryDetails extends Activity {
 
 				// informacje dodatkowe
 				if (polishAdditionalInfo != null) { // czy informacje dodatkowe istnieja
-					report.add(new StringValue(polishAdditionalInfo.getValue(), 13.0f, 1));
+					report.add(new StringValue(polishAdditionalInfo.getValue(), 15.0f, 1));
 				}
 
 				// przerwa
@@ -677,8 +677,95 @@ public class WordDictionaryDetails extends Activity {
 			}
 		}
 
-		// FM_FIXME: informacje dodatkowe, specjalne
-		fixme();
+		// informacje dodatkowe
+		boolean doAddAdditionalInfo = true;
+
+		String info = null;
+		String kanji = null;
+
+		if (dictionaryEntry != null) {
+			info = dictionaryEntry.getInfo();
+			kanji = dictionaryEntry.getKanji();
+
+		} else if (kanjiKanaPairList != null) {
+			for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
+				KanjiInfo kanjiInfo = kanjiKanaPair.getKanjiInfo();
+
+				if (kanjiInfo != null) { // wystarczy badac tylko jeden element
+					kanji = kanjiInfo.getKanji();
+				}
+			}
+
+			info = null;
+
+		} else {
+			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
+		}
+
+		int special = 0;
+
+		if (kanji != null && isSmTsukiNiKawatteOshiokiYo(kanji) == true) {
+			special = 1;
+
+		} else if (kanji != null && isButaMoOdateryaKiNiNoboru(kanji) == true) {
+			special = 2;
+
+		} else if (kanji != null && isTakakoOkamura(kanji) == true) {
+			special = 3;
+		}
+
+		if (special == 0 && kanjiKanaPairList != null) { // dla slownika w formacie drugim nie generuj tej sekcji; informacje te znajda sie w sekcji znaczen
+			doAddAdditionalInfo = false;
+		}
+
+		if (!(info != null && info.length() > 0) && (special == 0)) {
+			doAddAdditionalInfo = false;
+		}
+
+		if (doAddAdditionalInfo == true) {
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_additional_info_label), 0));
+
+			if (special == 1) {
+				// report.add(createSpecialAAText(R.string.sm_tsuki_ni_kawatte_oshioki_yo));
+
+				Image smTsukiNiKawatteOshiokoYo = new Image(getResources().getDrawable(R.drawable.sm_tsuki_ni_kawatte_oshioki_yo), 0);
+
+				smTsukiNiKawatteOshiokoYo.setScaleType(ImageView.ScaleType.FIT_CENTER);
+				smTsukiNiKawatteOshiokoYo.setAdjustViewBounds(true);
+
+				report.add(smTsukiNiKawatteOshiokoYo);
+
+			} else if (special == 2) {
+				// report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
+
+				Image butamoodateryakininoboru = new Image(getResources().getDrawable(R.drawable.buta_mo_odaterya_ki_ni_noboru), 0);
+
+				butamoodateryakininoboru.setScaleType(ImageView.ScaleType.FIT_CENTER);
+				butamoodateryakininoboru.setAdjustViewBounds(true);
+
+				report.add(butamoodateryakininoboru);
+
+			} else if (special == 3) {
+
+				if (info != null && info.length() > 0) {
+					report.add(new StringValue(info, 20.0f, 0));
+				}
+
+				Image takakoOkamuraImage = new Image(getResources().getDrawable(R.drawable.takako_okamura2), 0);
+
+				takakoOkamuraImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
+				takakoOkamuraImage.setAdjustViewBounds(true);
+
+				report.add(takakoOkamuraImage);
+
+			} else {
+				if (info != null && info.length() > 0) {
+					report.add(new StringValue(info, 20.0f, 0));
+				} else {
+					report.add(new StringValue("-", 20.0f, 0));
+				}
+			}
+		}
 
 		/////////////////////////////
 
@@ -721,57 +808,6 @@ public class WordDictionaryDetails extends Activity {
 
 		// FM_FIXME: tymczasowo
 		StringBuffer kanjiSb = new StringBuffer();
-
-		// Additional info
-		if (dictionaryEntry2KanjiKanaPair == null) { // generowanie tylko dla slownika w starym formacie, w nowym formacie informacje te znajda sie w sekcji znaczen
-
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_additional_info_label), 0));
-
-			if (isSmTsukiNiKawatteOshiokiYo(kanjiSb.toString()) == true) {
-				// report.add(createSpecialAAText(R.string.sm_tsuki_ni_kawatte_oshioki_yo));
-
-				Image smTsukiNiKawatteOshiokoYo = new Image(getResources().getDrawable(R.drawable.sm_tsuki_ni_kawatte_oshioki_yo), 0);
-
-				smTsukiNiKawatteOshiokoYo.setScaleType(ImageView.ScaleType.FIT_CENTER);
-				smTsukiNiKawatteOshiokoYo.setAdjustViewBounds(true);
-
-				report.add(smTsukiNiKawatteOshiokoYo);
-
-			} else if (isButaMoOdateryaKiNiNoboru(kanjiSb.toString()) == true) {
-				// report.add(createSpecialAAText(R.string.buta_mo_odaterya_ki_ni_noboru));
-
-				Image butamoodateryakininoboru = new Image(getResources().getDrawable(R.drawable.buta_mo_odaterya_ki_ni_noboru), 0);
-
-				butamoodateryakininoboru.setScaleType(ImageView.ScaleType.FIT_CENTER);
-				butamoodateryakininoboru.setAdjustViewBounds(true);
-
-				report.add(butamoodateryakininoboru);
-
-			} else if (isTakakoOkamura(kanjiSb.toString()) == true) {
-				String info = dictionaryEntry.getInfo();
-
-				if (info != null && info.length() > 0) {
-					report.add(new StringValue(info, 20.0f, 0));
-				} else {
-					report.add(new StringValue("-", 20.0f, 0));
-				}
-
-				Image takakoOkamuraImage = new Image(getResources().getDrawable(R.drawable.takako_okamura2), 0);
-
-				takakoOkamuraImage.setScaleType(ImageView.ScaleType.FIT_CENTER);
-				takakoOkamuraImage.setAdjustViewBounds(true);
-
-				report.add(takakoOkamuraImage);
-			} else {
-				String info = dictionaryEntry.getInfo();
-
-				if (info != null && info.length() > 0) {
-					report.add(new StringValue(info, 20.0f, 0));
-				} else {
-					report.add(new StringValue("-", 20.0f, 0));
-				}
-			}
-		}
 
 		// Word type
 		int addableDictionaryEntryTypeInfoCounter = 0;
@@ -1007,7 +1043,8 @@ public class WordDictionaryDetails extends Activity {
 					if (currentGrammaFormConjugateResult.getResultType().isShow() == true) {
 						report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
 
-						String info = currentGrammaFormConjugateResult.getResultType().getInfo();
+						// FM_FIXME: String info -> info
+						info = currentGrammaFormConjugateResult.getResultType().getInfo();
 
 						if (info != null) {
 							report.add(new StringValue(info, 12.0f, 2));
