@@ -767,6 +767,120 @@ public class WordDictionaryDetails extends Activity {
 			}
 		}
 
+		// atrybuty
+		final List<Attribute> attributeList;
+
+		if (dictionaryEntry != null) {
+			attributeList = dictionaryEntry.getAttributeList().getAttributeList();
+
+		} else if (dictionaryEntry2 != null) {
+			attributeList = new ArrayList<>();
+
+			dictionaryEntry2.getMisc().getOldPolishJapaneseDictionary().getAttributeList().stream().forEach(attr -> {
+				Attribute attribute = new Attribute();
+
+				attribute.setAttributeType(AttributeType.valueOf(attr.getType()));
+				attribute.setSingleAttributeValue(attr.getValue());
+
+				attributeList.add(attribute);
+			});
+
+		} else {
+			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
+		}
+
+		if (attributeList != null && attributeList.size() > 0) {
+			boolean addedSomeAttribute = false;
+
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_attributes), 0));
+
+			for (Attribute currentAttribute : attributeList) {
+				AttributeType attributeType = currentAttribute.getAttributeType();
+
+				if (attributeType.isShow() == true) {
+					report.add(new StringValue(attributeType.getName(), 15.0f, 0));
+
+					addedSomeAttribute = true;
+				}
+
+				JMdict.Entry referenceDictionaryEntry;
+
+				// pobieramy powiazane Entry
+				try {
+					if (attributeType == AttributeType.VERB_TRANSITIVITY_PAIR || attributeType == AttributeType.VERB_INTRANSITIVITY_PAIR) {
+						Integer referenceWordId = Integer.parseInt(currentAttribute.getAttributeValue().get(0));
+
+						referenceDictionaryEntry = JapaneseAndroidLearnHelperApplication
+								.getInstance().getDictionaryManager(WordDictionaryDetails.this).getDictionaryEntry2ByOldPolishJapaneseDictionaryId(referenceWordId);
+
+					} else if (attributeType == AttributeType.RELATED || attributeType == AttributeType.ANTONYM) {
+						Integer referenceWordId = Integer.parseInt(currentAttribute.getAttributeValue().get(0));
+
+						referenceDictionaryEntry = JapaneseAndroidLearnHelperApplication
+								.getInstance().getDictionaryManager(WordDictionaryDetails.this).getDictionaryEntry2ById(referenceWordId);
+
+					} else {
+						referenceDictionaryEntry = null;
+					}
+
+				} catch (DictionaryException e) {
+					Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+					referenceDictionaryEntry = null;
+				}
+
+				if (referenceDictionaryEntry != null && (dictionaryEntry2 == null || dictionaryEntry2.getEntryId().intValue() != referenceDictionaryEntry.getEntryId().intValue())) {
+					addedSomeAttribute = true;
+
+					JMdict.Entry referenceDictionaryEntryAsFinal = referenceDictionaryEntry;
+
+					// pobieramy z powiazanego slowa wszystkie czyatnia
+					List<Dictionary2HelperCommon.KanjiKanaPair> referenceDictionaryEntryKanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(referenceDictionaryEntry, true);
+
+					StringValue attributeTypeStringValue = new StringValue(attributeType.getName(), 15.0f, 0);
+
+					OnClickListener goToReferenceDictionaryEntryDetails = new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+
+							intent.putExtra("item", referenceDictionaryEntryAsFinal);
+
+							startActivity(intent);
+						}
+					};
+
+					attributeTypeStringValue.setOnClickListener(goToReferenceDictionaryEntryDetails);
+
+					report.add(attributeTypeStringValue);
+
+					// czasownik przechodni / nieprzechodni / alternatywa
+					String referenceDictionaryEntryKana = referenceDictionaryEntryKanjiKanaPairList.get(0).getKana();
+					String referenceDictionaryEntryRomaji = referenceDictionaryEntryKanjiKanaPairList.get(0).getRomaji();
+
+					StringBuffer referenceDictionaryEntrySb = new StringBuffer();
+
+					if (referenceDictionaryEntryKanjiKanaPairList.get(0).getKanji() != null) {
+						referenceDictionaryEntrySb.append(referenceDictionaryEntryKanjiKanaPairList.get(0).getKanji()).append(", ");
+					}
+
+					referenceDictionaryEntrySb.append(referenceDictionaryEntryKana).append(", ");
+					referenceDictionaryEntrySb.append(referenceDictionaryEntryRomaji);
+
+					StringValue referenceDictionaryEntryKanaRomajiStringValue = new StringValue(referenceDictionaryEntrySb.toString(), 15.0f, 1);
+
+					referenceDictionaryEntryKanaRomajiStringValue.setOnClickListener(goToReferenceDictionaryEntryDetails);
+
+					report.add(referenceDictionaryEntryKanaRomajiStringValue);
+				}
+			}
+
+			if (addedSomeAttribute == false) {
+				report.removeLast(); // usuwamy tytul, skoro nie bylo zadnego atrybutu
+			}
+		}
+
 		/////////////////////////////
 
 		/////////////////////////////
@@ -855,97 +969,6 @@ public class WordDictionaryDetails extends Activity {
 				}
 
 				report.add(currentDictionaryEntryTypeStringValue);
-			}
-		}
-
-		List<Attribute> attributeList = dictionaryEntry.getAttributeList().getAttributeList();
-
-		if (attributeList != null && attributeList.size() > 0) {
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_attributes), 0));
-
-			for (Attribute currentAttribute : attributeList) {
-
-				AttributeType attributeType = currentAttribute.getAttributeType();
-
-				if (attributeType.isShow() == true) {
-					report.add(new StringValue(attributeType.getName(), 15.0f, 0));
-				}
-
-				if (	attributeType == AttributeType.VERB_TRANSITIVITY_PAIR ||
-						attributeType == AttributeType.VERB_INTRANSITIVITY_PAIR ||
-						attributeType == AttributeType.ALTERNATIVE ||
-						attributeType == AttributeType.RELATED ||
-						attributeType == AttributeType.ANTONYM) {
-
-					Integer referenceWordId = Integer.parseInt(currentAttribute.getAttributeValue().get(0));
-
-					DictionaryEntry referenceDictionaryEntryNonFinal = null;
-
-					try {
-						// FM_FIXME: do naprawy
-						/*
-						referenceDictionaryEntryNonFinal = JapaneseAndroidLearnHelperApplication
-								.getInstance().getDictionaryManager(WordDictionaryDetails.this)
-								.getDictionaryEntryById(referenceWordId);
-						*/
-
-						if (1 == 1) {
-							throw new DictionaryException("FM_FIXME");
-						}
-
-					} catch (DictionaryException e) {
-
-						Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
-
-						referenceDictionaryEntryNonFinal = null;
-					}
-
-					final DictionaryEntry referenceDictionaryEntry = referenceDictionaryEntryNonFinal;
-
-					if (referenceDictionaryEntry != null) {
-
-						StringValue attributeTypeStringValue = new StringValue(attributeType.getName(), 15.0f, 0);
-
-						OnClickListener goToReferenceDictionaryEntryDetails = new OnClickListener() {
-
-							@Override
-							public void onClick(View v) {
-
-								// FM_FIXME: do naprawy
-								Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
-
-								intent.putExtra("item", referenceDictionaryEntry);
-
-								startActivity(intent);
-							}
-						};
-
-						attributeTypeStringValue.setOnClickListener(goToReferenceDictionaryEntryDetails);
-
-						report.add(attributeTypeStringValue);
-
-						String kana = referenceDictionaryEntry.getKana();
-						String romaji = referenceDictionaryEntry.getRomaji();
-						
-						StringBuffer referenceDictionaryEntrySb = new StringBuffer();
-
-						if (referenceDictionaryEntry.isKanjiExists() == true) {
-							referenceDictionaryEntrySb.append(referenceDictionaryEntry.getKanji()).append(", ");
-						}
-
-						referenceDictionaryEntrySb.append(kana).append(", ");
-						referenceDictionaryEntrySb.append(romaji);
-
-						StringValue referenceDictionaryEntryKanaRomajiStringValue = new StringValue(
-								referenceDictionaryEntrySb.toString(), 15.0f, 1);
-
-						referenceDictionaryEntryKanaRomajiStringValue
-								.setOnClickListener(goToReferenceDictionaryEntryDetails);
-
-						report.add(referenceDictionaryEntryKanaRomajiStringValue);
-					}
-					
-				}
 			}
 		}
 
