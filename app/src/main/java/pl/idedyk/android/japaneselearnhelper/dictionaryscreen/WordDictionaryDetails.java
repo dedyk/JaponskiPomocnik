@@ -21,7 +21,6 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.Image;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
-import pl.idedyk.android.japaneselearnhelper.screen.TabLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
@@ -870,7 +869,7 @@ public class WordDictionaryDetails extends Activity {
 
 		// FM_FIXME: testy !!!!!!!!!!!!!111
 		report.add(new TitleItem("FM_FIXME: testy", 0));
-		report.add(new TabLayout());
+		// report.add(new TabLayout());
 
 		/////////////////////////////
 
