@@ -9,7 +9,7 @@
     <string name="word_dictionary_details_additional_info_label">Informacje dodatkowe</string>
     <string name="word_dictionary_details_part_of_speech">Część mowy</string>
     <string name="word_dictionary_details_part_of_speech_press">Naciśnij na pozycję, aby zobaczyć odmianę i przykłady dla wybranej części mowy</string>
-    <string name="word_dictionary_details_part_of_speech_info">Naciśnij na przycisk, aby zobaczyć części mowy dla wybranego słowa</string>
+    <string name="word_dictionary_details_part_of_speech_info">Naciśnij na słowo, aby zobaczyć części mowy dla wybranego słowa</string>
     <string name="word_dictionary_details_attributes">Dodatkowe atrybuty</string>
     <string name="word_dictionary_details_dictionary_groups">Występowanie znaku</string>
     <string name="word_dictionary_details_user_groups">Grupy użytkownika</string>

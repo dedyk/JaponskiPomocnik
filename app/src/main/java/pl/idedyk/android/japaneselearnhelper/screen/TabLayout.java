@@ -1,10 +1,13 @@
 package pl.idedyk.android.japaneselearnhelper.screen;
 
+import android.animation.LayoutTransition;
 import android.content.Context;
 import android.content.res.Resources;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -76,6 +79,18 @@ public class TabLayout implements IScreenItem {
         contentLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         contentLinearLayout.setOrientation(LinearLayout.VERTICAL);
 
+        // dodanie animacji do zmiany zawartosci;
+        LayoutTransition layoutTransition = new LayoutTransition();
+
+        layoutTransition.setStartDelay(LayoutTransition.APPEARING, 200);
+        layoutTransition.setDuration(LayoutTransition.APPEARING, 500);
+
+        Animation appearingAnim = AnimationUtils.loadAnimation(context, android.R.anim.fade_in);
+
+        contentLinearLayout.setLayoutTransition(layoutTransition);
+        contentLinearLayout.setAnimation(appearingAnim);
+
+        // dodanie zawartosci do przewijaka
         contentScrollView.addView(contentLinearLayout);
 
         // generowanie zawartosci tabulatora

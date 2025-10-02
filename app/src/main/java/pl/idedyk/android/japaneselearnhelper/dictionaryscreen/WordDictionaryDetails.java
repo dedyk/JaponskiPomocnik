@@ -955,6 +955,7 @@ public class WordDictionaryDetails extends Activity {
 		*/
 
 		// FM_FIXME: testy !!!!!!!!!!!!!111
+		/*
 		report.add(new TitleItem("FM_FIXME: testy", 0));
 
 		TabLayout tabLayout = new TabLayout();
@@ -984,7 +985,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		report.add(tabLayout);
-
+		*/
 
 
 		/////////////////////////////
