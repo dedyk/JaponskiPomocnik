@@ -871,86 +871,167 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		// Word type
-		// FM_FIXME: testy !!!!!!!
-		{
-			List<DictionaryEntry> dictionaryEntryListForWordType = new ArrayList<>();
+		List<DictionaryEntry> dictionaryEntryListForWordType = new ArrayList<>();
 
-			if (dictionaryEntry != null) {
-				dictionaryEntryListForWordType.add(dictionaryEntry);
+		if (dictionaryEntry != null) {
+			dictionaryEntryListForWordType.add(dictionaryEntry);
 
-			} else if (kanjiKanaPairList != null) {
-				dictionaryEntryListForWordType.addAll(convertKanjiKanaPairListToOldDictionaryEntry(kanjiKanaPairList));
+		} else if (kanjiKanaPairList != null) {
+			dictionaryEntryListForWordType.addAll(convertKanjiKanaPairListToOldDictionaryEntry(kanjiKanaPairList));
+		}
+
+		if (dictionaryEntryListForWordType.size() > 0) { // generujemy zawartosc typu slow
+
+			List<TabLayoutItem> tabLayoutItemList = new ArrayList<>();
+			Set<Integer> uniqueAddableDictionaryEntryTypeList = new TreeSet<>();
+
+			for (int dictionaryEntryIdxForWordType = 0; dictionaryEntryIdxForWordType < dictionaryEntryListForWordType.size(); ++dictionaryEntryIdxForWordType) {
+				DictionaryEntry dictionaryEntryForWordType = dictionaryEntryListForWordType.get(dictionaryEntryIdxForWordType);
+
+				// sprawdzenie, czy jest cos do pokazania
+				int addableDictionaryEntryTypeInfoCounter = 0;
+
+				List<DictionaryEntryType> addableDictionaryEntryTypeList = new ArrayList<>();
+
+				if (dictionaryEntryForWordType.getDictionaryEntryTypeList() != null) {
+					for (DictionaryEntryType currentDictionaryEntryType : dictionaryEntryForWordType.getDictionaryEntryTypeList()) {
+
+						boolean addableDictionaryEntryTypeInfo = DictionaryEntryType.isAddableDictionaryEntryTypeInfo(currentDictionaryEntryType);
+
+						if (addableDictionaryEntryTypeInfo == true) {
+							addableDictionaryEntryTypeList.add(currentDictionaryEntryType);
+						}
+					}
+				}
+
+				//
+
+				if (addableDictionaryEntryTypeList.size() > 0) {
+					// dodanie hash code unikalnej zawartosci
+					uniqueAddableDictionaryEntryTypeList.add(addableDictionaryEntryTypeList.hashCode());
+
+					TabLayoutItem tabLayoutItem = new TabLayoutItem((dictionaryEntryForWordType.isKanjiExists() == true ? dictionaryEntryForWordType.getKanji()  + ", " : "") + dictionaryEntryForWordType.getKana());
+
+					for (final DictionaryEntryType currentAddableDictionaryEntryType : addableDictionaryEntryTypeList) {
+						StringValue currentDictionaryEntryTypeStringValue = new StringValue(currentAddableDictionaryEntryType.getName(), 20.0f, 0);
+
+						tabLayoutItem.addToTabContents(currentDictionaryEntryTypeStringValue);
+					}
+
+					tabLayoutItemList.add(tabLayoutItem);
+				}
 			}
 
-			if (dictionaryEntryListForWordType.size() > 0) { // generujemy zawartosc typu slow
+			if (tabLayoutItemList.size() > 0) {
+				report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));
 
-				List<TabLayoutItem> tabLayoutItemList = new ArrayList<>();
-				Set<Integer> uniqueAddableDictionaryEntryTypeList = new TreeSet<>();
+				if (tabLayoutItemList.size() > 1 && uniqueAddableDictionaryEntryTypeList.size() > 1) {
+					report.add(new StringValue(getString(R.string.word_dictionary_details_part_of_speech_info), 12.0f, 0));
+				}
 
-				for (int dictionaryEntryIdxForWordType = 0; dictionaryEntryIdxForWordType < dictionaryEntryListForWordType.size(); ++dictionaryEntryIdxForWordType) {
-					DictionaryEntry dictionaryEntryForWordType = dictionaryEntryListForWordType.get(dictionaryEntryIdxForWordType);
+				// tab z guziczkami
+				TabLayout tabLayout = new TabLayout();
 
-					// sprawdzenie, czy jest cos do pokazania
-					int addableDictionaryEntryTypeInfoCounter = 0;
+				if (uniqueAddableDictionaryEntryTypeList.size() > 1) { // generujemy guzki tylko wtedy, gdy zawartosc rozni sie
+					for (TabLayoutItem tabLayoutItem : tabLayoutItemList) {
+						tabLayout.addTab(tabLayoutItem);
+					}
 
-					List<DictionaryEntryType> addableDictionaryEntryTypeList = new ArrayList<>();
+				} else {
+					tabLayout.addTab(tabLayoutItemList.get(0)); // generujemy tylko dla pierwszego, guzikow i tak nie bedzie
+				}
 
-					if (dictionaryEntryForWordType.getDictionaryEntryTypeList() != null) {
-						for (DictionaryEntryType currentDictionaryEntryType : dictionaryEntryForWordType.getDictionaryEntryTypeList()) {
+				report.add(tabLayout);
+			}
+		}
 
-							boolean addableDictionaryEntryTypeInfo = DictionaryEntryType.isAddableDictionaryEntryTypeInfo(currentDictionaryEntryType);
+		// Sentence example
+		List<String> exampleSentenceGroupIdsList = null;
 
-							if (addableDictionaryEntryTypeInfo == true) {
-								addableDictionaryEntryTypeList.add(currentDictionaryEntryType);
-							}
+		if (dictionaryEntry != null) {
+			exampleSentenceGroupIdsList = dictionaryEntry.getExampleSentenceGroupIdsList();
+
+		} else if (dictionaryEntry2 != null) {
+			exampleSentenceGroupIdsList = dictionaryEntry2.getMisc().getOldPolishJapaneseDictionary().getExampleSentenceGroupIdsList();
+		}
+
+		List<GroupWithTatoebaSentenceList> tatoebaSentenceGroupList = null;
+
+		if (exampleSentenceGroupIdsList != null && exampleSentenceGroupIdsList.size() != 0) {
+
+			tatoebaSentenceGroupList = new ArrayList<GroupWithTatoebaSentenceList>();
+
+			for (String currentExampleSentenceGroupId : exampleSentenceGroupIdsList) {
+
+				GroupWithTatoebaSentenceList tatoebaSentenceGroup = null;
+				try {
+					tatoebaSentenceGroup = JapaneseAndroidLearnHelperApplication.getInstance()
+							.getDictionaryManager(this).getTatoebaSentenceGroup(currentExampleSentenceGroupId);
+
+				} catch (DictionaryException e) {
+					Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+					break;
+				}
+
+				if (tatoebaSentenceGroup != null) {
+					tatoebaSentenceGroupList.add(tatoebaSentenceGroup);
+				}
+			}
+
+			if (tatoebaSentenceGroupList.size() > 0) {
+
+				/*
+				// FM_FIXME: chyba do usuniecia
+				if (grammaFormConjugateGroupTypeElementsList == null) {
+					report.add(new StringValue("", 15.0f, 2));
+				}
+				*/
+
+				report.add(new TitleItem(getString(R.string.word_dictionary_details_sentence_example_label), 0));
+
+				for (int tatoebaSentenceGroupListIdx = 0; tatoebaSentenceGroupListIdx < tatoebaSentenceGroupList.size(); ++tatoebaSentenceGroupListIdx) {
+
+					GroupWithTatoebaSentenceList currentTatoebeSentenceGroup = tatoebaSentenceGroupList.get(tatoebaSentenceGroupListIdx);
+
+					List<TatoebaSentence> tatoebaSentenceList = currentTatoebeSentenceGroup.getTatoebaSentenceList();
+
+					List<TatoebaSentence> polishTatoebaSentenceList = new ArrayList<TatoebaSentence>();
+					List<TatoebaSentence> japaneseTatoebaSentenceList = new ArrayList<TatoebaSentence>();
+
+					for (TatoebaSentence currentTatoebaSentence : tatoebaSentenceList) {
+
+						if (currentTatoebaSentence.getLang().equals("pol") == true) {
+							polishTatoebaSentenceList.add(currentTatoebaSentence);
+
+						} else if (currentTatoebaSentence.getLang().equals("jpn") == true) {
+							japaneseTatoebaSentenceList.add(currentTatoebaSentence);
 						}
 					}
 
-					//
+					if (polishTatoebaSentenceList.size() > 0 && japaneseTatoebaSentenceList.size() > 0) {
 
-					if (addableDictionaryEntryTypeList.size() > 0) {
-						// dodanie hash code unikalnej zawartosci
-						uniqueAddableDictionaryEntryTypeList.add(addableDictionaryEntryTypeList.hashCode());
-
-						TabLayoutItem tabLayoutItem = new TabLayoutItem((dictionaryEntryForWordType.isKanjiExists() == true ? dictionaryEntryForWordType.getKanji()  + ", " : "") + dictionaryEntryForWordType.getKana());
-
-						for (final DictionaryEntryType currentAddableDictionaryEntryType : addableDictionaryEntryTypeList) {
-							StringValue currentDictionaryEntryTypeStringValue = new StringValue(currentAddableDictionaryEntryType.getName(), 20.0f, 0);
-
-							tabLayoutItem.addToTabContents(currentDictionaryEntryTypeStringValue);
+						for (TatoebaSentence currentPolishTatoebaSentence : polishTatoebaSentenceList) {
+							report.add(new StringValue(currentPolishTatoebaSentence.getSentence(), 12.0f, 1));
 						}
 
-						tabLayoutItemList.add(tabLayoutItem);
+						for (TatoebaSentence currentJapaneseTatoebaSentence : japaneseTatoebaSentenceList) {
+							report.add(new StringValue(currentJapaneseTatoebaSentence.getSentence(), 12.0f, 1));
+						}
+
+						if (tatoebaSentenceGroupListIdx != tatoebaSentenceGroupList.size() - 1) {
+							report.add(new StringValue("", 6.0f, 1));
+						}
 					}
 				}
 
-				if (tabLayoutItemList.size() > 0) {
-					report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));
-
-					if (tabLayoutItemList.size() > 1 && uniqueAddableDictionaryEntryTypeList.size() > 1) {
-						report.add(new StringValue(getString(R.string.word_dictionary_details_part_of_speech_info), 12.0f, 0));
-					}
-
-					// tab z guziczkami
-					TabLayout tabLayout = new TabLayout();
-
-					if (uniqueAddableDictionaryEntryTypeList.size() > 1) { // generujemy guzki tylko wtedy, gdy zawartosc rozni sie
-						for (TabLayoutItem tabLayoutItem : tabLayoutItemList) {
-							tabLayout.addTab(tabLayoutItem);
-						}
-
-					} else {
-						tabLayout.addTab(tabLayoutItemList.get(0)); // generujemy tylko dla pierwszego, guzikow i tak nie bedzie
-					}
-
-					report.add(tabLayout);
-				}
+				report.add(new StringValue("", 15.0f, 1));
 			}
 		}
 
 
 
-		
+
 		// FM_FIXME: testy !!!!!!!!!!!!!111
 		/*
 		report.add(new TitleItem("FM_FIXME: testy", 0));
@@ -1135,80 +1216,6 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue("", 15.0f, 1));
 			}
 		}
-		
-		// Sentence example		
-		List<String> exampleSentenceGroupIdsList = dictionaryEntry.getExampleSentenceGroupIdsList();
-		
-		List<GroupWithTatoebaSentenceList> tatoebaSentenceGroupList = null;
-		
-		if (exampleSentenceGroupIdsList != null && exampleSentenceGroupIdsList.size() != 0) {
-			
-			tatoebaSentenceGroupList = new ArrayList<GroupWithTatoebaSentenceList>();
-			
-	    	for (String currentExampleSentenceGroupId : exampleSentenceGroupIdsList) {
-
-				GroupWithTatoebaSentenceList tatoebaSentenceGroup = null;
-	    		try {
-					tatoebaSentenceGroup = JapaneseAndroidLearnHelperApplication.getInstance()
-							.getDictionaryManager(this).getTatoebaSentenceGroup(currentExampleSentenceGroupId);
-
-				} catch (DictionaryException e) {
-					Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
-
-					break;
-				}
-
-	    		if (tatoebaSentenceGroup != null) {    			
-	    			tatoebaSentenceGroupList.add(tatoebaSentenceGroup);
-	    		}
-			}
-	    	
-	    	if (tatoebaSentenceGroupList.size() > 0) {
-	    		
-				if (grammaFormConjugateGroupTypeElementsList == null) {
-					report.add(new StringValue("", 15.0f, 2));
-				}
-	    		
-	    		report.add(new TitleItem(getString(R.string.word_dictionary_details_sentence_example_label), 0));
-	    		
-	    		for (int tatoebaSentenceGroupListIdx = 0; tatoebaSentenceGroupListIdx < tatoebaSentenceGroupList.size(); ++tatoebaSentenceGroupListIdx) {
-	    			
-	    			GroupWithTatoebaSentenceList currentTatoebeSentenceGroup = tatoebaSentenceGroupList.get(tatoebaSentenceGroupListIdx);
-	    			
-	    			List<TatoebaSentence> tatoebaSentenceList = currentTatoebeSentenceGroup.getTatoebaSentenceList();
-	    						
-	    			List<TatoebaSentence> polishTatoebaSentenceList = new ArrayList<TatoebaSentence>();
-	    			List<TatoebaSentence> japaneseTatoebaSentenceList = new ArrayList<TatoebaSentence>();
-	    			
-	    			for (TatoebaSentence currentTatoebaSentence : tatoebaSentenceList) {
-	    				
-	    				if (currentTatoebaSentence.getLang().equals("pol") == true) {
-	    					polishTatoebaSentenceList.add(currentTatoebaSentence);
-	    					
-	    				} else if (currentTatoebaSentence.getLang().equals("jpn") == true) {
-	    					japaneseTatoebaSentenceList.add(currentTatoebaSentence);
-	    				}				
-	    			}
-	    			
-	    			if (polishTatoebaSentenceList.size() > 0 && japaneseTatoebaSentenceList.size() > 0) {
-
-	    				for (TatoebaSentence currentPolishTatoebaSentence : polishTatoebaSentenceList) {	    					
-	    					report.add(new StringValue(currentPolishTatoebaSentence.getSentence(), 12.0f, 1));	    					
-	    				}
-	    				
-	    				for (TatoebaSentence currentJapaneseTatoebaSentence : japaneseTatoebaSentenceList) {	    					
-	    					report.add(new StringValue(currentJapaneseTatoebaSentence.getSentence(), 12.0f, 1));
-	    				}
-	    				
-	    				if (tatoebaSentenceGroupListIdx != tatoebaSentenceGroupList.size() - 1) {	    					
-	    					report.add(new StringValue("", 6.0f, 1));
-	    				}
-	    			}
-	    		}
-	    		
-	    		report.add(new StringValue("", 15.0f, 1));
-	    	}			
-		}		
 
 		// Example
 		// FM_FIXME: do naprawy
