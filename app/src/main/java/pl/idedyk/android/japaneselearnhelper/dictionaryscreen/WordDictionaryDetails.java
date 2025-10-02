@@ -1013,11 +1013,11 @@ public class WordDictionaryDetails extends Activity {
 					if (polishTatoebaSentenceList.size() > 0 && japaneseTatoebaSentenceList.size() > 0) {
 
 						for (TatoebaSentence currentPolishTatoebaSentence : polishTatoebaSentenceList) {
-							report.add(new StringValue(currentPolishTatoebaSentence.getSentence(), 12.0f, 1));
+							report.add(new StringValue(currentPolishTatoebaSentence.getSentence(), 15.0f, 1));
 						}
 
 						for (TatoebaSentence currentJapaneseTatoebaSentence : japaneseTatoebaSentenceList) {
-							report.add(new StringValue(currentJapaneseTatoebaSentence.getSentence(), 12.0f, 1));
+							report.add(new StringValue(currentJapaneseTatoebaSentence.getSentence(), 15.0f, 1));
 						}
 
 						if (tatoebaSentenceGroupListIdx != tatoebaSentenceGroupList.size() - 1) {
@@ -1051,8 +1051,75 @@ public class WordDictionaryDetails extends Activity {
 			}
 		}
 
+		// user groups
+		// sprawdzenie, ktore slowka wchodza w sklad grup uzytkownika
+		List<DictionaryEntry> dictionaryEntryListToCheckUserGroups = new ArrayList<>();
 
+		if (dictionaryEntry != null && dictionaryEntry.isName() == false) {
+			dictionaryEntryListToCheckUserGroups.add(dictionaryEntry);
 
+		} else if (kanjiKanaPairList != null) {
+			for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
+				DictionaryEntry oldDictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+
+				dictionaryEntryListToCheckUserGroups.add(oldDictionaryEntry);
+			}
+		}
+		// sprawdzenie, czy ktores slowko wchodzi w sklad grup uzytkownika
+		if (dictionaryEntryListToCheckUserGroups != null && dictionaryEntryListToCheckUserGroups.size() > 0) {
+
+			final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+			final DataManager dataManager = dictionaryManager.getDataManager();
+
+			boolean addSomeGruops = false;
+
+			TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+
+			for (DictionaryEntry oldDictionaryEntry : dictionaryEntryListToCheckUserGroups) {
+
+				// pobranie grup uzytkownika dla wybrego slowa
+				List<UserGroupEntity> userGroupEntityListForItemId = dataManager.getUserGroupEntityListForItemId(UserGroupEntity.Type.USER_GROUP, UserGroupItemEntity.Type.DICTIONARY_ENTRY, oldDictionaryEntry.getId());
+
+				if (addSomeGruops == false && userGroupEntityListForItemId.size() > 0) {
+					report.add(new TitleItem(getString(R.string.word_dictionary_details_user_groups), 0));
+
+					report.add(tableLayout);
+
+					addSomeGruops = true;
+				}
+
+				for (UserGroupEntity currentUserGroupEntity : userGroupEntityListForItemId) {
+					TableRow userGroupTableRow = new TableRow();
+
+					OnClickListener deleteItemIdFromUserGroupOnClickListener = createDeleteItemIdFromUserGroupOnClickListener(dataManager, oldDictionaryEntry, currentUserGroupEntity, userGroupTableRow);
+
+					StringValue dictionaryEntryValue = new StringValue((oldDictionaryEntry.isKanjiExists() == true ? oldDictionaryEntry.getKanji()  + ", " : "") + oldDictionaryEntry.getKana(), 20.0f, 0);
+
+					StringValue userGroupNameStringValue = new StringValue(currentUserGroupEntity.getName(), 20.0f, 0);
+					Image userGroupNameDeleteImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getDeleteIconId()), 0);
+
+					userGroupNameStringValue.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
+					userGroupNameDeleteImage.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
+
+					userGroupTableRow.addScreenItem(dictionaryEntryValue);
+					userGroupTableRow.addScreenItem(userGroupNameStringValue);
+					userGroupTableRow.addScreenItem(userGroupNameDeleteImage);
+
+					tableLayout.addTableRow(userGroupTableRow);
+				}
+			}
+		}
+
+		/*
+		// dictionary position
+		report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_position), 0));
+
+		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));
+		*/
+
+		// FM_FIXME: dalej !!!!!
+
+		/*
 
 		// FM_FIXME: testy !!!!!!!!!!!!!111
 		/*
@@ -1129,45 +1196,6 @@ public class WordDictionaryDetails extends Activity {
 
 		// FM_FIXME: tymczasowo
 		StringBuffer kanjiSb = new StringBuffer();
-
-		// user groups
-		if (dictionaryEntry.isName() == false) { // tylko dla normalnych slowek
-
-			report.add(new StringValue("", 15.0f, 2));
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_user_groups), 0));
-
-			// FM_FIXME: tymczasowo
-			DictionaryManagerCommon dictionaryManager = null;
-
-			final DataManager dataManager = dictionaryManager.getDataManager();
-
-			List<UserGroupEntity> userGroupEntityListForItemId = dataManager.getUserGroupEntityListForItemId(UserGroupEntity.Type.USER_GROUP, UserGroupItemEntity.Type.DICTIONARY_ENTRY, dictionaryEntry.getId());
-
-			for (UserGroupEntity currentUserGroupEntity : userGroupEntityListForItemId) {
-
-				TableRow userGroupTableRow = new TableRow();
-
-				OnClickListener deleteItemIdFromUserGroupOnClickListener = createDeleteItemIdFromUserGroupOnClickListener(dataManager, dictionaryEntry, currentUserGroupEntity, userGroupTableRow);
-
-				StringValue userGroupNameStringValue = new StringValue(currentUserGroupEntity.getName(), 15.0f, 0);
-				Image userGroupNameDeleteImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getDeleteIconId()), 0);
-
-				userGroupNameStringValue.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
-				userGroupNameDeleteImage.setOnClickListener(deleteItemIdFromUserGroupOnClickListener);
-
-				userGroupTableRow.addScreenItem(userGroupNameStringValue);
-				userGroupTableRow.addScreenItem(userGroupNameDeleteImage);
-
-				report.add(userGroupTableRow);
-			}
-		}
-
-		/*
-		// dictionary position
-		report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_position), 0));
-
-		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));
-		*/
 
 		// index
 		int indexStartPos = report.size();
@@ -1313,7 +1341,6 @@ public class WordDictionaryDetails extends Activity {
 	}
 
 	private void createWordKanjiKanaPairSection(List<IScreenItem> report, Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair, boolean lastKanjiKanaPair) {
-		// FM_FIXME: do zaimplementowania
 
 		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 
