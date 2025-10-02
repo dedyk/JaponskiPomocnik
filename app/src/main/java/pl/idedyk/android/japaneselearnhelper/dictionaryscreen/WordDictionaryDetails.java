@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -1029,6 +1030,27 @@ public class WordDictionaryDetails extends Activity {
 			}
 		}
 
+		// dictionary groups
+		List<GroupEnum> groups = null;
+
+		if (dictionaryEntry != null) {
+			groups = dictionaryEntry.getGroups();
+
+		} else if (dictionaryEntry2 != null) {
+			groups = dictionaryEntry2.getMisc().getOldPolishJapaneseDictionary().getGroupsList().stream().
+					map(m -> GroupEnum.valueOf(m)).collect(Collectors.toList());
+		}
+
+		if (groups != null && groups.size() > 0) {
+
+			// report.add(new StringValue("", 15.0f, 2));
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_groups), 0));
+
+			for (int groupsIdx = 0; groupsIdx < groups.size(); ++groupsIdx) {
+				report.add(new StringValue(String.valueOf(groups.get(groupsIdx).getValue()), 20.0f, 0));
+			}
+		}
+
 
 
 
@@ -1107,19 +1129,6 @@ public class WordDictionaryDetails extends Activity {
 
 		// FM_FIXME: tymczasowo
 		StringBuffer kanjiSb = new StringBuffer();
-
-		// dictionary groups
-		List<GroupEnum> groups = dictionaryEntry.getGroups();
-
-		if (groups != null && groups.size() > 0) {
-			
-			report.add(new StringValue("", 15.0f, 2));
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_groups), 0));
-
-			for (int groupsIdx = 0; groupsIdx < groups.size(); ++groupsIdx) {
-				report.add(new StringValue(String.valueOf(groups.get(groupsIdx).getValue()), 20.0f, 0));
-			}
-		}
 
 		// user groups
 		if (dictionaryEntry.isName() == false) { // tylko dla normalnych slowek
