@@ -15,13 +15,13 @@ import androidx.core.widget.NestedScrollView;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
-import pl.idedyk.android.japaneselearnhelper.R;
-
 public class TabLayout implements IScreenItem {
 
     private int activeTab = -1;
     private List<TabLayoutItem> tabLayoutItems = new ArrayList<>();
+
+    // przyciski
+    private LinearLayout tabsLinearLayout;
 
     // tab z zawartoscia
     private LinearLayout contentLinearLayout;
@@ -39,7 +39,7 @@ public class TabLayout implements IScreenItem {
         // tworzenie przewijaka pionowego z nazwami tabow
         HorizontalScrollView tabsHorizontalScrollView = new HorizontalScrollView(context);
 
-        LinearLayout tabsLinearLayout = new LinearLayout(context);
+        tabsLinearLayout = new LinearLayout(context);
         tabsLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         tabsHorizontalScrollView.addView(tabsLinearLayout);
@@ -51,7 +51,10 @@ public class TabLayout implements IScreenItem {
             Button button = new Button(context);
 
             button.setText(tabLayoutItem.getName());
-            tabsLinearLayout.addView(button);
+
+            if (tabLayoutItems.size() > 1) { // jezeli jest tylko jeden element to nie generuj guzika
+                tabsLinearLayout.addView(button);
+            }
 
             // akcja do zmiany tab-a
             final int tabNoAsFinal = tabNo;
@@ -99,7 +102,6 @@ public class TabLayout implements IScreenItem {
 
     @Override
     public int getY() {
-        // FM_FIXME: do naprawy
-        return 0;
+        return tabsLinearLayout.getTop();
     }
 }

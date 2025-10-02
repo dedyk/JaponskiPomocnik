@@ -34,7 +34,6 @@ public class TabLayoutItem implements IScreenItem {
 
     @Override
     public int getY() {
-        // FM_FIXME: do naprawy
-        return 0;
+        return tabContents.get(0).getY();
     }
 }

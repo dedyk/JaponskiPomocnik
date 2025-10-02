@@ -869,6 +869,91 @@ public class WordDictionaryDetails extends Activity {
 			}
 		}
 
+		// Word type
+		// FM_FIXME: testy !!!!!!!
+		{
+			List<DictionaryEntry> dictionaryEntryListForWordType = new ArrayList<>();
+
+			if (dictionaryEntry != null) {
+				dictionaryEntryListForWordType.add(dictionaryEntry);
+
+			} else if (kanjiKanaPairList != null) {
+				dictionaryEntryListForWordType.addAll(convertKanjiKanaPairListToOldDictionaryEntry(kanjiKanaPairList));
+			}
+
+			if (dictionaryEntryListForWordType.size() > 0) { // generujemy zawartosc typu slow
+
+				List<TabLayoutItem> tabLayoutItemList = new ArrayList<>();
+
+				for (int dictionaryEntryIdxForWordType = 0; dictionaryEntryIdxForWordType < dictionaryEntryListForWordType.size(); ++dictionaryEntryIdxForWordType) {
+					DictionaryEntry dictionaryEntryForWordType = dictionaryEntryListForWordType.get(dictionaryEntryIdxForWordType);
+
+					// sprawdzenie, czy jest cos do pokazania
+					int addableDictionaryEntryTypeInfoCounter = 0;
+
+					List<DictionaryEntryType> addableDictionaryEntryTypeList = new ArrayList<>();
+
+					if (dictionaryEntryForWordType.getDictionaryEntryTypeList() != null) {
+						for (DictionaryEntryType currentDictionaryEntryType : dictionaryEntryForWordType.getDictionaryEntryTypeList()) {
+
+							boolean addableDictionaryEntryTypeInfo = DictionaryEntryType.isAddableDictionaryEntryTypeInfo(currentDictionaryEntryType);
+
+							if (addableDictionaryEntryTypeInfo == true) {
+								addableDictionaryEntryTypeList.add(currentDictionaryEntryType);
+							}
+						}
+					}
+
+					//
+
+					if (addableDictionaryEntryTypeList.size() > 0) {
+						TabLayoutItem tabLayoutItem = new TabLayoutItem((dictionaryEntryForWordType.isKanjiExists() == true ? dictionaryEntryForWordType.getKanji()  + ", " : "") + dictionaryEntryForWordType.getKana());
+
+						for (final DictionaryEntryType currentAddableDictionaryEntryType : addableDictionaryEntryTypeList) {
+							StringValue currentDictionaryEntryTypeStringValue = new StringValue(currentAddableDictionaryEntryType.getName(), 20.0f, 0);
+
+							tabLayoutItem.addToTabContents(currentDictionaryEntryTypeStringValue);
+						}
+
+						tabLayoutItemList.add(tabLayoutItem);
+					}
+				}
+
+				if (tabLayoutItemList.size() > 0) {
+					report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));
+
+					if (tabLayoutItemList.size() > 1) {
+						report.add(new StringValue(getString(R.string.word_dictionary_details_part_of_speech_info), 12.0f, 0));
+					}
+
+					// tab z guziczkami
+					TabLayout tabLayout = new TabLayout();
+
+					for (TabLayoutItem tabLayoutItem : tabLayoutItemList) {
+						tabLayout.addTab(tabLayoutItem);
+					}
+
+					report.add(tabLayout);
+				}
+			}
+		}
+
+
+
+
+		/* FM_FIXME: stary kod
+
+		if (addableDictionaryEntryTypeInfoCounter > 0) {
+
+			if (addableDictionaryEntryTypeInfoCounter > 1) {
+				report.add(new StringValue(getString(R.string.word_dictionary_details_part_of_speech_press), 12.0f, 0));
+			}
+
+
+			}
+		}
+		*/
+
 		// FM_FIXME: testy !!!!!!!!!!!!!111
 		report.add(new TitleItem("FM_FIXME: testy", 0));
 
@@ -943,55 +1028,6 @@ public class WordDictionaryDetails extends Activity {
 
 		// FM_FIXME: tymczasowo
 		StringBuffer kanjiSb = new StringBuffer();
-
-		// Word type
-		int addableDictionaryEntryTypeInfoCounter = 0;
-
-		List<DictionaryEntryType> dictionaryEntryTypeList = dictionaryEntry.getDictionaryEntryTypeList();
-
-		if (dictionaryEntryTypeList != null) {
-			for (DictionaryEntryType currentDictionaryEntryType : dictionaryEntryTypeList) {
-
-				boolean addableDictionaryEntryTypeInfo = DictionaryEntryType
-						.isAddableDictionaryEntryTypeInfo(currentDictionaryEntryType);
-
-				if (addableDictionaryEntryTypeInfo == true) {
-					addableDictionaryEntryTypeInfoCounter++;
-				}
-			}
-		}
-
-		if (addableDictionaryEntryTypeInfoCounter > 0) {
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));
-
-			if (addableDictionaryEntryTypeInfoCounter > 1) {
-				report.add(new StringValue(getString(R.string.word_dictionary_details_part_of_speech_press), 12.0f, 0));
-			}
-
-			for (final DictionaryEntryType currentDictionaryEntryType : dictionaryEntryTypeList) {
-
-				StringValue currentDictionaryEntryTypeStringValue = new StringValue(
-						currentDictionaryEntryType.getName(), 20.0f, 0);
-
-				if (addableDictionaryEntryTypeInfoCounter > 1) {
-					currentDictionaryEntryTypeStringValue.setOnClickListener(new OnClickListener() {
-
-						@Override
-						public void onClick(View v) {
-							Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
-
-							// FM_FIXME: do naprawy
-							intent.putExtra("item", dictionaryEntry);
-							intent.putExtra("forceDictionaryEntryType", currentDictionaryEntryType);
-
-							startActivity(intent);
-						}
-					});
-				}
-
-				report.add(currentDictionaryEntryTypeStringValue);
-			}
-		}
 
 		// dictionary groups
 		List<GroupEnum> groups = dictionaryEntry.getGroups();
@@ -1782,6 +1818,22 @@ public class WordDictionaryDetails extends Activity {
 		smStringValue.setGravity(Gravity.CENTER);
 
 		return smStringValue;
+	}
+
+	private List<DictionaryEntry> convertKanjiKanaPairListToOldDictionaryEntry(List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList) {
+		List<DictionaryEntry> dictionaryEntryList = new ArrayList<>();
+
+		// pobranie starych elementow
+		for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
+
+			DictionaryEntry oldDictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+
+			if (oldDictionaryEntry != null) {
+				dictionaryEntryList.add(oldDictionaryEntry);
+			}
+		}
+
+		return dictionaryEntryList;
 	}
 
 	private class TTSJapaneseSpeak implements OnClickListener {
