@@ -22,6 +22,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.Image;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TabLayout;
+import pl.idedyk.android.japaneselearnhelper.screen.TabLayoutItem;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
@@ -870,9 +871,36 @@ public class WordDictionaryDetails extends Activity {
 
 		// FM_FIXME: testy !!!!!!!!!!!!!111
 		report.add(new TitleItem("FM_FIXME: testy", 0));
-		report.add(new TabLayout());
 
-		report.add(new TabLayout());
+		TabLayout tabLayout = new TabLayout();
+
+		// tab1
+		{
+			TabLayoutItem tab = new TabLayoutItem("Tab 1");
+			tabLayout.addTab(tab);
+
+			tab.addToTabContents(new StringValue("Jestem tab 1", 15.0f, 0));
+		}
+
+		// tab2
+		{
+			TabLayoutItem tab = new TabLayoutItem("Tab 2");
+			tabLayout.addTab(tab);
+
+			tab.addToTabContents(new StringValue("Jestem tab 2", 25.0f, 0));
+		}
+
+		// tab3
+		{
+			TabLayoutItem tab = new TabLayoutItem("Tab 3");
+			tabLayout.addTab(tab);
+
+			tab.addToTabContents(new StringValue("Jestem tab 3", 35.0f, 0));
+		}
+
+		report.add(tabLayout);
+
+
 
 		/////////////////////////////
 

@@ -2,31 +2,41 @@ package pl.idedyk.android.japaneselearnhelper.screen;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.os.Build;
-import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TabHost;
-import android.widget.TabWidget;
-import android.widget.TextView;
 
 import androidx.core.widget.NestedScrollView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.R;
 
 public class TabLayout implements IScreenItem {
 
+    private int activeTab = -1;
+    private List<TabLayoutItem> tabLayoutItems = new ArrayList<>();
 
+    // tab z zawartoscia
+    private LinearLayout contentLinearLayout;
+
+    public void addTab(TabLayoutItem tabLayoutItem) {
+        tabLayoutItems.add(tabLayoutItem);
+
+        activeTab = 0;
+    }
 
     @Override
     public void generate(Context context, Resources resources, ViewGroup layout) {
         // FM_FIXME: testy !!!!
 
+        // tworzenie przewijaka pionowego z nazwami tabow
         HorizontalScrollView tabsHorizontalScrollView = new HorizontalScrollView(context);
 
         LinearLayout tabsLinearLayout = new LinearLayout(context);
@@ -34,40 +44,57 @@ public class TabLayout implements IScreenItem {
 
         tabsHorizontalScrollView.addView(tabsLinearLayout);
 
-        // zawartosc
+        for (int tabNo = 0; tabNo < tabLayoutItems.size(); ++tabNo) {
+            TabLayoutItem tabLayoutItem = tabLayoutItems.get(tabNo);
+
+            // dodajemy guzik do wyboru zawartosci
+            Button button = new Button(context);
+
+            button.setText(tabLayoutItem.getName());
+            tabsLinearLayout.addView(button);
+
+            // akcja do zmiany tab-a
+            final int tabNoAsFinal = tabNo;
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    activeTab = tabNoAsFinal;
+
+                    generateTabContent(context, resources);
+                }
+            });
+        }
+
+        // generowanie zawartosci (tylko aktywny tab)
         NestedScrollView contentScrollView = new NestedScrollView(context);
         contentScrollView.setLayoutParams(new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        LinearLayout contentLinearLayout = new LinearLayout(context);
+        contentLinearLayout = new LinearLayout(context);
         contentLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         contentLinearLayout.setOrientation(LinearLayout.VERTICAL);
 
         contentScrollView.addView(contentLinearLayout);
 
-        for (int i = 0; i < 10; ++i) {
-            Button button = new Button(context);
+        // generowanie zawartosci tabulatora
+        generateTabContent(context, resources);
 
-            // textView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            button.setText("Tab " + i);
-
-            tabsLinearLayout.addView(button);
-
-            final int iAsFinal = i;
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    TextView textView = new TextView(context);
-                    textView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-                    textView.setText("Tab content: " + iAsFinal);
-
-                    contentLinearLayout.addView(textView);
-                }
-            });
-        }
-
+        // dodanie elementow do ekranu
         layout.addView(tabsHorizontalScrollView);
         layout.addView(contentScrollView);
+    }
+
+    private void generateTabContent(Context context, Resources resources) {
+        if (tabLayoutItems.size() == 0) {
+            return;
+        }
+
+        // pobranie aktywnej zakladki
+        TabLayoutItem tabLayoutItem = tabLayoutItems.get(activeTab);
+
+        // generowanie zawartosci
+        contentLinearLayout.removeAllViews();
+
+        tabLayoutItem.generate(context, resources, contentLinearLayout);
     }
 
     @Override
