@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+import java.util.TreeSet;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
@@ -884,6 +885,7 @@ public class WordDictionaryDetails extends Activity {
 			if (dictionaryEntryListForWordType.size() > 0) { // generujemy zawartosc typu slow
 
 				List<TabLayoutItem> tabLayoutItemList = new ArrayList<>();
+				Set<Integer> uniqueAddableDictionaryEntryTypeList = new TreeSet<>();
 
 				for (int dictionaryEntryIdxForWordType = 0; dictionaryEntryIdxForWordType < dictionaryEntryListForWordType.size(); ++dictionaryEntryIdxForWordType) {
 					DictionaryEntry dictionaryEntryForWordType = dictionaryEntryListForWordType.get(dictionaryEntryIdxForWordType);
@@ -907,6 +909,9 @@ public class WordDictionaryDetails extends Activity {
 					//
 
 					if (addableDictionaryEntryTypeList.size() > 0) {
+						// dodanie hash code unikalnej zawartosci
+						uniqueAddableDictionaryEntryTypeList.add(addableDictionaryEntryTypeList.hashCode());
+
 						TabLayoutItem tabLayoutItem = new TabLayoutItem((dictionaryEntryForWordType.isKanjiExists() == true ? dictionaryEntryForWordType.getKanji()  + ", " : "") + dictionaryEntryForWordType.getKana());
 
 						for (final DictionaryEntryType currentAddableDictionaryEntryType : addableDictionaryEntryTypeList) {
@@ -922,15 +927,20 @@ public class WordDictionaryDetails extends Activity {
 				if (tabLayoutItemList.size() > 0) {
 					report.add(new TitleItem(getString(R.string.word_dictionary_details_part_of_speech), 0));
 
-					if (tabLayoutItemList.size() > 1) {
+					if (tabLayoutItemList.size() > 1 && uniqueAddableDictionaryEntryTypeList.size() > 1) {
 						report.add(new StringValue(getString(R.string.word_dictionary_details_part_of_speech_info), 12.0f, 0));
 					}
 
 					// tab z guziczkami
 					TabLayout tabLayout = new TabLayout();
 
-					for (TabLayoutItem tabLayoutItem : tabLayoutItemList) {
-						tabLayout.addTab(tabLayoutItem);
+					if (uniqueAddableDictionaryEntryTypeList.size() > 1) { // generujemy guzki tylko wtedy, gdy zawartosc rozni sie
+						for (TabLayoutItem tabLayoutItem : tabLayoutItemList) {
+							tabLayout.addTab(tabLayoutItem);
+						}
+
+					} else {
+						tabLayout.addTab(tabLayoutItemList.get(0)); // generujemy tylko dla pierwszego, guzikow i tak nie bedzie
 					}
 
 					report.add(tabLayout);
@@ -940,20 +950,7 @@ public class WordDictionaryDetails extends Activity {
 
 
 
-
-		/* FM_FIXME: stary kod
-
-		if (addableDictionaryEntryTypeInfoCounter > 0) {
-
-			if (addableDictionaryEntryTypeInfoCounter > 1) {
-				report.add(new StringValue(getString(R.string.word_dictionary_details_part_of_speech_press), 12.0f, 0));
-			}
-
-
-			}
-		}
-		*/
-
+		
 		// FM_FIXME: testy !!!!!!!!!!!!!111
 		/*
 		report.add(new TitleItem("FM_FIXME: testy", 0));
