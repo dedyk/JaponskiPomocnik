@@ -2,6 +2,7 @@ package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -47,7 +48,9 @@ import pl.idedyk.japanese.dictionary.api.dto.TatoebaSentence;
 import pl.idedyk.japanese.dictionary.api.example.dto.ExampleGroupTypeElements;
 import pl.idedyk.japanese.dictionary.api.example.dto.ExampleResult;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary.api.gramma.GrammaConjugaterManager;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateGroupTypeElements;
+import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateRequest;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResultType;
 import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
@@ -1117,10 +1120,118 @@ public class WordDictionaryDetails extends Activity {
 		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));
 		*/
 
+		// wyliczenie form gramatycznych
+		Map<Integer, GrammaFormConjugateAndExampleEntry> grammaFormConjugateAndExampleEntryMap = new LinkedHashMap<>();
+		List<DictionaryEntry> dictionaryEntryListForGrammaAndExamples = new ArrayList<>();
+
+		if (dictionaryEntry != null) {
+			dictionaryEntryListForGrammaAndExamples.add(dictionaryEntry);
+
+		} else if (kanjiKanaPairList != null) {
+			dictionaryEntryListForGrammaAndExamples.addAll(convertKanjiKanaPairListToOldDictionaryEntry(kanjiKanaPairList));
+		}
+
+		if (dictionaryEntryListForGrammaAndExamples.size() > 0) { // generujemy zawartosc typu slow
+			DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
+			// wyliczamy formy gramatyczne dla wszystkich rodzajow slow
+			for (int dictionaryEntryForGrammaIdx = 0; dictionaryEntryForGrammaIdx < dictionaryEntryListForGrammaAndExamples.size(); ++dictionaryEntryForGrammaIdx) {
+
+				DictionaryEntry dictionaryEntryForGramma = dictionaryEntryListForGrammaAndExamples.get(dictionaryEntryForGrammaIdx);
+
+				List<DictionaryEntryType> dictionaryEntryTypeListForGramma = dictionaryEntryForGramma.getDictionaryEntryTypeList();
+
+				for (DictionaryEntryType dictionaryEntryTypeForGramma : dictionaryEntryTypeListForGramma) {
+					Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
+
+					List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList =
+							GrammaConjugaterManager.getGrammaConjufateResult(dictionaryManager.getKeigoHelper(), new GrammaFormConjugateRequest(dictionaryEntryForGramma), grammaFormCache, dictionaryEntryTypeForGramma, false);
+
+					if (grammaFormConjugateGroupTypeElementsList != null && grammaFormConjugateGroupTypeElementsList.size() > 0) { // mamy cos wyliczonego
+						// zapisujemy to do pozniejszego wykorzystania
+						final int dictionaryEntryForGrammaIdxAsFinal = dictionaryEntryForGrammaIdx;
+
+						GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry = grammaFormConjugateAndExampleEntryMap.computeIfAbsent(dictionaryEntry.getId(), (id) -> {
+							return new GrammaFormConjugateAndExampleEntry(dictionaryEntry, dictionaryEntryForGrammaIdxAsFinal);
+						});
+
+						grammaFormConjugateAndExampleEntry.addDictionaryEntryTypeGrammaFormConjugate(dictionaryEntryTypeForGramma, grammaFormConjugateGroupTypeElementsList, grammaFormCache);
+					}
+				}
+			}
+
+			if (grammaFormConjugateAndExampleEntryMap.size() > 0) { // jezeli udalo sie cos wyliczyc to pokazujemy to
+				report.add(new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0));
+
+				
+
+			}
+		}
+		/*
+		// FM_FIXME: stary kod - start
+		Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
+
+		// Conjugater
+		// FM_FIXME: do naprawy
+		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = null;
+		/*
+		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = GrammaConjugaterManager
+				.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance()
+						.getDictionaryManager(this).getKeigoHelper(), dictionaryEntry, grammaCache,
+						forceDictionaryEntryType, false);
+		*/
+
+		if (grammaFormConjugateGroupTypeElementsList != null) {
+			report.add(new StringValue("", 15.0f, 2));
+
+
+			for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : grammaFormConjugateGroupTypeElementsList) {
+
+				if (currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().isShow() == false) {
+					continue;
+				}
+
+				report.add(new TitleItem(currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType()
+						.getName(), 1));
+
+				String grammaFormConjugateGroupTypeInfo = currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().getInfo();
+
+				if (grammaFormConjugateGroupTypeInfo != null) {
+					report.add(new StringValue(grammaFormConjugateGroupTypeInfo, 12.0f, 1));
+				}
+
+				List<GrammaFormConjugateResult> grammaFormConjugateResults = currentGrammaFormConjugateGroupTypeElements
+						.getGrammaFormConjugateResults();
+
+				for (GrammaFormConjugateResult currentGrammaFormConjugateResult : grammaFormConjugateResults) {
+
+					if (currentGrammaFormConjugateResult.getResultType().isShow() == true) {
+						report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
+
+						// FM_FIXME: String info -> info
+						info = currentGrammaFormConjugateResult.getResultType().getInfo();
+
+						if (info != null) {
+							report.add(new StringValue(info, 12.0f, 2));
+						}
+					}
+
+					addGrammaFormConjugateResult(report, currentGrammaFormConjugateResult);
+				}
+
+				report.add(new StringValue("", 15.0f, 1));
+			}
+		}
+		// FM_FIXME: stary kod - end
+		*/
+
+
+
 		// FM_FIXME: dalej !!!!!
 
 
 		// FM_FIXME: testy !!!!!!!!!!!!!111
+		/*
 		report.add(new TitleItem("FM_FIXME: testy", 0));
 
 		TabLayout tabLayout = new TabLayout();
@@ -1172,7 +1283,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		report.add(tabLayout);
-
+		*/
 
 		/////////////////////////////
 
@@ -1219,59 +1330,7 @@ public class WordDictionaryDetails extends Activity {
 		// index
 		int indexStartPos = report.size();
 
-		Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
-
-		// Conjugater
-		// FM_FIXME: do naprawy
-		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = null;
-		/*
-		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = GrammaConjugaterManager
-				.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance()
-						.getDictionaryManager(this).getKeigoHelper(), dictionaryEntry, grammaCache,
-						forceDictionaryEntryType, false);
-		*/
-
-		if (grammaFormConjugateGroupTypeElementsList != null) {
-			report.add(new StringValue("", 15.0f, 2));
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0));
-
-			for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : grammaFormConjugateGroupTypeElementsList) {
-
-				if (currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().isShow() == false) {
-					continue;
-				}
-
-				report.add(new TitleItem(currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType()
-						.getName(), 1));
-
-				String grammaFormConjugateGroupTypeInfo = currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().getInfo();
-
-				if (grammaFormConjugateGroupTypeInfo != null) {
-					report.add(new StringValue(grammaFormConjugateGroupTypeInfo, 12.0f, 1));
-				}
-
-				List<GrammaFormConjugateResult> grammaFormConjugateResults = currentGrammaFormConjugateGroupTypeElements
-						.getGrammaFormConjugateResults();
-
-				for (GrammaFormConjugateResult currentGrammaFormConjugateResult : grammaFormConjugateResults) {
-
-					if (currentGrammaFormConjugateResult.getResultType().isShow() == true) {
-						report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
-
-						// FM_FIXME: String info -> info
-						info = currentGrammaFormConjugateResult.getResultType().getInfo();
-
-						if (info != null) {
-							report.add(new StringValue(info, 12.0f, 2));
-						}
-					}
-
-					addGrammaFormConjugateResult(report, currentGrammaFormConjugateResult);
-				}
-
-				report.add(new StringValue("", 15.0f, 1));
-			}
-		}
+		// FM_FIXME: tutaj byly wyliczane odmiany gramatyczne
 
 		// Example
 		// FM_FIXME: do naprawy
@@ -2067,6 +2126,44 @@ public class WordDictionaryDetails extends Activity {
 
 			Toast.makeText(WordDictionaryDetails.this,
 					getString(R.string.word_dictionary_details_clipboard_copy, text), Toast.LENGTH_SHORT).show();
+		}
+	}
+
+	private static class GrammaFormConjugateAndExampleEntry {
+		private int dictionaryEntryIdx;
+		private DictionaryEntry dictionaryEntry;
+
+		private List<GrammaFormConjugateAndExampleEntryForDictionaryType> grammaFormConjugateAndExampleEntryForDictionaryTypeList = new ArrayList<>();
+
+		public GrammaFormConjugateAndExampleEntry(DictionaryEntry dictionaryEntry, int dictionaryEntryIdx) {
+			this.dictionaryEntry = dictionaryEntry;
+			this.dictionaryEntryIdx = dictionaryEntryIdx;
+		}
+
+		public void addDictionaryEntryTypeGrammaFormConjugate(DictionaryEntryType dictionaryEntryType, List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+			grammaFormConjugateAndExampleEntryForDictionaryTypeList.add(new GrammaFormConjugateAndExampleEntryForDictionaryType(dictionaryEntryType, grammaFormConjugateGroupTypeElementsList, grammaFormCache));
+		}
+	}
+
+	private static class GrammaFormConjugateAndExampleEntryForDictionaryType {
+		private DictionaryEntryType dictionaryEntryType;
+
+		private List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList;
+		private Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache;
+
+		private List<ExampleGroupTypeElements> exampleGroupTypeElementsList;
+
+		public GrammaFormConjugateAndExampleEntryForDictionaryType(DictionaryEntryType dictionaryEntryType,
+																   List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList, Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaFormCache) {
+
+			this.dictionaryEntryType = dictionaryEntryType;
+
+			this.grammaFormConjugateGroupTypeElementsList = grammaFormConjugateGroupTypeElementsList;
+			this.grammaFormCache = grammaFormCache;
+		}
+
+		public void setExampleGroupTypeElementsList(List<ExampleGroupTypeElements> exampleGroupTypeElementsList) {
+			this.exampleGroupTypeElementsList = exampleGroupTypeElementsList;
 		}
 	}
 }
