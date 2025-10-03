@@ -1119,10 +1119,8 @@ public class WordDictionaryDetails extends Activity {
 
 		// FM_FIXME: dalej !!!!!
 
-		/*
 
 		// FM_FIXME: testy !!!!!!!!!!!!!111
-		/*
 		report.add(new TitleItem("FM_FIXME: testy", 0));
 
 		TabLayout tabLayout = new TabLayout();
@@ -1151,8 +1149,29 @@ public class WordDictionaryDetails extends Activity {
 			tab.addToTabContents(new StringValue("Jestem tab 3", 35.0f, 0));
 		}
 
+		// tab4
+		{
+			TabLayout subTabLayout = new TabLayout();
+
+			TabLayoutItem subTab1 = new TabLayoutItem("Sbutab 1");
+			TabLayoutItem subTab2 = new TabLayoutItem("Sbutab 2");
+			TabLayoutItem subTab3 = new TabLayoutItem("Sbutab 3");
+
+			subTabLayout.addTab(subTab1);
+			subTabLayout.addTab(subTab2);
+			subTabLayout.addTab(subTab3);
+
+			subTab1.addToTabContents(new StringValue("Jestem tab 1", 35.0f, 0));
+			subTab2.addToTabContents(new StringValue("Jestem tab 2", 35.0f, 0));
+			subTab3.addToTabContents(new StringValue("Jestem tab 3", 35.0f, 0));
+
+			TabLayoutItem tab = new TabLayoutItem("Tab 4");
+			tab.addToTabContents(subTabLayout);
+
+			tabLayout.addTab(tab);
+		}
+
 		report.add(tabLayout);
-		*/
 
 
 		/////////////////////////////
