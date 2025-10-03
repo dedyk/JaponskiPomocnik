@@ -18,10 +18,15 @@ import androidx.core.widget.NestedScrollView;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.idedyk.android.japaneselearnhelper.R;
+
 public class TabLayout implements IScreenItem {
 
     private int activeTab = -1;
     private List<TabLayoutItem> tabLayoutItems = new ArrayList<>();
+
+    private boolean addBorder = false;
+    private Integer contentsHeight = null;
 
     // przyciski
     private LinearLayout tabsLinearLayout;
@@ -73,10 +78,26 @@ public class TabLayout implements IScreenItem {
 
         // generowanie zawartosci (tylko aktywny tab)
         NestedScrollView contentScrollView = new NestedScrollView(context);
-        contentScrollView.setLayoutParams(new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        if (contentsHeight == null) {
+            contentScrollView.setLayoutParams(new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        } else {
+            contentScrollView.setLayoutParams(new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, contentsHeight));
+        }
+        contentScrollView.setPadding(5, 5, 5, 5);
+
+        if (addBorder == true) {
+            contentScrollView.setBackgroundResource(R.drawable.border);
+        }
 
         contentLinearLayout = new LinearLayout(context);
-        contentLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        if (contentsHeight == null) {
+            contentLinearLayout.setLayoutParams(new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        } else {
+            contentLinearLayout.setLayoutParams(new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, contentsHeight));
+        }
+
         contentLinearLayout.setOrientation(LinearLayout.VERTICAL);
 
         // dodanie animacji do zmiany zawartosci;
@@ -118,5 +139,13 @@ public class TabLayout implements IScreenItem {
     @Override
     public int getY() {
         return tabsLinearLayout.getTop();
+    }
+
+    public void setAddBorder(boolean addBorder) {
+        this.addBorder = addBorder;
+    }
+
+    public void setContentsHeight(Integer contentsHeight) {
+        this.contentsHeight = contentsHeight;
     }
 }

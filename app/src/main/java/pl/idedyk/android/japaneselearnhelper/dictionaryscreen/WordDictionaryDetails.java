@@ -76,6 +76,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.ClipboardManager;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -1172,6 +1173,15 @@ public class WordDictionaryDetails extends Activity {
 					TabLayoutItem tabLayoutItemForGrammaFormConjugateAndExampleEntry = new TabLayoutItem((grammaFormConjugateAndExampleEntry.dictionaryEntry.isKanjiExists() == true ? grammaFormConjugateAndExampleEntry.dictionaryEntry.getKanji()  + ", " : "") + grammaFormConjugateAndExampleEntry.dictionaryEntry.getKana());
 
 					TabLayout tabLayoutForDictionaryEntry = new TabLayout();
+
+					// ustawienie ramki i rozmiaru
+					tabLayoutForDictionaryEntry.setAddBorder(true);
+
+					DisplayMetrics displayMetrics = new DisplayMetrics();
+					getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+
+					tabLayoutForDictionaryEntry.setContentsHeight(new Integer((int)(displayMetrics.heightPixels * 0.60)));
+
 					tabLayoutItemForGrammaFormConjugateAndExampleEntry.addToTabContents(tabLayoutForDictionaryEntry);
 
 					// wygenerowanie zakladek dla typow slow
@@ -1188,6 +1198,7 @@ public class WordDictionaryDetails extends Activity {
 								continue;
 							}
 
+							// nazwa typu
 							tabLayoutForDictionaryType.addToTabContents(new TitleItem(currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType()
 									.getName(), 1));
 
@@ -1206,10 +1217,10 @@ public class WordDictionaryDetails extends Activity {
 									tabLayoutForDictionaryType.addToTabContents(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
 
 									// FM_FIXME: String info -> info
-									info = currentGrammaFormConjugateResult.getResultType().getInfo();
+									String resultTypeInfo = currentGrammaFormConjugateResult.getResultType().getInfo();
 
-									if (info != null) {
-										tabLayoutForDictionaryType.addToTabContents(new StringValue(info, 12.0f, 2));
+									if (resultTypeInfo != null) {
+										tabLayoutForDictionaryType.addToTabContents(new StringValue(resultTypeInfo, 12.0f, 2));
 									}
 								}
 
@@ -1233,26 +1244,6 @@ public class WordDictionaryDetails extends Activity {
 		/*
 		// FM_FIXME: stary kod - start
 		Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
-
-		// Conjugater
-		// FM_FIXME: do naprawy
-		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = null;
-		/*
-		List<GrammaFormConjugateGroupTypeElements> grammaFormConjugateGroupTypeElementsList = GrammaConjugaterManager
-				.getGrammaConjufateResult(JapaneseAndroidLearnHelperApplication.getInstance()
-						.getDictionaryManager(this).getKeigoHelper(), dictionaryEntry, grammaCache,
-						forceDictionaryEntryType, false);
-		*/
-
-		/*
-		if (grammaFormConjugateGroupTypeElementsList != null) {
-			report.add(new StringValue("", 15.0f, 2));
-
-
-		}
-		// FM_FIXME: stary kod - end
-		*/
-
 
 
 		// FM_FIXME: dalej !!!!!
