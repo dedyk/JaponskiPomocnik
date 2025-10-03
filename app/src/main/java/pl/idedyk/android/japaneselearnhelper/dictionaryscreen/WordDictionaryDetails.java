@@ -1151,8 +1151,8 @@ public class WordDictionaryDetails extends Activity {
 						// zapisujemy to do pozniejszego wykorzystania
 						final int dictionaryEntryForGrammaIdxAsFinal = dictionaryEntryForGrammaIdx;
 
-						GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry = grammaFormConjugateAndExampleEntryMap.computeIfAbsent(dictionaryEntry.getId(), (id) -> {
-							return new GrammaFormConjugateAndExampleEntry(dictionaryEntry, dictionaryEntryForGrammaIdxAsFinal);
+						GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry = grammaFormConjugateAndExampleEntryMap.computeIfAbsent(dictionaryEntryForGramma.getId(), (id) -> {
+							return new GrammaFormConjugateAndExampleEntry(dictionaryEntryForGramma, dictionaryEntryForGrammaIdxAsFinal);
 						});
 
 						grammaFormConjugateAndExampleEntry.addDictionaryEntryTypeGrammaFormConjugate(dictionaryEntryTypeForGramma, grammaFormConjugateGroupTypeElementsList, grammaFormCache);
@@ -1163,8 +1163,71 @@ public class WordDictionaryDetails extends Activity {
 			if (grammaFormConjugateAndExampleEntryMap.size() > 0) { // jezeli udalo sie cos wyliczyc to pokazujemy to
 				report.add(new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0));
 
-				
+				// utworzenie odmian dla kazdego slowa
+				TabLayout tabLayout = new TabLayout();
 
+				// utworzenie dla kazdego slowa
+				for (GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry : grammaFormConjugateAndExampleEntryMap.values()) {
+					// utwrzenie zakladki dla slowa
+					TabLayoutItem tabLayoutItemForGrammaFormConjugateAndExampleEntry = new TabLayoutItem((grammaFormConjugateAndExampleEntry.dictionaryEntry.isKanjiExists() == true ? grammaFormConjugateAndExampleEntry.dictionaryEntry.getKanji()  + ", " : "") + grammaFormConjugateAndExampleEntry.dictionaryEntry.getKana());
+
+					TabLayout tabLayoutForDictionaryEntry = new TabLayout();
+					tabLayoutItemForGrammaFormConjugateAndExampleEntry.addToTabContents(tabLayoutForDictionaryEntry);
+
+					// wygenerowanie zakladek dla typow slow
+					for (GrammaFormConjugateAndExampleEntryForDictionaryType grammaFormConjugateAndExampleEntryForDictionaryType : grammaFormConjugateAndExampleEntry.grammaFormConjugateAndExampleEntryForDictionaryTypeList) {
+
+						// dodanie zakladki z typem slowa
+						TabLayoutItem tabLayoutForDictionaryType = new TabLayoutItem(grammaFormConjugateAndExampleEntryForDictionaryType.dictionaryEntryType.getName());
+						// tabLayoutForDictionaryType.addToTabContents(new StringValue("XXXXX", 15.0f, 0));
+
+						// dodanie form gramatycznych
+						for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : grammaFormConjugateAndExampleEntryForDictionaryType.grammaFormConjugateGroupTypeElementsList) {
+
+							if (currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().isShow() == false) {
+								continue;
+							}
+
+							tabLayoutForDictionaryType.addToTabContents(new TitleItem(currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType()
+									.getName(), 1));
+
+							String grammaFormConjugateGroupTypeInfo = currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().getInfo();
+
+							if (grammaFormConjugateGroupTypeInfo != null) {
+								tabLayoutForDictionaryType.addToTabContents(new StringValue(grammaFormConjugateGroupTypeInfo, 12.0f, 1));
+							}
+
+							List<GrammaFormConjugateResult> grammaFormConjugateResults = currentGrammaFormConjugateGroupTypeElements
+									.getGrammaFormConjugateResults();
+
+							for (GrammaFormConjugateResult currentGrammaFormConjugateResult : grammaFormConjugateResults) {
+
+								if (currentGrammaFormConjugateResult.getResultType().isShow() == true) {
+									tabLayoutForDictionaryType.addToTabContents(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
+
+									// FM_FIXME: String info -> info
+									info = currentGrammaFormConjugateResult.getResultType().getInfo();
+
+									if (info != null) {
+										tabLayoutForDictionaryType.addToTabContents(new StringValue(info, 12.0f, 2));
+									}
+								}
+
+								addGrammaFormConjugateResult(tabLayoutForDictionaryType, currentGrammaFormConjugateResult);
+							}
+
+							tabLayoutForDictionaryType.addToTabContents(new StringValue("", 15.0f, 1));
+						}
+
+						tabLayoutForDictionaryEntry.addTab(tabLayoutForDictionaryType);
+					}
+
+					tabLayout.addTab(tabLayoutItemForGrammaFormConjugateAndExampleEntry);
+				}
+
+				//
+
+				report.add(tabLayout);
 			}
 		}
 		/*
@@ -1181,46 +1244,11 @@ public class WordDictionaryDetails extends Activity {
 						forceDictionaryEntryType, false);
 		*/
 
+		/*
 		if (grammaFormConjugateGroupTypeElementsList != null) {
 			report.add(new StringValue("", 15.0f, 2));
 
 
-			for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : grammaFormConjugateGroupTypeElementsList) {
-
-				if (currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().isShow() == false) {
-					continue;
-				}
-
-				report.add(new TitleItem(currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType()
-						.getName(), 1));
-
-				String grammaFormConjugateGroupTypeInfo = currentGrammaFormConjugateGroupTypeElements.getGrammaFormConjugateGroupType().getInfo();
-
-				if (grammaFormConjugateGroupTypeInfo != null) {
-					report.add(new StringValue(grammaFormConjugateGroupTypeInfo, 12.0f, 1));
-				}
-
-				List<GrammaFormConjugateResult> grammaFormConjugateResults = currentGrammaFormConjugateGroupTypeElements
-						.getGrammaFormConjugateResults();
-
-				for (GrammaFormConjugateResult currentGrammaFormConjugateResult : grammaFormConjugateResults) {
-
-					if (currentGrammaFormConjugateResult.getResultType().isShow() == true) {
-						report.add(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
-
-						// FM_FIXME: String info -> info
-						info = currentGrammaFormConjugateResult.getResultType().getInfo();
-
-						if (info != null) {
-							report.add(new StringValue(info, 12.0f, 2));
-						}
-					}
-
-					addGrammaFormConjugateResult(report, currentGrammaFormConjugateResult);
-				}
-
-				report.add(new StringValue("", 15.0f, 1));
-			}
 		}
 		// FM_FIXME: stary kod - end
 		*/
@@ -1342,6 +1370,9 @@ public class WordDictionaryDetails extends Activity {
 		*/
 
 		if (exampleGroupTypeElementsList != null) {
+
+			// FM_FIXME: tymczasowo !!!!
+			Object grammaFormConjugateGroupTypeElementsList = null;
 
 			if (grammaFormConjugateGroupTypeElementsList == null && (tatoebaSentenceGroupList == null || tatoebaSentenceGroupList.size() == 0)) {
 				report.add(new StringValue("", 15.0f, 2));
@@ -1709,7 +1740,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 	}
 
-	private void addGrammaFormConjugateResult(List<IScreenItem> report,
+	private void addGrammaFormConjugateResult(TabLayoutItem tabLayoutItem,
 			GrammaFormConjugateResult grammaFormConjugateResult) {
 
 		TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
@@ -1731,7 +1762,7 @@ public class WordDictionaryDetails extends Activity {
 
 			grammaFormKanjiSb.append(grammaFormKanji);
 
-			report.add(new StringValue(grammaFormKanjiSb.toString(), 15.0f, 2));
+			tabLayoutItem.addToTabContents(new StringValue(grammaFormKanjiSb.toString(), 15.0f, 2));
 		}
 
 		List<String> grammaFormKanaList = grammaFormConjugateResult.getKanaList();
@@ -1747,7 +1778,7 @@ public class WordDictionaryDetails extends Activity {
 
 			sb.append(grammaFormKanaList.get(idx));
 
-			report.add(new StringValue(sb.toString(), 15.0f, 2));
+			tabLayoutItem.addToTabContents(new StringValue(sb.toString(), 15.0f, 2));
 
 			StringBuffer grammaFormRomajiSb = new StringBuffer();
 
@@ -1757,10 +1788,10 @@ public class WordDictionaryDetails extends Activity {
 
 			grammaFormRomajiSb.append(grammaFormRomajiList.get(idx));
 
-			report.add(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
+			tabLayoutItem.addToTabContents(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
 
 			if (info != null) {
-				report.add(new StringValue(info, 12.0f, 2));
+				tabLayoutItem.addToTabContents(new StringValue(info, 12.0f, 2));
 			}
 
 			// speak image
@@ -1787,15 +1818,15 @@ public class WordDictionaryDetails extends Activity {
 
 			actionButtons.addTableRow(actionTableRow);
 
-			report.add(actionButtons);
+			tabLayoutItem.addToTabContents(actionButtons);
 		}
 
 		GrammaFormConjugateResult alternative = grammaFormConjugateResult.getAlternative();
 
 		if (alternative != null) {
-			report.add(new StringValue("", 5.0f, 1));
+			tabLayoutItem.addToTabContents(new StringValue("", 5.0f, 1));
 
-			addGrammaFormConjugateResult(report, alternative);
+			addGrammaFormConjugateResult(tabLayoutItem, alternative);
 		}
 	}
 
