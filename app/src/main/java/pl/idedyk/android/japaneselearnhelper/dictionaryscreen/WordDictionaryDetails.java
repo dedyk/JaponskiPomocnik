@@ -45,7 +45,9 @@ import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.GroupWithTatoebaSentenceList;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.dto.TatoebaSentence;
+import pl.idedyk.japanese.dictionary.api.example.ExampleManager;
 import pl.idedyk.japanese.dictionary.api.example.dto.ExampleGroupTypeElements;
+import pl.idedyk.japanese.dictionary.api.example.dto.ExampleRequest;
 import pl.idedyk.japanese.dictionary.api.example.dto.ExampleResult;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary.api.gramma.GrammaConjugaterManager;
@@ -1162,6 +1164,7 @@ public class WordDictionaryDetails extends Activity {
 			}
 
 			if (grammaFormConjugateAndExampleEntryMap.size() > 0) { // jezeli udalo sie cos wyliczyc to pokazujemy to
+				report.add(new StringValue("", 15.0f, 2));
 				report.add(new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0));
 
 				// utworzenie odmian dla kazdego slowa
@@ -1189,7 +1192,6 @@ public class WordDictionaryDetails extends Activity {
 
 						// dodanie zakladki z typem slowa
 						TabLayoutItem tabLayoutForDictionaryType = new TabLayoutItem(grammaFormConjugateAndExampleEntryForDictionaryType.dictionaryEntryType.getName());
-						// tabLayoutForDictionaryType.addToTabContents(new StringValue("XXXXX", 15.0f, 0));
 
 						// dodanie form gramatycznych
 						for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : grammaFormConjugateAndExampleEntryForDictionaryType.grammaFormConjugateGroupTypeElementsList) {
@@ -1241,13 +1243,85 @@ public class WordDictionaryDetails extends Activity {
 				report.add(tabLayout);
 			}
 		}
-		/*
-		// FM_FIXME: stary kod - start
-		Map<GrammaFormConjugateResultType, GrammaFormConjugateResult> grammaCache = new HashMap<GrammaFormConjugateResultType, GrammaFormConjugateResult>();
 
+		// wyliczenie przykladow
+		// jezeli wczesniej wyliczono odmiany gramatyczne, to przyklady tez powinno dac sie
+		if (grammaFormConjugateAndExampleEntryMap.size() > 0) {
+			DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
 
-		// FM_FIXME: dalej !!!!!
+			// wyliczenie przykladow
+			for (GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry : grammaFormConjugateAndExampleEntryMap.values()) {
+				for (GrammaFormConjugateAndExampleEntryForDictionaryType grammaFormConjugateAndExampleEntryForDictionaryType : grammaFormConjugateAndExampleEntry.grammaFormConjugateAndExampleEntryForDictionaryTypeList) {
 
+					List<ExampleGroupTypeElements> exampleGroupTypeElementsList =
+							ExampleManager.getExamples(dictionaryManager.getKeigoHelper(), new ExampleRequest(grammaFormConjugateAndExampleEntry.dictionaryEntry),
+									grammaFormConjugateAndExampleEntryForDictionaryType.grammaFormCache, grammaFormConjugateAndExampleEntryForDictionaryType.dictionaryEntryType, false);
+
+					if (exampleGroupTypeElementsList != null && exampleGroupTypeElementsList.size() > 0) { // mamy cos wyliczonego
+						grammaFormConjugateAndExampleEntryForDictionaryType.setExampleGroupTypeElementsList(exampleGroupTypeElementsList);
+					}
+				}
+			}
+
+			report.add(new StringValue("", 15.0f, 2));
+			report.add(new TitleItem(getString(R.string.word_dictionary_details_example_label), 0));
+
+			// utworzenie przykladow dla kazdego slowa
+			TabLayout tabLayout = new TabLayout();
+
+			// utworzenie dla kazdego slowa
+			for (GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry : grammaFormConjugateAndExampleEntryMap.values()) {
+				// utwrzenie zakladki dla slowa
+				TabLayoutItem tabLayoutItemForGrammaFormConjugateAndExampleEntry = new TabLayoutItem((grammaFormConjugateAndExampleEntry.dictionaryEntry.isKanjiExists() == true ? grammaFormConjugateAndExampleEntry.dictionaryEntry.getKanji() + ", " : "") + grammaFormConjugateAndExampleEntry.dictionaryEntry.getKana());
+
+				TabLayout tabLayoutForDictionaryEntry = new TabLayout();
+
+				// ustawienie ramki i rozmiaru
+				tabLayoutForDictionaryEntry.setAddBorder(true);
+
+				DisplayMetrics displayMetrics = new DisplayMetrics();
+				getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+
+				tabLayoutForDictionaryEntry.setContentsHeight(new Integer((int) (displayMetrics.heightPixels * 0.60)));
+
+				tabLayoutItemForGrammaFormConjugateAndExampleEntry.addToTabContents(tabLayoutForDictionaryEntry);
+
+				// wygenerowanie zakladek dla typow slow
+				for (GrammaFormConjugateAndExampleEntryForDictionaryType grammaFormConjugateAndExampleEntryForDictionaryType : grammaFormConjugateAndExampleEntry.grammaFormConjugateAndExampleEntryForDictionaryTypeList) {
+
+					// dodanie zakladki z typem slowa
+					TabLayoutItem tabLayoutForDictionaryType = new TabLayoutItem(grammaFormConjugateAndExampleEntryForDictionaryType.dictionaryEntryType.getName());
+
+					// dodanie przykladow gramatycznych
+					for (ExampleGroupTypeElements currentExampleGroupTypeElements : grammaFormConjugateAndExampleEntryForDictionaryType.exampleGroupTypeElementsList) {
+
+						tabLayoutForDictionaryType.addToTabContents(new TitleItem(currentExampleGroupTypeElements.getExampleGroupType().getName(), 1));
+
+						String exampleGroupInfo = currentExampleGroupTypeElements.getExampleGroupType().getInfo();
+
+						if (exampleGroupInfo != null) {
+							tabLayoutForDictionaryType.addToTabContents(new StringValue(exampleGroupInfo, 12.0f, 1));
+						}
+
+						List<ExampleResult> exampleResults = currentExampleGroupTypeElements.getExampleResults();
+
+						for (ExampleResult currentExampleResult : exampleResults) {
+							addExampleResult(tabLayoutForDictionaryType, currentExampleResult);
+						}
+
+						tabLayoutForDictionaryType.addToTabContents(new StringValue("", 15.0f, 1));
+					}
+
+					tabLayoutForDictionaryEntry.addTab(tabLayoutForDictionaryType);
+				}
+
+				tabLayout.addTab(tabLayoutItemForGrammaFormConjugateAndExampleEntry);
+			}
+
+			//
+
+			report.add(tabLayout);
+		}
 
 		// FM_FIXME: testy !!!!!!!!!!!!!111
 		/*
@@ -1350,46 +1424,6 @@ public class WordDictionaryDetails extends Activity {
 		int indexStartPos = report.size();
 
 		// FM_FIXME: tutaj byly wyliczane odmiany gramatyczne
-
-		// Example
-		// FM_FIXME: do naprawy
-		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = null;
-		/*
-		List<ExampleGroupTypeElements> exampleGroupTypeElementsList = ExampleManager.getExamples(
-				JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this).getKeigoHelper(),
-				dictionaryEntry, grammaCache, forceDictionaryEntryType, false);
-		*/
-
-		if (exampleGroupTypeElementsList != null) {
-
-			// FM_FIXME: tymczasowo !!!!
-			Object grammaFormConjugateGroupTypeElementsList = null;
-
-			if (grammaFormConjugateGroupTypeElementsList == null && (tatoebaSentenceGroupList == null || tatoebaSentenceGroupList.size() == 0)) {
-				report.add(new StringValue("", 15.0f, 2));
-			}
-
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_example_label), 0));
-
-			for (ExampleGroupTypeElements currentExampleGroupTypeElements : exampleGroupTypeElementsList) {
-
-				report.add(new TitleItem(currentExampleGroupTypeElements.getExampleGroupType().getName(), 1));
-
-				String exampleGroupInfo = currentExampleGroupTypeElements.getExampleGroupType().getInfo();
-
-				if (exampleGroupInfo != null) {
-					report.add(new StringValue(exampleGroupInfo, 12.0f, 1));
-				}
-
-				List<ExampleResult> exampleResults = currentExampleGroupTypeElements.getExampleResults();
-
-				for (ExampleResult currentExampleResult : exampleResults) {
-					addExampleResult(report, currentExampleResult);
-				}
-
-				report.add(new StringValue("", 15.0f, 1));
-			}
-		}
 
 		// add index
 		if (indexStartPos < report.size()) {
@@ -1821,7 +1855,7 @@ public class WordDictionaryDetails extends Activity {
 		}
 	}
 
-	private void addExampleResult(List<IScreenItem> report, ExampleResult exampleResult) {
+	private void addExampleResult(TabLayoutItem tabLayoutItem, ExampleResult exampleResult) {
 
 		TableLayout actionButtons = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
 		TableRow actionTableRow = new TableRow();
@@ -1839,7 +1873,7 @@ public class WordDictionaryDetails extends Activity {
 
 			exampleKanjiSb.append(exampleKanji);
 
-			report.add(new StringValue(exampleKanjiSb.toString(), 15.0f, 2));
+			tabLayoutItem.addToTabContents(new StringValue(exampleKanjiSb.toString(), 15.0f, 2));
 		}
 
 		List<String> exampleKanaList = exampleResult.getKanaList();
@@ -1855,7 +1889,7 @@ public class WordDictionaryDetails extends Activity {
 
 			sb.append(exampleKanaList.get(idx));
 
-			report.add(new StringValue(sb.toString(), 15.0f, 2));
+			tabLayoutItem.addToTabContents(new StringValue(sb.toString(), 15.0f, 2));
 
 			StringBuffer exampleRomajiSb = new StringBuffer();
 
@@ -1865,12 +1899,12 @@ public class WordDictionaryDetails extends Activity {
 
 			exampleRomajiSb.append(exampleRomajiList.get(idx));
 
-			report.add(new StringValue(exampleRomajiSb.toString(), 15.0f, 2));
+			tabLayoutItem.addToTabContents(new StringValue(exampleRomajiSb.toString(), 15.0f, 2));
 
 			String exampleResultInfo = exampleResult.getInfo();
 
 			if (exampleResultInfo != null) {
-				report.add(new StringValue(exampleResultInfo, 12.0f, 2));
+				tabLayoutItem.addToTabContents(new StringValue(exampleResultInfo, 12.0f, 2));
 			}
 
 			// speak image
@@ -1897,15 +1931,15 @@ public class WordDictionaryDetails extends Activity {
 
 			actionButtons.addTableRow(actionTableRow);
 
-			report.add(actionButtons);
+			tabLayoutItem.addToTabContents(actionButtons);
 		}
 
 		ExampleResult alternative = exampleResult.getAlternative();
 
 		if (alternative != null) {
-			report.add(new StringValue("", 5.0f, 1));
+			tabLayoutItem.addToTabContents(new StringValue("", 5.0f, 1));
 
-			addExampleResult(report, alternative);
+			addExampleResult(tabLayoutItem, alternative);
 		}
 	}
 
