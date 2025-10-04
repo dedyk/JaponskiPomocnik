@@ -101,15 +101,10 @@ public class WordDictionaryDetails extends Activity {
 	private final Stack<Integer> backScreenPositionStack = new Stack<Integer>();
 
 	private List<IScreenItem> searchScreenItemList = null;
-
 	private Integer searchScreenItemCurrentPos = null;
 
-	// FM_FIXME: do poprawy
-	private DictionaryEntry dictionaryEntry__ = null;
-	private JMdict.Entry dictionaryEntry2__ = null;
-
-	// FM_FIXME: do usuniecia
-	private DictionaryEntryType forceDictionaryEntryType__ = null;
+	private DictionaryEntry dictionaryEntry = null;
+	private JMdict.Entry dictionaryEntry2 = null;
 
 	//
 
@@ -175,6 +170,7 @@ public class WordDictionaryDetails extends Activity {
 		super.onOptionsItemSelected(item);
 
 		if (item.getItemId() == R.id.word_dictionary_details_menu_search) {
+			// FM_FIXME: do sprawdzenia, czy to dziala
 
 			AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
@@ -325,10 +321,10 @@ public class WordDictionaryDetails extends Activity {
 		Object item = getIntent().getSerializableExtra("item");
 
 		if (item instanceof DictionaryEntry) {
-			dictionaryEntry__ = (DictionaryEntry)item;
+			dictionaryEntry = (DictionaryEntry)item;
 
 		} else if (item instanceof JMdict.Entry) {
-			dictionaryEntry2__ = (JMdict.Entry)item;
+			dictionaryEntry2 = (JMdict.Entry)item;
 
 		} else {
 			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
@@ -341,7 +337,7 @@ public class WordDictionaryDetails extends Activity {
 		final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
 		final LinearLayout detailsMainLayout = (LinearLayout) findViewById(R.id.word_dictionary_details_main_layout);
 
-		generatedDetails = generateDetails(dictionaryEntry__, dictionaryEntry2__, scrollMainLayout);
+		generatedDetails = generateDetails(dictionaryEntry, dictionaryEntry2, scrollMainLayout);
 
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 
@@ -424,7 +420,7 @@ public class WordDictionaryDetails extends Activity {
 			final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
 			final LinearLayout detailsMainLayout = (LinearLayout) findViewById(R.id.word_dictionary_details_main_layout);
 
-			generatedDetails = generateDetails(dictionaryEntry__, dictionaryEntry2__, scrollMainLayout);
+			generatedDetails = generateDetails(dictionaryEntry, dictionaryEntry2, scrollMainLayout);
 
 			fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 		}
@@ -1123,6 +1119,57 @@ public class WordDictionaryDetails extends Activity {
 		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));
 		*/
 
+		/* stary kod - nie przeniesiony do nowego sposobu
+		// index
+		int indexStartPos = report.size();
+
+		// add index
+		if (indexStartPos < report.size()) {
+
+			int indexStopPos = report.size();
+
+			List<IScreenItem> indexList = new ArrayList<IScreenItem>();
+
+			indexList.add(new StringValue("", 15.0f, 2));
+			indexList.add(new TitleItem(getString(R.string.word_dictionary_details_report_counters_index), 0));
+			indexList.add(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 1));
+
+			for (int reportIdx = indexStartPos; reportIdx < indexStopPos; ++reportIdx) {
+
+				IScreenItem currentReportScreenItem = report.get(reportIdx);
+
+				if (currentReportScreenItem instanceof TitleItem == false) {
+					continue;
+				}
+
+				final TitleItem currentReportScreenItemAsTitle = (TitleItem) currentReportScreenItem;
+
+				final StringValue titleStringValue = new StringValue(currentReportScreenItemAsTitle.getTitle(), 15.0f,
+						currentReportScreenItemAsTitle.getLevel() + 2);
+
+				titleStringValue.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+
+						backScreenPositionStack.push(scrollMainLayout.getScrollY());
+
+						int counterPos = currentReportScreenItemAsTitle.getY();
+						scrollMainLayout.scrollTo(0, counterPos - 3);
+					}
+				});
+
+				indexList.add(titleStringValue);
+			}
+
+			for (int indexListIdx = 0, reportStartPos = indexStartPos; indexListIdx < indexList.size(); ++indexListIdx) {
+				report.add(reportStartPos, indexList.get(indexListIdx));
+
+				reportStartPos++;
+			}
+		}
+		*/
+
 		// wyliczenie form gramatycznych
 		Map<Integer, GrammaFormConjugateAndExampleEntry> grammaFormConjugateAndExampleEntryMap = new LinkedHashMap<>();
 		List<DictionaryEntry> dictionaryEntryListForGrammaAndExamples = new ArrayList<>();
@@ -1321,154 +1368,6 @@ public class WordDictionaryDetails extends Activity {
 			//
 
 			report.add(tabLayout);
-		}
-
-		// FM_FIXME: testy !!!!!!!!!!!!!111
-		/*
-		report.add(new TitleItem("FM_FIXME: testy", 0));
-
-		TabLayout tabLayout = new TabLayout();
-
-		// tab1
-		{
-			TabLayoutItem tab = new TabLayoutItem("Tab 1");
-			tabLayout.addTab(tab);
-
-			tab.addToTabContents(new StringValue("Jestem tab 1", 15.0f, 0));
-		}
-
-		// tab2
-		{
-			TabLayoutItem tab = new TabLayoutItem("Tab 2");
-			tabLayout.addTab(tab);
-
-			tab.addToTabContents(new StringValue("Jestem tab 2", 25.0f, 0));
-		}
-
-		// tab3
-		{
-			TabLayoutItem tab = new TabLayoutItem("Tab 3");
-			tabLayout.addTab(tab);
-
-			tab.addToTabContents(new StringValue("Jestem tab 3", 35.0f, 0));
-		}
-
-		// tab4
-		{
-			TabLayout subTabLayout = new TabLayout();
-
-			TabLayoutItem subTab1 = new TabLayoutItem("Sbutab 1");
-			TabLayoutItem subTab2 = new TabLayoutItem("Sbutab 2");
-			TabLayoutItem subTab3 = new TabLayoutItem("Sbutab 3");
-
-			subTabLayout.addTab(subTab1);
-			subTabLayout.addTab(subTab2);
-			subTabLayout.addTab(subTab3);
-
-			subTab1.addToTabContents(new StringValue("Jestem tab 1", 35.0f, 0));
-			subTab2.addToTabContents(new StringValue("Jestem tab 2", 35.0f, 0));
-			subTab3.addToTabContents(new StringValue("Jestem tab 3", 35.0f, 0));
-
-			TabLayoutItem tab = new TabLayoutItem("Tab 4");
-			tab.addToTabContents(subTabLayout);
-
-			tabLayout.addTab(tab);
-		}
-
-		report.add(tabLayout);
-		*/
-
-		/////////////////////////////
-
-		/////////////////////////////
-
-		if (1 == 1) {
-			// FM_FIXME: do naprawy
-			return report;
-		}
-
-		// FM_FIXME: do poprawy start
-		String prefixKana = dictionaryEntry.getPrefixKana();
-		String prefixRomaji = dictionaryEntry.getPrefixRomaji();
-
-		if (prefixKana != null && prefixKana.length() == 0) {
-			prefixKana = null;
-		}
-
-		// pobranie slow w formacie dictionary 2/JMdict
-
-		// FM_FIXME: do usuniecia
-		// JMdict.Entry dictionaryEntry2 = null;
-		Dictionary2HelperCommon.KanjiKanaPair dictionaryEntry2KanjiKanaPair;
-
-		// pobieramy sens dla wybranej pary kanji i kana
-		if (dictionaryEntry2 != null) {
-			// FM_FIXME: do naprawy
-			/*
-			List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2);
-
-			// szukamy konkretnego znaczenia dla naszego slowa
-			dictionaryEntry2KanjiKanaPair = Dictionary2HelperCommon.findKanjiKanaPair(kanjiKanaPairList, dictionaryEntry);
-			*/
-
-			dictionaryEntry2KanjiKanaPair = null;
-
-		} else {
-			dictionaryEntry2KanjiKanaPair = null;
-		}
-
-		// FM_FIXME: tymczasowo
-		StringBuffer kanjiSb = new StringBuffer();
-
-		// index
-		int indexStartPos = report.size();
-
-		// FM_FIXME: tutaj byly wyliczane odmiany gramatyczne
-
-		// add index
-		if (indexStartPos < report.size()) {
-
-			int indexStopPos = report.size();
-
-			List<IScreenItem> indexList = new ArrayList<IScreenItem>();
-
-			indexList.add(new StringValue("", 15.0f, 2));
-			indexList.add(new TitleItem(getString(R.string.word_dictionary_details_report_counters_index), 0));
-			indexList.add(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 1));
-
-			for (int reportIdx = indexStartPos; reportIdx < indexStopPos; ++reportIdx) {
-
-				IScreenItem currentReportScreenItem = report.get(reportIdx);
-
-				if (currentReportScreenItem instanceof TitleItem == false) {
-					continue;
-				}
-
-				final TitleItem currentReportScreenItemAsTitle = (TitleItem) currentReportScreenItem;
-
-				final StringValue titleStringValue = new StringValue(currentReportScreenItemAsTitle.getTitle(), 15.0f,
-						currentReportScreenItemAsTitle.getLevel() + 2);
-
-				titleStringValue.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-
-						backScreenPositionStack.push(scrollMainLayout.getScrollY());
-
-						int counterPos = currentReportScreenItemAsTitle.getY();
-						scrollMainLayout.scrollTo(0, counterPos - 3);
-					}
-				});
-
-				indexList.add(titleStringValue);
-			}
-
-			for (int indexListIdx = 0, reportStartPos = indexStartPos; indexListIdx < indexList.size(); ++indexListIdx) {
-				report.add(reportStartPos, indexList.get(indexListIdx));
-
-				reportStartPos++;
-			}
 		}
 
 		return report;
