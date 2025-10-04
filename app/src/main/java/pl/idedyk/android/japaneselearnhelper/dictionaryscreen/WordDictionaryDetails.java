@@ -870,6 +870,9 @@ public class WordDictionaryDetails extends Activity {
 
 			if (addedSomeAttribute == false) {
 				report.removeLast(); // usuwamy tytul, skoro nie bylo zadnego atrybutu
+
+			} else {
+				report.add(new StringValue("", 15.0f, 0)); // przerwa
 			}
 		}
 
@@ -916,7 +919,7 @@ public class WordDictionaryDetails extends Activity {
 					TabLayoutItem tabLayoutItem = new TabLayoutItem((dictionaryEntryForWordType.isKanjiExists() == true ? dictionaryEntryForWordType.getKanji()  + ", " : "") + dictionaryEntryForWordType.getKana());
 
 					for (final DictionaryEntryType currentAddableDictionaryEntryType : addableDictionaryEntryTypeList) {
-						StringValue currentDictionaryEntryTypeStringValue = new StringValue(currentAddableDictionaryEntryType.getName(), 20.0f, 0);
+						StringValue currentDictionaryEntryTypeStringValue = new StringValue(currentAddableDictionaryEntryType.getName(), 15.0f, 0);
 
 						tabLayoutItem.addToTabContents(currentDictionaryEntryTypeStringValue);
 					}
@@ -945,6 +948,7 @@ public class WordDictionaryDetails extends Activity {
 				}
 
 				report.add(tabLayout);
+				report.add(new StringValue("", 15.0f, 0)); // przerwa
 			}
 		}
 
@@ -1051,6 +1055,8 @@ public class WordDictionaryDetails extends Activity {
 			for (int groupsIdx = 0; groupsIdx < groups.size(); ++groupsIdx) {
 				report.add(new StringValue(String.valueOf(groups.get(groupsIdx).getValue()), 20.0f, 0));
 			}
+
+			report.add(new StringValue("", 15.0f, 0)); // przerwa
 		}
 
 		// user groups
@@ -1110,6 +1116,8 @@ public class WordDictionaryDetails extends Activity {
 					tableLayout.addTableRow(userGroupTableRow);
 				}
 			}
+
+			report.add(new StringValue("", 15.0f, 0)); // przerwa
 		}
 
 		/*
@@ -1211,8 +1219,8 @@ public class WordDictionaryDetails extends Activity {
 			}
 
 			if (grammaFormConjugateAndExampleEntryMap.size() > 0) { // jezeli udalo sie cos wyliczyc to pokazujemy to
-				report.add(new StringValue("", 15.0f, 2));
 				report.add(new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0));
+				report.add(new StringValue("", 5.0f, 0)); // przerwa
 
 				// utworzenie odmian dla kazdego slowa
 				TabLayout tabLayout = new TabLayout();
@@ -1225,12 +1233,10 @@ public class WordDictionaryDetails extends Activity {
 					TabLayout tabLayoutForDictionaryEntry = new TabLayout();
 
 					// ustawienie ramki i rozmiaru
-					tabLayoutForDictionaryEntry.setAddBorder(true);
-
-					DisplayMetrics displayMetrics = new DisplayMetrics();
-					getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-
-					tabLayoutForDictionaryEntry.setContentsHeight(new Integer((int)(displayMetrics.heightPixels * 0.60)));
+					// tabLayoutForDictionaryEntry.setAddBorder(true);
+					// DisplayMetrics displayMetrics = new DisplayMetrics();
+					// getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+					// tabLayoutForDictionaryEntry.setContentsHeight(new Integer((int)(displayMetrics.heightPixels * 0.60)));
 
 					tabLayoutItemForGrammaFormConjugateAndExampleEntry.addToTabContents(tabLayoutForDictionaryEntry);
 
@@ -1239,6 +1245,8 @@ public class WordDictionaryDetails extends Activity {
 
 						// dodanie zakladki z typem slowa
 						TabLayoutItem tabLayoutForDictionaryType = new TabLayoutItem(grammaFormConjugateAndExampleEntryForDictionaryType.dictionaryEntryType.getName());
+
+						tabLayoutForDictionaryType.addToTabContents(new StringValue("", 5.0f, 0)); // przerwa
 
 						// dodanie form gramatycznych
 						for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : grammaFormConjugateAndExampleEntryForDictionaryType.grammaFormConjugateGroupTypeElementsList) {
@@ -1310,8 +1318,8 @@ public class WordDictionaryDetails extends Activity {
 				}
 			}
 
-			report.add(new StringValue("", 15.0f, 2));
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_example_label), 0));
+			report.add(new StringValue("", 5.0f, 0)); // przerwa
 
 			// utworzenie przykladow dla kazdego slowa
 			TabLayout tabLayout = new TabLayout();
@@ -1324,12 +1332,11 @@ public class WordDictionaryDetails extends Activity {
 				TabLayout tabLayoutForDictionaryEntry = new TabLayout();
 
 				// ustawienie ramki i rozmiaru
-				tabLayoutForDictionaryEntry.setAddBorder(true);
+				// tabLayoutForDictionaryEntry.setAddBorder(true);
 
-				DisplayMetrics displayMetrics = new DisplayMetrics();
-				getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-
-				tabLayoutForDictionaryEntry.setContentsHeight(new Integer((int) (displayMetrics.heightPixels * 0.60)));
+				// DisplayMetrics displayMetrics = new DisplayMetrics();
+				// getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+				// tabLayoutForDictionaryEntry.setContentsHeight(new Integer((int) (displayMetrics.heightPixels * 0.60)));
 
 				tabLayoutItemForGrammaFormConjugateAndExampleEntry.addToTabContents(tabLayoutForDictionaryEntry);
 
@@ -1338,6 +1345,8 @@ public class WordDictionaryDetails extends Activity {
 
 					// dodanie zakladki z typem slowa
 					TabLayoutItem tabLayoutForDictionaryType = new TabLayoutItem(grammaFormConjugateAndExampleEntryForDictionaryType.dictionaryEntryType.getName());
+
+					tabLayoutForDictionaryType.addToTabContents(new StringValue("", 5.0f, 0)); // przerwa
 
 					// dodanie przykladow gramatycznych
 					for (ExampleGroupTypeElements currentExampleGroupTypeElements : grammaFormConjugateAndExampleEntryForDictionaryType.exampleGroupTypeElementsList) {
@@ -1368,6 +1377,7 @@ public class WordDictionaryDetails extends Activity {
 			//
 
 			report.add(tabLayout);
+			report.add(new StringValue("", 15.0f, 0)); // przerwa
 		}
 
 		return report;
