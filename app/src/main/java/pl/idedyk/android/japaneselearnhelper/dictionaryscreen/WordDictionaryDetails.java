@@ -1053,10 +1053,10 @@ public class WordDictionaryDetails extends Activity {
 			report.add(new TitleItem(getString(R.string.word_dictionary_details_dictionary_groups), 0));
 
 			for (int groupsIdx = 0; groupsIdx < groups.size(); ++groupsIdx) {
-				report.add(new StringValue(String.valueOf(groups.get(groupsIdx).getValue()), 20.0f, 0));
+				report.add(new StringValue(String.valueOf(groups.get(groupsIdx).getValue()), 15.0f, 0));
 			}
 
-			report.add(new StringValue("", 15.0f, 0)); // przerwa
+			report.add(new StringValue("", 5.0f, 0)); // przerwa
 		}
 
 		// user groups
@@ -1117,7 +1117,9 @@ public class WordDictionaryDetails extends Activity {
 				}
 			}
 
-			report.add(new StringValue("", 15.0f, 0)); // przerwa
+			if (addSomeGruops == true) {
+				report.add(new StringValue("", 15.0f, 0)); // przerwa
+			}
 		}
 
 		/*

@@ -77,6 +77,7 @@ public class TabLayout implements IScreenItem {
         }
 
         // generowanie zawartosci (tylko aktywny tab)
+        /*
         NestedScrollView contentScrollView = new NestedScrollView(context);
 
         if (contentsHeight == null) {
@@ -89,6 +90,7 @@ public class TabLayout implements IScreenItem {
         if (addBorder == true) {
             contentScrollView.setBackgroundResource(R.drawable.border);
         }
+        */
 
         contentLinearLayout = new LinearLayout(context);
 
@@ -112,14 +114,14 @@ public class TabLayout implements IScreenItem {
         contentLinearLayout.setAnimation(appearingAnim);
 
         // dodanie zawartosci do przewijaka
-        contentScrollView.addView(contentLinearLayout);
+        // contentScrollView.addView(contentLinearLayout);
 
         // generowanie zawartosci tabulatora
         generateTabContent(context, resources);
 
         // dodanie elementow do ekranu
         layout.addView(tabsHorizontalScrollView);
-        layout.addView(contentScrollView);
+        layout.addView(contentLinearLayout);
     }
 
     private void generateTabContent(Context context, Resources resources) {
