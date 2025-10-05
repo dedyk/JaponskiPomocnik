@@ -97,11 +97,11 @@ public class WordKanjiDictionaryUtils {
                 String romaji = kanjiKanaPair.getRomaji();
 
                 if (kanji != null) {
-                    result.append("<strong>" + getStringWithMark(kanji, findWord, findWordRequest.searchKanji) + "</strong>").append(" - ");
+                    result.append("<big>" + getStringWithMark(kanji, findWord, findWordRequest.searchKanji) + "</big>").append(" - ");
                 }
 
-                result.append("<strong>" + getStringWithMark(kana, findWord, findWordRequest.searchKana) + "</strong>").append(" - ");
-                result.append("<strong>" + getStringWithMark(romaji, findWord, findWordRequest.searchRomaji) + "</strong>");
+                result.append("<big>" + getStringWithMark(kana, findWord, findWordRequest.searchKana) + "</big>").append(" - ");
+                result.append("<big>" + getStringWithMark(romaji, findWord, findWordRequest.searchRomaji) + "</big>");
             }
 
             for (int senseIdx = 0; senseIdx < dictionaryEntry2.getSenseList().size(); ++senseIdx) {
@@ -178,10 +178,10 @@ public class WordKanjiDictionaryUtils {
 
                     Gloss gloss = polishGlossList.get(currentGlossIdx);
 
-                    result.append("<strong>" + getStringWithMark(
+                    result.append("<big><strong>" + getStringWithMark(
                             gloss.getValue(), findWord, findWordRequest.searchTranslate) +
                             (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
-                            (currentGlossIdx != polishGlossList.size() - 1 ? "\n" : "") + "</strong>");
+                            (currentGlossIdx != polishGlossList.size() - 1 ? "\n" : "") + "</strong></big>");
                 }
 
                 // informacje dodatkowe
@@ -211,11 +211,11 @@ public class WordKanjiDictionaryUtils {
             // String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
 
             if (kanji != null && kanji.equals("") == false && kanji.equals("-") == false) {
-                result.append(getStringWithMark(kanji, findWord, findWordRequest.searchKanji)).append(" - ");
+                result.append("<big>" + getStringWithMark(kanji, findWord, findWordRequest.searchKanji)).append(" - ");
             }
 
-            result.append(getStringWithMark(kana, findWord, findWordRequest.searchKana)).append(" - ");
-            result.append(getStringWithMark(romaji, findWord, findWordRequest.searchRomaji));
+            result.append("<big>" + getStringWithMark(kana, findWord, findWordRequest.searchKana)).append(" - ");
+            result.append("<big>" + getStringWithMark(romaji, findWord, findWordRequest.searchRomaji));
 
             if (translates != null && translates.size() > 0) {
                 result.append("\n\n");
@@ -223,7 +223,7 @@ public class WordKanjiDictionaryUtils {
                 for (int idx = 0; idx < translates.size(); ++idx) {
                     String currentTranslate = translates.get(idx);
 
-                    result.append("<strong>" + getStringWithMark(currentTranslate, findWord, findWordRequest.searchTranslate) + "</strong>");
+                    result.append("<big><strong>" + getStringWithMark(currentTranslate, findWord, findWordRequest.searchTranslate) + "</strong></big>");
 
                     if (idx != translates.size() - 1) {
                         result.append("\n");

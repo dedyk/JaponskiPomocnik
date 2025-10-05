@@ -656,7 +656,10 @@ public class WordDictionaryDetails extends Activity {
 						currentGlossPolReportValue += " (" + Dictionary2HelperCommon.translateToPolishGlossType(currentGlossPol.getGType()) + ")";
 					}
 
-					report.add(new StringValue(currentGlossPolReportValue, 20.0f, 0));
+					StringValue currentGlossPolReportValueStringValue = new StringValue(currentGlossPolReportValue, 20.0f, 0);
+					currentGlossPolReportValueStringValue.setTypeface(Typeface.create((String)null, Typeface.BOLD));
+
+					report.add(currentGlossPolReportValueStringValue);
 				}
 
 				// informacje dodatkowe
