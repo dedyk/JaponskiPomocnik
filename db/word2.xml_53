@@ -1,0 +1,5489 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<JMdict>
+    <entry>
+        <ent_seq>5300585</ent_seq>
+        <k_ele>
+            <keb>佐織養護学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saori yougo gakkou">さおりようごがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">stary styl nazwy</s_inf>
+            <gloss xml:lang="eng">Saori Special Needs School (older name style)</gloss>
+            <gloss xml:lang="pol">Szkoła Specjalna Saori</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5300739</ent_seq>
+        <k_ele>
+            <keb>佐倉市立美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sakura shiritsu bijutsukan">さくらしりつびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sakura City Museum of Art</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Miasta Sakura</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5301298</ent_seq>
+        <k_ele>
+            <keb>佐藤秀</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="satoushuu">さとうしゅう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Satohide Corporation</gloss>
+            <gloss xml:lang="pol">Satohide Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5301328</ent_seq>
+        <k_ele>
+            <keb>佐藤商事</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="satou shouji">さとうしょうじ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sato Shoji Corporation</gloss>
+            <gloss xml:lang="pol">Sato Shoji Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5302733</ent_seq>
+        <k_ele>
+            <keb>嵯峨野線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sagano sen">さがのせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <gloss xml:lang="eng">Sagano Line (Kyoto)</gloss>
+            <gloss xml:lang="pol">linia Sagano (Kioto)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5305482</ent_seq>
+        <k_ele>
+            <keb>最高会計検査機関</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saikou kaikeikensa kikan">さいこうかいけいけんさきかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Supreme Audit Institution</gloss>
+            <gloss xml:lang="pol">Najwyższy Organ Kontroli</gloss>
+            <gloss xml:lang="pol">Najwyższa Izba Kontroli</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5305483</ent_seq>
+        <k_ele>
+            <keb>最高裁事務総局</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saikousai jimu soukyoku">さいこうさいじむそうきょく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Supreme Court Secretariat</gloss>
+            <gloss xml:lang="pol">Sekretariat Sądu Najwyższego</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5305485</ent_seq>
+        <k_ele>
+            <keb>最高裁判所図書館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saikousai bansho toshokan">さいこうさいばんしょとしょかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Supreme Court Library</gloss>
+            <gloss xml:lang="pol">Biblioteka Sądu Najwyższego</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5305551</ent_seq>
+        <k_ele>
+            <keb>最上恒産</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saijou kousan">さいじょうこうさん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">konsorcjum</s_inf>
+            <gloss xml:lang="eng">Saijō Kōsan (consortium)</gloss>
+            <gloss xml:lang="pol">Saijō Kōsan</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5307279</ent_seq>
+        <k_ele>
+            <keb>済州大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saishuu daigaku">さいしゅうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Cheju National University</gloss>
+            <gloss xml:lang="pol">Narodowy Uniwersytet Cheju</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5307302</ent_seq>
+        <k_ele>
+            <keb>済美</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saibi">さいび</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Saibi</gloss>
+            <gloss xml:lang="pol">Saibi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5308045</ent_seq>
+        <k_ele>
+            <keb>細菌製剤協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saikin seizai kyoukai">さいきんせいざいきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Association of Biological Manufacturers of Japan</gloss>
+            <gloss xml:lang="pol">Japońskie Stowarzyszenie Producentów Biologicznych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5309343</ent_seq>
+        <k_ele>
+            <keb>在特会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zaitokukai">ざいとくかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Zaitokukai (abbr)</gloss>
+            <gloss xml:lang="eng">Zainichi Tokken o Yurusanai Shimin no Kai (The Citizens Group That Will Not Forgive Special Privileges for Koreans in Japan)</gloss>
+            <gloss xml:lang="pol">Zaitokukai (skrót)</gloss>
+            <gloss xml:lang="pol">Zainichi Tokken o Yurusanai Shimin no Kai (grupa obywatelska, która nie wybaczy specjalnych przywilejów dla Koreańczyków w Japonii)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5309347</ent_seq>
+        <k_ele>
+            <keb>在日外国報道協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zainichi gaikoku houdou kyoukai">ざいにちがいこくほうどうきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Foreign Press in Japan</gloss>
+            <gloss xml:lang="pol">Prasa Zagraniczna w Japonii</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5309350</ent_seq>
+        <k_ele>
+            <keb>在日本大韓民国居留民団</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zainihon daikan minkoku kyoryuu mindan">ざいにほんだいかんみんこくきょりゅうみんだん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">dawna nazwa</s_inf>
+            <gloss xml:lang="eng">Korean Residents Union in Japan (former name)</gloss>
+            <gloss xml:lang="pol">Koreański Związek Rezydentów w Japonii</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5309351</ent_seq>
+        <k_ele>
+            <keb>在日本大韓民国民団</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zainihon daikan minkoku mindan">ざいにほんだいかんみんこくみんだん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Korean Residents Union in Japan</gloss>
+            <gloss xml:lang="eng">Mindan</gloss>
+            <gloss xml:lang="pol">Koreański Związek Rezydentów w Japonii</gloss>
+            <gloss xml:lang="pol">Mindan</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5309449</ent_seq>
+        <k_ele>
+            <keb>材料技術研究協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zairyou gijutsu kenkyuu kyoukai">ざいりょうぎじゅつけんきゅうきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japan Research Institute of Material Technology</gloss>
+            <gloss xml:lang="pol">Japoński Instytut Badawczy Technologii Materiałowych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5309451</ent_seq>
+        <k_ele>
+            <keb>材料部会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zairyou bukai">ざいりょうぶかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Division of Materials Science and Technology</gloss>
+            <gloss xml:lang="pol">Wydział Materiałoznawstwa i Technologii</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5309477</ent_seq>
+        <k_ele>
+            <keb>財政金融研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zaisei kin'yuu kenkyuujo">ざいせいきんゆうけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Institute of Fiscal and Monetary Policy</gloss>
+            <gloss xml:lang="pol">Instytut Polityki Fiskalnej i Monetarnej</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5309488</ent_seq>
+        <k_ele>
+            <keb>財団法人財務会計基準機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zaidan houjin zaimukaikei kijun kikou">ざいだんほうじんざいむかいけいきじゅんきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Financial Accounting Standards Foundation</gloss>
+            <gloss xml:lang="eng">FASF</gloss>
+            <gloss xml:lang="pol">Fundacja Standardów Rachunkowości Finansowej</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5310614</ent_seq>
+        <k_ele>
+            <keb>阪急</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="hankyuu">はんきゅう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">konglomerat kolejowy i detaliczny w regionie Kansai</s_inf>
+            <gloss xml:lang="eng">Hankyu (Kansai area railway and retail conglomerate)</gloss>
+            <gloss xml:lang="pol">Hankyu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5310616</ent_seq>
+        <k_ele>
+            <keb>阪急電鉄</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="hankyuu dentetsu">はんきゅうでんてつ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Hankyu Corporation</gloss>
+            <gloss xml:lang="pol">Hankyu Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5310617</ent_seq>
+        <k_ele>
+            <keb>阪急百貨店</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="hankyuu hyakkaten">はんきゅうひゃっかてん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Hankyu Department Store</gloss>
+            <gloss xml:lang="pol">Dom Towarowy Hankyu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5310672</ent_seq>
+        <k_ele>
+            <keb>阪神タイガース</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="hanshin taigaasu">はんしんタイガース</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">japoński klub baseballowy z miasta Nishinomiya, występujący w zawodowej lidze Nippon Professional Baseball w Lidze Centralnej. Klub powstał w 1936 roku pod nazwą Ōsaka Tigers, którą w późniejszym okresie zmieniał kilkakrotnie na Hanshin i ponownie na Ōsaka Tigers</s_inf>
+            <gloss xml:lang="eng">Hanshin Tigers (Japanese pro baseball team)</gloss>
+            <gloss xml:lang="pol">Hanshin Tigers (Japanese pro baseball team)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5310673</ent_seq>
+        <k_ele>
+            <keb>阪神バス</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="hanshin basu">はんしんバス</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Hanshin Bus</gloss>
+            <gloss xml:lang="pol">Hanshin Bus</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5310680</ent_seq>
+        <k_ele>
+            <keb>阪神高速道路公団</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="hanshin kousoku douro koudan">はんしんこうそくどうろこうだん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Hanshin Expressway Public Corporation</gloss>
+            <gloss xml:lang="pol">Hanshin Expressway Public Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5310683</ent_seq>
+        <k_ele>
+            <keb>阪神電鉄</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="hanshin dentetsu">はんしんでんてつ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Hanshin Electric Railway Co.</gloss>
+            <gloss xml:lang="pol">Hanshin Electric Railway Co.</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5310690</ent_seq>
+        <k_ele>
+            <keb>阪大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="handai">はんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">skrót</s_inf>
+            <gloss xml:lang="eng">Osaka University (abbr)</gloss>
+            <gloss xml:lang="pol">Uniwersytet Osaka</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5310741</ent_seq>
+        <k_ele>
+            <keb>阪南大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="hannan daigaku">はんなんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Hannan University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Hannan</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5311896</ent_seq>
+        <k_ele>
+            <keb>埼京線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saikyou sen">さいきょうせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <s_inf xml:lang="pol">linia kolejowa biegnąca z Tokio do Saitama</s_inf>
+            <gloss xml:lang="eng">Saikyō Line (railway line running from Tokyo to Saitama)</gloss>
+            <gloss xml:lang="pol">Linia Saikyō</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5311899</ent_seq>
+        <k_ele>
+            <keb>埼玉りそな銀行</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saitama risona ginkou">さいたまりそなぎんこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Saitama Resona Bank</gloss>
+            <gloss xml:lang="pol">Saitama Resona Bank</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5311902</ent_seq>
+        <k_ele>
+            <keb>埼玉医科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saitama ika daigaku">さいたまいかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Saitama Medical School</gloss>
+            <gloss xml:lang="pol">Szkoła Medyczna Saitama</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5311909</ent_seq>
+        <k_ele>
+            <keb>埼玉県立近代美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saitama kenritsu kindai bijutsukan">さいたまけんりつきんだいびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Museum of Modern Art, Saitama</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Nowoczesnej w Saitama</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5311911</ent_seq>
+        <k_ele>
+            <keb>埼玉工業大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saitama kougyou daigaku">さいたまこうぎょうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Saitama Institute of Technology</gloss>
+            <gloss xml:lang="pol">Instytut Technologii Saitama</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5311916</ent_seq>
+        <k_ele>
+            <keb>埼玉大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="saitama daigaku">さいたまだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Saitama University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Saitama</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5312277</ent_seq>
+        <k_ele>
+            <keb>作新学院大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sakushin gakuin daigaku">さくしんがくいんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sakushin-Gakuin University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Sakushin-Gakuin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5312389</ent_seq>
+        <k_ele>
+            <keb>作物研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sakumotsu kenkyuujo">さくもつけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">National Institute of Crop Science</gloss>
+            <gloss xml:lang="pol">Narodowy Instytut Nauk o Uprawie</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5312430</ent_seq>
+        <k_ele>
+            <keb>作陽音楽大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sakuyou ongaku daigaku">さくようおんがくだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sakuyo College of Music</gloss>
+            <gloss xml:lang="pol">Wyższa Szkoła Muzyczna Sakuyo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5312610</ent_seq>
+        <k_ele>
+            <keb>桜の園</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sakura no sono">さくらのその</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">dramat Antona Czechowa, napisany w 1903 r, po raz pierwszy wystawiony 17 stycznia 1904 przez Konstantina Stanisławskiego</s_inf>
+            <gloss xml:lang="eng">The Cherry Orchard (1904 play by Anton Chekhov)</gloss>
+            <gloss xml:lang="pol">Wiśniowy sad</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5312712</ent_seq>
+        <k_ele>
+            <keb>桜井女子短大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sakurai joshi tandai">さくらいじょしたんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sakurai Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Sakurai</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5313131</ent_seq>
+        <k_ele>
+            <keb>桜通線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sakura doori sen">さくらどおりせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <gloss xml:lang="eng">Sakura-dōri Line</gloss>
+            <gloss xml:lang="pol">linia Sakura-dōri</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5313262</ent_seq>
+        <k_ele>
+            <keb>桜美林大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="oubirin daigaku">おうびりんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">J. F. Oberlin University</gloss>
+            <gloss xml:lang="pol">Uniwersytet J. F. Oberlin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5314164</ent_seq>
+        <k_ele>
+            <keb>札幌医科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sapporo ika daigaku">さっぽろいかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sapporo Medical University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Medyczny w Sapporo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5314171</ent_seq>
+        <k_ele>
+            <keb>札幌学院大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sapporo gakuin daigaku">さっぽろがくいんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sapporo Gakuin University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Sapporo Gakuin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5314173</ent_seq>
+        <k_ele>
+            <keb>札幌管区気象台</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sapporo kanku kishoudai">さっぽろかんくきしょうだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sapporo District Meteorological Observatory</gloss>
+            <gloss xml:lang="pol">Okręgowe Obserwatorium Meteorologiczne w Sapporo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5314179</ent_seq>
+        <k_ele>
+            <keb>札幌国際大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sapporo kokusai daigaku">さっぽろこくさいだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sapporo International University</gloss>
+            <gloss xml:lang="pol">Międzynarodowy Uniwersytet Sapporo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5314194</ent_seq>
+        <k_ele>
+            <keb>札幌大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sapporo daigaku">さっぽろだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sapporo University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Sapporo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5314228</ent_seq>
+        <k_ele>
+            <keb>殺生丸</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sesshoumaru">せっしょうまる</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>character</misc>
+            <s_inf xml:lang="pol">postać z anime Inuyasha</s_inf>
+            <gloss xml:lang="eng">Sesshomaru (character in the anime Inuyasha)</gloss>
+            <gloss xml:lang="pol">Sesshomaru</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5314364</ent_seq>
+        <k_ele>
+            <keb>雑誌広告協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zasshi koukoku kyoukai">ざっしこうこくきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Magazine Advertising Bureau</gloss>
+            <gloss xml:lang="pol">Magazine Advertising Bureau</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315265</ent_seq>
+        <k_ele>
+            <keb>三井海上火災保険</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsui kaijou kasai hoken">みついかいじょうかさいほけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mitsui Marine and Fire Insurance Company, Limited</gloss>
+            <gloss xml:lang="pol">Mitsui Marine and Fire Insurance Company, Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315273</ent_seq>
+        <k_ele>
+            <keb>三井金属鉱業</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsui kinzoku kougyou">みついきんぞくこうぎょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mitsui Mining And Smelting Company, Limited</gloss>
+            <gloss xml:lang="pol">Mitsui Mining And Smelting Company, Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315300</ent_seq>
+        <k_ele>
+            <keb>三井住友</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsui sumitomo">みついすみとも</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsui Sumitomo</gloss>
+            <gloss xml:lang="eng">Sumitomo Mitsui</gloss>
+            <gloss xml:lang="pol">Mitsui Sumitomo</gloss>
+            <gloss xml:lang="pol">Sumitomo Mitsui</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315301</ent_seq>
+        <k_ele>
+            <keb>三井住友海上火災保険</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsui sumitomo kaijou kasai hoken">みついすみともかいじょうかさいほけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsui Sumitomo Insurance</gloss>
+            <gloss xml:lang="pol">Mitsui Sumitomo Insurance</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315302</ent_seq>
+        <k_ele>
+            <keb>三井住友銀行</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsui sumitomo ginkou">みついすみともぎんこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sumitomo Mitsui Banking Corporation</gloss>
+            <gloss xml:lang="pol">Sumitomo Mitsui Banking Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315305</ent_seq>
+        <k_ele>
+            <keb>三井信託銀行</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsui shintaku ginkou">みついしんたくぎんこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mitsui Trust And Banking Company, Limited</gloss>
+            <gloss xml:lang="pol">Mitsui Trust And Banking Company, Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315308</ent_seq>
+        <k_ele>
+            <keb>三井生命保険</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsui seimei hoken">みついせいめいほけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsui Life Insurance</gloss>
+            <gloss xml:lang="pol">Mitsui Life Insurance</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315362</ent_seq>
+        <k_ele>
+            <keb>三井物産</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsui bussan">みついぶっさん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mitsui and Co.</gloss>
+            <gloss xml:lang="pol">Mitsui and Co.</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315376</ent_seq>
+        <k_ele>
+            <keb>三育学院短期大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="san'ikugakuin tanki daigaku">さんいくがくいんたんきだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">San'ikugakuin Junior College</gloss>
+            <gloss xml:lang="pol">Policealna Szkoła w San'ikugakuin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315435</ent_seq>
+        <k_ele>
+            <keb>三浦印刷</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="miura insatsu">みうらいんさつ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Miura Printing Corporation</gloss>
+            <gloss xml:lang="pol">Miura Printing Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5315605</ent_seq>
+        <k_ele>
+            <keb>三越</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsukoshi">みつこし</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">Mitsukoshi</gloss>
+            <gloss xml:lang="pol">Mitsukoshi</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">dom towarowy</s_inf>
+            <gloss xml:lang="eng">Mitsukoshi (department store)</gloss>
+            <gloss xml:lang="pol">Mitsukoshi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5316115</ent_seq>
+        <k_ele>
+            <keb>三貴</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="miki">みき</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Miki Corporation</gloss>
+            <gloss xml:lang="pol">Miki Corporation</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>female term or language</misc>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">Miki</gloss>
+            <gloss xml:lang="pol">Miki</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5316217</ent_seq>
+        <k_ele>
+            <keb>三京化成</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sankyoukasei">さんきょうかせい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sankyokasei Corporation</gloss>
+            <gloss xml:lang="pol">Sankyokasei Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5316219</ent_seq>
+        <k_ele>
+            <keb>三共</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sankyou">さんきょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">japońska firma farmaceutyczna</s_inf>
+            <gloss xml:lang="eng">Sankyo (Japanese pharmaceutical company)</gloss>
+            <gloss xml:lang="pol">Sankyo</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">Sankyō</gloss>
+            <gloss xml:lang="pol">Sankyō</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5316274</ent_seq>
+        <k_ele>
+            <keb>三興製作所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sankou seisakusho">さんこうせいさくしょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sanko Engineering Corporation</gloss>
+            <gloss xml:lang="pol">Sanko Engineering Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5316522</ent_seq>
+        <k_ele>
+            <keb>三原養護学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mihara yougo gakkou">みはらようごがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">stary styl nazwy</s_inf>
+            <gloss xml:lang="eng">Mihara Special Needs School (older name style)</gloss>
+            <gloss xml:lang="pol">Szkoła Specjalna Mihara</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5316745</ent_seq>
+        <k_ele>
+            <keb>三甲美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sankou bijutsukan">さんこうびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sanko Museum</gloss>
+            <gloss xml:lang="pol">Muzeum Sanko</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5317433</ent_seq>
+        <k_ele>
+            <keb>三重県立美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mie kenritsu bijutsukan">みえけんりつびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mie Prefectural Art Museum</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Prefektury Mie</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5317449</ent_seq>
+        <k_ele>
+            <keb>三重大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mie daigaku">みえだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mie University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Mie</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5317470</ent_seq>
+        <k_ele>
+            <keb>三銃士</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="san juushi">さんじゅうし</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">powieść Alexandra Dumasa z 1844 roku</s_inf>
+            <gloss xml:lang="eng">The Three Musketeers (1844 novel by Alexandre Dumas)</gloss>
+            <gloss xml:lang="pol">Trzej muszkieterowie</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5317552</ent_seq>
+        <k_ele>
+            <keb>三省堂</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sanseidou">さんせいどう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">wydawnictwo</s_inf>
+            <gloss xml:lang="eng">Sanseido (publisher)</gloss>
+            <gloss xml:lang="pol">Sanseido</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5317687</ent_seq>
+        <k_ele>
+            <keb>三信建設工業</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sanshin kensetsu kougyou">さんしんけんせつこうぎょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sanshin Corporation</gloss>
+            <gloss xml:lang="pol">Sanshin Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5317830</ent_seq>
+        <k_ele>
+            <keb>三星グループ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="sansei guruupu">さんせいグループ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Samsung Group</gloss>
+            <gloss xml:lang="pol">Samsung Grupa</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5318436</ent_seq>
+        <k_ele>
+            <keb>三谷商事</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitani shouji">みたにしょうじ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mitani Corporation</gloss>
+            <gloss xml:lang="pol">Mitani Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5318803</ent_seq>
+        <k_ele>
+            <keb>三田線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sandasen">さんだせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <s_inf xml:lang="pol">Kobe Electric Railway</s_inf>
+            <gloss xml:lang="eng">Sanda Line (Kobe Electric Railway)</gloss>
+            <gloss xml:lang="pol">Linia Sanda</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <s_inf xml:lang="pol">Hankyu Bus</s_inf>
+            <gloss xml:lang="eng">Sanda Line (Hankyu Bus)</gloss>
+            <gloss xml:lang="pol">Linia Sanda</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5318804</ent_seq>
+        <k_ele>
+            <keb>三田線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitasen">みたせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <gloss xml:lang="eng">Tōei Mita Line</gloss>
+            <gloss xml:lang="pol">Linia Tōei Mita</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <s_inf xml:lang="pol">zamknięta w 1968 roku</s_inf>
+            <gloss xml:lang="eng">Tōden Mita Line (closed 1968)</gloss>
+            <gloss xml:lang="pol">Linia Tōden Mita</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319328</ent_seq>
+        <k_ele>
+            <keb>三菱</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi">みつびし</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi</gloss>
+            <gloss xml:lang="pol">Mitsubishi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319330</ent_seq>
+        <k_ele>
+            <keb>三菱ウェルファーマ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="mitsubishi werufaama">みつびしウェルファーマ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Pharma</gloss>
+            <gloss xml:lang="pol">Mitsubishi Pharma</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319332</ent_seq>
+        <k_ele>
+            <keb>三菱マテリアル</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="mitsubishi materiaru">みつびしマテリアル</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mitsubishi Materials Corporation</gloss>
+            <gloss xml:lang="pol">Mitsubishi Materials Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319336</ent_seq>
+        <k_ele>
+            <keb>三菱レイヨン</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="mitsubishi reiyon">みつびしレイヨン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Rayon</gloss>
+            <gloss xml:lang="pol">Mitsubishi Rayon</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319339</ent_seq>
+        <k_ele>
+            <keb>三菱化学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi kagaku">みつびしかがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Chemical Corporation</gloss>
+            <gloss xml:lang="pol">Mitsubishi Chemical Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319347</ent_seq>
+        <k_ele>
+            <keb>三菱金属</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi kinzoku">みつびしきんぞく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Metal Corporation</gloss>
+            <gloss xml:lang="pol">Mitsubishi Metal Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319351</ent_seq>
+        <k_ele>
+            <keb>三菱自工株</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi jikoukabu">みつびしじこうかぶ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">skrót</s_inf>
+            <gloss xml:lang="eng">Mitsubishi Motor Corp. (abbr)</gloss>
+            <gloss xml:lang="pol">Mitsubishi Motor Corp.</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319356</ent_seq>
+        <k_ele>
+            <keb>三菱自動車工業</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi jidousha kougyou">みつびしじどうしゃこうぎょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mitsubishi Motors Corporation</gloss>
+            <gloss xml:lang="pol">Mitsubishi Motors Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319362</ent_seq>
+        <k_ele>
+            <keb>三菱重工業</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi juukougyou">みつびしじゅうこうぎょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Heavy Industries, Ltd.</gloss>
+            <gloss xml:lang="pol">Mitsubishi Heavy Industries, Ltd.</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319375</ent_seq>
+        <k_ele>
+            <keb>三菱商事</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi shouji">みつびししょうじ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Corporation</gloss>
+            <gloss xml:lang="pol">Mitsubishi Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319376</ent_seq>
+        <k_ele>
+            <keb>三菱証券</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi shouken">みつびししょうけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Securities</gloss>
+            <gloss xml:lang="pol">Mitsubishi Securities</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319378</ent_seq>
+        <k_ele>
+            <keb>三菱信託銀行</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi shintaku ginkou">みつびししんたくぎんこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mitsubishi Trust And Banking Corporation</gloss>
+            <gloss xml:lang="pol">Mitsubishi Trust And Banking Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319379</ent_seq>
+        <k_ele>
+            <keb>三菱製紙</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi seishi">みつびしせいし</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Paper Mills Limited</gloss>
+            <gloss xml:lang="pol">Mitsubishi Paper Mills Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319386</ent_seq>
+        <k_ele>
+            <keb>三菱倉庫</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi souko">みつびしそうこ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mitsubishi Logistics Corporation</gloss>
+            <gloss xml:lang="pol">Mitsubishi Logistics Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319388</ent_seq>
+        <k_ele>
+            <keb>三菱電機</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi denki">みつびしでんき</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Electric</gloss>
+            <gloss xml:lang="pol">Mitsubishi Electric</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5319397</ent_seq>
+        <k_ele>
+            <keb>三菱東京</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="mitsubishi toukyou">みつびしとうきょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsubishi Tokyo</gloss>
+            <gloss xml:lang="pol">Mitsubishi Tokyo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5320246</ent_seq>
+        <k_ele>
+            <keb>三洋</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="san'you">さんよう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sanyo</gloss>
+            <gloss xml:lang="pol">Sanyo</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">San'you</gloss>
+            <gloss xml:lang="pol">San'you</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5320250</ent_seq>
+        <k_ele>
+            <keb>三洋信販</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="san'you shinpan">さんようしんぱん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">firma udzielająca pożyczek konsumenckich</s_inf>
+            <gloss xml:lang="eng">Sanyo Shinpan (consumer loan firm)</gloss>
+            <gloss xml:lang="pol">Sanyo Shinpan</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5320514</ent_seq>
+        <k_ele>
+            <keb>三和銀行</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sanwa ginkou">さんわぎんこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sanwa Bank, Limited</gloss>
+            <gloss xml:lang="pol">Sanwa Bank, Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5320522</ent_seq>
+        <k_ele>
+            <keb>三和総合研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sanwa sougou kenkyuusho">さんわそうごうけんきゅうしょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">SRIC Corporation</gloss>
+            <gloss xml:lang="eng">Sanwa Research Institute Corporation</gloss>
+            <gloss xml:lang="pol">SRIC Corporation</gloss>
+            <gloss xml:lang="pol">Sanwa Research Institute Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5320751</ent_seq>
+        <k_ele>
+            <keb>参謀本部情報総局</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sanbou honbu jouhou soukyoku">さんぼうほんぶじょうほうそうきょく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Chief Administration for Intelligence</gloss>
+            <gloss xml:lang="pol">Główny Organ Administracji ds. Wywiadu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5320966</ent_seq>
+        <k_ele>
+            <keb>山一證券</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamaichi shouken">やまいちしょうけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Yamaichi Securities Company, Limited</gloss>
+            <gloss xml:lang="pol">Yamaichi Securities Company, Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321322</ent_seq>
+        <k_ele>
+            <keb>山家集</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sankashuu">さんかしゅう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">osobisty zbiór japońskiej poezji autorstwa Saigyo</s_inf>
+            <gloss xml:lang="eng">Sankashu (personal collection of Japanese poetry by Saigyo)</gloss>
+            <gloss xml:lang="pol">Sankashu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321599</ent_seq>
+        <k_ele>
+            <keb>山形大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamagata daigaku">やまがただいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamagata University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Yamagata</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321600</ent_seq>
+        <k_ele>
+            <keb>山形大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamagata dai">やまがただい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">skrót</s_inf>
+            <gloss xml:lang="eng">Yamagata University (abbr)</gloss>
+            <gloss xml:lang="pol">Uniwersytet Yamagata</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321611</ent_seq>
+        <k_ele>
+            <keb>山形美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamagata bijutsukan">やまがたびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamagata Museum of Art</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Yamagata</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321782</ent_seq>
+        <k_ele>
+            <keb>山口県立大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamaguchi kenritsu daigaku">やまぐちけんりつだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamaguchi Prefectural University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Prefekturalny Yamaguchi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321783</ent_seq>
+        <k_ele>
+            <keb>山口県立美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamaguchi kenritsu bijutsukan">やまぐちけんりつびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamaguchi Prefectural Museum of Art</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Prefektury Yamaguchi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321816</ent_seq>
+        <k_ele>
+            <keb>山口女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamaguchi joshi daigaku">やまぐちじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamaguchi Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet w Yamaguchi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321860</ent_seq>
+        <k_ele>
+            <keb>山口組</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamaguchi gumi">やまぐちぐみ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">syndykat yakuzy</s_inf>
+            <gloss xml:lang="eng">Yamaguchi-gumi (yakuza syndicate)</gloss>
+            <gloss xml:lang="pol">Yamaguchi-gumi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321871</ent_seq>
+        <k_ele>
+            <keb>山口大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamaguchi daigaku">やまぐちだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamaguchi University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Yamaguchi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5321908</ent_seq>
+        <k_ele>
+            <keb>山口東京理科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamaguchi toukyou rika daigaku">やまぐちとうきょうりかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">przekształcony w Uniwersytet Miejski Sanyo-Onoda w 2016 r.</s_inf>
+            <gloss xml:lang="eng">Tokyo University of Science, Yamaguchi (became Sanyo-Onoda City University in 2016)</gloss>
+            <gloss xml:lang="pol">Tokijski Uniwersytet Naukowy, Yamaguchi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5322426</ent_seq>
+        <k_ele>
+            <keb>山手線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamatesen">やまてせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <gloss xml:lang="eng">Yamate Line (Kobe)</gloss>
+            <gloss xml:lang="pol">Linia Yamate (Kobe)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5322427</ent_seq>
+        <k_ele>
+            <keb>山手線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamanotesen">やまのてせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <gloss xml:lang="eng">Yamanote Line (Tokyo)</gloss>
+            <gloss xml:lang="pol">Linia Yamanote (Tokio)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5322730</ent_seq>
+        <k_ele>
+            <keb>山西大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sansei daigaku">さんせいだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shanxi University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Shanxi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5322823</ent_seq>
+        <k_ele>
+            <keb>山善</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamazen">やまぜん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Yamazen Corporation</gloss>
+            <gloss xml:lang="pol">Yamazen Corporation</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">Yamazen</gloss>
+            <gloss xml:lang="pol">Yamazen</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5323047</ent_seq>
+        <k_ele>
+            <keb>山中湖美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamanakako bijutsukan">やまなかこびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamanakako Museum of Art</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Yamanakako</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5323609</ent_seq>
+        <k_ele>
+            <keb>山東大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="santou daigaku">さんとうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shandong University</gloss>
+            <gloss xml:lang="eng">SDU</gloss>
+            <gloss xml:lang="pol">Uniwersytet Shandong</gloss>
+            <gloss xml:lang="pol">SDU</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5323613</ent_seq>
+        <k_ele>
+            <keb>山東農業大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="santou nougyou daigaku">さんとうのうぎょうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shandong Agricultural University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Rolniczy Shandong</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5323614</ent_seq>
+        <k_ele>
+            <keb>山東理工大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="santou rikou daigaku">さんとうりこうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shandong University of Technology</gloss>
+            <gloss xml:lang="eng">SDUT</gloss>
+            <gloss xml:lang="pol">Uniwersytet Technologiczny Shandong</gloss>
+            <gloss xml:lang="pol">SDUT</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5323829</ent_seq>
+        <k_ele>
+            <keb>山之内製薬</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamanouchi seiyaku">やまのうちせいやく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">obecnie Astellas Pharma</s_inf>
+            <gloss xml:lang="eng">Yamanouchi Pharmaceutical (now Astellas Pharma)</gloss>
+            <gloss xml:lang="pol">Yamanouchi Pharmaceutical</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324581</ent_seq>
+        <k_ele>
+            <keb>山陽学園大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="san'you gakuen daigaku">さんようがくえんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sanyo Gakuen University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Sanyo Gakuen</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324589</ent_seq>
+        <k_ele>
+            <keb>山陽女子短大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="san'you joshi tandai">さんようじょしたんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sanyou Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Sanyou</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324590</ent_seq>
+        <k_ele>
+            <keb>山陽新幹線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="san'you shinkansen">さんようしんかんせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <gloss xml:lang="eng">San'yō Shinkansen</gloss>
+            <gloss xml:lang="pol">San'yō Shinkansen</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324618</ent_seq>
+        <k_ele>
+            <keb>山梨医科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamanashi ika daigaku">やまなしいかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamanashi Medical University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Medyczny w Yamanashi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324621</ent_seq>
+        <k_ele>
+            <keb>山梨学院大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamanashi gakuin daigaku">やまなしがくいんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamanashi Gakuin University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Yamanashi Gakuin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324624</ent_seq>
+        <k_ele>
+            <keb>山梨県立美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamanashi kenritsu bijutsukan">やまなしけんりつびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamanashi Prefectural Museum of Art</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Prefektury Yamanashi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324633</ent_seq>
+        <k_ele>
+            <keb>山梨大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yamanashi daigaku">やまなしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yamanashi University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Yamanashi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324946</ent_seq>
+        <k_ele>
+            <keb>産業安全研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou anzen kenkyuujo">さんぎょうあんぜんけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">National Institute of Industrial Safety</gloss>
+            <gloss xml:lang="pol">Krajowy Instytut Bezpieczeństwa Przemysłowego</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324947</ent_seq>
+        <k_ele>
+            <keb>産業医科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou ika daigaku">さんぎょういかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">University of Occupational and Environmental Health, Japan</gloss>
+            <gloss xml:lang="pol">Uniwersytet Zdrowia Zawodowego i Środowiskowego, Japonia</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324948</ent_seq>
+        <k_ele>
+            <keb>産業医学総合研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou igaku sougou kenkyuujo">さんぎょういがくそうごうけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">National Institute of IndustrialHealth</gloss>
+            <gloss xml:lang="pol">Narodowy Instytut Zdrowia Przemysłowego</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324951</ent_seq>
+        <k_ele>
+            <keb>産業開発協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou kaihatsu kyoukai">さんぎょうかいはつきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Institut de Development Indeustriel</gloss>
+            <gloss xml:lang="pol">Institut de Development Indeustriel</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324952</ent_seq>
+        <k_ele>
+            <keb>産業開発庁</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou kaihatsuchou">さんぎょうかいはつちょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Industrial Development Authority</gloss>
+            <gloss xml:lang="pol">Urząd Rozwoju Przemysłu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324958</ent_seq>
+        <k_ele>
+            <keb>産業技術総合研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou gijutsu sougou kenkyuusho">さんぎょうぎじゅつそうごうけんきゅうしょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">National Institute of Advanced Industrial Science and Technology</gloss>
+            <gloss xml:lang="eng">NAIST</gloss>
+            <gloss xml:lang="pol">Narodowy Instytut Zaawansowanych Nauk Przemysłowych i Technologii</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324959</ent_seq>
+        <k_ele>
+            <keb>産業技術短期大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou gijutsu tanki daigaku">さんぎょうぎじゅつたんきだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">College of Industrial Technology</gloss>
+            <gloss xml:lang="pol">Wyższa Szkoła Technologii Przemysłowych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324963</ent_seq>
+        <k_ele>
+            <keb>産業競争力会議</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou kyousouryoku kaigi">さんぎょうきょうそうりょくかいぎ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Competitiveness Council</gloss>
+            <gloss xml:lang="eng">Council for Industrial Competitiveness</gloss>
+            <gloss xml:lang="pol">Rada ds. Konkurencyjności Przemysłu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324965</ent_seq>
+        <k_ele>
+            <keb>産業経済新聞社</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou keizai shinbunsha">さんぎょうけいざいしんぶんしゃ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">japońska spółka prasowa</s_inf>
+            <gloss xml:lang="eng">Sankei Shimbun (Japanese newspaper company)</gloss>
+            <gloss xml:lang="pol">Sankei Shimbun</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324967</ent_seq>
+        <k_ele>
+            <keb>産業再生機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou saisei kikou">さんぎょうさいせいきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Industrial Revitalization Corporation (IRC) (Revitalisation)</gloss>
+            <gloss xml:lang="pol">Korporacja Rewitalizacji Przemysłu (IRC)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5324974</ent_seq>
+        <k_ele>
+            <keb>産業能率短期大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou nouritsu tanki daigaku">さんぎょうのうりつたんきだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Institute of Business Administration and Management</gloss>
+            <gloss xml:lang="pol">Instytut Administracji i Zarządzania Biznesem</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5325007</ent_seq>
+        <k_ele>
+            <keb>産能大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sannou daigaku">さんのうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sanno University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Sanno</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5325047</ent_seq>
+        <k_ele>
+            <keb>蚕業技術研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sangyou gijutsu kenkyuujo">さんぎょうぎじゅつけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Institute of Sericulture</gloss>
+            <gloss xml:lang="pol">Instytut Serykultury</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326593</ent_seq>
+        <k_ele>
+            <keb>四国ケーブル線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="shikoku keeburu sen">しこくケーブルせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <gloss xml:lang="eng">Shikoku Cable Line</gloss>
+            <gloss xml:lang="pol">Linia kablowa Shikoku</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326594</ent_seq>
+        <k_ele>
+            <keb>四国化成工業</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikoku kasei kougyou">しこくかせいこうぎょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shikoku Chemicals Corporation</gloss>
+            <gloss xml:lang="pol">Shikoku Chemicals Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326595</ent_seq>
+        <k_ele>
+            <keb>四国学院大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikoku gakuin daigaku">しこくがくいんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shikoku Gakuin University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Shikoku Gakuin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326596</ent_seq>
+        <k_ele>
+            <keb>四国工業技術研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikoku kougyou gijutsu kenkyuusho">しこくこうぎょうぎじゅつけんきゅうしょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shikoku National Industrial Research Institute</gloss>
+            <gloss xml:lang="pol">Narodowy Instytut Badań Przemysłowych Shikoku</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326597</ent_seq>
+        <k_ele>
+            <keb>四国工業技術研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikoku kougyou gijutsu kenkyuujo">しこくこうぎょうぎじゅつけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shikoku National Industrial Research Institute</gloss>
+            <gloss xml:lang="pol">Narodowy Instytut Badań Przemysłowych Shikoku</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326598</ent_seq>
+        <k_ele>
+            <keb>四国行政監察支局</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikoku gyousei kansatsu shikyoku">しこくぎょうせいかんさつしきょく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shikoku Branch Administrative Inspection Bureau</gloss>
+            <gloss xml:lang="pol">Biuro Kontroli Administracyjnej Oddział Shikoku</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326602</ent_seq>
+        <k_ele>
+            <keb>四国女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikoku joshi daigaku">しこくじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shikoku Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet w Shikoku</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326603</ent_seq>
+        <k_ele>
+            <keb>四国少年院</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikoku shounen'in">しこくしょうねんいん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shikoku Reform School</gloss>
+            <gloss xml:lang="pol">Dom Poprawczy w Shikoku</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326604</ent_seq>
+        <k_ele>
+            <keb>四国大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikoku daigaku">しこくだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shikoku University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Shikoku</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326605</ent_seq>
+        <k_ele>
+            <keb>四国電力</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikoku denryoku">しこくでんりょく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Shikoku Electrical Power</gloss>
+            <gloss xml:lang="pol">Shikoku Electrical Power</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326733</ent_seq>
+        <k_ele>
+            <keb>四十七士</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shi juu shichi shi">しじゅうしちし</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <gloss xml:lang="eng">The 47 Ronin</gloss>
+            <gloss xml:lang="pol">47 Roninów</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326877</ent_seq>
+        <k_ele>
+            <keb>四川農業大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shisen nougyou daigaku">しせんのうぎょうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">ang: Sichuan Agricultural University</s_inf>
+            <gloss xml:lang="eng">Sichuan Agricultural University</gloss>
+            <gloss xml:lang="eng">SICAU</gloss>
+            <gloss xml:lang="pol">Syczuański Uniwersytet Rolniczy</gloss>
+            <gloss xml:lang="pol">SICAU</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5326932</ent_seq>
+        <k_ele>
+            <keb>四谷怪談</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yotsuyakaidan">よつやかいだん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yotsuyakaidan</gloss>
+            <gloss xml:lang="pol">Yotsuyakaidan</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5327011</ent_seq>
+        <k_ele>
+            <keb>四天王寺国際仏教大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shitennouji kokusai bukkyou daigaku">してんのうじこくさいぶっきょうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shitennōji International Buddhist University</gloss>
+            <gloss xml:lang="pol">Międzynarodowy Uniwersytet Buddyjski Shitennōji</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5327020</ent_seq>
+        <k_ele>
+            <keb>四電工</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yondenkou">よんでんこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yondenko Corporation</gloss>
+            <gloss xml:lang="pol">Yondenko Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5327077</ent_seq>
+        <k_ele>
+            <keb>四日市大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yokkaichi daigaku">よっかいちだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Yokkaichi University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Yokkaichi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5328483</ent_seq>
+        <k_ele>
+            <keb>市場調査研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shijou chousa kenkyuujo">しじょうちょうさけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">British Market Research Bureau</gloss>
+            <gloss xml:lang="pol">Brytyjskie Biuro Badań Rynkowych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5328765</ent_seq>
+        <k_ele>
+            <keb>市町村職員共済組合</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shichouson shokuin kyousai kumiai">しちょうそんしょくいんきょうさいくみあい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Municipalities Officials Mutual Aid Association</gloss>
+            <gloss xml:lang="pol">Stowarzyszenie Wzajemnej Pomocy Urzędników Gminnych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5328973</ent_seq>
+        <k_ele>
+            <keb>市民満足学会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shimin manzoku gakkai">しみんまんぞくがっかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">International Society for Customer-Driven Public Service</gloss>
+            <gloss xml:lang="pol">Międzynarodowe Stowarzyszenie na rzecz Usług Publicznych zorientowanych na Klienta</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5329095</ent_seq>
+        <k_ele>
+            <keb>市立小樽美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiritsu otaru bijutsukan">しりつおたるびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Otaru City Museum of Art</gloss>
+            <gloss xml:lang="pol">Miejskie Muzeum Sztuki Otaru</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5329099</ent_seq>
+        <k_ele>
+            <keb>市立大学病院</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiritsu daigaku byouin">しりつだいがくびょういん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shiritsu University Hospital</gloss>
+            <gloss xml:lang="pol">Szpital Uniwersytecki Shiritsu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5329102</ent_seq>
+        <k_ele>
+            <keb>市立養護学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiritsu yougo gakkou">しりつようごがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">stary styl nazwy</s_inf>
+            <gloss xml:lang="eng">Shiritsu Special Needs School (older name style)</gloss>
+            <gloss xml:lang="pol">Szkoła Specjalna Shiritsu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5331253</ent_seq>
+        <k_ele>
+            <keb>指輪物語</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yubiwa monogatari">ゆびわものがたり</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">powieść high fantasy J.R.R. Tolkiena</s_inf>
+            <gloss xml:lang="eng">The Lord of the Rings (trilogy by J.R.R. Tolkien)</gloss>
+            <gloss xml:lang="pol">Władca Pierścieni</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5331773</ent_seq>
+        <k_ele>
+            <keb>止観</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shikan">しかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">buddyjski tekst autorstwa Guanding, 594 n.e.</s_inf>
+            <gloss xml:lang="eng">Zhiguan (Mohe Zhiguan, Buddhist text by Guanding, 594 CE)</gloss>
+            <gloss xml:lang="pol">Zhiguan</gloss>
+            <gloss xml:lang="pol">Mohe Zhiguan</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5332129</ent_seq>
+        <k_ele>
+            <keb>私立学校教職員共済組合</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiritsu gakkou kyoushokuin kyousai kumiai">しりつがっこうきょうしょくいんきょうさいくみあい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mutual Aid Association of Private School Personnel</gloss>
+            <gloss xml:lang="pol">Stowarzyszenie Wzajemnej Pomocy Personelu Szkół Prywatnych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5332130</ent_seq>
+        <k_ele>
+            <keb>私立大学情報教育協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiritsu daigaku jouhou kyouiku kyoukai">しりつだいがくじょうほうきょういくきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japan Universities Association for Computer Education</gloss>
+            <gloss xml:lang="pol">Japońskie Stowarzyszenie Uniwersytetów na rzecz Edukacji Komputerowej</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5333798</ent_seq>
+        <k_ele>
+            <keb>資源環境技術総合研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shigen kankyou gijutsu sougou kenkyuujo">しげんかんきょうぎじゅつそうごうけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">National Institute for Resources and Environment</gloss>
+            <gloss xml:lang="pol">Narodowy Instytut Zasobów i Środowiska</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5333800</ent_seq>
+        <k_ele>
+            <keb>資源地質学会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shigen chishitsu gakkai">しげんちしつがっかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Society of Resource Geology</gloss>
+            <gloss xml:lang="eng">SRG</gloss>
+            <gloss xml:lang="pol">Stowarzyszenie Geologii Zasobów</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5333862</ent_seq>
+        <k_ele>
+            <keb>資生堂</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiseidou">しせいどう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">japońska firma kosmetyczna</s_inf>
+            <gloss xml:lang="eng">Shiseido (Japanese cosmetics firm)</gloss>
+            <gloss xml:lang="pol">Shiseido</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5335176</ent_seq>
+        <k_ele>
+            <keb>慈済大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jisai daigaku">じさいだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Tzu Chi University in Hualien, Taiwan</gloss>
+            <gloss xml:lang="pol">Uniwersytet Tzu Chi w Hualien, Tajwan</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5335625</ent_seq>
+        <k_ele>
+            <keb>時事通信社</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jiji tsuushinsha">じじつうしんしゃ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Jiji Press Co. (JP)</gloss>
+            <gloss xml:lang="pol">Jiji Press Co. (JP)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5336149</ent_seq>
+        <k_ele>
+            <keb>滋賀医科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiga ika daigaku">しがいかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shiga University of Medical Science</gloss>
+            <gloss xml:lang="pol">Uniwersytet Nauk Medycznych w Shiga</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5336156</ent_seq>
+        <k_ele>
+            <keb>滋賀県立近代美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiga kenritsu kindai bijutsukan">しがけんりつきんだいびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Museum of Modern Art, Shiga</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Nowoczesnej w Shiga</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5336157</ent_seq>
+        <k_ele>
+            <keb>滋賀県立大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiga kenritsu daigaku">しがけんりつだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shiga Prefectural University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Prefektury Shiga</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5336160</ent_seq>
+        <k_ele>
+            <keb>滋賀女子短大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiga joshi tandai">しがじょしたんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shiga Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Shiga</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5336161</ent_seq>
+        <k_ele>
+            <keb>滋賀大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shiga daigaku">しがだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shiga University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Shiga</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5336929</ent_seq>
+        <k_ele>
+            <keb>自衛艦隊</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jiei kantai">じえいかんたい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Self-Defense Fleet</gloss>
+            <gloss xml:lang="pol">Flota Samoobrony</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5336999</ent_seq>
+        <k_ele>
+            <keb>自治医科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jichi ika daigaku">じちいかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Jichi Medical School</gloss>
+            <gloss xml:lang="pol">Szkoła Medyczna Jichi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337002</ent_seq>
+        <k_ele>
+            <keb>自治研修所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jiji kenshuujo">じじけんしゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Jiji Training Institute</gloss>
+            <gloss xml:lang="pol">Instytut Szkoleniowy Jiji</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337003</ent_seq>
+        <k_ele>
+            <keb>自治研修所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jichi kenshuujo">じちけんしゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Jichi Training Institute</gloss>
+            <gloss xml:lang="pol">Instytut Szkoleniowy Jichi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337004</ent_seq>
+        <k_ele>
+            <keb>自治体衛星通信機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jichitai eisei tsuushin kikou">じちたいえいせいつうしんきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Local Authorities Satellite Communications</gloss>
+            <gloss xml:lang="eng">LASCOM</gloss>
+            <gloss xml:lang="pol">Łączność Satelitarna Władz Lokalnych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337006</ent_seq>
+        <k_ele>
+            <keb>自治体学会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jichitai gakkai">じちたいがっかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japan Association of Local Government Policy Studies</gloss>
+            <gloss xml:lang="pol">Japońskie Stowarzyszenie Studiów nad Polityką Samorządów Lokalnych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337007</ent_seq>
+        <k_ele>
+            <keb>自治大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jichi daigaku">じちだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Jichi University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Jichi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337041</ent_seq>
+        <k_ele>
+            <keb>自然環境保全審議会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shizen kankyou hozen shingikai">しぜんかんきょうほぜんしんぎかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Nature Conservation Council</gloss>
+            <gloss xml:lang="pol">Rada Ochrony Przyrody</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337073</ent_seq>
+        <k_ele>
+            <keb>自動車安全協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jidousha anzen kyoukai">じどうしゃあんぜんきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Automotive Safety Foundation</gloss>
+            <gloss xml:lang="pol">Fundacja Bezpieczeństwa Motoryzacyjnego</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337078</ent_seq>
+        <k_ele>
+            <keb>自動車協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jidousha kyoukai">じどうしゃきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">np. w Wielkiej Brytanii</s_inf>
+            <gloss xml:lang="eng">Automobile Association (UK, etc.)</gloss>
+            <gloss xml:lang="pol">Stowarzyszenie Motoryzacyjne</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337081</ent_seq>
+        <k_ele>
+            <keb>自動車事故対策機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jidousha jiko taisaku kikou">じどうしゃじこたいさくきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">National Agency for Automotive Safety &amp; Victims' Aid (NASVA)</gloss>
+            <gloss xml:lang="pol">Krajowa Agencja Bezpieczeństwa Motoryzacyjnego i Pomocy Ofiarom</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337087</ent_seq>
+        <k_ele>
+            <keb>自販連</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jihanren">じはんれん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Automobile Dealers Association</gloss>
+            <gloss xml:lang="pol">Stowarzyszenie Dealerów Samochodów</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337089</ent_seq>
+        <k_ele>
+            <keb>自閉症協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jiheishou kyoukai">じへいしょうきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Autism Society of America</gloss>
+            <gloss xml:lang="eng">ASA</gloss>
+            <gloss xml:lang="pol">Amerykańskie Towarzystwo Autyzmu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337093</ent_seq>
+        <k_ele>
+            <keb>自民党外交部会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jimintou gaikou bukai">じみんとうがいこうぶかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">LDP's (Liberal Democratic Party's) Foreign Affairs Division</gloss>
+            <gloss xml:lang="pol">Wydział Spraw Zagranicznych LDP (Partii Liberalno-Demokratycznej)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337094</ent_seq>
+        <k_ele>
+            <keb>自民党国防部会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jimintou kokubou bukai">じみんとうこくぼうぶかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">LDP's National Defense Division</gloss>
+            <gloss xml:lang="pol">Wydział Obrony Narodowej LDP (Partii Liberalno-Demokratycznej)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337095</ent_seq>
+        <k_ele>
+            <keb>自民党内閣部会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jimintou naikaku bukai">じみんとうないかくぶかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Panel of the Liberal Democratic Party</gloss>
+            <gloss xml:lang="pol">Panel Partii Liberalno-Demokratycznej</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337121</ent_seq>
+        <k_ele>
+            <keb>自由国民会議</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jiyuu kokumin kaigi">じゆうこくみんかいぎ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Liberal National Congress (part of the LDP)</gloss>
+            <gloss xml:lang="eng">JKK</gloss>
+            <gloss xml:lang="pol">Liberalny Kongres Narodowy (część LDP)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337225</ent_seq>
+        <k_ele>
+            <keb>辞苑</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jien">じえん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">poprzednik słownika Kojien</s_inf>
+            <gloss xml:lang="eng">Jien (forerunner of the Kojien dictionary)</gloss>
+            <gloss xml:lang="pol">Jien</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337226</ent_seq>
+        <k_ele>
+            <keb>辞海</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jikai">じかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">słownik encyklopedyczny wydany po raz pierwszy w 1936 r., ostatnie wydanie 1999 r.</s_inf>
+            <gloss xml:lang="eng">Ci Hai, an encyclopedic dictionary first published in 1936, most recent edition 1999</gloss>
+            <gloss xml:lang="pol">Ci Hai</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337586</ent_seq>
+        <k_ele>
+            <keb>鹿屋体育大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kanoya taiiku daigaku">かのやたいいくだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">National Institute of Fitness and Sports in Kanoya</gloss>
+            <gloss xml:lang="pol">Narodowy Instytut Fitnessu i Sportu w Kanoya</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337817</ent_seq>
+        <k_ele>
+            <keb>鹿児島経済大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kagoshima keizai daigaku">かごしまけいざいだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Kagoshima Keizai University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Kagoshima Keizai</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337825</ent_seq>
+        <k_ele>
+            <keb>鹿児島女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kagoshima joshi daigaku">かごしまじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Kagoshima Women's College</gloss>
+            <gloss xml:lang="pol">Żeńska Uczelnia w Kagoshima</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5337827</ent_seq>
+        <k_ele>
+            <keb>鹿児島大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kagoshima daigaku">かごしまだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Kagoshima University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Kagoshima</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5338060</ent_seq>
+        <k_ele>
+            <keb>鹿島アントラーズ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="kashima antoraazu">かしまアントラーズ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">japoński klub piłkarski</s_inf>
+            <gloss xml:lang="eng">Kashima Antlers (Japanese pro soccer team)</gloss>
+            <gloss xml:lang="pol">Kashima Antlers</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5338094</ent_seq>
+        <k_ele>
+            <keb>鹿島建設</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kajima kensetsu">かじまけんせつ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Kajima Corporation</gloss>
+            <gloss xml:lang="pol">Kajima Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5339440</ent_seq>
+        <k_ele>
+            <keb>七条養護学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shichijou yougo gakkou">しちじょうようごがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">stary styl nazwy</s_inf>
+            <gloss xml:lang="eng">Shichijō Special Needs School (older name style)</gloss>
+            <gloss xml:lang="pol">Szkoła Specjalna Shichijō</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5339455</ent_seq>
+        <k_ele>
+            <keb>七人の侍</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shichinin no samurai">しちにんのさむらい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">film w reżyserii Akiry Kurosawy, powstały w 1954 roku</s_inf>
+            <gloss xml:lang="eng">Seven Samurai (film by Akira Kurosawa)</gloss>
+            <gloss xml:lang="pol">Siedmiu samurajów</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5339502</ent_seq>
+        <k_ele>
+            <keb>七生養護学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="nanao yougo gakkou">ななおようごがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">stary styl nazwy</s_inf>
+            <gloss xml:lang="eng">Nanao Special Needs School (older name style)</gloss>
+            <gloss xml:lang="pol">Szkoła Specjalna Nanao</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5339769</ent_seq>
+        <k_ele>
+            <keb>七尾短期大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="nanao tanki daigaku">ななおたんきだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Nanao College</gloss>
+            <gloss xml:lang="pol">Uczelnia Nanao</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5339774</ent_seq>
+        <k_ele>
+            <keb>七尾養護学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="nanao yougo gakkou">ななおようごがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">stary styl nazwy</s_inf>
+            <gloss xml:lang="eng">Nanao Special Needs School (older name style)</gloss>
+            <gloss xml:lang="pol">Szkoła Specjalna Nanao</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5340421</ent_seq>
+        <k_ele>
+            <keb>室蘭工業大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="muroran kougyou daigaku">むろらんこうぎょうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Muroran Institute of Technology</gloss>
+            <gloss xml:lang="pol">Instytut Technologii Muroran</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5340428</ent_seq>
+        <k_ele>
+            <keb>室蘭地方気象台</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="muroran chihou kishoudai">むろらんちほうきしょうだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Muroran Local Meteorological Observatory</gloss>
+            <gloss xml:lang="pol">Lokalne Obserwatorium Meteorologiczne Muroran</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5340981</ent_seq>
+        <k_ele>
+            <keb>実業之日本社</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jitsugyo un onihon sha">じつぎょうのにほんしゃ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">nazwa firmy wydawniczej</s_inf>
+            <gloss xml:lang="eng">Jitsugyo no Nihon Sha, Ltd. (name of a publishing company)</gloss>
+            <gloss xml:lang="pol">Jitsugyo no Nihon Sha, Ltd.</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5341049</ent_seq>
+        <k_ele>
+            <keb>実験動物中央研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jikken doubutsu chuuou kenkyuujo">じっけんどうぶつちゅうおうけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Central Institute for Experimental Animals</gloss>
+            <gloss xml:lang="pol">Centralny Instytut Zwierząt Doświadczalnych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5341584</ent_seq>
+        <k_ele>
+            <keb>実践女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jissen joshi daigaku">じっせんじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Jissen Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet w Jissen</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5341585</ent_seq>
+        <k_ele>
+            <keb>実践女子短大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jissen joshi tandai">じっせんじょしたんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Jissen Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Jissen</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343377</ent_seq>
+        <k_ele>
+            <keb>芝浦工業大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shibaura kougyou daigaku">しばうらこうぎょうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shibaura Institute of Technology</gloss>
+            <gloss xml:lang="pol">Instytut Technologii Shibaura</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343761</ent_seq>
+        <k_ele>
+            <keb>写ルンです</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="utsu run desu">うつルンです</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">marka aparatów jednorazowych produkowanych przez Fujifilm</s_inf>
+            <gloss xml:lang="eng">QuickSnap (brand of disposable cameras produced by Fujifilm)</gloss>
+            <gloss xml:lang="pol">QuickSnap</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343891</ent_seq>
+        <k_ele>
+            <keb>斜陽</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shayou">しゃよう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">powieść z 1947 roku autorstwa Osamu Dazai</s_inf>
+            <gloss xml:lang="eng">The Setting Sun (1947 novel by Osamu Dazai)</gloss>
+            <gloss xml:lang="pol">Zmierzch</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>given name or forename, gender not specified</misc>
+            <gloss xml:lang="eng">Shayou</gloss>
+            <gloss xml:lang="pol">Shayou</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343931</ent_seq>
+        <k_ele>
+            <keb>社会経済生産性本部</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai keizai seisansei honbu">しゃかいけいざいせいさんせいほんぶ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japan Productivity Center for Socio-Economic Development (JPC-SED)</gloss>
+            <gloss xml:lang="pol">Japońskie Centrum Produktywności na rzecz Rozwoju Społeczno-Ekonomicznego (JPC-SED)</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343932</ent_seq>
+        <k_ele>
+            <keb>社会言語学会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai gengo gakkai">しゃかいげんごがっかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japanese Association of Sociolinguistic Sciences</gloss>
+            <gloss xml:lang="pol">Japońskie Stowarzyszenie Nauk Socjolingwistycznych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343935</ent_seq>
+        <k_ele>
+            <keb>社会政策学会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai seisaku gakkai">しゃかいせいさくがっかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Society for the Study of Social Policy</gloss>
+            <gloss xml:lang="pol">Stowarzyszenie Studiów nad Polityką Społeczną</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343936</ent_seq>
+        <k_ele>
+            <keb>社会福祉・医療事業団</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai fukushi iryou jigyoudan">しゃかいふくしいりょうじぎょうだん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Social Welfare and Medical Service Corporation</gloss>
+            <gloss xml:lang="pol">Korporacja Opieki Społecznej i Usług Medycznych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343937</ent_seq>
+        <k_ele>
+            <keb>社会福祉協議会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai fukushi kyougikai">しゃかいふくしきょうぎかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japanese Council of Social Welfare</gloss>
+            <gloss xml:lang="pol">Japońska Rada ds. Opieki Społecznej</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343938</ent_seq>
+        <k_ele>
+            <keb>社会保険診療報酬</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai hoken shinryou houshuu">しゃかいほけんしんりょうほうしゅう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">skrót</s_inf>
+            <gloss xml:lang="eng">Social Insurance Medical Fee Payment Fund (abbr)</gloss>
+            <gloss xml:lang="pol">Fundusz Opłat Medycznych Ubezpieczenia Społecznego</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343939</ent_seq>
+        <k_ele>
+            <keb>社会保険診療報酬支払基金</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai hoken shinryou houshuu shiharai kikin">しゃかいほけんしんりょうほうしゅうしはらいききん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Social Insurance Medical Fee Payment Fund</gloss>
+            <gloss xml:lang="pol">Fundusz Opłat Medycznych Ubezpieczenia Społecznego</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343940</ent_seq>
+        <k_ele>
+            <keb>社会保険大学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai hoken daigakkou">しゃかいほけんだいがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Social Insurance Training Institute</gloss>
+            <gloss xml:lang="pol">Instytut Szkoleniowy Ubezpieczeń Społecznych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343941</ent_seq>
+        <k_ele>
+            <keb>社会保障研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai hoshou kenkyuujo">しゃかいほしょうけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Social Development Research Institute</gloss>
+            <gloss xml:lang="pol">Instytut Badań nad Rozwojem Społecznym</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5343942</ent_seq>
+        <k_ele>
+            <keb>社会民主連合</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shakai minshu rengou">しゃかいみんしゅれんごう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Social Democratic Federation</gloss>
+            <gloss xml:lang="pol">Federacja Socjaldemokratyczna</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5346136</ent_seq>
+        <k_ele>
+            <keb>若槻養護学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="wakatsuki yougo gakkou">わかつきようごがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">stary styl nazwy</s_inf>
+            <gloss xml:lang="eng">Wakatsuki Special Needs School (older name style)</gloss>
+            <gloss xml:lang="pol">Szkoła Specjalna Wakatsuki</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5348945</ent_seq>
+        <k_ele>
+            <keb>種子島宇宙センター</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="tanegashima uchuu sentaa">たねがしまうちゅうセンター</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Tanegashima Space Center</gloss>
+            <gloss xml:lang="pol">Centrum Kosmiczne Tanegashima</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5349030</ent_seq>
+        <k_ele>
+            <keb>種智院大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuchiin daigaku">しゅちいんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shuchiin College</gloss>
+            <gloss xml:lang="pol">Uczelnia Shuchiin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5349360</ent_seq>
+        <k_ele>
+            <keb>酒造協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuzou kyoukai">しゅぞうきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Wine Institute</gloss>
+            <gloss xml:lang="pol">Instytut Wina</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5349405</ent_seq>
+        <k_ele>
+            <keb>酒田短期大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sakata tanki daigaku">さかたたんきだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sakata Junior College</gloss>
+            <gloss xml:lang="pol">Policealna Szkoła w Sakata</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5349513</ent_seq>
+        <k_ele>
+            <keb>首都高速道路公団</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuto kousoku douro koudan">しゅとこうそくどうろこうだん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Metropolitan Expressway Public Corporation</gloss>
+            <gloss xml:lang="pol">Metropolitan Expressway Public Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5349516</ent_seq>
+        <k_ele>
+            <keb>首都師範大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuto shihan daigaku">しゅとしはんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Capital Normal University</gloss>
+            <gloss xml:lang="pol">Capital Normal University</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5349637</ent_seq>
+        <k_ele>
+            <keb>呪怨</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="juu on">じゅうおん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">japoński horror</s_inf>
+            <gloss xml:lang="eng">Ju-on</gloss>
+            <gloss xml:lang="eng">The Grudge (Japanese horror movie)</gloss>
+            <gloss xml:lang="pol">Ju-on</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5352962</ent_seq>
+        <k_ele>
+            <keb>就実女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuujitsu joshi daigaku">しゅうじつじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shujitsu Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet w Shujitsu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5354648</ent_seq>
+        <k_ele>
+            <keb>秀和</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuuwa">しゅうわ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shuwa Corporation</gloss>
+            <gloss xml:lang="pol">Shuwa Corporation</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>given name or forename, gender not specified</misc>
+            <gloss xml:lang="eng">Shuuwa</gloss>
+            <gloss xml:lang="pol">Shuuwa</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5355435</ent_seq>
+        <k_ele>
+            <keb>秋田経済法科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="akita keizai houka daigaku">あきたけいざいほうかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Akita University of Economics and Law</gloss>
+            <gloss xml:lang="pol">Uniwersytet Ekonomii i Prawa Akita</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5355439</ent_seq>
+        <k_ele>
+            <keb>秋田県立近代美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="akita kenritsu kindai bijutsukan">あきたけんりつきんだいびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Akita Museum of Modern Art</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Nowoczesnej w Akita</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5355447</ent_seq>
+        <k_ele>
+            <keb>秋田市立千秋美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="akita shiritsu chiaki bijutsukan">あきたしりつちあきびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Akita Senshu Museum of Art</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Akita Senshu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5355452</ent_seq>
+        <k_ele>
+            <keb>秋田書店</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="akita shoten">あきたしょてん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">wydawnictwo</s_inf>
+            <gloss xml:lang="eng">Akita Shoten (publisher)</gloss>
+            <gloss xml:lang="pol">Akita Shoten</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5355465</ent_seq>
+        <k_ele>
+            <keb>秋田大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="akita daigaku">あきただいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Akita University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Akita</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356236</ent_seq>
+        <k_ele>
+            <keb>衆議院議員総会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuugi ingiin soukai">しゅうぎいんぎいんそうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">General Assembly of the LDP Members of the House of Representatives</gloss>
+            <gloss xml:lang="pol">Zgromadzenie Ogólne Członków Izby Reprezentantów LDP</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356287</ent_seq>
+        <k_ele>
+            <keb>週刊現代</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuukan gendai">しゅうかんげんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">magazyn</s_inf>
+            <gloss xml:lang="eng">Weekly Gendai (magazine)</gloss>
+            <gloss xml:lang="pol">Weekly Gendai</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356288</ent_seq>
+        <k_ele>
+            <keb>週刊文春</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuukanbunshun">しゅうかんぶんしゅん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">tygodnik</s_inf>
+            <gloss xml:lang="eng">Shūkanbunshun (weekly magazine)</gloss>
+            <gloss xml:lang="pol">Shūkanbunshun</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356315</ent_seq>
+        <k_ele>
+            <keb>集英社</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuueisha">しゅうえいしゃ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">wydawnictwo</s_inf>
+            <gloss xml:lang="eng">Shueisha (publisher)</gloss>
+            <gloss xml:lang="pol">Shueisha</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356450</ent_seq>
+        <k_ele>
+            <keb>住吉会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sumiyoshikai">すみよしかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">drugi co do wielkości gang yakuzy w Japonii, liczący szacunkowo 20 tys. członków</s_inf>
+            <gloss xml:lang="eng">Sumiyoshi-kai (yakuza syndicate)</gloss>
+            <gloss xml:lang="pol">Sumiyoshi-kai</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356560</ent_seq>
+        <k_ele>
+            <keb>住金物産</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sumikin bussan">すみきんぶっさん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sumikin Bussan Corporation</gloss>
+            <gloss xml:lang="pol">Sumikin Bussan Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356626</ent_seq>
+        <k_ele>
+            <keb>住商情報システム</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="sumishou jouhou shisutemu">すみしょうじょうほうシステム</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sumisho Computer Systems Corporation</gloss>
+            <gloss xml:lang="pol">Sumisho Computer Systems Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356663</ent_seq>
+        <k_ele>
+            <keb>住宅都市整備公団</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="juutaku toshiseibi koudan">じゅうたくとしせいびこうだん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Housing and Urban Development Corporation</gloss>
+            <gloss xml:lang="pol">Korporacja Mieszkalnictwa i Rozwoju Miast</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356750</ent_seq>
+        <k_ele>
+            <keb>住友</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sumitomo">すみとも</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">Sumitomo</gloss>
+            <gloss xml:lang="pol">Sumitomo</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">japoński konglomerat przedsiębiorstw</s_inf>
+            <gloss xml:lang="eng">Sumitomo group</gloss>
+            <gloss xml:lang="pol">Sumitomo</gloss>
+            <gloss xml:lang="pol">grupa Sumitomo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356753</ent_seq>
+        <k_ele>
+            <keb>住友シチックス</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="sumitomo shichikkusu">すみともシチックス</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sumitomo Sitix Corporation</gloss>
+            <gloss xml:lang="pol">Sumitomo Sitix Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356765</ent_seq>
+        <k_ele>
+            <keb>住友海上火災保険</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sumitomo kaijou kasai hoken">すみともかいじょうかさいほけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sumitomo Marine and Fire Insurance Company, Limited</gloss>
+            <gloss xml:lang="pol">Sumitomo Marine and Fire Insurance Company, Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356786</ent_seq>
+        <k_ele>
+            <keb>住友商事</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sumitomo shouji">すみともしょうじ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sumitomo Corporation</gloss>
+            <gloss xml:lang="pol">Sumitomo Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356787</ent_seq>
+        <k_ele>
+            <keb>住友信託銀行</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sumitomo shintaku ginkou">すみともしんたくぎんこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sumitomo Trust and Banking Company, Limited</gloss>
+            <gloss xml:lang="pol">Sumitomo Trust and Banking Company, Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356790</ent_seq>
+        <k_ele>
+            <keb>住友生命</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sumitomo seimei">すみともせいめい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sumitomo Life</gloss>
+            <gloss xml:lang="pol">Sumitomo Life</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356791</ent_seq>
+        <k_ele>
+            <keb>住友生命保険</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sumitomo seimei hoken">すみともせいめいほけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sumitomo Life Insurance Company</gloss>
+            <gloss xml:lang="pol">Sumitomo Life Insurance Company</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5356802</ent_seq>
+        <k_ele>
+            <keb>住友不動産</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sumitomo fudousan">すみともふどうさん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Sumitomo Realty and Development Co. Ltd.</gloss>
+            <gloss xml:lang="pol">Sumitomo Realty and Development Co. Ltd.</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5357428</ent_seq>
+        <k_ele>
+            <keb>十牛図</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="juugyuuzu">じゅうぎゅうず</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">seria krótkich wierszy i towarzyszących im rysunków używanych w tradycji Zen do opisu etapów postępu praktykującego w kierunku oświecenia oraz ich powrotu do społeczeństwa, aby urzeczywistniać mądrość i współczucie</s_inf>
+            <gloss xml:lang="eng">Ten Ox-Herding Pictures (ten images and accompanying short poems in Zen iconography that use the herding of an ox as an analogy for training the mind on the path to enlightenment)</gloss>
+            <gloss xml:lang="pol">Dziesięć byków</gloss>
+            <gloss xml:lang="pol">Dziesięć wołów</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5357476</ent_seq>
+        <k_ele>
+            <keb>十訓抄</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jikkinshou">じっきんしょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">kolekcja dzieł z okresu Kamakura</s_inf>
+            <gloss xml:lang="eng">A Miscellany of Ten Maxims (Kamakura period collection of writing)</gloss>
+            <gloss xml:lang="pol">Zbiór Dziesięciu Maksym</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5358144</ent_seq>
+        <k_ele>
+            <keb>十二夜</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="juuniya">じゅうにや</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">komedia autorstwa Williama Shakespeare'a</s_inf>
+            <gloss xml:lang="eng">Twelfth Night (comedy by William Shakespeare)</gloss>
+            <gloss xml:lang="eng">Twelfth Night, or What You Will</gloss>
+            <gloss xml:lang="pol">Wieczór Trzech Króli</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5358219</ent_seq>
+        <k_ele>
+            <keb>十八銀行</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="juuhachi ginkou">じゅうはちぎんこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Eighteenth Bank, Limited</gloss>
+            <gloss xml:lang="pol">Eighteenth Bank, Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5358297</ent_seq>
+        <k_ele>
+            <keb>十文字学園女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="juumonjigakuen joshi daigaku">じゅうもんじがくえんじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Jūmonjigakuen Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet w Jūmonjigakuen</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5358615</ent_seq>
+        <k_ele>
+            <keb>従容録</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouyouroku">しょうようろく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">XII-wieczny zbiór koanów, skompilowany przez chińskiego mnicha Hongzhi Zhengjue</s_inf>
+            <gloss xml:lang="eng">Book of Serenity (12th century collection of koans, compiled by Chinese monk Hongzhi Zhengjue)</gloss>
+            <gloss xml:lang="pol">Congrong lu</gloss>
+            <gloss xml:lang="pol">Zapiski Wielkiego Spokoju</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5358870</ent_seq>
+        <k_ele>
+            <keb>渋谷区立松濤美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shibuya kuritsu shoutou bijutsukan">しぶやくりつしょうとうびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shoto Museum of Art</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Shoto</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5358938</ent_seq>
+        <k_ele>
+            <keb>獣王記</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="juuouki">じゅうおうき</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">zręcznościowa gra wideo typu beat 'em up z 1988 roku, opracowana i wyprodukowana przez firmę Sega</s_inf>
+            <gloss xml:lang="eng">Altered Beast (1989 Sega Arcade game, ported to Mega Drive (Genesis))</gloss>
+            <gloss xml:lang="pol">Altered Beast</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5359134</ent_seq>
+        <k_ele>
+            <keb>重慶大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="juukei daigaku">じゅうけいだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Chongqing University</gloss>
+            <gloss xml:lang="eng">CQU</gloss>
+            <gloss xml:lang="pol">Uniwersytet Chongqing</gloss>
+            <gloss xml:lang="pol">CQU</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5360315</ent_seq>
+        <k_ele>
+            <keb>淑徳大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shukutoku daigaku">しゅくとくだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shukutoku University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Shukutoku</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5360752</ent_seq>
+        <k_ele>
+            <keb>出雲国風土記</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="izumo no kuni fudoki">いずものくにふどき</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">opis kultury, klimatu itp. prowincji Izumo; 733 r. n.e.</s_inf>
+            <gloss xml:lang="eng">Izumo Fudoki (description of the culture, climate, etc. of Izumo province; 733 CE)</gloss>
+            <gloss xml:lang="pol">Izumo Fudoki</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5360788</ent_seq>
+        <k_ele>
+            <keb>出雲風土記</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="izumo fudoki">いずもふどき</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">opis kultury, klimatu itp. prowincji Izumo; 733 r. n.e.</s_inf>
+            <gloss xml:lang="eng">Izumo Fudoki (description of the culture, climate, etc. of Izumo province; 733 CE)</gloss>
+            <gloss xml:lang="pol">Izumo Fudoki</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5360985</ent_seq>
+        <k_ele>
+            <keb>出光美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="idemitsu bijutsukan">いでみつびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Idemitsu Museum of Arts</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Idemitsu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5361364</ent_seq>
+        <k_ele>
+            <keb>出版科学研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shuppan kagaku kenkyuujo">しゅっぱんかがくけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Research Institute for Publications</gloss>
+            <gloss xml:lang="pol">Instytut Badań nad Publikacjami</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5362341</ent_seq>
+        <k_ele>
+            <keb>春雨物語</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="harusame monogatari">はるさめものがたり</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <gloss xml:lang="eng">Harusame Monogatari (1808 collection of stories by Ueda Akinari)</gloss>
+            <gloss xml:lang="eng">Tales of Spring Rain</gloss>
+            <gloss xml:lang="pol">Harusame Monogatari (zbiór opowiadań Uedy Akinariego z 1808 roku)</gloss>
+            <gloss xml:lang="pol">Opowieści o Wiosennym Deszczu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5363172</ent_seq>
+        <k_ele>
+            <keb>春風馬堤曲</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shunpuu batei no kyoku">しゅんぷうばていのきょく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">Wiosenny Wiatr na Brzegu Rzeki Kema</s_inf>
+            <gloss xml:lang="eng">haiku by Yosa Buson (Spring Wind on the Riverbank of Kema)</gloss>
+            <gloss xml:lang="pol">haiku autorstwa Yosa Buson</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5363620</ent_seq>
+        <k_ele>
+            <keb>駿河台大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="surugadai daigaku">するがだいだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Surugadai University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Surugadai</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5363703</ent_seq>
+        <k_ele>
+            <keb>駿台電子情報専門学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sundai denshi jouhou senmon gakkou">すんだいでんしじょうほうせんもんがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sundai Computer College</gloss>
+            <gloss xml:lang="pol">Sundai Computer College</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5363704</ent_seq>
+        <k_ele>
+            <keb>駿台法律経済専門学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sundai houritsu keizai senmon gakkou">すんだいほうりつけいざいせんもんがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sundai Law &amp; Economic College</gloss>
+            <gloss xml:lang="pol">Sundai Law &amp; Economic College</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5364100</ent_seq>
+        <k_ele>
+            <keb>淳久堂</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="junkudou">じゅんくどう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">japońska sieć księgarni</s_inf>
+            <gloss xml:lang="eng">Junkudo (Japanese bookstore chain)</gloss>
+            <gloss xml:lang="pol">Junkudo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5365055</ent_seq>
+        <k_ele>
+            <keb>純心女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="junshin joshi daigaku">じゅんしんじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Junshin Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet w Junshin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5365056</ent_seq>
+        <k_ele>
+            <keb>純心女子短期大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="junshin joshi tanki daigaku">じゅんしんじょしたんきだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Junshin Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Junshin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5365057</ent_seq>
+        <k_ele>
+            <keb>純心女子短大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="junshin joshi tandai">じゅんしんじょしたんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Junshin Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Junshin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5365060</ent_seq>
+        <k_ele>
+            <keb>純真女子短大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="junshin joshi tandai">じゅんしんじょしたんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Junshin Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Junshin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5365662</ent_seq>
+        <k_ele>
+            <keb>順天堂大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="juntendou daigaku">じゅんてんどうだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Juntendo University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Juntendo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5367424</ent_seq>
+        <k_ele>
+            <keb>女工哀史</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jokou aishi">じょこうあいし</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">reportaż Wakizo Hosoi, 1925</s_inf>
+            <gloss xml:lang="eng">The Tragic History of Female Factory Workers (reportage by Wakizo Hosoi, 1925)</gloss>
+            <gloss xml:lang="eng">The Pathetic Life of Mill Girls</gloss>
+            <gloss xml:lang="pol">Tragiczna Historia Pracownic Fabryk</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5367441</ent_seq>
+        <k_ele>
+            <keb>女子栄養大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="joshi eiyou daigaku">じょしえいようだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Kagawa Nutrition University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Żywienia Kagawa</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5367448</ent_seq>
+        <k_ele>
+            <keb>女子美術大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="joshi bijutsu daigaku">じょしびじゅつだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Joshibi University of Art and Design</gloss>
+            <gloss xml:lang="pol">Uniwersytet Sztuki i Projektowania Joshibi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5367501</ent_seq>
+        <k_ele>
+            <keb>女神転生</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="megami tensei">めがみてんせい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">seria gier wideo i franczyza medialna</s_inf>
+            <gloss xml:lang="eng">Megami Tensei (video game series and media franchise)</gloss>
+            <gloss xml:lang="pol">Megami Tensei</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5367511</ent_seq>
+        <k_ele>
+            <keb>女性財団</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="josei zaidan">じょせいざいだん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Women's Foundation</gloss>
+            <gloss xml:lang="pol">Fundacja Kobiet</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5367514</ent_seq>
+        <k_ele>
+            <keb>女性連帯基金</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="josei rentai kikin">じょせいれんたいききん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Women's Solidarity Foundation</gloss>
+            <gloss xml:lang="pol">Fundacja Solidarności Kobiet</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5367602</ent_seq>
+        <k_ele>
+            <keb>女房学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="nyoubou gakkou">にょうぼうがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">The School For Wives</gloss>
+            <gloss xml:lang="pol">Szkoła dla Żon</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5367812</ent_seq>
+        <k_ele>
+            <keb>傷寒論</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shoukanron">しょうかんろん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <gloss xml:lang="eng">Shanghan Lun (treatise on traditional Chinese medicine compiled by Zhang Zhongjing)</gloss>
+            <gloss xml:lang="eng">Treatise on Cold Damage Disorders</gloss>
+            <gloss xml:lang="eng">Treatise on Cold Injury</gloss>
+            <gloss xml:lang="pol">Shanghan Lun (traktat o tradycyjnej medycynie chińskiej opracowany przez Zhang Zhongjinga)</gloss>
+            <gloss xml:lang="pol">Traktat o Urazach Spowodowanych Przez Zimno</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5368269</ent_seq>
+        <k_ele>
+            <keb>勝手にしやがれ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="katte ni shiyagare">かってにしやがれ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">francuski czarno-biały film fabularny wyprodukowany w 1960 i wyreżyserowany przez Jeana-Luca Godarda, który był także współautorem jego scenariusza</s_inf>
+            <gloss xml:lang="eng">Breathless (1960 film)</gloss>
+            <gloss xml:lang="eng">À bout de souffle</gloss>
+            <gloss xml:lang="pol">Do utraty tchu</gloss>
+            <gloss xml:lang="pol">À bout de souffle</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5369216</ent_seq>
+        <k_ele>
+            <keb>商工組合中央金庫</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shoukou kumiai chuuou kinko">しょうこうくみあいちゅうおうきんこ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Shoko Chukin Bank</gloss>
+            <gloss xml:lang="eng">Central Bank for Commercial and Industrial Associations</gloss>
+            <gloss xml:lang="pol">Shoko Chukin Bank</gloss>
+            <gloss xml:lang="pol">Centralny Bank Stowarzyszeń Handlowych i Przemysłowych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5369218</ent_seq>
+        <k_ele>
+            <keb>商工中金</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shoukou chuukin">しょうこうちゅうきん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">skrót</s_inf>
+            <gloss xml:lang="eng">Shoko Chukin Bank (abbr)</gloss>
+            <gloss xml:lang="eng">Central Bank for Commercial and Industrial Associations</gloss>
+            <gloss xml:lang="pol">Shoko Chukin Bank</gloss>
+            <gloss xml:lang="pol">Centralny Bank Stowarzyszeń Handlowych i Przemysłowych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5369234</ent_seq>
+        <k_ele>
+            <keb>商船三井</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shousen mitsui">しょうせんみつい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Mitsui O.S.K. Lines</gloss>
+            <gloss xml:lang="pol">Linie Mitsui O.S.K.</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5369236</ent_seq>
+        <k_ele>
+            <keb>商標協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouhyou kyoukai">しょうひょうきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">US Trademark Association</gloss>
+            <gloss xml:lang="pol">Amerykańskie Stowarzyszenie Znaków Towarowych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5370669</ent_seq>
+        <k_ele>
+            <keb>小学館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shougakukan">しょうがくかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">wydawnictwo</s_inf>
+            <gloss xml:lang="eng">Shogakukan (publisher)</gloss>
+            <gloss xml:lang="pol">Shogakukan</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5371835</ent_seq>
+        <k_ele>
+            <keb>小公子</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shoukoushi">しょうこうし</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">powieść angielskiej pisarki Frances Hodgson Burnett, będąca jej pierwszym utworem, skierowanym do młodych czytelników</s_inf>
+            <gloss xml:lang="eng">Little Lord Fauntleroy (novel by Frances Hodgson Burnett)</gloss>
+            <gloss xml:lang="pol">Mały Lord</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5371836</ent_seq>
+        <k_ele>
+            <keb>小公女</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shoukoujo">しょうこうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">powieść autorstwa Frances Hodgson Burnett</s_inf>
+            <gloss xml:lang="eng">A Little Princess (novel)</gloss>
+            <gloss xml:lang="pol">Mała księżniczka</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5371915</ent_seq>
+        <k_ele>
+            <keb>小江戸</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="koedo">こえど</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">Koedo</gloss>
+            <gloss xml:lang="pol">Koedo</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <s_inf xml:lang="pol">usługa kolejowa</s_inf>
+            <gloss xml:lang="eng">Koedo (train service)</gloss>
+            <gloss xml:lang="pol">Koedo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5372842</ent_seq>
+        <k_ele>
+            <keb>小糸工業</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="koito kougyou">こいとこうぎょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Koito Industries, Limited</gloss>
+            <gloss xml:lang="pol">Koito Industries, Limited</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5373375</ent_seq>
+        <k_ele>
+            <keb>小松市立宮本三郎美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="komatsu shiritsu miyamoto saburou bijutsukan">こまつしりつみやもとさぶろうびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">MIYAMATO Saburo Museum</gloss>
+            <gloss xml:lang="pol">Muzeum MIYAMATO Saburo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5373607</ent_seq>
+        <k_ele>
+            <keb>小森コーポレーション</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="komori kooporeeshon">こもりコーポレーション</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Komori Corporation</gloss>
+            <gloss xml:lang="pol">Komori Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5377549</ent_seq>
+        <k_ele>
+            <keb>小包業務</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kodutsumi gyoumu">こづつみぎょうむ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Parcel Force</gloss>
+            <gloss xml:lang="pol">Parcel Force</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5379582</ent_seq>
+        <k_ele>
+            <keb>少年ジャンプ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="shounen janpu">しょうねんジャンプ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">japoński tygodnik z mangami shōnen, wydawany przez Shūeishę w ramach magazynu Jump</s_inf>
+            <gloss xml:lang="eng">Shōnen Jump (weekly magazine)</gloss>
+            <gloss xml:lang="pol">Shōnen Jump</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5379602</ent_seq>
+        <k_ele>
+            <keb>少林寺拳法世界連合</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shourinji kenpou sekai rengou">しょうりんじけんぽうせかいれんごう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">World Shorinji Kempo Organization</gloss>
+            <gloss xml:lang="pol">Światowa Organizacja Shorinji Kempo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5379603</ent_seq>
+        <k_ele>
+            <keb>少林寺拳法連盟</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shourinji kenpou renmei">しょうりんじけんぽうれんめい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">ShorinjiKempo Federation Foundation</gloss>
+            <gloss xml:lang="pol">Fundacja Federacji Shorinji Kempo</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5380420</ent_seq>
+        <k_ele>
+            <keb>尚絅女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shoukei joshi daigaku">しょうけいじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shoukei Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet Shoukei</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5382723</ent_seq>
+        <k_ele>
+            <keb>昭栄</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouei">しょうえい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">firma produkująca kaski motocyklowe</s_inf>
+            <gloss xml:lang="eng">Shoei (motorcycle helmet manufacturing company)</gloss>
+            <gloss xml:lang="pol">Shoei</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5383329</ent_seq>
+        <k_ele>
+            <keb>昭和アルミニウム</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="shouwa aruminiumu">しょうわアルミニウム</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Showa Aluminum Corporation</gloss>
+            <gloss xml:lang="pol">Showa Aluminum Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5383342</ent_seq>
+        <k_ele>
+            <keb>昭和音楽大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouwa ongaku daigaku">しょうわおんがくだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Showa Academia Musicae</gloss>
+            <gloss xml:lang="pol">Akademia Muzyczna Showa</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5383357</ent_seq>
+        <k_ele>
+            <keb>昭和女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouwa joshi daigaku">しょうわじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shouwa Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet w Shouwa</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5383372</ent_seq>
+        <k_ele>
+            <keb>昭和大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouwa daigaku">しょうわだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Showa University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Showa</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5383406</ent_seq>
+        <k_ele>
+            <keb>昭和美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouwa bijutsukan">しょうわびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Showa Museum of Art</gloss>
+            <gloss xml:lang="pol">Muzeum Sztuki Showa</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5383413</ent_seq>
+        <k_ele>
+            <keb>昭和薬科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouwa yakka daigaku">しょうわやっかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Showa Pharmaceutical University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Farmaceutyczny Showa</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5384217</ent_seq>
+        <k_ele>
+            <keb>松井証券</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsui shouken">まついしょうけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">japońska internetowa firma zajmująca się papierami wartościowymi</s_inf>
+            <gloss xml:lang="eng">Matsui Securities (Japanese online securities firm)</gloss>
+            <gloss xml:lang="pol">Matsui Securities</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5384269</ent_seq>
+        <k_ele>
+            <keb>松蔭女子短期大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouin joshi tanki daigaku">しょういんじょしたんきだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shouin Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Shouin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5384274</ent_seq>
+        <k_ele>
+            <keb>松陰女子学院大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsukage joshi gakuin daigaku">まつかげじょしがくいんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shoin Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet w Shoin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5384512</ent_seq>
+        <k_ele>
+            <keb>松屋</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsuya">まつや</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">Matsuya</gloss>
+            <gloss xml:lang="pol">Matsuya</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">dom towarowy</s_inf>
+            <gloss xml:lang="eng">Matsuya (department store)</gloss>
+            <gloss xml:lang="pol">Matsuya</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5384571</ent_seq>
+        <k_ele>
+            <keb>松下政経塾</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsushita seikei juku">まつしたせいけいじゅく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">The Matsushita Institute of Government and Management</gloss>
+            <gloss xml:lang="pol">Instytut Rządu i Zarządzania Matsushita</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5384587</ent_seq>
+        <k_ele>
+            <keb>松下電器産業</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsushita denki sangyou">まつしたでんきさんぎょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Matsushita Electric Industrial</gloss>
+            <gloss xml:lang="pol">Matsushita Electric Industrial</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5384590</ent_seq>
+        <k_ele>
+            <keb>松下電子工業</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsushita denshi kougyou">まつしたでんしこうぎょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Matsushita Electronics Industry Corporation</gloss>
+            <gloss xml:lang="pol">Matsushita Electronics Industry Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5384593</ent_seq>
+        <k_ele>
+            <keb>松下電子部品株式会社</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsushita denshi buhin kabushiki gaisha">まつしたでんしぶひんかぶしきがいしゃ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Matsushita Electronic Components Corporation</gloss>
+            <gloss xml:lang="pol">Matsushita Electronic Components Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5385027</ent_seq>
+        <k_ele>
+            <keb>松坂屋</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsuzakaya">まつざかや</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">główna japońska sieć domów towarowych</s_inf>
+            <gloss xml:lang="eng">Matsuzakaya (major Japanese department store chain)</gloss>
+            <gloss xml:lang="pol">Matsuzakaya</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5385028</ent_seq>
+        <k_ele>
+            <keb>松坂屋美術館</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsuzakaya bijutsukan">まつざかやびじゅつかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Matsuzakaya Museum</gloss>
+            <gloss xml:lang="pol">Muzeum Matsuzakaya</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5385053</ent_seq>
+        <k_ele>
+            <keb>松阪大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsusaka daigaku">まつさかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Matsusaka University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Matsusaka</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5385188</ent_seq>
+        <k_ele>
+            <keb>松山大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsuyama daigaku">まつやまだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Matsuyama University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Matsuyama</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5385199</ent_seq>
+        <k_ele>
+            <keb>松山東雲女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsuyama shinonome joshi daigaku">まつやましののめじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Matsuyama Shinonome College</gloss>
+            <gloss xml:lang="pol">Uczelnia Matsuyama Shinonome</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5385314</ent_seq>
+        <k_ele>
+            <keb>松匠</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsushou">まつしょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Matsushou</gloss>
+            <gloss xml:lang="pol">Matsushou</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5385315</ent_seq>
+        <k_ele>
+            <keb>松商学園短期大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsushougakuen tanki daigaku">まつしょうがくえんたんきだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Matsushougakuen Junior College</gloss>
+            <gloss xml:lang="pol">Policealna Szkoła w Matsushougakuen</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5385570</ent_seq>
+        <k_ele>
+            <keb>松村組</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsumura gumi">まつむらぐみ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Matsumura-Gumi Corporation</gloss>
+            <gloss xml:lang="pol">Matsumura-Gumi Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5386502</ent_seq>
+        <k_ele>
+            <keb>松本歯科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsumoto shika daigaku">まつもとしかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Matsumoto Dental University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Stomatologiczny Matsumoto</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5386587</ent_seq>
+        <k_ele>
+            <keb>松本養護学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="matsumoto yougo gakkou">まつもとようごがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">stary styl nazwy</s_inf>
+            <gloss xml:lang="eng">Matsumoto Special Needs School (older name style)</gloss>
+            <gloss xml:lang="pol">Szkoła Specjalna Matsumoto</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5387026</ent_seq>
+        <k_ele>
+            <keb>樟蔭女子大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouin joshi daigaku">しょういんじょしだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shouin Women's University</gloss>
+            <gloss xml:lang="pol">Żeński Uniwersytet w Shouin</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5387028</ent_seq>
+        <k_ele>
+            <keb>樟蔭東女子短大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouinhigashi joshi tandai">しょういんひがしじょしたんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shouinhigashi Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Shouinhigashi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5387493</ent_seq>
+        <k_ele>
+            <keb>消防研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shoubou kenkyuujo">しょうぼうけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Fire Research Institute</gloss>
+            <gloss xml:lang="pol">Instytut Badań nad Pożarami</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5387515</ent_seq>
+        <k_ele>
+            <keb>渉外労務管理事務所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shougai roumu kanri jimusho">しょうがいろうむかんりじむしょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Labor Management Office</gloss>
+            <gloss xml:lang="pol">Biuro Zarządzania Pracą</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5387568</ent_seq>
+        <k_ele>
+            <keb>湘南工科大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shounan kouka daigaku">しょうなんこうかだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shonan Institute of Technology</gloss>
+            <gloss xml:lang="pol">Instytut Technologii Shonan</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5387585</ent_seq>
+        <k_ele>
+            <keb>湘北短期大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouhoku tanki daigaku">しょうほくたんきだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shouhoku Junior College</gloss>
+            <gloss xml:lang="pol">Policealna Szkoła w Shouhoku</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5388476</ent_seq>
+        <k_ele>
+            <keb>硝子繊維協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="garasu sen'i kyoukai">がらすせんいきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Glassfiber Association of Japan</gloss>
+            <gloss xml:lang="pol">Japońskie Stowarzyszenie Włókna Szklanego</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5389945</ent_seq>
+        <k_ele>
+            <keb>証券業者協会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouken gyousha kyoukai">しょうけんぎょうしゃきょうかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Securities Industry Association</gloss>
+            <gloss xml:lang="pol">Stowarzyszenie Sektora Papierów Wartościowych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5389946</ent_seq>
+        <k_ele>
+            <keb>証券経済学会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouken keizai gakkai">しょうけんけいざいがっかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Society for the Economic Studies of Securities</gloss>
+            <gloss xml:lang="eng">SESS</gloss>
+            <gloss xml:lang="pol">Stowarzyszenie Studiów Ekonomicznych nad Papierami Wartościowymi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5389947</ent_seq>
+        <k_ele>
+            <keb>証券広報センター</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="shouken kouhou sentaa">しょうけんこうほうセンター</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japan Institute for Securities Education and Public Relations</gloss>
+            <gloss xml:lang="pol">Japan Institute for Securities Education and Public Relations</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5389949</ent_seq>
+        <k_ele>
+            <keb>証券取引等監視委員会</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouken torihikitou kanshi iinkai">しょうけんとりひきとうかんしいいんかい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Securities and Exchange Surveillance Commission</gloss>
+            <gloss xml:lang="pol">Komisja Nadzoru Giełd i Papierów Wartościowych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5389951</ent_seq>
+        <k_ele>
+            <keb>証券保管振替機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shouken hokan furikae kikou">しょうけんほかんふりかえきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japan Securities Depository Center, Inc.</gloss>
+            <gloss xml:lang="pol">Japan Securities Depository Center, Inc.</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5390018</ent_seq>
+        <k_ele>
+            <keb>詳伝社</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shoudensha">しょうでんしゃ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">wydawnictwo</s_inf>
+            <gloss xml:lang="eng">Shoudensha (publisher)</gloss>
+            <gloss xml:lang="pol">Shoudensha</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5390037</ent_seq>
+        <k_ele>
+            <keb>象印</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="zoujirushi">ぞうじるし</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Zojirushi</gloss>
+            <gloss xml:lang="pol">Zojirushi</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5390038</ent_seq>
+        <k_ele>
+            <keb>象印マホービン</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="zoujirushi mahoobin">ぞうじるしマホービン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Zojirushi Corporation</gloss>
+            <gloss xml:lang="pol">Zojirushi Corporation</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5391071</ent_seq>
+        <k_ele>
+            <keb>上越教育大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jouetsu kyouiku daigaku">じょうえつきょういくだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Jōetsu University of Education</gloss>
+            <gloss xml:lang="pol">Uniwersytet Edukacji Jōetsu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5391081</ent_seq>
+        <k_ele>
+            <keb>上越新幹線</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jouetsu shinkansen">じょうえつしんかんせん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <gloss xml:lang="eng">Jōetsu Shinkansen</gloss>
+            <gloss xml:lang="pol">Jōetsu Shinkansen</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5391590</ent_seq>
+        <k_ele>
+            <keb>上海協力機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shanhai kyouryoku kikou">しゃんはいきょうりょくきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shanghai Cooperation Organization</gloss>
+            <gloss xml:lang="pol">Szanghajska Organizacja Współpracy</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5391591</ent_seq>
+        <k_ele>
+            <keb>上海国際問題研究所</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shanhai kokusai mondai kenkyuujo">しゃんはいこくさいもんだいけんきゅうじょ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shanghai Institute for International Studies</gloss>
+            <gloss xml:lang="pol">Szanghajski Instytut Studiów Międzynarodowych</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5391595</ent_seq>
+        <k_ele>
+            <keb>上海大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shanhai daigaku">しゃんはいだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Shanghai University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Shanghai</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5392343</ent_seq>
+        <k_ele>
+            <keb>上月情報教育財団</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kouduki jouhou kyouiku zaidan">こうづきじょうほうきょういくざいだん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Kozuki Foundation</gloss>
+            <gloss xml:lang="pol">Fundacja Kozuki</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5395768</ent_seq>
+        <k_ele>
+            <keb>上智大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jouchi daigaku">じょうちだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Sophia University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Sophia</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5396419</ent_seq>
+        <k_ele>
+            <keb>上田女子短大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="ueda joshi tandai">うえだじょしたんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Ueda Women's Junior College</gloss>
+            <gloss xml:lang="pol">Żeńska Szkoła Policealna w Ueda</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5397593</ent_seq>
+        <k_ele>
+            <keb>上武大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="joubu daigaku">じょうぶだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Jōbu University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Jōbu</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5398306</ent_seq>
+        <k_ele>
+            <keb>上野学園大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="ueno gakuen daigaku">うえのがくえんだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Ueno Gakuen University</gloss>
+            <gloss xml:lang="pol">Uniwersytet Ueno Gakuen</gloss>
+        </sense>
+    </entry>
+    <entry>
+        <ent_seq>5399464</ent_seq>
+        <k_ele>
+            <keb>乗馬連盟</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jouba renmei">じょうばれんめい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">British Equestrian Federation</gloss>
+            <gloss xml:lang="pol">Brytyjska Federacja Jeździecka</gloss>
+        </sense>
+    </entry>
+</JMdict>
