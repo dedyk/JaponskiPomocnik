@@ -331,10 +331,6 @@ public class WordDictionaryDetails extends Activity {
 			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
 		}
 
-		// FM_FIXME: do usuniceia
-		// forceDictionaryEntryType = (DictionaryEntryType) getIntent().getSerializableExtra(
-		//		"forceDictionaryEntryType");
-
 		final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
 		final LinearLayout detailsMainLayout = (LinearLayout) findViewById(R.id.word_dictionary_details_main_layout);
 
@@ -631,7 +627,6 @@ public class WordDictionaryDetails extends Activity {
 				String referenceToAnotherKanjiKana = printableDictionaryEntry2Sense.getReferenceToAnotherKanjiKana(getApplicationContext());
 
 				if (referenceToAnotherKanjiKana != null) {
-					// FM_FIXME: dodac sekcje do wyszukiwania tego slowa
 					report.add(new StringValue(referenceToAnotherKanjiKana, 13.0f, 0));
 				}
 
@@ -639,7 +634,6 @@ public class WordDictionaryDetails extends Activity {
 				String antonym = printableDictionaryEntry2Sense.getAntonym(getApplicationContext());
 
 				if (antonym != null) {
-					// FM_FIXME: dodac sekcje do wyszukiwania tego slowa
 					report.add(new StringValue(antonym, 13.0f, 0));
 				}
 
@@ -991,14 +985,6 @@ public class WordDictionaryDetails extends Activity {
 			}
 
 			if (tatoebaSentenceGroupList.size() > 0) {
-
-				/*
-				// FM_FIXME: chyba do usuniecia
-				if (grammaFormConjugateGroupTypeElementsList == null) {
-					report.add(new StringValue("", 15.0f, 2));
-				}
-				*/
-
 				report.add(new TitleItem(getString(R.string.word_dictionary_details_sentence_example_label), 0));
 
 				for (int tatoebaSentenceGroupListIdx = 0; tatoebaSentenceGroupListIdx < tatoebaSentenceGroupList.size(); ++tatoebaSentenceGroupListIdx) {
@@ -1477,13 +1463,6 @@ public class WordDictionaryDetails extends Activity {
 
 			if (furiganaEntries != null && furiganaEntries.size() > 0) {
 
-				// FM_FIXME: prawdopodobnie do zmiany, usuniecia
-				/*
-				if (isAllCharactersStrokePathsAvailableForWord == true) {
-					report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
-				}
-				*/
-
 				for (FuriganaEntry currentFuriganaEntry : furiganaEntries) {
 
 					TableLayout furiganaTableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent,
@@ -1554,15 +1533,9 @@ public class WordDictionaryDetails extends Activity {
 					report.add(furiganaTableLayout);
 				}
 			} else {
-				// FM_FIXME: sprawdzic, czy ten kod dziala poprawnie
-
 				StringValue kanjiStringValue = new StringValue(kanji, 35.0f, 0);
 
-				// FM_FIXME: do naprawy
 				if (isAllCharactersStrokePathsAvailableForWord == true) {
-					// FM_FIXME: prawdopodobnie do usuniecia, ten napis
-					// report.add(new StringValue(getString(R.string.word_dictionary_word_anim), 12.0f, 0));
-
 					kanjiStringValue.setOnClickListener(kanjiDrawOnClickListener);
 				}
 
@@ -1676,7 +1649,6 @@ public class WordDictionaryDetails extends Activity {
 		//
 
 		if (lastKanjiKanaPair == false) { // dodajemy przerwe
-			// FM_FIXME: do ustalenia rozmiar przerwy
 			StringValue spacer = new StringValue("", 20.0f, 0);
 			spacer.setGravity(Gravity.CENTER);
 			spacer.setNullMargins(true);
