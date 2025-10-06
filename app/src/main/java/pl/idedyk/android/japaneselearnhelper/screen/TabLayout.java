@@ -42,8 +42,6 @@ public class TabLayout implements IScreenItem {
 
     @Override
     public void generate(Context context, Resources resources, ViewGroup layout) {
-        // FM_FIXME: testy !!!!
-
         // tworzenie przewijaka pionowego z nazwami tabow
         HorizontalScrollView tabsHorizontalScrollView = new HorizontalScrollView(context);
 

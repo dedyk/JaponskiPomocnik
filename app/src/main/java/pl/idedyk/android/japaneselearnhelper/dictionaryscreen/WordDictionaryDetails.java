@@ -1132,6 +1132,13 @@ public class WordDictionaryDetails extends Activity {
 		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));
 		*/
 
+		// indeks na formy gramatyczne
+		pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour = new pl.idedyk.android.japaneselearnhelper.screen.LinearLayout();
+
+		grammaFormConjugateIndexLinearLayour.addScreenItem(new StringValue("FM_FIXME !!!!!!!!", 40.0f, 0));
+
+		report.add(grammaFormConjugateIndexLinearLayour);
+
 		/* stary kod - nie przeniesiony do nowego sposobu
 		// index
 		int indexStartPos = report.size();
@@ -1302,6 +1309,10 @@ public class WordDictionaryDetails extends Activity {
 
 				report.add(tabLayout);
 			}
+		}
+
+		if (grammaFormConjugateAndExampleEntryMap.size() == 0) {
+			grammaFormConjugateIndexLinearLayour.setVisibility(View.INVISIBLE);
 		}
 
 		// wyliczenie przykladow
