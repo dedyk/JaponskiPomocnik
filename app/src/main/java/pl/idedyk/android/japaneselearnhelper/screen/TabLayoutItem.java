@@ -36,4 +36,8 @@ public class TabLayoutItem implements IScreenItem {
     public int getY() {
         return tabContents.get(0).getY();
     }
+
+    public List<IScreenItem> getTabContentsList() {
+        return tabContents;
+    }
 }

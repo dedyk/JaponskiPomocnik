@@ -50,4 +50,10 @@ public class LinearLayout implements IScreenItem {
     public void setVisibility(int visibility) {
         this.visibility = visibility;
     }
+
+    public void regenerate(Context context, Resources resources, ViewGroup layout) {
+        linearLayout.removeAllViews();
+
+        generate(context, resources, layout);
+    }
 }

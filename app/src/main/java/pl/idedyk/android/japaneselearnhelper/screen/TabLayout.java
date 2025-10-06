@@ -148,4 +148,13 @@ public class TabLayout implements IScreenItem {
     public void setContentsHeight(Integer contentsHeight) {
         this.contentsHeight = contentsHeight;
     }
+
+    public TabLayoutItem getActiveTab() {
+        if (tabLayoutItems.size() == 0) {
+            return null;
+        }
+
+        // pobranie aktywnej zakladki
+        return tabLayoutItems.get(activeTab);
+    }
 }

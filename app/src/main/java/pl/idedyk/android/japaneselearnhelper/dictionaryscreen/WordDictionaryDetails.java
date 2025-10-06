@@ -78,7 +78,6 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.ClipboardManager;
-import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -1135,60 +1134,7 @@ public class WordDictionaryDetails extends Activity {
 		// indeks na formy gramatyczne
 		pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour = new pl.idedyk.android.japaneselearnhelper.screen.LinearLayout();
 
-		grammaFormConjugateIndexLinearLayour.addScreenItem(new StringValue("FM_FIXME !!!!!!!!", 40.0f, 0));
-
 		report.add(grammaFormConjugateIndexLinearLayour);
-
-		/* stary kod - nie przeniesiony do nowego sposobu
-		// index
-		int indexStartPos = report.size();
-
-		// add index
-		if (indexStartPos < report.size()) {
-
-			int indexStopPos = report.size();
-
-			List<IScreenItem> indexList = new ArrayList<IScreenItem>();
-
-			indexList.add(new StringValue("", 15.0f, 2));
-			indexList.add(new TitleItem(getString(R.string.word_dictionary_details_report_counters_index), 0));
-			indexList.add(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 1));
-
-			for (int reportIdx = indexStartPos; reportIdx < indexStopPos; ++reportIdx) {
-
-				IScreenItem currentReportScreenItem = report.get(reportIdx);
-
-				if (currentReportScreenItem instanceof TitleItem == false) {
-					continue;
-				}
-
-				final TitleItem currentReportScreenItemAsTitle = (TitleItem) currentReportScreenItem;
-
-				final StringValue titleStringValue = new StringValue(currentReportScreenItemAsTitle.getTitle(), 15.0f,
-						currentReportScreenItemAsTitle.getLevel() + 2);
-
-				titleStringValue.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-
-						backScreenPositionStack.push(scrollMainLayout.getScrollY());
-
-						int counterPos = currentReportScreenItemAsTitle.getY();
-						scrollMainLayout.scrollTo(0, counterPos - 3);
-					}
-				});
-
-				indexList.add(titleStringValue);
-			}
-
-			for (int indexListIdx = 0, reportStartPos = indexStartPos; indexListIdx < indexList.size(); ++indexListIdx) {
-				report.add(reportStartPos, indexList.get(indexListIdx));
-
-				reportStartPos++;
-			}
-		}
-		*/
 
 		// wyliczenie form gramatycznych
 		Map<Integer, GrammaFormConjugateAndExampleEntry> grammaFormConjugateAndExampleEntryMap = new LinkedHashMap<>();
@@ -1200,6 +1146,8 @@ public class WordDictionaryDetails extends Activity {
 		} else if (kanjiKanaPairList != null) {
 			dictionaryEntryListForGrammaAndExamples.addAll(convertKanjiKanaPairListToOldDictionaryEntry(kanjiKanaPairList));
 		}
+
+		TabLayout grammaFormConjugateTabLayout = null;
 
 		if (dictionaryEntryListForGrammaAndExamples.size() > 0) { // generujemy zawartosc typu slow
 			DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
@@ -1235,7 +1183,7 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue("", 5.0f, 0)); // przerwa
 
 				// utworzenie odmian dla kazdego slowa
-				TabLayout tabLayout = new TabLayout();
+				grammaFormConjugateTabLayout = new TabLayout();
 
 				// utworzenie dla kazdego slowa
 				for (GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry : grammaFormConjugateAndExampleEntryMap.values()) {
@@ -1302,16 +1250,20 @@ public class WordDictionaryDetails extends Activity {
 						tabLayoutForDictionaryEntry.addTab(tabLayoutForDictionaryType);
 					}
 
-					tabLayout.addTab(tabLayoutItemForGrammaFormConjugateAndExampleEntry);
+					grammaFormConjugateTabLayout.addTab(tabLayoutItemForGrammaFormConjugateAndExampleEntry);
 				}
 
 				//
 
-				report.add(tabLayout);
+				report.add(grammaFormConjugateTabLayout);
 			}
 		}
 
-		if (grammaFormConjugateAndExampleEntryMap.size() == 0) {
+		// dodanie indeksu
+		if (grammaFormConjugateAndExampleEntryMap.size() != 0 && grammaFormConjugateTabLayout != null) {
+			generateGrammaFormConjugateIndex(grammaFormConjugateIndexLinearLayour, grammaFormConjugateTabLayout);
+
+		} else { // nie ma niczego do pokazania, ukrywamy
 			grammaFormConjugateIndexLinearLayour.setVisibility(View.INVISIBLE);
 		}
 
@@ -1397,6 +1349,59 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		return report;
+	}
+
+	private void generateGrammaFormConjugateIndex(pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour, TabLayout grammaFormConjugateTabLayout) {
+		// FM_FIXME: chyba do usuniecia
+		// List<IScreenItem> indexList = new ArrayList<IScreenItem>();
+
+		// FM_FIXME: dokonczyc !!!!!
+
+		// pobranie zawartosci aktywnej zakladki (poziom I)
+		List<IScreenItem> level1TabContentsList = grammaFormConjugateTabLayout.getActiveTab().getTabContentsList();
+
+		IScreenItem level1TabContentsFirstLevel = level1TabContentsList.get(0);
+
+		if (level1TabContentsFirstLevel instanceof TabLayout == false) {
+			return;
+		}
+
+		TabLayout level1TabContentsFirstLevelAsTabLayoyt = (TabLayout)level1TabContentsFirstLevel;
+
+		List<IScreenItem> tabContentsList = level1TabContentsFirstLevelAsTabLayoyt.getActiveTab().getTabContentsList();
+
+		grammaFormConjugateIndexLinearLayour.addScreenItem(new TitleItem(getString(R.string.word_dictionary_details_gramma_form_conjugate_index), 0));
+		grammaFormConjugateIndexLinearLayour.addScreenItem(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 1));
+
+		for (IScreenItem currentTabContentsScreenItem : tabContentsList) {
+
+			if (currentTabContentsScreenItem instanceof TitleItem == false) {
+				continue;
+			}
+
+			final TitleItem currentTabContentsScreenItemAsTitle = (TitleItem) currentTabContentsScreenItem;
+
+			final StringValue titleStringValue = new StringValue(currentTabContentsScreenItemAsTitle.getTitle(), 15.0f,
+					currentTabContentsScreenItemAsTitle.getLevel() + 2);
+
+			titleStringValue.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// FM_FIXME: do naprawy
+					/*
+					backScreenPositionStack.push(scrollMainLayout.getScrollY());
+
+					int counterPos = currentReportScreenItemAsTitle.getY();
+					scrollMainLayout.scrollTo(0, counterPos - 3);
+					*/
+				}
+			});
+
+			grammaFormConjugateIndexLinearLayour.addScreenItem(titleStringValue);
+		}
+
+		grammaFormConjugateIndexLinearLayour.addScreenItem(new StringValue("", 15.0f, 2)); // przerwa
 	}
 
 	private void createWordKanjiKanaPairSection(List<IScreenItem> report, Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair, boolean lastKanjiKanaPair) {
