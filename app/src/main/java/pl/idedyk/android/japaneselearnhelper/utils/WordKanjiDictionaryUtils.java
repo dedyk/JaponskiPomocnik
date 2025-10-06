@@ -211,11 +211,11 @@ public class WordKanjiDictionaryUtils {
             // String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
 
             if (kanji != null && kanji.equals("") == false && kanji.equals("-") == false) {
-                result.append("<big>" + getStringWithMark(kanji, findWord, findWordRequest.searchKanji)).append(" - ");
+                result.append("<big>" + getStringWithMark(kanji, findWord, findWordRequest.searchKanji) + "</big>").append(" - ");
             }
 
-            result.append("<big>" + getStringWithMark(kana, findWord, findWordRequest.searchKana)).append(" - ");
-            result.append("<big>" + getStringWithMark(romaji, findWord, findWordRequest.searchRomaji));
+            result.append("<big>" + getStringWithMark(kana, findWord, findWordRequest.searchKana) + "</big>").append(" - ");
+            result.append("<big>" + getStringWithMark(romaji, findWord, findWordRequest.searchRomaji) + "</big>");
 
             if (translates != null && translates.size() > 0) {
                 result.append("\n\n");
