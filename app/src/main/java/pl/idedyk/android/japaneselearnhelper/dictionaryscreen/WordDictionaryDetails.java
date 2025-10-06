@@ -226,6 +226,7 @@ public class WordDictionaryDetails extends Activity {
 						return;
 					}
 
+					// FM_FIXME: czy to dziala
 					final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
 
 					backScreenPositionStack.push(scrollMainLayout.getScrollY());
@@ -294,6 +295,7 @@ public class WordDictionaryDetails extends Activity {
 
 	@Override
 	public void onBackPressed() {
+		// FM_FIXME: czy to dziala
 
 		if (backScreenPositionStack.isEmpty() == true) {
 			super.onBackPressed();
@@ -1131,11 +1133,6 @@ public class WordDictionaryDetails extends Activity {
 		report.add(new StringValue(String.valueOf(dictionaryEntry.getId()), 20.0f, 0));
 		*/
 
-		// indeks na formy gramatyczne
-		pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour = new pl.idedyk.android.japaneselearnhelper.screen.LinearLayout();
-
-		report.add(grammaFormConjugateIndexLinearLayour);
-
 		// wyliczenie form gramatycznych
 		Map<Integer, GrammaFormConjugateAndExampleEntry> grammaFormConjugateAndExampleEntryMap = new LinkedHashMap<>();
 		List<DictionaryEntry> dictionaryEntryListForGrammaAndExamples = new ArrayList<>();
@@ -1146,8 +1143,6 @@ public class WordDictionaryDetails extends Activity {
 		} else if (kanjiKanaPairList != null) {
 			dictionaryEntryListForGrammaAndExamples.addAll(convertKanjiKanaPairListToOldDictionaryEntry(kanjiKanaPairList));
 		}
-
-		TabLayout grammaFormConjugateTabLayout = null;
 
 		if (dictionaryEntryListForGrammaAndExamples.size() > 0) { // generujemy zawartosc typu slow
 			DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
@@ -1183,7 +1178,7 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue("", 5.0f, 0)); // przerwa
 
 				// utworzenie odmian dla kazdego slowa
-				grammaFormConjugateTabLayout = new TabLayout();
+				TabLayout grammaFormConjugateTabLayout = new TabLayout();
 
 				// utworzenie dla kazdego slowa
 				for (GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry : grammaFormConjugateAndExampleEntryMap.values()) {
@@ -1207,6 +1202,11 @@ public class WordDictionaryDetails extends Activity {
 						TabLayoutItem tabLayoutForDictionaryType = new TabLayoutItem(grammaFormConjugateAndExampleEntryForDictionaryType.dictionaryEntryType.getName());
 
 						tabLayoutForDictionaryType.addToTabContents(new StringValue("", 5.0f, 0)); // przerwa
+
+						// indeks na formy gramatyczne
+						pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour = new pl.idedyk.android.japaneselearnhelper.screen.LinearLayout();
+
+						tabLayoutForDictionaryType.addToTabContents(grammaFormConjugateIndexLinearLayour);
 
 						// dodanie form gramatycznych
 						for (GrammaFormConjugateGroupTypeElements currentGrammaFormConjugateGroupTypeElements : grammaFormConjugateAndExampleEntryForDictionaryType.grammaFormConjugateGroupTypeElementsList) {
@@ -1233,7 +1233,6 @@ public class WordDictionaryDetails extends Activity {
 								if (currentGrammaFormConjugateResult.getResultType().isShow() == true) {
 									tabLayoutForDictionaryType.addToTabContents(new TitleItem(currentGrammaFormConjugateResult.getResultType().getName(), 2));
 
-									// FM_FIXME: String info -> info
 									String resultTypeInfo = currentGrammaFormConjugateResult.getResultType().getInfo();
 
 									if (resultTypeInfo != null) {
@@ -1247,6 +1246,9 @@ public class WordDictionaryDetails extends Activity {
 							tabLayoutForDictionaryType.addToTabContents(new StringValue("", 15.0f, 1));
 						}
 
+						// dodanie indeksu
+						generateGrammaFormConjugateIndex(scrollMainLayout, grammaFormConjugateIndexLinearLayour, tabLayoutForDictionaryType);
+
 						tabLayoutForDictionaryEntry.addTab(tabLayoutForDictionaryType);
 					}
 
@@ -1257,14 +1259,6 @@ public class WordDictionaryDetails extends Activity {
 
 				report.add(grammaFormConjugateTabLayout);
 			}
-		}
-
-		// dodanie indeksu
-		if (grammaFormConjugateAndExampleEntryMap.size() != 0 && grammaFormConjugateTabLayout != null) {
-			generateGrammaFormConjugateIndex(grammaFormConjugateIndexLinearLayour, grammaFormConjugateTabLayout);
-
-		} else { // nie ma niczego do pokazania, ukrywamy
-			grammaFormConjugateIndexLinearLayour.setVisibility(View.INVISIBLE);
 		}
 
 		// wyliczenie przykladow
@@ -1351,24 +1345,11 @@ public class WordDictionaryDetails extends Activity {
 		return report;
 	}
 
-	private void generateGrammaFormConjugateIndex(pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour, TabLayout grammaFormConjugateTabLayout) {
-		// FM_FIXME: chyba do usuniecia
-		// List<IScreenItem> indexList = new ArrayList<IScreenItem>();
-
+	private void generateGrammaFormConjugateIndex(ScrollView scrollMainLayout, pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour, TabLayoutItem tabLayoutItem) {
 		// FM_FIXME: dokonczyc !!!!!
 
-		// pobranie zawartosci aktywnej zakladki (poziom I)
-		List<IScreenItem> level1TabContentsList = grammaFormConjugateTabLayout.getActiveTab().getTabContentsList();
-
-		IScreenItem level1TabContentsFirstLevel = level1TabContentsList.get(0);
-
-		if (level1TabContentsFirstLevel instanceof TabLayout == false) {
-			return;
-		}
-
-		TabLayout level1TabContentsFirstLevelAsTabLayoyt = (TabLayout)level1TabContentsFirstLevel;
-
-		List<IScreenItem> tabContentsList = level1TabContentsFirstLevelAsTabLayoyt.getActiveTab().getTabContentsList();
+		// pobranie zawartosci aktywnej zakladki
+		List<IScreenItem> tabContentsList = tabLayoutItem.getTabContentsList();
 
 		grammaFormConjugateIndexLinearLayour.addScreenItem(new TitleItem(getString(R.string.word_dictionary_details_gramma_form_conjugate_index), 0));
 		grammaFormConjugateIndexLinearLayour.addScreenItem(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 1));
@@ -1388,13 +1369,11 @@ public class WordDictionaryDetails extends Activity {
 
 				@Override
 				public void onClick(View v) {
-					// FM_FIXME: do naprawy
-					/*
 					backScreenPositionStack.push(scrollMainLayout.getScrollY());
 
-					int counterPos = currentReportScreenItemAsTitle.getY();
+					// FM_FIXME: do poprawy
+					int counterPos = currentTabContentsScreenItem.getY();
 					scrollMainLayout.scrollTo(0, counterPos - 3);
-					*/
 				}
 			});
 
