@@ -1174,11 +1174,11 @@ public class WordDictionaryDetails extends Activity {
 			}
 
 			if (grammaFormConjugateAndExampleEntryMap.size() > 0) { // jezeli udalo sie cos wyliczyc to pokazujemy to
-				report.add(new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0));
-				report.add(new StringValue("", 5.0f, 0)); // przerwa
+				TitleItem titleItemItem = new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0);
+				report.add(titleItemItem);
 
 				// utworzenie odmian dla kazdego slowa
-				TabLayout grammaFormConjugateTabLayout = new TabLayout();
+				TabLayout mainGrammaFormConjugateTabLayout = new TabLayout();
 
 				// utworzenie dla kazdego slowa
 				for (GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry : grammaFormConjugateAndExampleEntryMap.values()) {
@@ -1247,17 +1247,17 @@ public class WordDictionaryDetails extends Activity {
 						}
 
 						// dodanie indeksu
-						generateGrammaFormConjugateIndex(scrollMainLayout, grammaFormConjugateIndexLinearLayour, tabLayoutForDictionaryType);
+						generateGrammaFormConjugateIndex(scrollMainLayout, grammaFormConjugateIndexLinearLayour, mainGrammaFormConjugateTabLayout, titleItemItem, tabLayoutForDictionaryEntry, tabLayoutForDictionaryType);
 
 						tabLayoutForDictionaryEntry.addTab(tabLayoutForDictionaryType);
 					}
 
-					grammaFormConjugateTabLayout.addTab(tabLayoutItemForGrammaFormConjugateAndExampleEntry);
+					mainGrammaFormConjugateTabLayout.addTab(tabLayoutItemForGrammaFormConjugateAndExampleEntry);
 				}
 
 				//
 
-				report.add(grammaFormConjugateTabLayout);
+				report.add(mainGrammaFormConjugateTabLayout);
 			}
 		}
 
@@ -1345,14 +1345,19 @@ public class WordDictionaryDetails extends Activity {
 		return report;
 	}
 
-	private void generateGrammaFormConjugateIndex(ScrollView scrollMainLayout, pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour, TabLayoutItem tabLayoutItem) {
+	private void generateGrammaFormConjugateIndex(ScrollView scrollMainLayout,
+												  pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour,
+												  TabLayout mainGrammaFormConjugateTabLayout,
+												  TitleItem titleItemItem,
+												  TabLayout tabLayoutForDictionaryEntry,
+												  TabLayoutItem tabLayoutItem) {
 		// FM_FIXME: dokonczyc !!!!!
 
 		// pobranie zawartosci aktywnej zakladki
 		List<IScreenItem> tabContentsList = tabLayoutItem.getTabContentsList();
 
-		grammaFormConjugateIndexLinearLayour.addScreenItem(new TitleItem(getString(R.string.word_dictionary_details_gramma_form_conjugate_index), 0));
-		grammaFormConjugateIndexLinearLayour.addScreenItem(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 1));
+		grammaFormConjugateIndexLinearLayour.addScreenItem(new TitleItem(getString(R.string.word_dictionary_details_gramma_form_conjugate_index), 1));
+		grammaFormConjugateIndexLinearLayour.addScreenItem(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 2));
 
 		for (IScreenItem currentTabContentsScreenItem : tabContentsList) {
 
@@ -1372,8 +1377,13 @@ public class WordDictionaryDetails extends Activity {
 					backScreenPositionStack.push(scrollMainLayout.getScrollY());
 
 					// FM_FIXME: do poprawy
-					int counterPos = currentTabContentsScreenItem.getY();
-					scrollMainLayout.scrollTo(0, counterPos - 3);
+					// int counterPos = currentTabContentsScreenItem.getY(); <- TEST
+					int scrollToValue = titleItemItem.getY() + currentTabContentsScreenItem.getY() +
+							(mainGrammaFormConjugateTabLayout.getContentLinearLayout() - mainGrammaFormConjugateTabLayout.getTabsHorizontalScrollView()) +
+							(tabLayoutForDictionaryEntry.getContentLinearLayout() - tabLayoutForDictionaryEntry.getTabsHorizontalScrollView()) +
+							30;
+
+					scrollMainLayout.scrollTo(0, scrollToValue);
 				}
 			});
 

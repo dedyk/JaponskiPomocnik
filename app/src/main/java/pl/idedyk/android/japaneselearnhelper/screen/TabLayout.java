@@ -29,6 +29,7 @@ public class TabLayout implements IScreenItem {
     private Integer contentsHeight = null;
 
     // przyciski
+    private HorizontalScrollView tabsHorizontalScrollView;
     private LinearLayout tabsLinearLayout;
 
     // tab z zawartoscia
@@ -43,7 +44,7 @@ public class TabLayout implements IScreenItem {
     @Override
     public void generate(Context context, Resources resources, ViewGroup layout) {
         // tworzenie przewijaka pionowego z nazwami tabow
-        HorizontalScrollView tabsHorizontalScrollView = new HorizontalScrollView(context);
+        tabsHorizontalScrollView = new HorizontalScrollView(context);
 
         tabsLinearLayout = new LinearLayout(context);
         tabsLinearLayout.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -156,5 +157,13 @@ public class TabLayout implements IScreenItem {
 
         // pobranie aktywnej zakladki
         return tabLayoutItems.get(activeTab);
+    }
+
+    public int getTabsHorizontalScrollView() {
+        return tabsHorizontalScrollView.getTop();
+    }
+
+    public int getContentLinearLayout() {
+        return contentLinearLayout.getTop();
     }
 }
