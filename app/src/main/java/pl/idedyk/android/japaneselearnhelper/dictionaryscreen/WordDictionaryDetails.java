@@ -1351,8 +1351,6 @@ public class WordDictionaryDetails extends Activity {
 												  TitleItem titleItemItem,
 												  TabLayout tabLayoutForDictionaryEntry,
 												  TabLayoutItem tabLayoutItem) {
-		// FM_FIXME: dokonczyc !!!!!
-
 		// pobranie zawartosci aktywnej zakladki
 		List<IScreenItem> tabContentsList = tabLayoutItem.getTabContentsList();
 
@@ -1376,8 +1374,6 @@ public class WordDictionaryDetails extends Activity {
 				public void onClick(View v) {
 					backScreenPositionStack.push(scrollMainLayout.getScrollY());
 
-					// FM_FIXME: do poprawy
-					// int counterPos = currentTabContentsScreenItem.getY(); <- TEST
 					int scrollToValue = titleItemItem.getY() + currentTabContentsScreenItem.getY() +
 							(mainGrammaFormConjugateTabLayout.getContentLinearLayout() - mainGrammaFormConjugateTabLayout.getTabsHorizontalScrollView()) +
 							(tabLayoutForDictionaryEntry.getContentLinearLayout() - tabLayoutForDictionaryEntry.getTabsHorizontalScrollView()) +
