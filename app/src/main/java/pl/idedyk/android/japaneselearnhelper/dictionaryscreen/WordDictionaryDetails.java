@@ -1175,7 +1175,9 @@ public class WordDictionaryDetails extends Activity {
 
 			if (grammaFormConjugateAndExampleEntryMap.size() > 0) { // jezeli udalo sie cos wyliczyc to pokazujemy to
 				TitleItem titleItemItem = new TitleItem(getString(R.string.word_dictionary_details_conjugater_label), 0);
+
 				report.add(titleItemItem);
+				report.add(new StringValue("", 5.0f, 0)); // przerwa
 
 				// utworzenie odmian dla kazdego slowa
 				TabLayout mainGrammaFormConjugateTabLayout = new TabLayout();
@@ -1247,7 +1249,7 @@ public class WordDictionaryDetails extends Activity {
 						}
 
 						// dodanie indeksu
-						generateGrammaFormConjugateIndex(scrollMainLayout, grammaFormConjugateIndexLinearLayour, mainGrammaFormConjugateTabLayout, titleItemItem, tabLayoutForDictionaryEntry, tabLayoutForDictionaryType);
+						generateGrammaFormConjugateExampleIndex(scrollMainLayout, grammaFormConjugateIndexLinearLayour, mainGrammaFormConjugateTabLayout, titleItemItem, tabLayoutForDictionaryEntry, tabLayoutForDictionaryType, R.string.word_dictionary_details_gramma_form_conjugate_index);
 
 						tabLayoutForDictionaryEntry.addTab(tabLayoutForDictionaryType);
 					}
@@ -1280,11 +1282,13 @@ public class WordDictionaryDetails extends Activity {
 				}
 			}
 
-			report.add(new TitleItem(getString(R.string.word_dictionary_details_example_label), 0));
+			TitleItem titleItemItem = new TitleItem(getString(R.string.word_dictionary_details_example_label), 0);
+
+			report.add(titleItemItem);
 			report.add(new StringValue("", 5.0f, 0)); // przerwa
 
 			// utworzenie przykladow dla kazdego slowa
-			TabLayout tabLayout = new TabLayout();
+			TabLayout mainExampleFormTabLayout = new TabLayout();
 
 			// utworzenie dla kazdego slowa
 			for (GrammaFormConjugateAndExampleEntry grammaFormConjugateAndExampleEntry : grammaFormConjugateAndExampleEntryMap.values()) {
@@ -1310,6 +1314,11 @@ public class WordDictionaryDetails extends Activity {
 
 					tabLayoutForDictionaryType.addToTabContents(new StringValue("", 5.0f, 0)); // przerwa
 
+					// indeks na formy gramatyczne
+					pl.idedyk.android.japaneselearnhelper.screen.LinearLayout exampleFormIndexLinearLayour = new pl.idedyk.android.japaneselearnhelper.screen.LinearLayout();
+
+					tabLayoutForDictionaryType.addToTabContents(exampleFormIndexLinearLayour);
+
 					// dodanie przykladow gramatycznych
 					for (ExampleGroupTypeElements currentExampleGroupTypeElements : grammaFormConjugateAndExampleEntryForDictionaryType.exampleGroupTypeElementsList) {
 
@@ -1330,32 +1339,37 @@ public class WordDictionaryDetails extends Activity {
 						tabLayoutForDictionaryType.addToTabContents(new StringValue("", 15.0f, 1));
 					}
 
+					// dodanie indeksu
+					generateGrammaFormConjugateExampleIndex(scrollMainLayout, exampleFormIndexLinearLayour, mainExampleFormTabLayout, titleItemItem, tabLayoutForDictionaryEntry,
+							tabLayoutForDictionaryType, R.string.word_dictionary_details_example_form_index);
+
 					tabLayoutForDictionaryEntry.addTab(tabLayoutForDictionaryType);
 				}
 
-				tabLayout.addTab(tabLayoutItemForGrammaFormConjugateAndExampleEntry);
+				mainExampleFormTabLayout.addTab(tabLayoutItemForGrammaFormConjugateAndExampleEntry);
 			}
 
 			//
 
-			report.add(tabLayout);
+			report.add(mainExampleFormTabLayout);
 			report.add(new StringValue("", 15.0f, 0)); // przerwa
 		}
 
 		return report;
 	}
 
-	private void generateGrammaFormConjugateIndex(ScrollView scrollMainLayout,
-												  pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaFormConjugateIndexLinearLayour,
+	private void generateGrammaFormConjugateExampleIndex(ScrollView scrollMainLayout,
+												  pl.idedyk.android.japaneselearnhelper.screen.LinearLayout grammaExampleFormConjugateIndexLinearLayour,
 												  TabLayout mainGrammaFormConjugateTabLayout,
 												  TitleItem titleItemItem,
 												  TabLayout tabLayoutForDictionaryEntry,
-												  TabLayoutItem tabLayoutItem) {
+												  TabLayoutItem tabLayoutItem,
+										          int titleId) {
 		// pobranie zawartosci aktywnej zakladki
 		List<IScreenItem> tabContentsList = tabLayoutItem.getTabContentsList();
 
-		grammaFormConjugateIndexLinearLayour.addScreenItem(new TitleItem(getString(R.string.word_dictionary_details_gramma_form_conjugate_index), 1));
-		grammaFormConjugateIndexLinearLayour.addScreenItem(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 2));
+		grammaExampleFormConjugateIndexLinearLayour.addScreenItem(new TitleItem(getString(titleId), 1));
+		grammaExampleFormConjugateIndexLinearLayour.addScreenItem(new StringValue(getString(R.string.word_dictionary_details_index_go), 12.0f, 2));
 
 		for (IScreenItem currentTabContentsScreenItem : tabContentsList) {
 
@@ -1383,10 +1397,10 @@ public class WordDictionaryDetails extends Activity {
 				}
 			});
 
-			grammaFormConjugateIndexLinearLayour.addScreenItem(titleStringValue);
+			grammaExampleFormConjugateIndexLinearLayour.addScreenItem(titleStringValue);
 		}
 
-		grammaFormConjugateIndexLinearLayour.addScreenItem(new StringValue("", 15.0f, 2)); // przerwa
+		grammaExampleFormConjugateIndexLinearLayour.addScreenItem(new StringValue("", 15.0f, 2)); // przerwa
 	}
 
 	private void createWordKanjiKanaPairSection(List<IScreenItem> report, Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair, boolean lastKanjiKanaPair) {

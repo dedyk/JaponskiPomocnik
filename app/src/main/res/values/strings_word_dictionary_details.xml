@@ -20,6 +20,7 @@
     <string name="word_dictionary_details_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w szczegółach słowa</string>
     <string name="word_dictionary_details_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
     <string name="word_dictionary_details_gramma_form_conjugate_index">Indeks odmian gramatycznych</string>
+    <string name="word_dictionary_details_example_form_index">Indeks przykładów gramatycznych</string>
     <string name="word_dictionary_details_index_go">Naciśnij, aby przejść do wybranej pozycji</string>
     <string name="word_dictionary_details_clipboard_copy">Skopiowano \'%1$s\' do schowka</string>
     
