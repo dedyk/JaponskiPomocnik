@@ -138,6 +138,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
         throw new UnsupportedOperationException();
     }
 
+    /*
     @Override
     public DictionaryEntry getDictionaryEntryById(final String id) throws DictionaryException {
 
@@ -193,6 +194,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
             }
         }, DictionaryEntry.class);
     }
+    */
 
     @Override
     public JMdict.Entry getDictionaryEntry2ById(final Integer id) throws DictionaryException {

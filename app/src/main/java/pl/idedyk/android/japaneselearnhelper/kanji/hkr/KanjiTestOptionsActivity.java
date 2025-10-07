@@ -24,6 +24,8 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
@@ -487,15 +489,8 @@ public class KanjiTestOptionsActivity extends Activity {
 								DictionaryEntry dictionaryEntry = null;
 
 								try {
-									// FM_FIXME: do naprawy
-									/*
 									dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
 											getDictionaryEntryById(userGroupItemEntity.getItemId());
-									*/
-
-									if (1 == 1) {
-										throw new DictionaryException("FM_FIXME");
-									}
 
 								} catch (DictionaryException e) {
 									Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
@@ -655,14 +650,30 @@ public class KanjiTestOptionsActivity extends Activity {
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
-										// FM_FIXME: do naprawy
-										/*
-										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
-												new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
-													currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
 
-										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
-										*/
+										DictionaryEntry dictionaryEntry = currentFindWordResultResult.getOldDictionaryEntry();
+										JMdict.Entry dictionaryEntry2 = currentFindWordResultResult.getEntry();
+
+										if (dictionaryEntry2 != null) {
+											List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, false);
+
+											for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
+												String kanjiKanaPairKanji = kanjiKanaPair.getKanji();
+
+												if (kanjiKanaPairKanji != null && kanjiKanaPairKanji.startsWith(currentKanjiEntry.getKanji()) == true) {
+													dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+													break;
+												}
+											}
+										}
+
+										if (dictionaryEntry != null) {
+											JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
+													new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
+															dictionaryEntry, currentKanjiEntry.getKanji());
+
+											dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
+										}
 
 										if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
 											break;
@@ -694,22 +705,36 @@ public class KanjiTestOptionsActivity extends Activity {
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
-										// FM_FIXME: do naprawy
-										/*
-										DictionaryEntry currentDictionaryEntry = currentFindWordResultResult.getDictionaryEntry();
+										DictionaryEntry dictionaryEntry = currentFindWordResultResult.getOldDictionaryEntry();
+										JMdict.Entry dictionaryEntry2 = currentFindWordResultResult.getEntry();
 
-										String currentDictionaryEntryKanji = currentDictionaryEntry.getKanji();
+										if (dictionaryEntry2 != null) {
+											List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, false);
 
-										if (currentDictionaryEntryKanji == null || currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == false) {
-											continue;
+											for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
+												String kanjiKanaPairKanji = kanjiKanaPair.getKanji();
+
+												if (kanjiKanaPairKanji != null && kanjiKanaPairKanji.contains(currentKanjiEntry.getKanji()) == true) {
+													dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+													break;
+												}
+											}
 										}
 
-										JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
-												new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
-													currentFindWordResultResult.getDictionaryEntry(), currentKanjiEntry.getKanji());
+										if (dictionaryEntry != null) {
+											String currentDictionaryEntryKanji = dictionaryEntry.getKanji();
 
-										dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
-										*/
+											if (currentDictionaryEntryKanji == null || currentDictionaryEntryKanji.contains(currentKanjiEntry.getKanji()) == false) {
+												continue;
+											}
+
+											JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji currentDictionaryEntryWithRemovedKanji =
+													new JapaneseAndroidLearnHelperKanjiTestContext.DictionaryEntryWithRemovedKanji(
+															dictionaryEntry, currentKanjiEntry.getKanji());
+
+											dictionaryEntryWithRemovedKanjiList.add(currentDictionaryEntryWithRemovedKanji);
+										}
+
 										if (dictionaryEntryWithRemovedKanjiList.size() >= maxTestSize) {
 											break;
 										}
@@ -784,15 +809,8 @@ public class KanjiTestOptionsActivity extends Activity {
 											DictionaryEntry dictionaryEntry = null;
 
 											try {
-												// FM_FIXME: do naprawy
-												/*
 												dictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).
 														getDictionaryEntryById(userGroupItemEntity.getItemId());
-												*/
-
-												if (1 == 1) {
-													throw new DictionaryException("FM_FIXME");
-												}
 
 											} catch (DictionaryException e) {
 												return new PrepareAsyncTaskResult(e);
