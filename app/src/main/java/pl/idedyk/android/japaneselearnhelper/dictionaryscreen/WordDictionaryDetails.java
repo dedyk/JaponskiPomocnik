@@ -78,6 +78,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.ClipboardManager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -99,7 +100,7 @@ public class WordDictionaryDetails extends Activity {
 
 	private final Stack<Integer> backScreenPositionStack = new Stack<Integer>();
 
-	private List<IScreenItem> searchScreenItemList = null;
+	private List<Integer> searchResultScrollToList = null;
 	private Integer searchScreenItemCurrentPos = null;
 
 	private DictionaryEntry dictionaryEntry = null;
@@ -169,7 +170,6 @@ public class WordDictionaryDetails extends Activity {
 		super.onOptionsItemSelected(item);
 
 		if (item.getItemId() == R.id.word_dictionary_details_menu_search) {
-			// FM_FIXME: do sprawdzenia, czy to dziala
 
 			AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
@@ -188,37 +188,12 @@ public class WordDictionaryDetails extends Activity {
 
 					String userInputSearchText = input.getText().toString().toLowerCase(Locale.getDefault());
 
-					searchScreenItemList = new ArrayList<IScreenItem>();
+					searchResultScrollToList = new ArrayList<>();
 					searchScreenItemCurrentPos = 0;
 
-					TitleItem lastTitleItem = null;
+					searchInScreenItemsList(generatedDetails, userInputSearchText, 0);
 
-					for (IScreenItem currentScreenItem : generatedDetails) {
-
-						if (currentScreenItem instanceof TitleItem) {
-							lastTitleItem = (TitleItem) currentScreenItem;
-						}
-
-						String currentScreenItemToString = currentScreenItem.toString();
-
-						if (currentScreenItemToString.toLowerCase(Locale.getDefault()).indexOf(userInputSearchText) != -1) {
-
-							if (lastTitleItem != null) {
-
-								if (searchScreenItemList.contains(lastTitleItem) == false) {
-									searchScreenItemList.add(lastTitleItem);
-								}
-
-							} else {
-
-								if (searchScreenItemList.contains(currentScreenItem) == false) {
-									searchScreenItemList.add(currentScreenItem);
-								}
-							}
-						}
-					}
-
-					if (searchScreenItemList.size() == 0) {
+					if (searchResultScrollToList.size() == 0) {
 						Toast.makeText(WordDictionaryDetails.this,
 								getString(R.string.word_dictionary_details_search_no_result), Toast.LENGTH_SHORT)
 								.show();
@@ -226,13 +201,46 @@ public class WordDictionaryDetails extends Activity {
 						return;
 					}
 
-					// FM_FIXME: czy to dziala
 					final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
 
 					backScreenPositionStack.push(scrollMainLayout.getScrollY());
 
-					int counterPos = searchScreenItemList.get(searchScreenItemCurrentPos).getY();
+					int counterPos = searchResultScrollToList.get(searchScreenItemCurrentPos);
 					scrollMainLayout.scrollTo(0, counterPos - 3);
+				}
+
+				private void searchInScreenItemsList(List<IScreenItem> screenItemList, String userInputSearchText, int scrollToPrefixValue) {
+					TitleItem lastTitleItem = null;
+
+					for (IScreenItem currentScreenItem : screenItemList) {
+
+						if (currentScreenItem instanceof TitleItem) {
+							lastTitleItem = (TitleItem) currentScreenItem;
+						}
+
+						if (currentScreenItem instanceof TabLayout) {
+							TabLayout tabLayout = (TabLayout) currentScreenItem;
+
+							searchInScreenItemsList(tabLayout.getActiveTab().getTabContentsList(), userInputSearchText,
+									scrollToPrefixValue + (lastTitleItem != null ? lastTitleItem.getY() : 0) + tabLayout.getY() + (tabLayout.getContentLinearLayout() - tabLayout.getTabsHorizontalScrollView()));
+						}
+
+						String currentScreenItemToString = currentScreenItem.toString();
+
+						if (currentScreenItemToString.toLowerCase(Locale.getDefault()).indexOf(userInputSearchText) != -1) { // cos znalezlismy
+
+							if (lastTitleItem != null) {
+								if (searchResultScrollToList.contains(scrollToPrefixValue + lastTitleItem.getY()) == false) {
+									searchResultScrollToList.add(scrollToPrefixValue + lastTitleItem.getY());
+								}
+
+							} else {
+								if (searchResultScrollToList.contains(scrollToPrefixValue + currentScreenItem.getY()) == false) {
+									searchResultScrollToList.add(scrollToPrefixValue + currentScreenItem.getY());
+								}
+							}
+						}
+					}
 				}
 			});
 
@@ -249,9 +257,8 @@ public class WordDictionaryDetails extends Activity {
 			return true;
 
 		} else if (item.getItemId() == R.id.word_dictionary_details_menu_search_next) {
-			// FM_FIXME: sprawdzic, czy to dziala
 
-			if (searchScreenItemList == null || searchScreenItemList.size() == 0) {
+			if (searchResultScrollToList == null || searchResultScrollToList.size() == 0) {
 				Toast.makeText(WordDictionaryDetails.this,
 						getString(R.string.word_dictionary_details_search_no_result), Toast.LENGTH_SHORT).show();
 
@@ -260,7 +267,7 @@ public class WordDictionaryDetails extends Activity {
 
 			searchScreenItemCurrentPos = searchScreenItemCurrentPos + 1;
 
-			if (searchScreenItemCurrentPos >= searchScreenItemList.size()) {
+			if (searchScreenItemCurrentPos >= searchResultScrollToList.size()) {
 				Toast.makeText(WordDictionaryDetails.this,
 						getString(R.string.word_dictionary_details_search_no_more_result), Toast.LENGTH_SHORT).show();
 
@@ -271,7 +278,7 @@ public class WordDictionaryDetails extends Activity {
 
 			backScreenPositionStack.push(scrollMainLayout.getScrollY());
 
-			int counterPos = searchScreenItemList.get(searchScreenItemCurrentPos).getY();
+			int counterPos = searchResultScrollToList.get(searchScreenItemCurrentPos);
 			scrollMainLayout.scrollTo(0, counterPos - 3);
 
 			return true;
@@ -295,8 +302,6 @@ public class WordDictionaryDetails extends Activity {
 
 	@Override
 	public void onBackPressed() {
-		// FM_FIXME: czy to dziala
-
 		if (backScreenPositionStack.isEmpty() == true) {
 			super.onBackPressed();
 
