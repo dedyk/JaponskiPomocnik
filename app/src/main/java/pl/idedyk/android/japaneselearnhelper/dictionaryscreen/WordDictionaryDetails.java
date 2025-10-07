@@ -21,6 +21,7 @@ import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.data.exception.DataManagerException;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
+import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.Image;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
@@ -73,6 +74,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -358,31 +361,33 @@ public class WordDictionaryDetails extends Activity {
 				}
 				*/
 
-				// FM_FIXME: do naprawy - start
-				/*
-				detailsSb.append("\nId: " + dictionaryEntry.getId()).append("\n\n");
-				detailsSb.append("Kanji: " + (dictionaryEntry.getKanji() != null ? dictionaryEntry.getKanji() : "")).append("\n\n");
-				detailsSb.append("Kana: " + dictionaryEntry.getKana()).append("\n\n");
-				detailsSb.append("Romaji: " + dictionaryEntry.getRomaji()).append("\n\n");
-				detailsSb.append("Tłumaczenie: \n");
+				if (dictionaryEntry2 != null) { // nowy format
+					detailsSb.append("\nEntry id: " + dictionaryEntry2.getEntryId()).append("\n\n");
 
-				List<String> translates = dictionaryEntry.getTranslates();
+				} else { // stary format
+					detailsSb.append("\nId: " + dictionaryEntry.getId()).append("\n\n");
+					detailsSb.append("Kanji: " + (dictionaryEntry.getKanji() != null ? dictionaryEntry.getKanji() : "")).append("\n\n");
+					detailsSb.append("Kana: " + dictionaryEntry.getKana()).append("\n\n");
+					detailsSb.append("Romaji: " + dictionaryEntry.getRomaji()).append("\n\n");
+					detailsSb.append("Tłumaczenie: \n");
 
-				if (translates != null) {
+					List<String> translates = dictionaryEntry.getTranslates();
 
-					for (String currentTranslate : translates) {
-						detailsSb.append("     ").append(currentTranslate).append("\n");
+					if (translates != null) {
+
+						for (String currentTranslate : translates) {
+							detailsSb.append("     ").append(currentTranslate).append("\n");
+						}
+
+						detailsSb.append("\n");
 					}
 
-					detailsSb.append("\n");
+					detailsSb.append("Informacje dodatkowe: " + (dictionaryEntry.getInfo() != null ? dictionaryEntry.getInfo() : "")).append("\n\n");
 				}
-
-				detailsSb.append("Informacje dodatkowe: " + (dictionaryEntry.getInfo() != null ? dictionaryEntry.getInfo() : "")).append("\n\n");
 
 				String chooseEmailClientTitle = getString(R.string.choose_email_client);
 
 				String mailSubject = getString(R.string.word_dictionary_details_report_problem_email_subject);
-
 				String mailBody = getString(R.string.word_dictionary_details_report_problem_email_body,
 						detailsSb.toString());
 
@@ -395,15 +400,13 @@ public class WordDictionaryDetails extends Activity {
 					versionName = packageInfo.versionName;
 					versionCode = packageInfo.versionCode;
 
-				} catch (NameNotFoundException e) {
+				} catch (PackageManager.NameNotFoundException e) {
 				}
 
 				Intent reportProblemIntent = ReportProblem.createReportProblemIntent(mailSubject, mailBody.toString(),
 						versionName, versionCode);
 
 				startActivity(Intent.createChooser(reportProblemIntent, chooseEmailClientTitle));
-				// FM_FIXME: do naprawy - stop
-				*/
 			}
 		});
 
