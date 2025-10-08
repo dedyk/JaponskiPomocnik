@@ -531,9 +531,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 	@Override
 	public List<TransitiveIntransitivePairWithDictionaryEntry> getTransitiveIntransitivePairsList() throws DictionaryException {
 
-		// FM_FIXME: do poprawy
-		throw new RuntimeException();
-		/*
 		List<TransitiveIntransitivePairWithDictionaryEntry> result = new ArrayList<>();
 
 		for (TransitiveIntransitivePair currentTransitiveIntransitivePair : transitiveIntransitivePairsList) {
@@ -557,7 +554,6 @@ public class LocalDictionaryManager extends DictionaryManagerCommon {
 		}
 
 		return result;
-		 */
 	}
 
 	@Override
