@@ -997,9 +997,6 @@ public class WordDictionary extends Activity {
 
 					FindWordResult foundWord = findWordResultAndSuggestionList.findWordResult;
 
-					// FM_FIXME: do usuniecia
-					// Map<Integer, JMdict.Entry> dictionaryEntry2Map = findWordResultAndSuggestionList.dictionaryEntry2Map;
-
 			        List<String> suggestionList = findWordResultAndSuggestionList.suggestionList;
 			        
 					wordDictionarySearchElementsNoTextView.setText(getString(R.string.word_dictionary_elements_no, "" + foundWord.result.size() +
