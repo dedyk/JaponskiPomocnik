@@ -622,7 +622,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<DictionaryEntry> getGroupDictionaryEntries(final GroupEnum groupEnum) throws DictionaryException {
+    public List<JMdict.Entry> getGroupDictionaryEntry2List(final GroupEnum groupEnum) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 

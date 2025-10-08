@@ -456,6 +456,8 @@ public class KanjiTestOptionsActivity extends Activity {
 
 						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
 
+						// FM_FIXME: do naprawy
+						/*
 						try {
 							currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
 									.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
@@ -466,6 +468,7 @@ public class KanjiTestOptionsActivity extends Activity {
 
 							return;
 						}
+						 */
 
 						dictionaryEntrySize += currentWordsGroupDictionaryEntryList.size();
 					}
@@ -751,6 +754,8 @@ public class KanjiTestOptionsActivity extends Activity {
 								for (String currentKanjiGroup : chosenKanjiGroupList) {
 									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
 
+									// FM_FIXME: do naprawy
+									/*
 									try {
 										currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
 												.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
@@ -759,6 +764,7 @@ public class KanjiTestOptionsActivity extends Activity {
 									} catch (DictionaryException e) {
 										return new PrepareAsyncTaskResult(e);
 									}
+									 */
 
 									for (KanjiCharacterInfo currentKanjiEntry : kanjiEntryList2) {
 

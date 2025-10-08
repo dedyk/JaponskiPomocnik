@@ -375,6 +375,8 @@ public class DictionaryHearOptions extends Activity {
 
 									if (currentWordGroupCheckBoxTag.groupType == CheckBoxGroupType.INTERNAL_GROUP) { // grupa wbudowana
 
+										// FM_FIXME: do naprawy
+										/*
 										try {
 											currentWordsGroupDictionaryEntryList = dictionaryManager.getGroupDictionaryEntries(currentWordGroupCheckBoxTag.groupEnum);
 
@@ -383,6 +385,7 @@ public class DictionaryHearOptions extends Activity {
 
 											return;
 										}
+										 */
 
 									} else if (currentWordGroupCheckBoxTag.groupType == CheckBoxGroupType.USER_GROUP) { // grupa uzytkownika
 
