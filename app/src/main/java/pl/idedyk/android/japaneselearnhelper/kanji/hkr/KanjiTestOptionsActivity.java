@@ -454,21 +454,33 @@ public class KanjiTestOptionsActivity extends Activity {
 					// przeglad i wczytywanie slow dla wybranych wbudowanych slow
 					for (String currentKanjiGroup : chosenKanjiGroupList) {
 
-						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = new ArrayList<>();
 
-						// FM_FIXME: do naprawy
-						/*
 						try {
-							currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
-									.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
-									.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
+							List<JMdict.Entry> groupDictionaryEntry2List = JapaneseAndroidLearnHelperApplication
+									.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this).getGroupDictionaryEntry2List(GroupEnum.getGroupEnum(currentKanjiGroup));
+
+							for (JMdict.Entry dictionaryEntry2 : groupDictionaryEntry2List) {
+								List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, true);
+
+								for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
+									String kanjiKanaPairKanji = kanjiKanaPair.getKanji();
+
+									if (kanjiKanaPairKanji != null) {
+										DictionaryEntry dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+
+										if (dictionaryEntry != null) {
+											currentWordsGroupDictionaryEntryList.add(dictionaryEntry);
+										}
+									}
+								}
+							}
 
 						} catch (DictionaryException e) {
 							Toast.makeText(KanjiTestOptionsActivity.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
 
 							return;
 						}
-						 */
 
 						dictionaryEntrySize += currentWordsGroupDictionaryEntryList.size();
 					}
@@ -752,19 +764,32 @@ public class KanjiTestOptionsActivity extends Activity {
 
 								// wczytywanie dedykowanych slow dla wybranych wbudowanych grup
 								for (String currentKanjiGroup : chosenKanjiGroupList) {
-									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
+									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = new ArrayList<>();
 
-									// FM_FIXME: do naprawy
-									/*
 									try {
-										currentWordsGroupDictionaryEntryList = JapaneseAndroidLearnHelperApplication
+										List<JMdict.Entry> groupDictionaryEntry2List = JapaneseAndroidLearnHelperApplication
 												.getInstance().getDictionaryManager(KanjiTestOptionsActivity.this)
-												.getGroupDictionaryEntries(GroupEnum.getGroupEnum(currentKanjiGroup));
+												.getGroupDictionaryEntry2List(GroupEnum.getGroupEnum(currentKanjiGroup));
+
+										for (JMdict.Entry dictionaryEntry2 : groupDictionaryEntry2List) {
+											List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, true);
+
+											for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
+												String kanjiKanaPairKanji = kanjiKanaPair.getKanji();
+
+												if (kanjiKanaPairKanji != null) {
+													DictionaryEntry dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+
+													if (dictionaryEntry != null) {
+														currentWordsGroupDictionaryEntryList.add(dictionaryEntry);
+													}
+												}
+											}
+										}
 
 									} catch (DictionaryException e) {
 										return new PrepareAsyncTaskResult(e);
 									}
-									 */
 
 									for (KanjiCharacterInfo currentKanjiEntry : kanjiEntryList2) {
 

@@ -340,8 +340,8 @@ public class WordTestOptions extends Activity {
 								for (JMdict.Entry dictionaryEntry2 : groupDictionaryEntry2List) {
 									List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, true);
 
-									for (Dictionary2HelperCommon.KanjiKanaPair knajiKanaPair : kanjiKanaPairList) {
-										DictionaryEntry dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(knajiKanaPair);
+									for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
+										DictionaryEntry dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
 
 										if (dictionaryEntry != null) {
 											currentWordsGroupDictionaryEntryList.add(dictionaryEntry);
