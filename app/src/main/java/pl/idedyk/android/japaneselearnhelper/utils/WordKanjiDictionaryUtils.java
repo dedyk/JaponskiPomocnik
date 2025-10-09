@@ -26,8 +26,6 @@ public class WordKanjiDictionaryUtils {
 
     public static String getWordFullTextWithMark(DictionaryEntry dictionaryEntry) {
 
-        // FM_FIXME: do analizy co z tym zrobic
-
         String kanji = dictionaryEntry.getKanji();
         String prefixKana = dictionaryEntry.getPrefixKana();
         List<String> kanaList = dictionaryEntry.getKanaList();

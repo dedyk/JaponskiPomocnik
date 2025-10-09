@@ -285,8 +285,6 @@ public class ServerClient {
 	/*
 	private FindWordResult createFindWordResultFromJSON(JSONObject responseJSON) throws JSONException {
 
-		// FM_FIXME: do poprawy
-
 		FindWordResult findWordResult = new FindWordResult();
 		
 		findWordResult.moreElemetsExists = responseJSON.getBoolean("moreElemetsExists");
@@ -388,7 +386,6 @@ public class ServerClient {
 			// name
 			dictionaryEntry.setName(currentJsonObjectResult.getBoolean("name"));
 
-			// FM_FIXME: do poprawy
 			findWordResult.result.add(new FindWordResult.ResultItem(dictionaryEntry, dictionaryEntry.isName(), false));
 		}
 		
