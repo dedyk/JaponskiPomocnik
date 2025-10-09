@@ -71,9 +71,6 @@ public class WordDictionaryListItem {
 	}
 	
 	public Serializable getResultItemObject() {
-		// FM_FIXME: do naprawy
-		// return resultItem.getDictionaryEntry();
-
 		if (resultItem.getEntry() != null) {
 			return resultItem.getEntry();
 

@@ -18,6 +18,8 @@ import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -371,21 +373,30 @@ public class DictionaryHearOptions extends Activity {
 
 									CheckBoxTag currentWordGroupCheckBoxTag = (CheckBoxTag)currentWordGroupCheckBox.getTag();
 
-									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
+									List<DictionaryEntry> currentWordsGroupDictionaryEntryList = new ArrayList<>();
 
 									if (currentWordGroupCheckBoxTag.groupType == CheckBoxGroupType.INTERNAL_GROUP) { // grupa wbudowana
 
-										// FM_FIXME: do naprawy
-										/*
 										try {
-											currentWordsGroupDictionaryEntryList = dictionaryManager.getGroupDictionaryEntries(currentWordGroupCheckBoxTag.groupEnum);
+											List<JMdict.Entry> groupDictionaryEntry2List = dictionaryManager.getGroupDictionaryEntry2List(currentWordGroupCheckBoxTag.groupEnum);
+
+											for (JMdict.Entry dictionaryEntry2 : groupDictionaryEntry2List) {
+												List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, true);
+
+												for (Dictionary2HelperCommon.KanjiKanaPair knajiKanaPair : kanjiKanaPairList) {
+													DictionaryEntry dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(knajiKanaPair);
+
+													if (dictionaryEntry != null) {
+														currentWordsGroupDictionaryEntryList.add(dictionaryEntry);
+													}
+												}
+											}
 
 										} catch (DictionaryException e) {
 											Toast.makeText(DictionaryHearOptions.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
 
 											return;
 										}
-										 */
 
 									} else if (currentWordGroupCheckBoxTag.groupType == CheckBoxGroupType.USER_GROUP) { // grupa uzytkownika
 
@@ -404,12 +415,7 @@ public class DictionaryHearOptions extends Activity {
 												DictionaryEntry dictionaryEntry = null;
 
 												try {
-													// FM_FIXME: do naprawy
-													// dictionaryEntry = dictionaryManager.getDictionaryEntryById(userGroupItemEntity.getItemId());
-
-													if (1 == 1) {
-														throw new DictionaryException("FM_FIXME");
-													}
+													dictionaryEntry = dictionaryManager.getDictionaryEntryById(userGroupItemEntity.getItemId());
 
 												} catch (DictionaryException e) {
 													Toast.makeText(DictionaryHearOptions.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();

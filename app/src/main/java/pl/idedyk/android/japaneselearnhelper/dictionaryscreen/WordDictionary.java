@@ -1104,10 +1104,6 @@ public class WordDictionary extends Activity {
 	class FindWordResultAndSuggestionList {
 		
 		public FindWordResult findWordResult;
-
-		// FM_FIXME: do usuniecia
-		//public Map<Integer, JMdict.Entry> dictionaryEntry2Map;
-		
 		public List<String> suggestionList;
 
 		public DictionaryException dictionaryException;
