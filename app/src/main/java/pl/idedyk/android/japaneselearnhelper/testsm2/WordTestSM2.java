@@ -408,12 +408,7 @@ public class WordTestSM2 extends Activity {
 		} else {
 
 			try {
-				// FM_FIXME: do naprawy
-				// currentWordDictionaryEntry = dictionaryManager.getDictionaryEntryById(currentNextWordStat.getId());
-
-				if (1 == 1) {
-					throw new DictionaryException("FM_FIXME");
-				}
+				currentWordDictionaryEntry = dictionaryManager.getDictionaryEntryById(currentNextWordStat.getId());
 
 			} catch (DictionaryException e) {
 

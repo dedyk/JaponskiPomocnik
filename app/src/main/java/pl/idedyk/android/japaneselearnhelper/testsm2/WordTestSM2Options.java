@@ -324,18 +324,30 @@ public class WordTestSM2Options extends Activity {
 								int transactionCounter = 0;
 																
 								wordTestSM2Manager.beginTransaction();
-								
-								int dictionaryEntriesSize = dictionaryManager.getDictionaryEntriesSize();
-								
-								progressDialog.setMax(dictionaryEntriesSize);
-								
+
 								// pobierz plik z mocami
 								WordPowerList wordPowerList = dictionaryManager.getWordPowerList();
+
+								// szukamy maksymalnej wartosci slowka
+								int maxDictionaryEntryId = 0;
 
 								Iterator<Map.Entry<Integer, List<Integer>>> wordPowerListEntryIterator = wordPowerList.getWordPowerMap().entrySet().iterator();
 
 								while (wordPowerListEntryIterator.hasNext() == true) {
+									List<Integer> dictionaryIds = wordPowerListEntryIterator.next().getValue();
 
+									for (Integer currentDictionaryId : dictionaryIds) {
+										if (currentDictionaryId > maxDictionaryEntryId) {
+											maxDictionaryEntryId = currentDictionaryId;
+										}
+									}
+								}
+
+								progressDialog.setMax(maxDictionaryEntryId);
+
+								wordPowerListEntryIterator = wordPowerList.getWordPowerMap().entrySet().iterator();
+
+								while (wordPowerListEntryIterator.hasNext() == true) {
 									Map.Entry<Integer, List<Integer>> entrySet = wordPowerListEntryIterator.next();
 
 									int power = entrySet.getKey();
@@ -343,16 +355,13 @@ public class WordTestSM2Options extends Activity {
 									List<Integer> dictionaryEntryListForPower = entrySet.getValue();
 
 									for (Integer currentDictionaryEntryIdx : dictionaryEntryListForPower) {
-
 										// sprawdzanie, czy taki rekord istnieje
 										boolean dictionaryEntryExistsInWordStat = wordTestSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
 										
 										if (dictionaryEntryExistsInWordStat == false) { // dodawanie nowego
-																					
 											wordTestSM2Manager.insertDictionaryEntry(currentDictionaryEntryIdx, power);
 											
 										} else { // uaktualnienie mocy
-																					
 											wordTestSM2Manager.updateDictionaryEntry(currentDictionaryEntryIdx, power);
 										}
 										
