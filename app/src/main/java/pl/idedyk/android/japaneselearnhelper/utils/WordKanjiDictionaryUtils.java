@@ -75,7 +75,7 @@ public class WordKanjiDictionaryUtils {
 
         // sprawdzenie, czy mamy dane w nowym, czy starym formacie
         JMdict.Entry dictionaryEntry2 = resultItem.getEntry();
-        DictionaryEntry oldDictionaryEntry = resultItem.getOldDictionaryEntry();
+        DictionaryEntry dictionaryEntry = resultItem.getDictionaryEntry();
 
         if (dictionaryEntry2 != null) { // nowy format
             // wygenerowanie wszystkich kombinacji
@@ -194,16 +194,16 @@ public class WordKanjiDictionaryUtils {
                 }
             }
 
-        } else if (oldDictionaryEntry != null) { // stary format
+        } else if (dictionaryEntry != null) { // stary format
 
             // pobieramy wszystkie skladniki slowa
-            String kanji = oldDictionaryEntry.getKanji();
+            String kanji = dictionaryEntry.getKanji();
             // String prefixKana = oldDictionaryEntry.getPrefixKana();
-            String kana = oldDictionaryEntry.getKana();
+            String kana = dictionaryEntry.getKana();
             // String prefixRomaji = oldDictionaryEntry.getPrefixRomaji();
-            String romaji = oldDictionaryEntry.getRomaji();
-            List<String> translates = oldDictionaryEntry.getTranslates();
-            String info = oldDictionaryEntry.getInfo();
+            String romaji = dictionaryEntry.getRomaji();
+            List<String> translates = dictionaryEntry.getTranslates();
+            String info = dictionaryEntry.getInfo();
 
             // String tempPrefixKana = prefixKana != null && prefixKana.equals("") == false ? prefixKana : null;
             // String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;

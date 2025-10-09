@@ -638,7 +638,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getGroupDictionaryEntry2List", requestJson);
 
-                    result = gson.fromJson(responseJson, new TypeToken<List<DictionaryEntry>>(){}.getType());
+                    result = gson.fromJson(responseJson, new TypeToken<List<JMdict.Entry>>(){}.getType());
 
                 } catch (Exception e) {
                     return e;

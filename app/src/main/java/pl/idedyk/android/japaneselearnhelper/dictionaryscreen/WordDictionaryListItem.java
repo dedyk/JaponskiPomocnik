@@ -74,8 +74,8 @@ public class WordDictionaryListItem {
 		if (resultItem.getEntry() != null) {
 			return resultItem.getEntry();
 
-		} else if (resultItem.getOldDictionaryEntry() != null) {
-			return resultItem.getOldDictionaryEntry();
+		} else if (resultItem.getDictionaryEntry() != null) {
+			return resultItem.getDictionaryEntry();
 
 		} else {
 			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
