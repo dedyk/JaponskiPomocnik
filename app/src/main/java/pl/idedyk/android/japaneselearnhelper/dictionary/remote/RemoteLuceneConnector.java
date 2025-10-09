@@ -89,10 +89,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
         }, Integer.class);
     }
 
+    /*
     @Override
     public DictionaryEntry getNthDictionaryEntry(int i) throws DictionaryException {
         throw new UnsupportedOperationException();
     }
+    */
 
     @Override
     public FindWordResult findDictionaryEntries(final FindWordRequest findWordRequest) throws DictionaryException {
@@ -227,7 +229,6 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public JMdict.Entry getDictionaryEntry2ByCounter(int counter) throws DictionaryException {
 
-        // FM_FIXME: do sprawdzenia, czy to dziala
         return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
@@ -256,7 +257,6 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public JMdict.Entry getDictionaryEntry2ByOldPolishJapaneseDictionaryId(long oldPolishJapaneseDictionaryId) throws DictionaryException {
 
-        // FM_FIXME: do sprawdzenia, czy to dziala
         return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
@@ -285,7 +285,6 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public JMdict.Entry getDictionaryEntry2ByOldPolishJapaneseDictionaryUniqueKey(String uiqueKey) throws DictionaryException {
 
-        // FM_FIXME: do sprawdzenia, czy to dziala
         return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override

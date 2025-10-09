@@ -46,8 +46,6 @@ import com.google.gson.Gson;
 
 public class ServerClient {
 
-	// FM_FIXME: sprawdzic zdalna baze danych
-
 	// trzeba ustawic android:usesCleartextTraffic="true" w AndroidManifest.xml
 	// FM_FIXME: lokalny adres
 	private static final String PREFIX_URL = "http://10.0.2.2:8080"; // dev
