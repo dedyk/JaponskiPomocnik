@@ -434,24 +434,16 @@ public class WordTest extends Activity {
 
 				AttributeType attributeType = currentWordDictionaryEntryAttribute.getAttributeType();
 
-				if (attributeType == AttributeType.ALTERNATIVE) { // to jest alternatywa
+				if (attributeType == AttributeType.ALTERNATIVE) { // to jest alternatywa, INFO: po zmianach na Dictionary 2 to CHYBA nie dziala
 
 					Integer referenceWordId = Integer.parseInt(currentWordDictionaryEntryAttribute.getAttributeValue().get(0));
 
-					// FM_FIXME: do naprawy
-					/*
 					DictionaryEntry alternativeDictionaryEntry = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTest.this)
 							.getDictionaryEntryById(referenceWordId);
 
 					if (alternativeDictionaryEntry != null) {
 						currentWordDictionaryGroupEntryList.add(alternativeDictionaryEntry);
 					}
-					*/
-
-					if (1 == 1) {
-						throw new DictionaryException("FM_FIXME");
-					}
-
 				}
 			}
 		}
