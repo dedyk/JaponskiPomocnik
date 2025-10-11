@@ -10,8 +10,15 @@
         </r_ele>
         <sense>
             <pos>unclassified</pos>
-            <gloss xml:lang="eng">Japanese-Multilingual Dictionary Project - Creation Date: 2025-10-05</gloss>
+            <gloss xml:lang="eng">Japanese-Multilingual Dictionary Project - Creation Date: 2025-10-11</gloss>
             <gloss xml:lang="pol">Japanese-Multilingual Dictionary Project</gloss>
         </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="261057" dictionaryEntryTypeList="UNKNOWN" kanji="ＪＭｄｉｃｔ" kana="ジェイエムディクト" romaji="jeiemudikuto" uniqueKey="ＪＭｄｉｃｔ/ジェイエムディクト/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
     </entry>
 </JMdict>
