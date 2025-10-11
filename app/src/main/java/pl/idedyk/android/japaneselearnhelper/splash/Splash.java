@@ -49,7 +49,7 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.splash);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.splash);
 
 		final TextView progressDesc = (TextView) findViewById(R.id.splash_desc_label);
 

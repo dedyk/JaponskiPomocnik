@@ -49,7 +49,7 @@ public class SodActivity extends Activity implements OnClickListener {
 		
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.sod);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.sod_layout, R.layout.sod);
 
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_sod));
 

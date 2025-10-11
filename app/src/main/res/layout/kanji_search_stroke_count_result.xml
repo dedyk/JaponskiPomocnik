@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="right"
+    android:gravity="end"
     android:orientation="vertical" >
 
     <TabHost
@@ -33,7 +34,7 @@
                     <LinearLayout
                         android:id="@+id/kanji_search_stroke_count_tab_content_tab1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                     </LinearLayout>
@@ -100,7 +101,7 @@
             android:id="@+id/kanji_search_stroke_count_result_elements_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:text="@string/kanji_search_stroke_count_result_elements_no" />
     </RelativeLayout>

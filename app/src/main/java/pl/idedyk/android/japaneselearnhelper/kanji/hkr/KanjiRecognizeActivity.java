@@ -8,9 +8,9 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.ZinniaManagerCommon;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -49,7 +49,7 @@ public class KanjiRecognizeActivity extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_recognizer);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, null, R.layout.kanji_recognizer);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_recognize));
 
@@ -120,13 +120,13 @@ public class KanjiRecognizeActivity extends Activity {
 
 					private DictionaryException dictionaryException;
 
-					private List<KanjiEntry> kanjiEntryList;
+					private List<KanjiCharacterInfo> kanjiEntryList;
 
 					public RecognizeAsyncTaskResult(DictionaryException dictionaryException) {
 						this.dictionaryException = dictionaryException;
 					}
 
-					public RecognizeAsyncTaskResult(List<KanjiEntry> kanjiEntryList) {
+					public RecognizeAsyncTaskResult(List<KanjiCharacterInfo> kanjiEntryList) {
 						this.kanjiEntryList = kanjiEntryList;
 					}
 				}
@@ -186,7 +186,7 @@ public class KanjiRecognizeActivity extends Activity {
 							findKanjiListRequest.add(currentRecognizeResult.getKanji());
 						}
 
-						List<KanjiEntry> kanjiEntries = null;
+						List<KanjiCharacterInfo> kanjiEntries = null;
 
 						try {
 							kanjiEntries = dictionaryManager.findKanjiList(findKanjiListRequest);
@@ -215,7 +215,7 @@ public class KanjiRecognizeActivity extends Activity {
 
 						Intent intent = new Intent(getApplicationContext(), KanjiRecognizerResult.class);
 						
-						KanjiEntry[] kanjiEntriesAsArray = new KanjiEntry[result.kanjiEntryList.size()];
+						KanjiCharacterInfo[] kanjiEntriesAsArray = new KanjiCharacterInfo[result.kanjiEntryList.size()];
 
 						result.kanjiEntryList.toArray(kanjiEntriesAsArray);
 						

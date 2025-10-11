@@ -61,7 +61,7 @@ public class KanjiSearchRadical extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_radical);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, null, R.layout.kanji_search_radical);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_search_radical));
 

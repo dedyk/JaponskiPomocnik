@@ -6,20 +6,12 @@ import java.util.List;
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
-import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.EditText;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
-import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
-import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -56,7 +48,7 @@ public class KanjiSearchStrokeCount extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_stroke_count);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, null, R.layout.kanji_search_stroke_count);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_stroke_count));
 

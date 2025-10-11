@@ -20,7 +20,7 @@ CLASSPATH=$CLASSPATH:libs-db-generator/gson-${gson_version}.jar
 #db/word.csv \
 #db/sentences.csv \
 #db/sentences_groups.csv \
-#db/kanji.csv \
+#db/kanji2.xml \
 #db/radical.csv \
 #db/names.csv \
 #db/word2.xml \

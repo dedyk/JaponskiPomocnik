@@ -9,20 +9,15 @@ import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplicati
 import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
-import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizerResult;
-import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindKanjiResult;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -32,7 +27,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -62,13 +56,13 @@ public class KanjiSearchStrokeCountResult extends Activity {
 
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_search_stroke_count_result);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.kanji_search_stroke_count_result);
 
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_search_stroke_count_result));
 
 		TextView kanjiStrokeCountResultElementsNo = (TextView) findViewById(R.id.kanji_search_stroke_count_result_elements_no);
 
-		kanjiStrokeCountResultElementsNo.setText(getString(R.string.kanji_search_stroke_count_result_elements_no, 0));
+		kanjiStrokeCountResultElementsNo.setText(getString(R.string.kanji_search_stroke_count_result_elements_no, "0"));
 
 		// konfiguracja zakladek
 		TabHost host = (TabHost)findViewById(R.id.kanji_search_stroke_count_tab_host);
@@ -112,7 +106,7 @@ public class KanjiSearchStrokeCountResult extends Activity {
 
 				this.findKanjiResult = new FindKanjiResult();
 
-				this.findKanjiResult.setResult(new ArrayList<KanjiEntry>());
+				this.findKanjiResult.setResult(new ArrayList<KanjiCharacterInfo>());
 			}
 		}
 
@@ -199,30 +193,21 @@ public class KanjiSearchStrokeCountResult extends Activity {
 
 	private void fillScreen(FindKanjiResult findKanjiResult) {
 
-		List<KanjiEntry> kanjiEntryList = new ArrayList<KanjiEntry>();
+		List<KanjiCharacterInfo> kanjiEntryList = new ArrayList<KanjiCharacterInfo>();
 
-		for (KanjiEntry currentKanjiEntry : findKanjiResult.result) {
+		for (KanjiCharacterInfo currentKanjiEntry : findKanjiResult.result) {
 			kanjiEntryList.add(currentKanjiEntry);
 		}
 
 		// posortowanie wyniku po liczbie kresek
-		Collections.sort(kanjiEntryList, new Comparator<KanjiEntry>() {
+		Collections.sort(kanjiEntryList, new Comparator<KanjiCharacterInfo>() {
 
 			@Override
-			public int compare(KanjiEntry k1, KanjiEntry k2) {
+			public int compare(KanjiCharacterInfo k1, KanjiCharacterInfo k2) {
+				Integer k1StrokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(k1, 100);
+				Integer k2StrokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(k2, 100);
 
-				KanjiDic2Entry k1Dic2Entry = k1.getKanjiDic2Entry();
-				KanjiDic2Entry k2Dic2Entry = k2.getKanjiDic2Entry();
-
-				if (k1Dic2Entry == null) {
-					return -1;
-				}
-
-				if (k2Dic2Entry == null) {
-					return 1;
-				}
-
-				return k1Dic2Entry.getStrokeCount() < k2Dic2Entry.getStrokeCount() ? -1 : k1Dic2Entry.getStrokeCount() > k2Dic2Entry.getStrokeCount() ? 1 : 0;
+				return k1StrokeNumber < k2StrokeNumber ? -1 : k1StrokeNumber > k2StrokeNumber ? 1 : 0;
 			}
 		});
 
@@ -250,9 +235,7 @@ public class KanjiSearchStrokeCountResult extends Activity {
 		// wypelnianie czesci szczegolowej
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
 
-		for (KanjiEntry currentKanjiEntry : kanjiEntryList) {
-
-			KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
+		for (KanjiCharacterInfo currentKanjiEntry : kanjiEntryList) {
 
 			String currentKanjiEntryFullText = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(currentKanjiEntry);
 			String currentKanjiEntryRadicalText = WordKanjiDictionaryUtils.getKanjiRadicalTextWithMark(currentKanjiEntry);
@@ -271,7 +254,7 @@ public class KanjiSearchStrokeCountResult extends Activity {
 
 		TextView kanjiStrokeCountResultElementsNo = (TextView)findViewById(R.id.kanji_search_stroke_count_result_elements_no);
 
-		kanjiStrokeCountResultElementsNo.setText(getString(R.string.kanji_search_stroke_count_result_elements_no, searchResultList.size()));
+		kanjiStrokeCountResultElementsNo.setText(getString(R.string.kanji_search_stroke_count_result_elements_no, String.valueOf(searchResultList.size())));
 
 		kanjiStrokeCountResultListView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -280,10 +263,9 @@ public class KanjiSearchStrokeCountResult extends Activity {
 				KanjiEntryListItem kanjiEntryListItem = (KanjiEntryListItem)searchResultArrayAdapter.getItem(position);
 
 				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) {
-
 					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
-					intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
+					intent.putExtra("id", kanjiEntryListItem.getKanjiEntry().getId());
 
 					startActivity(intent);
 				}

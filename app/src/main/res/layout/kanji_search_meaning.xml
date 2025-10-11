@@ -8,14 +8,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="right"
+        android:gravity="end"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/kanji_search_meaning_search_label"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:text="@string/kanji_search_meaning_search_label" >
         </TextView>
 
@@ -59,19 +59,12 @@
                 android:id="@+id/kanji_search_meaning_paste_from_clipboard_button"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="false"
                 android:text="@string/kanji_search_meaning_paste_from_clipboard_button" />
 
             <Button
                 android:id="@+id/kanji_search_meaning_show_history_button"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
                 android:text="@string/kanji_search_meaning_show_history_button" />
 
         </LinearLayout>
@@ -189,7 +182,7 @@
             android:id="@+id/LinearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left"
+            android:gravity="start"
             android:orientation="vertical"
             android:padding="5dp" >
 
@@ -197,7 +190,7 @@
                 android:id="@+id/kanji_search_meaning_report_problem_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:text="@string/kanji_search_report_problem"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -216,7 +209,7 @@
                 android:id="@+id/kanji_search_meaning_elements_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
                 android:text="@string/kanji_search_meaning_elements_no" />
         </RelativeLayout>

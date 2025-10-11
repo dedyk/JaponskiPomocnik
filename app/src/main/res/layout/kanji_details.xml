@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="right"
+    android:gravity="end"
     android:orientation="vertical" >
 
     <ScrollView
@@ -41,7 +42,7 @@
             android:id="@+id/kanji_details_report_problem_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:text="@string/kanji_details_report_problem"
             android:textSize="12sp" />
     </LinearLayout>

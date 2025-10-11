@@ -19,11 +19,11 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPowerList;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.GroupWithTatoebaSentenceList;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class RemoteLuceneConnector implements IDatabaseConnector {
 
@@ -89,10 +89,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
         }, Integer.class);
     }
 
+    /*
     @Override
     public DictionaryEntry getNthDictionaryEntry(int i) throws DictionaryException {
         throw new UnsupportedOperationException();
     }
+    */
 
     @Override
     public FindWordResult findDictionaryEntries(final FindWordRequest findWordRequest) throws DictionaryException {
@@ -138,6 +140,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
         throw new UnsupportedOperationException();
     }
 
+    /*
     @Override
     public DictionaryEntry getDictionaryEntryById(final String id) throws DictionaryException {
 
@@ -193,6 +196,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
             }
         }, DictionaryEntry.class);
     }
+    */
 
     @Override
     public JMdict.Entry getDictionaryEntry2ById(final Integer id) throws DictionaryException {
@@ -210,6 +214,90 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntry2ById", requestJson);
+
+                    result = gson.fromJson((String) responseJson, JMdict.Entry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, JMdict.Entry.class);
+    }
+
+    @Override
+    public JMdict.Entry getDictionaryEntry2ByCounter(int counter) throws DictionaryException {
+
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(counter);
+
+                String responseJson = null;
+
+                JMdict.Entry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntry2ByCounter", requestJson);
+
+                    result = gson.fromJson((String) responseJson, JMdict.Entry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, JMdict.Entry.class);
+    }
+
+    @Override
+    public JMdict.Entry getDictionaryEntry2ByOldPolishJapaneseDictionaryId(long oldPolishJapaneseDictionaryId) throws DictionaryException {
+
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(oldPolishJapaneseDictionaryId);
+
+                String responseJson = null;
+
+                JMdict.Entry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntry2ByOldPolishJapaneseDictionaryId", requestJson);
+
+                    result = gson.fromJson((String) responseJson, JMdict.Entry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, JMdict.Entry.class);
+    }
+
+    @Override
+    public JMdict.Entry getDictionaryEntry2ByOldPolishJapaneseDictionaryUniqueKey(String uiqueKey) throws DictionaryException {
+
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(uiqueKey);
+
+                String responseJson = null;
+
+                JMdict.Entry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntry2ByOldPolishJapaneseDictionaryUniqueKey", requestJson);
 
                     result = gson.fromJson((String) responseJson, JMdict.Entry.class);
 
@@ -279,7 +367,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public KanjiEntry getKanjiEntryById(final String id) throws DictionaryException {
+    public KanjiCharacterInfo getKanjiEntryById(final String id) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -290,12 +378,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 String responseJson = null;
 
-                KanjiEntry result = null;
+                KanjiCharacterInfo result = null;
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getKanjiEntryById", requestJson);
 
-                    result = gson.fromJson((String) responseJson, KanjiEntry.class);
+                    result = gson.fromJson((String) responseJson, KanjiCharacterInfo.class);
 
                 } catch (Exception e) {
                     return e;
@@ -303,11 +391,11 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 return result;
             }
-        }, KanjiEntry.class);
+        }, KanjiCharacterInfo.class);
     }
 
     @Override
-    public KanjiEntry getKanjiEntry(final String kanji) throws DictionaryException {
+    public KanjiCharacterInfo getKanjiEntry(final String kanji) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -318,12 +406,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 String responseJson = null;
 
-                KanjiEntry result = null;
+                KanjiCharacterInfo result = null;
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getKanjiEntry", requestJson);
 
-                    result = gson.fromJson((String) responseJson, KanjiEntry.class);
+                    result = gson.fromJson((String) responseJson, KanjiCharacterInfo.class);
 
                 } catch (Exception e) {
                     return e;
@@ -331,11 +419,11 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 return result;
             }
-        }, KanjiEntry.class);
+        }, KanjiCharacterInfo.class);
     }
 
     @Override
-    public List<KanjiEntry> getKanjiEntryList(final List<String> kanjiList) throws DictionaryException {
+    public List<KanjiCharacterInfo> getKanjiEntryList(final List<String> kanjiList) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -346,12 +434,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 String responseJson = null;
 
-                List<KanjiEntry> result = null;
+                List<KanjiCharacterInfo> result = null;
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getKanjiEntryList", requestJson);
 
-                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiEntry>>(){}.getType());
+                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiCharacterInfo>>(){}.getType());
 
                 } catch (Exception e) {
                     return e;
@@ -363,7 +451,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<KanjiEntry> getAllKanjis(final boolean withDetails, final boolean onlyUsed) throws DictionaryException {
+    public List<KanjiCharacterInfo> getAllKanjis(final boolean withDetails, final boolean onlyUsed) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -379,7 +467,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getAllKanjis", requestJson);
 
-                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiEntry>>(){}.getType());
+                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiCharacterInfo>>(){}.getType());
 
                 } catch (Exception e) {
                     return e;
@@ -391,7 +479,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<KanjiEntry> findKanjiFromRadicals(final String[] radicals) throws DictionaryException {
+    public List<KanjiCharacterInfo> findKanjiFromRadicals(final String[] radicals) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -407,7 +495,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "findKanjiFromRadicals", requestJson);
 
-                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiEntry>>(){}.getType());
+                    result = gson.fromJson((String) responseJson, new TypeToken<List<KanjiCharacterInfo>>(){}.getType());
 
                 } catch (Exception e) {
                     return e;
@@ -533,7 +621,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public List<DictionaryEntry> getGroupDictionaryEntries(final GroupEnum groupEnum) throws DictionaryException {
+    public List<JMdict.Entry> getGroupDictionaryEntry2List(final GroupEnum groupEnum) throws DictionaryException {
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -547,9 +635,9 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 List<DictionaryEntry> result = null;
 
                 try {
-                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getGroupDictionaryEntries", requestJson);
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getGroupDictionaryEntry2List", requestJson);
 
-                    result = gson.fromJson(responseJson, new TypeToken<List<DictionaryEntry>>(){}.getType());
+                    result = gson.fromJson(responseJson, new TypeToken<List<JMdict.Entry>>(){}.getType());
 
                 } catch (Exception e) {
                     return e;

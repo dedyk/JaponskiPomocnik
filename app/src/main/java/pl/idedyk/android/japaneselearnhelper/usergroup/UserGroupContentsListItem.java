@@ -12,25 +12,28 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class UserGroupContentsListItem {
 
     private UserGroupItemEntity userGroupItemEntity;
 
+    private JMdict.Entry dictionaryEntry2;
     private DictionaryEntry dictionaryEntry;
-    private KanjiEntry kanjiEntry;
+    private KanjiCharacterInfo kanjiEntry;
 
     //
 
     private String title;
 
-    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, DictionaryEntry dictionaryEntry) {
+    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, DictionaryEntry dictionaryEntry, JMdict.Entry dictionaryEntry2) {
         this.userGroupItemEntity = userGroupItemEntity;
         this.dictionaryEntry = dictionaryEntry;
+        this.dictionaryEntry2 = dictionaryEntry2;
     }
 
-    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, KanjiEntry kanjiEntry) {
+    public UserGroupContentsListItem(UserGroupItemEntity userGroupItemEntity, KanjiCharacterInfo kanjiEntry) {
         this.userGroupItemEntity = userGroupItemEntity;
         this.kanjiEntry = kanjiEntry;
     }
@@ -93,7 +96,11 @@ public class UserGroupContentsListItem {
         return dictionaryEntry;
     }
 
-    public KanjiEntry getKanjiEntry() {
+    public JMdict.Entry getDictionaryEntry2() {
+        return dictionaryEntry2;
+    }
+
+    public KanjiCharacterInfo getKanjiEntry() {
         return kanjiEntry;
     }
 

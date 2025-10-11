@@ -21,6 +21,12 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+
+import androidx.annotation.NonNull;
+import androidx.core.graphics.Insets;
+import androidx.core.view.OnApplyWindowInsetsListener;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.multidex.MultiDexApplication;
 
@@ -28,6 +34,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 
 public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 
@@ -185,10 +192,28 @@ public class JapaneseAndroidLearnHelperApplication extends MultiDexApplication {
 		return babelStoneHanSubset;
 	}
 
-	public void setContentViewAndTheme(Activity activity, int contentViewId) {
+	public void setContentViewAndTheme(Activity activity, Integer rootViewId, int contentViewId) {
 		activity.setTheme(getThemeType(activity).styleId);
 
 		DataBindingUtil.setContentView(activity, contentViewId);
+
+		// ustawienie odstepow
+		if (rootViewId != null) {
+			View rootView = activity.findViewById(rootViewId);
+
+			ViewCompat.setOnApplyWindowInsetsListener(rootView, new OnApplyWindowInsetsListener() {
+						@NonNull
+						@Override
+						public WindowInsetsCompat onApplyWindowInsets(@NonNull View v, @NonNull WindowInsetsCompat windowInsetsCompat) {
+							Insets insets = windowInsetsCompat.getInsets(WindowInsetsCompat.Type.systemBars());
+
+							v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+
+							return WindowInsetsCompat.CONSUMED;
+						}
+					}
+			);
+		}
 	}
 
 	public ThemeType getThemeType() {

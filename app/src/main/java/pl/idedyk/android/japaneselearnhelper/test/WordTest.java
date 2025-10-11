@@ -186,12 +186,12 @@ public class WordTest extends Activity {
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+		// getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		// getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_test);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.word_test);
 
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_word_test));
 
@@ -434,7 +434,7 @@ public class WordTest extends Activity {
 
 				AttributeType attributeType = currentWordDictionaryEntryAttribute.getAttributeType();
 
-				if (attributeType == AttributeType.ALTERNATIVE) { // to jest alternatywa
+				if (attributeType == AttributeType.ALTERNATIVE) { // to jest alternatywa, INFO: po zmianach na Dictionary 2 to CHYBA nie dziala
 
 					Integer referenceWordId = Integer.parseInt(currentWordDictionaryEntryAttribute.getAttributeValue().get(0));
 

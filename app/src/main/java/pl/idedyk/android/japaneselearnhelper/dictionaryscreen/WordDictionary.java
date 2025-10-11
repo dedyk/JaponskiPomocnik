@@ -206,7 +206,7 @@ public class WordDictionary extends Activity {
 				
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_dictionary);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, null, R.layout.word_dictionary);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_word_dictionary));
 
@@ -228,10 +228,10 @@ public class WordDictionary extends Activity {
 				ItemType itemType = wordDictionaryListItem.getItemType();
 				
 				if (itemType == ItemType.RESULT_ITEM) { // klikniecie w wiersz z wynikiem, otwarcie szczegolow
-					
+
 					Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
 					
-					intent.putExtra("item", wordDictionaryListItem.getDictionaryEntry());
+					intent.putExtra("item", wordDictionaryListItem.getResultItemObject());
 					
 					startActivity(intent);
 
@@ -972,40 +972,11 @@ public class WordDictionary extends Activity {
 						findWordResult.setResult(new ArrayList<ResultItem>());
 					}
 
-					// pobieranie slow w nowym formacie
-					Map<Integer, JMdict.Entry> dictionaryEntry2Map = new TreeMap<>();
-
-					final DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordDictionary.this);
-
-					try {
-						for (ResultItem resultItem : findWordResult.getResult()) {
-							if (resultItem.getDictionaryEntry() != null && resultItem.getDictionaryEntry().isName() == false) {
-
-								// pobieramy entry id
-								Integer entryId = resultItem.getDictionaryEntry().getJmdictEntryId();
-
-								if (entryId != null) {
-									if (dictionaryEntry2Map.containsKey(entryId) == false) {
-
-										// pobieramy z bazy danych
-										JMdict.Entry dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ById(entryId);
-
-										dictionaryEntry2Map.put(entryId, dictionaryEntry2);
-									}
-								}
-							}
-						}
-
-					} catch (DictionaryException e) {
-						dictionaryException = e;
-					}
-
 					//
 
 			        FindWordResultAndSuggestionList findWordResultAndSuggestionList = new FindWordResultAndSuggestionList();
 			        
 			        findWordResultAndSuggestionList.findWordResult = findWordResult;
-			        findWordResultAndSuggestionList.dictionaryEntry2Map = dictionaryEntry2Map;
 					findWordResultAndSuggestionList.dictionaryException = dictionaryException;
 
 			        // szukanie sugestii
@@ -1025,7 +996,6 @@ public class WordDictionary extends Activity {
 			        super.onPostExecute(findWordResultAndSuggestionList);
 
 					FindWordResult foundWord = findWordResultAndSuggestionList.findWordResult;
-					Map<Integer, JMdict.Entry> dictionaryEntry2Map = findWordResultAndSuggestionList.dictionaryEntry2Map;
 
 			        List<String> suggestionList = findWordResultAndSuggestionList.suggestionList;
 			        
@@ -1033,17 +1003,7 @@ public class WordDictionary extends Activity {
 							(foundWord.moreElemetsExists == true ? "+" : "" )));
 					
 					for (ResultItem currentFoundWord : foundWord.result) {
-
-						JMdict.Entry dictionaryEntry2 = null;
-
-						// pobieramy entry id
-						Integer entryId = currentFoundWord.getDictionaryEntry().getJmdictEntryId();
-
-						if (entryId != null) {
-							dictionaryEntry2 = dictionaryEntry2Map.get(entryId);
-						}
-
-						String currentFoundWordFullTextWithMark = WordKanjiDictionaryUtils.getWordFullTextWithMark(currentFoundWord, dictionaryEntry2, findWord, findWordRequest);
+						String currentFoundWordFullTextWithMark = WordKanjiDictionaryUtils.getWordFullTextWithMark(WordDictionary.this, currentFoundWord, findWord, findWordRequest);
 																				
 						searchResultList.add(WordDictionaryListItem.createWordDictionaryListItemAsResultItem (currentFoundWord, Html.fromHtml(currentFoundWordFullTextWithMark)));
 					}
@@ -1144,9 +1104,6 @@ public class WordDictionary extends Activity {
 	class FindWordResultAndSuggestionList {
 		
 		public FindWordResult findWordResult;
-
-		public Map<Integer, JMdict.Entry> dictionaryEntry2Map;
-		
 		public List<String> suggestionList;
 
 		public DictionaryException dictionaryException;

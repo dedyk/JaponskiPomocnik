@@ -4,15 +4,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,8 +20,6 @@ import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -34,11 +29,9 @@ import pl.idedyk.android.japaneselearnhelper.data.DataManager;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
-import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
-import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class UserGroupActivity extends Activity {
 
@@ -52,7 +45,7 @@ public class UserGroupActivity extends Activity {
 
     private DictionaryEntry dictionaryEntryToAdd = null;
 
-    private KanjiEntry kanjiEntryToAdd = null;
+    private KanjiCharacterInfo kanjiEntryToAdd = null;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -99,7 +92,7 @@ public class UserGroupActivity extends Activity {
 
         super.onCreate(bundle);
 
-        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.user_group);
+        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.user_group);
 
         JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_user_group));
 
@@ -364,8 +357,8 @@ public class UserGroupActivity extends Activity {
 
                 itemToAddToCharSequence = WordKanjiDictionaryUtils.getWordFullTextWithMark(dictionaryEntryToAdd);
 
-            } else if (itemToAdd instanceof KanjiEntry) {
-                kanjiEntryToAdd = (KanjiEntry)itemToAdd;
+            } else if (itemToAdd instanceof KanjiCharacterInfo) {
+                kanjiEntryToAdd = (KanjiCharacterInfo)itemToAdd;
 
                 String itemToAddToString = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(kanjiEntryToAdd);
 

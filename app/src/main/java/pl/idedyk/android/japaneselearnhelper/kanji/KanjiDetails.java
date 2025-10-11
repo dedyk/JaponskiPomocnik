@@ -22,12 +22,15 @@ import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
+import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -51,7 +54,7 @@ public class KanjiDetails extends Activity {
 
 	private List<IScreenItem> generatedDetails;
 
-	private KanjiEntry kanjiEntry;
+	private KanjiCharacterInfo kanjiEntry;
 
 	//
 
@@ -105,11 +108,20 @@ public class KanjiDetails extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_details);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.kanji_details);
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_details));
 
-		kanjiEntry = (KanjiEntry)getIntent().getSerializableExtra("item");
+		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
+
+		try {
+			kanjiEntry = (KanjiCharacterInfo) dictionaryManager.getKanjiEntryById((Integer) getIntent().getSerializableExtra("id"));
+		} catch (DictionaryException e) {
+			Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+			finish();
+			return;
+		}
 		
 		LinearLayout detailsMainLayout = (LinearLayout)findViewById(R.id.kanji_details_main_layout);
 		
@@ -164,13 +176,11 @@ public class KanjiDetails extends Activity {
 		}
 	}
 
-	private List<IScreenItem> generateDetails(final KanjiEntry kanjiEntry) {
+	private List<IScreenItem> generateDetails(final KanjiCharacterInfo kanjiEntry) {
 		
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 
 		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this);
-		
-		KanjiDic2Entry kanjiDic2Entry = kanjiEntry.getKanjiDic2Entry();
 
 		// Kanji		
 		report.add(new TitleItem(getString(R.string.kanji_details_kanji_label), 0));
@@ -178,10 +188,8 @@ public class KanjiDetails extends Activity {
 		StringValue kanjiStringValue = new StringValue(kanjiEntry.getKanji(), 35.0f, 0);
 		
 		report.add(kanjiStringValue);
-		
-		final KanjivgEntry kanjivsEntry = kanjiEntry.getKanjivgEntry();
-		
-		if (kanjivsEntry != null && kanjivsEntry.getStrokePaths().size() > 0) {
+
+		if (kanjiEntry.getMisc2().getStrokePaths().size() > 0) {
 			report.add(new StringValue(getString(R.string.kanji_details_kanji_info), 12.0f, 0));
 			
 			kanjiStringValue.setOnClickListener(new OnClickListener() {
@@ -189,9 +197,9 @@ public class KanjiDetails extends Activity {
 				public void onClick(View view) {
 
 					StrokePathInfo strokePathInfo = new StrokePathInfo();
-					
+
 					List<KanjivgEntry> kanjivsEntryStrokePathsList = new ArrayList<KanjivgEntry>();
-					kanjivsEntryStrokePathsList.add(kanjivsEntry);
+					kanjivsEntryStrokePathsList.add(WordKanjiDictionaryUtils.createKanjivgEntry(kanjiEntry));
 					strokePathInfo.setStrokePaths(kanjivsEntryStrokePathsList);
 					
 					Intent intent = new Intent(getApplicationContext(), SodActivity.class);
@@ -223,9 +231,11 @@ public class KanjiDetails extends Activity {
 
 		// Stroke count
 		report.add(new TitleItem(getString(R.string.kanji_details_stroke_count_label), 0));
-		
-		if (kanjiDic2Entry != null) {
-			report.add(new StringValue(String.valueOf(kanjiDic2Entry.getStrokeCount()), 20.0f, 0));
+
+		Integer strokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(kanjiEntry, null);
+
+		if (strokeNumber != null) {
+			report.add(new StringValue(String.valueOf(strokeNumber), 20.0f, 0));
 		} else {
 			report.add(new StringValue("-", 20.0f, 0));
 		}
@@ -235,8 +245,8 @@ public class KanjiDetails extends Activity {
 		
 		report.add(new TitleItem(getString(R.string.kanji_details_radicals), 0));
 		
-		if (kanjiDic2Entry != null && kanjiDic2Entry.getRadicals() != null && kanjiDic2Entry.getRadicals().size() > 0) {
-			List<String> radicals = kanjiDic2Entry.getRadicals();
+		if (kanjiEntry.getMisc2() != null && kanjiEntry.getMisc2().getRadicals() != null && kanjiEntry.getMisc2().getRadicals().size() > 0) {
+			List<String> radicals = kanjiEntry.getMisc2().getRadicals();
 			
 			for (String currentRadical : radicals) {
 				StringValue currentRadicalStringValue = new StringValue(currentRadical, 20.0f, 0);
@@ -251,10 +261,10 @@ public class KanjiDetails extends Activity {
 				
 		// Kun reading
 		report.add(new TitleItem(getString(R.string.kanji_details_kun_reading), 0));
+
+		List<String> kunReading = Utils.getKunReading(kanjiEntry);
 		
-		if (kanjiDic2Entry != null) {
-			List<String> kunReading = kanjiDic2Entry.getKunReading();
-			
+		if (kunReading != null && kunReading.size() > 0) {
 			for (String currentKun : kunReading) {
 				report.add(new StringValue(currentKun, 20.0f, 0));
 			}
@@ -264,12 +274,25 @@ public class KanjiDetails extends Activity {
 		
 		// On reading
 		report.add(new TitleItem(getString(R.string.kanji_details_on_reading), 0));
-		
-		if (kanjiDic2Entry != null) {
-			List<String> onReading = kanjiDic2Entry.getOnReading();
-			
+
+		List<String> onReading = Utils.getOnReading(kanjiEntry);
+
+		if (onReading != null && onReading.size() > 0) {
 			for (String currentOn : onReading) {
 				report.add(new StringValue(currentOn, 20.0f, 0));
+			}
+		} else {
+			report.add(new StringValue("-", 20.0f, 0));
+		}
+
+		// nanori reading
+		report.add(new TitleItem(getString(R.string.kanji_details_nanori_reading), 0));
+
+		List<String> nanoriReading = Utils.getNanoriReading(kanjiEntry);
+
+		if (nanoriReading != null && nanoriReading.size() > 0) {
+			for (String currentNanori : nanoriReading) {
+				report.add(new StringValue(currentNanori, 20.0f, 0));
 			}
 		} else {
 			report.add(new StringValue("-", 20.0f, 0));
@@ -278,7 +301,7 @@ public class KanjiDetails extends Activity {
 		// Translate
 		report.add(new TitleItem(getString(R.string.kanji_details_translate_label), 0));
 		
-		List<String> translates = kanjiEntry.getPolishTranslates();
+		List<String> translates = Utils.getPolishTranslates(kanjiEntry);
 		
 		for (int idx = 0; idx < translates.size(); ++idx) {
 			report.add(new StringValue(translates.get(idx), 20.0f, 0));
@@ -287,7 +310,7 @@ public class KanjiDetails extends Activity {
 		// Additional info
 		report.add(new TitleItem(getString(R.string.kanji_details_additional_info_label), 0));
 		
-		String info = kanjiEntry.getInfo();
+		String info = Utils.getPolishAdditionalInfo(kanjiEntry);
 		
 		if (info != null && info.length() > 0) {
 			report.add(new StringValue(info, 20.0f, 0));
@@ -296,7 +319,7 @@ public class KanjiDetails extends Activity {
 		}
 		
 		// kanji appearance
-		List<GroupEnum> groups = kanjiEntry.getGroups();
+		List<GroupEnum> groups = kanjiEntry.getMisc2().getGroups();
 		
 		if (groups != null && groups.size() > 0) {
 			report.add(new TitleItem(getString(R.string.kanji_details_kanji_appearance_label), 0));
@@ -369,7 +392,7 @@ public class KanjiDetails extends Activity {
 		return report;
 	}
 
-	private Image createFavouriteKanjiStar(DictionaryManagerCommon dictionaryManager, final KanjiEntry kanjiEntry) {
+	private Image createFavouriteKanjiStar(DictionaryManagerCommon dictionaryManager, final KanjiCharacterInfo kanjiEntry) {
 
 		final DataManager dataManager = dictionaryManager.getDataManager();
 
@@ -420,7 +443,7 @@ public class KanjiDetails extends Activity {
 		return starImage;
 	}
 
-	private OnClickListener createDeleteItemIdFromUserGroupOnClickListener(final DataManager dataManager, final KanjiEntry kanjiEntry, final UserGroupEntity userGroupEntity, final TableRow userGroupTableRow) {
+	private OnClickListener createDeleteItemIdFromUserGroupOnClickListener(final DataManager dataManager, final KanjiCharacterInfo kanjiEntry, final UserGroupEntity userGroupEntity, final TableRow userGroupTableRow) {
 
 		return new OnClickListener() {
 			@Override

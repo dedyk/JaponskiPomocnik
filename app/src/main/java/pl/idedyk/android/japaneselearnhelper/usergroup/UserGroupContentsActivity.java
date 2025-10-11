@@ -31,11 +31,14 @@ import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
-import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.OldPolishJapaneseDictionaryInfo;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.OldPolishJapaneseDictionaryInfoEntriesInfo;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class UserGroupContentsActivity extends Activity {
 
@@ -84,7 +87,7 @@ public class UserGroupContentsActivity extends Activity {
 
         super.onCreate(bundle);
 
-        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.user_group_contents);
+        JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.user_group_contents);
 
         JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_user_group_contents));
 
@@ -144,24 +147,23 @@ public class UserGroupContentsActivity extends Activity {
 
                                 case DICTIONARY_ENTRY:
 
-                                    DictionaryEntry dictionaryEntry = userGroupContentsListItem.getDictionaryEntry();
+                                    JMdict.Entry dictionaryEntry2 = userGroupContentsListItem.getDictionaryEntry2();
 
                                     Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
 
-                                    intent.putExtra("item", dictionaryEntry);
+                                    intent.putExtra("item", dictionaryEntry2);
 
                                     startActivity(intent);
 
                                     break;
 
-
                                 case KANJI_ENTRY:
 
-                                    KanjiEntry kanjiEntry = userGroupContentsListItem.getKanjiEntry();
+                                    KanjiCharacterInfo kanjiEntry = userGroupContentsListItem.getKanjiEntry();
 
                                     Intent intent2 = new Intent(getApplicationContext(), KanjiDetails.class);
 
-                                    intent2.putExtra("item", kanjiEntry);
+                                    intent2.putExtra("id", kanjiEntry.getId());
 
                                     startActivity(intent2);
 
@@ -208,14 +210,16 @@ public class UserGroupContentsActivity extends Activity {
             UserGroupItemEntity userGroupItemEntity;
 
             DictionaryEntry dictionaryEntry;
-            KanjiEntry kanjiEntry;
+            JMdict.Entry dictionaryEntry2;
+            KanjiCharacterInfo kanjiEntry;
 
-            public UserGroupItemEntityAndObject(UserGroupItemEntity userGroupItemEntity, DictionaryEntry dictionaryEntry) {
+            public UserGroupItemEntityAndObject(UserGroupItemEntity userGroupItemEntity, DictionaryEntry dictionaryEntry, JMdict.Entry dictionaryEntry2) {
                 this.userGroupItemEntity = userGroupItemEntity;
                 this.dictionaryEntry = dictionaryEntry;
+                this.dictionaryEntry2 = dictionaryEntry2;
             }
 
-            public UserGroupItemEntityAndObject(UserGroupItemEntity userGroupItemEntity, KanjiEntry kanjiEntry) {
+            public UserGroupItemEntityAndObject(UserGroupItemEntity userGroupItemEntity, KanjiCharacterInfo kanjiEntry) {
                 this.userGroupItemEntity = userGroupItemEntity;
                 this.kanjiEntry = kanjiEntry;
             }
@@ -235,11 +239,12 @@ public class UserGroupContentsActivity extends Activity {
             switch (type) {
 
                 case DICTIONARY_ENTRY:
-
                     DictionaryEntry dictionaryEntry = null;
+                    JMdict.Entry dictionaryEntry2 = null;
 
+                    // pobieramy JMdict.Entry i robimy z tego DictionaryEntry
                     try {
-                        dictionaryEntry = dictionaryManager.getDictionaryEntryById(itemId);
+                        dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ByOldPolishJapaneseDictionaryId(itemId);
 
                     } catch (DictionaryException e) {
                         Toast.makeText(this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
@@ -247,17 +252,60 @@ public class UserGroupContentsActivity extends Activity {
                         break BEFORE_FOR;
                     }
 
-                    if (dictionaryEntry == null) {
+                    if (dictionaryEntry2 == null) {
                         continue;
                     }
 
-                    dictionaryEntryList.add(new UserGroupItemEntityAndObject(userGroupItemEntity, dictionaryEntry));
+                    // stary wpis
+                    OldPolishJapaneseDictionaryInfoEntriesInfo oldPolishJapaneseDictionaryInfoEntriesInfo = null;
+
+                    // szukamy starego wpisu
+                    if (dictionaryEntry2.getMisc() != null && dictionaryEntry2.getMisc().getOldPolishJapaneseDictionary() != null) {
+
+                        oldPolishJapaneseDictionaryInfoEntriesInfo = dictionaryEntry2.getMisc().getOldPolishJapaneseDictionary().getEntries().stream().filter(f -> f.getId() == itemId.longValue()).findFirst().orElse(null);
+
+                        if (oldPolishJapaneseDictionaryInfoEntriesInfo == null) {
+                            continue;
+                        }
+                    }
+
+                    // nie znalezino starego wpisu
+                    if (oldPolishJapaneseDictionaryInfoEntriesInfo == null) {
+                        continue;
+                    }
+
+                    // pobieramy wszystkie KanjiKanaLPairist
+                    List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, false);
+
+                    final String oldPolishJapaneseDictionaryInfoEntriesInfoKanji = oldPolishJapaneseDictionaryInfoEntriesInfo.getKanji() != null ? oldPolishJapaneseDictionaryInfoEntriesInfo.getKanji() : "-";
+                    final String oldPolishJapaneseDictionaryInfoEntriesInfoKana = oldPolishJapaneseDictionaryInfoEntriesInfo.getKana();
+
+                    // szukamy odpowiedniego KanjiKanaPair
+                    Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair = kanjiKanaPairList.stream().filter(kanjiKanaPair_ -> {
+
+                    String kanjiKanaPairKanji = kanjiKanaPair_.getKanji() != null ? kanjiKanaPair_.getKanji() : "-";
+                    String kanjiKanaPairKana = kanjiKanaPair_.getKana();
+
+                    return 	kanjiKanaPairKanji.equals(oldPolishJapaneseDictionaryInfoEntriesInfoKanji) == true &&
+                            kanjiKanaPairKana.equals(oldPolishJapaneseDictionaryInfoEntriesInfoKana) == true;
+
+                    }).findFirst().orElse(null);
+
+                    // gdy nie znaleziono KanjiKanaPair
+                    if (kanjiKanaPair == null) {
+                        continue;
+                    }
+
+                    // zamieniamy na DictionaryEntry
+                    dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+
+                    dictionaryEntryList.add(new UserGroupItemEntityAndObject(userGroupItemEntity, dictionaryEntry, dictionaryEntry2));
 
                     break;
 
                 case KANJI_ENTRY:
 
-                    KanjiEntry kanjiEntry = null;
+                    KanjiCharacterInfo kanjiEntry = null;
 
                     try {
                         kanjiEntry = dictionaryManager.getKanjiEntryById(itemId);
@@ -308,8 +356,8 @@ public class UserGroupContentsActivity extends Activity {
             @Override
             public int compare(UserGroupItemEntityAndObject o1, UserGroupItemEntityAndObject o2) {
 
-                Integer o1Power = getMinPower(o1.kanjiEntry.getGroups());
-                Integer o2Power = getMinPower(o2.kanjiEntry.getGroups());
+                Integer o1Power = getMinPower(o1.kanjiEntry.getMisc2().getGroups());
+                Integer o2Power = getMinPower(o2.kanjiEntry.getMisc2().getGroups());
 
                 int comparePower = o1Power.compareTo(o2Power);
 
@@ -344,7 +392,7 @@ public class UserGroupContentsActivity extends Activity {
         for (UserGroupItemEntityAndObject userGroupItemEntityAndObject : dictionaryEntryList) {
 
             userGroupContentsList.add(new UserGroupContentsListItem(userGroupItemEntityAndObject.userGroupItemEntity,
-                    userGroupItemEntityAndObject.dictionaryEntry));
+                    userGroupItemEntityAndObject.dictionaryEntry, userGroupItemEntityAndObject.dictionaryEntry2));
         }
 
         // dodajemy liste kanji

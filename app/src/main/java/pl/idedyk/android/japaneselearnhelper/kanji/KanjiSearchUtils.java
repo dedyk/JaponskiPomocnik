@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.Gravity;
 import android.view.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -13,11 +12,12 @@ import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class KanjiSearchUtils {
 
-    public static void generateKanjiSearchGeneralResult(final Activity activity, List<KanjiEntry> kanjiList, List<IScreenItem> screenItemList, boolean addKanjiStrokeCountTitle) {
+    public static void generateKanjiSearchGeneralResult(final Activity activity, List<KanjiCharacterInfo> kanjiList, List<IScreenItem> screenItemList, boolean addKanjiStrokeCountTitle) {
 
         final int maxElementsInTableRow = 7;
 
@@ -30,7 +30,7 @@ public class KanjiSearchUtils {
 
         String lastStrokeCount = null;
 
-        for (final KanjiEntry currentKanjiEntry : kanjiList) {
+        for (final KanjiCharacterInfo currentKanjiEntry : kanjiList) {
 
             if (tableRow == null) {
                 tableRow = new TableRow();
@@ -38,8 +38,9 @@ public class KanjiSearchUtils {
                 tableLayout.addTableRow(tableRow);
             }
 
-            String currentKanjiEntryStrokeCount = currentKanjiEntry.getKanjiDic2Entry() != null ?
-                    String.valueOf(currentKanjiEntry.getKanjiDic2Entry().getStrokeCount()) : "-";
+            Integer strokeNumber = WordKanjiDictionaryUtils.getStrokeNumber(currentKanjiEntry, 100);
+
+            String currentKanjiEntryStrokeCount = strokeNumber != null ? String.valueOf(strokeNumber) : "-";
 
             // dodajemy pole z liczba kresek
             if (addKanjiStrokeCountTitle == true) {
@@ -75,10 +76,9 @@ public class KanjiSearchUtils {
             kanjiValue.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View view) {
-
                     Intent intent = new Intent(activity.getApplicationContext(), KanjiDetails.class);
 
-                    intent.putExtra("item", currentKanjiEntry);
+                    intent.putExtra("id", currentKanjiEntry.getId());
 
                     activity.startActivity(intent);
                 }

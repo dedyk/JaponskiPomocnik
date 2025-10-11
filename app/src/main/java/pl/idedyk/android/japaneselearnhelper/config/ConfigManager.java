@@ -474,7 +474,7 @@ public class ConfigManager {
 		}
 
 		public Integer getMaxTestSize() {			
-			return preferences.getInt(kanjiTestConfigPrefix + kanjiTestMaxTestSizePostfix, 1000);			
+			return preferences.getInt(kanjiTestConfigPrefix + kanjiTestMaxTestSizePostfix, 200);
 		}
 		
 		public void setMaxTestSize(int maxTestSize) {

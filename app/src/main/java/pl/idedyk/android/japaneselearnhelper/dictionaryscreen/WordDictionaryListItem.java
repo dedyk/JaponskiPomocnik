@@ -1,6 +1,9 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryscreen;
 
 import android.text.Spanned;
+
+import java.io.Serializable;
+
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult.ResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
@@ -67,8 +70,16 @@ public class WordDictionaryListItem {
 	private WordDictionaryListItem() {
 	}
 	
-	public DictionaryEntry getDictionaryEntry() {
-		return resultItem.getDictionaryEntry();
+	public Serializable getResultItemObject() {
+		if (resultItem.getEntry() != null) {
+			return resultItem.getEntry();
+
+		} else if (resultItem.getDictionaryEntry() != null) {
+			return resultItem.getDictionaryEntry();
+
+		} else {
+			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
+		}
 	}
 
 	public Spanned getText() {

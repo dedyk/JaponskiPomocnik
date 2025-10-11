@@ -19,12 +19,13 @@ import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.sod.SodActivity;
 import pl.idedyk.android.japaneselearnhelper.sod.dto.StrokePathInfo;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
+import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -103,7 +104,7 @@ public class KanjiTest extends Activity {
 			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
 					|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
-				EntryOrderList<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
+				EntryOrderList<KanjiCharacterInfo> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
 				for (int idx = 0; idx < kanjiEntryList.size(); ++idx) {
 					kanjiInTestList.add(kanjiEntryList.getEntry(idx).getKanji());
@@ -253,9 +254,9 @@ public class KanjiTest extends Activity {
 
 		if (kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
-            JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_test_choose);
+            JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.kanji_test_choose);
 		} else {
-            JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_test_draw);
+            JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.kanji_test_draw);
 		}
 
 		kanjiTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getKanjiTestContext();
@@ -497,7 +498,7 @@ public class KanjiTest extends Activity {
 					try {
 						Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
 
-						intent.putExtra("item", dictionaryManager.findKanji(correctKanji));
+						intent.putExtra("id", dictionaryManager.findKanji(correctKanji).getId());
 
 						startActivity(intent);
 
@@ -519,7 +520,7 @@ public class KanjiTest extends Activity {
 						StrokePathInfo strokePathInfo = new StrokePathInfo();
 
 						List<KanjivgEntry> strokePathsList = new ArrayList<KanjivgEntry>();
-						strokePathsList.add(dictionaryManager.findKanji(correctKanji).getKanjivgEntry());
+						strokePathsList.add(WordKanjiDictionaryUtils.createKanjivgEntry(dictionaryManager.findKanji(correctKanji)));
 						strokePathInfo.setStrokePaths(strokePathsList);
 
 						Intent intent = new Intent(getApplicationContext(), SodActivity.class);
@@ -594,10 +595,10 @@ public class KanjiTest extends Activity {
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
-			KanjiEntry currentTestKanjiEntry = (KanjiEntry) currentTestPosObject;
+			KanjiCharacterInfo currentTestKanjiEntry = (KanjiCharacterInfo) currentTestPosObject;
 
-			List<String> polishTranslates = currentTestKanjiEntry.getPolishTranslates();
-			String info = currentTestKanjiEntry.getInfo();
+			List<String> polishTranslates = Utils.getPolishTranslates(currentTestKanjiEntry);
+			String info = Utils.getPolishAdditionalInfo(currentTestKanjiEntry);
 
 			StringBuffer kanjiInfoSb = new StringBuffer();
 
@@ -607,42 +608,54 @@ public class KanjiTest extends Activity {
 				kanjiInfoSb.append(" - ").append(info);
 			}
 
-			KanjiDic2Entry kanjiDic2Entry = currentTestKanjiEntry.getKanjiDic2Entry();
+			boolean addedSpace = false;
 
-			if (kanjiDic2Entry != null) {
+			List<String> kunReading = Utils.getKunReading(currentTestKanjiEntry);
 
-				boolean addedSpace = false;
+			if (kunReading != null && kunReading.size() > 0) {
 
-				List<String> kunReading = kanjiDic2Entry.getKunReading();
+				if (addedSpace == false) {
+					kanjiInfoSb.append("<br/><br/>");
 
-				if (kunReading != null && kunReading.size() > 0) {
-
-					if (addedSpace == false) {
-						kanjiInfoSb.append("<br/><br/>");
-
-						addedSpace = true;
-					}
-
-					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_kunyomi))
-							.append("</b>: ").append(toString(kunReading)).append("</small>");
+					addedSpace = true;
 				}
 
-				List<String> onReading = kanjiDic2Entry.getOnReading();
-
-				if (onReading != null && onReading.size() > 0) {
-
-					if (addedSpace == false) {
-						kanjiInfoSb.append("<br/><br/>");
-
-						addedSpace = true;
-					} else {
-						kanjiInfoSb.append("<br/>");
-					}
-
-					kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_onyomi))
-							.append("</b>: ").append(toString(onReading)).append("</small>");
-				}
+				kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_kunyomi))
+						.append("</b>: ").append(toString(kunReading)).append("</small>");
 			}
+
+			List<String> onReading = Utils.getOnReading(currentTestKanjiEntry);
+
+			if (onReading != null && onReading.size() > 0) {
+
+				if (addedSpace == false) {
+					kanjiInfoSb.append("<br/><br/>");
+
+					addedSpace = true;
+				} else {
+					kanjiInfoSb.append("<br/>");
+				}
+
+				kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_onyomi))
+						.append("</b>: ").append(toString(onReading)).append("</small>");
+			}
+
+			List<String> nanoriReading = Utils.getNanoriReading(currentTestKanjiEntry);
+
+			if (nanoriReading != null && nanoriReading.size() > 0) {
+
+				if (addedSpace == false) {
+					kanjiInfoSb.append("<br/><br/>");
+
+					addedSpace = true;
+				} else {
+					kanjiInfoSb.append("<br/>");
+				}
+
+				kanjiInfoSb.append("<small><b>").append(getString(R.string.kanji_test_info_nanori))
+						.append("</b>: ").append(toString(nanoriReading)).append("</small>");
+			}
+
 
 			if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING) {
 				kanjiInfoTextView.setText(
@@ -866,7 +879,7 @@ public class KanjiTest extends Activity {
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
-			return kanjiTestContext.getKanjiEntryList().getNext().getKanjivgEntry().getStrokePaths().size();
+			return kanjiTestContext.getKanjiEntryList().getNext().getMisc2().getStrokePaths().size();
 
 		} else if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_IN_WORD
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_IN_WORD) {
@@ -875,7 +888,7 @@ public class KanjiTest extends Activity {
 					.getDictionaryEntryWithRemovedKanji().getNext();
 
 			return JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(this)
-					.findKanji(dictionaryEntryWithRemovedKanji.getRemovedKanji()).getKanjivgEntry().getStrokePaths().size();
+					.findKanji(dictionaryEntryWithRemovedKanji.getRemovedKanji()).getMisc2().getStrokePaths().size();
 		} else {
 			throw new RuntimeException("KanjiTestMode kanjiTestMode: " + kanjiTestMode);
 		}
@@ -888,13 +901,13 @@ public class KanjiTest extends Activity {
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
-			EntryOrderList<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
+			EntryOrderList<KanjiCharacterInfo> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 			
 			if (kanjiEntryList == null) {
 				return true;
 			}
-			
-			KanjiEntry kanjiEntry = kanjiEntryList.getNext();
+
+			KanjiCharacterInfo kanjiEntry = kanjiEntryList.getNext();
 
 			if (kanjiEntry == null) {
 				return true;
@@ -925,7 +938,7 @@ public class KanjiTest extends Activity {
 		if (kanjiTestMode == KanjiTestMode.DRAW_KANJI_FROM_MEANING
 				|| kanjiTestMode == KanjiTestMode.CHOOSE_KANJI_FROM_MEANING) {
 
-			EntryOrderList<KanjiEntry> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
+			EntryOrderList<KanjiCharacterInfo> kanjiEntryList = kanjiTestContext.getKanjiEntryList();
 
 			if (ok == true) {
 				kanjiEntryList.currentPositionOk();

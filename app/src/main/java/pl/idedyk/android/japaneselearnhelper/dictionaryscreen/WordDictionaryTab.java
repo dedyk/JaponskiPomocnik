@@ -61,7 +61,7 @@ public class WordDictionaryTab extends TabActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.word_dictionary_tab);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, android.R.id.tabhost, R.layout.word_dictionary_tab);
 
 		TabHost tabHost = getTabHost();
 

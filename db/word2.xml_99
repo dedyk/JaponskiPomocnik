@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<JMdict>
+    <entry>
+        <ent_seq>9999999</ent_seq>
+        <k_ele>
+            <keb>ＪＭｄｉｃｔ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="jeiemudikuto">ジェイエムディクト</reb>
+        </r_ele>
+        <sense>
+            <pos>unclassified</pos>
+            <gloss xml:lang="eng">Japanese-Multilingual Dictionary Project - Creation Date: 2025-10-05</gloss>
+            <gloss xml:lang="pol">Japanese-Multilingual Dictionary Project</gloss>
+        </sense>
+    </entry>
+</JMdict>

@@ -5,12 +5,12 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjiRecognizerResultItem;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class JapaneseAndroidLearnHelperKanjiTestContext {
 
-	private EntryOrderList<KanjiEntry> kanjiEntryList;
+	private EntryOrderList<KanjiCharacterInfo> kanjiEntryList;
 	
 	private EntryOrderList<DictionaryEntryWithRemovedKanji> dictionaryEntryWithRemovedKanji;
 		
@@ -32,11 +32,11 @@ public class JapaneseAndroidLearnHelperKanjiTestContext {
 		incorrectAnswers = 0;
 	}
 
-	public EntryOrderList<KanjiEntry> getKanjiEntryList() {
+	public EntryOrderList<KanjiCharacterInfo> getKanjiEntryList() {
 		return kanjiEntryList;
 	}
 
-	public void setKanjiEntryList(EntryOrderList<KanjiEntry> kanjiEntryList) {
+	public void setKanjiEntryList(EntryOrderList<KanjiCharacterInfo> kanjiEntryList) {
 		this.kanjiEntryList = kanjiEntryList;
 	}
 	

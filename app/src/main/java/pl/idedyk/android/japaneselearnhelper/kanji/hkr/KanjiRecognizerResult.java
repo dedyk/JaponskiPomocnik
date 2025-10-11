@@ -10,17 +10,13 @@ import pl.idedyk.android.japaneselearnhelper.kanji.KanjiDetails;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItemAdapter;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiEntryListItem.ItemType;
-import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearchRadicalResult;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearchUtils;
-import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiDic2Entry;
-import pl.idedyk.japanese.dictionary.api.dto.KanjiEntry;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
+
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Html;
@@ -29,7 +25,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -58,7 +53,7 @@ public class KanjiRecognizerResult extends Activity {
 		
 		super.onCreate(savedInstanceState);
 
-		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.layout.kanji_recognizer_result);
+		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.kanji_recognizer_result);
 
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_recognizer_result));
 
@@ -95,11 +90,11 @@ public class KanjiRecognizerResult extends Activity {
 			// lista z elementami
 			List<IScreenItem> screenItemList = new ArrayList<IScreenItem>();
 
-			List<KanjiEntry> kanjiEntryList = new ArrayList<KanjiEntry>();
+			List<KanjiCharacterInfo> kanjiEntryList = new ArrayList<KanjiCharacterInfo>();
 
 			for (Object currentKanjiEntryAsObject : kanjiRecognizeResult) {
 
-				KanjiEntry currentKanjiEntry = (KanjiEntry) currentKanjiEntryAsObject;
+				KanjiCharacterInfo currentKanjiEntry = (KanjiCharacterInfo) currentKanjiEntryAsObject;
 
 				kanjiEntryList.add(currentKanjiEntry);
 			}
@@ -118,10 +113,8 @@ public class KanjiRecognizerResult extends Activity {
 		final List<KanjiEntryListItem> searchResultList = new ArrayList<KanjiEntryListItem>();
 		
 		for (Object currentKanjiEntryAsObject : kanjiRecognizeResult) {
-			
-			KanjiEntry currentKanjiEntry = (KanjiEntry)currentKanjiEntryAsObject;
-			
-			KanjiDic2Entry kanjiDic2Entry = currentKanjiEntry.getKanjiDic2Entry();
+
+			KanjiCharacterInfo currentKanjiEntry = (KanjiCharacterInfo)currentKanjiEntryAsObject;
 			
 			String currentKanjiEntryFullText = WordKanjiDictionaryUtils.getKanjiFullTextWithMark(currentKanjiEntry);
 			String currentKanjiEntryRadicalText = WordKanjiDictionaryUtils.getKanjiRadicalTextWithMark(currentKanjiEntry);
@@ -140,7 +133,7 @@ public class KanjiRecognizerResult extends Activity {
 		
 		TextView kanjiRecognizerResultElementsNo = (TextView)findViewById(R.id.kanji_recognizer_result_elements_no);
 		
-		kanjiRecognizerResultElementsNo.setText(getString(R.string.kanji_recognizer_result_elements_no, searchResultList.size()));
+		kanjiRecognizerResultElementsNo.setText(getString(R.string.kanji_recognizer_result_elements_no, String.valueOf(searchResultList.size())));
 
 		kanjiRecognizerResultListView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -148,11 +141,10 @@ public class KanjiRecognizerResult extends Activity {
 				
 				KanjiEntryListItem kanjiEntryListItem = (KanjiEntryListItem)searchResultArrayAdapter.getItem(position);
 				
-				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) { 
-					
+				if (kanjiEntryListItem.getItemType() == ItemType.KANJI_ENTRY) {
 					Intent intent = new Intent(getApplicationContext(), KanjiDetails.class);
-					
-					intent.putExtra("item", kanjiEntryListItem.getKanjiEntry());
+
+					intent.putExtra("id", kanjiEntryListItem.getKanjiEntry().getId());
 					
 					startActivity(intent);					
 				}				
