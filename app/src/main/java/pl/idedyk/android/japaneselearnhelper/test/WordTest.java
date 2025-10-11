@@ -434,7 +434,7 @@ public class WordTest extends Activity {
 
 				AttributeType attributeType = currentWordDictionaryEntryAttribute.getAttributeType();
 
-				if (attributeType == AttributeType.ALTERNATIVE) { // to jest alternatywa
+				if (attributeType == AttributeType.ALTERNATIVE) { // to jest alternatywa, INFO: po zmianach na Dictionary 2 to CHYBA nie dziala
 
 					Integer referenceWordId = Integer.parseInt(currentWordDictionaryEntryAttribute.getAttributeValue().get(0));
 

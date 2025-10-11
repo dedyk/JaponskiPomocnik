@@ -124,6 +124,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation files('libs/JapaneseDictionaryAPI-1.0-SNAPSHOT.jar')
     implementation files('libs/JapaneseDictionaryLuceneCommon-1.0-SNAPSHOT.jar')
+    implementation files('libs/commons-collections4-4.2.jar')
     implementation files('libs/javacsv-2.1.jar')
     implementation files('libs/lucene-analyzers-common-4.7.2.jar')
     implementation files('libs/lucene-core-4.7.2-without-SPIClassIterator-and-RamUsageEstimator.jar')

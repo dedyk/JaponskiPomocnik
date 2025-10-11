@@ -18,6 +18,8 @@ import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -328,12 +330,24 @@ public class WordTestOptions extends Activity {
 
 						CheckBoxTag currentWordGroupCheckBoxTag = (CheckBoxTag)currentWordGroupCheckBox.getTag();
 
-						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = null;
+						List<DictionaryEntry> currentWordsGroupDictionaryEntryList = new ArrayList<>();
 
 						if (currentWordGroupCheckBoxTag.groupType == CheckBoxGroupType.INTERNAL_GROUP) { // grupa wbudowana
 
 							try {
-								currentWordsGroupDictionaryEntryList = dictionaryManager.getGroupDictionaryEntries(currentWordGroupCheckBoxTag.groupEnum);
+								List<JMdict.Entry> groupDictionaryEntry2List = dictionaryManager.getGroupDictionaryEntry2List(currentWordGroupCheckBoxTag.groupEnum);
+
+								for (JMdict.Entry dictionaryEntry2 : groupDictionaryEntry2List) {
+									List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, true);
+
+									for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
+										DictionaryEntry dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
+
+										if (dictionaryEntry != null) {
+											currentWordsGroupDictionaryEntryList.add(dictionaryEntry);
+										}
+									}
+								}
 
 							} catch (DictionaryException e) {
 								Toast.makeText(WordTestOptions.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();

@@ -2,12 +2,14 @@
 <resources>
     <string name="word_dictionary_details_label">Szczegóły wpisu</string>
     <string name="word_dictionary_details_report_problem">Widzisz błąd, masz propozycję, co można zrobić lepiej, zgłoś sugestię</string>
+    <string name="word_dictionary_details_words_label">Słowa</string>
     <string name="word_dictionary_details_kanji_label">Kanji</string>
     <string name="word_dictionary_details_reading_label">Czytanie</string>
-    <string name="word_dictionary_details_translate_label">Tłumaczenie</string>
+    <string name="word_dictionary_details_translate_label">Znaczenie</string>
     <string name="word_dictionary_details_additional_info_label">Informacje dodatkowe</string>
     <string name="word_dictionary_details_part_of_speech">Część mowy</string>
     <string name="word_dictionary_details_part_of_speech_press">Naciśnij na pozycję, aby zobaczyć odmianę i przykłady dla wybranej części mowy</string>
+    <string name="word_dictionary_details_part_of_speech_info">Naciśnij na słowo, aby zobaczyć części mowy dla wybranego słowa</string>
     <string name="word_dictionary_details_attributes">Dodatkowe atrybuty</string>
     <string name="word_dictionary_details_dictionary_groups">Występowanie znaku</string>
     <string name="word_dictionary_details_user_groups">Grupy użytkownika</string>
@@ -17,7 +19,8 @@
     <string name="word_dictionary_details_example_label">Przykłady gramatyczne</string>
     <string name="word_dictionary_details_report_problem_email_subject">Japoński pomocnik - słowniczek: Sugestia w szczegółach słowa</string>
     <string name="word_dictionary_details_report_problem_email_body">Treść sugestii:\n\n\n\n***\nInformacje dodatkowe wygenerowane automatycznie:\n---\n%1$s\n</string>
-    <string name="word_dictionary_details_report_counters_index">Indeks</string>
+    <string name="word_dictionary_details_gramma_form_conjugate_index">Indeks odmian gramatycznych</string>
+    <string name="word_dictionary_details_example_form_index">Indeks przykładów gramatycznych</string>
     <string name="word_dictionary_details_index_go">Naciśnij, aby przejść do wybranej pozycji</string>
     <string name="word_dictionary_details_clipboard_copy">Skopiowano \'%1$s\' do schowka</string>
     

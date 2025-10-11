@@ -174,9 +174,15 @@ public class ServerClient {
 				return null;
 			}
 
+			Gson gson = new Gson();
+
+			return gson.fromJson(jsonResponseSb.toString(), FindWordResult.class);
+
+			/*
 			JSONObject responseJSON = new JSONObject(jsonResponseSb.toString());
 			
 			return createFindWordResultFromJSON(responseJSON);
+			 */
 			
 		} catch (Exception e) {
 			Log.e("ServerClient", "Error search: ", e);
@@ -271,9 +277,10 @@ public class ServerClient {
 				
 		return requestDataMap;
 	}
-	
+
+	/*
 	private FindWordResult createFindWordResultFromJSON(JSONObject responseJSON) throws JSONException {
-		
+
 		FindWordResult findWordResult = new FindWordResult();
 		
 		findWordResult.moreElemetsExists = responseJSON.getBoolean("moreElemetsExists");
@@ -374,8 +381,8 @@ public class ServerClient {
 			
 			// name
 			dictionaryEntry.setName(currentJsonObjectResult.getBoolean("name"));
-						
-			findWordResult.result.add(new FindWordResult.ResultItem(dictionaryEntry));
+
+			findWordResult.result.add(new FindWordResult.ResultItem(dictionaryEntry, dictionaryEntry.isName(), false));
 		}
 		
 		return findWordResult;
@@ -391,6 +398,7 @@ public class ServerClient {
 		
 		return result;
 	}
+	 */
 	
 	public List<String> getAutoComplete(PackageInfo packageInfo, String word, AutoCompleteSuggestionType autoCompleteSuggestionType) {
 		

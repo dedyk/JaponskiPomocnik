@@ -18,6 +18,7 @@ import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -207,10 +208,24 @@ public class TransitiveIntransitivePairsTable extends Activity {
 					
 					@Override
 					public void onClick(View v) {
-						
+
+						DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(TransitiveIntransitivePairsTable.this);
+
+						// pobieramy Entry
+						JMdict.Entry dictionaryEntry2;
+
+						try {
+							dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ByOldPolishJapaneseDictionaryId(dictionaryEntry.getId());
+
+						} catch (DictionaryException e) {
+							Toast.makeText(TransitiveIntransitivePairsTable.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+							return;
+						}
+
 						Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
 						
-						intent.putExtra("item", dictionaryEntry);
+						intent.putExtra("item", dictionaryEntry2);
 						
 						startActivity(intent);
 					}
