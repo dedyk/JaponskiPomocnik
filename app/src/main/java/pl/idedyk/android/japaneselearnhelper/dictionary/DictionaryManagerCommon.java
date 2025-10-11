@@ -545,7 +545,7 @@ public abstract class DictionaryManagerCommon extends DictionaryManagerAbstract 
     public static DictionaryManagerCommon getDictionaryManager() {
 
         // wersja zdalna
-        // return new RemoteDictionaryManager();
+        //return new RemoteDictionaryManager();
 
         // wersja lokalna
         return new LocalDictionaryManager();
