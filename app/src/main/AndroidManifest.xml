@@ -10,8 +10,8 @@
     <application
         android:icon="@drawable/japan"
         android:label="@string/app_name" android:name=".JapaneseAndroidLearnHelperApplication"
-        android:allowBackup="true" android:requestLegacyExternalStorage="true"
-        android:usesCleartextTraffic="true"> <!-- FM_FIXME: tylko lokalnie -->
+        android:allowBackup="true" android:requestLegacyExternalStorage="true">
+        <!-- android:usesCleartextTraffic="true" -->
         
         <activity android:name=".splash.Splash" android:exported="true">
 
