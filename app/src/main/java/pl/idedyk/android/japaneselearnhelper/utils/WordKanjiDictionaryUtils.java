@@ -396,7 +396,7 @@ public class WordKanjiDictionaryUtils {
                 restrictedToKanjiKanaList.addAll(sense.getRestrictedToKanaList());
 
                 // zamiana na przetlumaczona postac
-                restrictedToKanjiKanaString = "・" + context.getString(R.string.word_dictionary_search_restrictedKanjiKanaForOnly) + " " + String.join("; ", restrictedToKanjiKanaList);
+                restrictedToKanjiKanaString = "・" + context.getString(R.string.word_dictionary_search_restrictedKanjiKanaForOnly) + " " + join("; ", restrictedToKanjiKanaList);
             }
 
             return restrictedToKanjiKanaString;
@@ -407,7 +407,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getPartOfSpeechList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedToPolishPartOfSpeechEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(sense.getPartOfSpeechList()));
+                translatedToPolishPartOfSpeechEnum = "・" + join("; ", Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(sense.getPartOfSpeechList()));
             }
 
             return translatedToPolishPartOfSpeechEnum;
@@ -418,7 +418,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getFieldList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedFieldEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishFieldEnumList(sense.getFieldList()));
+                translatedFieldEnum = "・" + join("; ", Dictionary2HelperCommon.translateToPolishFieldEnumList(sense.getFieldList()));
             }
 
             return translatedFieldEnum;
@@ -429,7 +429,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getMiscList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedMiscEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishMiscEnumList(sense.getMiscList()));
+                translatedMiscEnum = "・" + join("; ", Dictionary2HelperCommon.translateToPolishMiscEnumList(sense.getMiscList()));
             }
 
             return translatedMiscEnum;
@@ -440,7 +440,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getDialectList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedDialectEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishDialectEnumList(sense.getDialectList()));
+                translatedDialectEnum = "・" + join("; ", Dictionary2HelperCommon.translateToPolishDialectEnumList(sense.getDialectList()));
             }
 
             return translatedDialectEnum;
@@ -475,7 +475,7 @@ public class WordKanjiDictionaryUtils {
                     singleLanguageSourceList.add(singleLanguageSource.toString());
                 }
 
-                joinedLanguageSource = "・" + String.join("; ", singleLanguageSourceList);
+                joinedLanguageSource = "・" + join("; ", singleLanguageSourceList);
             }
 
             return joinedLanguageSource;
@@ -544,5 +544,19 @@ public class WordKanjiDictionaryUtils {
         public SenseAdditionalInfo getPolishAdditionalInfo() {
             return Dictionary2HelperCommon.findFirstPolishAdditionalInfo(sense.getAdditionalInfoList());
         }
+    }
+
+    private static String join(CharSequence delimiter, List<String> elements) {
+        StringBuffer result = new StringBuffer();
+
+        for (int idx = 0; idx < elements.size(); ++idx) {
+            result.append(elements.get(idx));
+
+            if (idx != elements.size() - 1) {
+                result.append(", ");
+            }
+        }
+
+        return result.toString();
     }
 }

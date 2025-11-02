@@ -875,7 +875,7 @@ public class WordDictionaryDetails extends Activity {
 			}
 
 			if (addedSomeAttribute == false) {
-				report.removeLast(); // usuwamy tytul, skoro nie bylo zadnego atrybutu
+				report.remove(report.size() - 1); // usuwamy tytul, skoro nie bylo zadnego atrybutu
 
 			} else {
 				report.add(new StringValue("", 15.0f, 0)); // przerwa
