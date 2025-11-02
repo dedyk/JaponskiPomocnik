@@ -55594,7 +55594,9 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>service</misc>
             <s_inf xml:lang="pol">chiński serwer do gry go</s_inf>
-            <gloss xml:lang="eng">Fox Weiqi (Chinese online go server)</gloss>
+            <gloss xml:lang="eng">Fox</gloss>
+            <gloss xml:lang="eng">Fox Weiqi (Chinese online go server) (abbr)</gloss>
+            <gloss xml:lang="pol">Fox</gloss>
             <gloss xml:lang="pol">Fox Weiqi</gloss>
         </sense>
         <misc>
@@ -55616,8 +55618,10 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>service</misc>
-            <s_inf xml:lang="pol">chiński serwer do gry go, skrót</s_inf>
+            <s_inf xml:lang="pol">chiński serwer do gry go</s_inf>
+            <gloss xml:lang="eng">Fox</gloss>
             <gloss xml:lang="eng">Fox Weiqi (Chinese online go server) (abbr)</gloss>
+            <gloss xml:lang="pol">Fox</gloss>
             <gloss xml:lang="pol">Fox Weiqi</gloss>
         </sense>
         <misc>
@@ -55649,6 +55653,33 @@
             <oldPolishJapaneseDictionary>
                 <entries id="316396" dictionaryEntryTypeList="WORD_NOUN" kanji="ＤｅｅｐＬ翻訳" kana="ディープエルほんやく" romaji="diipueru hon'yaku" uniqueKey="ＤｅｅｐＬ翻訳/ディープエルほんやく/1"/>
                 <entries id="316397" dictionaryEntryTypeList="WORD_NOUN" kanji="ディープエル翻訳" kana="ディープエルほんやく" romaji="diipueru hon'yaku" uniqueKey="ディープエル翻訳/ディープエルほんやく/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747436</ent_seq>
+        <k_ele>
+            <keb>Ｐｉｘ</keb>
+        </k_ele>
+        <k_ele>
+            <keb>ＰＩＸ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="pikkusu">ピックス</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <s_inf xml:lang="pol">brazylijski system płatności elektronicznych</s_inf>
+            <gloss xml:lang="eng">Pix (Brazilian electronic payment system)</gloss>
+            <gloss xml:lang="pol">Pix</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="316885" dictionaryEntryTypeList="WORD_NOUN" kanji="Ｐｉｘ" kana="ピックス" romaji="pikkusu" uniqueKey="Ｐｉｘ/ピックス/1"/>
+                <entries id="316886" dictionaryEntryTypeList="WORD_NOUN" kanji="ＰＩＸ" kana="ピックス" romaji="pikkusu" uniqueKey="ＰＩＸ/ピックス/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
