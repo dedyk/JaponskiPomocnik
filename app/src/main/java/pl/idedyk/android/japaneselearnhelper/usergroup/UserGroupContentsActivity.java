@@ -299,6 +299,10 @@ public class UserGroupContentsActivity extends Activity {
                     // zamieniamy na DictionaryEntry
                     dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
 
+                    if (dictionaryEntry == null) {
+                        continue;
+                    }
+
                     dictionaryEntryList.add(new UserGroupItemEntityAndObject(userGroupItemEntity, dictionaryEntry, dictionaryEntry2));
 
                     break;

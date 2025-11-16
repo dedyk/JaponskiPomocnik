@@ -1068,7 +1068,9 @@ public class WordDictionaryDetails extends Activity {
 			for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
 				DictionaryEntry oldDictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
 
-				dictionaryEntryListToCheckUserGroups.add(oldDictionaryEntry);
+				if (oldDictionaryEntry != null) {
+					dictionaryEntryListToCheckUserGroups.add(oldDictionaryEntry);
+				}
 			}
 		}
 		// sprawdzenie, czy ktores slowko wchodzi w sklad grup uzytkownika
@@ -1637,13 +1639,15 @@ public class WordDictionaryDetails extends Activity {
 			userGroupListIcon.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
-
 					DictionaryEntry dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
 
-					intent.putExtra("itemToAdd", dictionaryEntry);
+					if (dictionaryEntry != null) {
+						Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
 
-					startActivityForResult(intent, ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE);
+						intent.putExtra("itemToAdd", dictionaryEntry);
+
+						startActivityForResult(intent, ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE);
+					}
 				}
 			});
 			actionTableRow.addScreenItem(userGroupListIcon);
