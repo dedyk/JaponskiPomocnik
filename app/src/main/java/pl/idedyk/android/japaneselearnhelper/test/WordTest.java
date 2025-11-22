@@ -566,6 +566,7 @@ public class WordTest extends Activity {
 			startActivity(intent);
 
 			finish();
+			return;
 		}
 		
 		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
@@ -577,6 +578,7 @@ public class WordTest extends Activity {
 			startActivity(intent);
 
 			finish();
+			return;
 
 		} else {
 			String kanji = currentWordDictionaryEntry.getKanji();
