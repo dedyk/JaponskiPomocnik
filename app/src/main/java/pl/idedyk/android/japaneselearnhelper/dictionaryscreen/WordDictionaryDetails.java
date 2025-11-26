@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -587,62 +589,11 @@ public class WordDictionaryDetails extends Activity {
 				WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense printableDictionaryEntry2Sense = new WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense(sense);
 
 				// numer znaczenia
-				report.add(new StringValue("" + (senseIdx + 1), 20.0f, 0));
+				if (dictionaryEntry2.getSenseList().size() != 1) {
+					StringValue senseNoStringValue = new StringValue("" + (senseIdx + 1), 20.0f, 0);
+					// senseNoStringValue.setTypeface(Typeface.create((String)null, Typeface.BOLD));
 
-				// ograniczone do kanji/kana
-				String restrictedToKanjiKanaString = printableDictionaryEntry2Sense.getRestrictedToKanjiKanaString(getApplicationContext());
-
-				if (restrictedToKanjiKanaString != null) {
-					report.add(new StringValue(restrictedToKanjiKanaString, 13.0f, 0));
-				}
-
-				// czesci mowy
-				String translatedToPolishPartOfSpeechEnum = printableDictionaryEntry2Sense.getTranslatedToPolishPartOfSpeechEnum(getApplicationContext());
-
-				if (translatedToPolishPartOfSpeechEnum != null) {
-					report.add(new StringValue(translatedToPolishPartOfSpeechEnum, 13.0f, 0));
-				}
-
-				// kategoria slowa
-				String translatedFieldEnum = printableDictionaryEntry2Sense.getTranslatedFieldEnum(getApplicationContext());
-
-				if (translatedFieldEnum != null) {
-					report.add(new StringValue(translatedFieldEnum, 13.0f, 0));
-				}
-
-				// roznosci
-				String translatedMiscEnum = printableDictionaryEntry2Sense.getTranslatedMiscEnum(getApplicationContext());
-
-				if (translatedMiscEnum != null) {
-					report.add(new StringValue(translatedMiscEnum, 13.0f, 0));
-				}
-
-				// dialekt
-				String translatedDialectEnum = printableDictionaryEntry2Sense.getTranslatedDialectEnum(getApplicationContext());
-
-				if (translatedDialectEnum != null) {
-					report.add(new StringValue(translatedDialectEnum, 13.0f, 0));
-				}
-
-				// zagraniczne pochodzenie slowa
-				String joinedLanguageSource = printableDictionaryEntry2Sense.getJoinedLanguageSource(getApplicationContext());
-
-				if (joinedLanguageSource != null) {
-					report.add(new StringValue(joinedLanguageSource, 13.0f, 0));
-				}
-
-				// odnosnic do innego slowa
-				String referenceToAnotherKanjiKana = printableDictionaryEntry2Sense.getReferenceToAnotherKanjiKana(getApplicationContext());
-
-				if (referenceToAnotherKanjiKana != null) {
-					report.add(new StringValue(referenceToAnotherKanjiKana, 13.0f, 0));
-				}
-
-				// odnosnic do przeciwienstwa
-				String antonym = printableDictionaryEntry2Sense.getAntonym(getApplicationContext());
-
-				if (antonym != null) {
-					report.add(new StringValue(antonym, 13.0f, 0));
+					report.add(senseNoStringValue);
 				}
 
 				// znaczenie
@@ -667,7 +618,86 @@ public class WordDictionaryDetails extends Activity {
 
 				// informacje dodatkowe
 				if (polishAdditionalInfo != null) { // czy informacje dodatkowe istnieja
-					report.add(new StringValue(polishAdditionalInfo.getValue(), 15.0f, 1));
+					report.add(new StringValue("  " + polishAdditionalInfo.getValue(), 15.0f, 1));
+				}
+
+				// przerwa
+				Consumer<Void> onetimeSpacerToDetailsGenerator = new Consumer<Void>() {
+					private boolean generatedSpacer = false;
+
+					@Override
+					public void accept(Void o) {
+						if (generatedSpacer == true) {
+							return;
+						}
+						generatedSpacer = true;
+
+						report.add(new StringValue("", 7.0f, 0));
+					}
+				};
+
+				// ograniczone do kanji/kana
+				String restrictedToKanjiKanaString = printableDictionaryEntry2Sense.getRestrictedToKanjiKanaString(getApplicationContext());
+
+				if (restrictedToKanjiKanaString != null) {
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue(restrictedToKanjiKanaString, 13.0f, 0));
+				}
+
+				// czesci mowy
+				String translatedToPolishPartOfSpeechEnum = printableDictionaryEntry2Sense.getTranslatedToPolishPartOfSpeechEnum(getApplicationContext());
+
+				if (translatedToPolishPartOfSpeechEnum != null) {
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue(translatedToPolishPartOfSpeechEnum, 13.0f, 0));
+				}
+
+				// kategoria slowa
+				String translatedFieldEnum = printableDictionaryEntry2Sense.getTranslatedFieldEnum(getApplicationContext());
+
+				if (translatedFieldEnum != null) {
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue(translatedFieldEnum, 13.0f, 0));
+				}
+
+				// roznosci
+				String translatedMiscEnum = printableDictionaryEntry2Sense.getTranslatedMiscEnum(getApplicationContext());
+
+				if (translatedMiscEnum != null) {
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue(translatedMiscEnum, 13.0f, 0));
+				}
+
+				// dialekt
+				String translatedDialectEnum = printableDictionaryEntry2Sense.getTranslatedDialectEnum(getApplicationContext());
+
+				if (translatedDialectEnum != null) {
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue(translatedDialectEnum, 13.0f, 0));
+				}
+
+				// zagraniczne pochodzenie slowa
+				String joinedLanguageSource = printableDictionaryEntry2Sense.getJoinedLanguageSource(getApplicationContext());
+
+				if (joinedLanguageSource != null) {
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue(joinedLanguageSource, 13.0f, 0));
+				}
+
+				// odnosnic do innego slowa
+				String referenceToAnotherKanjiKana = printableDictionaryEntry2Sense.getReferenceToAnotherKanjiKana(getApplicationContext());
+
+				if (referenceToAnotherKanjiKana != null) {
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue(referenceToAnotherKanjiKana, 13.0f, 0));
+				}
+
+				// odnosnic do przeciwienstwa
+				String antonym = printableDictionaryEntry2Sense.getAntonym(getApplicationContext());
+
+				if (antonym != null) {
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue(antonym, 13.0f, 0));
 				}
 
 				// przerwa

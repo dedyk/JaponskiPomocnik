@@ -110,6 +110,7 @@ public class WordKanjiDictionaryUtils {
                     result.append("\n\n");
                 }
 
+                /*
                 // ograniczone do kanji/kana
                 String restrictedToKanjiKanaString = printableDictionaryEntry2Sense.getRestrictedToKanjiKanaString(context);
 
@@ -165,6 +166,7 @@ public class WordKanjiDictionaryUtils {
                 if (antonym != null) {
                     result.append("<i>" + antonym + "</i>").append("\n");
                 }
+                 */
 
                 // znaczenie
                 List<Gloss> polishGlossList = printableDictionaryEntry2Sense.getPolishGlossList();
@@ -396,7 +398,7 @@ public class WordKanjiDictionaryUtils {
                 restrictedToKanjiKanaList.addAll(sense.getRestrictedToKanaList());
 
                 // zamiana na przetlumaczona postac
-                restrictedToKanjiKanaString = "・" + context.getString(R.string.word_dictionary_search_restrictedKanjiKanaForOnly) + " " + join("; ", restrictedToKanjiKanaList);
+                restrictedToKanjiKanaString = context.getString(R.string.word_dictionary_search_restrictedKanjiKanaForOnly) + " " + join("; ", restrictedToKanjiKanaList);
             }
 
             return restrictedToKanjiKanaString;
@@ -407,7 +409,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getPartOfSpeechList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedToPolishPartOfSpeechEnum = "・" + join("; ", Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(sense.getPartOfSpeechList()));
+                translatedToPolishPartOfSpeechEnum = join("; ", Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(sense.getPartOfSpeechList()));
             }
 
             return translatedToPolishPartOfSpeechEnum;
@@ -418,7 +420,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getFieldList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedFieldEnum = "・" + join("; ", Dictionary2HelperCommon.translateToPolishFieldEnumList(sense.getFieldList()));
+                translatedFieldEnum = join("; ", Dictionary2HelperCommon.translateToPolishFieldEnumList(sense.getFieldList()));
             }
 
             return translatedFieldEnum;
@@ -429,7 +431,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getMiscList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedMiscEnum = "・" + join("; ", Dictionary2HelperCommon.translateToPolishMiscEnumList(sense.getMiscList()));
+                translatedMiscEnum = join("; ", Dictionary2HelperCommon.translateToPolishMiscEnumList(sense.getMiscList()));
             }
 
             return translatedMiscEnum;
@@ -440,7 +442,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getDialectList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedDialectEnum = "・" + join("; ", Dictionary2HelperCommon.translateToPolishDialectEnumList(sense.getDialectList()));
+                translatedDialectEnum = join("; ", Dictionary2HelperCommon.translateToPolishDialectEnumList(sense.getDialectList()));
             }
 
             return translatedDialectEnum;
@@ -475,7 +477,7 @@ public class WordKanjiDictionaryUtils {
                     singleLanguageSourceList.add(singleLanguageSource.toString());
                 }
 
-                joinedLanguageSource = "・" + join("; ", singleLanguageSourceList);
+                joinedLanguageSource = join("; ", singleLanguageSourceList);
             }
 
             return joinedLanguageSource;
@@ -521,7 +523,7 @@ public class WordKanjiDictionaryUtils {
             StringBuffer result = new StringBuffer();
 
             if (wordsToCreateLinkList.size() > 0) {
-                result.append("・" + context.getString(stringIdTitle) + " ");
+                result.append(context.getString(stringIdTitle) + " ");
 
                 for (int wordsToCreateLinkListIdx = 0; wordsToCreateLinkListIdx < wordsToCreateLinkList.size(); ++wordsToCreateLinkListIdx) {
                     String currentWordsToCreateLink = wordsToCreateLinkList.get(wordsToCreateLinkListIdx);
