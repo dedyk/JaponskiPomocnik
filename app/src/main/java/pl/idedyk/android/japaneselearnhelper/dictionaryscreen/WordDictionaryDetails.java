@@ -589,12 +589,14 @@ public class WordDictionaryDetails extends Activity {
 				WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense printableDictionaryEntry2Sense = new WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense(sense);
 
 				// numer znaczenia
+				/*
 				if (dictionaryEntry2.getSenseList().size() != 1) {
 					StringValue senseNoStringValue = new StringValue("" + (senseIdx + 1), 20.0f, 0);
 					// senseNoStringValue.setTypeface(Typeface.create((String)null, Typeface.BOLD));
 
 					report.add(senseNoStringValue);
 				}
+				*/
 
 				// znaczenie
 				List<Gloss> polishGlossList = printableDictionaryEntry2Sense.getPolishGlossList();
@@ -632,6 +634,10 @@ public class WordDictionaryDetails extends Activity {
 						}
 						generatedSpacer = true;
 
+						if (polishAdditionalInfo == null) {
+							return;
+						}
+
 						report.add(new StringValue("", 7.0f, 0));
 					}
 				};
@@ -641,7 +647,7 @@ public class WordDictionaryDetails extends Activity {
 
 				if (restrictedToKanjiKanaString != null) {
 					onetimeSpacerToDetailsGenerator.accept(null);
-					report.add(new StringValue(restrictedToKanjiKanaString, 13.0f, 0));
+					report.add(new StringValue("  " + restrictedToKanjiKanaString, 13.0f, 1));
 				}
 
 				// czesci mowy
@@ -649,7 +655,7 @@ public class WordDictionaryDetails extends Activity {
 
 				if (translatedToPolishPartOfSpeechEnum != null) {
 					onetimeSpacerToDetailsGenerator.accept(null);
-					report.add(new StringValue(translatedToPolishPartOfSpeechEnum, 13.0f, 0));
+					report.add(new StringValue("  " + translatedToPolishPartOfSpeechEnum, 13.0f, 1));
 				}
 
 				// kategoria slowa
@@ -657,7 +663,7 @@ public class WordDictionaryDetails extends Activity {
 
 				if (translatedFieldEnum != null) {
 					onetimeSpacerToDetailsGenerator.accept(null);
-					report.add(new StringValue(translatedFieldEnum, 13.0f, 0));
+					report.add(new StringValue("  " + translatedFieldEnum, 13.0f, 1));
 				}
 
 				// roznosci
@@ -665,7 +671,7 @@ public class WordDictionaryDetails extends Activity {
 
 				if (translatedMiscEnum != null) {
 					onetimeSpacerToDetailsGenerator.accept(null);
-					report.add(new StringValue(translatedMiscEnum, 13.0f, 0));
+					report.add(new StringValue("  " + translatedMiscEnum, 13.0f, 1));
 				}
 
 				// dialekt
@@ -673,7 +679,7 @@ public class WordDictionaryDetails extends Activity {
 
 				if (translatedDialectEnum != null) {
 					onetimeSpacerToDetailsGenerator.accept(null);
-					report.add(new StringValue(translatedDialectEnum, 13.0f, 0));
+					report.add(new StringValue("  " + translatedDialectEnum, 13.0f, 1));
 				}
 
 				// zagraniczne pochodzenie slowa
@@ -681,7 +687,7 @@ public class WordDictionaryDetails extends Activity {
 
 				if (joinedLanguageSource != null) {
 					onetimeSpacerToDetailsGenerator.accept(null);
-					report.add(new StringValue(joinedLanguageSource, 13.0f, 0));
+					report.add(new StringValue("  " + joinedLanguageSource, 13.0f, 1));
 				}
 
 				// odnosnic do innego slowa
@@ -689,7 +695,7 @@ public class WordDictionaryDetails extends Activity {
 
 				if (referenceToAnotherKanjiKana != null) {
 					onetimeSpacerToDetailsGenerator.accept(null);
-					report.add(new StringValue(referenceToAnotherKanjiKana, 13.0f, 0));
+					report.add(new StringValue("  " + referenceToAnotherKanjiKana, 13.0f, 1));
 				}
 
 				// odnosnic do przeciwienstwa
@@ -697,7 +703,7 @@ public class WordDictionaryDetails extends Activity {
 
 				if (antonym != null) {
 					onetimeSpacerToDetailsGenerator.accept(null);
-					report.add(new StringValue(antonym, 13.0f, 0));
+					report.add(new StringValue("  " + antonym, 13.0f, 1));
 				}
 
 				// przerwa
