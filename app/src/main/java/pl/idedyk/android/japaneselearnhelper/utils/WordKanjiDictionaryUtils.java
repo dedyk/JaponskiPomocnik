@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
@@ -116,25 +117,65 @@ public class WordKanjiDictionaryUtils {
                 List<Gloss> polishGlossList = printableDictionaryEntry2Sense.getPolishGlossList();
                 SenseAdditionalInfo polishAdditionalInfo = printableDictionaryEntry2Sense.getPolishAdditionalInfo();
 
-                //
+                boolean wasAdditionalInfoAllTypes = false;
 
-                for (int currentGlossIdx = 0; currentGlossIdx < polishGlossList.size(); ++currentGlossIdx) {
+                List<Gloss> polishGlossListGtypeNull = polishGlossList.stream().filter(f -> f.getGType() == null).collect(Collectors.toList());
+                List<Gloss> polishGlossListGtypeNotNull = polishGlossList.stream().filter(f -> f.getGType() != null).collect(Collectors.toList());
 
-                    Gloss gloss = polishGlossList.get(currentGlossIdx);
+                if (polishGlossListGtypeNull.size() > 0) { // jezeli istnieje gType rowne null, wiec pokazujemy tlumaczenia i wszelkie wyjasnienia osobno
 
-                    result.append("<big><strong>" + getStringWithMark(
-                            gloss.getValue(), findWord, findWordRequest.searchTranslate) +
-                            (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
-                            (currentGlossIdx != polishGlossList.size() - 1 ? "\n" : "") + "</strong></big>");
+                    // lista tlumaczen - gtype = null
+                    for (int currentGlossIdx = 0; currentGlossIdx < polishGlossListGtypeNull.size(); ++currentGlossIdx) {
+                        Gloss gloss = polishGlossListGtypeNull.get(currentGlossIdx);
+
+                        if (gloss.getGType() == null) {
+                            result.append("<big><strong>" + getStringWithMark(
+                                    gloss.getValue(), findWord, findWordRequest.searchTranslate) +
+                                    (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
+                                    (currentGlossIdx != polishGlossListGtypeNull.size() - 1 ? "\n" : "") + "</strong></big>");
+                        }
+                    }
+
+                    // lista tlumaczen - gtype != null jako informacje dodatkowe
+                    for (int currentGlossIdx = 0; currentGlossIdx < polishGlossListGtypeNotNull.size(); ++currentGlossIdx) {
+                        Gloss gloss = polishGlossListGtypeNotNull.get(currentGlossIdx);
+
+                        if (gloss.getGType() != null) {
+                            wasAdditionalInfoAllTypes = true;
+
+                            result.append("\n");
+                            result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(
+                                    gloss.getValue(), findWord, findWordRequest.searchTranslate) +
+                                    " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")");
+                        }
+                    }
+
+                } else { // jezeli nie ma gType = null, wiec pokazujemy po staremu
+
+                    for (int currentGlossIdx = 0; currentGlossIdx < polishGlossList.size(); ++currentGlossIdx) {
+
+                        Gloss gloss = polishGlossList.get(currentGlossIdx);
+
+                        result.append("<big><strong>" + getStringWithMark(
+                                gloss.getValue(), findWord, findWordRequest.searchTranslate) +
+                                (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
+                                (currentGlossIdx != polishGlossList.size() - 1 ? "\n" : "") + "</strong></big>");
+                    }
                 }
+
+                //
 
                 // informacje dodatkowe
                 if (polishAdditionalInfo != null) {
+                    wasAdditionalInfoAllTypes = true;
+
                     result.append("\n");
                     result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(polishAdditionalInfo.getValue(), findWord, findWordRequest.searchInfo));
                 }
 
                 // dynamiczna przerwa
+                final boolean wasAdditionalInfoAllTypesAsFinal = wasAdditionalInfoAllTypes;
+
                 Consumer<Void> onetimeSpacerGenerator = new Consumer<Void>() {
                     private boolean generatedSpacer = false;
 
@@ -146,7 +187,7 @@ public class WordKanjiDictionaryUtils {
 
                         generatedSpacer = true;
 
-                        if (polishAdditionalInfo == null) {
+                        if (wasAdditionalInfoAllTypesAsFinal == false) {
                             result.append("\n");
                             return;
                         }

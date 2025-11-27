@@ -602,28 +602,64 @@ public class WordDictionaryDetails extends Activity {
 				List<Gloss> polishGlossList = printableDictionaryEntry2Sense.getPolishGlossList();
 				SenseAdditionalInfo polishAdditionalInfo = printableDictionaryEntry2Sense.getPolishAdditionalInfo();
 
-				// znaczenie
-				for (Gloss currentGlossPol : polishGlossList) {
+				boolean wasAdditionalInfoAllTypes = false;
+				boolean existsGtypeNull = polishGlossList.stream().filter(f -> f.getGType() == null).count() > 0;
 
-					String currentGlossPolReportValue = currentGlossPol.getValue();
+				if (existsGtypeNull == true) { // jezeli istnieje gType rowne null, wiec pokazujemy tlumaczenia i wszelkie wyjasnienia osobno
 
-					// sprawdzenie, czy wystepuje dodatkowy typ znaczenia
-					if (currentGlossPol.getGType() != null) {
-						currentGlossPolReportValue += " (" + Dictionary2HelperCommon.translateToPolishGlossType(currentGlossPol.getGType()) + ")";
+					// lista tlumaczen - gtype = null
+					for (Gloss currentGlossPol : polishGlossList) {
+
+						if (currentGlossPol.getGType() == null) {
+							String currentGlossPolReportValue = currentGlossPol.getValue();
+
+							StringValue currentGlossPolReportValueStringValue = new StringValue(currentGlossPolReportValue, 20.0f, 0);
+							currentGlossPolReportValueStringValue.setTypeface(Typeface.create((String) null, Typeface.BOLD));
+
+							report.add(currentGlossPolReportValueStringValue);
+						}
 					}
 
-					StringValue currentGlossPolReportValueStringValue = new StringValue(currentGlossPolReportValue, 20.0f, 0);
-					currentGlossPolReportValueStringValue.setTypeface(Typeface.create((String)null, Typeface.BOLD));
+					// lista tlumaczen - gtype != null jako informacje dodatkowe
+					for (Gloss currentGlossPol : polishGlossList) {
 
-					report.add(currentGlossPolReportValueStringValue);
+						if (currentGlossPol.getGType() != null) {
+							wasAdditionalInfoAllTypes = true;
+
+							String currentGlossPolReportValue = currentGlossPol.getValue() +
+									" (" + Dictionary2HelperCommon.translateToPolishGlossType(currentGlossPol.getGType()) + ")";
+
+							report.add(new StringValue("  " + currentGlossPolReportValue, 15.0f, 1));
+						}
+					}
+
+				} else { // jezeli nie ma gType = null, wiec pokazujemy po staremu
+
+					for (Gloss currentGlossPol : polishGlossList) {
+						String currentGlossPolReportValue = currentGlossPol.getValue();
+
+						// sprawdzenie, czy wystepuje dodatkowy typ znaczenia
+						if (currentGlossPol.getGType() != null) {
+							currentGlossPolReportValue += " (" + Dictionary2HelperCommon.translateToPolishGlossType(currentGlossPol.getGType()) + ")";
+						}
+
+						StringValue currentGlossPolReportValueStringValue = new StringValue(currentGlossPolReportValue, 20.0f, 0);
+						currentGlossPolReportValueStringValue.setTypeface(Typeface.create((String)null, Typeface.BOLD));
+
+						report.add(currentGlossPolReportValueStringValue);
+					}
 				}
 
 				// informacje dodatkowe
 				if (polishAdditionalInfo != null) { // czy informacje dodatkowe istnieja
+					wasAdditionalInfoAllTypes = true;
+
 					report.add(new StringValue("  " + polishAdditionalInfo.getValue(), 15.0f, 1));
 				}
 
 				// przerwa
+				final boolean wasAdditionalInfoAllTypesAsFinal = wasAdditionalInfoAllTypes;
+
 				Consumer<Void> onetimeSpacerToDetailsGenerator = new Consumer<Void>() {
 					private boolean generatedSpacer = false;
 
@@ -634,7 +670,7 @@ public class WordDictionaryDetails extends Activity {
 						}
 						generatedSpacer = true;
 
-						if (polishAdditionalInfo == null) {
+						if (wasAdditionalInfoAllTypesAsFinal == false) {
 							return;
 						}
 
