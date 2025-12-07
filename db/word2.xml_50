@@ -15891,8 +15891,10 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>company name</misc>
             <s_inf xml:lang="pol">japoński koncern motoryzacyjny</s_inf>
-            <gloss xml:lang="eng">Toyota Motor</gloss>
-            <gloss xml:lang="pol">Toyota Motor</gloss>
+            <gloss xml:lang="eng">Toyota</gloss>
+            <gloss xml:lang="eng">Toyota Motor Corporation</gloss>
+            <gloss xml:lang="pol">Toyota</gloss>
+            <gloss xml:lang="pol">Toyota Motor Corporation</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -17675,6 +17677,52 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289520" dictionaryEntryTypeList="WORD_NOUN" kana="ハイスクールはゾンビテリア" romaji="hai sukuuru wa zonbiteria" uniqueKey="-/ハイスクールはゾンビテリア/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5060865</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="haidon">ハイドン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>family or surname</misc>
+            <misc>given name or forename, gender not specified</misc>
+            <gloss xml:lang="eng">Haydn</gloss>
+            <gloss xml:lang="pol">Haydn</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>full name of a particular person</misc>
+            <s_inf xml:lang="pol">austriacki kompozytor klasycyzmu, najstarszy z tzw. trzech klasyków wiedeńskich, obok Wolfganga Amadeusza Mozarta i Ludwiga van Beethovena</s_inf>
+            <gloss xml:lang="eng">Haydn, Joseph (1732-1809; Austrian composer)</gloss>
+            <gloss xml:lang="pol">Franz Joseph Haydn</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317093" dictionaryEntryTypeList="WORD_NOUN" kana="ハイドン" romaji="haidon" uniqueKey="-/ハイドン/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5060877</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="haineken">ハイネケン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Heineken</gloss>
+            <gloss xml:lang="pol">Heineken</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317553" dictionaryEntryTypeList="WORD_NOUN" kana="ハイネケン" romaji="haineken" uniqueKey="-/ハイネケン/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

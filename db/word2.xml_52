@@ -5028,6 +5028,9 @@
     <entry>
         <ent_seq>5244275</ent_seq>
         <k_ele>
+            <keb>藝大</keb>
+        </k_ele>
+        <k_ele>
             <keb>芸大</keb>
         </k_ele>
         <r_ele>
@@ -5037,11 +5040,12 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <s_inf xml:lang="pol">skrót</s_inf>
-            <gloss xml:lang="eng">Tokyo University of Arts and Music (abbr)</gloss>
-            <gloss xml:lang="pol">Uniwersytet Sztuki i Muzyki w Tokio</gloss>
+            <gloss xml:lang="eng">Tokyo University of Arts (abbr)</gloss>
+            <gloss xml:lang="pol">Uniwersytet Sztuki w Tokio</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
+                <entries id="143763" dictionaryEntryTypeList="WORD_NOUN" kanji="藝大" kana="げいだい" romaji="geidai" uniqueKey="藝大/げいだい/1"/>
                 <entries id="290001" dictionaryEntryTypeList="WORD_NOUN" kanji="芸大" kana="げいだい" romaji="geidai" uniqueKey="芸大/げいだい/2"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>

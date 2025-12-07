@@ -55659,6 +55659,29 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5747433</ent_seq>
+        <k_ele>
+            <keb>株探</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kabutan">かぶたん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>service</misc>
+            <s_inf xml:lang="pol">serwis internetowy z informacjami giełdowymi</s_inf>
+            <gloss xml:lang="eng">Kabutan (stock market information website)</gloss>
+            <gloss xml:lang="pol">Kabutan</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="316932" dictionaryEntryTypeList="WORD_NOUN" kanji="株探" kana="かぶたん" romaji="kabutan" uniqueKey="株探/かぶたん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5747436</ent_seq>
         <k_ele>
             <keb>Ｐｉｘ</keb>
@@ -55680,6 +55703,237 @@
             <oldPolishJapaneseDictionary>
                 <entries id="316885" dictionaryEntryTypeList="WORD_NOUN" kanji="Ｐｉｘ" kana="ピックス" romaji="pikkusu" uniqueKey="Ｐｉｘ/ピックス/1"/>
                 <entries id="316886" dictionaryEntryTypeList="WORD_NOUN" kanji="ＰＩＸ" kana="ピックス" romaji="pikkusu" uniqueKey="ＰＩＸ/ピックス/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747446</ent_seq>
+        <k_ele>
+            <keb>日本専門医機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="nihon senmon' ikikou">にほんせんもんいきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japanese Medical Specialty Board</gloss>
+            <gloss xml:lang="pol">Japońska Rada Specjalności Medycznych</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317116" dictionaryEntryTypeList="WORD_NOUN" kanji="日本専門医機構" kana="にほんせんもんいきこう" romaji="nihon senmon' ikikou" uniqueKey="日本専門医機構/にほんせんもんいきこう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747447</ent_seq>
+        <k_ele>
+            <keb>日本歯科専門医機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="nihon shika senmon' ikikou">にほんしかせんもんいきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Japanese Dental Specialty Board</gloss>
+            <gloss xml:lang="pol">Japońska Rada Specjalistów Stomatologicznych</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317117" dictionaryEntryTypeList="WORD_NOUN" kanji="日本歯科専門医機構" kana="にほんしかせんもんいきこう" romaji="nihon shika senmon' ikikou" uniqueKey="日本歯科専門医機構/にほんしかせんもんいきこう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747450</ent_seq>
+        <k_ele>
+            <keb>国連緊急軍</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kokuren kinkyuugun">こくれんきんきゅうぐん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">ang: United Nations Emergency Force</s_inf>
+            <gloss xml:lang="eng">United Nations Emergency Force</gloss>
+            <gloss xml:lang="pol">Doraźne Siły Narodów Zjednoczonych</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317173" dictionaryEntryTypeList="WORD_NOUN" kanji="国連緊急軍" kana="こくれんきんきゅうぐん" romaji="kokuren kinkyuugun" uniqueKey="国連緊急軍/こくれんきんきゅうぐん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747451</ent_seq>
+        <k_ele>
+            <keb>３１</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="saatiwan">サーティワン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="saatiiwan">サーティーワン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">skrót</s_inf>
+            <gloss xml:lang="eng">Baskin-Robbins (abbr)</gloss>
+            <gloss xml:lang="pol">Baskin-Robbins</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317464" dictionaryEntryTypeList="WORD_NOUN" kanji="３１" kana="サーティワン" romaji="saatiwan" uniqueKey="３１/サーティワン/1"/>
+                <entries id="317465" dictionaryEntryTypeList="WORD_NOUN" kanji="３１" kana="サーティーワン" romaji="saatiiwan" uniqueKey="３１/サーティーワン/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747452</ent_seq>
+        <k_ele>
+            <keb>３１アイスクリーム</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="saatiwan' aisukuriimu">サーティワンアイスクリーム</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Baskin-Robbins</gloss>
+            <gloss xml:lang="pol">Baskin-Robbins</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317466" dictionaryEntryTypeList="WORD_NOUN" kanji="３１アイスクリーム" kana="サーティワンアイスクリーム" romaji="saatiwan' aisukuriimu" uniqueKey="３１アイスクリーム/サーティワンアイスクリーム/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747453</ent_seq>
+        <k_ele>
+            <keb>名探偵コナン</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="meitantei konan">めいたんていコナン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">seria mangowa i franczyza medialna</s_inf>
+            <gloss xml:lang="eng">Detective Conan (manga series and media franchise)</gloss>
+            <gloss xml:lang="eng">Case Closed</gloss>
+            <gloss xml:lang="pol">Detektyw Conan</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317467" dictionaryEntryTypeList="WORD_NOUN" kanji="名探偵コナン" kana="めいたんていコナン" romaji="meitantei konan" uniqueKey="名探偵コナン/めいたんていコナン/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747457</ent_seq>
+        <k_ele>
+            <keb>東京科学大学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="toukyou kagaku daigaku">とうきょうかがくだいがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Institute of Science Tokyo</gloss>
+            <gloss xml:lang="pol">Instytut Naukowy w Tokio</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317502" dictionaryEntryTypeList="WORD_NOUN" kanji="東京科学大学" kana="とうきょうかがくだいがく" romaji="toukyou kagaku daigaku" uniqueKey="東京科学大学/とうきょうかがくだいがく/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747458</ent_seq>
+        <k_ele>
+            <keb>横浜国大</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="yokohama kokudai">よこはまこくだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">skrót</s_inf>
+            <gloss xml:lang="eng">Yokohama National University (abbr)</gloss>
+            <gloss xml:lang="pol">Uniwersytet Narodowy w Yokohama</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317587" dictionaryEntryTypeList="WORD_NOUN" kanji="横浜国大" kana="よこはまこくだい" romaji="yokohama kokudai" uniqueKey="横浜国大/よこはまこくだい/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747474</ent_seq>
+        <k_ele>
+            <keb>Ｆｌｏｏｒｐ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="furoopu">フロープ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">przeglądarka internetowa</s_inf>
+            <gloss xml:lang="eng">Floorp (web browser)</gloss>
+            <gloss xml:lang="pol">Floorp</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317745" dictionaryEntryTypeList="WORD_NOUN" kanji="Ｆｌｏｏｒｐ" kana="フロープ" romaji="furoopu" uniqueKey="Ｆｌｏｏｒｐ/フロープ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747475</ent_seq>
+        <k_ele>
+            <keb>第一三共</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="daiichi sankyou">だいいちさんきょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">firma farmaceutyczna</s_inf>
+            <gloss xml:lang="eng">Daiichi Sankyo (pharmaceutical company)</gloss>
+            <gloss xml:lang="pol">Daiichi Sankyo</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="317746" dictionaryEntryTypeList="WORD_NOUN" kanji="第一三共" kana="だいいちさんきょう" romaji="daiichi sankyou" uniqueKey="第一三共/だいいちさんきょう/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

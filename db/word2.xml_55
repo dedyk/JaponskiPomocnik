@@ -6485,9 +6485,11 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
-            <gloss xml:lang="eng">Tokyo Institute of Technology</gloss>
+            <s_inf xml:lang="pol">do 2024</s_inf>
+            <gloss xml:lang="eng">Tokyo Institute of Technology (until 2024)</gloss>
             <gloss xml:lang="eng">TIT</gloss>
             <gloss xml:lang="pol">Tokijski Instytut Technologii</gloss>
+            <gloss xml:lang="pol">TIT</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -7193,20 +7195,20 @@
     <entry>
         <ent_seq>5553316</ent_seq>
         <k_ele>
-            <keb>東京田中千代服飾専門学校</keb>
+            <keb>渋谷ファッション＆アート専門学校</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="higashi kyouden nakachiyo fukushoku senmon gakkou">ひがしきょうでんなかちよふくしょくせんもんがっこう</reb>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="shibuya fasshon' ando aato senmon gakkou">しぶやファッションアンドアートせんもんがっこう</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
-            <gloss xml:lang="eng">Chiyo Tanaka College of Fashion Arts, Tokyo</gloss>
-            <gloss xml:lang="pol">Wyższa Szkoła Mody Chiyo Tanaka, Tokio</gloss>
+            <gloss xml:lang="eng">Shibuya Fashion and Art College</gloss>
+            <gloss xml:lang="pol">Wyższa Szkoła Mody i Sztuki w Shibuya</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="294771" dictionaryEntryTypeList="WORD_NOUN" kanji="東京田中千代服飾専門学校" kana="ひがしきょうでんなかちよふくしょくせんもんがっこう" romaji="higashi kyouden nakachiyo fukushoku senmon gakkou" uniqueKey="東京田中千代服飾専門学校/ひがしきょうでんなかちよふくしょくせんもんがっこう/1"/>
+                <entries id="155502" dictionaryEntryTypeList="WORD_NOUN" kanji="渋谷ファッション＆アート専門学校" kana="しぶやファッションアンドアートせんもんがっこう" romaji="shibuya fasshon' ando aato senmon gakkou" uniqueKey="渋谷ファッション＆アート専門学校/しぶやファッションアンドアートせんもんがっこう/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
