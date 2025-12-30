@@ -49,10 +49,15 @@ public class KanjiTestSummary extends Activity {
 		int allAnswersNo = correctAnswerNo + incorrectAnswerNo;
 		
 		result.add(new TitleItem(getString(R.string.kanji_test_result), 0));
-		
-		StringValue resultStringValue = new StringValue("" + ((correctAnswerNo * 100) / allAnswersNo) + " %", 16.0f, 1);
-		result.add(resultStringValue);
-		
+
+		if (allAnswersNo != 0) {
+			StringValue resultStringValue = new StringValue("" + ((correctAnswerNo * 100) / allAnswersNo) + " %", 16.0f, 1);
+			result.add(resultStringValue);
+		} else {
+			StringValue resultStringValue = new StringValue("-", 16.0f, 1);
+			result.add(resultStringValue);
+		}
+
 		result.add(new TitleItem(getString(R.string.kanji_test_answers_no), 0));
 		
 		StringValue allAnswersNoStringValue = new StringValue("" + allAnswersNo, 16.0f, 1);
