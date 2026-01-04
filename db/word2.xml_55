@@ -4331,6 +4331,38 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5540732</ent_seq>
+        <k_ele>
+            <keb>天津</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="tenshin">てんしん</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="tienchin">ティエンチン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="tienjin">ティエンジン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <s_inf xml:lang="pol">jedno z czterech miast wydzielonych Chin, znajdujące się pomiędzy Pekinem a zatoką Bohai, jeden z największych portów świata i specjalna strefa ekonomiczna ustanowiona po trzęsieniu ziemi z 1976</s_inf>
+            <gloss xml:lang="eng">Tianjin (China)</gloss>
+            <gloss xml:lang="eng">Tientsin</gloss>
+            <gloss xml:lang="pol">Tiencin</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318349" dictionaryEntryTypeList="WORD_NOUN" kanji="天津" kana="てんしん" romaji="tenshin" uniqueKey="天津/てんしん/1"/>
+                <entries id="318350" dictionaryEntryTypeList="WORD_NOUN" kanji="天津" kana="ティエンチン" romaji="tienchin" uniqueKey="天津/ティエンチン/1"/>
+                <entries id="318351" dictionaryEntryTypeList="WORD_NOUN" kanji="天津" kana="ティエンジン" romaji="tienjin" uniqueKey="天津/ティエンジン/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5540752</ent_seq>
         <k_ele>
             <keb>天津養護学校</keb>
@@ -26216,17 +26248,17 @@
             <keb>柏崎刈羽</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="kashisaki kariwa">かしさきかりわ</reb>
+            <reb kana_type="HIRAGANA" romaji="kashiwazaki kariwa">かしわざきかりわ</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <misc>company name</misc>
+            <misc>place name</misc>
             <gloss xml:lang="eng">Kashiwazaki Kariwa</gloss>
             <gloss xml:lang="pol">Kashiwazaki Kariwa</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="298715" dictionaryEntryTypeList="WORD_NOUN" kanji="柏崎刈羽" kana="かしさきかりわ" romaji="kashisaki kariwa" uniqueKey="柏崎刈羽/かしさきかりわ/1"/>
+                <entries id="318242" dictionaryEntryTypeList="WORD_NOUN" kanji="柏崎刈羽" kana="かしわざきかりわ" romaji="kashiwazaki kariwa" uniqueKey="柏崎刈羽/かしわざきかりわ/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

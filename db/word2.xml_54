@@ -6758,6 +6758,29 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5458335</ent_seq>
+        <k_ele>
+            <keb>説文解字</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="setsumon kaiji">せつもんかいじ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">pierwszy kompleksowy słownik chińskich znaków; 121 r. n.e.</s_inf>
+            <gloss xml:lang="eng">Shuowen Jiezi (first comprehensive dictionary of Chinese characters; 121 CE)</gloss>
+            <gloss xml:lang="pol">Shuowen Jiezi</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318521" dictionaryEntryTypeList="WORD_NOUN" kanji="説文解字" kana="せつもんかいじ" romaji="setsumon kaiji" uniqueKey="説文解字/せつもんかいじ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5458383</ent_seq>
         <k_ele>
             <keb>雪印</keb>

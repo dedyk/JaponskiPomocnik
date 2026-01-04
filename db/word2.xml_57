@@ -2546,7 +2546,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>work of art, literature, music, etc. name</misc>
             <s_inf xml:lang="pol">manga i anime stworzone przez Eiichirō Odę</s_inf>
-            <gloss xml:lang="eng">One Piece (popular manga series)</gloss>
+            <gloss xml:lang="eng">One Piece (manga series and media franchise)</gloss>
             <gloss xml:lang="pol">One Piece</gloss>
         </sense>
         <misc>
@@ -55934,6 +55934,165 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="317746" dictionaryEntryTypeList="WORD_NOUN" kanji="第一三共" kana="だいいちさんきょう" romaji="daiichi sankyou" uniqueKey="第一三共/だいいちさんきょう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747485</ent_seq>
+        <k_ele>
+            <keb>ワフド党</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="wafudo tou">ワフドとう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">egipska partia polityczna istniejąca w latach 1919–1952</s_inf>
+            <gloss xml:lang="eng">Wafd Party (Egypt; 1919-1953)</gloss>
+            <gloss xml:lang="pol">Partia Wafd</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318095" dictionaryEntryTypeList="WORD_NOUN" kanji="ワフド党" kana="ワフドとう" romaji="wafudo tou" uniqueKey="ワフド党/ワフドとう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747486</ent_seq>
+        <k_ele>
+            <keb>新進党</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shinshintou">しんしんとう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">partia polityczna</s_inf>
+            <gloss xml:lang="eng">New Frontier Party (1994-1997)</gloss>
+            <gloss xml:lang="eng">NFP</gloss>
+            <gloss xml:lang="pol">New Frontier Party (1994-1997)</gloss>
+            <gloss xml:lang="pol">NFP</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318096" dictionaryEntryTypeList="WORD_NOUN" kanji="新進党" kana="しんしんとう" romaji="shinshintou" uniqueKey="新進党/しんしんとう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747487</ent_seq>
+        <k_ele>
+            <keb>ボストン茶会事件</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="bosuton chakai jiken">ボストンちゃかいじけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <s_inf xml:lang="pol">protest polityczny mieszkańców Bostonu, w ówczesnej Kolonii Zatoki Massachusetts, przeciwko polityce fiskalnej metropolii w 1773 roku</s_inf>
+            <gloss xml:lang="eng">Boston Tea Party (1773)</gloss>
+            <gloss xml:lang="pol">Herbatka bostońska</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="215820" dictionaryEntryTypeList="WORD_NOUN" kanji="ボストン茶会事件" kana="ボストンちゃかいじけん" romaji="bosuton chakai jiken" uniqueKey="ボストン茶会事件/ボストンちゃかいじけん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747491</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="wan pi">ワンピ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">manga i anime stworzone przez Eiichirō Odę, skrót</s_inf>
+            <gloss xml:lang="eng">One Piece (manga series and media franchise) (abbr)</gloss>
+            <gloss xml:lang="pol">One Piece</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318177" dictionaryEntryTypeList="WORD_NOUN" kana="ワンピ" romaji="wan pi" uniqueKey="-/ワンピ/3"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747493</ent_seq>
+        <k_ele>
+            <keb>人性論</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="jinseiron">じんせいろん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">fundamentalne dzieło filozoficzne Davida Hume'a, opublikowane w latach 1739 i 1740</s_inf>
+            <gloss xml:lang="eng">A Treatise of Human Nature (book by David Hume; publ. 1739-40)</gloss>
+            <gloss xml:lang="pol">Traktat o naturze ludzkiej</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318243" dictionaryEntryTypeList="WORD_NOUN" kanji="人性論" kana="じんせいろん" romaji="jinseiron" uniqueKey="人性論/じんせいろん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747495</ent_seq>
+        <k_ele>
+            <keb>ピルトダウン事件</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="pirutodaun jiken">ピルトダウンじけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <s_inf xml:lang="pol">jedno z najbardziej znanych oszustw przeciw nauce, którego autorem był prawdopodobnie archeolog i paleontolog-amator, adwokat Charles Dawson – przedstawione w 1912, zdemaskowane ostatecznie w 1953 roku</s_inf>
+            <gloss xml:lang="eng">Piltdown hoax (1912 discovery of a fossilized ape-human missing-link skull, later revealed to be fraudulent)</gloss>
+            <gloss xml:lang="pol">człowiek z Piltdown</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="178173" dictionaryEntryTypeList="WORD_NOUN" kanji="ピルトダウン事件" kana="ピルトダウンじけん" romaji="pirutodaun jiken" uniqueKey="ピルトダウン事件/ピルトダウンじけん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747505</ent_seq>
+        <k_ele>
+            <keb>国立印刷局</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kokuritsu insatsukyoku">こくりついんさつきょく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">National Printing Bureau</gloss>
+            <gloss xml:lang="pol">Krajowe Biuro Drukarskie</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318522" dictionaryEntryTypeList="WORD_NOUN" kanji="国立印刷局" kana="こくりついんさつきょく" romaji="kokuritsu insatsukyoku" uniqueKey="国立印刷局/こくりついんさつきょく/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
