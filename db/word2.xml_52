@@ -9671,7 +9671,9 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <s_inf xml:lang="pol">międzynarodowa organizacja pozarządowa utworzona w 1971 r. przez grupę francuskich lekarzy</s_inf>
-            <gloss xml:lang="eng">Medecins Sans Frontieres (MSF)</gloss>
+            <gloss xml:lang="eng">Médecins Sans Frontières</gloss>
+            <gloss xml:lang="eng">MSF</gloss>
+            <gloss xml:lang="eng">Doctors Without Borders</gloss>
             <gloss xml:lang="pol">Lekarze bez Granic</gloss>
         </sense>
         <misc>

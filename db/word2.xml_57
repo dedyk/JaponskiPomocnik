@@ -56098,4 +56098,137 @@
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
+    <entry>
+        <ent_seq>5747510</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="purinkipia">プリンキピア</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">dzieło Isaaca Newtona, w którym przedstawił prawo powszechnego ciążenia, a także prawa ruchu leżące u podstaw mechaniki klasycznej</s_inf>
+            <gloss xml:lang="eng">Principia (1687 book by Isaac Newton)</gloss>
+            <gloss xml:lang="eng">Philosophiae Naturalis Principia Mathematica</gloss>
+            <gloss xml:lang="pol">Principia</gloss>
+            <gloss xml:lang="pol">Matematyczne zasady filozofii naturalnej</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318788" dictionaryEntryTypeList="WORD_NOUN" kana="プリンキピア" romaji="purinkipia" uniqueKey="-/プリンキピア/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747511</ent_seq>
+        <k_ele>
+            <keb>カテゴリー論</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="kategorii ron">カテゴリーろん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">traktat Arystotelesa</s_inf>
+            <gloss xml:lang="eng">Categories (treatise by Aristotle)</gloss>
+            <gloss xml:lang="pol">Kategorie</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318791" dictionaryEntryTypeList="WORD_NOUN" kanji="カテゴリー論" kana="カテゴリーろん" romaji="kategorii ron" uniqueKey="カテゴリー論/カテゴリーろん/2"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747518</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="karuketto">カルケット</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">wzbogacone składnikami odżywczymi ciastka produkowane przez Ito Biscuits</s_inf>
+            <gloss xml:lang="eng">Karuketto (nutritionally fortified cookies produced by Ito Biscuits)</gloss>
+            <gloss xml:lang="pol">Karuketto</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="318926" dictionaryEntryTypeList="WORD_NOUN" kana="カルケット" romaji="karuketto" uniqueKey="-/カルケット/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747528</ent_seq>
+        <k_ele>
+            <keb>コロンバイン高校銃乱射事件</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="koronbain koukou juuransha jiken">コロンバインこうこうじゅうらんしゃじけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <s_inf xml:lang="pol">jedna z największych masowych strzelanin na terenie placówek oświatowych w historii Stanów Zjednoczonych. Doszło do niej we wtorek, 20 kwietnia 1999 roku, w Columbine High School, liceum znajdującym się w miejscowości Columbine, 15 km od Denver w stanie Kolorado</s_inf>
+            <gloss xml:lang="eng">Columbine High School massacre (April 20, 1999)</gloss>
+            <gloss xml:lang="pol">masakra w Columbine High School</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="92440" dictionaryEntryTypeList="WORD_NOUN" kanji="コロンバイン高校銃乱射事件" kana="コロンバインこうこうじゅうらんしゃじけん" romaji="koronbain koukou juuransha jiken" uniqueKey="コロンバイン高校銃乱射事件/コロンバインこうこうじゅうらんしゃじけん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747529</ent_seq>
+        <k_ele>
+            <keb>附属池田小事件</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="fuzoku ikedashou jiken">ふぞくいけだしょうじけん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <s_inf xml:lang="pol">8 czerwca 2001 r.</s_inf>
+            <gloss xml:lang="eng">Ikeda school massacre (June 8, 2001)</gloss>
+            <gloss xml:lang="pol">masakra w szkole Ikeda</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="23034" dictionaryEntryTypeList="WORD_NOUN" kanji="附属池田小事件" kana="ふぞくいけだしょうじけん" romaji="fuzoku ikedashou jiken" uniqueKey="附属池田小事件/ふぞくいけだしょうじけん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747532</ent_seq>
+        <k_ele>
+            <keb>大日本愛国党</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="dainippon' aikokutou">だいにっぽんあいこくとう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Greater Japan Patriotic Party</gloss>
+            <gloss xml:lang="pol">Wielka Japońska Partia Patriotyczna</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="319083" dictionaryEntryTypeList="WORD_NOUN" kanji="大日本愛国党" kana="だいにっぽんあいこくとう" romaji="dainippon' aikokutou" uniqueKey="大日本愛国党/だいにっぽんあいこくとう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
 </JMdict>

@@ -25468,25 +25468,6 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>5090670</ent_seq>
-        <r_ele>
-            <reb kana_type="KATAKANA" romaji="riibaizu">リーバイズ</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <misc>product name</misc>
-            <gloss xml:lang="eng">Levi's</gloss>
-            <gloss xml:lang="pol">Levi's</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary>
-                <entries id="290334" dictionaryEntryTypeList="WORD_NOUN" kana="リーバイズ" romaji="riibaizu" uniqueKey="-/リーバイズ/1"/>
-                <attributeList type="PRIORITY" value="255"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>5090737</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="riiman burazaazu">リーマン・ブラザーズ</reb>
