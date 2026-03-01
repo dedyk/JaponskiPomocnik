@@ -4560,7 +4560,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <s_inf xml:lang="pol">ang: Organization for Economic Cooperation and Development</s_inf>
-            <gloss xml:lang="eng">Organization for Economic Cooperation and Development (Organisation)</gloss>
+            <gloss xml:lang="eng">Organisation for Economic Cooperation and Development</gloss>
             <gloss xml:lang="eng">OECD</gloss>
             <gloss xml:lang="pol">Organizacja Współpracy Gospodarczej i Rozwoju</gloss>
             <gloss xml:lang="pol">OECD</gloss>
@@ -9790,6 +9790,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <gloss xml:lang="eng">International Mobile Satellite Organization</gloss>
+            <gloss xml:lang="eng">IMSO</gloss>
             <gloss xml:lang="pol">Międzynarodowa Organizacja Satelitarnej Łączności Ruchomej</gloss>
         </sense>
         <misc>

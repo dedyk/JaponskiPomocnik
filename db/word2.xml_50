@@ -4300,7 +4300,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <s_inf xml:lang="pol">międzynarodowa organizacja polityczno-religijna</s_inf>
-            <gloss xml:lang="eng">Islamic Conference Organization (Organisation)</gloss>
+            <gloss xml:lang="eng">Organisation of the Islamic Conference</gloss>
             <gloss xml:lang="pol">Organizacja Współpracy Islamskiej</gloss>
         </sense>
         <misc>
@@ -8287,6 +8287,33 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="288845" dictionaryEntryTypeList="WORD_NOUN" kana="クレイジークライマー" romaji="kureijii kuraimaa" uniqueKey="-/クレイジークライマー/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5028715</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="kuroodo">クロード</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>given name or forename, gender not specified</misc>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">Claude</gloss>
+            <gloss xml:lang="pol">Claude</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">duży model językowy opracowany przez firmę Anthropic</s_inf>
+            <gloss xml:lang="eng">Claude (large language model developed by Anthropic)</gloss>
+            <gloss xml:lang="pol">Claude</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320170" dictionaryEntryTypeList="WORD_NOUN" kana="クロード" romaji="kuroodo" uniqueKey="-/クロード/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -21278,9 +21305,9 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>product name</misc>
-            <s_inf xml:lang="pol">znak towarowy Kawakami Sangyo Co.</s_inf>
-            <gloss xml:lang="eng">bubble wrap (trademark of Kawakami Sangyo Co.)</gloss>
-            <gloss xml:lang="pol">folia bąbelkowa</gloss>
+            <s_inf xml:lang="pol">nazwa folii bąbelkowej produkowanej przez Kawakami Sangyo</s_inf>
+            <gloss xml:lang="eng">Putiputi (brand of bubble wrap manufactured by Kawakami Sangyo)</gloss>
+            <gloss xml:lang="pol">Putiputi</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>

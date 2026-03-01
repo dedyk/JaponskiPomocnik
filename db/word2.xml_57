@@ -4127,31 +4127,6 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>5740863</ent_seq>
-        <k_ele>
-            <keb>日本航空</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="nippon koukuu">にっぽんこうくう</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <misc>company name</misc>
-            <s_inf xml:lang="pol">japońskie narodowe linie lotnicze z siedzibą w Tokio</s_inf>
-            <gloss xml:lang="eng">Japan Air Lines</gloss>
-            <gloss xml:lang="eng">JAL</gloss>
-            <gloss xml:lang="pol">Japan Air Lines</gloss>
-            <gloss xml:lang="pol">JAL</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary>
-                <entries id="45303" dictionaryEntryTypeList="WORD_NOUN" kanji="日本航空" kana="にっぽんこうくう" romaji="nippon koukuu" uniqueKey="日本航空/にっぽんこうくう/1"/>
-                <attributeList type="PRIORITY" value="255"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>5740864</ent_seq>
         <k_ele>
             <keb>産環協</keb>
@@ -5943,7 +5918,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <s_inf xml:lang="pol">ang: Japanese External Trade Organization</s_inf>
-            <gloss xml:lang="eng">Japanese External Trade Organization (Organisation)</gloss>
+            <gloss xml:lang="eng">Japanese External Trade Organization</gloss>
             <gloss xml:lang="eng">JETRO</gloss>
             <gloss xml:lang="pol">Japońska Organizacja Handlu Zagranicznego</gloss>
             <gloss xml:lang="pol">JETRO</gloss>
@@ -6453,11 +6428,16 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Intelsat</gloss>
+            <gloss xml:lang="pol">Intelsat</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <s_inf xml:lang="pol">największy na świecie komercyjny dostawca usług telekomunikacyjnych i operator satelitarny</s_inf>
-            <gloss xml:lang="eng">Intelsat</gloss>
-            <gloss xml:lang="eng">International Telecommunications Satellite Organization (Organisation)</gloss>
-            <gloss xml:lang="pol">Intelsat</gloss>
+            <gloss xml:lang="eng">International Telecommunications Satellite Organization</gloss>
+            <gloss xml:lang="pol">International Telecommunications Satellite Organization</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -6474,10 +6454,17 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Inmarsat</gloss>
+            <gloss xml:lang="pol">Inmarsat</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <s_inf xml:lang="pol">organizacja utworzona w 1979 roku przez Międzynarodową Organizację Morską – wyspecjalizowaną agendę ONZ-u. Jej zadaniem miało być zapewnienie komunikacji statkom. Komunikacja miała się odbywać za pośrednictwem satelitów geostacjonarnych</s_inf>
-            <gloss xml:lang="eng">International Maritime Satellite Organization (Organisation)</gloss>
+            <gloss xml:lang="eng">International Maritime Satellite Organization</gloss>
             <gloss xml:lang="eng">INMARSAT</gloss>
+            <gloss xml:lang="pol">International Maritime Satellite Organization</gloss>
             <gloss xml:lang="pol">INMARSAT</gloss>
         </sense>
         <misc>
@@ -6655,9 +6642,9 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <s_inf xml:lang="pol">organizacja międzynarodowa krajów producentów ropy naftowej z siedzibą w Wiedniu</s_inf>
-            <gloss xml:lang="eng">Organization of Petroleum Exporting Countries (Organisation)</gloss>
+            <gloss xml:lang="eng">Organization of Petroleum Exporting Countries</gloss>
             <gloss xml:lang="eng">OPEC</gloss>
-            <gloss xml:lang="pol">Organization of Petroleum Exporting Countries</gloss>
+            <gloss xml:lang="pol">Organizacja Krajów Eksportujących Ropę Naftową</gloss>
             <gloss xml:lang="pol">OPEC</gloss>
         </sense>
         <misc>
@@ -7130,7 +7117,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <misc>product name</misc>
+            <misc>character</misc>
             <s_inf xml:lang="pol">wróg w grach Mario</s_inf>
             <gloss xml:lang="eng">Goomba (enemy in Mario games)</gloss>
             <gloss xml:lang="pol">Goomba</gloss>
@@ -12490,23 +12477,6 @@
         <r_ele>
             <reb kana_type="KATAKANA" romaji="evugenii oneegin">エヴゲニーオネーギン</reb>
         </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <misc>work of art, literature, music, etc. name</misc>
-            <s_inf xml:lang="pol">opera w trzech aktach Piotra Czajkowskiego. Libretto samego kompozytora i Konstantina Szyłowskiego na podstawie poematu Aleksandra Puszkina</s_inf>
-            <gloss xml:lang="eng">Eugene Onegin (novel by Pushkin, opera by Tchaikovsky)</gloss>
-            <gloss xml:lang="pol">Eugeniusz Oniegin</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary>
-                <entries id="300449" dictionaryEntryTypeList="WORD_NOUN" kana="エヴゲニーオネーギン" romaji="evugenii oneegin" uniqueKey="-/エヴゲニーオネーギン/1"/>
-                <attributeList type="PRIORITY" value="255"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
-        <ent_seq>5741448</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="evugenii oneegin">エヴゲニー・オネーギン</reb>
         </r_ele>
@@ -12519,7 +12489,8 @@
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="300450" dictionaryEntryTypeList="WORD_NOUN" kana="エヴゲニー・オネーギン" romaji="evugenii oneegin" uniqueKey="-/エヴゲニー・オネーギン/1"/>
+                <entries id="300449" dictionaryEntryTypeList="WORD_NOUN" kana="エヴゲニーオネーギン" romaji="evugenii oneegin" uniqueKey="-/エヴゲニーオネーギン/1"/>
+                <entries id="314441" dictionaryEntryTypeList="WORD_NOUN" kana="エヴゲニー・オネーギン" romaji="evugenii oneegin" uniqueKey="-/エヴゲニー・オネーギン/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -56226,6 +56197,219 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="319083" dictionaryEntryTypeList="WORD_NOUN" kanji="大日本愛国党" kana="だいにっぽんあいこくとう" romaji="dainippon' aikokutou" uniqueKey="大日本愛国党/だいにっぽんあいこくとう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747546</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="niizuheggu">ニーズヘッグ</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="niizuhoggu">ニーズホッグ</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="nidohegu">ニドヘグ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>mythology</misc>
+            <s_inf xml:lang="pol">w mitologii skandynawskiej skrzydlaty wąż lub smok, podgryzający korzenie Yggdrasilu i wysysający krew z ciał zmarłych</s_inf>
+            <gloss xml:lang="eng">Nidhogg</gloss>
+            <gloss xml:lang="pol">Nidhogg</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="319639" dictionaryEntryTypeList="WORD_NOUN" kana="ニーズヘッグ" romaji="niizuheggu" uniqueKey="-/ニーズヘッグ/1"/>
+                <entries id="319640" dictionaryEntryTypeList="WORD_NOUN" kana="ニーズホッグ" romaji="niizuhoggu" uniqueKey="-/ニーズホッグ/1"/>
+                <entries id="319641" dictionaryEntryTypeList="WORD_NOUN" kana="ニドヘグ" romaji="nidohegu" uniqueKey="-/ニドヘグ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747547</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="ragunaroku">ラグナロク</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="ragunareku">ラグナレク</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>mythology</misc>
+            <s_inf xml:lang="pol">w mitologii nordyckiej los bogów</s_inf>
+            <gloss xml:lang="eng">Ragnarök</gloss>
+            <gloss xml:lang="eng">Ragnarok</gloss>
+            <gloss xml:lang="pol">ragnarök</gloss>
+            <gloss xml:lang="pol">ragnarak</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="319642" dictionaryEntryTypeList="WORD_NOUN" kana="ラグナロク" romaji="ragunaroku" uniqueKey="-/ラグナロク/1"/>
+                <entries id="319643" dictionaryEntryTypeList="WORD_NOUN" kana="ラグナレク" romaji="ragunareku" uniqueKey="-/ラグナレク/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747550</ent_seq>
+        <k_ele>
+            <keb>国際電気通信衛星機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kokusai denki tsuushin' eisei kikou">こくさいでんきつうしんえいせいきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">największy na świecie komercyjny dostawca usług telekomunikacyjnych i operator satelitarny</s_inf>
+            <gloss xml:lang="eng">International Telecommunications Satellite Organization</gloss>
+            <gloss xml:lang="eng">ITSO</gloss>
+            <gloss xml:lang="pol">International Telecommunications Satellite Organization</gloss>
+            <gloss xml:lang="pol">ITSO</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="319714" dictionaryEntryTypeList="WORD_NOUN" kanji="国際電気通信衛星機構" kana="こくさいでんきつうしんえいせいきこう" romaji="kokusai denki tsuushin' eisei kikou" uniqueKey="国際電気通信衛星機構/こくさいでんきつうしんえいせいきこう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747551</ent_seq>
+        <k_ele>
+            <keb>イスラム協力機構</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="isuramu kyouryoku kikou">イスラムきょうりょくきこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">międzynarodowa organizacja polityczno-religijna</s_inf>
+            <gloss xml:lang="eng">Organisation of Islamic Cooperation</gloss>
+            <gloss xml:lang="eng">OIC</gloss>
+            <gloss xml:lang="pol">Organizacja Współpracy Islamskiej</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="319715" dictionaryEntryTypeList="WORD_NOUN" kanji="イスラム協力機構" kana="イスラムきょうりょくきこう" romaji="isuramu kyouryoku kikou" uniqueKey="イスラム協力機構/イスラムきょうりょくきこう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747560</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="inpu">インプ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>mythology</misc>
+            <misc>creature</misc>
+            <s_inf xml:lang="pol">stworzenie z europejskiego folkloru</s_inf>
+            <gloss xml:lang="eng">imp (creature in European folklore)</gloss>
+            <gloss xml:lang="pol">imp</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="319832" dictionaryEntryTypeList="WORD_NOUN" kana="インプ" romaji="inpu" uniqueKey="-/インプ/2"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747565</ent_seq>
+        <k_ele>
+            <keb>ＧＮＵ一般公衆ライセンス</keb>
+        </k_ele>
+        <k_ele>
+            <keb>グヌー一般公衆ライセンス</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="gunuu ippan koushuu raisensu">グヌーいっぱんこうしゅうライセンス</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>document</misc>
+            <s_inf xml:lang="pol">licencja wolnego i otwartego oprogramowania stworzona w 1989 roku przez Richarda Stallmana i Ebena Moglena na potrzeby Projektu GNU, zatwierdzona przez Open Source Initiative</s_inf>
+            <gloss xml:lang="eng">GNU General Public License</gloss>
+            <gloss xml:lang="pol">GNU General Public License</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="319894" dictionaryEntryTypeList="WORD_NOUN" kanji="ＧＮＵ一般公衆ライセンス" kana="グヌーいっぱんこうしゅうライセンス" romaji="gunuu ippan koushuu raisensu" uniqueKey="ＧＮＵ一般公衆ライセンス/グヌーいっぱんこうしゅうライセンス/1"/>
+                <entries id="319895" dictionaryEntryTypeList="WORD_NOUN" kanji="グヌー一般公衆ライセンス" kana="グヌーいっぱんこうしゅうライセンス" romaji="gunuu ippan koushuu raisensu" uniqueKey="グヌー一般公衆ライセンス/グヌーいっぱんこうしゅうライセンス/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747569</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="sabuwei">サブウェイ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">sieć fast foodów</s_inf>
+            <gloss xml:lang="eng">Subway (fast food chain)</gloss>
+            <gloss xml:lang="pol">Subway</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320045" dictionaryEntryTypeList="WORD_NOUN" kana="サブウェイ" romaji="sabuwei" uniqueKey="-/サブウェイ/2"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747580</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="ansuropikku">アンスロピック</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="ansoropikku">アンソロピック</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Anthropic</gloss>
+            <gloss xml:lang="pol">Anthropic</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320171" dictionaryEntryTypeList="WORD_NOUN" kana="アンスロピック" romaji="ansuropikku" uniqueKey="-/アンスロピック/1"/>
+                <entries id="320172" dictionaryEntryTypeList="WORD_NOUN" kana="アンソロピック" romaji="ansoropikku" uniqueKey="-/アンソロピック/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747581</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="mensa">メンサ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <gloss xml:lang="eng">Mensa</gloss>
+            <gloss xml:lang="pol">Mensa</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320173" dictionaryEntryTypeList="WORD_NOUN" kana="メンサ" romaji="mensa" uniqueKey="-/メンサ/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

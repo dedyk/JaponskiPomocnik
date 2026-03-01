@@ -1911,22 +1911,28 @@
     </entry>
     <entry>
         <ent_seq>5130453</ent_seq>
-        <k_ele>
-            <keb>宇宙船エンタープライズ号</keb>
-        </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA_KATAKANA" romaji="uchuusen' entaapuraizu gou">うちゅうせんエンタープライズごう</reb>
+            <reb kana_type="KATAKANA" romaji="entaapuraizu">エンタープライズ</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <misc>product name</misc>
+            <misc>ship name</misc>
+            <s_inf xml:lang="pol">amerykański lotniskowiec</s_inf>
+            <gloss xml:lang="eng">USS Enterprise</gloss>
+            <gloss xml:lang="pol">USS Enterprise</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>ship name</misc>
+            <misc>fiction</misc>
             <s_inf xml:lang="pol">seria fikcyjnych statków kosmicznych, na których dzieje się akcja seriali, filmów, książek i gier w uniwersum świata Star Trek</s_inf>
-            <gloss xml:lang="eng">Spaceship Enterprise</gloss>
+            <gloss xml:lang="eng">Starship Enterprise (Star Trek)</gloss>
             <gloss xml:lang="pol">Spaceship Enterprise</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="290594" dictionaryEntryTypeList="WORD_NOUN" kanji="宇宙船エンタープライズ号" kana="うちゅうせんエンタープライズごう" romaji="uchuusen' entaapuraizu gou" uniqueKey="宇宙船エンタープライズ号/うちゅうせんエンタープライズごう/1"/>
+                <entries id="319896" dictionaryEntryTypeList="WORD_NOUN" kana="エンタープライズ" romaji="entaapuraizu" uniqueKey="-/エンタープライズ/2"/>
+                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

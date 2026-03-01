@@ -48944,4 +48944,234 @@
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
+    <entry>
+        <ent_seq>7002559</ent_seq>
+        <k_ele>
+            <keb>土人学校</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="dojin gakkou">どじんがっこう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">placówki propagandowej edukacji dla ajnuskich dzieci funkcjonujące na Hokkaido między 1901-1940, mającymi na celu zaszczepienie w nich lojalności wobec cesarza oraz zaprzestanie używania języka ajnuskiego czy uczestniczenia w kulturze ajnuskiej</s_inf>
+            <gloss xml:lang="pol">szkoła dla aborygenów na Hokkaido</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="319716" dictionaryEntryTypeList="WORD_NOUN" kanji="土人学校" kana="どじんがっこう" romaji="dojin gakkou" uniqueKey="土人学校/どじんがっこう/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002560</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="warai gaeru">ワライガエル</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">jeden z sześciu gatunków płazów bezogonowych z rodziny żabowatych występujących w Polsce, Pelophylax ridibundus</s_inf>
+            <gloss xml:lang="pol">żaba śmieszka</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320073" dictionaryEntryTypeList="WORD_NOUN" kana="ワライガエル" romaji="warai gaeru" uniqueKey="-/ワライガエル/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002561</ent_seq>
+        <k_ele>
+            <keb>電気店</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="denkiten">でんきてん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="pol">sklep z elektroniką</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320074" dictionaryEntryTypeList="WORD_NOUN" kanji="電気店" kana="でんきてん" romaji="denkiten" uniqueKey="電気店/でんきてん/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002562</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="reeshingu kaato">レーシングカート</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">ang: racing kart</s_inf>
+            <gloss xml:lang="pol">karting</gloss>
+            <gloss xml:lang="pol">wyścigi gokartów</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320075" dictionaryEntryTypeList="WORD_NOUN" kana="レーシングカート" romaji="reeshingu kaato" uniqueKey="-/レーシングカート/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002563</ent_seq>
+        <k_ele>
+            <keb>アレルギー学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="arerugii gaku">アレルギーがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="pol">alergologia</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320076" dictionaryEntryTypeList="WORD_NOUN" kanji="アレルギー学" kana="アレルギーがく" romaji="arerugii gaku" uniqueKey="アレルギー学/アレルギーがく/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002564</ent_seq>
+        <k_ele>
+            <keb>アレルギー専門医</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="arerugii senmon'i">アレルギーせんもんい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="pol">alergolog</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320077" dictionaryEntryTypeList="WORD_NOUN" kanji="アレルギー専門医" kana="アレルギーせんもんい" romaji="arerugii senmon'i" uniqueKey="アレルギー専門医/アレルギーせんもんい/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002565</ent_seq>
+        <k_ele>
+            <keb>独立峰</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="dokuritsuhou">どくりつほう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="pol">samotny szczyt</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320078" dictionaryEntryTypeList="WORD_NOUN" kanji="独立峰" kana="どくりつほう" romaji="dokuritsuhou" uniqueKey="独立峰/どくりつほう/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002566</ent_seq>
+        <k_ele>
+            <keb>編集社</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="henshuusha">へんしゅうしゃ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="pol">firma wydawnicza</gloss>
+            <gloss xml:lang="pol">wydawnictwo</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320079" dictionaryEntryTypeList="WORD_NOUN" kanji="編集社" kana="へんしゅうしゃ" romaji="henshuusha" uniqueKey="編集社/へんしゅうしゃ/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002567</ent_seq>
+        <k_ele>
+            <keb>表裏がある</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="hyouri ga aru">ひょうりがある</reb>
+        </r_ele>
+        <sense>
+            <pos>Godan verb - -aru special class</pos>
+            <s_inf xml:lang="pol">np. zachowywać się na dwa różne sposoby w różnych środowiskach (wydźwięk negatywny)</s_inf>
+            <gloss xml:lang="pol">posiadanie dwóch twarzy</gloss>
+            <gloss xml:lang="pol">posiadanie dwóch oblicz</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320080" dictionaryEntryTypeList="WORD_VERB_U" kanji="表裏がある" kana="ひょうりがある" romaji="hyouri ga aru" uniqueKey="表裏がある/ひょうりがある/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002568</ent_seq>
+        <k_ele>
+            <keb>早戻し</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="haya modoshi">はやもどし</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">np. kasety</s_inf>
+            <gloss xml:lang="pol">przewijanie do tyłu</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320081" dictionaryEntryTypeList="WORD_NOUN" kanji="早戻し" kana="はやもどし" romaji="haya modoshi" uniqueKey="早戻し/はやもどし/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002569</ent_seq>
+        <k_ele>
+            <keb>アーチェリー場</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="aacherii ba">アーチェリーば</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="pol">strzelnica łucznicza</gloss>
+            <gloss xml:lang="pol">tor łuczniczy</gloss>
+            <gloss xml:lang="pol">pole tor łucznicze</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320082" dictionaryEntryTypeList="WORD_NOUN" kanji="アーチェリー場" kana="アーチェリーば" romaji="aacherii ba" uniqueKey="アーチェリー場/アーチェリーば/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7002570</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="chifuchafu">チフチャフ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">gatunek niewielkiego ptaka wędrownego z rodziny świstunek</s_inf>
+            <gloss xml:lang="pol">pierwiosnek</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="320083" dictionaryEntryTypeList="WORD_NOUN" kana="チフチャフ" romaji="chifuchafu" uniqueKey="-/チフチャフ/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
 </JMdict>

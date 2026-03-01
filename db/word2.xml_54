@@ -1678,8 +1678,8 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>product name</misc>
-            <s_inf xml:lang="pol">publikowany przez Kenkyusha</s_inf>
-            <gloss xml:lang="eng">New Japanese-English Dictionary (published by Kenkyusha)</gloss>
+            <s_inf xml:lang="pol">publikowany przez Kenkyusha; potocznie nazywany Zieloną Boginią</s_inf>
+            <gloss xml:lang="eng">New Japanese-English Dictionary (published by Kenkyusha; known colloquially as the Green Goddess)</gloss>
             <gloss xml:lang="pol">Nowy Słownik Japońsko-Angielski</gloss>
         </sense>
         <misc>
@@ -2692,6 +2692,30 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="291766" dictionaryEntryTypeList="WORD_NOUN" kanji="神奈川大学" kana="かながわだいがく" romaji="kanagawa daigaku" uniqueKey="神奈川大学/かながわだいがく/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5418609</ent_seq>
+        <k_ele>
+            <keb>神羅</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="shinra">しんら</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>fiction</misc>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">korporacja w franczyzie Final Fantasy VII</s_inf>
+            <gloss xml:lang="eng">Shinra (corporation in the "Final Fantasy VII" franchise)</gloss>
+            <gloss xml:lang="pol">Shinra</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="319858" dictionaryEntryTypeList="WORD_NOUN" kanji="神羅" kana="しんら" romaji="shinra" uniqueKey="神羅/しんら/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -6429,7 +6453,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <s_inf xml:lang="pol">organizacja międzynarodowa krajów producentów ropy naftowej z siedzibą w Wiedniu</s_inf>
-            <gloss xml:lang="eng">Organization of Petroleum Exporting Countries (Organisation)</gloss>
+            <gloss xml:lang="eng">Organization of Petroleum Exporting Countries</gloss>
             <gloss xml:lang="eng">OPEC</gloss>
             <gloss xml:lang="pol">Organizacja Krajów Eksportujących Ropę Naftową</gloss>
             <gloss xml:lang="pol">OPEC</gloss>
@@ -9098,8 +9122,8 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <misc>product name</misc>
-            <s_inf xml:lang="pol">farsa w teatrze no</s_inf>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">humorystyczne dzieło w teatrze no</s_inf>
             <gloss xml:lang="eng">Aiaibakama (noh farce)</gloss>
             <gloss xml:lang="pol">Aiaibakama</gloss>
         </sense>
