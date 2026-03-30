@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -587,87 +589,157 @@ public class WordDictionaryDetails extends Activity {
 				WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense printableDictionaryEntry2Sense = new WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense(sense);
 
 				// numer znaczenia
-				report.add(new StringValue("" + (senseIdx + 1), 20.0f, 0));
+				/*
+				if (dictionaryEntry2.getSenseList().size() != 1) {
+					StringValue senseNoStringValue = new StringValue("" + (senseIdx + 1), 20.0f, 0);
+					// senseNoStringValue.setTypeface(Typeface.create((String)null, Typeface.BOLD));
+
+					report.add(senseNoStringValue);
+				}
+				*/
+
+				// znaczenie
+				List<Gloss> polishGlossList = printableDictionaryEntry2Sense.getPolishGlossList();
+				SenseAdditionalInfo polishAdditionalInfo = printableDictionaryEntry2Sense.getPolishAdditionalInfo();
+
+				boolean wasAdditionalInfoAllTypes = false;
+				boolean existsGtypeNull = polishGlossList.stream().filter(f -> f.getGType() == null).count() > 0;
+
+				if (existsGtypeNull == true) { // jezeli istnieje gType rowne null, wiec pokazujemy tlumaczenia i wszelkie wyjasnienia osobno
+
+					// lista tlumaczen - gtype = null
+					for (Gloss currentGlossPol : polishGlossList) {
+
+						if (currentGlossPol.getGType() == null) {
+							String currentGlossPolReportValue = currentGlossPol.getValue();
+
+							StringValue currentGlossPolReportValueStringValue = new StringValue(currentGlossPolReportValue, 20.0f, 0);
+							currentGlossPolReportValueStringValue.setTypeface(Typeface.create((String) null, Typeface.BOLD));
+
+							report.add(currentGlossPolReportValueStringValue);
+						}
+					}
+
+					// lista tlumaczen - gtype != null jako informacje dodatkowe
+					for (Gloss currentGlossPol : polishGlossList) {
+
+						if (currentGlossPol.getGType() != null) {
+							wasAdditionalInfoAllTypes = true;
+
+							String currentGlossPolReportValue = currentGlossPol.getValue() +
+									" (" + Dictionary2HelperCommon.translateToPolishGlossType(currentGlossPol.getGType()) + ")";
+
+							report.add(new StringValue("  " + currentGlossPolReportValue, 15.0f, 1));
+						}
+					}
+
+				} else { // jezeli nie ma gType = null, wiec pokazujemy po staremu
+
+					for (Gloss currentGlossPol : polishGlossList) {
+						String currentGlossPolReportValue = currentGlossPol.getValue();
+
+						// sprawdzenie, czy wystepuje dodatkowy typ znaczenia
+						if (currentGlossPol.getGType() != null) {
+							currentGlossPolReportValue += " (" + Dictionary2HelperCommon.translateToPolishGlossType(currentGlossPol.getGType()) + ")";
+						}
+
+						StringValue currentGlossPolReportValueStringValue = new StringValue(currentGlossPolReportValue, 20.0f, 0);
+						currentGlossPolReportValueStringValue.setTypeface(Typeface.create((String)null, Typeface.BOLD));
+
+						report.add(currentGlossPolReportValueStringValue);
+					}
+				}
+
+				// informacje dodatkowe
+				if (polishAdditionalInfo != null) { // czy informacje dodatkowe istnieja
+					wasAdditionalInfoAllTypes = true;
+
+					report.add(new StringValue("  " + polishAdditionalInfo.getValue(), 15.0f, 1));
+				}
+
+				// przerwa
+				final boolean wasAdditionalInfoAllTypesAsFinal = wasAdditionalInfoAllTypes;
+
+				Consumer<Void> onetimeSpacerToDetailsGenerator = new Consumer<Void>() {
+					private boolean generatedSpacer = false;
+
+					@Override
+					public void accept(Void o) {
+						if (generatedSpacer == true) {
+							return;
+						}
+						generatedSpacer = true;
+
+						if (wasAdditionalInfoAllTypesAsFinal == false) {
+							return;
+						}
+
+						report.add(new StringValue("", 7.0f, 0));
+					}
+				};
 
 				// ograniczone do kanji/kana
 				String restrictedToKanjiKanaString = printableDictionaryEntry2Sense.getRestrictedToKanjiKanaString(getApplicationContext());
 
 				if (restrictedToKanjiKanaString != null) {
-					report.add(new StringValue(restrictedToKanjiKanaString, 13.0f, 0));
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue("  " + restrictedToKanjiKanaString, 13.0f, 1));
 				}
 
 				// czesci mowy
 				String translatedToPolishPartOfSpeechEnum = printableDictionaryEntry2Sense.getTranslatedToPolishPartOfSpeechEnum(getApplicationContext());
 
 				if (translatedToPolishPartOfSpeechEnum != null) {
-					report.add(new StringValue(translatedToPolishPartOfSpeechEnum, 13.0f, 0));
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue("  " + translatedToPolishPartOfSpeechEnum, 13.0f, 1));
 				}
 
 				// kategoria slowa
 				String translatedFieldEnum = printableDictionaryEntry2Sense.getTranslatedFieldEnum(getApplicationContext());
 
 				if (translatedFieldEnum != null) {
-					report.add(new StringValue(translatedFieldEnum, 13.0f, 0));
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue("  " + translatedFieldEnum, 13.0f, 1));
 				}
 
 				// roznosci
 				String translatedMiscEnum = printableDictionaryEntry2Sense.getTranslatedMiscEnum(getApplicationContext());
 
 				if (translatedMiscEnum != null) {
-					report.add(new StringValue(translatedMiscEnum, 13.0f, 0));
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue("  " + translatedMiscEnum, 13.0f, 1));
 				}
 
 				// dialekt
 				String translatedDialectEnum = printableDictionaryEntry2Sense.getTranslatedDialectEnum(getApplicationContext());
 
 				if (translatedDialectEnum != null) {
-					report.add(new StringValue(translatedDialectEnum, 13.0f, 0));
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue("  " + translatedDialectEnum, 13.0f, 1));
 				}
 
 				// zagraniczne pochodzenie slowa
 				String joinedLanguageSource = printableDictionaryEntry2Sense.getJoinedLanguageSource(getApplicationContext());
 
 				if (joinedLanguageSource != null) {
-					report.add(new StringValue(joinedLanguageSource, 13.0f, 0));
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue("  " + joinedLanguageSource, 13.0f, 1));
 				}
 
 				// odnosnic do innego slowa
 				String referenceToAnotherKanjiKana = printableDictionaryEntry2Sense.getReferenceToAnotherKanjiKana(getApplicationContext());
 
 				if (referenceToAnotherKanjiKana != null) {
-					report.add(new StringValue(referenceToAnotherKanjiKana, 13.0f, 0));
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue("  " + referenceToAnotherKanjiKana, 13.0f, 1));
 				}
 
 				// odnosnic do przeciwienstwa
 				String antonym = printableDictionaryEntry2Sense.getAntonym(getApplicationContext());
 
 				if (antonym != null) {
-					report.add(new StringValue(antonym, 13.0f, 0));
-				}
-
-				// znaczenie
-				List<Gloss> polishGlossList = printableDictionaryEntry2Sense.getPolishGlossList();
-				SenseAdditionalInfo polishAdditionalInfo = printableDictionaryEntry2Sense.getPolishAdditionalInfo();
-
-				// znaczenie
-				for (Gloss currentGlossPol : polishGlossList) {
-
-					String currentGlossPolReportValue = currentGlossPol.getValue();
-
-					// sprawdzenie, czy wystepuje dodatkowy typ znaczenia
-					if (currentGlossPol.getGType() != null) {
-						currentGlossPolReportValue += " (" + Dictionary2HelperCommon.translateToPolishGlossType(currentGlossPol.getGType()) + ")";
-					}
-
-					StringValue currentGlossPolReportValueStringValue = new StringValue(currentGlossPolReportValue, 20.0f, 0);
-					currentGlossPolReportValueStringValue.setTypeface(Typeface.create((String)null, Typeface.BOLD));
-
-					report.add(currentGlossPolReportValueStringValue);
-				}
-
-				// informacje dodatkowe
-				if (polishAdditionalInfo != null) { // czy informacje dodatkowe istnieja
-					report.add(new StringValue(polishAdditionalInfo.getValue(), 15.0f, 1));
+					onetimeSpacerToDetailsGenerator.accept(null);
+					report.add(new StringValue("  " + antonym, 13.0f, 1));
 				}
 
 				// przerwa
@@ -875,7 +947,7 @@ public class WordDictionaryDetails extends Activity {
 			}
 
 			if (addedSomeAttribute == false) {
-				report.removeLast(); // usuwamy tytul, skoro nie bylo zadnego atrybutu
+				report.remove(report.size() - 1); // usuwamy tytul, skoro nie bylo zadnego atrybutu
 
 			} else {
 				report.add(new StringValue("", 15.0f, 0)); // przerwa
@@ -1068,7 +1140,9 @@ public class WordDictionaryDetails extends Activity {
 			for (Dictionary2HelperCommon.KanjiKanaPair kanjiKanaPair : kanjiKanaPairList) {
 				DictionaryEntry oldDictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
 
-				dictionaryEntryListToCheckUserGroups.add(oldDictionaryEntry);
+				if (oldDictionaryEntry != null) {
+					dictionaryEntryListToCheckUserGroups.add(oldDictionaryEntry);
+				}
 			}
 		}
 		// sprawdzenie, czy ktores slowko wchodzi w sklad grup uzytkownika
@@ -1637,13 +1711,15 @@ public class WordDictionaryDetails extends Activity {
 			userGroupListIcon.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
-
 					DictionaryEntry dictionaryEntry = Dictionary2HelperCommon.convertKanjiKanaPairToOldDictionaryEntry(kanjiKanaPair);
 
-					intent.putExtra("itemToAdd", dictionaryEntry);
+					if (dictionaryEntry != null) {
+						Intent intent = new Intent(getApplicationContext(), UserGroupActivity.class);
 
-					startActivityForResult(intent, ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE);
+						intent.putExtra("itemToAdd", dictionaryEntry);
+
+						startActivityForResult(intent, ADD_ITEM_ID_TO_USER_GROUP_ACTIVITY_REQUEST_CODE);
+					}
 				}
 			});
 			actionTableRow.addScreenItem(userGroupListIcon);
