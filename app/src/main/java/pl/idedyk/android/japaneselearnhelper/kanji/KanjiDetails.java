@@ -29,7 +29,9 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPlaceSearch;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.api.helper.Kanji2HelperCommon;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
+import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KenteiLevelType;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -317,7 +319,15 @@ public class KanjiDetails extends Activity {
 		} else {
 			report.add(new StringValue("-", 20.0f, 0));
 		}
-		
+
+		// kanji kentei level
+		KenteiLevelType kenteiLevel = kanjiEntry.getMisc2().getKenteiLevel();
+
+		if (kenteiLevel != null) {
+			report.add(new TitleItem(getString(R.string.kanji_details_kanji_kentei_level_label), 0));
+			report.add(new StringValue(Kanji2HelperCommon.translateToPolishGlossType(kenteiLevel), 20.0f, 0));
+		}
+
 		// kanji appearance
 		List<GroupEnum> groups = kanjiEntry.getMisc2().getGroups();
 		

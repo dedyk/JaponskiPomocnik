@@ -6,19 +6,27 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 import pl.idedyk.android.japaneselearnhelper.R;
+import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2NameHelperCommon;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Gloss;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.LanguageSource;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Sense;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.SenseAdditionalInfo;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.JMnedict;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.TranslationalInfo;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.TranslationalInfoTransDet;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.TranslationalInfoTransDetAdditionalInfo;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.Misc2Info;
 
@@ -74,10 +82,13 @@ public class WordKanjiDictionaryUtils {
         StringBuffer result = new StringBuffer();
 
         // sprawdzenie, czy mamy dane w nowym, czy starym formacie
-        JMdict.Entry dictionaryEntry2 = resultItem.getEntry();
-        DictionaryEntry dictionaryEntry = resultItem.getDictionaryEntry();
+        JMdict.Entry dictionaryEntry2 = resultItem.getWordEntry();
+        JMnedict.Entry nameDictionaryEntry2 = resultItem.getNameEntry();
 
         if (dictionaryEntry2 != null) { // nowy format
+
+            // INFO: jesli cos tutaj zmieniasz, zmien rowniez w wersji dla nameDictionaryEntry2
+
             // wygenerowanie wszystkich kombinacji
             List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, true);
 
@@ -110,91 +121,258 @@ public class WordKanjiDictionaryUtils {
                     result.append("\n\n");
                 }
 
+                // znaczenie
+                List<Gloss> polishGlossList = printableDictionaryEntry2Sense.getPolishGlossList();
+                SenseAdditionalInfo polishAdditionalInfo = printableDictionaryEntry2Sense.getPolishAdditionalInfo();
+
+                boolean wasAdditionalInfoAllTypes = false;
+
+                List<Gloss> polishGlossListGtypeNull = polishGlossList.stream().filter(f -> f.getGType() == null).collect(Collectors.toList());
+                List<Gloss> polishGlossListGtypeNotNull = polishGlossList.stream().filter(f -> f.getGType() != null).collect(Collectors.toList());
+
+                if (polishGlossListGtypeNull.size() > 0) { // jezeli istnieje gType rowne null, wiec pokazujemy tlumaczenia i wszelkie wyjasnienia osobno
+
+                    // lista tlumaczen - gtype = null
+                    for (int currentGlossIdx = 0; currentGlossIdx < polishGlossListGtypeNull.size(); ++currentGlossIdx) {
+                        Gloss gloss = polishGlossListGtypeNull.get(currentGlossIdx);
+
+                        if (gloss.getGType() == null) {
+                            result.append("<big><strong>" + getStringWithMark(
+                                    gloss.getValue(), findWord, findWordRequest.searchTranslate) +
+                                    (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
+                                    (currentGlossIdx != polishGlossListGtypeNull.size() - 1 ? "\n" : "") + "</strong></big>");
+                        }
+                    }
+
+                    // lista tlumaczen - gtype != null jako informacje dodatkowe
+                    for (int currentGlossIdx = 0; currentGlossIdx < polishGlossListGtypeNotNull.size(); ++currentGlossIdx) {
+                        Gloss gloss = polishGlossListGtypeNotNull.get(currentGlossIdx);
+
+                        if (gloss.getGType() != null) {
+                            wasAdditionalInfoAllTypes = true;
+
+                            result.append("\n");
+                            result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(
+                                    gloss.getValue(), findWord, findWordRequest.searchTranslate) +
+                                    " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")");
+                        }
+                    }
+
+                } else { // jezeli nie ma gType = null, wiec pokazujemy po staremu
+
+                    for (int currentGlossIdx = 0; currentGlossIdx < polishGlossList.size(); ++currentGlossIdx) {
+
+                        Gloss gloss = polishGlossList.get(currentGlossIdx);
+
+                        result.append("<big><strong>" + getStringWithMark(
+                                gloss.getValue(), findWord, findWordRequest.searchTranslate) +
+                                (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
+                                (currentGlossIdx != polishGlossList.size() - 1 ? "\n" : "") + "</strong></big>");
+                    }
+                }
+
+                //
+
+                // informacje dodatkowe
+                if (polishAdditionalInfo != null) {
+                    wasAdditionalInfoAllTypes = true;
+
+                    result.append("\n");
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(polishAdditionalInfo.getValue(), findWord, findWordRequest.searchInfo));
+                }
+
+                // dynamiczna przerwa
+                final boolean wasAdditionalInfoAllTypesAsFinal = wasAdditionalInfoAllTypes;
+
+                Consumer<Void> onetimeSpacerGenerator = new Consumer<Void>() {
+                    private boolean generatedSpacer = false;
+
+                    @Override
+                    public void accept(Void o) {
+                        if (generatedSpacer == true) {
+                            return;
+                        }
+
+                        generatedSpacer = true;
+
+                        if (wasAdditionalInfoAllTypesAsFinal == false) {
+                            result.append("\n");
+                            return;
+                        }
+
+                        result.append("\n<small><br/></small>");
+                    }
+                };
+
                 // ograniczone do kanji/kana
                 String restrictedToKanjiKanaString = printableDictionaryEntry2Sense.getRestrictedToKanjiKanaString(context);
 
                 if (restrictedToKanjiKanaString != null) {
-                    result.append("<i>" + restrictedToKanjiKanaString + "</i>").append("\n");
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + restrictedToKanjiKanaString + "</i>").append("\n");
                 }
 
                 // czesci mowy
                 String translatedToPolishPartOfSpeechEnum = printableDictionaryEntry2Sense.getTranslatedToPolishPartOfSpeechEnum(context);
 
                 if (translatedToPolishPartOfSpeechEnum != null) {
-                    result.append("<i>" + translatedToPolishPartOfSpeechEnum + "</i>").append("\n");
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + translatedToPolishPartOfSpeechEnum + "</i>").append("\n");
                 }
 
                 // kategoria slowa
                 String translatedFieldEnum = printableDictionaryEntry2Sense.getTranslatedFieldEnum(context);
 
                 if (translatedFieldEnum != null) {
-                    result.append("<i>" + translatedFieldEnum + "</i>").append("\n");
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + translatedFieldEnum + "</i>").append("\n");
                 }
 
                 // roznosci
                 String translatedMiscEnum = printableDictionaryEntry2Sense.getTranslatedMiscEnum(context);
 
                 if (translatedMiscEnum != null) {
-                    result.append("<i>" + translatedMiscEnum + "</i>").append("\n");
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + translatedMiscEnum + "</i>").append("\n");
                 }
 
                 // dialekt
                 String translatedDialectEnum = printableDictionaryEntry2Sense.getTranslatedDialectEnum(context);
 
                 if (translatedDialectEnum != null) {
-                    result.append("<i>" + translatedDialectEnum + "</i>").append("\n");
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + translatedDialectEnum + "</i>").append("\n");
                 }
 
                 // zagraniczne pochodzenie slowa
                 String joinedLanguageSource = printableDictionaryEntry2Sense.getJoinedLanguageSource(context);
 
                 if (joinedLanguageSource != null) {
-                    result.append("<i>" + joinedLanguageSource + "</i>").append("\n");
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + joinedLanguageSource + "</i>").append("\n");
                 }
 
                 // odnosnic do innego slowa
                 String referenceToAnotherKanjiKana = printableDictionaryEntry2Sense.getReferenceToAnotherKanjiKana(context);
 
                 if (referenceToAnotherKanjiKana != null) {
-                    result.append("<i>" + referenceToAnotherKanjiKana + "</i>").append("\n");
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + referenceToAnotherKanjiKana + "</i>").append("\n");
                 }
 
                 // odnosnic do przeciwienstwa
                 String antonym = printableDictionaryEntry2Sense.getAntonym(context);
 
                 if (antonym != null) {
-                    result.append("<i>" + antonym + "</i>").append("\n");
-                }
-
-                // znaczenie
-                List<Gloss> polishGlossList = printableDictionaryEntry2Sense.getPolishGlossList();
-                SenseAdditionalInfo polishAdditionalInfo = printableDictionaryEntry2Sense.getPolishAdditionalInfo();
-
-                //
-
-                for (int currentGlossIdx = 0; currentGlossIdx < polishGlossList.size(); ++currentGlossIdx) {
-
-                    Gloss gloss = polishGlossList.get(currentGlossIdx);
-
-                    result.append("<big><strong>" + getStringWithMark(
-                            gloss.getValue(), findWord, findWordRequest.searchTranslate) +
-                            (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
-                            (currentGlossIdx != polishGlossList.size() - 1 ? "\n" : "") + "</strong></big>");
-                }
-
-                // informacje dodatkowe
-                if (polishAdditionalInfo != null) {
-                    result.append("\n");
-                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(polishAdditionalInfo.getValue(), findWord, findWordRequest.searchInfo));
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + antonym + "</i>").append("\n");
                 }
 
                 // przerwa
                 if (senseIdx != dictionaryEntry2.getSenseList().size() - 1) {
-                    result.append("\n\n");
+                    result.append("\n");
                 }
             }
 
-        } else if (dictionaryEntry != null) { // stary format
+        } else if (nameDictionaryEntry2 != null) { // slowko z nazwa
+            // INFO: jesli cos tutaj zmieniasz, zmien rowniez w wersji dla dictionaryEntry2
+
+            // wygenerowanie wszystkich kombinacji
+            List<Dictionary2NameHelperCommon.NameKanjiKanaPair> kanjiKanaPairList = Dictionary2NameHelperCommon.getNameKanjiKanaPairListStatic(nameDictionaryEntry2);
+
+            for (int kanjiKanaPairIdx = 0; kanjiKanaPairIdx < kanjiKanaPairList.size(); ++kanjiKanaPairIdx) {
+
+                if (kanjiKanaPairIdx != 0) {
+                    result.append("\n");
+                }
+
+                Dictionary2NameHelperCommon.NameKanjiKanaPair nameKanjiKanaPair = kanjiKanaPairList.get(kanjiKanaPairIdx);
+
+                // pobieramy wszystkie skladniki slowa
+                String kanji = nameKanjiKanaPair.getKanji();
+                String kana = nameKanjiKanaPair.getKana();
+                String romaji = nameKanjiKanaPair.getRomaji();
+
+                if (kanji != null) {
+                    result.append("<big>" + getStringWithMark(kanji, findWord, findWordRequest.searchKanji) + "</big>").append(" - ");
+                }
+
+                result.append("<big>" + getStringWithMark(kana, findWord, findWordRequest.searchKana) + "</big>").append(" - ");
+                result.append("<big>" + getStringWithMark(romaji, findWord, findWordRequest.searchRomaji) + "</big>");
+            }
+
+            for (int translationInfoIdx = 0; translationInfoIdx < nameDictionaryEntry2.getTranslationInfo().size(); ++translationInfoIdx) {
+                TranslationalInfo translationalInfo = nameDictionaryEntry2.getTranslationInfo().get(translationInfoIdx);
+
+                if (translationInfoIdx == 0) {
+                    result.append("\n\n");
+                }
+
+                // znaczenie
+                List<TranslationalInfoTransDet> translationalInfoTransDetList = Dictionary2NameHelperCommon.getEnglishOrPolishTranslationalInfoTransDet(translationalInfo.getTransDet());
+                TranslationalInfoTransDetAdditionalInfo additionalInfo = Dictionary2NameHelperCommon.getFirstEnglishOrPolishTranslationalInfoTransDetAdditionalInfo(translationalInfo.getAddInfo());
+
+                boolean wasAdditionalInfoAllTypes = false;
+
+                for (int currentTranslationalInfoTransDetIdx = 0; currentTranslationalInfoTransDetIdx < translationalInfoTransDetList.size(); ++currentTranslationalInfoTransDetIdx) {
+
+                    TranslationalInfoTransDet translationalInfoTransDet = translationalInfoTransDetList.get(currentTranslationalInfoTransDetIdx);
+
+                    result.append("<big><strong>" + getStringWithMark(
+                            translationalInfoTransDet.getValue(), findWord, findWordRequest.searchTranslate) +
+                            (currentTranslationalInfoTransDetIdx != translationalInfoTransDetList.size() - 1 ? "\n" : "") + "</strong></big>");
+                }
+
+                //
+
+                // informacje dodatkowe
+                if (additionalInfo != null) {
+                    wasAdditionalInfoAllTypes = true;
+
+                    result.append("\n");
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(additionalInfo.getValue(), findWord, findWordRequest.searchInfo));
+                }
+
+                // dynamiczna przerwa
+                final boolean wasAdditionalInfoAllTypesAsFinal = wasAdditionalInfoAllTypes;
+
+                Consumer<Void> onetimeSpacerGenerator = new Consumer<Void>() {
+                    private boolean generatedSpacer = false;
+
+                    @Override
+                    public void accept(Void o) {
+                        if (generatedSpacer == true) {
+                            return;
+                        }
+
+                        generatedSpacer = true;
+
+                        if (wasAdditionalInfoAllTypesAsFinal == false) {
+                            result.append("\n");
+                            return;
+                        }
+
+                        result.append("\n<small><br/></small>");
+                    }
+                };
+
+                // rodzaj nazwy
+                if (translationalInfo.getNameType().size() > 0) {
+                    // zamiana na przetlumaczona postac
+                    String translatedToPolishTranslationalInfoNameType = join("; ", Dictionary2NameHelperCommon.translateToPolishTranslationalInfoNameTypeList(translationalInfo.getNameType()));
+
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + translatedToPolishTranslationalInfoNameType + "</i>").append("\n");
+                }
+
+                // przerwa
+                if (translationInfoIdx != nameDictionaryEntry2.getTranslationInfo().size() - 1) {
+                    result.append("\n");
+                }
+            }
+        }
+        /*
+        else if (dictionaryEntry != null) { // stary format
 
             // pobieramy wszystkie skladniki slowa
             String kanji = dictionaryEntry.getKanji();
@@ -233,8 +411,8 @@ public class WordKanjiDictionaryUtils {
                 result.append("\n");
                 result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(info, findWord, findWordRequest.searchInfo));
             }
-
-        } else {
+        */
+        else {
             throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
         }
 
@@ -396,7 +574,7 @@ public class WordKanjiDictionaryUtils {
                 restrictedToKanjiKanaList.addAll(sense.getRestrictedToKanaList());
 
                 // zamiana na przetlumaczona postac
-                restrictedToKanjiKanaString = "・" + context.getString(R.string.word_dictionary_search_restrictedKanjiKanaForOnly) + " " + String.join("; ", restrictedToKanjiKanaList);
+                restrictedToKanjiKanaString = context.getString(R.string.word_dictionary_search_restrictedKanjiKanaForOnly) + " " + join("; ", restrictedToKanjiKanaList);
             }
 
             return restrictedToKanjiKanaString;
@@ -407,7 +585,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getPartOfSpeechList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedToPolishPartOfSpeechEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(sense.getPartOfSpeechList()));
+                translatedToPolishPartOfSpeechEnum = join("; ", Dictionary2HelperCommon.translateToPolishPartOfSpeechEnum(sense.getPartOfSpeechList()));
             }
 
             return translatedToPolishPartOfSpeechEnum;
@@ -418,7 +596,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getFieldList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedFieldEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishFieldEnumList(sense.getFieldList()));
+                translatedFieldEnum = join("; ", Dictionary2HelperCommon.translateToPolishFieldEnumList(sense.getFieldList()));
             }
 
             return translatedFieldEnum;
@@ -429,7 +607,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getMiscList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedMiscEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishMiscEnumList(sense.getMiscList()));
+                translatedMiscEnum = join("; ", Dictionary2HelperCommon.translateToPolishMiscEnumList(sense.getMiscList()));
             }
 
             return translatedMiscEnum;
@@ -440,7 +618,7 @@ public class WordKanjiDictionaryUtils {
 
             if (sense.getDialectList().size() > 0) {
                 // zamiana na przetlumaczona postac
-                translatedDialectEnum = "・" + String.join("; ", Dictionary2HelperCommon.translateToPolishDialectEnumList(sense.getDialectList()));
+                translatedDialectEnum = join("; ", Dictionary2HelperCommon.translateToPolishDialectEnumList(sense.getDialectList()));
             }
 
             return translatedDialectEnum;
@@ -475,7 +653,7 @@ public class WordKanjiDictionaryUtils {
                     singleLanguageSourceList.add(singleLanguageSource.toString());
                 }
 
-                joinedLanguageSource = "・" + String.join("; ", singleLanguageSourceList);
+                joinedLanguageSource = join("; ", singleLanguageSourceList);
             }
 
             return joinedLanguageSource;
@@ -521,7 +699,7 @@ public class WordKanjiDictionaryUtils {
             StringBuffer result = new StringBuffer();
 
             if (wordsToCreateLinkList.size() > 0) {
-                result.append("・" + context.getString(stringIdTitle) + " ");
+                result.append(context.getString(stringIdTitle) + " ");
 
                 for (int wordsToCreateLinkListIdx = 0; wordsToCreateLinkListIdx < wordsToCreateLinkList.size(); ++wordsToCreateLinkListIdx) {
                     String currentWordsToCreateLink = wordsToCreateLinkList.get(wordsToCreateLinkListIdx);
@@ -544,5 +722,19 @@ public class WordKanjiDictionaryUtils {
         public SenseAdditionalInfo getPolishAdditionalInfo() {
             return Dictionary2HelperCommon.findFirstPolishAdditionalInfo(sense.getAdditionalInfoList());
         }
+    }
+
+    private static String join(CharSequence delimiter, List<String> elements) {
+        StringBuffer result = new StringBuffer();
+
+        for (int idx = 0; idx < elements.size(); ++idx) {
+            result.append(elements.get(idx));
+
+            if (idx != elements.size() - 1) {
+                result.append(", ");
+            }
+        }
+
+        return result.toString();
     }
 }

@@ -22,8 +22,8 @@ CLASSPATH=$CLASSPATH:libs-db-generator/gson-${gson_version}.jar
 #db/sentences_groups.csv \
 #db/kanji2.xml \
 #db/radical.csv \
-#db/names.csv \
 #db/word2.xml \
+#db/name2.xml \
 #db-lucene
 
 cp db/kana.csv app/src/main/assets/

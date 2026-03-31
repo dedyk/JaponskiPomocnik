@@ -58,14 +58,14 @@ public class WordTestSummary extends Activity {
 		
 		answersNoValueLabel.setText("" + allAnswersNo);
 		
-		if (wordTestMode == WordTestMode.INPUT) {
+		if (wordTestMode == WordTestMode.INPUT && allAnswersNo != 0) {
 			
 			resultValueLabel.setText("" + ((correctAnswerNo * 100) / allAnswersNo) + " %");
 			
 			correctAnswersNoValueLabel.setText("" + correctAnswerNo);
 			incorrentAnswersNoValueLabel.setText("" + incorrectAnswerNo);	
 			
-		} else if (wordTestMode == WordTestMode.OVERVIEW) {
+		} else if (wordTestMode == WordTestMode.OVERVIEW || allAnswersNo == 0) {
 			
 			resultValueLabel.setText("-");
 			correctAnswersNoValueLabel.setText("-");
