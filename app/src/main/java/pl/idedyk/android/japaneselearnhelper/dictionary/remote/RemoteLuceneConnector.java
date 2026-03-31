@@ -314,8 +314,6 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     @Override
     public JMnedict.Entry getNameDictionaryEntry2ById(String id) throws DictionaryException {
 
-        // FM_FIXME: sprawdzic, czy to dziala
-
         return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
@@ -325,12 +323,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 String responseJson = null;
 
-                DictionaryEntry result = null;
+                JMnedict.Entry result = null;
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getNameDictionaryEntry2ById", requestJson);
 
-                    result = gson.fromJson((String) responseJson, DictionaryEntry.class);
+                    result = gson.fromJson((String) responseJson, JMnedict.Entry.class);
 
                 } catch (Exception e) {
                     return e;
@@ -343,8 +341,6 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
     @Override
     public JMnedict.Entry getNameDictionaryEntry2ByCounter(final int counter) throws DictionaryException {
-
-        // FM_FIXME: sprawdzic, czy to dziala
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -373,9 +369,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
     @Override
     public JMnedict.Entry getNameDictionaryEntry2ByOldPolishJapaneseDictionaryUniqueKey(final String uniqueKey) throws DictionaryException {
-
-        // FM_FIXME: sprawdzic, czy to dziala
-
+        
         return ServerClient.callInServerThread(new Callable<Object>() {
 
             @Override
@@ -385,12 +379,12 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 String responseJson = null;
 
-                DictionaryEntry result = null;
+                JMnedict.Entry result = null;
 
                 try {
                     responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getNameDictionaryEntry2ByOldPolishJapaneseDictionaryUniqueKey", requestJson);
 
-                    result = gson.fromJson((String) responseJson, DictionaryEntry.class);
+                    result = gson.fromJson((String) responseJson, JMnedict.Entry.class);
 
                 } catch (Exception e) {
                     return e;
