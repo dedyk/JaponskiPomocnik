@@ -17,12 +17,16 @@ import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordResult;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.KanjivgEntry;
 import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2NameHelperCommon;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Gloss;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.LanguageSource;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Sense;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.SenseAdditionalInfo;
 import pl.idedyk.japanese.dictionary2.jmnedict.xsd.JMnedict;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.TranslationalInfo;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.TranslationalInfoTransDet;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.TranslationalInfoTransDetAdditionalInfo;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.Misc2Info;
 
@@ -77,13 +81,14 @@ public class WordKanjiDictionaryUtils {
         // wygenerowanie docelowego html-a
         StringBuffer result = new StringBuffer();
 
-        // FM_FIXME: sprawdzic, czy to dziala
-
         // sprawdzenie, czy mamy dane w nowym, czy starym formacie
         JMdict.Entry dictionaryEntry2 = resultItem.getWordEntry();
         JMnedict.Entry nameDictionaryEntry2 = resultItem.getNameEntry();
 
         if (dictionaryEntry2 != null) { // nowy format
+
+            // INFO: jesli cos tutaj zmieniasz, zmien rowniez w wersji dla nameDictionaryEntry2
+
             // wygenerowanie wszystkich kombinacji
             List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, true);
 
@@ -270,10 +275,101 @@ public class WordKanjiDictionaryUtils {
             }
 
         } else if (nameDictionaryEntry2 != null) { // slowko z nazwa
-            // FM_FIXME: zaimplementowac
+            // INFO: jesli cos tutaj zmieniasz, zmien rowniez w wersji dla dictionaryEntry2
 
+            // wygenerowanie wszystkich kombinacji
+            List<Dictionary2NameHelperCommon.NameKanjiKanaPair> kanjiKanaPairList = Dictionary2NameHelperCommon.getNameKanjiKanaPairListStatic(nameDictionaryEntry2);
 
+            for (int kanjiKanaPairIdx = 0; kanjiKanaPairIdx < kanjiKanaPairList.size(); ++kanjiKanaPairIdx) {
 
+                if (kanjiKanaPairIdx != 0) {
+                    result.append("\n");
+                }
+
+                Dictionary2NameHelperCommon.NameKanjiKanaPair nameKanjiKanaPair = kanjiKanaPairList.get(kanjiKanaPairIdx);
+
+                // pobieramy wszystkie skladniki slowa
+                String kanji = nameKanjiKanaPair.getKanji();
+                String kana = nameKanjiKanaPair.getKana();
+                String romaji = nameKanjiKanaPair.getRomaji();
+
+                if (kanji != null) {
+                    result.append("<big>" + getStringWithMark(kanji, findWord, findWordRequest.searchKanji) + "</big>").append(" - ");
+                }
+
+                result.append("<big>" + getStringWithMark(kana, findWord, findWordRequest.searchKana) + "</big>").append(" - ");
+                result.append("<big>" + getStringWithMark(romaji, findWord, findWordRequest.searchRomaji) + "</big>");
+            }
+
+            for (int translationInfoIdx = 0; translationInfoIdx < nameDictionaryEntry2.getTranslationInfo().size(); ++translationInfoIdx) {
+                TranslationalInfo translationalInfo = nameDictionaryEntry2.getTranslationInfo().get(translationInfoIdx);
+
+                if (translationInfoIdx == 0) {
+                    result.append("\n\n");
+                }
+
+                // znaczenie
+                List<TranslationalInfoTransDet> translationalInfoTransDetList = Dictionary2NameHelperCommon.getEnglishOrPolishTranslationalInfoTransDet(translationalInfo.getTransDet());
+                TranslationalInfoTransDetAdditionalInfo additionalInfo = Dictionary2NameHelperCommon.getFirstEnglishOrPolishTranslationalInfoTransDetAdditionalInfo(translationalInfo.getAddInfo());
+
+                boolean wasAdditionalInfoAllTypes = false;
+
+                for (int currentTranslationalInfoTransDetIdx = 0; currentTranslationalInfoTransDetIdx < translationalInfoTransDetList.size(); ++currentTranslationalInfoTransDetIdx) {
+
+                    TranslationalInfoTransDet translationalInfoTransDet = translationalInfoTransDetList.get(currentTranslationalInfoTransDetIdx);
+
+                    result.append("<big><strong>" + getStringWithMark(
+                            translationalInfoTransDet.getValue(), findWord, findWordRequest.searchTranslate) +
+                            (currentTranslationalInfoTransDetIdx != translationalInfoTransDetList.size() - 1 ? "\n" : "") + "</strong></big>");
+                }
+
+                //
+
+                // informacje dodatkowe
+                if (additionalInfo != null) {
+                    wasAdditionalInfoAllTypes = true;
+
+                    result.append("\n");
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(additionalInfo.getValue(), findWord, findWordRequest.searchInfo));
+                }
+
+                // dynamiczna przerwa
+                final boolean wasAdditionalInfoAllTypesAsFinal = wasAdditionalInfoAllTypes;
+
+                Consumer<Void> onetimeSpacerGenerator = new Consumer<Void>() {
+                    private boolean generatedSpacer = false;
+
+                    @Override
+                    public void accept(Void o) {
+                        if (generatedSpacer == true) {
+                            return;
+                        }
+
+                        generatedSpacer = true;
+
+                        if (wasAdditionalInfoAllTypesAsFinal == false) {
+                            result.append("\n");
+                            return;
+                        }
+
+                        result.append("\n<small><br/></small>");
+                    }
+                };
+
+                // rodzaj nazwy
+                if (translationalInfo.getNameType().size() > 0) {
+                    // zamiana na przetlumaczona postac
+                    String translatedToPolishTranslationalInfoNameType = join("; ", Dictionary2NameHelperCommon.translateToPolishTranslationalInfoNameTypeList(translationalInfo.getNameType()));
+
+                    onetimeSpacerGenerator.accept(null);
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + translatedToPolishTranslationalInfoNameType + "</i>").append("\n");
+                }
+
+                // przerwa
+                if (translationInfoIdx != nameDictionaryEntry2.getTranslationInfo().size() - 1) {
+                    result.append("\n");
+                }
+            }
         }
         /*
         else if (dictionaryEntry != null) { // stary format
