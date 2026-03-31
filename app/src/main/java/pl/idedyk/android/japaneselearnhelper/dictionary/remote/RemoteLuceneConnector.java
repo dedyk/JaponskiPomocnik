@@ -23,6 +23,7 @@ import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.JMnedict;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 public class RemoteLuceneConnector implements IDatabaseConnector {
@@ -311,7 +312,9 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
     }
 
     @Override
-    public DictionaryEntry getDictionaryEntryNameById(final String id) throws DictionaryException {
+    public JMnedict.Entry getNameDictionaryEntry2ById(String id) throws DictionaryException {
+
+        // FM_FIXME: sprawdzic, czy to dziala
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -325,7 +328,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 DictionaryEntry result = null;
 
                 try {
-                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntryNameById", requestJson);
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getNameDictionaryEntry2ById", requestJson);
 
                     result = gson.fromJson((String) responseJson, DictionaryEntry.class);
 
@@ -335,11 +338,43 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 return result;
             }
-        }, DictionaryEntry.class);
+        }, JMnedict.Entry.class);
     }
 
     @Override
-    public DictionaryEntry getDictionaryEntryNameByUniqueKey(final String uniqueKey) throws DictionaryException {
+    public JMnedict.Entry getNameDictionaryEntry2ByCounter(final int counter) throws DictionaryException {
+
+        // FM_FIXME: sprawdzic, czy to dziala
+
+        return ServerClient.callInServerThread(new Callable<Object>() {
+
+            @Override
+            public Object call() throws Exception {
+
+                String requestJson = gson.toJson(counter);
+
+                String responseJson = null;
+
+                JMnedict.Entry result = null;
+
+                try {
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getNameDictionaryEntry2ByCounter", requestJson);
+
+                    result = gson.fromJson((String) responseJson, JMnedict.Entry.class);
+
+                } catch (Exception e) {
+                    return e;
+                }
+
+                return result;
+            }
+        }, JMnedict.Entry.class);
+    }
+
+    @Override
+    public JMnedict.Entry getNameDictionaryEntry2ByOldPolishJapaneseDictionaryUniqueKey(final String uniqueKey) throws DictionaryException {
+
+        // FM_FIXME: sprawdzic, czy to dziala
 
         return ServerClient.callInServerThread(new Callable<Object>() {
 
@@ -353,7 +388,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
                 DictionaryEntry result = null;
 
                 try {
-                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getDictionaryEntryNameByUniqueKey", requestJson);
+                    responseJson = serverClient.callRemoteDictionaryConnectorMethod(packageInfo, "getNameDictionaryEntry2ByOldPolishJapaneseDictionaryUniqueKey", requestJson);
 
                     result = gson.fromJson((String) responseJson, DictionaryEntry.class);
 
@@ -363,7 +398,7 @@ public class RemoteLuceneConnector implements IDatabaseConnector {
 
                 return result;
             }
-        }, DictionaryEntry.class);
+        }, JMnedict.Entry.class);
     }
 
     @Override

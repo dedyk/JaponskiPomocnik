@@ -666,8 +666,10 @@ public class KanjiTestOptionsActivity extends Activity {
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
 
-										DictionaryEntry dictionaryEntry = currentFindWordResultResult.getDictionaryEntry();
-										JMdict.Entry dictionaryEntry2 = currentFindWordResultResult.getEntry();
+										// FM_FIXME: sprawdzic, czy to dziala
+
+										DictionaryEntry dictionaryEntry = null; //currentFindWordResultResult.getDictionaryEntry();
+										JMdict.Entry dictionaryEntry2 = currentFindWordResultResult.getWordEntry();
 
 										if (dictionaryEntry2 != null) {
 											List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, false);
@@ -720,8 +722,11 @@ public class KanjiTestOptionsActivity extends Activity {
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
-										DictionaryEntry dictionaryEntry = currentFindWordResultResult.getDictionaryEntry();
-										JMdict.Entry dictionaryEntry2 = currentFindWordResultResult.getEntry();
+
+										// FM_FIXME: sprawdzic, czy to dziala
+
+										DictionaryEntry dictionaryEntry = null; //currentFindWordResultResult.getDictionaryEntry();
+										JMdict.Entry dictionaryEntry2 = currentFindWordResultResult.getWordEntry();
 
 										if (dictionaryEntry2 != null) {
 											List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, false);

@@ -71,11 +71,12 @@ public class WordDictionaryListItem {
 	}
 	
 	public Serializable getResultItemObject() {
-		if (resultItem.getEntry() != null) {
-			return resultItem.getEntry();
+		// FM_FIXME: sprawdzic, czy to dziala
+		if (resultItem.getWordEntry() != null) {
+			return resultItem.getWordEntry();
 
-		} else if (resultItem.getDictionaryEntry() != null) {
-			return resultItem.getDictionaryEntry();
+		} else if (resultItem.getNameEntry() != null) {
+			return resultItem.getNameEntry();
 
 		} else {
 			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie

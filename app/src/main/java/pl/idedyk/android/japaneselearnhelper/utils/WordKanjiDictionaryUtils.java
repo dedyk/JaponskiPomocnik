@@ -22,6 +22,7 @@ import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.LanguageSource;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Sense;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.SenseAdditionalInfo;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.JMnedict;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.Misc2Info;
 
@@ -76,9 +77,11 @@ public class WordKanjiDictionaryUtils {
         // wygenerowanie docelowego html-a
         StringBuffer result = new StringBuffer();
 
+        // FM_FIXME: sprawdzic, czy to dziala
+
         // sprawdzenie, czy mamy dane w nowym, czy starym formacie
-        JMdict.Entry dictionaryEntry2 = resultItem.getEntry();
-        DictionaryEntry dictionaryEntry = resultItem.getDictionaryEntry();
+        JMdict.Entry dictionaryEntry2 = resultItem.getWordEntry();
+        JMnedict.Entry nameDictionaryEntry2 = resultItem.getNameEntry();
 
         if (dictionaryEntry2 != null) { // nowy format
             // wygenerowanie wszystkich kombinacji
@@ -266,7 +269,14 @@ public class WordKanjiDictionaryUtils {
                 }
             }
 
-        } else if (dictionaryEntry != null) { // stary format
+        } else if (nameDictionaryEntry2 != null) { // slowko z nazwa
+            // FM_FIXME: zaimplementowac
+
+
+
+        }
+        /*
+        else if (dictionaryEntry != null) { // stary format
 
             // pobieramy wszystkie skladniki slowa
             String kanji = dictionaryEntry.getKanji();
@@ -305,8 +315,8 @@ public class WordKanjiDictionaryUtils {
                 result.append("\n");
                 result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getStringWithMark(info, findWord, findWordRequest.searchInfo));
             }
-
-        } else {
+        */
+        else {
             throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
         }
 
