@@ -786,7 +786,6 @@ public class WordDictionaryDetails extends Activity {
 				*/
 
 				// znaczenie
-				// znaczenie
 				List<TranslationalInfoTransDet> translationalInfoTransDetList = Dictionary2NameHelperCommon.getEnglishOrPolishTranslationalInfoTransDet(translationalInfo.getTransDet());
 				TranslationalInfoTransDetAdditionalInfo additionalInfo = Dictionary2NameHelperCommon.getFirstEnglishOrPolishTranslationalInfoTransDetAdditionalInfo(translationalInfo.getAddInfo());
 
