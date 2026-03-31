@@ -59,6 +59,7 @@ import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateRequest;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResult;
 import pl.idedyk.japanese.dictionary.api.gramma.dto.GrammaFormConjugateResultType;
 import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2HelperCommon;
+import pl.idedyk.japanese.dictionary2.api.helper.Dictionary2NameHelperCommon;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Gloss;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.KanjiAdditionalInfoEnum;
@@ -69,6 +70,7 @@ import pl.idedyk.japanese.dictionary2.jmdict.xsd.ReadingInfoKana;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.ReadingInfoKanaType;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Sense;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.SenseAdditionalInfo;
+import pl.idedyk.japanese.dictionary2.jmnedict.xsd.JMnedict;
 import pl.idedyk.japanese.dictionary2.kanjidic2.xsd.KanjiCharacterInfo;
 
 import android.app.Activity;
@@ -108,8 +110,8 @@ public class WordDictionaryDetails extends Activity {
 	private List<Integer> searchResultScrollToList = null;
 	private Integer searchScreenItemCurrentPos = null;
 
-	private DictionaryEntry dictionaryEntry = null;
-	private JMdict.Entry dictionaryEntry2 = null;
+	private JMdict.Entry dictionaryEntry2__ = null;
+	private JMnedict.Entry nameDictionaryEntry2 = null;
 
 	//
 
@@ -323,6 +325,8 @@ public class WordDictionaryDetails extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
+		// FM_FIXME: sprawdzic, czy to dziala
+
 		super.onCreate(savedInstanceState);
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.word_dictionary_details);
@@ -331,11 +335,11 @@ public class WordDictionaryDetails extends Activity {
 
 		Object item = getIntent().getSerializableExtra("item");
 
-		if (item instanceof DictionaryEntry) {
-			dictionaryEntry = (DictionaryEntry)item;
+		 if (item instanceof JMdict.Entry) {
+			 dictionaryEntry2 = (JMdict.Entry) item;
 
-		} else if (item instanceof JMdict.Entry) {
-			dictionaryEntry2 = (JMdict.Entry)item;
+		 } else if (item instanceof JMnedict.Entry) {
+			 nameDictionaryEntry2 = (JMnedict.Entry) item;
 
 		} else {
 			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
@@ -344,7 +348,7 @@ public class WordDictionaryDetails extends Activity {
 		final ScrollView scrollMainLayout = (ScrollView) findViewById(R.id.word_dictionary_details_main_layout_scroll);
 		final LinearLayout detailsMainLayout = (LinearLayout) findViewById(R.id.word_dictionary_details_main_layout);
 
-		generatedDetails = generateDetails(dictionaryEntry, dictionaryEntry2, scrollMainLayout);
+		generatedDetails = generateDetails(dictionaryEntry2, nameDictionaryEntry2, scrollMainLayout);
 
 		fillDetailsMainLayout(generatedDetails, detailsMainLayout);
 
@@ -433,22 +437,25 @@ public class WordDictionaryDetails extends Activity {
 		}
 	}
 
-	private List<IScreenItem> generateDetails(final DictionaryEntry dictionaryEntry, JMdict.Entry dictionaryEntry2, final ScrollView scrollMainLayout) {
+	private List<IScreenItem> generateDetails(JMdict.Entry dictionaryEntry2__, JMnedict.Entry nameDictionaryEntry2, final ScrollView scrollMainLayout) {
+
+		// FM_FIXME: sprawdzic, czy to dziala
 
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 
 		// pobieramy pary slowek do wyswietlenia
-		List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList;
+		List<Dictionary2HelperCommon.KanjiKanaPair> kanjiKanaPairList_____ = null;
+		List<Dictionary2NameHelperCommon.NameKanjiKanaPair> nameKanjiKanaPairList = null;
 
 		if (dictionaryEntry2 != null) { // nowy format
 			kanjiKanaPairList = Dictionary2HelperCommon.getKanjiKanaPairListStatic(dictionaryEntry2, true);
 
-		} else { // stary format
-			kanjiKanaPairList = null;
+		} else { // slowko z nazwa
+			nameKanjiKanaPairList = Dictionary2NameHelperCommon.getNameKanjiKanaPairListStatic(nameDictionaryEntry2);
 		}
 
 		// info dla slow typu name
-		if (dictionaryEntry != null && dictionaryEntry.isName() == true) {
+		if (nameDictionaryEntry2 != null) {
 
 			StringValue dictionaryEntryInfoName = new StringValue(getString(R.string.word_dictionary_details_name_info), 12.0f, 0);
 
@@ -477,39 +484,48 @@ public class WordDictionaryDetails extends Activity {
 				createWordKanjiKanaPairSection(report, kanjiKanaPair, kanjiKanaPairIdx == kanjiKanaPairList.size() - 1);
 			}
 
-		} else { // stary format
-			// stworzenie wirtualnego KanjiKanaPair
-			KanjiInfo kanjiInfo = new KanjiInfo();
+		} else { // slowko z nazwa
+			for (int nameKanjiKanaPairIdx = 0; nameKanjiKanaPairIdx < nameKanjiKanaPairList.size(); ++nameKanjiKanaPairIdx) {
+				Dictionary2NameHelperCommon.NameKanjiKanaPair nameKanjiKanaPair = nameKanjiKanaPairList.get(nameKanjiKanaPairIdx);
 
-			kanjiInfo.setKanji(dictionaryEntry.getKanji());
+				// stworzenie wirtualnego KanjiKanaPair
+				KanjiInfo virtualKanjiInfo = null;
 
-			ReadingInfo readingInfo = new ReadingInfo();
+				pl.idedyk.japanese.dictionary2.jmnedict.xsd.KanjiInfo nameKanjiInfo = nameKanjiKanaPair.getKanjiInfo();
 
-			ReadingInfoKana readingInfoKana = new ReadingInfoKana();
-			readingInfo.setKana(readingInfoKana);
+				if (nameKanjiInfo != null) {
+					virtualKanjiInfo = new KanjiInfo();
 
-			if (dictionaryEntry.getWordType() != null) {
-				readingInfoKana.setKanaType(ReadingInfoKanaType.valueOf(dictionaryEntry.getWordType().name()));
+					virtualKanjiInfo.setKanji(nameKanjiInfo.getKanji());
+				}
+
+				ReadingInfo virtualReadingInfo = new ReadingInfo();
+
+				ReadingInfoKana virtualReadingInfoKana = new ReadingInfoKana();
+				virtualReadingInfo.setKana(virtualReadingInfoKana);
+
+				virtualReadingInfoKana.setValue(nameKanjiKanaPair.getKana());
+				virtualReadingInfoKana.setRomaji(nameKanjiKanaPair.getRomaji());
+
+				Dictionary2HelperCommon.KanjiKanaPair virtualKanjiKanaPair = new Dictionary2HelperCommon.KanjiKanaPair(null, virtualKanjiInfo, virtualReadingInfo);
+
+				// pobieramy wszystkie skladniki slowa
+				createWordKanjiKanaPairSection(report, virtualKanjiKanaPair, nameKanjiKanaPairIdx == nameKanjiKanaPairList.size() - 1);
 			}
-
-			readingInfoKana.setValue(dictionaryEntry.getKana());
-			readingInfoKana.setRomaji(dictionaryEntry.getRomaji());
-
-			Dictionary2HelperCommon.KanjiKanaPair virtualKanjiKanaPair = new Dictionary2HelperCommon.KanjiKanaPair(null, kanjiInfo, readingInfo);
-
-			createWordKanjiKanaPairSection(report, virtualKanjiKanaPair, true);
 		}
 
 		// known kanji
 		Set<String> allKanjis = new LinkedHashSet<>();
 
-		if (dictionaryEntry != null && dictionaryEntry.isKanjiExists() == true) { // obsluga starego formatu
-			for (int idx = 0; idx < dictionaryEntry.getKanji().length(); ++idx) {
-				allKanjis.add("" + dictionaryEntry.getKanji().charAt(idx));
-			}
-
-		} else if (kanjiKanaPairList != null) { // nowy format
+		if (kanjiKanaPairList != null) { // nowy format
 			kanjiKanaPairList.stream().filter(f -> f.getKanjiInfo() != null).forEach(c -> {
+				for (int idx = 0; idx < c.getKanji().length(); ++idx) {
+					allKanjis.add("" + c.getKanji().charAt(idx));
+				}
+			});
+
+		} else if (nameKanjiKanaPairList != null) {
+			nameKanjiKanaPairList.stream().filter(f -> f.getKanjiInfo() != null).forEach(c -> {
 				for (int idx = 0; idx < c.getKanji().length(); ++idx) {
 					allKanjis.add("" + c.getKanji().charAt(idx));
 				}
@@ -574,6 +590,7 @@ public class WordDictionaryDetails extends Activity {
 		// Translate
 		report.add(new TitleItem(getString(R.string.word_dictionary_details_translate_label), 0));
 
+		/*
 		if (dictionaryEntry != null) { // generowanie po staremu
 			List<String> translates = dictionaryEntry.getTranslates();
 
@@ -581,7 +598,9 @@ public class WordDictionaryDetails extends Activity {
 				report.add(new StringValue(translates.get(idx), 20.0f, 0));
 			}
 
-		} else { // generowanie z danych zawartych w dictionaryEntry2
+		}
+		*/
+		if (dictionaryEntry2 != null) { // generowanie z danych zawartych w dictionaryEntry2
 			// mamy znaczenia
 			for (int senseIdx = 0; senseIdx < dictionaryEntry2.getSenseList().size(); ++senseIdx) {
 
@@ -745,6 +764,11 @@ public class WordDictionaryDetails extends Activity {
 				// przerwa
 				report.add(new StringValue("", 10.0f, 0));
 			}
+
+		} else if (nameDictionaryEntry2 != null) { // obsluga slowka z nazwa
+
+
+			fixme();
 		}
 
 		// informacje dodatkowe
