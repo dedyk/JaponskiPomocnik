@@ -71,7 +71,7 @@ public class WordDictionaryListItem {
 	}
 	
 	public Serializable getResultItemObject() {
-		// FM_FIXME: sprawdzic, czy to dziala
+
 		if (resultItem.getWordEntry() != null) {
 			return resultItem.getWordEntry();
 

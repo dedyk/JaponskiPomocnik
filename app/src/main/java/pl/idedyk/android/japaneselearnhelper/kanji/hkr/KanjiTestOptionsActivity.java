@@ -666,8 +666,6 @@ public class KanjiTestOptionsActivity extends Activity {
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
 
-										// FM_FIXME: sprawdzic, czy to dziala
-
 										DictionaryEntry dictionaryEntry = null; //currentFindWordResultResult.getDictionaryEntry();
 										JMdict.Entry dictionaryEntry2 = currentFindWordResultResult.getWordEntry();
 
@@ -722,9 +720,6 @@ public class KanjiTestOptionsActivity extends Activity {
 									List<ResultItem> findWordResultResult = findWordResult.result;
 
 									for (ResultItem currentFindWordResultResult : findWordResultResult) {
-
-										// FM_FIXME: sprawdzic, czy to dziala
-
 										DictionaryEntry dictionaryEntry = null; //currentFindWordResultResult.getDictionaryEntry();
 										JMdict.Entry dictionaryEntry2 = currentFindWordResultResult.getWordEntry();
 

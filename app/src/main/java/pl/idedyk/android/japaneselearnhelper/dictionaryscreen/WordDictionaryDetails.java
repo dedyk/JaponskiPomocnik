@@ -328,8 +328,6 @@ public class WordDictionaryDetails extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
-		// FM_FIXME: sprawdzic, czy to dziala
-
 		super.onCreate(savedInstanceState);
 
 		JapaneseAndroidLearnHelperApplication.getInstance().setContentViewAndTheme(this, R.id.rootView, R.layout.word_dictionary_details);
@@ -447,8 +445,6 @@ public class WordDictionaryDetails extends Activity {
 	}
 
 	private List<IScreenItem> generateDetails(JMdict.Entry dictionaryEntry2, JMnedict.Entry nameDictionaryEntry2, final ScrollView scrollMainLayout) {
-
-		// FM_FIXME: sprawdzic, czy to dziala
 
 		List<IScreenItem> report = new ArrayList<IScreenItem>();
 
