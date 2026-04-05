@@ -5167,6 +5167,29 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5246344</ent_seq>
+        <k_ele>
+            <keb>月魄</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="tsukishiro">つきしろ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">powieść z 1908 roku autorstwa Yūhō Kikuchi</s_inf>
+            <gloss xml:lang="eng">Tsukishiro (1908 novel by Yūhō Kikuchi)</gloss>
+            <gloss xml:lang="pol">Tsukishiro</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="321183" dictionaryEntryTypeList="WORD_NOUN" kanji="月魄" kana="つきしろ" romaji="tsukishiro" uniqueKey="月魄/つきしろ/2"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5246465</ent_seq>
         <k_ele>
             <keb>健康保険組合連合会</keb>

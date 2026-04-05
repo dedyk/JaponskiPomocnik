@@ -4381,28 +4381,6 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>5150847</ent_seq>
-        <k_ele>
-            <keb>岡田ジャパン</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA_KATAKANA" romaji="okada japan">おかだジャパン</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <misc>organization name</misc>
-            <gloss xml:lang="eng">Japan National Soccer Team</gloss>
-            <gloss xml:lang="pol">Reprezentacja Japonii w Piłce Nożnej</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary>
-                <entries id="290842" dictionaryEntryTypeList="WORD_NOUN" kanji="岡田ジャパン" kana="おかだジャパン" romaji="okada japan" uniqueKey="岡田ジャパン/おかだジャパン/1"/>
-                <attributeList type="PRIORITY" value="255"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>5151839</ent_seq>
         <k_ele>
             <keb>沖縄キリスト教短期大学</keb>

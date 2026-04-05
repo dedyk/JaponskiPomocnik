@@ -14826,11 +14826,11 @@
                 <exampleSentenceGroupIdsList>11231</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1505974</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>2474814</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>258654</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>267243</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>268957</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>268958</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>270298</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>282600</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -36437,7 +36437,7 @@
             <keb>藁稭長者</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="warashibe chousha">わらしべちょうしゃ</reb>
+            <reb kana_type="HIRAGANA" romaji="warashibe chouja">わらしべちょうじゃ</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -36448,8 +36448,8 @@
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="301601" dictionaryEntryTypeList="WORD_NOUN" kanji="わらしべ長者" kana="わらしべちょうしゃ" romaji="warashibe chousha" uniqueKey="わらしべ長者/わらしべちょうしゃ/1"/>
-                <entries id="301602" dictionaryEntryTypeList="WORD_NOUN" kanji="藁稭長者" kana="わらしべちょうしゃ" romaji="warashibe chousha" uniqueKey="藁稭長者/わらしべちょうしゃ/1"/>
+                <entries id="301601" dictionaryEntryTypeList="WORD_NOUN" kanji="わらしべ長者" kana="わらしべちょうじゃ" romaji="warashibe chouja" uniqueKey="わらしべ長者/わらしべちょうじゃ/1"/>
+                <entries id="301602" dictionaryEntryTypeList="WORD_NOUN" kanji="藁稭長者" kana="わらしべちょうじゃ" romaji="warashibe chouja" uniqueKey="藁稭長者/わらしべちょうじゃ/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -53044,7 +53044,7 @@
                 <exampleSentenceGroupIdsList>129373</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1304558</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1317092</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>133021</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>1356688</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -56410,6 +56410,258 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="320173" dictionaryEntryTypeList="WORD_NOUN" kana="メンサ" romaji="mensa" uniqueKey="-/メンサ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747590</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="suwarouteiru">スワロウテイル</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">japoński film kryminalny z 1996 roku</s_inf>
+            <gloss xml:lang="eng">Swallowtail Butterfly (1996 Japanese crime film)</gloss>
+            <gloss xml:lang="pol">Swallowtail Butterfly</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320831" dictionaryEntryTypeList="WORD_NOUN" kana="スワロウテイル" romaji="suwarouteiru" uniqueKey="-/スワロウテイル/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747597</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="konkorudo">コンコルド</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">naddźwiękowy samolot pasażerski o napędzie turboodrzutowym, realizacja idei transportu naddźwiękowego</s_inf>
+            <gloss xml:lang="eng">Concorde (aircraft)</gloss>
+            <gloss xml:lang="pol">Concorde</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <gloss xml:lang="eng">Concord</gloss>
+            <gloss xml:lang="pol">Concord</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320285" dictionaryEntryTypeList="WORD_NOUN" kana="コンコルド" romaji="konkorudo" uniqueKey="-/コンコルド/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747602</ent_seq>
+        <k_ele>
+            <keb>英国航空</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="eikoku koukuu">えいこくこうくう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">brytyjska linia lotnicza z siedzibą w Londynie</s_inf>
+            <gloss xml:lang="eng">British Airways</gloss>
+            <gloss xml:lang="pol">British Airways</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320364" dictionaryEntryTypeList="WORD_NOUN" kanji="英国航空" kana="えいこくこうくう" romaji="eikoku koukuu" uniqueKey="英国航空/えいこくこうくう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747617</ent_seq>
+        <k_ele>
+            <keb>アメリカ同時多発テロ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="amerika douji tahatsu tero">アメリカどうじたはつテロ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <gloss xml:lang="eng">September 11 attacks (2001)</gloss>
+            <gloss xml:lang="eng">9/11</gloss>
+            <gloss xml:lang="pol">zamachy z 11 września 2001 roku</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320814" dictionaryEntryTypeList="WORD_NOUN" kanji="アメリカ同時多発テロ" kana="アメリカどうじたはつテロ" romaji="amerika douji tahatsu tero" uniqueKey="アメリカ同時多発テロ/アメリカどうじたはつテロ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747621</ent_seq>
+        <k_ele>
+            <keb>竜馬がゆく</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="ryouma ga yuku">りょうまがゆく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">powieść z lat 1963-1966 autorstwa Shiba Ryōtarō</s_inf>
+            <gloss xml:lang="eng">Ryōma ga Yuku (1963-1966 novel by Shiba Ryōtarō)</gloss>
+            <gloss xml:lang="pol">Ryōma ga Yuku</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320815" dictionaryEntryTypeList="WORD_NOUN" kanji="竜馬がゆく" kana="りょうまがゆく" romaji="ryouma ga yuku" uniqueKey="竜馬がゆく/りょうまがゆく/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747622</ent_seq>
+        <k_ele>
+            <keb>精神現象学</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="seishin genshougaku">せいしんげんしょうがく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">jedno z najważniejszych dzieł filozoficznych G. W. F. Hegla i całej europejskiej historii filozofii, wydane w 1807 roku</s_inf>
+            <gloss xml:lang="eng">The Phenomenology of Spirit (1807 book by Georg Wilhelm Friedrich Hegel)</gloss>
+            <gloss xml:lang="eng">The Phenomenology of Mind</gloss>
+            <gloss xml:lang="pol">Fenomenologia Ducha</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320816" dictionaryEntryTypeList="WORD_NOUN" kanji="精神現象学" kana="せいしんげんしょうがく" romaji="seishin genshougaku" uniqueKey="精神現象学/せいしんげんしょうがく/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747624</ent_seq>
+        <k_ele>
+            <keb>プラダを着た悪魔</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="purada o kita akuma">プラダをきたあくま</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">powieść z 2003 roku autorstwa Lauren Weisberger, a także film z 2006 roku</s_inf>
+            <gloss xml:lang="eng">The Devil Wears Prada (2003 novel by Lauren Weisberger; 2006 film)</gloss>
+            <gloss xml:lang="pol">Diabeł ubiera się u Prady</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320832" dictionaryEntryTypeList="WORD_NOUN" kanji="プラダを着た悪魔" kana="プラダをきたあくま" romaji="purada o kita akuma" uniqueKey="プラダを着た悪魔/プラダをきたあくま/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747630</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="dyuun">デューン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">cykl powieści autorstwa Franka Herberta</s_inf>
+            <gloss xml:lang="eng">Dune (series of novels by Frank Herbert)</gloss>
+            <gloss xml:lang="pol">Diuna</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="321004" dictionaryEntryTypeList="WORD_NOUN" kana="デューン" romaji="dyuun" uniqueKey="-/デューン/2"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747637</ent_seq>
+        <k_ele>
+            <keb>一九八四年</keb>
+        </k_ele>
+        <k_ele>
+            <keb>１９８４年</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="senkyuu hyaku hachi juu yonen">せんきゅうひゃくはちじゅうよねん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">brytyjska powieść, futurystyczna dystopia napisana przez George’a Orwella i opublikowana w roku 1949</s_inf>
+            <gloss xml:lang="eng">Nineteen Eighty-Four (1949 novel by George Orwell)</gloss>
+            <gloss xml:lang="pol">rok 1984</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="321251" dictionaryEntryTypeList="WORD_NOUN" kanji="一九八四年" kana="せんきゅうひゃくはちじゅうよねん" romaji="senkyuu hyaku hachi juu yonen" uniqueKey="一九八四年/せんきゅうひゃくはちじゅうよねん/1"/>
+                <entries id="321252" dictionaryEntryTypeList="WORD_NOUN" kanji="１９８４年" kana="せんきゅうひゃくはちじゅうよねん" romaji="senkyuu hyaku hachi juu yonen" uniqueKey="１９８４年/せんきゅうひゃくはちじゅうよねん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747639</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="azuuri">アズーリ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>group</misc>
+            <s_inf xml:lang="pol">przydomek włoskich reprezentacji narodowych, zwłaszcza piłkarskich</s_inf>
+            <gloss xml:lang="eng">Azzurri (nickname for Italian national teams, esp. soccer)</gloss>
+            <gloss xml:lang="pol">Azzurri</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="321689" dictionaryEntryTypeList="WORD_NOUN" kana="アズーリ" romaji="azuuri" uniqueKey="-/アズーリ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747644</ent_seq>
+        <k_ele>
+            <keb>倭人伝</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="wajinden">わじんでん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">fragmenty Kronik Trzech Królestw opisujące lud Wa</s_inf>
+            <gloss xml:lang="eng">Wajinden (passages in Records of the Three Kingdoms describing the Wa people)</gloss>
+            <gloss xml:lang="pol">Wajinden</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="321740" dictionaryEntryTypeList="WORD_NOUN" kanji="倭人伝" kana="わじんでん" romaji="wajinden" uniqueKey="倭人伝/わじんでん/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

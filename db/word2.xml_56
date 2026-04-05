@@ -2896,39 +2896,12 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>5626823</ent_seq>
-        <k_ele>
-            <keb>文芸春秋</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="bungei shunjuu">ぶんげいしゅんじゅう</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <misc>company name</misc>
-            <s_inf xml:lang="pol">wydawnictwo</s_inf>
-            <gloss xml:lang="eng">Bungei Shunju (publisher)</gloss>
-            <gloss xml:lang="pol">Bungei Shunju</gloss>
-        </sense>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <misc>work of art, literature, music, etc. name</misc>
-            <s_inf xml:lang="pol">magazyn</s_inf>
-            <gloss xml:lang="eng">Bungei Shunju (magazine)</gloss>
-            <gloss xml:lang="pol">Bungei Shunju</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary>
-                <entries id="298959" dictionaryEntryTypeList="WORD_NOUN" kanji="文芸春秋" kana="ぶんげいしゅんじゅう" romaji="bungei shunjuu" uniqueKey="文芸春秋/ぶんげいしゅんじゅう/1"/>
-                <attributeList type="PRIORITY" value="255"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>5627573</ent_seq>
         <k_ele>
             <keb>文藝春秋</keb>
+        </k_ele>
+        <k_ele>
+            <keb>文芸春秋</keb>
         </k_ele>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="bungeishunjuu">ぶんげいしゅんじゅう</reb>
@@ -2936,13 +2909,21 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>company name</misc>
-            <s_inf xml:lang="pol">wydawnictwo i magazyn</s_inf>
-            <gloss xml:lang="eng">Bungeishunju (publishing company and magazine)</gloss>
+            <s_inf xml:lang="pol">wydawnictwo</s_inf>
+            <gloss xml:lang="eng">Bungeishunju (publishing company)</gloss>
             <gloss xml:lang="pol">Bungeishunju</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">czasopismo</s_inf>
+            <gloss xml:lang="eng">Bungei Shunjū (magazine)</gloss>
+            <gloss xml:lang="pol">Bungei Shunjū</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="298960" dictionaryEntryTypeList="WORD_NOUN" kanji="文藝春秋" kana="ぶんげいしゅんじゅう" romaji="bungeishunjuu" uniqueKey="文藝春秋/ぶんげいしゅんじゅう/1"/>
+                <entries id="320727" dictionaryEntryTypeList="WORD_NOUN" kanji="文芸春秋" kana="ぶんげいしゅんじゅう" romaji="bungeishunjuu" uniqueKey="文芸春秋/ぶんげいしゅんじゅう/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

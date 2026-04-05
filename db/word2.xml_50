@@ -16273,6 +16273,27 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5057023</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="dominika">ドミニカ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <gloss xml:lang="eng">Dominica</gloss>
+            <gloss xml:lang="eng">Commonwealth of Dominica</gloss>
+            <gloss xml:lang="pol">Dominika</gloss>
+            <gloss xml:lang="pol">Wspólnota Dominiki</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320243" dictionaryEntryTypeList="WORD_NOUN" kana="ドミニカ" romaji="dominika" uniqueKey="-/ドミニカ/3"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5057069</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="domohorun rinkuru">ドモホルンリンクル</reb>
@@ -16345,6 +16366,12 @@
             <s_inf xml:lang="pol">powieść, film</s_inf>
             <gloss xml:lang="eng">Dracula (novel, film, etc.)</gloss>
             <gloss xml:lang="pol">Drakula</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>character</misc>
+            <gloss xml:lang="eng">Count Dracula</gloss>
+            <gloss xml:lang="pol">Hrabia Drakula</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -21357,6 +21384,25 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5073074</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="purada">プラダ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <gloss xml:lang="eng">Prada</gloss>
+            <gloss xml:lang="pol">Prada</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="320830" dictionaryEntryTypeList="WORD_NOUN" kana="プラダ" romaji="purada" uniqueKey="-/プラダ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5073089</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="purattsu">プラッツ</reb>
@@ -22301,6 +22347,29 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5077339</ent_seq>
+        <k_ele>
+            <keb>ホルムズ海峡</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="horumuzu kaikyou">ホルムズかいきょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <s_inf xml:lang="pol">cieśnina Morza Arabskiego, pomiędzy Zatoką Perską od zachodu a Zatoką Omańską od wschodu</s_inf>
+            <gloss xml:lang="eng">Strait of Hormuz</gloss>
+            <gloss xml:lang="pol">cieśnina Ormuz</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="321017" dictionaryEntryTypeList="WORD_NOUN" kanji="ホルムズ海峡" kana="ホルムズかいきょう" romaji="horumuzu kaikyou" uniqueKey="ホルムズ海峡/ホルムズかいきょう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5077439</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="howaito sokkusu">ホワイトソックス</reb>
@@ -22564,6 +22633,26 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="287838" dictionaryEntryTypeList="WORD_NOUN" kana="ポールポジション" romaji="pooru pojishon" uniqueKey="-/ポールポジション/2"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5078666</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="pokahontasu">ポカホンタス</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>full name of a particular person</misc>
+            <s_inf xml:lang="pol">1595?-1617</s_inf>
+            <gloss xml:lang="eng">Pocahontas (1595?-1617)</gloss>
+            <gloss xml:lang="pol">Pocahontas</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="321063" dictionaryEntryTypeList="WORD_NOUN" kana="ポカホンタス" romaji="pokahontasu" uniqueKey="-/ポカホンタス/2"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

@@ -710,6 +710,7 @@
                 <entries id="586" dictionaryEntryTypeList="WORD_EXPRESSION" kanji="知りません" kana="しりません" romaji="shirimasen" uniqueKey="知りません/しりません/1"/>
                 <groupsList>GENKI_1_7</groupsList>
                 <exampleSentenceGroupIdsList>1058083</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>1109561</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1197514</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1485946</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1636868</exampleSentenceGroupIdsList>
@@ -718,7 +719,6 @@
                 <exampleSentenceGroupIdsList>247593</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>252916</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>254386</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>254835</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -1632,6 +1632,7 @@
                 <groupsList>GENKI_2_13</groupsList>
                 <exampleSentenceGroupIdsList>16464</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>2345890</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>2345936</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>355717</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>63957</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
@@ -45177,29 +45178,6 @@
     <entry>
         <ent_seq>7002363</ent_seq>
         <k_ele>
-            <keb>気分変調症</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="kibun henchoushou">きぶんへんちょうしょう</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">typ depresji charakteryzujący się przewlekłym (trwającym minimum 2 lata lub dłużej) obniżeniem nastroju o przebiegu łagodniejszym niż w przypadku depresji endogennej</s_inf>
-            <gloss xml:lang="pol">dystymia</gloss>
-            <gloss xml:lang="pol">depresja nerwicowa</gloss>
-            <gloss xml:lang="pol">depresyjne zaburzenie osobowości</gloss>
-            <gloss xml:lang="pol">przewlekła depresja z lękiem</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary notExistsInJMdict="true">
-                <entries id="183566" dictionaryEntryTypeList="WORD_NOUN" kanji="気分変調症" kana="きぶんへんちょうしょう" romaji="kibun henchoushou" uniqueKey="気分変調症/きぶんへんちょうしょう/1"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
-        <ent_seq>7002364</ent_seq>
-        <k_ele>
             <keb>チロシン血症</keb>
         </k_ele>
         <r_ele>
@@ -45218,7 +45196,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002365</ent_seq>
+        <ent_seq>7002364</ent_seq>
         <k_ele>
             <keb>射出座席</keb>
         </k_ele>
@@ -45239,7 +45217,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002366</ent_seq>
+        <ent_seq>7002365</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="tsuyu gumo">ツユグモ</reb>
         </r_ele>
@@ -45256,7 +45234,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002367</ent_seq>
+        <ent_seq>7002366</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA_EXCEPTION" romaji="parareripipedusu ookuwagata">パラレリピペドゥスオオクワガタ</reb>
         </r_ele>
@@ -45274,7 +45252,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002368</ent_seq>
+        <ent_seq>7002367</ent_seq>
         <k_ele>
             <keb>音楽プロデューサー</keb>
         </k_ele>
@@ -45293,7 +45271,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002369</ent_seq>
+        <ent_seq>7002368</ent_seq>
         <k_ele>
             <keb>小児外科学</keb>
         </k_ele>
@@ -45312,7 +45290,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002370</ent_seq>
+        <ent_seq>7002369</ent_seq>
         <k_ele>
             <keb>光電効果</keb>
         </k_ele>
@@ -45335,7 +45313,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002371</ent_seq>
+        <ent_seq>7002370</ent_seq>
         <k_ele>
             <keb>映画スタッフ</keb>
         </k_ele>
@@ -45354,7 +45332,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002372</ent_seq>
+        <ent_seq>7002371</ent_seq>
         <k_ele>
             <keb>ワルシャワ蜂起</keb>
         </k_ele>
@@ -45373,7 +45351,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002373</ent_seq>
+        <ent_seq>7002372</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="epimeeteusu">エピメーテウス</reb>
         </r_ele>
@@ -45390,7 +45368,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002374</ent_seq>
+        <ent_seq>7002373</ent_seq>
         <k_ele>
             <keb>中性スピリッツ</keb>
         </k_ele>
@@ -45410,7 +45388,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002375</ent_seq>
+        <ent_seq>7002374</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="boresuwafu">ボレスワフ</reb>
         </r_ele>
@@ -45427,7 +45405,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002376</ent_seq>
+        <ent_seq>7002375</ent_seq>
         <k_ele>
             <keb>総人数</keb>
         </k_ele>
@@ -45446,7 +45424,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002377</ent_seq>
+        <ent_seq>7002376</ent_seq>
         <k_ele>
             <keb>株式会社日本レジストリサービス</keb>
         </k_ele>
@@ -45467,7 +45445,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002378</ent_seq>
+        <ent_seq>7002377</ent_seq>
         <k_ele>
             <keb>イベリア半島</keb>
         </k_ele>
@@ -45486,7 +45464,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002379</ent_seq>
+        <ent_seq>7002378</ent_seq>
         <k_ele>
             <keb>豪日</keb>
         </k_ele>
@@ -45505,7 +45483,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002380</ent_seq>
+        <ent_seq>7002379</ent_seq>
         <k_ele>
             <keb>材料強度学</keb>
         </k_ele>
@@ -45525,7 +45503,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002381</ent_seq>
+        <ent_seq>7002380</ent_seq>
         <k_ele>
             <keb>末端冷え性</keb>
         </k_ele>
@@ -45544,7 +45522,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002382</ent_seq>
+        <ent_seq>7002381</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="nameru na">なめるな</reb>
         </r_ele>
@@ -45563,7 +45541,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002383</ent_seq>
+        <ent_seq>7002382</ent_seq>
         <k_ele>
             <keb>衛星放送の受信アンテナ</keb>
         </k_ele>
@@ -45583,7 +45561,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002384</ent_seq>
+        <ent_seq>7002383</ent_seq>
         <k_ele>
             <keb>水部</keb>
         </k_ele>
@@ -45602,7 +45580,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002385</ent_seq>
+        <ent_seq>7002384</ent_seq>
         <k_ele>
             <keb>アラビア海</keb>
         </k_ele>
@@ -45622,7 +45600,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002386</ent_seq>
+        <ent_seq>7002385</ent_seq>
         <k_ele>
             <keb>ポストコロニアル理論</keb>
         </k_ele>
@@ -45643,7 +45621,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002387</ent_seq>
+        <ent_seq>7002386</ent_seq>
         <k_ele>
             <keb>洗濯日和</keb>
         </k_ele>
@@ -45662,7 +45640,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002388</ent_seq>
+        <ent_seq>7002387</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="byuzantion">ビュザンティオン</reb>
         </r_ele>
@@ -45679,7 +45657,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002389</ent_seq>
+        <ent_seq>7002388</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="moderu eejenshii">モデルエージェンシー</reb>
         </r_ele>
@@ -45697,7 +45675,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002390</ent_seq>
+        <ent_seq>7002389</ent_seq>
         <k_ele>
             <keb>肝臓学</keb>
         </k_ele>
@@ -45717,7 +45695,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002391</ent_seq>
+        <ent_seq>7002390</ent_seq>
         <k_ele>
             <keb>手根管</keb>
         </k_ele>
@@ -45736,7 +45714,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002392</ent_seq>
+        <ent_seq>7002391</ent_seq>
         <k_ele>
             <keb>絶崖</keb>
         </k_ele>
@@ -45757,7 +45735,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002393</ent_seq>
+        <ent_seq>7002392</ent_seq>
         <k_ele>
             <keb>煙雲</keb>
         </k_ele>
@@ -45776,7 +45754,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002394</ent_seq>
+        <ent_seq>7002393</ent_seq>
         <k_ele>
             <keb>閃光弾</keb>
         </k_ele>
@@ -45796,7 +45774,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002395</ent_seq>
+        <ent_seq>7002394</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="oiru firutaa">オイルフィルター</reb>
         </r_ele>
@@ -45812,7 +45790,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002396</ent_seq>
+        <ent_seq>7002395</ent_seq>
         <k_ele>
             <keb>燃料ポンプ</keb>
         </k_ele>
@@ -45831,7 +45809,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002397</ent_seq>
+        <ent_seq>7002396</ent_seq>
         <k_ele>
             <keb>全有機炭素</keb>
         </k_ele>
@@ -45853,7 +45831,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002398</ent_seq>
+        <ent_seq>7002397</ent_seq>
         <k_ele>
             <keb>スピン角運動量</keb>
         </k_ele>
@@ -45873,7 +45851,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002399</ent_seq>
+        <ent_seq>7002398</ent_seq>
         <k_ele>
             <keb>パウリ行列</keb>
         </k_ele>
@@ -45895,7 +45873,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002400</ent_seq>
+        <ent_seq>7002399</ent_seq>
         <k_ele>
             <keb>利用者語</keb>
         </k_ele>
@@ -45914,7 +45892,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002401</ent_seq>
+        <ent_seq>7002400</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="kyarotto keeki">キャロットケーキ</reb>
         </r_ele>
@@ -45932,7 +45910,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002402</ent_seq>
+        <ent_seq>7002401</ent_seq>
         <k_ele>
             <keb>さっぱり分からない</keb>
         </k_ele>
@@ -45951,7 +45929,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002403</ent_seq>
+        <ent_seq>7002402</ent_seq>
         <k_ele>
             <keb>社会主義運動</keb>
         </k_ele>
@@ -45970,7 +45948,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002404</ent_seq>
+        <ent_seq>7002403</ent_seq>
         <k_ele>
             <keb>公共広告</keb>
         </k_ele>
@@ -45990,7 +45968,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002405</ent_seq>
+        <ent_seq>7002404</ent_seq>
         <k_ele>
             <keb>SF映画</keb>
         </k_ele>
@@ -46009,7 +45987,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002406</ent_seq>
+        <ent_seq>7002405</ent_seq>
         <k_ele>
             <keb>結婚申し込み</keb>
         </k_ele>
@@ -46028,7 +46006,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002407</ent_seq>
+        <ent_seq>7002406</ent_seq>
         <k_ele>
             <keb>迷惑を被る</keb>
         </k_ele>
@@ -46048,7 +46026,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002408</ent_seq>
+        <ent_seq>7002407</ent_seq>
         <k_ele>
             <keb>分光測色法</keb>
         </k_ele>
@@ -46068,7 +46046,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002409</ent_seq>
+        <ent_seq>7002408</ent_seq>
         <k_ele>
             <keb>白ビール</keb>
         </k_ele>
@@ -46089,7 +46067,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002410</ent_seq>
+        <ent_seq>7002409</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="rinku toreenaa">リンクトレーナー</reb>
         </r_ele>
@@ -46106,7 +46084,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002411</ent_seq>
+        <ent_seq>7002410</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="kyandi kein">キャンディケイン</reb>
         </r_ele>
@@ -46123,7 +46101,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002412</ent_seq>
+        <ent_seq>7002411</ent_seq>
         <k_ele>
             <keb>脊髄くも膜下麻酔</keb>
         </k_ele>
@@ -46144,7 +46122,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002413</ent_seq>
+        <ent_seq>7002412</ent_seq>
         <k_ele>
             <keb>出生前診断</keb>
         </k_ele>
@@ -46163,7 +46141,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002414</ent_seq>
+        <ent_seq>7002413</ent_seq>
         <k_ele>
             <keb>出生前診断</keb>
         </k_ele>
@@ -46182,7 +46160,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002415</ent_seq>
+        <ent_seq>7002414</ent_seq>
         <k_ele>
             <keb>日本学科</keb>
         </k_ele>
@@ -46202,7 +46180,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002416</ent_seq>
+        <ent_seq>7002415</ent_seq>
         <k_ele>
             <keb>人気が有る</keb>
         </k_ele>
@@ -46222,7 +46200,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002417</ent_seq>
+        <ent_seq>7002416</ent_seq>
         <k_ele>
             <keb>営業担当</keb>
         </k_ele>
@@ -46242,7 +46220,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002418</ent_seq>
+        <ent_seq>7002417</ent_seq>
         <k_ele>
             <keb>町史</keb>
         </k_ele>
@@ -46262,7 +46240,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002419</ent_seq>
+        <ent_seq>7002418</ent_seq>
         <k_ele>
             <keb>野外劇場</keb>
         </k_ele>
@@ -46282,7 +46260,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002420</ent_seq>
+        <ent_seq>7002419</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="woo hanmaa">ウォーハンマー</reb>
         </r_ele>
@@ -46300,7 +46278,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002421</ent_seq>
+        <ent_seq>7002420</ent_seq>
         <k_ele>
             <keb>競技種目</keb>
         </k_ele>
@@ -46319,7 +46297,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002422</ent_seq>
+        <ent_seq>7002421</ent_seq>
         <k_ele>
             <keb>競技大会</keb>
         </k_ele>
@@ -46339,7 +46317,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002423</ent_seq>
+        <ent_seq>7002422</ent_seq>
         <k_ele>
             <keb>家賃補助</keb>
         </k_ele>
@@ -46358,7 +46336,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002424</ent_seq>
+        <ent_seq>7002423</ent_seq>
         <k_ele>
             <keb>生活補助</keb>
         </k_ele>
@@ -46377,7 +46355,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002425</ent_seq>
+        <ent_seq>7002424</ent_seq>
         <k_ele>
             <keb>泉が湧く</keb>
         </k_ele>
@@ -46396,7 +46374,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002426</ent_seq>
+        <ent_seq>7002425</ent_seq>
         <k_ele>
             <keb>発芽期</keb>
         </k_ele>
@@ -46415,7 +46393,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002427</ent_seq>
+        <ent_seq>7002426</ent_seq>
         <k_ele>
             <keb>社会状況</keb>
         </k_ele>
@@ -46435,7 +46413,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002428</ent_seq>
+        <ent_seq>7002427</ent_seq>
         <k_ele>
             <keb>生活状態</keb>
         </k_ele>
@@ -46454,7 +46432,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002429</ent_seq>
+        <ent_seq>7002428</ent_seq>
         <k_ele>
             <keb>栄光を勝ち取る</keb>
         </k_ele>
@@ -46473,7 +46451,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002430</ent_seq>
+        <ent_seq>7002429</ent_seq>
         <k_ele>
             <keb>交差する</keb>
         </k_ele>
@@ -46492,7 +46470,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002431</ent_seq>
+        <ent_seq>7002430</ent_seq>
         <k_ele>
             <keb>羊のようにおとなしい</keb>
         </k_ele>
@@ -46511,7 +46489,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002432</ent_seq>
+        <ent_seq>7002431</ent_seq>
         <k_ele>
             <keb>小羊のようにおとなしい</keb>
         </k_ele>
@@ -46530,7 +46508,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002433</ent_seq>
+        <ent_seq>7002432</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="yuusudo kaa">ユースドカー</reb>
         </r_ele>
@@ -46547,7 +46525,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002434</ent_seq>
+        <ent_seq>7002433</ent_seq>
         <k_ele>
             <keb>田畑が荒れる</keb>
         </k_ele>
@@ -46567,7 +46545,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002435</ent_seq>
+        <ent_seq>7002434</ent_seq>
         <k_ele>
             <keb>淡い恋心</keb>
         </k_ele>
@@ -46586,7 +46564,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002436</ent_seq>
+        <ent_seq>7002435</ent_seq>
         <k_ele>
             <keb>淡い期待をいだく</keb>
         </k_ele>
@@ -46607,7 +46585,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002437</ent_seq>
+        <ent_seq>7002436</ent_seq>
         <k_ele>
             <keb>淡い期待を抱く</keb>
         </k_ele>
@@ -46628,7 +46606,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002438</ent_seq>
+        <ent_seq>7002437</ent_seq>
         <k_ele>
             <keb>標準サイズ</keb>
         </k_ele>
@@ -46647,7 +46625,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002439</ent_seq>
+        <ent_seq>7002438</ent_seq>
         <k_ele>
             <keb>黄金の秋</keb>
         </k_ele>
@@ -46666,7 +46644,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002440</ent_seq>
+        <ent_seq>7002439</ent_seq>
         <k_ele>
             <keb>趣味と実益を兼ねる</keb>
         </k_ele>
@@ -46686,7 +46664,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002441</ent_seq>
+        <ent_seq>7002440</ent_seq>
         <k_ele>
             <keb>息が絶える</keb>
         </k_ele>
@@ -46706,7 +46684,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002442</ent_seq>
+        <ent_seq>7002441</ent_seq>
         <k_ele>
             <keb>語源辞典</keb>
         </k_ele>
@@ -46725,7 +46703,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002443</ent_seq>
+        <ent_seq>7002442</ent_seq>
         <k_ele>
             <keb>至らない点</keb>
         </k_ele>
@@ -46748,7 +46726,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002444</ent_seq>
+        <ent_seq>7002443</ent_seq>
         <k_ele>
             <keb>間テクスト性</keb>
         </k_ele>
@@ -46768,7 +46746,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002445</ent_seq>
+        <ent_seq>7002444</ent_seq>
         <k_ele>
             <keb>市民プラットフォーム</keb>
         </k_ele>
@@ -46787,7 +46765,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002446</ent_seq>
+        <ent_seq>7002445</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="suteraa kakesu">ステラーカケス</reb>
         </r_ele>
@@ -46804,7 +46782,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002447</ent_seq>
+        <ent_seq>7002446</ent_seq>
         <k_ele>
             <keb>光栄養生物</keb>
         </k_ele>
@@ -46824,7 +46802,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002448</ent_seq>
+        <ent_seq>7002447</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="sukureppa">スクレッパ</reb>
         </r_ele>
@@ -46842,7 +46820,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002449</ent_seq>
+        <ent_seq>7002448</ent_seq>
         <k_ele>
             <keb>反射星雲</keb>
         </k_ele>
@@ -46862,7 +46840,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002450</ent_seq>
+        <ent_seq>7002449</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="shinkuronaizudo sukeetingu">シンクロナイズドスケーティング</reb>
         </r_ele>
@@ -46879,7 +46857,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002451</ent_seq>
+        <ent_seq>7002450</ent_seq>
         <k_ele>
             <keb>斉明</keb>
         </k_ele>
@@ -46899,7 +46877,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002452</ent_seq>
+        <ent_seq>7002451</ent_seq>
         <k_ele>
             <keb>天智</keb>
         </k_ele>
@@ -46919,7 +46897,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002453</ent_seq>
+        <ent_seq>7002452</ent_seq>
         <k_ele>
             <keb>前頭洞</keb>
         </k_ele>
@@ -46939,7 +46917,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002454</ent_seq>
+        <ent_seq>7002453</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="jihidorokishiaseton">ジヒドロキシアセトン</reb>
         </r_ele>
@@ -46956,7 +46934,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002455</ent_seq>
+        <ent_seq>7002454</ent_seq>
         <k_ele>
             <keb>ドイツ学</keb>
         </k_ele>
@@ -46975,7 +46953,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002456</ent_seq>
+        <ent_seq>7002455</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="kebukasai">ケブカサイ</reb>
         </r_ele>
@@ -46992,7 +46970,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002457</ent_seq>
+        <ent_seq>7002456</ent_seq>
         <k_ele>
             <keb>管理規約</keb>
         </k_ele>
@@ -47011,7 +46989,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002458</ent_seq>
+        <ent_seq>7002457</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="oosutorarian shepaado">オーストラリアン・シェパード</reb>
         </r_ele>
@@ -47028,7 +47006,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002459</ent_seq>
+        <ent_seq>7002458</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="kitsuri fune">キツリフネ</reb>
         </r_ele>
@@ -47045,7 +47023,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002460</ent_seq>
+        <ent_seq>7002459</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="ukigoke">ウキゴケ</reb>
         </r_ele>
@@ -47064,7 +47042,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002461</ent_seq>
+        <ent_seq>7002460</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="infureetaburu baruun">インフレータブルバルーン</reb>
         </r_ele>
@@ -47083,7 +47061,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002462</ent_seq>
+        <ent_seq>7002461</ent_seq>
         <k_ele>
             <keb>断熱工事</keb>
         </k_ele>
@@ -47103,7 +47081,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002463</ent_seq>
+        <ent_seq>7002462</ent_seq>
         <k_ele>
             <keb>ショパン国際ピアノ・コンクール</keb>
         </k_ele>
@@ -47123,7 +47101,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002464</ent_seq>
+        <ent_seq>7002463</ent_seq>
         <k_ele>
             <keb>順位制</keb>
         </k_ele>
@@ -47142,7 +47120,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002465</ent_seq>
+        <ent_seq>7002464</ent_seq>
         <k_ele>
             <keb>国民自由主義</keb>
         </k_ele>
@@ -47162,7 +47140,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002466</ent_seq>
+        <ent_seq>7002465</ent_seq>
         <k_ele>
             <keb>シェンゲン圏</keb>
         </k_ele>
@@ -47182,7 +47160,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002467</ent_seq>
+        <ent_seq>7002466</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="orutanativu rokku">オルタナティヴ・ロック</reb>
         </r_ele>
@@ -47199,7 +47177,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002468</ent_seq>
+        <ent_seq>7002467</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="rekoodingu enjinia">レコーディング・エンジニア</reb>
         </r_ele>
@@ -47216,7 +47194,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002469</ent_seq>
+        <ent_seq>7002468</ent_seq>
         <k_ele>
             <keb>映画史</keb>
         </k_ele>
@@ -47236,7 +47214,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002470</ent_seq>
+        <ent_seq>7002469</ent_seq>
         <k_ele>
             <keb>休憇</keb>
         </k_ele>
@@ -47256,7 +47234,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002471</ent_seq>
+        <ent_seq>7002470</ent_seq>
         <k_ele>
             <keb>歯科助手</keb>
         </k_ele>
@@ -47276,7 +47254,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002472</ent_seq>
+        <ent_seq>7002471</ent_seq>
         <k_ele>
             <keb>電子黒板</keb>
         </k_ele>
@@ -47296,7 +47274,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002473</ent_seq>
+        <ent_seq>7002472</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="sukeeto paaku">スケートパーク</reb>
         </r_ele>
@@ -47314,7 +47292,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002474</ent_seq>
+        <ent_seq>7002473</ent_seq>
         <k_ele>
             <keb>映画ポスター</keb>
         </k_ele>
@@ -47333,7 +47311,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002475</ent_seq>
+        <ent_seq>7002474</ent_seq>
         <k_ele>
             <keb>原形質分離</keb>
         </k_ele>
@@ -47353,7 +47331,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002476</ent_seq>
+        <ent_seq>7002475</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="puroton ponpu">プロトンポンプ</reb>
         </r_ele>
@@ -47369,7 +47347,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002477</ent_seq>
+        <ent_seq>7002476</ent_seq>
         <k_ele>
             <keb>雲居路</keb>
         </k_ele>
@@ -47390,7 +47368,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002478</ent_seq>
+        <ent_seq>7002477</ent_seq>
         <k_ele>
             <keb>塩分控えめ</keb>
         </k_ele>
@@ -47410,7 +47388,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002479</ent_seq>
+        <ent_seq>7002478</ent_seq>
         <k_ele>
             <keb>本音を漏らす</keb>
         </k_ele>
@@ -47431,7 +47409,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002480</ent_seq>
+        <ent_seq>7002479</ent_seq>
         <k_ele>
             <keb>岡村孝子</keb>
         </k_ele>
@@ -47451,7 +47429,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002481</ent_seq>
+        <ent_seq>7002480</ent_seq>
         <k_ele>
             <keb>声門破裂音</keb>
         </k_ele>
@@ -47471,7 +47449,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002482</ent_seq>
+        <ent_seq>7002481</ent_seq>
         <k_ele>
             <keb>店の人</keb>
         </k_ele>
@@ -47490,7 +47468,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002483</ent_seq>
+        <ent_seq>7002482</ent_seq>
         <k_ele>
             <keb>エネルギー療法</keb>
         </k_ele>
@@ -47509,7 +47487,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002484</ent_seq>
+        <ent_seq>7002483</ent_seq>
         <k_ele>
             <keb>金属工芸</keb>
         </k_ele>
@@ -47530,7 +47508,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002485</ent_seq>
+        <ent_seq>7002484</ent_seq>
         <k_ele>
             <keb>操作主義</keb>
         </k_ele>
@@ -47549,7 +47527,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002486</ent_seq>
+        <ent_seq>7002485</ent_seq>
         <k_ele>
             <keb>運命の輪</keb>
         </k_ele>
@@ -47569,7 +47547,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002487</ent_seq>
+        <ent_seq>7002486</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="hoiiru obu foochun">ホイール・オブ・フォーチュン</reb>
         </r_ele>
@@ -47586,7 +47564,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002488</ent_seq>
+        <ent_seq>7002487</ent_seq>
         <k_ele>
             <keb>レンズ核</keb>
         </k_ele>
@@ -47606,7 +47584,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002489</ent_seq>
+        <ent_seq>7002488</ent_seq>
         <k_ele>
             <keb>救命措置</keb>
         </k_ele>
@@ -47626,7 +47604,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002490</ent_seq>
+        <ent_seq>7002489</ent_seq>
         <k_ele>
             <keb>自転車用タイヤ</keb>
         </k_ele>
@@ -47645,7 +47623,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002491</ent_seq>
+        <ent_seq>7002490</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="kurosu feedo">クロスフェード</reb>
         </r_ele>
@@ -47662,7 +47640,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002492</ent_seq>
+        <ent_seq>7002491</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="ekisu paudaa">エキスパウダー</reb>
         </r_ele>
@@ -47679,7 +47657,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002493</ent_seq>
+        <ent_seq>7002492</ent_seq>
         <k_ele>
             <keb>データの散らばり</keb>
         </k_ele>
@@ -47698,7 +47676,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002494</ent_seq>
+        <ent_seq>7002493</ent_seq>
         <k_ele>
             <keb>参加券</keb>
         </k_ele>
@@ -47717,7 +47695,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002495</ent_seq>
+        <ent_seq>7002494</ent_seq>
         <k_ele>
             <keb>老後問題</keb>
         </k_ele>
@@ -47737,7 +47715,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002496</ent_seq>
+        <ent_seq>7002495</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="insutanto suupu">インスタントスープ</reb>
         </r_ele>
@@ -47754,7 +47732,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002497</ent_seq>
+        <ent_seq>7002496</ent_seq>
         <k_ele>
             <keb>語学検定</keb>
         </k_ele>
@@ -47773,7 +47751,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002498</ent_seq>
+        <ent_seq>7002497</ent_seq>
         <k_ele>
             <keb>クモ学</keb>
         </k_ele>
@@ -47793,7 +47771,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002499</ent_seq>
+        <ent_seq>7002498</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="baburu waffuru">バブルワッフル</reb>
         </r_ele>
@@ -47810,7 +47788,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002500</ent_seq>
+        <ent_seq>7002499</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="kuiibaa">クイーバー</reb>
         </r_ele>
@@ -47828,7 +47806,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002501</ent_seq>
+        <ent_seq>7002500</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA_EXCEPTION" romaji="kuiibaa">クィーバー</reb>
         </r_ele>
@@ -47846,7 +47824,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002502</ent_seq>
+        <ent_seq>7002501</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="buriiku">ブリーク</reb>
         </r_ele>
@@ -47863,7 +47841,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002503</ent_seq>
+        <ent_seq>7002502</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="gitaa keesu">ギターケース</reb>
         </r_ele>
@@ -47880,7 +47858,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002504</ent_seq>
+        <ent_seq>7002503</ent_seq>
         <k_ele>
             <keb>案を出す</keb>
         </k_ele>
@@ -47899,7 +47877,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002505</ent_seq>
+        <ent_seq>7002504</ent_seq>
         <k_ele>
             <keb>曳き縄</keb>
         </k_ele>
@@ -47918,7 +47896,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002506</ent_seq>
+        <ent_seq>7002505</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="mejika">メジカ</reb>
         </r_ele>
@@ -47935,7 +47913,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002507</ent_seq>
+        <ent_seq>7002506</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA_EXCEPTION" romaji="boo boo">ぼっぼっ</reb>
         </r_ele>
@@ -47951,7 +47929,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002508</ent_seq>
+        <ent_seq>7002507</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA_EXCEPTION" romaji="idede">いででっ</reb>
         </r_ele>
@@ -47967,7 +47945,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002509</ent_seq>
+        <ent_seq>7002508</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="sai tekku">サイテック</reb>
         </r_ele>
@@ -47984,7 +47962,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002510</ent_seq>
+        <ent_seq>7002509</ent_seq>
         <k_ele>
             <keb>すり混ぜる</keb>
         </k_ele>
@@ -48003,7 +47981,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002511</ent_seq>
+        <ent_seq>7002510</ent_seq>
         <k_ele>
             <keb>計算値</keb>
         </k_ele>
@@ -48023,7 +48001,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002512</ent_seq>
+        <ent_seq>7002511</ent_seq>
         <k_ele>
             <keb>川蟬</keb>
         </k_ele>
@@ -48042,7 +48020,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002513</ent_seq>
+        <ent_seq>7002512</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="kochin">コチン</reb>
         </r_ele>
@@ -48059,7 +48037,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002514</ent_seq>
+        <ent_seq>7002513</ent_seq>
         <k_ele>
             <keb>八節</keb>
         </k_ele>
@@ -48078,7 +48056,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002515</ent_seq>
+        <ent_seq>7002514</ent_seq>
         <k_ele>
             <keb>足踏み</keb>
         </k_ele>
@@ -48101,7 +48079,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002516</ent_seq>
+        <ent_seq>7002515</ent_seq>
         <k_ele>
             <keb>胴造り</keb>
         </k_ele>
@@ -48121,7 +48099,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002517</ent_seq>
+        <ent_seq>7002516</ent_seq>
         <k_ele>
             <keb>弓構え</keb>
         </k_ele>
@@ -48141,7 +48119,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002518</ent_seq>
+        <ent_seq>7002517</ent_seq>
         <k_ele>
             <keb>打起し</keb>
         </k_ele>
@@ -48161,7 +48139,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002519</ent_seq>
+        <ent_seq>7002518</ent_seq>
         <k_ele>
             <keb>引分け</keb>
         </k_ele>
@@ -48183,7 +48161,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002520</ent_seq>
+        <ent_seq>7002519</ent_seq>
         <k_ele>
             <keb>会</keb>
         </k_ele>
@@ -48216,7 +48194,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002521</ent_seq>
+        <ent_seq>7002520</ent_seq>
         <k_ele>
             <keb>離れ</keb>
         </k_ele>
@@ -48239,7 +48217,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002522</ent_seq>
+        <ent_seq>7002521</ent_seq>
         <k_ele>
             <keb>残心</keb>
         </k_ele>
@@ -48260,7 +48238,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002523</ent_seq>
+        <ent_seq>7002522</ent_seq>
         <k_ele>
             <keb>執り弓の姿勢</keb>
         </k_ele>
@@ -48279,7 +48257,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002524</ent_seq>
+        <ent_seq>7002523</ent_seq>
         <k_ele>
             <keb>熊手で掃く</keb>
         </k_ele>
@@ -48299,7 +48277,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002525</ent_seq>
+        <ent_seq>7002524</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="kororin">ころりん</reb>
         </r_ele>
@@ -48317,7 +48295,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002526</ent_seq>
+        <ent_seq>7002525</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="dobo dobo">どぼどぼ</reb>
         </r_ele>
@@ -48335,7 +48313,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002527</ent_seq>
+        <ent_seq>7002526</ent_seq>
         <k_ele>
             <keb>利休茶</keb>
         </k_ele>
@@ -48355,7 +48333,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002528</ent_seq>
+        <ent_seq>7002527</ent_seq>
         <k_ele>
             <keb>胡粉色</keb>
         </k_ele>
@@ -48375,7 +48353,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002529</ent_seq>
+        <ent_seq>7002528</ent_seq>
         <k_ele>
             <keb>白練</keb>
         </k_ele>
@@ -48395,7 +48373,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002530</ent_seq>
+        <ent_seq>7002529</ent_seq>
         <k_ele>
             <keb>煤竹色</keb>
         </k_ele>
@@ -48415,7 +48393,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002531</ent_seq>
+        <ent_seq>7002530</ent_seq>
         <k_ele>
             <keb>千歳緑</keb>
         </k_ele>
@@ -48435,7 +48413,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002532</ent_seq>
+        <ent_seq>7002531</ent_seq>
         <k_ele>
             <keb>蜜柑色</keb>
         </k_ele>
@@ -48455,7 +48433,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002533</ent_seq>
+        <ent_seq>7002532</ent_seq>
         <k_ele>
             <keb>灰桜</keb>
         </k_ele>
@@ -48475,7 +48453,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002534</ent_seq>
+        <ent_seq>7002533</ent_seq>
         <k_ele>
             <keb>緑青色</keb>
         </k_ele>
@@ -48495,7 +48473,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002535</ent_seq>
+        <ent_seq>7002534</ent_seq>
         <k_ele>
             <keb>伽羅色</keb>
         </k_ele>
@@ -48515,7 +48493,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002536</ent_seq>
+        <ent_seq>7002535</ent_seq>
         <k_ele>
             <keb>丁子色</keb>
         </k_ele>
@@ -48535,7 +48513,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002537</ent_seq>
+        <ent_seq>7002536</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="bakuru">ばくる</reb>
         </r_ele>
@@ -48553,7 +48531,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002538</ent_seq>
+        <ent_seq>7002537</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA_EXCEPTION" romaji="bakuru">バクる</reb>
         </r_ele>
@@ -48571,7 +48549,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002539</ent_seq>
+        <ent_seq>7002538</ent_seq>
         <k_ele>
             <keb>引くわ〜</keb>
         </k_ele>
@@ -48592,7 +48570,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002540</ent_seq>
+        <ent_seq>7002539</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="yabata ni en">やばたにえん</reb>
         </r_ele>
@@ -48610,7 +48588,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002541</ent_seq>
+        <ent_seq>7002540</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA_EXCEPTION" romaji="yabata ni en">ヤバたにえん</reb>
         </r_ele>
@@ -48628,7 +48606,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002542</ent_seq>
+        <ent_seq>7002541</ent_seq>
         <k_ele>
             <keb>しくった</keb>
         </k_ele>
@@ -48649,7 +48627,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002543</ent_seq>
+        <ent_seq>7002542</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="ten'age">てんあげ</reb>
         </r_ele>
@@ -48666,7 +48644,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002544</ent_seq>
+        <ent_seq>7002543</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="ten'age">テンアゲ</reb>
         </r_ele>
@@ -48683,7 +48661,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002545</ent_seq>
+        <ent_seq>7002544</ent_seq>
         <k_ele>
             <keb>うp主</keb>
         </k_ele>
@@ -48704,7 +48682,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002546</ent_seq>
+        <ent_seq>7002545</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="risuru">りする</reb>
         </r_ele>
@@ -48722,7 +48700,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002547</ent_seq>
+        <ent_seq>7002546</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA_HIRAGANA" romaji="risuru">リスる</reb>
         </r_ele>
@@ -48740,7 +48718,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002548</ent_seq>
+        <ent_seq>7002547</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="misawaru">みさわる</reb>
         </r_ele>
@@ -48756,7 +48734,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002549</ent_seq>
+        <ent_seq>7002548</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA_HIRAGANA" romaji="misawaru">ミサワる</reb>
         </r_ele>
@@ -48772,7 +48750,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002550</ent_seq>
+        <ent_seq>7002549</ent_seq>
         <k_ele>
             <keb>神展開</keb>
         </k_ele>
@@ -48792,7 +48770,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002551</ent_seq>
+        <ent_seq>7002550</ent_seq>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="ikiri otaku">いきりおたく</reb>
         </r_ele>
@@ -48809,7 +48787,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002552</ent_seq>
+        <ent_seq>7002551</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="ikiri otaku">イキリオタク</reb>
         </r_ele>
@@ -48826,7 +48804,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002553</ent_seq>
+        <ent_seq>7002552</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA_HIRAGANA" romaji="aseru">アセる</reb>
         </r_ele>
@@ -48847,7 +48825,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002554</ent_seq>
+        <ent_seq>7002553</ent_seq>
         <k_ele>
             <keb>陰ブロ</keb>
         </k_ele>
@@ -48867,7 +48845,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002555</ent_seq>
+        <ent_seq>7002554</ent_seq>
         <k_ele>
             <keb>パリピ御用達</keb>
         </k_ele>
@@ -48887,7 +48865,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002556</ent_seq>
+        <ent_seq>7002555</ent_seq>
         <k_ele>
             <keb>ゆるふわ系</keb>
         </k_ele>
@@ -48907,7 +48885,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002557</ent_seq>
+        <ent_seq>7002556</ent_seq>
         <k_ele>
             <keb>逆さ星</keb>
         </k_ele>
@@ -48926,7 +48904,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002558</ent_seq>
+        <ent_seq>7002557</ent_seq>
         <k_ele>
             <keb>さかさ星</keb>
         </k_ele>
@@ -48945,7 +48923,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002559</ent_seq>
+        <ent_seq>7002558</ent_seq>
         <k_ele>
             <keb>土人学校</keb>
         </k_ele>
@@ -48965,7 +48943,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002560</ent_seq>
+        <ent_seq>7002559</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="warai gaeru">ワライガエル</reb>
         </r_ele>
@@ -48982,7 +48960,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002561</ent_seq>
+        <ent_seq>7002560</ent_seq>
         <k_ele>
             <keb>電気店</keb>
         </k_ele>
@@ -49001,7 +48979,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002562</ent_seq>
+        <ent_seq>7002561</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="reeshingu kaato">レーシングカート</reb>
         </r_ele>
@@ -49019,7 +48997,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002563</ent_seq>
+        <ent_seq>7002562</ent_seq>
         <k_ele>
             <keb>アレルギー学</keb>
         </k_ele>
@@ -49038,7 +49016,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002564</ent_seq>
+        <ent_seq>7002563</ent_seq>
         <k_ele>
             <keb>アレルギー専門医</keb>
         </k_ele>
@@ -49057,7 +49035,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002565</ent_seq>
+        <ent_seq>7002564</ent_seq>
         <k_ele>
             <keb>独立峰</keb>
         </k_ele>
@@ -49076,7 +49054,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002566</ent_seq>
+        <ent_seq>7002565</ent_seq>
         <k_ele>
             <keb>編集社</keb>
         </k_ele>
@@ -49096,7 +49074,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002567</ent_seq>
+        <ent_seq>7002566</ent_seq>
         <k_ele>
             <keb>表裏がある</keb>
         </k_ele>
@@ -49117,7 +49095,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002568</ent_seq>
+        <ent_seq>7002567</ent_seq>
         <k_ele>
             <keb>早戻し</keb>
         </k_ele>
@@ -49137,7 +49115,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002569</ent_seq>
+        <ent_seq>7002568</ent_seq>
         <k_ele>
             <keb>アーチェリー場</keb>
         </k_ele>
@@ -49158,7 +49136,7 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7002570</ent_seq>
+        <ent_seq>7002569</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="chifuchafu">チフチャフ</reb>
         </r_ele>
