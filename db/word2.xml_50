@@ -23087,6 +23087,26 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5080524</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="magurebu">マグレブ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <s_inf xml:lang="pol">północno-zachodnia Afryka</s_inf>
+            <gloss xml:lang="eng">Maghreb</gloss>
+            <gloss xml:lang="pol">Maghreb</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="321953" dictionaryEntryTypeList="WORD_NOUN" kana="マグレブ" romaji="magurebu" uniqueKey="-/マグレブ/2"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5080526</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="maguroo hiru">マグローヒル</reb>

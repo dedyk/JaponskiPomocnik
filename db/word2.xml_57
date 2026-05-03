@@ -16907,17 +16907,17 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <misc>product name</misc>
-            <s_inf xml:lang="pol">model samochodu Nissana</s_inf>
-            <gloss xml:lang="eng">Micra (Nissan car model)</gloss>
-            <gloss xml:lang="pol">Micra</gloss>
-        </sense>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
             <misc>work of art, literature, music, etc. name</misc>
             <s_inf xml:lang="pol">gra wideo, skrót</s_inf>
             <gloss xml:lang="eng">Minecraft (video game) (abbr)</gloss>
             <gloss xml:lang="pol">Minecraft</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">model samochodu Nissana</s_inf>
+            <gloss xml:lang="eng">Micra (Nissan car model)</gloss>
+            <gloss xml:lang="pol">Micra</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -52002,6 +52002,31 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5746865</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="karubari">カルバリ</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="karuvari">カルヴァリ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <gloss xml:lang="eng">Calvary</gloss>
+            <gloss xml:lang="eng">Golgotha</gloss>
+            <gloss xml:lang="pol">Kalwaria</gloss>
+            <gloss xml:lang="pol">Golgota</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="322019" dictionaryEntryTypeList="WORD_NOUN" kana="カルバリ" romaji="karubari" uniqueKey="-/カルバリ/1"/>
+                <entries id="322020" dictionaryEntryTypeList="WORD_NOUN" kana="カルヴァリ" romaji="karuvari" uniqueKey="-/カルヴァリ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5746867</ent_seq>
         <k_ele>
             <keb>龍が如く</keb>
@@ -56662,6 +56687,28 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="321740" dictionaryEntryTypeList="WORD_NOUN" kanji="倭人伝" kana="わじんでん" romaji="wajinden" uniqueKey="倭人伝/わじんでん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747686</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="yuuropooru">ユーロポール</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">policyjna agencja Unii Europejskiej z siedzibą w Hadze</s_inf>
+            <gloss xml:lang="eng">Europol</gloss>
+            <gloss xml:lang="eng">European Police Office</gloss>
+            <gloss xml:lang="pol">Agencja Unii Europejskiej ds. Współpracy Organów Ścigania</gloss>
+            <gloss xml:lang="pol">Europol</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="322189" dictionaryEntryTypeList="WORD_NOUN" kana="ユーロポール" romaji="yuuropooru" uniqueKey="-/ユーロポール/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
