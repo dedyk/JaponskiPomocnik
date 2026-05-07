@@ -24,6 +24,7 @@ db/kanji2.xml \
 db/radical.csv \
 db/word2.xml \
 db/name2.xml \
+db/lastmod \
 db-lucene
 
 cp db/kana.csv app/src/main/assets/
