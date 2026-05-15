@@ -610,7 +610,7 @@ public class WordDictionaryDetails extends Activity {
 			for (int senseIdx = 0; senseIdx < dictionaryEntry2.getSenseList().size(); ++senseIdx) {
 
 				Sense sense = dictionaryEntry2.getSenseList().get(senseIdx);
-				WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense printableDictionaryEntry2Sense = new WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense(sense);
+				WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense printableDictionaryEntry2Sense = new WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense(dictionaryEntry2, sense);
 
 				// numer znaczenia
 				/*
@@ -750,6 +750,64 @@ public class WordDictionaryDetails extends Activity {
 					report.add(new StringValue("  " + joinedLanguageSource, 13.0f, 1));
 				}
 
+				// odnosnik do innych slow
+				List<WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense.ReferenceToAnotherKanjiKanaResult> referenceToAnotherKanjiKanaResultList = printableDictionaryEntry2Sense.getReferenceToAnotherKanjiKanaResultList();
+
+				for (WordKanjiDictionaryUtils.PrintableDictionaryEntry2Sense.ReferenceToAnotherKanjiKanaResult referenceToAnotherKanjiKanaResult : referenceToAnotherKanjiKanaResultList) {
+					onetimeSpacerToDetailsGenerator.accept(null);
+
+					TableLayout referenceTableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, null);
+					TableRow referenceTableLayoutTableRow = new TableRow();
+
+					StringValue prefixStringValue = new StringValue("  " + referenceToAnotherKanjiKanaResult.prefix, 13.0f, 1);
+					StringValue xrefLinkValue = new StringValue(referenceToAnotherKanjiKanaResult.xrefLinkValue, 16.0f, 1);
+
+					//xrefLinkValue.setTextColor(Color.argb(255, 51, 181, 229)); // lekki niebieski
+
+					referenceTableLayoutTableRow.addScreenItem(prefixStringValue);
+					referenceTableLayoutTableRow.addScreenItem(xrefLinkValue);
+
+					referenceTableLayout.addTableRow(referenceTableLayoutTableRow);
+
+					report.add(referenceTableLayout);
+
+					//
+
+					JMdict.Entry referenceDictionaryEntry = null;
+
+					if (referenceToAnotherKanjiKanaResult.referencedDictionaryEntry2Id != null) {
+						try {
+							referenceDictionaryEntry = JapaneseAndroidLearnHelperApplication
+									.getInstance().getDictionaryManager(WordDictionaryDetails.this).getDictionaryEntry2ById(referenceToAnotherKanjiKanaResult.referencedDictionaryEntry2Id);
+
+						} catch (DictionaryException e) {
+							Toast.makeText(WordDictionaryDetails.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+							referenceDictionaryEntry = null;
+						}
+					}
+
+					if (referenceDictionaryEntry != null) {
+						final JMdict.Entry referenceDictionaryEntryAsFinal = referenceDictionaryEntry;
+
+						OnClickListener goToReferenceDictionaryEntryDetails = new OnClickListener() {
+
+							@Override
+							public void onClick(View v) {
+								Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
+
+								intent.putExtra("item", referenceDictionaryEntryAsFinal);
+
+								startActivity(intent);
+							}
+						};
+
+						prefixStringValue.setOnClickListener(goToReferenceDictionaryEntryDetails);
+						xrefLinkValue.setOnClickListener(goToReferenceDictionaryEntryDetails);
+					}
+				}
+
+				/*
 				// odnosnic do innego slowa
 				String referenceToAnotherKanjiKana = printableDictionaryEntry2Sense.getReferenceToAnotherKanjiKana(getApplicationContext());
 
@@ -765,6 +823,7 @@ public class WordDictionaryDetails extends Activity {
 					onetimeSpacerToDetailsGenerator.accept(null);
 					report.add(new StringValue("  " + antonym, 13.0f, 1));
 				}
+				*/
 
 				// przerwa
 				report.add(new StringValue("", 10.0f, 0));
@@ -845,7 +904,7 @@ public class WordDictionaryDetails extends Activity {
 		// informacje dodatkowe
 		boolean doAddAdditionalInfo = true;
 
-		String info = null;
+		List<String> infoList = null;
 		String kanji = null;
 
 		if (kanjiKanaPairList != null) {
@@ -857,7 +916,8 @@ public class WordDictionaryDetails extends Activity {
 				}
 			}
 
-			info = null;
+			// dodatkowe ogolne informacje
+			infoList = Dictionary2HelperCommon.getPolishInfoList(kanjiKanaPairList.get(0).getEntry().getInfoList()).stream().map(m -> m.getValue()).collect(Collectors.toList());
 
 		} else if (nameKanjiKanaPairList != null) {
 			for (Dictionary2NameHelperCommon.NameKanjiKanaPair nameKanjiKanaPair : nameKanjiKanaPairList) {
@@ -868,7 +928,7 @@ public class WordDictionaryDetails extends Activity {
 				}
 			}
 
-			info = null;
+			infoList = null;
 
 		} else {
 			throw new RuntimeException(); // to nigdy nie powinno zdarzyc sie
@@ -886,6 +946,7 @@ public class WordDictionaryDetails extends Activity {
 			special = 3;
 		}
 
+		/*
 		if (special == 0 && kanjiKanaPairList != null) { // dla slownika w formacie drugim nie generuj tej sekcji; informacje te znajda sie w sekcji znaczen
 			doAddAdditionalInfo = false;
 		}
@@ -893,8 +954,9 @@ public class WordDictionaryDetails extends Activity {
 		if (special == 0 && nameKanjiKanaPairList != null) { // dla slownika nazw w formacie drugim nie generuj tej sekcji; informacje te znajda sie w sekcji znaczen
 			doAddAdditionalInfo = false;
 		}
+		*/
 
-		if (!(info != null && info.length() > 0) && (special == 0)) {
+		if (special == 0 && (infoList == null || infoList.size() == 0)) {
 			doAddAdditionalInfo = false;
 		}
 
@@ -922,10 +984,11 @@ public class WordDictionaryDetails extends Activity {
 				report.add(butamoodateryakininoboru);
 
 			} else if (special == 3) {
-
+				/*
 				if (info != null && info.length() > 0) {
 					report.add(new StringValue(info, 20.0f, 0));
 				}
+				*/
 
 				Image takakoOkamuraImage = new Image(getResources().getDrawable(R.drawable.takako_okamura2), 0);
 
@@ -935,10 +998,8 @@ public class WordDictionaryDetails extends Activity {
 				report.add(takakoOkamuraImage);
 
 			} else {
-				if (info != null && info.length() > 0) {
-					report.add(new StringValue(info, 20.0f, 0));
-				} else {
-					report.add(new StringValue("-", 20.0f, 0));
+				for (String info : infoList) {
+					report.add(new StringValue(info, 15.0f, 0));
 				}
 			}
 		}
@@ -988,13 +1049,13 @@ public class WordDictionaryDetails extends Activity {
 
 						referenceDictionaryEntry = JapaneseAndroidLearnHelperApplication
 								.getInstance().getDictionaryManager(WordDictionaryDetails.this).getDictionaryEntry2ByOldPolishJapaneseDictionaryId(referenceWordId);
-
+					/*
 					} else if (attributeType == AttributeType.RELATED || attributeType == AttributeType.ANTONYM) {
 						Integer referenceWordId = Integer.parseInt(currentAttribute.getAttributeValue().get(0));
 
 						referenceDictionaryEntry = JapaneseAndroidLearnHelperApplication
 								.getInstance().getDictionaryManager(WordDictionaryDetails.this).getDictionaryEntry2ById(referenceWordId);
-
+					*/
 					} else {
 						referenceDictionaryEntry = null;
 					}

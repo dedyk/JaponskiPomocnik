@@ -23,6 +23,7 @@ import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.LanguageSource;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.Sense;
 import pl.idedyk.japanese.dictionary2.jmdict.xsd.SenseAdditionalInfo;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.Xref;
 import pl.idedyk.japanese.dictionary2.jmnedict.xsd.JMnedict;
 import pl.idedyk.japanese.dictionary2.jmnedict.xsd.TranslationalInfo;
 import pl.idedyk.japanese.dictionary2.jmnedict.xsd.TranslationalInfoTransDet;
@@ -115,7 +116,7 @@ public class WordKanjiDictionaryUtils {
 
             for (int senseIdx = 0; senseIdx < dictionaryEntry2.getSenseList().size(); ++senseIdx) {
                 Sense sense = dictionaryEntry2.getSenseList().get(senseIdx);
-                PrintableDictionaryEntry2Sense printableDictionaryEntry2Sense = new PrintableDictionaryEntry2Sense(sense);
+                PrintableDictionaryEntry2Sense printableDictionaryEntry2Sense = new PrintableDictionaryEntry2Sense(dictionaryEntry2, sense);
 
                 if (senseIdx == 0) {
                     result.append("\n\n");
@@ -252,6 +253,16 @@ public class WordKanjiDictionaryUtils {
                     result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + joinedLanguageSource + "</i>").append("\n");
                 }
 
+                // odnosnik do innego slowa
+                List<PrintableDictionaryEntry2Sense.ReferenceToAnotherKanjiKanaResult> referenceToAnotherKanjiKanaResultList = printableDictionaryEntry2Sense.getReferenceToAnotherKanjiKanaResultList();
+
+                for (PrintableDictionaryEntry2Sense.ReferenceToAnotherKanjiKanaResult referenceToAnotherKanjiKanaResult : referenceToAnotherKanjiKanaResultList) {
+                    onetimeSpacerGenerator.accept(null);
+
+                    result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + referenceToAnotherKanjiKanaResult.prefix + " <i>" + referenceToAnotherKanjiKanaResult.xrefLinkValue + "</i>").append("\n");
+                }
+
+                /*
                 // odnosnic do innego slowa
                 String referenceToAnotherKanjiKana = printableDictionaryEntry2Sense.getReferenceToAnotherKanjiKana(context);
 
@@ -267,6 +278,7 @@ public class WordKanjiDictionaryUtils {
                     onetimeSpacerGenerator.accept(null);
                     result.append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>" + antonym + "</i>").append("\n");
                 }
+                */
 
                 // przerwa
                 if (senseIdx != dictionaryEntry2.getSenseList().size() - 1) {
@@ -558,9 +570,11 @@ public class WordKanjiDictionaryUtils {
     }
 
     public static class PrintableDictionaryEntry2Sense {
+        private JMdict.Entry entry;
         private Sense sense;
 
-        public PrintableDictionaryEntry2Sense(Sense sense) {
+        public PrintableDictionaryEntry2Sense(JMdict.Entry entry, Sense sense) {
+            this.entry = entry;
             this.sense = sense;
         }
 
@@ -627,11 +641,11 @@ public class WordKanjiDictionaryUtils {
         public String getJoinedLanguageSource(Context context) {
             String joinedLanguageSource = null;
 
-            if (sense.getLanguageSourceList().size() > 0) {
+            if (entry.getLanguageSourceList().size() > 0) {
                 // zamiana na przetlumaczona postac
                 List<String> singleLanguageSourceList = new ArrayList<>();
 
-                for (LanguageSource languageSource : sense.getLanguageSourceList()) {
+                for (LanguageSource languageSource : entry.getLanguageSourceList()) {
 
                     StringBuffer singleLanguageSource = new StringBuffer();
 
@@ -659,6 +673,7 @@ public class WordKanjiDictionaryUtils {
             return joinedLanguageSource;
         }
 
+        /*
         public String getReferenceToAnotherKanjiKana(Context context) {
             String referenceToAnotherKanjiKana = null;
 
@@ -678,7 +693,66 @@ public class WordKanjiDictionaryUtils {
 
             return antonym;
         }
+        */
 
+        public static class ReferenceToAnotherKanjiKanaResult {
+            public Xref xref;
+
+            public String prefix;
+            public String xrefLinkValue;
+            public Integer referencedDictionaryEntry2Id;
+
+            public ReferenceToAnotherKanjiKanaResult(Xref xref, String prefix, String xrefLinkValue, Integer referencedDictionaryEntry2Id) {
+                this.xref = xref;
+
+                this.prefix = prefix;
+                this.xrefLinkValue = xrefLinkValue;
+                this.referencedDictionaryEntry2Id = referencedDictionaryEntry2Id;
+            }
+        }
+
+        public List<ReferenceToAnotherKanjiKanaResult> getReferenceToAnotherKanjiKanaResultList() {
+
+            List<ReferenceToAnotherKanjiKanaResult> result = new ArrayList<>();
+
+            List<Xref> referenceToAnotherKanjiKanaList = sense.getReferenceToAnotherKanjiKanaList();
+
+            for (int referenceToAnotherKanjiKanaListIdx = 0; referenceToAnotherKanjiKanaListIdx < referenceToAnotherKanjiKanaList.size(); ++referenceToAnotherKanjiKanaListIdx) {
+                Xref currentXRef = referenceToAnotherKanjiKanaList.get(referenceToAnotherKanjiKanaListIdx);
+
+                StringBuffer prefix = new StringBuffer();
+                StringBuffer xrefLinkValue = new StringBuffer();
+                Integer referencedDictionaryEntry2Id = null;
+
+                prefix.append(Dictionary2HelperCommon.translateXrefType(currentXRef.getType()) + " ");
+
+                if (currentXRef.getDict() != null) {
+                    prefix.append(currentXRef.getDict() + ": ");
+                }
+
+                if (currentXRef.getXKanji() != null) {
+                    xrefLinkValue.append(currentXRef.getXKanji());
+                }
+
+                if (currentXRef.getXKana() != null) {
+                    if (xrefLinkValue.length() > 0) {
+                        xrefLinkValue.append(" / ");
+                    }
+                    xrefLinkValue.append(currentXRef.getXKana());
+                }
+
+                if (currentXRef.getSeq() != null) {
+                    referencedDictionaryEntry2Id = currentXRef.getSeq();
+                }
+
+                // skladamy wszystkie infomcaje do paczki
+                result.add(new ReferenceToAnotherKanjiKanaResult(currentXRef, prefix.toString(), xrefLinkValue.toString(), referencedDictionaryEntry2Id));
+            }
+
+            return result;
+        }
+
+        /*
         private static String createReferenceAntonymToAnotherKanjiKana(Context context, List<String> wordReference, int stringIdTitle) {
 
             List<String> wordsToCreateLinkList = new ArrayList<>();
@@ -714,6 +788,7 @@ public class WordKanjiDictionaryUtils {
 
             return result.toString();
         }
+        */
 
         public List<Gloss> getPolishGlossList() {
             return Dictionary2HelperCommon.getPolishGlossList(sense.getGlossList());
