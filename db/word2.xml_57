@@ -45489,7 +45489,7 @@
             <misc>work of art, literature, music, etc. name</misc>
             <s_inf xml:lang="pol">magazyn dla gejów wydawany w latach 1971-2011</s_inf>
             <gloss xml:lang="eng">Barazoku (gay men's magazine; 1971-2011)</gloss>
-            <gloss xml:lang="pol">薔薇族</gloss>
+            <gloss xml:lang="pol">Barazoku</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -56709,6 +56709,79 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="322189" dictionaryEntryTypeList="WORD_NOUN" kana="ユーロポール" romaji="yuuropooru" uniqueKey="-/ユーロポール/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747735</ent_seq>
+        <k_ele>
+            <keb>モノノ怪</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="mononoke">モノノけ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">serial animowany, 2007</s_inf>
+            <gloss xml:lang="eng">Mononoke (animated TV series, 2007)</gloss>
+            <gloss xml:lang="pol">Mononoke</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="323373" dictionaryEntryTypeList="WORD_NOUN" kanji="モノノ怪" kana="モノノけ" romaji="mononoke" uniqueKey="モノノ怪/モノノけ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747738</ent_seq>
+        <k_ele>
+            <keb>イスラム革命防衛隊</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="isuramu kakumei boueitai">イスラムかくめいぼうえいたい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">jedna z dwóch gałęzi irańskich sił zbrojnych, obok Armii Islamskiej Republiki Iranu</s_inf>
+            <gloss xml:lang="eng">Islamic Revolutionary Guard Corps (Iran)</gloss>
+            <gloss xml:lang="eng">IRGC</gloss>
+            <gloss xml:lang="pol">Korpus Strażników Rewolucji Islamskiej</gloss>
+            <gloss xml:lang="pol">Armia Strażników Rewolucji Islamskiej</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="323482" dictionaryEntryTypeList="WORD_NOUN" kanji="イスラム革命防衛隊" kana="イスラムかくめいぼうえいたい" romaji="isuramu kakumei boueitai" uniqueKey="イスラム革命防衛隊/イスラムかくめいぼうえいたい/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747757</ent_seq>
+        <k_ele>
+            <keb>フランス通信社</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="furansu tsuushinsha">フランスつうしんしゃ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">francuska agencja prasowa z siedzibą w Paryżu</s_inf>
+            <gloss xml:lang="eng">Agence France-Presse</gloss>
+            <gloss xml:lang="eng">AFP</gloss>
+            <gloss xml:lang="pol">Agence France-Presse</gloss>
+            <gloss xml:lang="pol">AFP</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="324263" dictionaryEntryTypeList="WORD_NOUN" kanji="フランス通信社" kana="フランスつうしんしゃ" romaji="furansu tsuushinsha" uniqueKey="フランス通信社/フランスつうしんしゃ/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

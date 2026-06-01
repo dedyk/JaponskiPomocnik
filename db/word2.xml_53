@@ -5133,30 +5133,6 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>5349637</ent_seq>
-        <k_ele>
-            <keb>呪怨</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="juu on">じゅうおん</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <misc>work of art, literature, music, etc. name</misc>
-            <s_inf xml:lang="pol">japoński horror</s_inf>
-            <gloss xml:lang="eng">Ju-on</gloss>
-            <gloss xml:lang="eng">The Grudge (Japanese horror movie)</gloss>
-            <gloss xml:lang="pol">Ju-on</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary>
-                <entries id="293748" dictionaryEntryTypeList="WORD_NOUN" kanji="呪怨" kana="じゅうおん" romaji="juu on" uniqueKey="呪怨/じゅうおん/1"/>
-                <attributeList type="PRIORITY" value="255"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>5352962</ent_seq>
         <k_ele>
             <keb>就実女子大学</keb>

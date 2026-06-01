@@ -479,8 +479,6 @@
             <oldPolishJapaneseDictionary notExistsInJMdict="true">
                 <entries id="304142" dictionaryEntryTypeList="WORD_NOUN" kanji="離れ" kana="はなれ" romaji="hanare" uniqueKey="離れ/はなれ/2"/>
                 <attributeList type="PRIORITY" value="255"/>
-                <attributeList type="RELATED" value="1821640"/>
-                <attributeList type="RELATED" value="1821630"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>

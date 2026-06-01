@@ -9995,7 +9995,6 @@
             <oldPolishJapaneseDictionary notExistsInJMdict="true">
                 <entries id="10847" dictionaryEntryTypeList="WORD_NOUN" kanji="八段" kana="はったん" romaji="hattan" uniqueKey="八段/はったん/1"/>
                 <attributeList type="PRIORITY" value="62"/>
-                <attributeList type="RELATED" value="2656070"/>
                 <groupsList>COUNTERS</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -22261,7 +22260,6 @@
             <oldPolishJapaneseDictionary notExistsInJMdict="true">
                 <entries id="12794" dictionaryEntryTypeList="WORD_NOUN" kanji="八部" kana="はちぶ" romaji="hachibu" uniqueKey="八部/はちぶ/1"/>
                 <attributeList type="PRIORITY" value="62"/>
-                <attributeList type="RELATED" value="2166740"/>
                 <groupsList>COUNTERS</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
