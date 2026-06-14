@@ -315,7 +315,7 @@ public class KanjiSearchMeaning extends Activity {
 
 				if (textFromClipboard != null && textFromClipboard.length() > 0) {
 					// wstawienie napisu
-					searchValueEditText.setText(textFromClipboard);
+					searchValueEditText.setText(searchValueEditText.getText() + textFromClipboard);
 
 					// resetowanie ustawien wyszukiwania
 					searchOptionsStartWithPlaceRadioButton.setChecked(true);
