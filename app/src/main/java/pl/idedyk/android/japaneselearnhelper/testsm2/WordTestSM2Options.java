@@ -8,8 +8,10 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTest;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordCommonList;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPowerList;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 import java.io.InputStreamReader;
 import java.util.Iterator;
@@ -313,6 +315,10 @@ public class WordTestSM2Options extends Activity {
 						
 						Integer dbVersion = wordTestSM2Manager.getVersion();
 
+						// FM_FIXME: !!!!!!!!!! do usuniecia
+						fm_fixme_delete_me();
+						dbVersion = 0;
+
 						if (dbVersion == null || dbVersion.intValue() != versionCode) { // update db
 							
 							CsvReader wordPowerInputStreamCsvReader = null;
@@ -320,13 +326,17 @@ public class WordTestSM2Options extends Activity {
 							int currentProgressNo = 0;
 							
 							try {
-								
 								int transactionCounter = 0;
 																
 								wordTestSM2Manager.beginTransaction();
 
 								// pobierz plik z mocami
 								WordPowerList wordPowerList = dictionaryManager.getWordPowerList();
+
+								// pobierz plik z lista powszechnych slow
+								WordCommonList wordCommonList = dictionaryManager.getWordCommonList();
+
+								fm_fixme_todo();
 
 								// szukamy maksymalnej wartosci slowka
 								int maxDictionaryEntryId = 0;
@@ -355,6 +365,7 @@ public class WordTestSM2Options extends Activity {
 									List<Integer> dictionaryEntryListForPower = entrySet.getValue();
 
 									for (Integer currentDictionaryEntryIdx : dictionaryEntryListForPower) {
+
 										// sprawdzanie, czy taki rekord istnieje
 										boolean dictionaryEntryExistsInWordStat = wordTestSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
 										

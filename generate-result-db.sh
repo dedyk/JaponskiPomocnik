@@ -31,6 +31,7 @@ cp db/kana.csv app/src/main/assets/
 cp db/radical.csv app/src/main/assets/
 cp db/transitive_intransitive_pairs.csv app/src/main/assets/
 cp db/word-power.csv app/src/main/assets/
+cp db/word-common.csv app/src/main/assets/
 cp db/kanji_recognizer.model.db app/src/main/assets/
 
 cd db-lucene

@@ -36,23 +36,17 @@ public class WordTestSM2Manager {
 			
 			// create table if needed
 			if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase, "table", SQLiteStatic.wordStatTableName) == false) {
-				
 				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreate);
-				
 				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreateNextRepetitionsKeyIndex);
 			}
 			
 			if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase,"table", SQLiteStatic.configTableName) == false) {
-				
 				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreate);
-				
 				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreateNameKeyIndex);				
 			}
 			
 			if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase,"table", SQLiteStatic.dayStatTableName) == false) {
-				
 				sqliteDatabase.execSQL(SQLiteStatic.dayStatTableCreate);
-				
 				sqliteDatabase.execSQL(SQLiteStatic.dayStatTableCreateDateStatKeyIndex);				
 			}
 
@@ -74,14 +68,12 @@ public class WordTestSM2Manager {
 	}
 
 	public void close() {
-		
 		if (sqliteDatabase != null) {
 			sqliteDatabase.close();
 		}
 	}
 	
 	public void insertDictionaryEntry(int id, int power) {
-		
 		sqliteDatabase.execSQL(SQLiteStatic.insertWordStatSql, new Object[] { id, power });
 	}
 	
@@ -90,7 +82,6 @@ public class WordTestSM2Manager {
 	}
 	
 	public boolean isDictionaryEntryExistsInWordStat(int id) {
-		
 		Cursor cursor = null;
 		
 		try {
@@ -115,7 +106,6 @@ public class WordTestSM2Manager {
 	}
 	
 	public Integer getVersion() {
-		
 		String configValue = getConfigValue(SQLiteStatic.configName_version);
 		
 		if (configValue == null) {
@@ -135,7 +125,6 @@ public class WordTestSM2Manager {
 	}
 	
 	private String getConfigValue(String name) {
-		
 		Cursor cursor = null;
 		
 		try {
@@ -161,7 +150,6 @@ public class WordTestSM2Manager {
 	}
 	
 	public WordTestSM2DayStat getCurrentDayStat() {
-		
 		WordTestSM2DayStat currentDayStat = getCurrentDayStatPriv();
 		
 		if (currentDayStat != null) {
@@ -180,7 +168,6 @@ public class WordTestSM2Manager {
 	}
 	
 	private WordTestSM2DayStat getCurrentDayStatPriv() {
-		
 		Cursor cursor = null;
 				
 		try {
@@ -212,7 +199,6 @@ public class WordTestSM2Manager {
 	}
 	
 	private Date getDateFromString(String dateString) {
-
 		if (dateString == null) {
 			return null;
 		}
@@ -228,7 +214,6 @@ public class WordTestSM2Manager {
 	}
 	
 	private Date getDatetimeFromString(String datetimeString) {
-
 		if (datetimeString == null) {
 			return null;
 		}
@@ -244,7 +229,6 @@ public class WordTestSM2Manager {
 	}
 	
 	private String getDatetimeFromDate(Date date) {
-		
 		if (date == null) {
 			return null;
 		}
@@ -255,7 +239,6 @@ public class WordTestSM2Manager {
 	}
 	
 	public WordTestSM2WordStat getNextWordStat(int maxNewWordsLimit) {
-				
 		boolean canGetNextWordStat = canGetNextWordStat(maxNewWordsLimit);
 		
 		WordTestSM2WordStat wordStat = null;
@@ -326,7 +309,6 @@ public class WordTestSM2Manager {
 	}
 	
 	private boolean canGetNextWordStat(int maxNewWordsLimit) {
-		
 		WordTestSM2DayStat currentDateStat = getCurrentDayStat();
 		
 		if (currentDateStat.getNewWords() >= maxNewWordsLimit) {
@@ -337,7 +319,6 @@ public class WordTestSM2Manager {
 	}
 	
 	private WordTestSM2WordStat getNextNewWordStat(int maxNewWordsLimit) {
-		
 		Cursor cursor = null;
 		
 		try {			
@@ -359,7 +340,6 @@ public class WordTestSM2Manager {
 	}
 
 	private WordTestSM2WordStat getNextRepeatWordStat() {
-				
 		Cursor cursor = null;
 		
 		try {			
@@ -412,7 +392,6 @@ public class WordTestSM2Manager {
 					getDatetimeFromDate(wordStat.getLastStudied()), wordStat.getId() });
 		
 		if (wordStat.isWasNew() == true) {
-			
 			sqliteDatabase.execSQL(SQLiteStatic.updateDayStatNewRepeatWordsSql,
 				new Object[] { 1 });
 			

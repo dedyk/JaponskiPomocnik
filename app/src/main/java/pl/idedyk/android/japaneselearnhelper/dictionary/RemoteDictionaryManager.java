@@ -10,6 +10,7 @@ import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.dictionary.remote.RemoteLuceneConnector;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordCommonList;
 import pl.idedyk.japanese.dictionary.api.dictionary.dto.WordPowerList;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
@@ -41,7 +42,6 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
 
         // wczytywanie informacji o znakach podstawowych
         try {
-
             if (initRadical(activity, loadWithProgress, resources, assets) == false) {
                 return;
             }
@@ -92,5 +92,10 @@ public class RemoteDictionaryManager extends DictionaryManagerCommon {
     @Override
     public WordPowerList getWordPowerList() throws DictionaryException {
         return ((RemoteLuceneConnector)databaseConnector).getWordPowerList();
+    }
+
+    @Override
+    public WordCommonList getWordCommonList() throws DictionaryException {
+        return ((RemoteLuceneConnector)databaseConnector).getWordCommonList();
     }
 }
