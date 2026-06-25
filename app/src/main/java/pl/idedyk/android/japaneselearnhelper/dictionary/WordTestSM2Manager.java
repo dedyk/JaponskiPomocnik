@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2DayStat;
@@ -39,7 +40,16 @@ public class WordTestSM2Manager {
 				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreate);
 				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreateNextRepetitionsKeyIndex);
 			}
-			
+
+			// sprawdzenie, czy wystepuje kolumna common
+			// pobranie listy kolumn
+			List<String> wordStatTableNameColumnNames = SQLiteDatabaseHelper.getColumnNames(sqliteDatabase, SQLiteStatic.wordStatTableName);
+
+			// jezeli nie ma kolumny common to dodajemy ja
+			if (wordStatTableNameColumnNames.contains(SQLiteStatic.wordStatTable_common) == false) {
+				sqliteDatabase.execSQL(SQLiteStatic.wordStatTableCreateCommonColumn);
+			}
+
 			if (SQLiteDatabaseHelper.isObjectExists(sqliteDatabase,"table", SQLiteStatic.configTableName) == false) {
 				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreate);
 				sqliteDatabase.execSQL(SQLiteStatic.configTableNameCreateNameKeyIndex);				
@@ -73,12 +83,12 @@ public class WordTestSM2Manager {
 		}
 	}
 	
-	public void insertDictionaryEntry(int id, int power) {
-		sqliteDatabase.execSQL(SQLiteStatic.insertWordStatSql, new Object[] { id, power });
+	public void insertDictionaryEntry(int id, int power, int common) {
+		sqliteDatabase.execSQL(SQLiteStatic.insertWordStatSql, new Object[] { id, power, common });
 	}
 	
-	public void updateDictionaryEntry(int id, int power) {		
-		sqliteDatabase.execSQL(SQLiteStatic.updateWordStatPowerSql, new Object[] { power, id });		
+	public void updateDictionaryEntry(int id, int power, int common) {
+		sqliteDatabase.execSQL(SQLiteStatic.updateWordStatPowerSql, new Object[] { power, common, id });
 	}
 	
 	public boolean isDictionaryEntryExistsInWordStat(int id) {
@@ -238,13 +248,13 @@ public class WordTestSM2Manager {
 		return datetimeFormat.format(date);
 	}
 	
-	public WordTestSM2WordStat getNextWordStat(int maxNewWordsLimit) {
+	public WordTestSM2WordStat getNextWordStat(int maxNewWordsLimit, boolean onlyCommon) {
 		boolean canGetNextWordStat = canGetNextWordStat(maxNewWordsLimit);
 		
 		WordTestSM2WordStat wordStat = null;
 		
 		if (canGetNextWordStat == true) {			
-			wordStat = getNextNewWordStat(maxNewWordsLimit);
+			wordStat = getNextNewWordStat(maxNewWordsLimit, onlyCommon);
 			
 		} else {			
 			wordStat = getNextRepeatWordStat();
@@ -253,11 +263,11 @@ public class WordTestSM2Manager {
 		return wordStat;
 	}
 	
-	public int getNextWordSize(int maxNewWordsLimit) {		
-		return countNextNewWordSize(maxNewWordsLimit) + countNextRepeatWordSize();
+	public int getNextWordSize(int maxNewWordsLimit, boolean onlyCommon) {
+		return countNextNewWordSize(maxNewWordsLimit, onlyCommon) + countNextRepeatWordSize();
 	}
 	
-	public int countNextNewWordSize(int maxNewWordsLimit) {
+	public int countNextNewWordSize(int maxNewWordsLimit, boolean onlyCommon) {
 		
 		boolean canGetNextWordStat = canGetNextWordStat(maxNewWordsLimit);
 		
@@ -270,7 +280,8 @@ public class WordTestSM2Manager {
 		Cursor cursor = null;
 		
 		try {
-			cursor = sqliteDatabase.rawQuery(SQLiteStatic.countNextNewWordStatSql, new String[] { });
+			cursor = sqliteDatabase.rawQuery(onlyCommon == false ? SQLiteStatic.countNextNewWordStatSqlWithoutOnlyCommon : SQLiteStatic.countNextNewWordStatSqlWithOnlyCommon,
+					new String[] { });
 			
 			cursor.moveToFirst();
 			
@@ -318,11 +329,11 @@ public class WordTestSM2Manager {
 		return true;
 	}
 	
-	private WordTestSM2WordStat getNextNewWordStat(int maxNewWordsLimit) {
+	private WordTestSM2WordStat getNextNewWordStat(int maxNewWordsLimit, boolean onlyCommon) {
 		Cursor cursor = null;
 		
-		try {			
-			cursor = sqliteDatabase.rawQuery(SQLiteStatic.selectNextNewWordStatSql, new String[] { });
+		try {
+			cursor = sqliteDatabase.rawQuery(onlyCommon == false ? SQLiteStatic.selectNextNewWordStatSqlWithoutOnlyCommon : SQLiteStatic.selectNextNewWordStatSqlWithOnlyCommon, new String[] { });
 			
 			boolean moveToFirstResult = cursor.moveToFirst();
 			
@@ -414,6 +425,7 @@ public class WordTestSM2Manager {
 		
 		public static final String wordStatTable_id = "id";
 		public static final String wordStatTable_power = "power";
+		public static final String wordStatTable_common = "common";
 		public static final String wordStatTable_easinessFactor = "easinessFactor";
 		public static final String wordStatTable_repetitions = "repetitions";
 		public static final String wordStatTable_interval = "interval";
@@ -447,7 +459,10 @@ public class WordTestSM2Manager {
 		public static final String wordStatTableCreateNextRepetitionsKeyIndex = 
 				"create index " + wordStatTableName + "NextRepetitionsKeyIdx on " +
 				wordStatTableName + "(" + wordStatTable_nextRepetitions + ")";
-		
+
+		public static final String wordStatTableCreateCommonColumn =
+				"alter table " + wordStatTableName + " add column " + wordStatTable_common + " integer null;";
+
 		public static final String configTableNameCreate =
 				"create table " + configTableName + "(" +
 				configTable_id + " integer primary key, " +
@@ -486,10 +501,18 @@ public class WordTestSM2Manager {
 				"select count(*) from " + wordStatTableName + " where " + wordStatTable_id + " = ? ";
 		
 		public static final String insertWordStatSql =
-				"insert into " + wordStatTableName + " values(?, ?, '2.5', '0', '0', NULL, NULL);";
+				"insert into " + wordStatTableName + " (" +
+						wordStatTable_id + ", " +
+						wordStatTable_power + ", " +
+						wordStatTable_common + ", " +
+						wordStatTable_easinessFactor + ", " +
+						wordStatTable_repetitions + ", " +
+						wordStatTable_interval + ", " +
+						wordStatTable_nextRepetitions + ", " +
+						wordStatTable_lastStudied + ") " + "values(?, ?, ?, '2.5', '0', '0', NULL, NULL);";
 		
 		public static final String updateWordStatPowerSql =
-				"update " + wordStatTableName + " set " + wordStatTable_power + " = ? where " + wordStatTable_id + " = ? ";
+				"update " + wordStatTableName + " set " + wordStatTable_power + " = ?, " + wordStatTable_common + " = ? where " + wordStatTable_id + " = ? ";
 		
 		public static final String updateWordStatSql =
 				"update " + wordStatTableName + " set " + wordStatTable_easinessFactor + " = ?, " +
@@ -515,18 +538,30 @@ public class WordTestSM2Manager {
 				"insert into " + dayStatTableName + " (" + dayStatTable_dateStat + " , " + dayStatTable_newWords + " ) " + 
 				" values (date('now'), 0);";
 		
-		public static final String selectNextNewWordStatSql =
+		public static final String selectNextNewWordStatSqlWithoutOnlyCommon =
 				"select " + wordStatTable_id + ", " + wordStatTable_power + " , " + wordStatTable_easinessFactor  + " , " + 
 				" " + wordStatTable_repetitions + " , " + wordStatTable_interval + " , " + 
 				" datetime( " + wordStatTable_nextRepetitions + " ) , " +
 				" datetime( " + wordStatTable_lastStudied + " ) from " + wordStatTableName + " " +
-				" where " + wordStatTable_nextRepetitions + " IS NULL order by " + wordStatTable_power + " , " + wordStatTable_id + " " +				
+				" where " + wordStatTable_nextRepetitions + " IS NULL order by " + wordStatTable_power + " , " + wordStatTable_id + " " +
 				" limit 1";
-		
-		public static final String countNextNewWordStatSql =
+
+		public static final String selectNextNewWordStatSqlWithOnlyCommon =
+				"select " + wordStatTable_id + ", " + wordStatTable_power + " , " + wordStatTable_easinessFactor  + " , " +
+						" " + wordStatTable_repetitions + " , " + wordStatTable_interval + " , " +
+						" datetime( " + wordStatTable_nextRepetitions + " ) , " +
+						" datetime( " + wordStatTable_lastStudied + " ) from " + wordStatTableName + " " +
+						" where " + wordStatTable_nextRepetitions + " IS NULL AND " + wordStatTable_common + " = 1 order by " + wordStatTable_power + " , " + wordStatTable_id + " " +
+						" limit 1";
+
+		public static final String countNextNewWordStatSqlWithoutOnlyCommon =
 				"select count(*) from " + wordStatTableName + " " +
 				" where " + wordStatTable_nextRepetitions + " IS NULL order by " + wordStatTable_power + " , " + wordStatTable_id + " ";
-		
+
+		public static final String countNextNewWordStatSqlWithOnlyCommon =
+				"select count(*) from " + wordStatTableName + " " +
+						" where " + wordStatTable_nextRepetitions + " IS NULL AND " + wordStatTable_common + " = 1 order by " + wordStatTable_power + " , " + wordStatTable_id + " ";
+
 		public static final String selectNextRepeatWordStatSql =
 				"select " + wordStatTable_id + ", " + wordStatTable_power + " , " + wordStatTable_easinessFactor  + " , " + 
 				" " + wordStatTable_repetitions + " , " + wordStatTable_interval + " , " + 
@@ -535,7 +570,7 @@ public class WordTestSM2Manager {
 				" where " + wordStatTable_nextRepetitions + " IS NOT NULL and " +
 				wordStatTable_nextRepetitions + " < date('now', '+1 day') order by random() limit 1 ";
 		
-		public static final String countNextRepeatWordStatSql = 
+		public static final String countNextRepeatWordStatSql =
 				"select count(*) from " + wordStatTableName + " " +
 				" where " + wordStatTable_nextRepetitions + " IS NOT NULL and " +
 				wordStatTable_nextRepetitions + " < date('now', '+1 day') order by " + wordStatTable_nextRepetitions + " , " +

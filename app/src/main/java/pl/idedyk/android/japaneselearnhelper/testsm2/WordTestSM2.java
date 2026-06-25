@@ -132,13 +132,11 @@ public class WordTestSM2 extends Activity {
 			public void onClick(DialogInterface dialog, int which) {
 				switch (which) {
 					case DialogInterface.BUTTON_POSITIVE:
-
 						finish();
 
 						break;
 
 					case DialogInterface.BUTTON_NEGATIVE:
-
 						// noop
 
 						break;
@@ -374,21 +372,18 @@ public class WordTestSM2 extends Activity {
 		sm2CorrectButtonsTableRow.setVisibility(View.GONE);
 
 		if (wordTestSM2Config.getWordTestSM2Mode() == WordTestSM2Mode.INPUT) {
-
 			titleTextView.setText(getResources().getString(R.string.word_test_sm2_view_input_label));
 
 		} else if (wordTestSM2Config.getWordTestSM2Mode() == WordTestSM2Mode.CHOOSE) {
-
 			titleTextView.setText(getResources().getString(R.string.word_test_sm2_view_choose_think_label));
 
 		} else {
 			throw new RuntimeException("Unknown wordTestSM2Mode: " + wordTestSM2Config.getWordTestSM2Mode());
 		}
 
-		currentNextWordStat = wordTestSM2Manager.getNextWordStat(wordTestSM2Config.getMaxNewWords());
+		currentNextWordStat = wordTestSM2Manager.getNextWordStat(wordTestSM2Config.getMaxNewWords(), wordTestSM2Config.getOnlyNewCommonWords());
 
 		if (currentNextWordStat == null) {
-
 			AlertDialog alertDialog = new AlertDialog.Builder(WordTestSM2.this).create();
 
 			alertDialog.setMessage(getString(R.string.word_test_sm2_no_more_words));
@@ -398,7 +393,6 @@ public class WordTestSM2 extends Activity {
 
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-
 					finish();
 				}
 			});
@@ -406,12 +400,10 @@ public class WordTestSM2 extends Activity {
 			alertDialog.show();
 
 		} else {
-
 			try {
 				currentWordDictionaryEntry = dictionaryManager.getDictionaryEntryById(currentNextWordStat.getId());
 
 			} catch (DictionaryException e) {
-
 				AlertDialog alertDialog = new AlertDialog.Builder(WordTestSM2.this).create();
 
 				alertDialog.setMessage(getString(R.string.dictionary_exception_common_error_message, e.getMessage()));
@@ -421,7 +413,6 @@ public class WordTestSM2 extends Activity {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-
 						finish();
 					}
 				});
@@ -585,7 +576,7 @@ public class WordTestSM2 extends Activity {
 			Resources resources = getResources();
 
 			state.setText(resources.getString(R.string.word_test_sm2_state,
-					wordTestSM2Manager.getNextWordSize(wordTestSM2Config.getMaxNewWords())));
+					wordTestSM2Manager.getNextWordSize(wordTestSM2Config.getMaxNewWords(), wordTestSM2Config.getOnlyNewCommonWords())));
 		}
 	}
 
@@ -619,7 +610,6 @@ public class WordTestSM2 extends Activity {
 		if (wordTestSM2Mode == WordTestSM2Mode.INPUT) {
 
 			if (inputWasCorrectAnswer == false) {
-
 				qualityTitleTextView.setText(getString(R.string.word_test_sm2_view_input_incorrect_label));
 
 				sm2IncorrectButtonsTableRow.setVisibility(View.VISIBLE);
@@ -629,7 +619,6 @@ public class WordTestSM2 extends Activity {
 				correctSM2ButtonQuality5.setEnabled(false);
 
 			} else {
-
 				qualityTitleTextView.setText(getString(R.string.word_test_sm2_view_input_correct_label));
 
 				sm2IncorrectButtonsTableRow.setVisibility(View.VISIBLE);
@@ -640,7 +629,6 @@ public class WordTestSM2 extends Activity {
 			}
 
 		} else if (wordTestSM2Mode == WordTestSM2Mode.CHOOSE) {
-
 			qualityTitleTextView.setText(getString(R.string.word_test_sm2_view_choose_think_result_label));
 
 			sm2IncorrectButtonsTableRow.setVisibility(View.VISIBLE);
@@ -695,7 +683,6 @@ public class WordTestSM2 extends Activity {
 	}
 
 	private void processSM2RecallResult(int quality) {
-
 		currentNextWordStat.processRecallResult(quality);
 
 		wordTestSM2Manager.updateWordStat(currentNextWordStat);

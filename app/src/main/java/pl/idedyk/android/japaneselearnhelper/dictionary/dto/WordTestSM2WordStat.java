@@ -8,17 +8,14 @@ public class WordTestSM2WordStat {
 	private int id;
 	
 	private int power;
-	
 	private float easinessFactor;
-	
+
 	private int repetitions;
-	
 	private int interval;
-	
+
 	private Date nextRepetitions;
-	
 	private Date lastStudied;
-	
+
 	private boolean wasNew;
 
 	public int getId() {
@@ -89,7 +86,6 @@ public class WordTestSM2WordStat {
 		easinessFactor = calculate_easiness_factor(easinessFactor, qualityOfRecall);
 		
 		if (qualityOfRecall < 3) {
-
 			repetitions = 0;
 			interval = 0;
 
@@ -118,7 +114,7 @@ public class WordTestSM2WordStat {
 	}
 	
 	private float calculate_easiness_factor(float easinessFactor, int quality) {
-		return Math.max(1.3f, easinessFactor + (0.1f -(5.0f - quality) * (0.08f + (5.0f - quality) * 0.02f)));
+		return Math.max(1.3f, easinessFactor + (0.1f - (5.0f - quality) * (0.08f + (5.0f - quality) * 0.02f)));
 	}
 
 	@Override

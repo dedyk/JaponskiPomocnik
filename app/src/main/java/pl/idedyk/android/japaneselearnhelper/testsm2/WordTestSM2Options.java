@@ -17,6 +17,8 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import com.csvreader.CsvReader;
 
@@ -111,7 +113,12 @@ public class WordTestSM2Options extends Activity {
 		final EditText maxNewWordsNumberEditText = (EditText)findViewById(R.id.word_test_sm2_options_max_new_words_edit_text);
 		
 		maxNewWordsNumberEditText.setText(String.valueOf(wordTestSM2Config.getMaxNewWords()));
-		
+
+		// only new common words
+		final CheckBox onlyCommonCheckbox = (CheckBox)findViewById(R.id.word_test_sm2_options_test_only_common_checkbox);
+
+		onlyCommonCheckbox.setChecked(wordTestSM2Config.getOnlyNewCommonWords());
+
 		// show kanji check box
 		final CheckBox showKanjiCheckBox = (CheckBox)findViewById(R.id.word_test_sm2_options_show_kanji);
 		
@@ -208,7 +215,7 @@ public class WordTestSM2Options extends Activity {
 				}
 				
 				wordTestSM2Config.setMaxNewWords(maxNewWordsNumber);
-				
+
 				// test mode
 				WordTestSM2Mode chosenWordTestSM2Mode = null;
 				
@@ -221,6 +228,9 @@ public class WordTestSM2Options extends Activity {
 				}
 				
 				wordTestSM2Config.setWordTestSM2Mode(chosenWordTestSM2Mode);
+
+				// only new common words
+				wordTestSM2Config.setOnlyNewCommonWords(onlyCommonCheckbox.isChecked());
 								
 				// show kanji
 				boolean showKanji = showKanjiCheckBox.isChecked();
@@ -315,10 +325,6 @@ public class WordTestSM2Options extends Activity {
 						
 						Integer dbVersion = wordTestSM2Manager.getVersion();
 
-						// FM_FIXME: !!!!!!!!!! do usuniecia
-						fm_fixme_delete_me();
-						dbVersion = 0;
-
 						if (dbVersion == null || dbVersion.intValue() != versionCode) { // update db
 							
 							CsvReader wordPowerInputStreamCsvReader = null;
@@ -335,8 +341,7 @@ public class WordTestSM2Options extends Activity {
 
 								// pobierz plik z lista powszechnych slow
 								WordCommonList wordCommonList = dictionaryManager.getWordCommonList();
-
-								fm_fixme_todo();
+								Set<Integer> wordCommonListSet = new TreeSet<>(wordCommonList.getWordCommonList());
 
 								// szukamy maksymalnej wartosci slowka
 								int maxDictionaryEntryId = 0;
@@ -365,15 +370,17 @@ public class WordTestSM2Options extends Activity {
 									List<Integer> dictionaryEntryListForPower = entrySet.getValue();
 
 									for (Integer currentDictionaryEntryIdx : dictionaryEntryListForPower) {
+										// czy to slowko jest powszechnego uzytku
+										int common = wordCommonListSet.contains(currentDictionaryEntryIdx) == true ? 1 : 0;
 
 										// sprawdzanie, czy taki rekord istnieje
 										boolean dictionaryEntryExistsInWordStat = wordTestSM2Manager.isDictionaryEntryExistsInWordStat(currentDictionaryEntryIdx);
 										
 										if (dictionaryEntryExistsInWordStat == false) { // dodawanie nowego
-											wordTestSM2Manager.insertDictionaryEntry(currentDictionaryEntryIdx, power);
+											wordTestSM2Manager.insertDictionaryEntry(currentDictionaryEntryIdx, power, common);
 											
 										} else { // uaktualnienie mocy
-											wordTestSM2Manager.updateDictionaryEntry(currentDictionaryEntryIdx, power);
+											wordTestSM2Manager.updateDictionaryEntry(currentDictionaryEntryIdx, power, common);
 										}
 										
 										progressDialog.setProgress(currentProgressNo);

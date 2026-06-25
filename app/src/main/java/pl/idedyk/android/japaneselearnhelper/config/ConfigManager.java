@@ -1178,13 +1178,11 @@ public class ConfigManager {
 		private final String wordTestSM2ConfigPrefix = "wordTestSM2Config_";
 		
 		private final String maxNewWordsPostfix = "maxNewWords";
-				
+		private final String onlyNewCommonWordsPostfix = "onlyNewCommonWords";
+
 		private final String showKanjiPostfix = "showKanji";
-		
 		private final String showKanaPostfix = "showKana";
-		
 		private final String showTranslatePostfix = "showTranslate";
-		
 		private final String showAdditionalInfoPostfix = "showAdditionalInfo";
 		
 		private final String wordTestSM2ModePostfix = "wordTestSM2Mode";
@@ -1194,7 +1192,6 @@ public class ConfigManager {
 		}
 		
 		public void setMaxNewWords(int maxNewWords) {
-			
 			Editor editor = preferences.edit();
 			
 			editor.putInt(wordTestSM2ConfigPrefix + maxNewWordsPostfix, maxNewWords);
@@ -1206,8 +1203,19 @@ public class ConfigManager {
 			return preferences.getBoolean(wordTestSM2ConfigPrefix + showKanjiPostfix, true);
 		}
 
+		public void setOnlyNewCommonWords(boolean onlyNewCommonWords) {
+			Editor editor = preferences.edit();
+
+			editor.putBoolean(wordTestSM2ConfigPrefix + onlyNewCommonWordsPostfix, onlyNewCommonWords);
+
+			editor.commit();
+		}
+
+		public Boolean getOnlyNewCommonWords() {
+			return preferences.getBoolean(wordTestSM2ConfigPrefix + onlyNewCommonWordsPostfix, false);
+		}
+
 		public void setShowKanji(boolean showKanji) {
-			
 			Editor editor = preferences.edit();
 			
 			editor.putBoolean(wordTestSM2ConfigPrefix + showKanjiPostfix, showKanji);

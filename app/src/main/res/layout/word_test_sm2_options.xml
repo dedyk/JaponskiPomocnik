@@ -66,6 +66,13 @@
                         android:text="@string/word_test_sm2_options_test_mode_radiogroup_choose"
                         android:textSize="12sp" />
                 </RadioGroup>
+
+                <CheckBox
+                    android:id="@+id/word_test_sm2_options_test_only_common_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/word_test_sm2_options_test_only_common_checkbox"
+                    android:textSize="12sp" />
     
                 <TextView
                     android:id="@+id/word_test_sm2_options_show"
