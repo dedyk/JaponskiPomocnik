@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.dictionaryhear;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -8,16 +9,22 @@ import pl.idedyk.android.japaneselearnhelper.MenuShorterHelper;
 import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.DictionaryHearConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperDictionaryHearContext;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.screen.IScreenItem;
 import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
+import pl.idedyk.android.japaneselearnhelper.transitiveintransitive.TransitiveIntransitivePairsTable;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsConnector;
 import pl.idedyk.android.japaneselearnhelper.tts.TtsLanguage;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntryType;
+import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -31,6 +38,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class DictionaryHear extends Activity {
 
@@ -43,8 +51,8 @@ public class DictionaryHear extends Activity {
 	private StringValue dictionaryEntryTableLayout$kanji = null;
 	private StringValue dictionaryEntryTableLayout$reading = null;
 	private StringValue dictionaryEntryTableLayout$translate = null;
-	private StringValue dictionaryEntryTableLayout$additionalInfo = null;
-	private StringValue dictionaryEntryTableLayout$wordType = null;
+	// private StringValue dictionaryEntryTableLayout$additionalInfo = null;
+	// private StringValue dictionaryEntryTableLayout$wordType = null;
 
 	private StringValue stateStringValue = null;
 
@@ -110,8 +118,7 @@ public class DictionaryHear extends Activity {
 			finish();
 		}
 
-		setDictionaryEntry(dictionaryEntryList.get(dictionaryEntryListIdx), dictionaryEntryListIdx,
-				dictionaryEntryList.size());
+		setDictionaryEntry(dictionaryEntryList.get(dictionaryEntryListIdx), dictionaryEntryListIdx, dictionaryEntryList.size());
 
 		if (japanaeseTtsConnector != null) {
 			japanaeseTtsConnector.stop();
@@ -257,15 +264,15 @@ public class DictionaryHear extends Activity {
 		dictionaryEntryTableLayout.addTableRow(translateTableRow);
 
 		// additional info
-		TableRow additionalInfoTableRow = new TableRow();
+		// TableRow additionalInfoTableRow = new TableRow();
 
-		additionalInfoTableRow.addScreenItem(new StringValue(
-				getString(R.string.dictionary_hear_word_additional_info_label), 12.0f, 0));
+		// additionalInfoTableRow.addScreenItem(new StringValue(
+		//		getString(R.string.dictionary_hear_word_additional_info_label), 12.0f, 0));
 
-		dictionaryEntryTableLayout$additionalInfo = new StringValue("", 15.0f, 0);
-		additionalInfoTableRow.addScreenItem(dictionaryEntryTableLayout$additionalInfo);
+		// dictionaryEntryTableLayout$additionalInfo = new StringValue("", 15.0f, 0);
+		// additionalInfoTableRow.addScreenItem(dictionaryEntryTableLayout$additionalInfo);
 
-		dictionaryEntryTableLayout.addTableRow(additionalInfoTableRow);
+		// dictionaryEntryTableLayout.addTableRow(additionalInfoTableRow);
 
 		// word type
 		TableRow wordTypeTableRow = new TableRow();
@@ -273,8 +280,8 @@ public class DictionaryHear extends Activity {
 		wordTypeTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_part_of_speech), 12.0f,
 				0));
 
-		dictionaryEntryTableLayout$wordType = new StringValue("", 15.0f, 0);
-		wordTypeTableRow.addScreenItem(dictionaryEntryTableLayout$wordType);
+		// dictionaryEntryTableLayout$wordType = new StringValue("", 15.0f, 0);
+		// wordTypeTableRow.addScreenItem(dictionaryEntryTableLayout$wordType);
 
 		dictionaryEntryTableLayout.addTableRow(wordTypeTableRow);
 
@@ -326,6 +333,20 @@ public class DictionaryHear extends Activity {
 
 	private void setDictionaryEntry(DictionaryEntry dictionaryEntry, int currentPos, int maxPos) {
 
+		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(DictionaryHear.this);
+
+		// pobieramy Dictionary Entry 2
+		JMdict.Entry dictionaryEntry2 = null;
+
+		try {
+			dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ByOldPolishJapaneseDictionaryId(dictionaryEntry.getId());
+
+		} catch (DictionaryException e) {
+			Toast.makeText(DictionaryHear.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+		}
+
+		//
+
 		String prefixKana = dictionaryEntry.getPrefixKana();
 
 		if (prefixKana != null && prefixKana.length() == 0) {
@@ -374,7 +395,16 @@ public class DictionaryHear extends Activity {
 		dictionaryEntryTableLayout$reading.setText(readingSb.toString());
 
 		// translate
-		List<String> translates = dictionaryEntry.getTranslates();
+		// List<String> translates = dictionaryEntry.getTranslates(); tutaj();
+
+		List<String> translates = new ArrayList<>(); // currentDictionaryEntry.getTranslates(); tutaj();
+
+		if (dictionaryEntry2 != null) {
+			translates.addAll(Arrays.asList(WordKanjiDictionaryUtils.createSimpleJointedSenseList(dictionaryEntry2).split("\n")));
+
+		} else {
+			translates.addAll(Arrays.asList(WordKanjiDictionaryUtils.createSimpleJointedSenseList(dictionaryEntry).split("\n")));
+		}
 
 		StringBuffer translateSb = new StringBuffer();
 
@@ -389,6 +419,7 @@ public class DictionaryHear extends Activity {
 		dictionaryEntryTableLayout$translate.setText(translateSb.toString());
 
 		// additional info
+		/*
 		String info = dictionaryEntry.getInfo();
 
 		if (info != null && info.length() > 0) {
@@ -396,8 +427,10 @@ public class DictionaryHear extends Activity {
 		} else {
 			dictionaryEntryTableLayout$additionalInfo.setText("-");
 		}
+		*/
 
 		// word type
+		/*
 		int addableDictionaryEntryTypeInfoCounter = 0;
 		StringBuffer dictionaryEntryTypeSb = new StringBuffer();
 
@@ -427,6 +460,7 @@ public class DictionaryHear extends Activity {
 		} else {
 			dictionaryEntryTableLayout$wordType.setText("");
 		}
+		*/
 
 		stateStringValue.setText(getString(R.string.dictionary_hear_state, currentPos + 1, maxPos));
 	}
@@ -487,14 +521,34 @@ public class DictionaryHear extends Activity {
 
 				DictionaryEntry currentDictionaryEntry = dictionaryEntryList.get(dictionaryEntryListIdx);
 
-				publishProgress(new SpeakAsyncTaskStatus(currentDictionaryEntry, dictionaryEntryListIdx,
-						dictionaryEntryList.size()));
+				DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(DictionaryHear.this);
+
+				// pobieramy Dictionary Entry 2
+				JMdict.Entry dictionaryEntry2 = null;
+
+				try {
+					dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ByOldPolishJapaneseDictionaryId(currentDictionaryEntry.getId());
+
+				} catch (DictionaryException e) {
+					Toast.makeText(DictionaryHear.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+				}
+
+				//
+
+				publishProgress(new SpeakAsyncTaskStatus(currentDictionaryEntry, dictionaryEntryListIdx, dictionaryEntryList.size()));
 
 				dictionaryHearContext.setDictionaryEntryListIdx(dictionaryEntryListIdx);
 
 				String kana = currentDictionaryEntry.getKana();
 
-				List<String> translates = currentDictionaryEntry.getTranslates();
+				List<String> translates = new ArrayList<>(); // currentDictionaryEntry.getTranslates(); tutaj();
+
+				if (dictionaryEntry2 != null) {
+					translates.addAll(Arrays.asList(WordKanjiDictionaryUtils.createSimpleJointedSenseList(dictionaryEntry2).split("\n")));
+
+				} else {
+					translates.addAll(Arrays.asList(WordKanjiDictionaryUtils.createSimpleJointedSenseList(currentDictionaryEntry).split("\n")));
+				}
 
 				List<String> polishTranslateToRead = new ArrayList<>();
 
@@ -502,11 +556,13 @@ public class DictionaryHear extends Activity {
 					polishTranslateToRead.add(translates.get(idx));
 				}
 
+				/*
 				String info = currentDictionaryEntry.getInfo();
 
 				if (info != null && info.length() > 0) {
 					polishTranslateToRead.add(info);
 				}
+				*/
 
 				japanaeseTtsConnector.speakAndWait(kana);
 

@@ -6,7 +6,7 @@ public enum TtsLanguage {
 
 	JAPANESE(Locale.JAPAN), //, "com.svox.classic"),
 	
-	POLISH("PL"), //, "com.ivona.tts"),
+	POLISH(new Locale("pl", "PL")), //, "com.ivona.tts"),
 	
 	ENGLISH(Locale.ENGLISH); //, "com.svox.pico");
 	
