@@ -12,9 +12,11 @@ import pl.idedyk.android.japaneselearnhelper.dictionary.WordTestSM2Manager;
 import pl.idedyk.android.japaneselearnhelper.dictionary.dto.WordTestSM2WordStat;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.utils.ListUtil;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -255,11 +257,11 @@ public class WordTestSM2 extends Activity {
 		if (kanji != null) {
 
 			TextView kanjiLabel = (TextView) findViewById(R.id.word_test_sm2_kanji_label);
-			EditText kanjiPrefix = (EditText) findViewById(R.id.word_test_sm2_kanji_prefix);
+			// EditText kanjiPrefix = (EditText) findViewById(R.id.word_test_sm2_kanji_prefix);
 			EditText kanjiInput = (EditText) findViewById(R.id.word_test_sm2_kanji_input);
 
 			kanjiLabel.setVisibility(View.VISIBLE);
-			kanjiPrefix.setVisibility(View.VISIBLE);
+			// kanjiPrefix.setVisibility(View.VISIBLE);
 			kanjiInput.setVisibility(View.VISIBLE);
 		}
 
@@ -279,7 +281,7 @@ public class WordTestSM2 extends Activity {
 
 			if (currentKana != null) {
 
-				currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
+				// currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
 				currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
 				currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
 
@@ -300,9 +302,9 @@ public class WordTestSM2 extends Activity {
 		translateInput.setVisibility(View.VISIBLE);
 
 		// show additional info
-		TextView additionalInfoLabel = (TextView) findViewById(R.id.word_test_sm2_additional_info_label);
-		EditText additionalInfoInput = (EditText) findViewById(R.id.word_test_sm2_additional_info_input);
-
+		// TextView additionalInfoLabel = (TextView) findViewById(R.id.word_test_sm2_additional_info_label);
+		// EditText additionalInfoInput = (EditText) findViewById(R.id.word_test_sm2_additional_info_input);
+		/*
 		String additionalInfo = currentWordDictionaryEntry.getFullInfo();
 
 		if (additionalInfo != null) {
@@ -318,6 +320,7 @@ public class WordTestSM2 extends Activity {
 			additionalInfoLabel.setVisibility(View.GONE);
 			additionalInfoInput.setVisibility(View.GONE);
 		}
+		*/
 	}
 
 	private int getCorrectAnswersNo() {
@@ -426,28 +429,28 @@ public class WordTestSM2 extends Activity {
 			String prefixKana = currentWordDictionaryEntry.getPrefixKana();
 
 			TextView kanjiLabel = (TextView) findViewById(R.id.word_test_sm2_kanji_label);
-			EditText kanjiPrefix = (EditText) findViewById(R.id.word_test_sm2_kanji_prefix);
+			// EditText kanjiPrefix = (EditText) findViewById(R.id.word_test_sm2_kanji_prefix);
 			EditText kanjiInput = (EditText) findViewById(R.id.word_test_sm2_kanji_input);
 
 			if (kanji != null) {
 				kanjiInput.setText(kanji);
-				kanjiPrefix.setText(prefixKana);
+				// kanjiPrefix.setText(prefixKana);
 			} else {
 				kanjiInput.setText("");
-				kanjiPrefix.setText("");
+				// kanjiPrefix.setText("");
 			}
 
 			if (kanji != null && wordTestSM2Config.getShowKanji() != null
 					&& wordTestSM2Config.getShowKanji().equals(Boolean.TRUE) == true) {
 
 				kanjiLabel.setVisibility(View.VISIBLE);
-				kanjiPrefix.setVisibility(View.VISIBLE);
+				// kanjiPrefix.setVisibility(View.VISIBLE);
 				kanjiInput.setVisibility(View.VISIBLE);
 
 				kanjiInput.setEnabled(false);
 			} else {
 				kanjiLabel.setVisibility(View.GONE);
-				kanjiPrefix.setVisibility(View.GONE);
+				// kanjiPrefix.setVisibility(View.GONE);
 				kanjiInput.setVisibility(View.GONE);
 
 				kanjiInput.setEnabled(false);
@@ -479,21 +482,21 @@ public class WordTestSM2 extends Activity {
 							|| (wordTestSM2Config.getShowKana() != null && wordTestSM2Config.getShowKana().equals(
 									Boolean.TRUE) == true)) {
 
-						currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
+						// currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
 						currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
 						currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
 
 					} else {
-						currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
+						// currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
 						currentTextViewAndEditText.textView.setVisibility(View.GONE);
 						currentTextViewAndEditText.editText.setVisibility(View.GONE);
 					}
 
-					currentTextViewAndEditText.editPrefix.setText(prefixKana);
+					// currentTextViewAndEditText.editPrefix.setText(prefixKana);
 
 					if (wordTestSM2Config.getWordTestSM2Mode() == WordTestSM2Mode.INPUT) {
 
-						currentTextViewAndEditText.editPrefix.setFocusable(true);
+						// currentTextViewAndEditText.editPrefix.setFocusable(true);
 						currentTextViewAndEditText.textView.setFocusable(true);
 						currentTextViewAndEditText.editText.setFocusable(true);
 
@@ -511,7 +514,7 @@ public class WordTestSM2 extends Activity {
 
 					} else if (wordTestSM2Config.getWordTestSM2Mode() == WordTestSM2Mode.CHOOSE) {
 
-						currentTextViewAndEditText.editPrefix.setFocusable(false);
+						// currentTextViewAndEditText.editPrefix.setFocusable(false);
 						currentTextViewAndEditText.textView.setFocusable(false);
 						currentTextViewAndEditText.editText.setFocusable(false);
 
@@ -530,7 +533,7 @@ public class WordTestSM2 extends Activity {
 				} else {
 					currentTextViewAndEditText.textView.setVisibility(View.GONE);
 
-					currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
+					// currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
 					currentTextViewAndEditText.editText.setVisibility(View.GONE);
 					currentTextViewAndEditText.editText.setText("");
 				}
@@ -539,7 +542,27 @@ public class WordTestSM2 extends Activity {
 			TextView translateLabel = (TextView) findViewById(R.id.word_test_sm2_translate_label);
 			EditText translateInput = (EditText) findViewById(R.id.word_test_sm2_translate_input);
 
-			translateInput.setText(ListUtil.getListAsString(currentWordDictionaryEntry.getTranslates(), "\n"));
+			// pobranie DictionaryEntry2
+			DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(WordTestSM2.this);
+
+			// pobieramy Dictionary Entry 2
+			JMdict.Entry dictionaryEntry2 = null;
+
+			try {
+				dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ByOldPolishJapaneseDictionaryId(currentWordDictionaryEntry.getId());
+
+			} catch (DictionaryException e) {
+				Toast.makeText(WordTestSM2.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+			}
+
+			if (dictionaryEntry2 != null) {
+				translateInput.setText(WordKanjiDictionaryUtils.createSimpleJointedSenseList(dictionaryEntry2));
+
+			} else {
+				translateInput.setText(WordKanjiDictionaryUtils.createSimpleJointedSenseList(currentWordDictionaryEntry));
+			}
+
+			// translateInput.setText(ListUtil.getListAsString(currentWordDictionaryEntry.getTranslates(), "\n"));
 			translateInput.setEnabled(false);
 
 			if (wordTestSM2Config.getShowTranslate() != null
@@ -551,11 +574,11 @@ public class WordTestSM2 extends Activity {
 				translateInput.setVisibility(View.GONE);
 			}
 
-			TextView additionalInfoLabel = (TextView) findViewById(R.id.word_test_sm2_additional_info_label);
-			EditText additionalInfoInput = (EditText) findViewById(R.id.word_test_sm2_additional_info_input);
+			// TextView additionalInfoLabel = (TextView) findViewById(R.id.word_test_sm2_additional_info_label);
+			// EditText additionalInfoInput = (EditText) findViewById(R.id.word_test_sm2_additional_info_input);
 
-			String additionalInfo = currentWordDictionaryEntry.getFullInfo();
-
+			// String additionalInfo = currentWordDictionaryEntry.getFullInfo();
+			/*
 			if (additionalInfo != null && wordTestSM2Config.getShowAdditionalInfo() != null
 					&& wordTestSM2Config.getShowAdditionalInfo().equals(Boolean.TRUE) == true) {
 				additionalInfoInput.setText(additionalInfo);
@@ -570,6 +593,7 @@ public class WordTestSM2 extends Activity {
 				additionalInfoLabel.setVisibility(View.GONE);
 				additionalInfoInput.setVisibility(View.GONE);
 			}
+			*/
 
 			TextView state = (TextView) findViewById(R.id.word_test_sm2_state_info);
 
@@ -693,7 +717,7 @@ public class WordTestSM2 extends Activity {
 	private void createTextViewAndEditTextForWordAsArray(final int lastAnswerIdx) {
 
 		TextView wordLabel1 = (TextView) findViewById(R.id.word_test_sm2_word_label1);
-		EditText wordPrefix1 = (EditText) findViewById(R.id.word_test_sm2_word_prefix1);
+		// EditText wordPrefix1 = (EditText) findViewById(R.id.word_test_sm2_word_prefix1);
 		EditText wordInput1 = (EditText) findViewById(R.id.word_test_sm2_word_input1);
 
 		/*
@@ -936,7 +960,7 @@ public class WordTestSM2 extends Activity {
 
 		textViewAndEditTextForWordAsArray = new TextViewAndEditText[1]; //Utils.MAX_LIST_SIZE];
 
-		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordPrefix1, wordInput1);
+		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, /* wordPrefix1, */ wordInput1);
 		/*
 		textViewAndEditTextForWordAsArray[1] = new TextViewAndEditText(wordLabel2, wordPrefix2, wordInput2);
 		textViewAndEditTextForWordAsArray[2] = new TextViewAndEditText(wordLabel3, wordPrefix3, wordInput3);
@@ -1027,13 +1051,13 @@ public class WordTestSM2 extends Activity {
 	private static class TextViewAndEditText {
 		TextView textView;
 
-		EditText editPrefix;
+		// EditText editPrefix;
 		EditText editText;
 
-		public TextViewAndEditText(TextView textView, EditText editPrefix, EditText editText) {
+		public TextViewAndEditText(TextView textView, /* EditText editPrefix, */ EditText editText) {
 			this.textView = textView;
 
-			this.editPrefix = editPrefix;
+			// this.editPrefix = editPrefix;
 			this.editText = editText;
 		}
 	}

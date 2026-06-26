@@ -135,9 +135,9 @@ public class WordTestSM2Options extends Activity {
 		showTranslateCheckBox.setChecked(wordTestSM2Config.getShowTranslate());
 		
 		// show additional info check box
-		final CheckBox showAdditionalInfoCheckBox = (CheckBox)findViewById(R.id.word_test_sm2_options_show_additional_info);
+		// final CheckBox showAdditionalInfoCheckBox = (CheckBox)findViewById(R.id.word_test_sm2_options_show_additional_info);
 		
-		showAdditionalInfoCheckBox.setChecked(wordTestSM2Config.getShowAdditionalInfo());
+		// showAdditionalInfoCheckBox.setChecked(wordTestSM2Config.getShowAdditionalInfo());
 		
 		// test mode
 		final RadioButton testModeInputRadioButton = (RadioButton)findViewById(R.id.word_test_sm2_options_test_mode_radiogroup_input);
@@ -248,9 +248,9 @@ public class WordTestSM2Options extends Activity {
 				wordTestSM2Config.setShowTranslate(showTranslate);
 				
 				// show additional info
-				boolean showAdditionalInfo = showAdditionalInfoCheckBox.isChecked();
+				// boolean showAdditionalInfo = showAdditionalInfoCheckBox.isChecked();
 				
-				wordTestSM2Config.setAdditionalInfoTranslate(showAdditionalInfo);
+				// wordTestSM2Config.setAdditionalInfoTranslate(showAdditionalInfo);
 				
 				if (chosenWordTestSM2Mode == WordTestSM2Mode.INPUT && showKanji == false && showTranslate == false) {
 					
