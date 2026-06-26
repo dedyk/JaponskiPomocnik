@@ -1143,6 +1143,7 @@ public class ConfigManager {
 			editor.commit();
 		}
 
+		/*
 		public Boolean getShowAdditionalInfo() {
 			return preferences.getBoolean(wordTestConfigPrefix + showAdditionalInfoPostfix, true);
 		}
@@ -1155,6 +1156,7 @@ public class ConfigManager {
 			
 			editor.commit();
 		}
+		*/
 		
 		public WordTestMode getWordTestMode() {
 			

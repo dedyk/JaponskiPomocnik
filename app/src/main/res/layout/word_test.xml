@@ -38,7 +38,8 @@
                     android:gravity="center_vertical"
                     android:singleLine="false"
                     android:text="@string/word_test_kanji_label" />
-    
+
+                <!--
                 <EditText
                     android:id="@+id/word_test_kanji_prefix"
                     android:layout_width="0dip"
@@ -50,12 +51,12 @@
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
                     android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
-    
+                    -->
                 <EditText
                     android:id="@+id/word_test_kanji_input"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5"
+                    android:layout_weight="6"
                     android:ems="10"
                     android:focusable="false"
                     android:inputType="textMultiLine"
@@ -78,7 +79,8 @@
                     android:gravity="center_vertical"
                     android:singleLine="false"
                     android:text="@string/word_test_word_label" />
-    
+
+                <!--
                 <EditText
                     android:id="@+id/word_test_word_prefix1"
                     android:layout_width="0dip"
@@ -89,12 +91,12 @@
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
                     android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
-    
+                -->
                 <EditText
                     android:id="@+id/word_test_word_input1"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5"
+                    android:layout_weight="6"
                     android:ems="10"
                     android:inputType="textNoSuggestions"
                     android:singleLine="true"
@@ -2548,7 +2550,8 @@
                     android:singleLine="false"
                     android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
             </TableRow>
-    
+
+            <!--
             <TableRow
                 android:id="@+id/word_test_additional_info_row"
                 android:layout_width="wrap_content"
@@ -2577,6 +2580,7 @@
                     android:singleLine="false"
                     android:textColor="@{JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTextColorAsColor()}" />
             </TableRow>
+            -->
     
             <TableRow
                 android:id="@+id/word_test_state_info_row"

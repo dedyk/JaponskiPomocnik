@@ -459,6 +459,92 @@ public class WordKanjiDictionaryUtils {
         return result.toString();
     }
 
+    public static String createSimpleJointedSenseList(DictionaryEntry dictionaryEntry) {
+
+        StringBuffer result = new StringBuffer();
+
+        result.append(dictionaryEntry.getTranslates());
+
+        if (dictionaryEntry.getInfo() != null) {
+            result.append("   " + dictionaryEntry.getInfo());
+        }
+
+        return result.toString();
+    }
+
+    public static String createSimpleJointedSenseList(JMdict.Entry dictionaryEntry2) {
+
+        StringBuffer result = new StringBuffer();
+
+        for (int senseIdx = 0; senseIdx < dictionaryEntry2.getSenseList().size(); ++senseIdx) {
+            Sense sense = dictionaryEntry2.getSenseList().get(senseIdx);
+            PrintableDictionaryEntry2Sense printableDictionaryEntry2Sense = new PrintableDictionaryEntry2Sense(dictionaryEntry2, sense);
+
+            if (dictionaryEntry2.getSenseList().size() > 1) {
+                result.append((senseIdx + 1) + ".\n");
+            }
+
+            // znaczenie
+            List<Gloss> polishGlossList = printableDictionaryEntry2Sense.getPolishGlossList();
+            SenseAdditionalInfo polishAdditionalInfo = printableDictionaryEntry2Sense.getPolishAdditionalInfo();
+
+            List<Gloss> polishGlossListGtypeNull = polishGlossList.stream().filter(f -> f.getGType() == null).collect(Collectors.toList());
+            List<Gloss> polishGlossListGtypeNotNull = polishGlossList.stream().filter(f -> f.getGType() != null).collect(Collectors.toList());
+
+            if (polishGlossListGtypeNull.size() > 0) { // jezeli istnieje gType rowne null, wiec pokazujemy tlumaczenia i wszelkie wyjasnienia osobno
+
+                // lista tlumaczen - gtype = null
+                for (int currentGlossIdx = 0; currentGlossIdx < polishGlossListGtypeNull.size(); ++currentGlossIdx) {
+                    Gloss gloss = polishGlossListGtypeNull.get(currentGlossIdx);
+
+                    if (gloss.getGType() == null) {
+                        result.append(gloss.getValue() +
+                                (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
+                                (currentGlossIdx != polishGlossListGtypeNull.size() - 1 ? "\n" : ""));
+                    }
+                }
+
+                // lista tlumaczen - gtype != null jako informacje dodatkowe
+                for (int currentGlossIdx = 0; currentGlossIdx < polishGlossListGtypeNotNull.size(); ++currentGlossIdx) {
+                    Gloss gloss = polishGlossListGtypeNotNull.get(currentGlossIdx);
+
+                    if (gloss.getGType() != null) {
+
+                        result.append("\n");
+                        result.append("   " + gloss.getValue() +
+                                " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")");
+                    }
+                }
+
+            } else { // jezeli nie ma gType = null, wiec pokazujemy po staremu
+
+                for (int currentGlossIdx = 0; currentGlossIdx < polishGlossList.size(); ++currentGlossIdx) {
+
+                    Gloss gloss = polishGlossList.get(currentGlossIdx);
+
+                    result.append(gloss.getValue() +
+                            (gloss.getGType() != null ? " (" + Dictionary2HelperCommon.translateToPolishGlossType(gloss.getGType()) + ")" : "") +
+                            (currentGlossIdx != polishGlossList.size() - 1 ? "\n" : "") + "</strong></big>");
+                }
+            }
+
+            //
+
+            // informacje dodatkowe
+            if (polishAdditionalInfo != null) {
+                result.append("\n");
+                result.append("  " + polishAdditionalInfo.getValue());
+            }
+
+            // przerwa
+            if (senseIdx != dictionaryEntry2.getSenseList().size() - 1) {
+                result.append("\n\n");
+            }
+        }
+
+        return result.toString();
+    }
+
     public static String getKanjiRadicalTextWithMark(KanjiCharacterInfo kanjiEntry) {
         return getKanjiRadicalTextWithMark(kanjiEntry, null);
     }

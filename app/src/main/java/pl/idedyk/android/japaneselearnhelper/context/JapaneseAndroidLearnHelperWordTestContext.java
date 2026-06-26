@@ -1,11 +1,12 @@
 package pl.idedyk.android.japaneselearnhelper.context;
 
+import pl.idedyk.android.japaneselearnhelper.utils.DictionaryEntryAndDictionaryEntry2;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 
 public class JapaneseAndroidLearnHelperWordTestContext {
 	
-	private EntryOrderList<DictionaryEntry> wordsTest;
+	private EntryOrderList<DictionaryEntryAndDictionaryEntry2> wordsTest;
 	
 	private int wordTestAnswers = 0;
 	private int wordTestCorrectAnswers = 0;
@@ -13,7 +14,7 @@ public class JapaneseAndroidLearnHelperWordTestContext {
 	
 	private boolean wordTestOverviewShowAnswer = false;
 		
-	public void setWordsTest(EntryOrderList<DictionaryEntry> wordsTest) {
+	public void setWordsTest(EntryOrderList<DictionaryEntryAndDictionaryEntry2> wordsTest) {
 		this.wordsTest = wordsTest;
 		
 		this.wordTestAnswers = 0;
@@ -23,7 +24,7 @@ public class JapaneseAndroidLearnHelperWordTestContext {
 		this.wordTestOverviewShowAnswer = false;
 	}
 	
-	public EntryOrderList<DictionaryEntry> getWordsTest() {
+	public EntryOrderList<DictionaryEntryAndDictionaryEntry2> getWordsTest() {
 		return wordsTest;
 	}
 

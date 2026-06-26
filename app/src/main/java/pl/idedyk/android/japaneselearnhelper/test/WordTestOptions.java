@@ -14,6 +14,7 @@ import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupEntity;
 import pl.idedyk.android.japaneselearnhelper.data.entity.UserGroupItemEntity;
 import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.utils.DictionaryEntryAndDictionaryEntry2;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.GroupEnum;
@@ -91,9 +92,9 @@ public class WordTestOptions extends Activity {
 		showTranslateCheckBox.setChecked(wordTestConfig.getShowTranslate());
 		
 		// show additional info check box
-		final CheckBox showAdditionalInfoCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_additional_info);
+		// final CheckBox showAdditionalInfoCheckBox = (CheckBox)findViewById(R.id.word_test_options_show_additional_info);
 		
-		showAdditionalInfoCheckBox.setChecked(wordTestConfig.getShowAdditionalInfo());
+		// showAdditionalInfoCheckBox.setChecked(wordTestConfig.getShowAdditionalInfo());
 		
 		// test mode
 		final RadioButton testModeInputRadioButton = (RadioButton)findViewById(R.id.word_test_options_test_mode_radiogroup_input);
@@ -290,9 +291,9 @@ public class WordTestOptions extends Activity {
 				wordTestConfig.setShowTranslate(showTranslate);
 				
 				// show additional info
-				boolean showAdditionalInfo = showAdditionalInfoCheckBox.isChecked();
+				// boolean showAdditionalInfo = showAdditionalInfoCheckBox.isChecked();
 				
-				wordTestConfig.setAdditionalInfoTranslate(showAdditionalInfo);
+				// wordTestConfig.setAdditionalInfoTranslate(showAdditionalInfo);
 				
 				if (chosenWordTestMode == WordTestMode.INPUT && showKanji == false && showTranslate == false) {
 					
@@ -313,7 +314,7 @@ public class WordTestOptions extends Activity {
 				}
 				
 				// groups
-				List<DictionaryEntry> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntry>();
+				List<DictionaryEntryAndDictionaryEntry2> chosenAllDictionaryEntryList = new ArrayList<DictionaryEntryAndDictionaryEntry2>();
 				
 				List<String> chosenWordGroupsNumberList = new ArrayList<String>();
 				List<Integer> chosenWordUserGroupsNumberList = new ArrayList<Integer>();
@@ -391,12 +392,25 @@ public class WordTestOptions extends Activity {
 
 							for (DictionaryEntry currentDictionaryEntry : currentWordsGroupDictionaryEntryList) {
 
+								// sprawdzenie, czy mozna pobrac slowko w nowym formacie
+								JMdict.Entry dictionaryEntry2 = null;
+
+								try {
+									dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ByOldPolishJapaneseDictionaryId(currentDictionaryEntry.getId());
+								} catch (DictionaryException e) {
+									Toast.makeText(WordTestOptions.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+
+									return;
+								}
+
+								//
+
 								if (chosenWordTestMode == WordTestMode.INPUT) {
 
 									if (showKanji == false && showKana == true && currentDictionaryEntry.isKanjiExists() == false) { // gdy bedziemy wpisywac kanji na podstawie kana, ale kanji nie ma
 										wasFilteredWords = true;
 									} else if (showTranslate == true || currentDictionaryEntry.isKanjiExists() == true) {
-										chosenAllDictionaryEntryList.add(currentDictionaryEntry);
+										chosenAllDictionaryEntryList.add(new DictionaryEntryAndDictionaryEntry2(currentDictionaryEntry, dictionaryEntry2));
 									} else {
 										wasFilteredWords = true;
 									}
@@ -408,7 +422,7 @@ public class WordTestOptions extends Activity {
 									} else if (showKanji == false && showKana == true && showTranslate == true && currentDictionaryEntry.isKanjiExists() == false) {
 										wasFilteredWords = true;
 									} else {
-										chosenAllDictionaryEntryList.add(currentDictionaryEntry);
+										chosenAllDictionaryEntryList.add(new DictionaryEntryAndDictionaryEntry2(currentDictionaryEntry, dictionaryEntry2));
 									}
 
 								} else {
@@ -453,12 +467,12 @@ public class WordTestOptions extends Activity {
 				
 				JapaneseAndroidLearnHelperWordTestContext wordTestContext = JapaneseAndroidLearnHelperApplication.getInstance().getContext().getWordTestContext();
 				
-				EntryOrderList<DictionaryEntry> entryOrderList = null;
+				EntryOrderList<DictionaryEntryAndDictionaryEntry2> entryOrderList = null;
 				
 				if (untilSuccess == true && untilSuccessNewWordLimit == true) {
-					entryOrderList = new EntryOrderList<DictionaryEntry>(chosenAllDictionaryEntryList, 10);
+					entryOrderList = new EntryOrderList<DictionaryEntryAndDictionaryEntry2>(chosenAllDictionaryEntryList, 10);
 				} else {
-					entryOrderList = new EntryOrderList<DictionaryEntry>(chosenAllDictionaryEntryList, chosenAllDictionaryEntryList.size());
+					entryOrderList = new EntryOrderList<DictionaryEntryAndDictionaryEntry2>(chosenAllDictionaryEntryList, chosenAllDictionaryEntryList.size());
 				}				
 				
 				wordTestContext.setWordsTest(entryOrderList);

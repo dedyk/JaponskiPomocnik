@@ -14,15 +14,21 @@ import pl.idedyk.android.japaneselearnhelper.R;
 import pl.idedyk.android.japaneselearnhelper.config.ConfigManager.WordTestConfig;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperContext;
 import pl.idedyk.android.japaneselearnhelper.context.JapaneseAndroidLearnHelperWordTestContext;
+import pl.idedyk.android.japaneselearnhelper.dictionary.DictionaryManagerCommon;
+import pl.idedyk.android.japaneselearnhelper.dictionaryhear.DictionaryHearOptions;
 import pl.idedyk.android.japaneselearnhelper.dictionaryscreen.WordDictionaryDetails;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
+import pl.idedyk.android.japaneselearnhelper.utils.DictionaryEntryAndDictionaryEntry2;
 import pl.idedyk.android.japaneselearnhelper.utils.EntryOrderList;
 import pl.idedyk.android.japaneselearnhelper.utils.ListUtil;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dictionary.Utils;
+import pl.idedyk.japanese.dictionary.api.dictionary.dto.FindWordRequest;
 import pl.idedyk.japanese.dictionary.api.dto.Attribute;
 import pl.idedyk.japanese.dictionary.api.dto.AttributeType;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.exception.DictionaryException;
+import pl.idedyk.japanese.dictionary2.jmdict.xsd.JMdict;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,6 +39,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.Menu;
@@ -86,10 +93,10 @@ public class WordTest extends Activity {
 			Boolean showKanji = wordTestConfig.getShowKanji();
 			Boolean showKana = wordTestConfig.getShowKana();
 			Boolean showTranslate = wordTestConfig.getShowTranslate();
-			Boolean showAdditionalInfo = wordTestConfig.getShowAdditionalInfo();
+			// Boolean showAdditionalInfo = wordTestConfig.getShowAdditionalInfo();
 
 			// context
-			EntryOrderList<DictionaryEntry> wordsTest = wordTestContext.getWordsTest();
+			EntryOrderList<DictionaryEntryAndDictionaryEntry2> wordsTest = wordTestContext.getWordsTest();
 			int wordsTestIdx = wordsTest.getCurrentPos();
 			int wordTestAnswers = wordTestContext.getWordTestAnswers();
 			int wordTestCorrectAnswers = wordTestContext.getWordTestCorrectAnswers();
@@ -107,7 +114,7 @@ public class WordTest extends Activity {
 			detailsSb.append("showKanji: " + showKanji).append("\n\n");
 			detailsSb.append("showKana: " + showKana).append("\n\n");
 			detailsSb.append("showTranslate: " + showTranslate).append("\n\n");
-			detailsSb.append("showAdditionalInfo: " + showAdditionalInfo).append("\n\n");
+			// detailsSb.append("showAdditionalInfo: " + showAdditionalInfo).append("\n\n");
 
 			detailsSb.append(" *** context ***\n\n");
 
@@ -216,18 +223,19 @@ public class WordTest extends Activity {
 
 		//
 
-		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance()
-				.getContext();
+		final JapaneseAndroidLearnHelperContext context = JapaneseAndroidLearnHelperApplication.getInstance().getContext();
 		final JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
 		final WordTestConfig wordTestConfig = JapaneseAndroidLearnHelperApplication.getInstance()
 				.getConfigManager(WordTest.this).getWordTestConfig();
 
-		final EntryOrderList<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
+		final EntryOrderList<DictionaryEntryAndDictionaryEntry2> wordDictionaryEntries = wordTestContext.getWordsTest();
 
-		final DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
+		final DictionaryEntryAndDictionaryEntry2 currentDictionaryEntryAndDictionaryEntry2 = wordDictionaryEntries.getNext();
+		final DictionaryEntry currentWordDictionaryEntry = currentDictionaryEntryAndDictionaryEntry2.getDictionaryEntry();
+		final JMdict.Entry currentWordDictionaryEntry2 = currentDictionaryEntryAndDictionaryEntry2.getDictionaryEntry2();
 
 		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
-		List<String> translateList = currentWordDictionaryEntry.getTranslates();
+		// List<String> translateList = currentWordDictionaryEntry.getTranslates();
 
 		WordTestMode wordTestMode = wordTestConfig.getWordTestMode();
 		Boolean showTranslate = wordTestConfig.getShowTranslate();
@@ -282,7 +290,9 @@ public class WordTest extends Activity {
 
 				alertDialog.setMessage(getString(R.string.word_test_incorrect_with_translate,
 						ListUtil.getListAsString(new ArrayList<String>(isCorrectKanjiOrKanaAnswersResult.correctAnswers), "\n"),
-						ListUtil.getListAsString(translateList, "\n")));
+						currentWordDictionaryEntry2 != null ?
+								WordKanjiDictionaryUtils.createSimpleJointedSenseList(currentWordDictionaryEntry2) :
+								WordKanjiDictionaryUtils.createSimpleJointedSenseList(currentWordDictionaryEntry)));
 
 				/*
 				if (showTranslate == true) {
@@ -349,11 +359,11 @@ public class WordTest extends Activity {
 		if (kanji != null) {
 
 			TextView kanjiLabel = (TextView) findViewById(R.id.word_test_kanji_label);
-			EditText kanjiPrefix = (EditText) findViewById(R.id.word_test_kanji_prefix);
+			// EditText kanjiPrefix = (EditText) findViewById(R.id.word_test_kanji_prefix);
 			EditText kanjiInput = (EditText) findViewById(R.id.word_test_kanji_input);
 
 			kanjiLabel.setVisibility(View.VISIBLE);
-			kanjiPrefix.setVisibility(View.VISIBLE);
+			//kanjiPrefix.setVisibility(View.VISIBLE);
 			kanjiInput.setVisibility(View.VISIBLE);
 		}
 
@@ -373,7 +383,7 @@ public class WordTest extends Activity {
 
 			if (currentKana != null) {
 
-				currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
+				// currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
 				currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
 				currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
 			}
@@ -387,9 +397,9 @@ public class WordTest extends Activity {
 		translateInput.setVisibility(View.VISIBLE);
 
 		// show additional info
-		TextView additionalInfoLabel = (TextView) findViewById(R.id.word_test_additional_info_label);
-		EditText additionalInfoInput = (EditText) findViewById(R.id.word_test_additional_info_input);
-
+		// TextView additionalInfoLabel = (TextView) findViewById(R.id.word_test_additional_info_label);
+		// EditText additionalInfoInput = (EditText) findViewById(R.id.word_test_additional_info_input);
+		/*
 		String additionalInfo = dictionaryEntry.getFullInfo();
 
 		if (additionalInfo != null) {
@@ -405,6 +415,7 @@ public class WordTest extends Activity {
 			additionalInfoLabel.setVisibility(View.GONE);
 			additionalInfoInput.setVisibility(View.GONE);
 		}
+		*/
 	}
 
 	private IsCorrectKanjiOrKanaAnswersResult isCorrectKanjiOrKanaAnswers(JapaneseAndroidLearnHelperContext context) throws DictionaryException {
@@ -414,10 +425,12 @@ public class WordTest extends Activity {
 
 		JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
 
-		EntryOrderList<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
+		EntryOrderList<DictionaryEntryAndDictionaryEntry2> wordDictionaryEntries = wordTestContext.getWordsTest();
 
 		// aktualne slowo do sprawdzenia
-		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
+		final DictionaryEntryAndDictionaryEntry2 currentDictionaryEntryAndDictionaryEntry2 = wordDictionaryEntries.getNext();
+		final DictionaryEntry currentWordDictionaryEntry = currentDictionaryEntryAndDictionaryEntry2.getDictionaryEntry();
+		final JMdict.Entry currentWordDictionaryEntry2 = currentDictionaryEntryAndDictionaryEntry2.getDictionaryEntry2();
 
 		// pobieramy alternatywy, ktore naleza do tej samej grupy
 		List<DictionaryEntry> currentWordDictionaryGroupEntryList = new ArrayList<>();
@@ -534,7 +547,7 @@ public class WordTest extends Activity {
 
 		JapaneseAndroidLearnHelperWordTestContext wordTestContext = context.getWordTestContext();
 
-		EntryOrderList<DictionaryEntry> wordDictionaryEntries = wordTestContext.getWordsTest();
+		EntryOrderList<DictionaryEntryAndDictionaryEntry2> wordDictionaryEntries = wordTestContext.getWordsTest();
 
 		TextView titleTextView = (TextView) findViewById(R.id.word_test_title);
 
@@ -568,10 +581,10 @@ public class WordTest extends Activity {
 			finish();
 			return;
 		}
-		
-		DictionaryEntry currentWordDictionaryEntry = wordDictionaryEntries.getNext();
 
-		if (currentWordDictionaryEntry == null) {
+		final DictionaryEntryAndDictionaryEntry2 currentDictionaryEntryAndDictionaryEntry2 = wordDictionaryEntries.getNext();
+
+		if (currentDictionaryEntryAndDictionaryEntry2 == null) {
 
 			Intent intent = new Intent(getApplicationContext(), WordTestSummary.class);
 
@@ -581,32 +594,35 @@ public class WordTest extends Activity {
 			return;
 
 		} else {
+			final DictionaryEntry currentWordDictionaryEntry = currentDictionaryEntryAndDictionaryEntry2.getDictionaryEntry();
+			final JMdict.Entry currentWordDictionaryEntry2 = currentDictionaryEntryAndDictionaryEntry2.getDictionaryEntry2();
+
 			String kanji = currentWordDictionaryEntry.getKanji();
-			String prefixKana = currentWordDictionaryEntry.getPrefixKana();
+			// String prefixKana = currentWordDictionaryEntry.getPrefixKana();
 
 			TextView kanjiLabel = (TextView) findViewById(R.id.word_test_kanji_label);
-			EditText kanjiPrefix = (EditText) findViewById(R.id.word_test_kanji_prefix);
+			//EditText kanjiPrefix = (EditText) findViewById(R.id.word_test_kanji_prefix);
 			EditText kanjiInput = (EditText) findViewById(R.id.word_test_kanji_input);
 
 			if (kanji != null) {
 				kanjiInput.setText(kanji);
-				kanjiPrefix.setText(prefixKana);
+				// kanjiPrefix.setText(prefixKana);
 			} else {
 				kanjiInput.setText("");
-				kanjiPrefix.setText("");
+				// kanjiPrefix.setText("");
 			}
 
 			if (kanji != null && wordTestConfig.getShowKanji() != null
 					&& wordTestConfig.getShowKanji().equals(Boolean.TRUE) == true) {
 
 				kanjiLabel.setVisibility(View.VISIBLE);
-				kanjiPrefix.setVisibility(View.VISIBLE);
+				// kanjiPrefix.setVisibility(View.VISIBLE);
 				kanjiInput.setVisibility(View.VISIBLE);
 
 				kanjiInput.setEnabled(false);
 			} else {
 				kanjiLabel.setVisibility(View.GONE);
-				kanjiPrefix.setVisibility(View.GONE);
+				// kanjiPrefix.setVisibility(View.GONE);
 				kanjiInput.setVisibility(View.GONE);
 
 				kanjiInput.setEnabled(false);
@@ -639,21 +655,21 @@ public class WordTest extends Activity {
 							|| (wordTestConfig.getShowKana() != null && wordTestConfig.getShowKana().equals(
 									Boolean.TRUE) == true)) {
 
-						currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
+						// currentTextViewAndEditText.editPrefix.setVisibility(View.VISIBLE);
 						currentTextViewAndEditText.textView.setVisibility(View.VISIBLE);
 						currentTextViewAndEditText.editText.setVisibility(View.VISIBLE);
 
 					} else {
-						currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
+						// currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
 						currentTextViewAndEditText.textView.setVisibility(View.GONE);
 						currentTextViewAndEditText.editText.setVisibility(View.GONE);
 					}
 
-					currentTextViewAndEditText.editPrefix.setText(prefixKana);
+					// currentTextViewAndEditText.editPrefix.setText(prefixKana);
 
 					if (wordTestConfig.getWordTestMode() == WordTestMode.INPUT) {
 
-						currentTextViewAndEditText.editPrefix.setFocusable(true);
+						// currentTextViewAndEditText.editPrefix.setFocusable(true);
 						currentTextViewAndEditText.textView.setFocusable(true);
 						currentTextViewAndEditText.editText.setFocusable(true);
 
@@ -667,7 +683,7 @@ public class WordTest extends Activity {
 
 					} else if (wordTestConfig.getWordTestMode() == WordTestMode.OVERVIEW) {
 
-						currentTextViewAndEditText.editPrefix.setFocusable(false);
+						// currentTextViewAndEditText.editPrefix.setFocusable(false);
 						currentTextViewAndEditText.textView.setFocusable(false);
 						currentTextViewAndEditText.editText.setFocusable(false);
 
@@ -686,30 +702,38 @@ public class WordTest extends Activity {
 				} else {
 					currentTextViewAndEditText.textView.setVisibility(View.GONE);
 
-					currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
+					// currentTextViewAndEditText.editPrefix.setVisibility(View.GONE);
 					currentTextViewAndEditText.editText.setVisibility(View.GONE);
 					currentTextViewAndEditText.editText.setText("");
 				}
 			}
 
 			TextView translateLabel = (TextView) findViewById(R.id.word_test_translate_label);
-			EditText translateInput = (EditText) findViewById(R.id.word_test_translate_input);
+			TextView translateInput = (TextView) findViewById(R.id.word_test_translate_input);
 
-			translateInput.setText(ListUtil.getListAsString(currentWordDictionaryEntry.getTranslates(), "\n"));
+			if (currentWordDictionaryEntry2 != null) {
+				translateInput.setText(WordKanjiDictionaryUtils.createSimpleJointedSenseList(currentWordDictionaryEntry2));
+
+			} else {
+				translateInput.setText(WordKanjiDictionaryUtils.createSimpleJointedSenseList(currentWordDictionaryEntry));
+			}
+
 			translateInput.setEnabled(false);
 
 			if (wordTestConfig.getShowTranslate() != null
 					&& wordTestConfig.getShowTranslate().equals(Boolean.TRUE) == true) {
 				translateLabel.setVisibility(View.VISIBLE);
 				translateInput.setVisibility(View.VISIBLE);
+
 			} else {
 				translateLabel.setVisibility(View.GONE);
 				translateInput.setVisibility(View.GONE);
 			}
 
-			TextView additionalInfoLabel = (TextView) findViewById(R.id.word_test_additional_info_label);
-			EditText additionalInfoInput = (EditText) findViewById(R.id.word_test_additional_info_input);
+			// TextView additionalInfoLabel = (TextView) findViewById(R.id.word_test_additional_info_label);
+			// EditText additionalInfoInput = (EditText) findViewById(R.id.word_test_additional_info_input);
 
+			/*
 			String additionalInfo = currentWordDictionaryEntry.getFullInfo();
 
 			if (additionalInfo != null && wordTestConfig.getShowAdditionalInfo() != null
@@ -726,6 +750,7 @@ public class WordTest extends Activity {
 				additionalInfoLabel.setVisibility(View.GONE);
 				additionalInfoInput.setVisibility(View.GONE);
 			}
+			 */
 
 			TextView state = (TextView) findViewById(R.id.word_test_state_info);
 
@@ -739,7 +764,7 @@ public class WordTest extends Activity {
 	private void createTextViewAndEditTextForWordAsArray(final int lastAnswerIdx) {
 
 		TextView wordLabel1 = (TextView) findViewById(R.id.word_test_word_label1);
-		EditText wordPrefix1 = (EditText) findViewById(R.id.word_test_word_prefix1);
+		// EditText wordPrefix1 = (EditText) findViewById(R.id.word_test_word_prefix1);
 		EditText wordInput1 = (EditText) findViewById(R.id.word_test_word_input1);
 
 		/*
@@ -982,7 +1007,7 @@ public class WordTest extends Activity {
 
 		textViewAndEditTextForWordAsArray = new TextViewAndEditText[1]; //Utils.MAX_LIST_SIZE];
 
-		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, wordPrefix1, wordInput1);
+		textViewAndEditTextForWordAsArray[0] = new TextViewAndEditText(wordLabel1, /* wordPrefix1, */ wordInput1);
 		/*
 		textViewAndEditTextForWordAsArray[1] = new TextViewAndEditText(wordLabel2, wordPrefix2, wordInput2);
 		textViewAndEditTextForWordAsArray[2] = new TextViewAndEditText(wordLabel3, wordPrefix3, wordInput3);
@@ -1094,13 +1119,13 @@ public class WordTest extends Activity {
 	private static class TextViewAndEditText {
 		TextView textView;
 
-		EditText editPrefix;
+		// EditText editPrefix;
 		EditText editText;
 
-		public TextViewAndEditText(TextView textView, EditText editPrefix, EditText editText) {
+		public TextViewAndEditText(TextView textView, /* EditText editPrefix, */ EditText editText) {
 			this.textView = textView;
 
-			this.editPrefix = editPrefix;
+			// this.editPrefix = editPrefix;
 			this.editText = editText;
 		}
 	}
