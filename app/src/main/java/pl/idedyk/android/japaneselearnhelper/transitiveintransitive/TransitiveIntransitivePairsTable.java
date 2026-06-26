@@ -14,6 +14,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.StringValue;
 import pl.idedyk.android.japaneselearnhelper.screen.TableLayout;
 import pl.idedyk.android.japaneselearnhelper.screen.TableRow;
 import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
+import pl.idedyk.android.japaneselearnhelper.utils.WordKanjiDictionaryUtils;
 import pl.idedyk.japanese.dictionary.api.dto.DictionaryEntry;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePair;
 import pl.idedyk.japanese.dictionary.api.dto.TransitiveIntransitivePairWithDictionaryEntry;
@@ -202,32 +203,33 @@ public class TransitiveIntransitivePairsTable extends Activity {
 	}
 	
 	private void generateVerbBody(List<IScreenItem> report, final DictionaryEntry dictionaryEntry, String title) {
-				
+
+		DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(TransitiveIntransitivePairsTable.this);
+
+		// pobieramy Entry
+		JMdict.Entry dictionaryEntry2 = null;
+
+		try {
+			dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ByOldPolishJapaneseDictionaryId(dictionaryEntry.getId());
+
+		} catch (DictionaryException e) {
+			Toast.makeText(TransitiveIntransitivePairsTable.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
+		}
+
+		final JMdict.Entry dictionaryEntry2AsFinal = dictionaryEntry2;
+
 		OnClickListener goToVerbDictionaryEntryDetails = 
 				new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
+						if (dictionaryEntry2AsFinal != null) {
+							Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
 
-						DictionaryManagerCommon dictionaryManager = JapaneseAndroidLearnHelperApplication.getInstance().getDictionaryManager(TransitiveIntransitivePairsTable.this);
+							intent.putExtra("item", dictionaryEntry2AsFinal);
 
-						// pobieramy Entry
-						JMdict.Entry dictionaryEntry2;
-
-						try {
-							dictionaryEntry2 = dictionaryManager.getDictionaryEntry2ByOldPolishJapaneseDictionaryId(dictionaryEntry.getId());
-
-						} catch (DictionaryException e) {
-							Toast.makeText(TransitiveIntransitivePairsTable.this, getString(R.string.dictionary_exception_common_error_message, e.getMessage()), Toast.LENGTH_LONG).show();
-
-							return;
+							startActivity(intent);
 						}
-
-						Intent intent = new Intent(getApplicationContext(), WordDictionaryDetails.class);
-						
-						intent.putExtra("item", dictionaryEntry2);
-						
-						startActivity(intent);
 					}
 				};
 		
@@ -257,7 +259,9 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_romaji), dictionaryEntry.getRomaji(), goToVerbDictionaryEntryDetails);
 		
 		// translate
-		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_translate), listStringToString(dictionaryEntry.getTranslates()), goToVerbDictionaryEntryDetails);
+		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_translate), dictionaryEntry2 != null ?
+				WordKanjiDictionaryUtils.createSimpleJointedSenseList(dictionaryEntry2) :
+				WordKanjiDictionaryUtils.createSimpleJointedSenseList(dictionaryEntry), goToVerbDictionaryEntryDetails);
 		
 		report.add(tableLayout);
 	}
@@ -267,7 +271,7 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		TableRow tableRow = new TableRow();
 		
 		StringValue titleStringValue = new StringValue(title, 14.0f, 0);
-		
+
 		titleStringValue.setMarginTop(0);
 		titleStringValue.setMarginLeft(5);
 		titleStringValue.setMarginRight(5);
@@ -280,10 +284,10 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		StringValue valueStringValue = new StringValue(value, 14.0f, 0);
 		
 		valueStringValue.setOnClickListener(goToVerbDictionaryEntryDetails);
-		
+
 		tableRow.addScreenItem(titleStringValue);
 		tableRow.addScreenItem(valueStringValue);
-		
+
 		tableLayout.addTableRow(tableRow);
 	}
 	
