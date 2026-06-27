@@ -243,33 +243,31 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		
 		// spacer
 		report.add(new StringValue("", 0.5f, 1));
-		
-		TableLayout tableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, true);
-		
+
 		if (dictionaryEntry.isKanjiExists() == true) {
 			
 			// kanji
-			addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_kanji), dictionaryEntry.getKanji(), goToVerbDictionaryEntryDetails);
+			addRowValue(report, getString(R.string.transitive_intransitive_pairs_table_kanji), dictionaryEntry.getKanji(), goToVerbDictionaryEntryDetails);
 		}
 		
 		// kana
-		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_kana), dictionaryEntry.getKana(), goToVerbDictionaryEntryDetails);
+		addRowValue(report, getString(R.string.transitive_intransitive_pairs_table_kana), dictionaryEntry.getKana(), goToVerbDictionaryEntryDetails);
 		
 		// romaji
-		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_romaji), dictionaryEntry.getRomaji(), goToVerbDictionaryEntryDetails);
+		addRowValue(report, getString(R.string.transitive_intransitive_pairs_table_romaji), dictionaryEntry.getRomaji(), goToVerbDictionaryEntryDetails);
 		
 		// translate
-		addRowValue(tableLayout, getString(R.string.transitive_intransitive_pairs_table_translate), dictionaryEntry2 != null ?
+		addRowValue(report, getString(R.string.transitive_intransitive_pairs_table_translate), dictionaryEntry2 != null ?
 				WordKanjiDictionaryUtils.createSimpleJointedSenseList(dictionaryEntry2) :
 				WordKanjiDictionaryUtils.createSimpleJointedSenseList(dictionaryEntry), goToVerbDictionaryEntryDetails);
-		
-		report.add(tableLayout);
 	}
 	
-	private void addRowValue(TableLayout tableLayout, String title, String value, OnClickListener goToVerbDictionaryEntryDetails) {
-		
-		TableRow tableRow = new TableRow();
-		
+	private void addRowValue(List<IScreenItem> report, String title, String value, OnClickListener goToVerbDictionaryEntryDetails) {
+
+		pl.idedyk.android.japaneselearnhelper.screen.LinearLayout linearLayout = new pl.idedyk.android.japaneselearnhelper.screen.LinearLayout();
+
+		linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+
 		StringValue titleStringValue = new StringValue(title, 14.0f, 0);
 
 		titleStringValue.setMarginTop(0);
@@ -277,18 +275,21 @@ public class TransitiveIntransitivePairsTable extends Activity {
 		titleStringValue.setMarginRight(5);
 		titleStringValue.setMarginBottom(0);
 
+		titleStringValue.setLayoutWidth(4);
 		titleStringValue.setBackgroundColor(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getTitleItemBackgroundColorAsColor());
 		
 		titleStringValue.setOnClickListener(goToVerbDictionaryEntryDetails);
 		
 		StringValue valueStringValue = new StringValue(value, 14.0f, 0);
-		
+
+		valueStringValue.setLayoutWidth(2);
+
 		valueStringValue.setOnClickListener(goToVerbDictionaryEntryDetails);
 
-		tableRow.addScreenItem(titleStringValue);
-		tableRow.addScreenItem(valueStringValue);
+		linearLayout.addScreenItem(titleStringValue);
+		linearLayout.addScreenItem(valueStringValue);
 
-		tableLayout.addTableRow(tableRow);
+		report.add(linearLayout);
 	}
 	
 	private String listStringToString(List<String> listString) {

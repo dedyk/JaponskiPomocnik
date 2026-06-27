@@ -19,12 +19,14 @@ public class LinearLayout implements IScreenItem {
 
     private Integer visibility;
 
+    private int orientation = android.widget.LinearLayout.VERTICAL;
+
     @Override
     public void generate(Context context, Resources resources, ViewGroup layout) {
         linearLayout = new android.widget.LinearLayout(context);
 
         linearLayout.setLayoutParams(new ScrollView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        linearLayout.setOrientation(android.widget.LinearLayout.VERTICAL);
+        linearLayout.setOrientation(orientation);
 
         if (visibility != null) {
             linearLayout.setVisibility(visibility);
@@ -49,6 +51,10 @@ public class LinearLayout implements IScreenItem {
 
     public void setVisibility(int visibility) {
         this.visibility = visibility;
+    }
+
+    public void setOrientation(int orientation) {
+        this.orientation = orientation;
     }
 
     public void regenerate(Context context, Resources resources, ViewGroup layout) {
