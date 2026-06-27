@@ -46,7 +46,7 @@ public class DictionaryHear extends Activity {
 
 	private LinearLayout mainLayout = null;
 
-	private TableLayout dictionaryEntryTableLayout = null;
+	// private TableLayout dictionaryEntryTableLayout = null;
 
 	private StringValue dictionaryEntryTableLayout$kanji = null;
 	private StringValue dictionaryEntryTableLayout$reading = null;
@@ -229,40 +229,56 @@ public class DictionaryHear extends Activity {
 		// Word		
 		screenItemList.add(new TitleItem(getString(R.string.dictionary_hear_word), 0));
 
-		dictionaryEntryTableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, true);
+		// dictionaryEntryTableLayout = new TableLayout(TableLayout.LayoutParam.WrapContent_WrapContent, true, true);
 
 		// kanji
-		TableRow kanjiTableRow = new TableRow();
+		{
+			pl.idedyk.android.japaneselearnhelper.screen.LinearLayout kanjiTableRow = new pl.idedyk.android.japaneselearnhelper.screen.LinearLayout();
+			kanjiTableRow.setOrientation(LinearLayout.HORIZONTAL);
 
-		kanjiTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_kanji_label), 12.0f, 0));
+			StringValue kanjiTitle = new StringValue(getString(R.string.dictionary_hear_word_kanji_label), 14.0f, 0);
+			kanjiTitle.setLayoutWidth(4);
 
-		dictionaryEntryTableLayout$kanji = new StringValue("", 15.0f, 0);
-		kanjiTableRow.addScreenItem(dictionaryEntryTableLayout$kanji);
+			dictionaryEntryTableLayout$kanji = new StringValue("", 15.0f, 0);
+			dictionaryEntryTableLayout$kanji.setLayoutWidth(2);
 
-		dictionaryEntryTableLayout.addTableRow(kanjiTableRow);
+			kanjiTableRow.addScreenItem(kanjiTitle);
+			kanjiTableRow.addScreenItem(dictionaryEntryTableLayout$kanji);
 
+			screenItemList.add(kanjiTableRow);
+		}
 		// reading
-		TableRow readingTableRow = new TableRow();
+		{
+			pl.idedyk.android.japaneselearnhelper.screen.LinearLayout readingTableRow = new pl.idedyk.android.japaneselearnhelper.screen.LinearLayout();
+			readingTableRow.setOrientation(LinearLayout.HORIZONTAL);
 
-		readingTableRow
-				.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_reading_label), 12.0f, 0));
+			StringValue readingTitle = new StringValue(getString(R.string.dictionary_hear_word_reading_label), 14.0f, 0);
+			readingTitle.setLayoutWidth(4);
 
-		dictionaryEntryTableLayout$reading = new StringValue("", 15.0f, 0);
-		readingTableRow.addScreenItem(dictionaryEntryTableLayout$reading);
+			dictionaryEntryTableLayout$reading = new StringValue("", 15.0f, 0);
+			dictionaryEntryTableLayout$reading.setLayoutWidth(2);
 
-		dictionaryEntryTableLayout.addTableRow(readingTableRow);
+			readingTableRow.addScreenItem(readingTitle);
+			readingTableRow.addScreenItem(dictionaryEntryTableLayout$reading);
 
+			screenItemList.add(readingTableRow);
+		}
 		// translate
-		TableRow translateTableRow = new TableRow();
+		{
+			pl.idedyk.android.japaneselearnhelper.screen.LinearLayout translateTableRow = new pl.idedyk.android.japaneselearnhelper.screen.LinearLayout();
+			translateTableRow.setOrientation(LinearLayout.HORIZONTAL);
 
-		translateTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_translate_label),
-				12.0f, 0));
+			StringValue translateTitle = new StringValue(getString(R.string.dictionary_hear_word_translate_label), 14.0f, 0);
+			translateTitle.setLayoutWidth(4);
 
-		dictionaryEntryTableLayout$translate = new StringValue("", 15.0f, 0);
-		translateTableRow.addScreenItem(dictionaryEntryTableLayout$translate);
+			dictionaryEntryTableLayout$translate = new StringValue("", 15.0f, 0);
+			dictionaryEntryTableLayout$translate.setLayoutWidth(2);
 
-		dictionaryEntryTableLayout.addTableRow(translateTableRow);
+			translateTableRow.addScreenItem(translateTitle);
+			translateTableRow.addScreenItem(dictionaryEntryTableLayout$translate);
 
+			screenItemList.add(translateTableRow);
+		}
 		// additional info
 		// TableRow additionalInfoTableRow = new TableRow();
 
@@ -275,17 +291,16 @@ public class DictionaryHear extends Activity {
 		// dictionaryEntryTableLayout.addTableRow(additionalInfoTableRow);
 
 		// word type
-		TableRow wordTypeTableRow = new TableRow();
+		// TableRow wordTypeTableRow = new TableRow();
 
-		wordTypeTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_part_of_speech), 12.0f,
-				0));
+		// wordTypeTableRow.addScreenItem(new StringValue(getString(R.string.dictionary_hear_word_part_of_speech), 12.0f, 0));
 
 		// dictionaryEntryTableLayout$wordType = new StringValue("", 15.0f, 0);
 		// wordTypeTableRow.addScreenItem(dictionaryEntryTableLayout$wordType);
 
-		dictionaryEntryTableLayout.addTableRow(wordTypeTableRow);
+		// dictionaryEntryTableLayout.addTableRow(wordTypeTableRow);
 
-		screenItemList.add(dictionaryEntryTableLayout);
+		// screenItemList.add(dictionaryEntryTableLayout);
 
 		JapaneseAndroidLearnHelperDictionaryHearContext dictionaryHearContext = JapaneseAndroidLearnHelperApplication
 				.getInstance().getContext().getDictionaryHearContext();
