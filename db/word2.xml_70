@@ -13738,36 +13738,6 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7011521</ent_seq>
-        <k_ele>
-            <keb>月</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="gatsu">がつ</reb>
-        </r_ele>
-        <sense>
-            <pos>noun, used as a suffix</pos>
-            <s_inf xml:lang="pol">w nazwie</s_inf>
-            <gloss xml:lang="pol">miesiąc</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary notExistsInJMdict="true">
-                <entries id="11521" dictionaryEntryTypeList="WORD_NOUN_SUFFIX" kanji="月" kana="がつ" romaji="gatsu" uniqueKey="月/がつ/1"/>
-                <groupsList>OTHER</groupsList>
-                <exampleSentenceGroupIdsList>11566606</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>1518357</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>1550073</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>238782</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>238787</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>238802</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>238805</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>238818</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>238820</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>238821</exampleSentenceGroupIdsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>7011522</ent_seq>
         <k_ele>
             <keb>こちら側</keb>
@@ -22340,6 +22310,27 @@
         <misc>
             <oldPolishJapaneseDictionary notExistsInJMdict="true">
                 <entries id="12799" dictionaryEntryTypeList="WORD_NOUN" kanji="二曲" kana="にきょく" romaji="nikyoku" uniqueKey="二曲/にきょく/1"/>
+                <groupsList>COUNTERS</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7012800</ent_seq>
+        <k_ele>
+            <keb>三曲</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sankyoku">さんきょく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">utwory</s_inf>
+            <gloss xml:lang="pol">trzy</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="12800" dictionaryEntryTypeList="WORD_NOUN" kanji="三曲" kana="さんきょく" romaji="sankyoku" uniqueKey="三曲/さんきょく/1"/>
+                <attributeList type="PRIORITY" value="62"/>
                 <groupsList>COUNTERS</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>

@@ -233,22 +233,6 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7208186</ent_seq>
-        <r_ele>
-            <reb kana_type="KATAKANA" romaji="oiru firutaa">オイルフィルター</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <gloss xml:lang="pol">filtr oleju</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary notExistsInJMdict="true">
-                <entries id="208186" dictionaryEntryTypeList="WORD_NOUN" kana="オイルフィルター" romaji="oiru firutaa" uniqueKey="-/オイルフィルター/1"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>7208187</ent_seq>
         <k_ele>
             <keb>燃料ポンプ</keb>

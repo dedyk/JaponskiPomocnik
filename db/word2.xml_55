@@ -4847,7 +4847,9 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>organization name</misc>
             <gloss xml:lang="eng">Urban Rennaissance Agency</gloss>
-            <gloss xml:lang="pol">Agencja Renesansu Miejskiego</gloss>
+            <gloss xml:lang="eng">UR</gloss>
+            <gloss xml:lang="pol">Urban Rennaissance Agency</gloss>
+            <gloss xml:lang="pol">UR</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>

@@ -1362,26 +1362,6 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7320081</ent_seq>
-        <k_ele>
-            <keb>早戻し</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="haya modoshi">はやもどし</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">np. kasety</s_inf>
-            <gloss xml:lang="pol">przewijanie do tyłu</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary notExistsInJMdict="true">
-                <entries id="320081" dictionaryEntryTypeList="WORD_NOUN" kanji="早戻し" kana="はやもどし" romaji="haya modoshi" uniqueKey="早戻し/はやもどし/1"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>7320082</ent_seq>
         <k_ele>
             <keb>アーチェリー場</keb>

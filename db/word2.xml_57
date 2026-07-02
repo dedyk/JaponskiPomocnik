@@ -56787,4 +56787,53 @@
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
+    <entry>
+        <ent_seq>5747802</ent_seq>
+        <k_ele>
+            <keb>運命の力</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="unmei no chikara">うんめいのちから</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">opera Giuseppe Verdiego z 1862</s_inf>
+            <gloss xml:lang="eng">La forza del destino (opera by Verdi)</gloss>
+            <gloss xml:lang="eng">The Force of Destiny</gloss>
+            <gloss xml:lang="pol">La forza del destino</gloss>
+            <gloss xml:lang="pol">Moc przeznaczenia</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="324873" dictionaryEntryTypeList="WORD_NOUN" kanji="運命の力" kana="うんめいのちから" romaji="unmei no chikara" uniqueKey="運命の力/うんめいのちから/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747833</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="mini kuupaa">ミニクーパー</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="mini kuupaa">ミニ・クーパー</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">marka samochodów kompaktowych</s_inf>
+            <gloss xml:lang="eng">Mini Cooper (brand of compact car)</gloss>
+            <gloss xml:lang="pol">Mini Cooper</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="325369" dictionaryEntryTypeList="WORD_NOUN" kana="ミニクーパー" romaji="mini kuupaa" uniqueKey="-/ミニクーパー/1"/>
+                <entries id="325370" dictionaryEntryTypeList="WORD_NOUN" kana="ミニ・クーパー" romaji="mini kuupaa" uniqueKey="-/ミニ・クーパー/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
 </JMdict>

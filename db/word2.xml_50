@@ -15566,6 +15566,28 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5054191</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="derii">デリー</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <s_inf xml:lang="pol">stolica Indii</s_inf>
+            <gloss xml:lang="eng">Delhi (India)</gloss>
+            <gloss xml:lang="eng">Derry</gloss>
+            <gloss xml:lang="eng">Dhery</gloss>
+            <gloss xml:lang="pol">Delhi</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="325091" dictionaryEntryTypeList="WORD_NOUN" kana="デリー" romaji="derii" uniqueKey="-/デリー/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5054248</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA_EXCEPTION" romaji="derusu uzaara">デルスウザーラ</reb>
