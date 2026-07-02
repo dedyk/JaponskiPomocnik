@@ -12,8 +12,6 @@ public class SQLiteDatabaseHelper {
 
     private static final String countObjectSql = "select count(*) from sqlite_master where type = ? and name = ?";
 
-    private static final String selectNamePragmaTableInfo = "select name from pragma_table_info(?)";
-
     public static boolean isObjectExists(SQLiteDatabase sqliteDatabase, String type, String name) {
         Cursor cursor = null;
 
@@ -44,14 +42,16 @@ public class SQLiteDatabaseHelper {
         List<String> result = new ArrayList<>();
 
         try {
-            cursor = sqliteDatabase.rawQuery(selectNamePragmaTableInfo, new String[] { tableName });
+            cursor = sqliteDatabase.rawQuery("PRAGMA table_info(" + tableName + ")", new String[] { });
 
             if (cursor.moveToFirst() == false) {
                 return result;
             }
 
             do {
-                String currentColumnName = cursor.getString(0);
+                int nameIdx = cursor.getColumnIndex("name");
+
+                String currentColumnName = cursor.getString(nameIdx);
 
                 result.add(currentColumnName);
 
