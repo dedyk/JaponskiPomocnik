@@ -17,12 +17,14 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.PointF;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.window.OnBackInvokedDispatcher;
 
 public class KanjiRecognizeActivity extends Activity {
 
@@ -54,6 +56,15 @@ public class KanjiRecognizeActivity extends Activity {
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_kanji_recognize));
 
 		init();
+
+		// Obsługa dla Androida 13+ (API 33+)
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+			getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+					OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+					() -> {
+						onBackPressed();
+					});
+		}
 	}
 
 	public void onBackPressed() {

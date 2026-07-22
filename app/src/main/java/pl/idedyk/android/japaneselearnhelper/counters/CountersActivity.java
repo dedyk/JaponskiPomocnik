@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +30,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.window.OnBackInvokedDispatcher;
 
 public class CountersActivity extends Activity {
 	
@@ -227,6 +229,15 @@ public class CountersActivity extends Activity {
 			}
 		});
 		*/
+
+		// Obsługa dla Androida 13+ (API 33+)
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+			getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+					OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+					() -> {
+						onBackPressed();
+					});
+		}
 	}
 	
 	@Override

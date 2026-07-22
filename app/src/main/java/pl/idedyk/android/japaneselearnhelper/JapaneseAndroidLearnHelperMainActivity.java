@@ -30,6 +30,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.window.OnBackInvokedDispatcher;
 
 public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
@@ -57,6 +59,15 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 		// check and show message for user
 		checkAndShowMessageForUser();
+
+		// Obsługa dla Androida 13+ (API 33+)
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+			getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+					OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+					() -> {
+						onBackPressed();
+					});
+		}
 	}
 
 	@Override

@@ -86,6 +86,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.ClipboardManager;
 import android.util.Log;
@@ -100,6 +101,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
+import android.window.OnBackInvokedDispatcher;
 
 @SuppressWarnings("deprecation")
 public class WordDictionaryDetails extends Activity {
@@ -428,6 +430,15 @@ public class WordDictionaryDetails extends Activity {
 		}
 
 		ttsConnector = new TtsConnector(this, TtsLanguage.JAPANESE);
+
+		// Obsługa dla Androida 13+ (API 33+)
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+			getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+					OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+					() -> {
+						onBackPressed();
+					});
+		}
 	}
 
 	@Override

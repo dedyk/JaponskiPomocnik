@@ -12,6 +12,7 @@ import pl.idedyk.android.japaneselearnhelper.screen.TitleItem;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -21,6 +22,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.window.OnBackInvokedDispatcher;
 
 public class KanjiSearchStrokeCount extends Activity {
 	
@@ -157,6 +159,15 @@ public class KanjiSearchStrokeCount extends Activity {
 				}
 			}
 		});
+
+		// Obsługa dla Androida 13+ (API 33+)
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+			getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
+					OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+					() -> {
+						onBackPressed();
+					});
+		}
 	}
 
 	public void onBackPressed() {
