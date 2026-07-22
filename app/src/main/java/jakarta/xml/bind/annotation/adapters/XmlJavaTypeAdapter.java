@@ -1,4 +1,4 @@
-package javax.xml.bind.annotation.adapters;
+package jakarta.xml.bind.annotation.adapters;
 
 import java.lang.annotation.Target;
 import java.lang.annotation.Retention;
@@ -9,8 +9,6 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.ElementType.PACKAGE;
-
-import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 // mock
 @Retention(RUNTIME) @Target({PACKAGE,FIELD,METHOD,TYPE,PARAMETER})

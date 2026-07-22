@@ -1,4 +1,4 @@
-package javax.xml.bind.annotation;
+package jakarta.xml.bind.annotation;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;

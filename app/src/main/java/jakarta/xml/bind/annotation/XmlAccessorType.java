@@ -1,4 +1,4 @@
-package javax.xml.bind.annotation;
+package jakarta.xml.bind.annotation;
 
 // mock
 public @interface XmlAccessorType {

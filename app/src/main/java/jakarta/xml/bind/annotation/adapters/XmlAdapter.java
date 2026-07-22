@@ -1,4 +1,4 @@
-package javax.xml.bind.annotation.adapters;
+package jakarta.xml.bind.annotation.adapters;
 
 public abstract class XmlAdapter<ValueType,BoundType> {
 

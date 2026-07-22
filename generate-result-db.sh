@@ -6,6 +6,9 @@ japanese_dictionary_api_version=1.0-SNAPSHOT
 japanese_dictionary_lucene_common_version=1.0-SNAPSHOT
 lucene_version=4.7.2
 gson_version=2.8.9
+jaxb_version=4.0.9
+jakarta_xml_bind_api_version=4.0.5
+jakarta_activation_api_version=2.1.4
 
 CLASSPATH=app/libs/javacsv-2.1.jar
 CLASSPATH=$CLASSPATH:app/libs/JapaneseDictionaryAPI-${japanese_dictionary_api_version}.jar
@@ -14,6 +17,10 @@ CLASSPATH=$CLASSPATH:app/libs/lucene-analyzers-common-${lucene_version}.jar
 CLASSPATH=$CLASSPATH:libs-db-generator/lucene-core-${lucene_version}.jar
 CLASSPATH=$CLASSPATH:libs-db-generator/lucene-suggest-${lucene_version}.jar
 CLASSPATH=$CLASSPATH:libs-db-generator/gson-${gson_version}.jar
+CLASSPATH=$HOME/.m2/repository/com/sun/xml/bind/jaxb-impl/$jaxb_version/jaxb-impl-$jaxb_version.jar:$CLASSPATH
+CLASSPATH=$HOME/.m2/repository/com/sun/xml/bind/jaxb-core/$jaxb_version/jaxb-core-$jaxb_version.jar:$CLASSPATH
+CLASSPATH=$HOME/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/$jakarta_xml_bind_api_version/jakarta.xml.bind-api-$jakarta_xml_bind_api_version.jar:$CLASSPATH
+CLASSPATH=$HOME/.m2/repository/jakarta/activation/jakarta.activation-api/$jakarta_activation_api_version/jakarta.activation-api-$jakarta_activation_api_version.jar:$CLASSPATH
 
 java -cp $CLASSPATH pl.idedyk.japanese.dictionary.lucene.LuceneDBGenerator \
 android \

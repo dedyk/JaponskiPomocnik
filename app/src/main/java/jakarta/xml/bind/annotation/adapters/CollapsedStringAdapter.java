@@ -1,4 +1,4 @@
-package javax.xml.bind.annotation.adapters;
+package jakarta.xml.bind.annotation.adapters;
 
 // mock
 public class CollapsedStringAdapter extends XmlAdapter<String,String> {
