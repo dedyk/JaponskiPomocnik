@@ -163,7 +163,7 @@ public class KanjiSearchStrokeCount extends Activity {
 		// Obsługa dla Androida 13+ (API 33+)
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
 			getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
-					OnBackInvokedDispatcher.PRIORITY_DEFAULT,
+					OnBackInvokedDispatcher.PRIORITY_OVERLAY,
 					() -> {
 						onBackPressed();
 					});
