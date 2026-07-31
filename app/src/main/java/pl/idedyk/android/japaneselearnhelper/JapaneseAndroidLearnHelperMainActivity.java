@@ -11,26 +11,22 @@ import pl.idedyk.android.japaneselearnhelper.info.InfoActivity;
 import pl.idedyk.android.japaneselearnhelper.kana.Kana;
 import pl.idedyk.android.japaneselearnhelper.kana.KanaTestOptions;
 import pl.idedyk.android.japaneselearnhelper.kanji.KanjiSearch;
-import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiRecognizeActivity;
 import pl.idedyk.android.japaneselearnhelper.kanji.hkr.KanjiTestOptionsActivity;
 import pl.idedyk.android.japaneselearnhelper.keigo.KeigoTable;
 import pl.idedyk.android.japaneselearnhelper.problem.ReportProblem;
 import pl.idedyk.android.japaneselearnhelper.serverclient.ServerClient;
-import pl.idedyk.android.japaneselearnhelper.splash.Splash;
 import pl.idedyk.android.japaneselearnhelper.test.WordTestOptions;
 import pl.idedyk.android.japaneselearnhelper.testsm2.WordTestSM2Options;
 import pl.idedyk.android.japaneselearnhelper.transitiveintransitive.TransitiveIntransitivePairsTable;
 import pl.idedyk.android.japaneselearnhelper.usergroup.UserGroupActivity;
 import pl.idedyk.japanese.dictionary.api.android.queue.event.StatEndAppEvent;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,9 +34,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.window.OnBackInvokedDispatcher;
 
-public class JapaneseAndroidLearnHelperMainActivity extends Activity {
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class JapaneseAndroidLearnHelperMainActivity extends AppCompatActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +49,13 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 		
 		JapaneseAndroidLearnHelperApplication.getInstance().logScreen(this, getString(R.string.logs_main_menu));
 
+		// pokazanie ikonki w tytule
+		if (getSupportActionBar() != null) {
+			getSupportActionBar().setDisplayShowHomeEnabled(true);
+			getSupportActionBar().setLogo(R.drawable.japan);
+			getSupportActionBar().setDisplayUseLogoEnabled(true);
+		}
+
 		// create menu
 		createMenuList();
 
@@ -60,29 +65,23 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 		// check and show message for user
 		checkAndShowMessageForUser();
 
-		// Obsługa dla Androida 13+ (API 33+)
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-			getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
-					OnBackInvokedDispatcher.PRIORITY_DEFAULT,
-					() -> {
-						onBackPressed();
-					});
-		}
+		// obsluga cofniecia
+		getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+			@Override
+			public void handleOnBackPressed() {
+
+				JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(JapaneseAndroidLearnHelperMainActivity.this, new StatEndAppEvent(
+						JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(JapaneseAndroidLearnHelperMainActivity.this).getCommonConfig().getOrGenerateUniqueUserId()
+				));
+
+				finish();
+			}
+		});
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-	}
-
-	@Override
-	public void onBackPressed() {
-
-		super.onBackPressed();
-
-		JapaneseAndroidLearnHelperApplication.getInstance().addQueueEvent(this, new StatEndAppEvent(
-				JapaneseAndroidLearnHelperApplication.getInstance().getConfigManager(this).getCommonConfig().getOrGenerateUniqueUserId()
-		));
 	}
 
 	private void createMenuList() {

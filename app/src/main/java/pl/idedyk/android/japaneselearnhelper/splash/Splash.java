@@ -21,6 +21,8 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -32,7 +34,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Splash extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
+public class Splash extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
 	private static final int REQUEST_CODE_ASK_PERMISSIONS = 666;
 
@@ -44,7 +46,7 @@ public class Splash extends Activity implements ActivityCompat.OnRequestPermissi
 		// init google analytics
 		// JapaneseAndroidLearnHelperApplication.getInstance().getTracker();
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);

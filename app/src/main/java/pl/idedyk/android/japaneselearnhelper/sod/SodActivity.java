@@ -141,19 +141,17 @@ public class SodActivity extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.sod_draw_button:
+		int vId = v.getId();
+
+		if (vId == R.id.sod_draw_button) {
 			drawSod(character);
-			break;
-		case R.id.sod_animate_button:
+
+		} else if (vId == R.id.sod_animate_button) {
 			animate(character);
-			break;
-		case R.id.sod_clear_button:
+
+		} else if (vId == R.id.sod_clear_button) {
 			strokeOrderView.clear();
 			strokeOrderView.invalidate();
-			break;
-		default:
-			// do nothing
 		}
 	}
 }

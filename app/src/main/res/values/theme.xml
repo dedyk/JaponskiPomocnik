@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="JapaneseDictionaryBlackStyle" parent="android:Theme.Holo">
+    <style name="JapaneseDictionaryBlackStyle" parent="Theme.AppCompat">
         <item name="android:buttonStyle">@style/JapaneseDictionaryBlackStyleButton</item>
         <item name="android:actionBarStyle">@style/JapaneseDictionaryBlackStyleActionBar</item>
     </style>
-    <style name="JapaneseDictionaryWhiteStyle" parent="android:Theme.Holo.Light">
+    <style name="JapaneseDictionaryWhiteStyle" parent="Theme.AppCompat.Light">
         <item name="android:buttonStyle">@style/JapaneseDictionaryWhiteStyleButton</item>
         <item name="android:actionBarStyle">@style/JapaneseDictionaryWhiteStyleActionBar</item>
     </style>
