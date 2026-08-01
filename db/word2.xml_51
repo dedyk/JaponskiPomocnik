@@ -1932,7 +1932,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="319896" dictionaryEntryTypeList="WORD_NOUN" kana="エンタープライズ" romaji="entaapuraizu" uniqueKey="-/エンタープライズ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -8343,7 +8342,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289997" dictionaryEntryTypeList="WORD_NOUN" kanji="雁" kana="がん" romaji="gan" uniqueKey="雁/がん/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

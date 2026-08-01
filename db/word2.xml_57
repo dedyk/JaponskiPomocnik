@@ -1980,7 +1980,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290041" dictionaryEntryTypeList="WORD_NOUN" kanji="饗宴" kana="きょうえん" romaji="kyouen" uniqueKey="饗宴/きょうえん/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -2248,7 +2247,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290042" dictionaryEntryTypeList="WORD_NOUN" kanji="味の素" kana="あじのもと" romaji="aji no moto" uniqueKey="味の素/あじのもと/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -2552,7 +2550,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290228" dictionaryEntryTypeList="WORD_NOUN" kana="ワンピース" romaji="wan piisu" uniqueKey="-/ワンピース/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -6969,7 +6966,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290229" dictionaryEntryTypeList="WORD_NOUN" kana="パイオニア" romaji="paionia" uniqueKey="-/パイオニア/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -9762,7 +9758,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290243" dictionaryEntryTypeList="WORD_NOUN" kana="サーブ" romaji="saabu" uniqueKey="-/サーブ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>242375</exampleSentenceGroupIdsList>
@@ -10378,7 +10373,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290064" dictionaryEntryTypeList="WORD_NOUN" kanji="路上" kana="ろじょう" romaji="rojou" uniqueKey="路上/ろじょう/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>53301</exampleSentenceGroupIdsList>
@@ -14794,7 +14788,6 @@
             <oldPolishJapaneseDictionary>
                 <entries id="290067" dictionaryEntryTypeList="WORD_NOUN" kanji="坊っちゃん" kana="ぼっちゃん" romaji="bocchan" uniqueKey="坊っちゃん/ぼっちゃん/2"/>
                 <entries id="290068" dictionaryEntryTypeList="WORD_NOUN" kanji="坊つちやん" kana="ぼっちゃん" romaji="bocchan" uniqueKey="坊つちやん/ぼっちゃん/1"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -15802,7 +15795,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290270" dictionaryEntryTypeList="WORD_NOUN" kana="サンダーバード" romaji="sandaabaado" uniqueKey="-/サンダーバード/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -17194,7 +17186,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290071" dictionaryEntryTypeList="WORD_NOUN" kanji="嘔吐" kana="おうと" romaji="outo" uniqueKey="嘔吐/おうと/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -17870,7 +17861,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290275" dictionaryEntryTypeList="WORD_NOUN" kana="グリーンピース" romaji="guriinpiisu" uniqueKey="-/グリーンピース/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -24209,7 +24199,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290082" dictionaryEntryTypeList="WORD_NOUN" kanji="学芸" kana="がくげい" romaji="gakugei" uniqueKey="学芸/がくげい/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -36715,7 +36704,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290291" dictionaryEntryTypeList="WORD_NOUN" kana="スーパーマン" romaji="suupaaman" uniqueKey="-/スーパーマン/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -37381,7 +37369,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290292" dictionaryEntryTypeList="WORD_NOUN" kana="ニコニコ" romaji="nikoniko" uniqueKey="-/ニコニコ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>10546798</exampleSentenceGroupIdsList>
@@ -43311,7 +43298,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="287856" dictionaryEntryTypeList="WORD_NOUN" kana="スイカ" romaji="suika" uniqueKey="-/スイカ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -44713,7 +44699,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290093" dictionaryEntryTypeList="WORD_NOUN" kanji="同盟" kana="どうめい" romaji="doumei" uniqueKey="同盟/どうめい/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -44814,7 +44799,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290094" dictionaryEntryTypeList="WORD_NOUN" kanji="総評" kana="そうひょう" romaji="souhyou" uniqueKey="総評/そうひょう/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -48506,7 +48490,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="294084" dictionaryEntryTypeList="WORD_NOUN" kanji="長大" kana="ちょうだい" romaji="choudai" uniqueKey="長大/ちょうだい/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -48527,7 +48510,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="301826" dictionaryEntryTypeList="WORD_NOUN" kana="アコード" romaji="akoodo" uniqueKey="-/アコード/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -51329,7 +51311,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="302638" dictionaryEntryTypeList="WORD_NOUN" kana="セブン" romaji="sebun" uniqueKey="-/セブン/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -51738,7 +51719,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="303071" dictionaryEntryTypeList="WORD_NOUN" kana="スイッチ" romaji="suicchi" uniqueKey="-/スイッチ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="34"/>
                 <groupsList>GENKI_2_18</groupsList>
                 <exampleSentenceGroupIdsList>61009</exampleSentenceGroupIdsList>
@@ -51881,7 +51861,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="303197" dictionaryEntryTypeList="WORD_NOUN" kana="エコノミスト" romaji="ekonomisuto" uniqueKey="-/エコノミスト/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -52722,7 +52701,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="304213" dictionaryEntryTypeList="WORD_NOUN" kana="エッセー" romaji="essee" uniqueKey="-/エッセー/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -55519,7 +55497,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="315779" dictionaryEntryTypeList="WORD_NOUN" kana="キャメル" romaji="kyameru" uniqueKey="-/キャメル/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -56831,6 +56808,72 @@
             <oldPolishJapaneseDictionary>
                 <entries id="325369" dictionaryEntryTypeList="WORD_NOUN" kana="ミニクーパー" romaji="mini kuupaa" uniqueKey="-/ミニクーパー/1"/>
                 <entries id="325370" dictionaryEntryTypeList="WORD_NOUN" kana="ミニ・クーパー" romaji="mini kuupaa" uniqueKey="-/ミニ・クーパー/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747835</ent_seq>
+        <k_ele>
+            <keb>海援隊</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kaientai">かいえんたい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>company name</misc>
+            <s_inf xml:lang="pol">dawna firma handlowa</s_inf>
+            <gloss xml:lang="eng">Kaientai (former trading company)</gloss>
+            <gloss xml:lang="pol">Kaientai</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="325487" dictionaryEntryTypeList="WORD_NOUN" kanji="海援隊" kana="かいえんたい" romaji="kaientai" uniqueKey="海援隊/かいえんたい/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747921</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="gurokku">グロック</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">pistolet z polimerową ramą</s_inf>
+            <gloss xml:lang="eng">Glock (polymer-framed pistol)</gloss>
+            <gloss xml:lang="pol">Glock</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="325958" dictionaryEntryTypeList="WORD_NOUN" kana="グロック" romaji="gurokku" uniqueKey="-/グロック/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747947</ent_seq>
+        <k_ele>
+            <keb>三帝協商</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="santei kyoushou">さんていきょうしょう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <s_inf xml:lang="pol">porozumienie monarchów trzech mocarstw, tj. Imperium Rosyjskiego, Cesarstwa Niemieckiego i Austro-Węgier sformalizowane 22 października 1873, na mocy którego zobowiązywali się oni do wzajemnych konsultacji w razie rozbieżnych interesów, zachowania pokoju w Europie oraz szukania wspólnego rozwiązania w razie agresji państw trzecich</s_inf>
+            <gloss xml:lang="eng">Three Emperors' Alliance (1881; between Russia, Austria-Hungary, and Germany)</gloss>
+            <gloss xml:lang="pol">Sojusz Trzech Cesarzy</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="326446" dictionaryEntryTypeList="WORD_NOUN" kanji="三帝協商" kana="さんていきょうしょう" romaji="santei kyoushou" uniqueKey="三帝協商/さんていきょうしょう/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

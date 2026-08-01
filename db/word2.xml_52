@@ -1261,7 +1261,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289999" dictionaryEntryTypeList="WORD_NOUN" kanji="京阪" kana="けいはん" romaji="keihan" uniqueKey="京阪/けいはん/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -2254,7 +2253,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290000" dictionaryEntryTypeList="WORD_NOUN" kanji="共同" kana="きょうどう" romaji="kyoudou" uniqueKey="共同/きょうどう/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -7795,7 +7793,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="33229" dictionaryEntryTypeList="WORD_NOUN" kanji="甲子園" kana="こうしえん" romaji="koushien" uniqueKey="甲子園/こうしえん/1"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

@@ -6851,7 +6851,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290021" dictionaryEntryTypeList="WORD_NOUN" kanji="雪国" kana="ゆきぐに" romaji="yuki guni" uniqueKey="雪国/ゆきぐに/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

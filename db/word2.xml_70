@@ -13738,25 +13738,6 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7011522</ent_seq>
-        <k_ele>
-            <keb>こちら側</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="kochira gawa">こちらがわ</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <gloss xml:lang="pol">ta strona</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary notExistsInJMdict="true">
-                <entries id="11522" dictionaryEntryTypeList="WORD_NOUN" kanji="こちら側" kana="こちらがわ" romaji="kochira gawa" uniqueKey="こちら側/こちらがわ/1"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>7011528</ent_seq>
         <k_ele>
             <keb>意見する</keb>
@@ -17691,27 +17672,6 @@
         <misc>
             <oldPolishJapaneseDictionary notExistsInJMdict="true">
                 <entries id="12143" dictionaryEntryTypeList="WORD_VERB_IRREGULAR" kanji="配達する" kana="はいたつする" romaji="haitatsu suru" uniqueKey="配達する/はいたつする/1"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
-        <ent_seq>7012144</ent_seq>
-        <k_ele>
-            <keb>牛乳配達</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="gyuunyuu haitatsu">ぎゅうにゅうはいたつ</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <gloss xml:lang="pol">doręczanie mleka</gloss>
-            <gloss xml:lang="pol">doręczyciel mleka</gloss>
-            <gloss xml:lang="pol">roznoszenie mleka</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary notExistsInJMdict="true">
-                <entries id="12144" dictionaryEntryTypeList="WORD_NOUN" kanji="牛乳配達" kana="ぎゅうにゅうはいたつ" romaji="gyuunyuu haitatsu" uniqueKey="牛乳配達/ぎゅうにゅうはいたつ/1"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -22330,6 +22290,7 @@
         <misc>
             <oldPolishJapaneseDictionary notExistsInJMdict="true">
                 <entries id="12800" dictionaryEntryTypeList="WORD_NOUN" kanji="三曲" kana="さんきょく" romaji="sankyoku" uniqueKey="三曲/さんきょく/1"/>
+                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="62"/>
                 <groupsList>COUNTERS</groupsList>
             </oldPolishJapaneseDictionary>

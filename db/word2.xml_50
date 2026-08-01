@@ -6654,7 +6654,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="288704" dictionaryEntryTypeList="WORD_NOUN" kana="カチューシャ" romaji="kachuusha" uniqueKey="-/カチューシャ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -9480,7 +9479,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="287819" dictionaryEntryTypeList="WORD_NOUN" kana="サイエンス" romaji="saiensu" uniqueKey="-/サイエンス/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -11400,7 +11398,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289096" dictionaryEntryTypeList="WORD_NOUN" kana="シャープ" romaji="shaapu" uniqueKey="-/シャープ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -14126,7 +14123,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="287823" dictionaryEntryTypeList="WORD_NOUN" kana="タイムズ" romaji="taimuzu" uniqueKey="-/タイムズ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -15747,7 +15743,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289363" dictionaryEntryTypeList="WORD_NOUN" kana="トール" romaji="tooru" uniqueKey="-/トール/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -16097,7 +16092,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289399" dictionaryEntryTypeList="WORD_NOUN" kana="トレジャー" romaji="torejaa" uniqueKey="-/トレジャー/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -17136,7 +17130,6 @@
             <oldPolishJapaneseDictionary>
                 <entries id="289451" dictionaryEntryTypeList="WORD_NOUN" kana="ニューヨーカー" romaji="nyuu yookaa" uniqueKey="-/ニューヨーカー/2"/>
                 <entries id="289452" dictionaryEntryTypeList="WORD_NOUN" kana="ニュー・ヨーカー" romaji="nyuu yookaa" uniqueKey="-/ニュー・ヨーカー/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -17246,7 +17239,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="287827" dictionaryEntryTypeList="WORD_NOUN" kana="ネイチャー" romaji="neichaa" uniqueKey="-/ネイチャー/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -20475,7 +20467,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="287832" dictionaryEntryTypeList="WORD_NOUN" kana="フォース" romaji="foosu" uniqueKey="-/フォース/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -20739,7 +20730,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="287811" dictionaryEntryTypeList="WORD_NOUN" kana="フラッシュ" romaji="furasshu" uniqueKey="-/フラッシュ/3"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -20925,7 +20915,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289767" dictionaryEntryTypeList="WORD_NOUN" kana="フレンズ" romaji="furenzu" uniqueKey="-/フレンズ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -21470,7 +21459,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289789" dictionaryEntryTypeList="WORD_NOUN" kana="プランタン" romaji="purantan" uniqueKey="-/プランタン/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -21517,7 +21505,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="288680" dictionaryEntryTypeList="WORD_NOUN" kana="プリン" romaji="purin" uniqueKey="-/プリン/3"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -22444,7 +22431,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289860" dictionaryEntryTypeList="WORD_NOUN" kana="ボーイング" romaji="booingu" uniqueKey="-/ボーイング/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -22591,7 +22577,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="287837" dictionaryEntryTypeList="WORD_NOUN" kana="ボンド" romaji="bondo" uniqueKey="-/ボンド/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -25016,7 +25001,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290186" dictionaryEntryTypeList="WORD_NOUN" kana="ライフ" romaji="raifu" uniqueKey="-/ライフ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -26332,7 +26316,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290224" dictionaryEntryTypeList="WORD_NOUN" kana="レベル" romaji="reberu" uniqueKey="-/レベル/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>32462</exampleSentenceGroupIdsList>
@@ -27175,7 +27158,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="299708" dictionaryEntryTypeList="WORD_NOUN" kana="ワード" romaji="waado" uniqueKey="-/ワード/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

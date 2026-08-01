@@ -2657,7 +2657,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290024" dictionaryEntryTypeList="WORD_NOUN" kanji="中日" kana="ちゅうにち" romaji="chuunichi" uniqueKey="中日/ちゅうにち/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -2888,7 +2887,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="314193" dictionaryEntryTypeList="WORD_NOUN" kanji="朝日" kana="あさひ" romaji="asahi" uniqueKey="朝日/あさひ/3"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>272552</exampleSentenceGroupIdsList>
@@ -3606,7 +3604,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290025" dictionaryEntryTypeList="WORD_NOUN" kanji="沈黙" kana="ちんもく" romaji="chinmoku" uniqueKey="沈黙/ちんもく/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>1256697</exampleSentenceGroupIdsList>
@@ -4582,7 +4579,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290028" dictionaryEntryTypeList="WORD_NOUN" kanji="電源開発" kana="でんげんかいはつ" romaji="dengen kaihatsu" uniqueKey="電源開発/でんげんかいはつ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -9462,7 +9458,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290029" dictionaryEntryTypeList="WORD_NOUN" kanji="統一" kana="とういつ" romaji="touitsu" uniqueKey="統一/とういつ/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

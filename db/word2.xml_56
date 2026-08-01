@@ -7713,7 +7713,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290034" dictionaryEntryTypeList="WORD_NOUN" kanji="名人" kana="めいじん" romaji="meijin" uniqueKey="名人/めいじん/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

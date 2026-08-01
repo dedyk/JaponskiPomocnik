@@ -1419,4 +1419,23 @@
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
+    <entry>
+        <ent_seq>7325680</ent_seq>
+        <k_ele>
+            <keb>電力量計</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="denryoku ryoukei">でんりょくりょうけい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="pol">licznik energii elektrycznej</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="325680" dictionaryEntryTypeList="WORD_NOUN" kanji="電力量計" kana="でんりょくりょうけい" romaji="denryoku ryoukei" uniqueKey="電力量計/でんりょくりょうけい/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
 </JMdict>

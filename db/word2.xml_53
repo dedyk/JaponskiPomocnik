@@ -4750,7 +4750,6 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="290007" dictionaryEntryTypeList="WORD_NOUN" kanji="斜陽" kana="しゃよう" romaji="shayou" uniqueKey="斜陽/しゃよう/2"/>
-                <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
