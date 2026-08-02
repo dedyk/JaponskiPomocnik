@@ -32,7 +32,7 @@ android {
 
         multiDexEnabled true
 
-        versionCode 826
+        versionCode 827
         versionName "20260801"
     }
 
