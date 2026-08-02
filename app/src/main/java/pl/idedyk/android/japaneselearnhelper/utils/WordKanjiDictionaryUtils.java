@@ -583,6 +583,8 @@ public class WordKanjiDictionaryUtils {
             return text;
         }
 
+        findWord = findWord.trim();
+
         String findWordLowerCase = findWord.toLowerCase(Locale.getDefault());
 
         StringBuffer texStringBuffer = new StringBuffer(text);
