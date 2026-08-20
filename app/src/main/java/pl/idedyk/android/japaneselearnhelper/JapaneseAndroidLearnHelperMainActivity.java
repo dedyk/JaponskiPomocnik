@@ -32,6 +32,9 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -367,14 +370,22 @@ public class JapaneseAndroidLearnHelperMainActivity extends Activity {
 
 					TextView alertDialogMessage = (TextView) alertDialogView.findViewById(R.id.main_menu_message_for_user_message);
 
-					alertDialogMessage.setText(getMessageResult.message);
+					if (getMessageResult.message != null) { // wiadomosc tekstowa
+						alertDialogMessage.setText(getMessageResult.message);
+
+					} else if (getMessageResult.htmlMessage != null) { // wiadomosc HTML
+						alertDialogMessage.setText(Html.fromHtml(getMessageResult.htmlMessage));
+
+						alertDialogMessage.setMovementMethod(LinkMovementMethod.getInstance());
+						alertDialogMessage.setAutoLinkMask(Linkify.WEB_URLS);
+						alertDialogMessage.setClickable(true);
+					}
 
 					alertDialog.setView(alertDialogView);
 					alertDialog.setCancelable(false);
 
 					alertDialog.setButton(getString(R.string.ok),
 							new DialogInterface.OnClickListener() {
-
 								@Override
 								public void onClick(DialogInterface dialog, int which) {
 									commonConfig.setMessageLastTimestamp(getMessageResult.timestamp);

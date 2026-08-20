@@ -803,6 +803,7 @@ public class ServerClient {
 	public static class GetMessageResult {
 
 		public String message;
+		public String htmlMessage;
 
 		public String timestamp;
 	}
@@ -854,14 +855,17 @@ public class ServerClient {
 			JSONObject responseJSON = new JSONObject(jsonResponseSb.toString());
 
 			String message = responseJSON.optString("message");
+			String htmlMessage = responseJSON.optString("htmlMessage");
 			String timestamp = responseJSON.optString("timestamp");
 
 			// mamy jakis komunikat
-			if (message != null && message.trim().equals("") == false && timestamp != null && timestamp.trim().equals("") == false) {
+			if (	((message != null && message.trim().equals("") == false) || (htmlMessage != null && htmlMessage.trim().equals("") == false))
+						&& timestamp != null && timestamp.trim().equals("") == false) {
 
 				GetMessageResult getMessageResult = new GetMessageResult();
 
-				getMessageResult.message = message.trim();
+				getMessageResult.message = message != null && message.trim().equals("") == false ? message.trim() : null;
+				getMessageResult.htmlMessage = htmlMessage != null && htmlMessage.trim().equals("") == false ? htmlMessage.trim() : null;
 				getMessageResult.timestamp = timestamp.trim();
 
 				return getMessageResult;
