@@ -1872,26 +1872,6 @@
         </misc>
     </entry>
     <entry>
-        <ent_seq>7275628</ent_seq>
-        <k_ele>
-            <keb>声門破裂音</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="seimon haretsuon">せいもんはれつおん</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">w fonetyce określenie bezdźwięcznej zwartej spółgłoski krtaniowej</s_inf>
-            <gloss xml:lang="pol">zwarcie krtaniowe</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary notExistsInJMdict="true">
-                <entries id="275628" dictionaryEntryTypeList="WORD_NOUN" kanji="声門破裂音" kana="せいもんはれつおん" romaji="seimon haretsuon" uniqueKey="声門破裂音/せいもんはれつおん/1"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
         <ent_seq>7277820</ent_seq>
         <k_ele>
             <keb>店の人</keb>

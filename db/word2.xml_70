@@ -686,10 +686,10 @@
                 <exampleSentenceGroupIdsList>1338685</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1454401</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>16567</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>16679</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>17748</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>181925</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>24589</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>25167</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>1985864</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -41387,26 +41387,6 @@
         <misc>
             <oldPolishJapaneseDictionary notExistsInJMdict="true">
                 <entries id="75535" dictionaryEntryTypeList="WORD_EXPRESSION,WORD_NOUN" kanji="拙い文章" kana="つたないぶんしょう" romaji="tsutanai bunshou" uniqueKey="拙い文章/つたないぶんしょう/1"/>
-                <groupsList>OTHER</groupsList>
-            </oldPolishJapaneseDictionary>
-        </misc>
-    </entry>
-    <entry>
-        <ent_seq>7075829</ent_seq>
-        <k_ele>
-            <keb>悪魔学</keb>
-        </k_ele>
-        <r_ele>
-            <reb kana_type="HIRAGANA" romaji="akumagaku">あくまがく</reb>
-        </r_ele>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">dział religioznawstwa i teologii, którego przedmiotem są demony</s_inf>
-            <gloss xml:lang="pol">demonologia</gloss>
-        </sense>
-        <misc>
-            <oldPolishJapaneseDictionary notExistsInJMdict="true">
-                <entries id="75829" dictionaryEntryTypeList="WORD_NOUN" kanji="悪魔学" kana="あくまがく" romaji="akumagaku" uniqueKey="悪魔学/あくまがく/1"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>

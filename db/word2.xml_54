@@ -276,7 +276,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>work of art, literature, music, etc. name</misc>
             <s_inf xml:lang="pol">opis kultury, klimatu itp. prowincji Hitachi; ok. 720 r. n.e.</s_inf>
-            <gloss xml:lang="eng">Hitachi Fudoki (description of the culture, climate, etc. of Hitachi province; approx. 720 CE)</gloss>
+            <gloss xml:lang="eng">Hitachi Fudoki (description of the culture, climate, etc. of Hitachi province; ca. 720 CE)</gloss>
             <gloss xml:lang="pol">Hitachi Fudoki</gloss>
         </sense>
         <misc>
@@ -299,7 +299,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>work of art, literature, music, etc. name</misc>
             <s_inf xml:lang="pol">opis kultury, klimatu itp. prowincji Hitachi; ok. 720 r. n.e.</s_inf>
-            <gloss xml:lang="eng">Hitachi Fudoki (description of the culture, climate, etc. of Hitachi province; approx. 720 CE)</gloss>
+            <gloss xml:lang="eng">Hitachi Fudoki (description of the culture, climate, etc. of Hitachi province; ca. 720 CE)</gloss>
             <gloss xml:lang="pol">Hitachi Fudoki</gloss>
         </sense>
         <misc>
@@ -10325,6 +10325,29 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="294988" dictionaryEntryTypeList="WORD_NOUN" kanji="大岡越前" kana="おおおかえちぜん" romaji="oooka echizen" uniqueKey="大岡越前/おおおかえちぜん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5488929</ent_seq>
+        <k_ele>
+            <keb>大海人</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="ooama">おおあま</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>full name of a particular person</misc>
+            <s_inf xml:lang="pol">?–686 n.e., panował w latach 673–686 n.e.</s_inf>
+            <gloss xml:lang="eng">Emperor Temmu (?-686 CE, reigning: 673-686 CE)</gloss>
+            <gloss xml:lang="pol">cesarz Temmu</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327060" dictionaryEntryTypeList="WORD_NOUN" kanji="大海人" kana="おおあま" romaji="ooama" uniqueKey="大海人/おおあま/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

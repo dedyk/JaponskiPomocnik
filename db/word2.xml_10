@@ -1050,6 +1050,7 @@
                 <exampleSentenceGroupIdsList>10570784</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1075492</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1090346</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>16615</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>17326</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>28401</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>290720</exampleSentenceGroupIdsList>
@@ -2682,6 +2683,7 @@
                 <exampleSentenceGroupIdsList>358584</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>52448</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>63957</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>70961</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -4422,6 +4424,7 @@
         </sense>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <pos>noun or participle which takes the aux. verb suru</pos>
             <misc>vulgar expression or word</misc>
             <misc>slang</misc>
             <gloss xml:lang="eng">sex</gloss>
@@ -4436,6 +4439,7 @@
             <oldPolishJapaneseDictionary>
                 <entries id="59765" dictionaryEntryTypeList="WORD_NOUN" kana="おまんこ" romaji="omanko" uniqueKey="-/おまんこ/1"/>
                 <entries id="304846" dictionaryEntryTypeList="WORD_NOUN" kana="オマンコ" romaji="omanko" uniqueKey="-/オマンコ/1"/>
+                <attributeList type="SURU_VERB"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -6226,6 +6230,10 @@
             <reb kana_type="HIRAGANA" romaji="onee san">おねえさん</reb>
             <re_pri>ichi1</re_pri>
         </r_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="onei san">おねいさん</reb>
+            <re_inf>search-only kana form</re_inf>
+        </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1307640" sno="1" xk="姉さん">姉さん[1]</xref>
@@ -6273,8 +6281,12 @@
             <oldPolishJapaneseDictionary>
                 <entries id="120" dictionaryEntryTypeList="WORD_NOUN" kanji="お姉さん" kana="おねえさん" romaji="onee san" uniqueKey="お姉さん/おねえさん/1"/>
                 <entries id="26023" dictionaryEntryTypeList="WORD_NOUN" kanji="お姐さん" kana="おねえさん" romaji="onee san" uniqueKey="お姐さん/おねえさん/1"/>
+                <entries id="327117" dictionaryEntryTypeList="WORD_NOUN" kanji="お姉さん" kana="おねいさん" romaji="onei san" uniqueKey="お姉さん/おねいさん/1"/>
+                <entries id="327118" dictionaryEntryTypeList="WORD_NOUN" kanji="お姐さん" kana="おねいさん" romaji="onei san" uniqueKey="お姐さん/おねいさん/1"/>
                 <entries id="26024" dictionaryEntryTypeList="WORD_NOUN" kanji="御姉さん" kana="おねえさん" romaji="onee san" uniqueKey="御姉さん/おねえさん/1"/>
+                <entries id="327119" dictionaryEntryTypeList="WORD_NOUN" kanji="御姉さん" kana="おねいさん" romaji="onei san" uniqueKey="御姉さん/おねいさん/1"/>
                 <entries id="26025" dictionaryEntryTypeList="WORD_NOUN" kanji="御姐さん" kana="おねえさん" romaji="onee san" uniqueKey="御姐さん/おねえさん/1"/>
+                <entries id="327120" dictionaryEntryTypeList="WORD_NOUN" kanji="御姐さん" kana="おねいさん" romaji="onei san" uniqueKey="御姐さん/おねいさん/1"/>
                 <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="2"/>
                 <groupsList>GENKI_1_1</groupsList>
@@ -8434,6 +8446,7 @@
         <ent_seq>1002520</ent_seq>
         <k_ele>
             <keb>お得</keb>
+            <ke_pri>spec1</ke_pri>
         </k_ele>
         <k_ele>
             <keb>お徳</keb>
@@ -8449,6 +8462,7 @@
         </k_ele>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="otoku">おとく</reb>
+            <re_pri>spec1</re_pri>
         </r_ele>
         <r_ele>
             <reb kana_type="HIRAGANA_KATAKANA" romaji="otoku">おトク</reb>
@@ -8456,24 +8470,29 @@
         </r_ele>
         <sense>
             <pos>adjectival nouns or quasi-adjectives (keiyodoshi)</pos>
-            <pos>nouns which may take the genitive case particle 'no'</pos>
-            <gloss xml:lang="eng">bargain</gloss>
             <gloss xml:lang="eng">good-value</gloss>
             <gloss xml:lang="eng">economical</gloss>
-            <gloss xml:lang="pol">dobry interes</gloss>
-            <gloss xml:lang="pol">wart żądanej ceny</gloss>
-            <gloss xml:lang="pol">dobra wartość</gloss>
-            <gloss xml:lang="pol">oszczędny</gloss>
-            <gloss xml:lang="pol">okazały</gloss>
+            <gloss xml:lang="eng">advantageous (price, deal, etc.)</gloss>
+            <gloss xml:lang="pol">opłacalny</gloss>
+            <gloss xml:lang="pol">ekonomiczny</gloss>
+            <gloss xml:lang="pol">korzystny (pod względem ceny, oferty itp.)</gloss>
+        </sense>
+        <sense>
+            <pos>adjectival nouns or quasi-adjectives (keiyodoshi)</pos>
+            <gloss xml:lang="eng">useful</gloss>
+            <gloss xml:lang="eng">helpful</gloss>
+            <gloss xml:lang="pol">przydatny</gloss>
+            <gloss xml:lang="pol">pomocny</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="45427" dictionaryEntryTypeList="WORD_ADJECTIVE_NA,WORD_ADJECTIVE_NO" kanji="お得" kana="おとく" romaji="otoku" uniqueKey="お得/おとく/1"/>
-                <entries id="45428" dictionaryEntryTypeList="WORD_ADJECTIVE_NA,WORD_ADJECTIVE_NO" kanji="お徳" kana="おとく" romaji="otoku" uniqueKey="お徳/おとく/1"/>
-                <entries id="271648" dictionaryEntryTypeList="WORD_ADJECTIVE_NA,WORD_ADJECTIVE_NO" kana="おトク" romaji="otoku" uniqueKey="-/おトク/1"/>
-                <entries id="45429" dictionaryEntryTypeList="WORD_ADJECTIVE_NA,WORD_ADJECTIVE_NO" kanji="御得" kana="おとく" romaji="otoku" uniqueKey="御得/おとく/1"/>
-                <entries id="45430" dictionaryEntryTypeList="WORD_ADJECTIVE_NA,WORD_ADJECTIVE_NO" kanji="御徳" kana="おとく" romaji="otoku" uniqueKey="御徳/おとく/1"/>
-                <attributeList type="PRIORITY" value="255"/>
+                <entries id="45427" dictionaryEntryTypeList="WORD_ADJECTIVE_NA" kanji="お得" kana="おとく" romaji="otoku" uniqueKey="お得/おとく/1"/>
+                <entries id="45428" dictionaryEntryTypeList="WORD_ADJECTIVE_NA" kanji="お徳" kana="おとく" romaji="otoku" uniqueKey="お徳/おとく/1"/>
+                <entries id="271648" dictionaryEntryTypeList="WORD_ADJECTIVE_NA" kana="おトク" romaji="otoku" uniqueKey="-/おトク/1"/>
+                <entries id="45429" dictionaryEntryTypeList="WORD_ADJECTIVE_NA" kanji="御得" kana="おとく" romaji="otoku" uniqueKey="御得/おとく/1"/>
+                <entries id="45430" dictionaryEntryTypeList="WORD_ADJECTIVE_NA" kanji="御徳" kana="おとく" romaji="otoku" uniqueKey="御徳/おとく/1"/>
+                <attributeList type="COMMON_WORD"/>
+                <attributeList type="PRIORITY" value="104"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -10297,56 +10316,226 @@
         </r_ele>
         <sense>
             <pos>particle</pos>
-            <s_inf xml:lang="pol">miejsce, czasu, wielkości liczbowej</s_inf>
-            <gloss xml:lang="eng">from (e.g. time, place, numerical quantity)</gloss>
+            <s_inf xml:lang="eng">indicates starting location or time, or point of separation; as ...～...まで when setting a scope</s_inf>
+            <s_inf xml:lang="pol">wskazuje lokalizację, czas początkowy lub punkt rozdzielenia; jako ...～...まで</s_inf>
+            <gloss xml:lang="eng">from</gloss>
             <gloss xml:lang="eng">since</gloss>
+            <gloss xml:lang="eng">at</gloss>
             <gloss xml:lang="pol">od</gloss>
             <gloss xml:lang="pol">z</gloss>
             <gloss xml:lang="pol">po</gloss>
         </sense>
         <sense>
             <pos>particle</pos>
-            <gloss xml:lang="eng">from (originator)</gloss>
+            <s_inf xml:lang="eng">indicates passage or transit</s_inf>
+            <s_inf xml:lang="pol">np. okno, drzwi, wskazuje na przejście</s_inf>
+            <gloss xml:lang="eng">through (e.g. a window, door)</gloss>
+            <gloss xml:lang="eng">via</gloss>
             <gloss xml:lang="eng">by</gloss>
-            <gloss xml:lang="pol">od (inicjatora)</gloss>
+            <gloss xml:lang="eng">from</gloss>
+            <gloss xml:lang="pol">przez</gloss>
+            <gloss xml:lang="pol">poprzez</gloss>
         </sense>
         <sense>
             <pos>particle</pos>
-            <s_inf xml:lang="eng">follows verbs, adjectives</s_inf>
-            <s_inf xml:lang="pol">łączy dwa zdania, w których pierwsze przedstawia przyczynę sytuacji opisanej w drugim, po czasowniku, przymiotniku</s_inf>
+            <pos>conjunction</pos>
+            <s_inf xml:lang="eng">after a verb or i-adjective; だ～ after a noun or na-adjective</s_inf>
+            <s_inf xml:lang="pol">po czasowniku lub i-przymiotniku; だ～ po rzeczowniku lub na-przymiotnku</s_inf>
             <gloss xml:lang="eng">because</gloss>
+            <gloss xml:lang="eng">as</gloss>
             <gloss xml:lang="eng">since</gloss>
+            <gloss xml:lang="eng">so</gloss>
+            <gloss xml:lang="eng">therefore</gloss>
             <gloss xml:lang="pol">ponieważ</gloss>
+            <gloss xml:lang="pol">jako że</gloss>
+            <gloss xml:lang="pol">skoro</gloss>
+            <gloss xml:lang="pol">więc</gloss>
+            <gloss xml:lang="pol">w związku z tym</gloss>
         </sense>
         <sense>
             <pos>particle</pos>
-            <s_inf xml:lang="pol">elementów, części</s_inf>
-            <gloss xml:lang="eng">out of (constituent, part)</gloss>
-            <gloss xml:lang="pol">spośród</gloss>
+            <s_inf xml:lang="eng">indicates constituency</s_inf>
+            <s_inf xml:lang="pol">jako zrobiony z lub składający się z (np. elementów, części)</s_inf>
+            <gloss xml:lang="eng">from (as in "made from")</gloss>
+            <gloss xml:lang="eng">of (as in "consisting of")</gloss>
+            <gloss xml:lang="eng">out of</gloss>
+            <gloss xml:lang="pol">z</gloss>
         </sense>
         <sense>
             <pos>particle</pos>
-            <s_inf xml:lang="pol">np. okno, hol</s_inf>
-            <gloss xml:lang="eng">through (e.g. window, vestibule)</gloss>
+            <s_inf xml:lang="eng">indicates source domain</s_inf>
+            <s_inf xml:lang="pol">oznacza domenę źródłową</s_inf>
+            <gloss xml:lang="eng">from (as in "a quotation from a book")</gloss>
+            <gloss xml:lang="eng">out of (as in "out of 10 people")</gloss>
+            <gloss xml:lang="eng">from among</gloss>
+            <gloss xml:lang="pol">z (jako np. cytat z książki)</gloss>
+            <gloss xml:lang="pol">spośród (np. 10 osób)</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <s_inf xml:lang="eng">after the -te form of a verb</s_inf>
+            <s_inf xml:lang="pol">po formie te czasownika</s_inf>
+            <gloss xml:lang="eng">after (doing)</gloss>
+            <gloss xml:lang="eng">since</gloss>
+            <gloss xml:lang="pol">po zrobieniu</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <s_inf xml:lang="eng">indicates origin of action</s_inf>
+            <s_inf xml:lang="pol">wskazuje na źródło czynności, np. zostać zbesztanym przez</s_inf>
+            <gloss xml:lang="eng">from</gloss>
+            <gloss xml:lang="eng">by (as in "getting scolded by")</gloss>
+            <gloss xml:lang="pol">z</gloss>
             <gloss xml:lang="pol">przez</gloss>
         </sense>
         <sense>
             <pos>particle</pos>
-            <s_inf xml:lang="eng">following the te-form of a verb</s_inf>
-            <s_inf xml:lang="pol">po formie te czasownika</s_inf>
-            <gloss xml:lang="eng">after</gloss>
-            <gloss xml:lang="eng">since</gloss>
-            <gloss xml:lang="pol">od</gloss>
+            <s_inf xml:lang="eng">indicates basis or standpoint; oft. ～見て, ～言って or ～すると</s_inf>
+            <s_inf xml:lang="pol">oznacza podstawę lub punkt widzenia; często w połączeniu z ～見て, ～言って lub ～すると</s_inf>
+            <gloss xml:lang="eng">from (e.g. one's viewpoint)</gloss>
+            <gloss xml:lang="eng">based on</gloss>
+            <gloss xml:lang="eng">according to</gloss>
+            <gloss xml:lang="eng">in (e.g. one's eyes)</gloss>
+            <gloss xml:lang="eng">by</gloss>
+            <gloss xml:lang="pol">z (np. z punktu widzenia kogoś)</gloss>
+            <gloss xml:lang="pol">na podstawie</gloss>
+            <gloss xml:lang="pol">zgodnie z</gloss>
+            <gloss xml:lang="pol">w (np. w oczach kogoś)</gloss>
+            <gloss xml:lang="pol">przez</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <s_inf xml:lang="eng">indicates reason, cause or motive</s_inf>
+            <s_inf xml:lang="pol">oznacza powód, przyczynę lub motyw</s_inf>
+            <gloss xml:lang="eng">because of</gloss>
+            <gloss xml:lang="eng">from</gloss>
+            <gloss xml:lang="eng">out of (curiosity, necessity, etc.)</gloss>
+            <gloss xml:lang="eng">due to</gloss>
+            <gloss xml:lang="eng">by</gloss>
+            <gloss xml:lang="eng">owing to</gloss>
+            <gloss xml:lang="pol">z</gloss>
+            <gloss xml:lang="pol">z powodu (np. ciekawości, konieczności i etc)</gloss>
+            <gloss xml:lang="pol">ponieważ</gloss>
+            <gloss xml:lang="pol">przez</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <s_inf xml:lang="eng">emphasizes an amount; ～（ある／の）for weight, distance, size or general quantity, ～する for price and ～の for people</s_inf>
+            <s_inf xml:lang="pol">podkreśla ilość; ～（ある／の）w odniesieniu do wagi, odległości, rozmiaru lub ogólnej ilości, ～する w odniesieniu do ceny oraz ～の w odniesieniu do osób</s_inf>
+            <gloss xml:lang="eng">as much as</gloss>
+            <gloss xml:lang="eng">upwards of</gloss>
+            <gloss xml:lang="eng">at least</gloss>
+            <gloss xml:lang="eng">more than</gloss>
+            <gloss xml:lang="pol">aż</gloss>
+            <gloss xml:lang="pol">ponad</gloss>
+            <gloss xml:lang="pol">co najmniej</gloss>
+            <gloss xml:lang="pol">więcej niż</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <gloss xml:lang="eng">marks the starting state of a change</gloss>
+            <gloss xml:lang="pol">oznacza stan początkowy zmiany</gloss>
         </sense>
         <sense>
             <pos>particle</pos>
             <xref type="see" seq="2209490" sno="1" xr="いいから">いいから[1]</xref>
-            <gloss xml:lang="eng">expresses sympathy or warning</gloss>
-            <gloss xml:lang="pol">wyrażenie współczucia lub ostrzeżenia</gloss>
+            <misc>colloquial</misc>
+            <s_inf xml:lang="eng">at sentence end</s_inf>
+            <s_inf xml:lang="pol">na końcu zdania</s_inf>
+            <gloss xml:lang="eng">expresses warning, sympathy, excitement or determination</gloss>
+            <gloss xml:lang="eng">emphasizes the previous statement</gloss>
+            <gloss xml:lang="pol">wyraża ostrzeżenie, współczucie, podekscytowanie lub determinację</gloss>
+            <gloss xml:lang="pol">podkreśla poprzednią wypowiedź</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <misc>colloquial</misc>
+            <s_inf xml:lang="eng">at sentence end</s_inf>
+            <s_inf xml:lang="pol">na końcu zdania</s_inf>
+            <gloss xml:lang="eng">trails off with an implied reason or consequence left unstated</gloss>
+            <gloss xml:lang="eng">so ...</gloss>
+            <gloss xml:lang="pol">wyrażenie urywa się, sugerując przyczynę lub konsekwencję, która pozostaje niewypowiedziana</gloss>
+            <gloss xml:lang="pol">więc…</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <s_inf xml:lang="eng">as ～（して／が）or にして～; when comparing to the most basic example of something; emphatic</s_inf>
+            <s_inf xml:lang="pol">jako ～（して／が）lub にして～; w porównaniu z najprostszym przykładem czegoś; dla podkreślenia</s_inf>
+            <gloss xml:lang="eng">even</gloss>
+            <gloss xml:lang="eng">to begin with, even ...</gloss>
+            <gloss xml:lang="eng">right from ...</gloss>
+            <gloss xml:lang="eng">starting with ... (let alone)</gloss>
+            <gloss xml:lang="pol">nawet</gloss>
+            <gloss xml:lang="pol">na samym początku, nawet …</gloss>
+            <gloss xml:lang="pol">już od …</gloss>
+            <gloss xml:lang="pol">zaczynając od… (nie mówiąc już o …)</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <pos>conjunction</pos>
+            <s_inf xml:lang="eng">as ～といって or ～って; oft. with a neg. sentence</s_inf>
+            <s_inf xml:lang="pol">jako ～といって lub ～って; często w zdaniu przeczącym</s_inf>
+            <gloss xml:lang="eng">it is precisely due to ... (one can't)</gloss>
+            <gloss xml:lang="eng">it is because ...</gloss>
+            <gloss xml:lang="pol">to właśnie z powodu … (nie da się)</gloss>
+            <gloss xml:lang="pol">to dlatego …</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <pos>conjunction</pos>
+            <xref type="see" seq="2026610" xr="からには">からには</xref>
+            <xref type="see" seq="2871954" xr="からは">からは</xref>
+            <s_inf xml:lang="eng">as ～（に）は; indicates that what follows is natural or expected</s_inf>
+            <s_inf xml:lang="pol">jako ～（に）は; wskazuje, że to, co nastąpi, jest naturalne lub oczekiwane</s_inf>
+            <gloss xml:lang="eng">now that</gloss>
+            <gloss xml:lang="eng">since</gloss>
+            <gloss xml:lang="eng">so long as</gloss>
+            <gloss xml:lang="eng">because</gloss>
+            <gloss xml:lang="pol">teraz, gdy</gloss>
+            <gloss xml:lang="pol">skoro</gloss>
+            <gloss xml:lang="pol">dopóki</gloss>
+            <gloss xml:lang="pol">ponieważ</gloss>
+        </sense>
+        <sense>
+            <pos>conjunction</pos>
+            <xref type="see" seq="1007310" sno="1" xr="だから">だから[1]</xref>
+            <gloss xml:lang="eng">so</gloss>
+            <gloss xml:lang="eng">therefore</gloss>
+            <gloss xml:lang="eng">accordingly</gloss>
+            <gloss xml:lang="eng">consequently</gloss>
+            <gloss xml:lang="eng">on those grounds</gloss>
+            <gloss xml:lang="eng">that is why</gloss>
+            <gloss xml:lang="eng">for that reason</gloss>
+            <gloss xml:lang="pol">więc</gloss>
+            <gloss xml:lang="pol">w związku z tym</gloss>
+            <gloss xml:lang="pol">dlatego właśnie</gloss>
+            <gloss xml:lang="pol">z tego powodu</gloss>
+            <gloss xml:lang="pol">w konsekwencji</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <pos>conjunction</pos>
+            <xref type="see" seq="2849664" sno="2" xr="からに">からに[2]</xref>
+            <misc>dated term</misc>
+            <gloss xml:lang="eng">just from (doing)</gloss>
+            <gloss xml:lang="eng">simply by</gloss>
+            <gloss xml:lang="pol">po prostu poprzez (działanie)</gloss>
+        </sense>
+        <sense>
+            <pos>particle</pos>
+            <misc>archaic</misc>
+            <gloss xml:lang="eng">by</gloss>
+            <gloss xml:lang="eng">with</gloss>
+            <gloss xml:lang="eng">by means of</gloss>
+            <gloss xml:lang="eng">via</gloss>
+            <gloss xml:lang="pol">z</gloss>
+            <gloss xml:lang="pol">przez</gloss>
+            <gloss xml:lang="pol">poprzez</gloss>
+            <gloss xml:lang="pol">za pośrednictwem</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="441" dictionaryEntryTypeList="WORD_PARTICULE" kana="から" romaji="kara" uniqueKey="-/から/1"/>
+                <entries id="441" dictionaryEntryTypeList="WORD_PARTICULE,WORD_CONJUNCTION" kana="から" romaji="kara" uniqueKey="-/から/1"/>
                 <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="6"/>
                 <groupsList>GENKI_1_5</groupsList>
@@ -11934,11 +12123,27 @@
             <pos>noun or participle which takes the aux. verb suru</pos>
             <xref type="see" seq="1003400" sno="1" xr="きちんと">きちんと[1]</xref>
             <misc>onomatopoeic or mimetic word</misc>
+            <gloss xml:lang="eng">properly</gloss>
+            <gloss xml:lang="eng">accurately</gloss>
             <gloss xml:lang="eng">exactly</gloss>
-            <gloss xml:lang="eng">perfectly</gloss>
+            <gloss xml:lang="eng">precisely</gloss>
+            <gloss xml:lang="eng">regularly</gloss>
             <gloss xml:lang="pol">dokładnie</gloss>
             <gloss xml:lang="pol">doskonale</gloss>
+            <gloss xml:lang="pol">precyzyjnie</gloss>
             <gloss xml:lang="pol">zupełnie</gloss>
+        </sense>
+        <sense>
+            <pos>adverb (fukushi)</pos>
+            <pos>noun or participle which takes the aux. verb suru</pos>
+            <xref type="see" seq="1003400" sno="2" xr="きちんと">きちんと[2]</xref>
+            <misc>onomatopoeic or mimetic word</misc>
+            <gloss xml:lang="eng">neatly</gloss>
+            <gloss xml:lang="eng">tidily</gloss>
+            <gloss xml:lang="eng">orderly</gloss>
+            <gloss xml:lang="pol">schludnie</gloss>
+            <gloss xml:lang="pol">porządnie</gloss>
+            <gloss xml:lang="pol">uporządkowanie</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -16489,6 +16694,7 @@
                 <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="104"/>
                 <groupsList>OTHER</groupsList>
+                <exampleSentenceGroupIdsList>17402</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>22828</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>241759</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>249467</exampleSentenceGroupIdsList>
@@ -16498,7 +16704,6 @@
                 <exampleSentenceGroupIdsList>284210</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>299524</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>30175</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>325777</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -19339,6 +19544,7 @@
                 <attributeList type="PRIORITY" value="102"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>1293292</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>17974</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>297771</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>313861</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>46800</exampleSentenceGroupIdsList>
@@ -25226,7 +25432,7 @@
         </r_ele>
         <sense>
             <pos>adverb (fukushi)</pos>
-            <xref type="see" seq="2138450" xk="形" xr="なり">形(なり)</xref>
+            <xref type="see" seq="2138450" sno="1" xk="形" xr="なり">形(なり)[1]</xref>
             <misc>word usually written using kana alone</misc>
             <gloss xml:lang="eng">in itself</gloss>
             <gloss xml:lang="eng">as it is</gloss>
@@ -29258,14 +29464,17 @@
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="tsuru tsuru">つるつる</reb>
             <re_pri>ichi1</re_pri>
+            <re_pri>spec2</re_pri>
         </r_ele>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="tsuru tsuru">ツルツル</reb>
+            <re_pri>spec2</re_pri>
         </r_ele>
         <sense>
             <pos>adjectival nouns or quasi-adjectives (keiyodoshi)</pos>
             <pos>nouns which may take the genitive case particle 'no'</pos>
             <pos>adverb (fukushi)</pos>
+            <pos>adverb taking the 'to' particle</pos>
             <pos>noun or participle which takes the aux. verb suru</pos>
             <misc>onomatopoeic or mimetic word</misc>
             <gloss xml:lang="eng">smooth</gloss>
@@ -29279,6 +29488,7 @@
             <pos>adjectival nouns or quasi-adjectives (keiyodoshi)</pos>
             <pos>nouns which may take the genitive case particle 'no'</pos>
             <pos>adverb (fukushi)</pos>
+            <pos>adverb taking the 'to' particle</pos>
             <pos>noun or participle which takes the aux. verb suru</pos>
             <misc>onomatopoeic or mimetic word</misc>
             <gloss xml:lang="eng">slippery</gloss>
@@ -31487,30 +31697,62 @@
             <keb>と言うわけ</keb>
             <ke_inf>search-only kanji form</ke_inf>
         </k_ele>
+        <k_ele>
+            <keb>とゆう訳</keb>
+            <ke_inf>search-only kanji form</ke_inf>
+        </k_ele>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="to iu wake">というわけ</reb>
             <re_pri>spec1</re_pri>
         </r_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="to yuu wake">とゆうわけ</reb>
+            <re_inf>search-only kana form</re_inf>
+        </r_ele>
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
             <misc>word usually written using kana alone</misc>
+            <s_inf xml:lang="eng">followed by a copula</s_inf>
+            <s_inf xml:lang="pol">po której następuje spójnik</s_inf>
+            <gloss xml:lang="eng">this is why</gloss>
+            <gloss xml:lang="eng">that is the reason why</gloss>
+            <gloss xml:lang="eng">it is the case that</gloss>
+            <gloss xml:lang="pol">oto dlaczego</gloss>
+            <gloss xml:lang="pol">to jest powód, dla którego</gloss>
+            <gloss xml:lang="pol">tak właśnie jest, że</gloss>
+        </sense>
+        <sense>
+            <pos>expressions (phrases, clauses, etc.)</pos>
+            <pos>conjunction</pos>
+            <misc>word usually written using kana alone</misc>
             <s_inf xml:lang="eng">oft. as ～で</s_inf>
             <s_inf xml:lang="pol">często jako ～で</s_inf>
-            <gloss xml:lang="eng">this is why</gloss>
-            <gloss xml:lang="eng">this means</gloss>
-            <gloss xml:lang="eng">it is the case that</gloss>
-            <gloss xml:lang="pol">to dlatego</gloss>
-            <gloss xml:lang="pol">oto dlaczego</gloss>
-            <gloss xml:lang="pol">w tym przypadku</gloss>
+            <gloss xml:lang="eng">so</gloss>
+            <gloss xml:lang="eng">thus</gloss>
+            <gloss xml:lang="eng">with that</gloss>
+            <gloss xml:lang="eng">for this reason</gloss>
+            <gloss xml:lang="eng">because of this</gloss>
+            <gloss xml:lang="eng">as such</gloss>
+            <gloss xml:lang="eng">therefore</gloss>
+            <gloss xml:lang="pol">więc</gloss>
+            <gloss xml:lang="pol">w ten sposób</gloss>
+            <gloss xml:lang="pol">w związku z tym</gloss>
+            <gloss xml:lang="pol">z tego powodu</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="325371" dictionaryEntryTypeList="WORD_EXPRESSION" kanji="という訳" kana="というわけ" romaji="to iu wake" uniqueKey="という訳/というわけ/1"/>
-                <entries id="325372" dictionaryEntryTypeList="WORD_EXPRESSION" kanji="と言う訳" kana="というわけ" romaji="to iu wake" uniqueKey="と言う訳/というわけ/1"/>
-                <entries id="325594" dictionaryEntryTypeList="WORD_EXPRESSION" kanji="と言うわけ" kana="というわけ" romaji="to iu wake" uniqueKey="と言うわけ/というわけ/1"/>
+                <entries id="325371" dictionaryEntryTypeList="WORD_EXPRESSION,WORD_CONJUNCTION" kanji="という訳" kana="というわけ" romaji="to iu wake" uniqueKey="という訳/というわけ/1"/>
+                <entries id="325372" dictionaryEntryTypeList="WORD_EXPRESSION,WORD_CONJUNCTION" kanji="と言う訳" kana="というわけ" romaji="to iu wake" uniqueKey="と言う訳/というわけ/1"/>
+                <entries id="327315" dictionaryEntryTypeList="WORD_EXPRESSION,WORD_CONJUNCTION" kanji="という訳" kana="とゆうわけ" romaji="to yuu wake" uniqueKey="という訳/とゆうわけ/1"/>
+                <entries id="327316" dictionaryEntryTypeList="WORD_EXPRESSION,WORD_CONJUNCTION" kanji="と言う訳" kana="とゆうわけ" romaji="to yuu wake" uniqueKey="と言う訳/とゆうわけ/1"/>
+                <entries id="325594" dictionaryEntryTypeList="WORD_EXPRESSION,WORD_CONJUNCTION" kanji="と言うわけ" kana="というわけ" romaji="to iu wake" uniqueKey="と言うわけ/というわけ/1"/>
+                <entries id="327317" dictionaryEntryTypeList="WORD_EXPRESSION,WORD_CONJUNCTION" kanji="と言うわけ" kana="とゆうわけ" romaji="to yuu wake" uniqueKey="と言うわけ/とゆうわけ/1"/>
+                <entries id="327318" dictionaryEntryTypeList="WORD_EXPRESSION,WORD_CONJUNCTION" kanji="とゆう訳" kana="というわけ" romaji="to iu wake" uniqueKey="とゆう訳/というわけ/1"/>
+                <entries id="327319" dictionaryEntryTypeList="WORD_EXPRESSION,WORD_CONJUNCTION" kanji="とゆう訳" kana="とゆうわけ" romaji="to yuu wake" uniqueKey="とゆう訳/とゆうわけ/1"/>
                 <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="104"/>
                 <groupsList>OTHER</groupsList>
+                <exampleSentenceGroupIdsList>18626</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -31925,6 +32167,7 @@
                 <attributeList type="PRIORITY" value="102"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>30188</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>38599</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -32598,6 +32841,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="2568430" xk="ドタバタ喜劇">ドタバタ喜劇</xref>
             <misc>abbreviation</misc>
+            <s_inf xml:lang="pol">rodzaj komedii filmowej, stworzony przez amerykańskiego reżysera Macka Sennetta. Charakteryzuje się dużą ilością ruchu, postacie są mocno przerysowane i przeżywają groteskowo niebezpieczne przygody</s_inf>
             <gloss xml:lang="eng">slapstick</gloss>
             <gloss xml:lang="pol">slapstick</gloss>
         </sense>
@@ -33438,7 +33682,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">long thin brown "naoko" mushroom</gloss>
-            <gloss xml:lang="pol">długi cienki brązowy grzyb “naoko”</gloss>
+            <gloss xml:lang="pol">długi cienki brązowy grzyb 'naoko'</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -34727,7 +34971,10 @@
         </sense>
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
+            <xref type="see" seq="1009850" sno="3" xr="につき">につき[3]</xref>
             <misc>word usually written using kana alone</misc>
+            <s_inf xml:lang="eng">usu. as につき</s_inf>
+            <s_inf xml:lang="pol">zwykle jako につき</s_inf>
             <gloss xml:lang="eng">per</gloss>
             <gloss xml:lang="eng">for every</gloss>
             <gloss xml:lang="pol">na (np. osobę)</gloss>
@@ -37398,6 +37645,7 @@
             <pos>noun or participle which takes the aux. verb suru</pos>
             <misc>onomatopoeic or mimetic word</misc>
             <gloss xml:lang="eng">twitching</gloss>
+            <gloss xml:lang="pol">drganie</gloss>
             <gloss xml:lang="pol">drżenie</gloss>
             <gloss xml:lang="pol">szarpnięcie</gloss>
         </sense>
@@ -41965,9 +42213,10 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
             <gloss xml:lang="eng">moderate</gloss>
-            <gloss xml:lang="pol">powściągliwie</gloss>
+            <gloss xml:lang="pol">umiarkowany</gloss>
+            <gloss xml:lang="pol">powściągliwy</gloss>
             <gloss xml:lang="pol">z umiarem</gloss>
-            <gloss xml:lang="pol">wstrzemięźliwie</gloss>
+            <gloss xml:lang="pol">wstrzemięźliwy</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -44878,6 +45127,15 @@
             <gloss xml:lang="eng">seriously</gloss>
             <gloss xml:lang="pol">wykrzyknik używany do wzmocnienia ekspresji emocji (często irytacji)</gloss>
         </sense>
+        <sense>
+            <pos>interjection (kandoushi)</pos>
+            <gloss xml:lang="eng">truly</gloss>
+            <gloss xml:lang="eng">really</gloss>
+            <gloss xml:lang="eng">extremely</gloss>
+            <gloss xml:lang="pol">naprawdę</gloss>
+            <gloss xml:lang="pol">rzeczywiście</gloss>
+            <gloss xml:lang="pol">niezwykle</gloss>
+        </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="709" dictionaryEntryTypeList="WORD_ADVERB,WORD_INTERJECTION" kana="もう" romaji="mou" uniqueKey="-/もう/1"/>
@@ -45341,8 +45599,8 @@
                 <exampleSentenceGroupIdsList>16354</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>16356</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>16357</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>16358</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>16360</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>16934</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -52803,8 +53061,8 @@
                 <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="101"/>
                 <groupsList>OTHER</groupsList>
+                <exampleSentenceGroupIdsList>13845730</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>285222</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>343413</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>59345</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>71881</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
@@ -58304,6 +58562,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">apartment house robbery (robber)</gloss>
+            <gloss xml:lang="pol">włamanie do budynku mieszkalnego</gloss>
             <gloss xml:lang="pol">kradzież z mieszkania</gloss>
         </sense>
         <misc>
@@ -59575,15 +59834,11 @@
             <re_pri>gai2</re_pri>
             <re_pri>ichi1</re_pri>
         </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="avekku">アヴェック</reb>
+            <re_inf>search-only kana form</re_inf>
+        </r_ele>
         <lsource xml:lang="fre">avec</lsource>
-        <sense>
-            <pos>noun (common) (futsuumeishi)</pos>
-            <xref type="see" seq="1037710" xr="カップル">カップル</xref>
-            <misc>dated term</misc>
-            <s_inf xml:lang="pol">zakochanych, narzeczonych, kochanków i etc</s_inf>
-            <gloss xml:lang="eng">(romantic) couple</gloss>
-            <gloss xml:lang="pol">para</gloss>
-        </sense>
         <sense>
             <pos>noun or verb acting prenominally</pos>
             <xref type="see" seq="1928250" xr="アベックホームラン">アベックホームラン</xref>
@@ -59595,9 +59850,18 @@
             <gloss xml:lang="pol">podwójny (np. zwycięstwo)</gloss>
             <gloss xml:lang="pol">tandem (np. lot)</gloss>
         </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <xref type="see" seq="1037710" xr="カップル">カップル</xref>
+            <misc>dated term</misc>
+            <s_inf xml:lang="pol">zakochanych, narzeczonych, kochanków i etc</s_inf>
+            <gloss xml:lang="eng">(romantic) couple</gloss>
+            <gloss xml:lang="pol">para</gloss>
+        </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="14761" dictionaryEntryTypeList="WORD_NOUN,WORD_ADJECTIVE_F" kana="アベック" romaji="abekku" uniqueKey="-/アベック/1"/>
+                <entries id="17636" dictionaryEntryTypeList="WORD_NOUN,WORD_ADJECTIVE_F" kana="アヴェック" romaji="avekku" uniqueKey="-/アヴェック/1"/>
                 <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="102"/>
                 <groupsList>OTHER</groupsList>
@@ -78392,6 +78656,7 @@
         </r_ele>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="eijento">エイジェント</reb>
+            <re_inf>rarely used kana form</re_inf>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -78403,6 +78668,13 @@
             <field>computing</field>
             <gloss xml:lang="eng">agent</gloss>
             <gloss xml:lang="pol">agent</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="eng">secret agent</gloss>
+            <gloss xml:lang="eng">spy</gloss>
+            <gloss xml:lang="pol">tajny agent</gloss>
+            <gloss xml:lang="pol">szpieg</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -79476,9 +79748,9 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">ang: air breathing engine</s_inf>
+            <s_inf xml:lang="pol">rodzaj silnika lotniczego potrzebującego powietrza do spalania</s_inf>
             <gloss xml:lang="eng">air breathing engine</gloss>
-            <gloss xml:lang="pol">rodzaj silnika lotniczego potrzebującego powietrza do spalania</gloss>
+            <gloss xml:lang="pol">air breathing engine</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -86773,10 +87045,35 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">ang: element</s_inf>
             <gloss xml:lang="eng">element</gloss>
-            <gloss xml:lang="eng">elements</gloss>
+            <gloss xml:lang="eng">component</gloss>
             <gloss xml:lang="pol">element</gloss>
-            <gloss xml:lang="pol">elementy</gloss>
+            <gloss xml:lang="pol">komponent</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <xref type="see" seq="1592840" sno="1" xk="元素">元素[1]</xref>
+            <field>chemistry</field>
+            <gloss xml:lang="eng">(chemical) element</gloss>
+            <gloss xml:lang="pol">pierwiastek chemiczny</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <field>electronics</field>
+            <s_inf xml:lang="pol">ang: element</s_inf>
+            <gloss xml:lang="eng">(electronic) element</gloss>
+            <gloss xml:lang="eng">device</gloss>
+            <gloss xml:lang="eng">component</gloss>
+            <gloss xml:lang="pol">element elektroniczny</gloss>
+            <gloss xml:lang="pol">komponent elektroniczny</gloss>
+            <gloss xml:lang="pol">urządzenie</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <xref type="see" seq="2854081" xk="務歯">務歯</xref>
+            <gloss xml:lang="eng">zipper tooth</gloss>
+            <gloss xml:lang="pol">ząbek zamka błyskawicznego</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -90143,7 +90440,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>abbreviation</misc>
-            <s_inf xml:lang="pol">skrót, ang: automation</s_inf>
+            <s_inf xml:lang="pol">ang: automation</s_inf>
             <gloss xml:lang="eng">automation</gloss>
             <gloss xml:lang="pol">automatyzacja</gloss>
         </sense>
@@ -92436,9 +92733,8 @@
         <lsource ls_wasei="y" xml:lang="eng">open shirt</lsource>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">ang: open shirt</s_inf>
             <gloss xml:lang="eng">open-necked shirt</gloss>
-            <gloss xml:lang="pol">rozpięta pod szyją koszula</gloss>
+            <gloss xml:lang="pol">koszula rozpięta pod szyją</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -93782,9 +94078,9 @@
         <lsource ls_wasei="y" xml:lang="eng">all back</lsource>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">ang: all back</s_inf>
             <gloss xml:lang="eng">swept back hair</gloss>
             <gloss xml:lang="pol">zaczesane do tyłu włosy</gloss>
+            <gloss xml:lang="pol">włosy zaczesane do tyłu</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -102970,8 +103266,12 @@
         <r_ele>
             <reb kana_type="KATAKANA" romaji="katekooruamin">カテコールアミン</reb>
         </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="katekoramin">カテコラミン</reb>
+        </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <field>biochemistry</field>
             <s_inf xml:lang="pol">organiczny związek chemiczny, ang: catecholamine</s_inf>
             <gloss xml:lang="eng">catecholamine</gloss>
             <gloss xml:lang="pol">katecholamin</gloss>
@@ -102979,6 +103279,7 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="259689" dictionaryEntryTypeList="WORD_NOUN" kana="カテコールアミン" romaji="katekooruamin" uniqueKey="-/カテコールアミン/1"/>
+                <entries id="36828" dictionaryEntryTypeList="WORD_NOUN" kana="カテコラミン" romaji="katekoramin" uniqueKey="-/カテコラミン/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -104730,10 +105031,10 @@
     <entry>
         <ent_seq>1038510</ent_seq>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="karaa arenjimento">カラーアレンジメント</reb>
+            <reb kana_type="KATAKANA_EXCEPTION" romaji="karaa arenjimento">カラーアレンジメント</reb>
         </r_ele>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="karaa arenjimento">カラー・アレンジメント</reb>
+            <reb kana_type="KATAKANA_EXCEPTION" romaji="karaa arenjimento">カラー・アレンジメント</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -106013,7 +106314,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>food, cooking</field>
-            <s_inf xml:lang="pol">potrawa kuchni włoskiej złożona z makaronu oraz sosu powstałego na bazie jajek, czarnego pieprzu oraz boczku i zółtego sera</s_inf>
+            <s_inf xml:lang="pol">potrawa kuchni włoskiej złożona z makaronu, jajek, pancetty lub guanciale, sera pecorino romano lub parmezanu oraz czarnego pieprzu</s_inf>
             <gloss xml:lang="eng">(spaghetti alla) carbonara</gloss>
             <gloss xml:lang="pol">pasta alla carbonara</gloss>
         </sense>
@@ -106034,8 +106335,9 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1239320" sno="1" xk="業" xr="ごう">業(ごう)[1]</xref>
+            <s_inf xml:lang="pol">w buddyzmie, hinduizmie i religiach dharmicznych jest to przyczyna – rozumiana w sensie prawa przyczyny i skutku</s_inf>
             <gloss xml:lang="eng">karma</gloss>
-            <gloss xml:lang="pol">Karma​</gloss>
+            <gloss xml:lang="pol">karma</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -107723,6 +108025,7 @@
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>11729</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>130081</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>17402</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>257094</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>312168</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>39341</exampleSentenceGroupIdsList>
@@ -108427,17 +108730,26 @@
     <entry>
         <ent_seq>1040120</ent_seq>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="gasutorokamera">ガストロカメラ</reb>
+            <reb kana_type="KATAKANA" romaji="gasutoro kamera">ガストロカメラ</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="gasutoro kamera">ガストロ・カメラ</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <xref type="see" seq="1971410" sno="1" xk="胃カメラ">胃カメラ[1]</xref>
+            <field>medicine</field>
+            <misc>rare term</misc>
             <s_inf xml:lang="pol">ang: gastrocamera</s_inf>
             <gloss xml:lang="eng">gastrocamera</gloss>
+            <gloss xml:lang="eng">gastroscope</gloss>
             <gloss xml:lang="pol">gastrokamera</gloss>
+            <gloss xml:lang="pol">gastroskop</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="259185" dictionaryEntryTypeList="WORD_NOUN" kana="ガストロカメラ" romaji="gasutorokamera" uniqueKey="-/ガストロカメラ/1"/>
+                <entries id="259185" dictionaryEntryTypeList="WORD_NOUN" kana="ガストロカメラ" romaji="gasutoro kamera" uniqueKey="-/ガストロカメラ/1"/>
+                <entries id="327311" dictionaryEntryTypeList="WORD_NOUN" kana="ガストロ・カメラ" romaji="gasutoro kamera" uniqueKey="-/ガストロ・カメラ/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -113957,7 +114269,6 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>slang</misc>
             <misc>rare term</misc>
-            <s_inf xml:lang="pol">slang, mało znane słowo, ang: killer dust</s_inf>
             <gloss xml:lang="eng">asbestos dust</gloss>
             <gloss xml:lang="pol">pył azbestowy</gloss>
         </sense>
@@ -118955,7 +119266,6 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1044990" xr="クリトリス">クリトリス</xref>
             <misc>slang</misc>
-            <s_inf xml:lang="pol">slang</s_inf>
             <gloss xml:lang="eng">clitoris</gloss>
             <gloss xml:lang="pol">łechtaczka</gloss>
         </sense>
@@ -125570,6 +125880,14 @@
         <r_ele>
             <reb kana_type="KATAKANA" romaji="guree zoon">グレー・ゾーン</reb>
         </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="gurei zoon">グレイゾーン</reb>
+            <re_inf>search-only kana form</re_inf>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="gurei zoon">グレイ・ゾーン</reb>
+            <re_inf>search-only kana form</re_inf>
+        </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <s_inf xml:lang="pol">ang: gray zone, grey zone, gray area</s_inf>
@@ -125582,6 +125900,8 @@
             <oldPolishJapaneseDictionary>
                 <entries id="14870" dictionaryEntryTypeList="WORD_NOUN" kana="グレーゾーン" romaji="guree zoon" uniqueKey="-/グレーゾーン/1"/>
                 <entries id="31889" dictionaryEntryTypeList="WORD_NOUN" kana="グレー・ゾーン" romaji="guree zoon" uniqueKey="-/グレー・ゾーン/1"/>
+                <entries id="327169" dictionaryEntryTypeList="WORD_NOUN" kana="グレイゾーン" romaji="gurei zoon" uniqueKey="-/グレイゾーン/1"/>
+                <entries id="327170" dictionaryEntryTypeList="WORD_NOUN" kana="グレイ・ゾーン" romaji="gurei zoon" uniqueKey="-/グレイ・ゾーン/1"/>
                 <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="101"/>
                 <groupsList>OTHER</groupsList>
@@ -128071,6 +128391,7 @@
             <reb kana_type="KATAKANA" romaji="gerira">ゲリラ</reb>
             <re_pri>gai1</re_pri>
         </r_ele>
+        <lsource xml:lang="spa"></lsource>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <s_inf xml:lang="pol">ang: guerrilla</s_inf>
@@ -129391,6 +129712,9 @@
             <reb kana_type="KATAKANA" romaji="koonaringu">コーナリング</reb>
             <re_pri>gai1</re_pri>
         </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="koonaaringu">コーナーリング</reb>
+        </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <s_inf xml:lang="pol">ang: cornering</s_inf>
@@ -129401,6 +129725,7 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="47134" dictionaryEntryTypeList="WORD_NOUN" kana="コーナリング" romaji="koonaringu" uniqueKey="-/コーナリング/1"/>
+                <entries id="327171" dictionaryEntryTypeList="WORD_NOUN" kana="コーナーリング" romaji="koonaaringu" uniqueKey="-/コーナーリング/1"/>
                 <attributeList type="COMMON_WORD"/>
                 <attributeList type="PRIORITY" value="101"/>
                 <groupsList>OTHER</groupsList>
@@ -133808,13 +134133,13 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <s_inf xml:lang="pol">ang: communications gap</s_inf>
             <gloss xml:lang="eng">communications gap</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">luka komunikacyjna</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="79143" dictionaryEntryTypeList="WORD_NOUN" kana="コミュニケーションギャップ" romaji="komyunikeeshon gyappu" uniqueKey="-/コミュニケーションギャップ/1"/>
                 <entries id="79195" dictionaryEntryTypeList="WORD_NOUN" kana="コミュニケーション・ギャップ" romaji="komyunikeeshon gyappu" uniqueKey="-/コミュニケーション・ギャップ/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -134025,7 +134350,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <s_inf xml:lang="pol">ang: community sports</s_inf>
             <gloss xml:lang="eng">community sports</gloss>
-            <gloss xml:lang="pol">społeczność sportowa</gloss>
+            <gloss xml:lang="pol">sporty społecznościowe</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -135478,10 +135803,8 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">ang: conga</s_inf>
             <gloss xml:lang="eng">conga</gloss>
-            <gloss xml:lang="pol">taniec conga</gloss>
-            <gloss xml:lang="pol">taniec konga</gloss>
+            <gloss xml:lang="pol">bęben konga</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -138473,6 +138796,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <field>food, cooking</field>
             <s_inf xml:lang="pol">ang: corned beef</s_inf>
             <gloss xml:lang="eng">corned beef</gloss>
             <gloss xml:lang="pol">peklowana wołowina w puszce</gloss>
@@ -140759,7 +141083,7 @@
             <s_inf xml:lang="pol">ang: goal getter</s_inf>
             <gloss xml:lang="eng">goal-getter</gloss>
             <gloss xml:lang="pol">gracz zdobywający gola</gloss>
-            <gloss xml:lang="pol">osoba nastawiona na sukces</gloss>
+            <gloss xml:lang="pol">strzelec bramki</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -142639,6 +142963,7 @@
             <gloss xml:lang="eng">waitress</gloss>
             <gloss xml:lang="eng">(restaurant) hostess</gloss>
             <gloss xml:lang="pol">kelnerka</gloss>
+            <gloss xml:lang="pol">hostess (w restauracji)</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -147027,10 +147352,10 @@
         <lsource xml:lang="fre"></lsource>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">słodkie ciasto, rodzaj babki drożdżowej</s_inf>
             <gloss xml:lang="eng">savarin</gloss>
             <gloss g_type="expl" xml:lang="eng">crown-shaped cake served with liqueur-laced syrup</gloss>
             <gloss xml:lang="pol">savarin</gloss>
+            <gloss g_type="expl" xml:lang="pol">słodkie ciasto, rodzaj babki drożdżowej</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -149411,8 +149736,9 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">rodzaj bakterii z rodziny Enterobacteriaceae</s_inf>
             <gloss xml:lang="eng">Salmonella</gloss>
-            <gloss xml:lang="pol">salmonella</gloss>
+            <gloss xml:lang="pol">Salmonella</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -152354,11 +152680,11 @@
                 <exampleSentenceGroupIdsList>252636</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>256606</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>2740393</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>310227</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>362761</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>363400</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>433737</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>588971</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>63736</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -159743,7 +160069,6 @@
         <lsource xml:lang="fre">chocolat</lsource>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">fra: chocolat</s_inf>
             <gloss xml:lang="eng">chocolate</gloss>
             <gloss xml:lang="pol">czekolada</gloss>
         </sense>
@@ -169557,7 +169882,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">lathyrus odoratus, ang: sweet pea</s_inf>
+            <s_inf xml:lang="pol">Lathyrus odoratus, ang: sweet pea</s_inf>
             <gloss xml:lang="eng">sweet pea (Lathyrus odoratus)</gloss>
             <gloss xml:lang="pol">groszek pachnący</gloss>
         </sense>
@@ -169782,6 +170107,7 @@
                 <exampleSentenceGroupIdsList>1001497</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1211528</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1336588</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>13940418</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1954370</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>353700</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>377332</exampleSentenceGroupIdsList>
@@ -174909,10 +175235,10 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1069820" xr="スタメン">スタメン</xref>
             <field>sports</field>
-            <s_inf xml:lang="pol">ang: starting member</s_inf>
             <gloss xml:lang="eng">starting lineup</gloss>
             <gloss xml:lang="eng">player in the starting lineup</gloss>
-            <gloss xml:lang="pol">zaczynająca ekipa</gloss>
+            <gloss xml:lang="pol">skład wyjściowy</gloss>
+            <gloss xml:lang="pol">zawodnik w składzie wyjściowym</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -197005,7 +197331,6 @@
         <lsource ls_wasei="y" xml:lang="eng">table tap</lsource>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">ang: table tap</s_inf>
             <gloss xml:lang="eng">power strip</gloss>
             <gloss xml:lang="eng">power bar</gloss>
             <gloss xml:lang="pol">listwa zasilająca</gloss>
@@ -197841,18 +198166,23 @@
         </r_ele>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="tishuu">ティシュー</reb>
+            <re_inf>search-only kana form</re_inf>
         </r_ele>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="tishu">ティシュ</reb>
+            <re_inf>search-only kana form</re_inf>
         </r_ele>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="tisshuu">ティッシュー</reb>
+            <re_inf>search-only kana form</re_inf>
         </r_ele>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="tesshu">テッシュ</reb>
+            <re_inf>search-only kana form</re_inf>
         </r_ele>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="tesshuu">テッシュー</reb>
+            <re_inf>search-only kana form</re_inf>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -205073,7 +205403,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">ang: day'n'date</s_inf>
+            <s_inf xml:lang="pol">np. w zegarku na rękę, ang: day'n'date</s_inf>
             <gloss xml:lang="eng">day 'n' date (on a wristwatch)</gloss>
             <gloss xml:lang="eng">day and date</gloss>
             <gloss xml:lang="pol">dzień i data</gloss>
@@ -207012,8 +207342,9 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
+            <s_inf xml:lang="pol">sytuacja, w której co najmniej dwie różne akcje czekają na siebie nawzajem, więc żadna nie może się zakończyć, ang: deadlock</s_inf>
             <gloss xml:lang="eng">deadlock</gloss>
-            <gloss xml:lang="pol">deadlock</gloss>
+            <gloss xml:lang="pol">zakleszczenie</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -208445,6 +208776,8 @@
             <gloss xml:lang="eng">demo tape</gloss>
             <gloss xml:lang="eng">demonstration tape</gloss>
             <gloss xml:lang="pol">taśma demo</gloss>
+            <gloss xml:lang="pol">kaseta demo</gloss>
+            <gloss xml:lang="pol">kaseta demonstracyjna</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -211042,7 +211375,6 @@
         <lsource ls_wasei="y" xml:lang="eng">top mode</lsource>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">ang: top mode</s_inf>
             <gloss xml:lang="eng">latest fashion</gloss>
             <gloss xml:lang="pol">najnowsza moda</gloss>
             <gloss xml:lang="pol">ostatni krzyk mody</gloss>
@@ -213256,7 +213588,7 @@
         <lsource xml:lang="eng">trans(former)</lsource>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <xref type="see" seq="1510820" xk="変圧器">変圧器</xref>
+            <xref type="see" seq="1510820" sno="1" xk="変圧器">変圧器[1]</xref>
             <field>electricity, elec. eng.</field>
             <gloss xml:lang="eng">transformer</gloss>
             <gloss xml:lang="pol">transformer</gloss>
@@ -217121,9 +217453,9 @@
                 <exampleSentenceGroupIdsList>256244</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>277540</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>291934</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>312659</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>312680</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>3412837</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>38957</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -220900,8 +221232,17 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <s_inf xml:lang="pol">ang: nursery</s_inf>
-            <gloss xml:lang="eng">nursery</gloss>
+            <gloss xml:lang="eng">day nursery</gloss>
+            <gloss xml:lang="eng">nursery school</gloss>
             <gloss xml:lang="pol">żłobek</gloss>
+            <gloss xml:lang="pol">przedszkole</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="eng">nursery</gloss>
+            <gloss xml:lang="eng">children's room</gloss>
+            <gloss xml:lang="pol">pokój dziecięcy</gloss>
+            <gloss xml:lang="pol">pokój dla dzieci</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -223526,7 +223867,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="2013010" xr="ナルキッソス">ナルキッソス</xref>
-            <s_inf xml:lang="pol">ang: narcissus</s_inf>
             <gloss xml:lang="eng">Narcissus</gloss>
             <gloss xml:lang="pol">narcyz</gloss>
         </sense>
@@ -223816,9 +224156,9 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>sports</field>
-            <s_inf xml:lang="pol">ang: number eight</s_inf>
+            <s_inf xml:lang="pol">w rugby, ang: number eight</s_inf>
             <gloss xml:lang="eng">number 8 (in rugby)</gloss>
-            <gloss xml:lang="pol">liczba osiem</gloss>
+            <gloss xml:lang="pol">liczba 8</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -231144,7 +231484,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <s_inf xml:lang="pol">ang: non store retailing</s_inf>
             <gloss xml:lang="eng">non store retailing</gloss>
-            <gloss xml:lang="pol">sprzedaż detaliczna bez sklepu</gloss>
+            <gloss xml:lang="pol">sprzedaż detaliczna poza sklepem</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -233693,6 +234033,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <xref type="see" seq="1146710" xr="ローヒール">ローヒール</xref>
             <s_inf xml:lang="pol">ang: high heels</s_inf>
             <gloss xml:lang="eng">high heels</gloss>
             <gloss xml:lang="eng">high-heeled shoes</gloss>
@@ -234478,8 +234819,26 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <s_inf xml:lang="pol">ang: housekeeping</s_inf>
             <gloss xml:lang="eng">housekeeping</gloss>
+            <gloss xml:lang="eng">housework</gloss>
+            <gloss xml:lang="eng">household chores</gloss>
+            <gloss xml:lang="pol">sprzątanie</gloss>
             <gloss xml:lang="pol">gospodarowanie domu</gloss>
             <gloss xml:lang="pol">prowadzenie domu</gloss>
+            <gloss xml:lang="pol">obowiązki domowe</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">ang: housekeeping</s_inf>
+            <gloss xml:lang="eng">room cleaning (at a hotel)</gloss>
+            <gloss xml:lang="eng">housekeeping</gloss>
+            <gloss xml:lang="pol">sprzątanie pokoju w hotelu</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <field>computing</field>
+            <s_inf xml:lang="pol">np. na komputerze, ang: housekeeping</s_inf>
+            <gloss xml:lang="eng">deleting or moving to other storage old files or data</gloss>
+            <gloss xml:lang="pol">usuwanie lub przenoszenie starych plików lub danych do innej lokalizacji</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -240937,6 +241296,7 @@
                 <attributeList type="PRIORITY" value="5"/>
                 <groupsList>GENKI_1_4</groupsList>
                 <exampleSentenceGroupIdsList>1065022</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>13905873</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>14339</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>1498507</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>21568</exampleSentenceGroupIdsList>
@@ -240945,7 +241305,6 @@
                 <exampleSentenceGroupIdsList>35229</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>35234</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>35241</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>3811886</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -242183,9 +242542,8 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>business</field>
-            <s_inf xml:lang="pol">ang: back margin</s_inf>
             <gloss xml:lang="eng">retroactive discount paid to a retailer by a distributor</gloss>
-            <gloss xml:lang="pol">tylni margines</gloss>
+            <gloss xml:lang="pol">rabat z mocą wsteczną wypłacany sprzedawcy detalicznemu przez dystrybutora</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>

@@ -18746,6 +18746,32 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5063226</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="babaria">ババリア</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="bavaria">バヴァリア</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <s_inf xml:lang="pol">największy pod względem powierzchni kraj związkowy Niemiec</s_inf>
+            <gloss xml:lang="eng">Bavaria (Germany)</gloss>
+            <gloss xml:lang="pol">Bawaria</gloss>
+            <gloss xml:lang="pol">Wolny Kraj Bawaria</gloss>
+            <gloss xml:lang="pol">Wolne Państwo Bawaria</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327342" dictionaryEntryTypeList="WORD_NOUN" kana="ババリア" romaji="babaria" uniqueKey="-/ババリア/1"/>
+                <entries id="327343" dictionaryEntryTypeList="WORD_NOUN" kana="バヴァリア" romaji="bavaria" uniqueKey="-/バヴァリア/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5063255</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="bafometto">バフォメット</reb>

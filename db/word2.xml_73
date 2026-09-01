@@ -1438,4 +1438,146 @@
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
+    <entry>
+        <ent_seq>7327252</ent_seq>
+        <k_ele>
+            <keb>景色を楽しむ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="keshiki o tanoshimu">けしきをたのしむ</reb>
+        </r_ele>
+        <sense>
+            <pos>Godan verb with 'mu' ending</pos>
+            <gloss xml:lang="pol">podziwiać widoki</gloss>
+            <gloss xml:lang="pol">podziwiać krajobraz</gloss>
+            <gloss xml:lang="pol">podziwiać scenerię</gloss>
+            <gloss xml:lang="pol">podziwiać pejzaż</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="327252" dictionaryEntryTypeList="WORD_VERB_U" kanji="景色を楽しむ" kana="けしきをたのしむ" romaji="keshiki o tanoshimu" uniqueKey="景色を楽しむ/けしきをたのしむ/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7327253</ent_seq>
+        <k_ele>
+            <keb>眺めを楽しむ</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="nagame o tanoshimu">ながめをたのしむ</reb>
+        </r_ele>
+        <sense>
+            <pos>Godan verb with 'mu' ending</pos>
+            <gloss xml:lang="pol">podziwiać widoki</gloss>
+            <gloss xml:lang="pol">podziwiać krajobraz</gloss>
+            <gloss xml:lang="pol">podziwiać scenerię</gloss>
+            <gloss xml:lang="pol">podziwiać pejzaż</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="327253" dictionaryEntryTypeList="WORD_VERB_U" kanji="眺めを楽しむ" kana="ながめをたのしむ" romaji="nagame o tanoshimu" uniqueKey="眺めを楽しむ/ながめをたのしむ/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7327254</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="dama jika">ダマジカ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">gatunek ssaka z rodziny jeleniowatych</s_inf>
+            <gloss xml:lang="pol">daniel</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="327254" dictionaryEntryTypeList="WORD_NOUN" kana="ダマジカ" romaji="dama jika" uniqueKey="-/ダマジカ/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7327255</ent_seq>
+        <k_ele>
+            <keb>帋</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kami">かみ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">archaizm</s_inf>
+            <gloss xml:lang="pol">papier</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="327255" dictionaryEntryTypeList="WORD_NOUN" kanji="帋" kana="かみ" romaji="kami" uniqueKey="帋/かみ/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7327256</ent_seq>
+        <k_ele>
+            <keb>答式問題</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kotae shiki mondai">こたえしきもんだい</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <gloss xml:lang="pol">pytanie otwarte</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="327256" dictionaryEntryTypeList="WORD_NOUN" kanji="答式問題" kana="こたえしきもんだい" romaji="kotae shiki mondai" uniqueKey="答式問題/こたえしきもんだい/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7327257</ent_seq>
+        <k_ele>
+            <keb>停学になる</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="teigaku ni naru">ていがくになる</reb>
+        </r_ele>
+        <sense>
+            <pos>Godan verb - -aru special class</pos>
+            <s_inf xml:lang="pol">np. na uniwersytecie, w prawach ucznia i etc</s_inf>
+            <gloss xml:lang="pol">być zawieszonym</gloss>
+            <gloss xml:lang="pol">zostać zawieszony</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="327257" dictionaryEntryTypeList="WORD_VERB_U" kanji="停学になる" kana="ていがくになる" romaji="teigaku ni naru" uniqueKey="停学になる/ていがくになる/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>7327258</ent_seq>
+        <k_ele>
+            <keb>停学処分を受ける</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="teigaku shobun o ukeru">ていがくしょぶんをうける</reb>
+        </r_ele>
+        <sense>
+            <pos>Ichidan verb</pos>
+            <s_inf xml:lang="pol">np. na uniwersytecie, w prawach ucznia i etc, bardziej formalnie</s_inf>
+            <gloss xml:lang="pol">być zawieszonym</gloss>
+            <gloss xml:lang="pol">zostać zawieszony</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary notExistsInJMdict="true">
+                <entries id="327258" dictionaryEntryTypeList="WORD_VERB_RU" kanji="停学処分を受ける" kana="ていがくしょぶんをうける" romaji="teigaku shobun o ukeru" uniqueKey="停学処分を受ける/ていがくしょぶんをうける/1"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
 </JMdict>

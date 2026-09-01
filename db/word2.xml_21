@@ -1521,7 +1521,7 @@
             <keb>打ち始める</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="uchihajimeru">うちはじめる</reb>
+            <reb kana_type="HIRAGANA" romaji="uchi hajimeru">うちはじめる</reb>
         </r_ele>
         <sense>
             <pos>Ichidan verb</pos>
@@ -1531,10 +1531,11 @@
             <gloss xml:lang="pol">rozpoczynać (stanowczo)</gloss>
             <gloss xml:lang="pol">wyruszać</gloss>
             <gloss xml:lang="pol">rozpoczynać</gloss>
+            <gloss xml:lang="pol">podjąć się</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="37118" dictionaryEntryTypeList="WORD_VERB_RU" kanji="打ち始める" kana="うちはじめる" romaji="uchihajimeru" uniqueKey="打ち始める/うちはじめる/1"/>
+                <entries id="37118" dictionaryEntryTypeList="WORD_VERB_RU" kanji="打ち始める" kana="うちはじめる" romaji="uchi hajimeru" uniqueKey="打ち始める/うちはじめる/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -2288,9 +2289,9 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>Buddhism</field>
-            <s_inf xml:lang="pol">buddyzm</s_inf>
+            <s_inf xml:lang="pol">zgodnie z buddyjską doktryną Trikai jest buddą stanowiącym ucieleśnienie Dharmakai, i który może dzięki temu być postrzegany jako uniwersalny aspekt historycznego Buddy Gautamy Siddharty</s_inf>
             <gloss xml:lang="eng">Vairocana (Buddha who symbolizes the entirety of the phenomenological world)</gloss>
-            <gloss xml:lang="pol">Wajroczana</gloss>
+            <gloss xml:lang="pol">Wajroćana</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -3012,7 +3013,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">słowo pochodzące od nazwy miejsca lub osoby</s_inf>
+            <s_inf xml:lang="pol">słowo utworzone od nazwy własnej, jak również osoba (historyczna lub fikcyjna, człowiek, bóg, heros), rzadziej zwierzę lub przedmiot, od którego wzięła się nazwa jakiejś innej rzeczy, zjawiska, miejsca, miejscowości</s_inf>
             <gloss xml:lang="eng">eponym (person after whom something is named)</gloss>
             <gloss xml:lang="pol">eponim</gloss>
         </sense>
@@ -8558,6 +8559,7 @@
             <gloss xml:lang="eng">dusty</gloss>
             <gloss xml:lang="eng">dust-covered</gloss>
             <gloss xml:lang="pol">zakurzony</gloss>
+            <gloss xml:lang="pol">pokryty kurzem</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -10064,7 +10066,7 @@
             <pos>interjection (kandoushi)</pos>
             <misc>rare term</misc>
             <s_inf xml:lang="eng">slang form of 明けまして...</s_inf>
-            <s_inf xml:lang="pol">forma slangowa od 明けまして..., mało znane słowo</s_inf>
+            <s_inf xml:lang="pol">forma slangowa od 明けまして...</s_inf>
             <gloss xml:lang="eng">Happy New Year</gloss>
             <gloss xml:lang="pol">Szczęśliwego Nowego Roku</gloss>
         </sense>
@@ -11040,6 +11042,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>abbreviation</misc>
             <s_inf xml:lang="eng">abbr. of 北海道警察</s_inf>
+            <s_inf xml:lang="pol">skrót od 北海道警察</s_inf>
             <gloss xml:lang="eng">Hokkaido Prefectural Police</gloss>
             <gloss xml:lang="pol">Policja z Prefektury Hokkaido</gloss>
         </sense>
@@ -12619,7 +12622,7 @@
             <reb kana_type="HIRAGANA" romaji="umadura hagi">うまづらはぎ</reb>
         </r_ele>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="umadura hagi">ウマヅラハギ</reb>
+            <reb kana_type="KATAKANA_EXCEPTION" romaji="umadura hagi">ウマヅラハギ</reb>
             <re_nokanji/>
         </r_ele>
         <sense>
@@ -12627,7 +12630,7 @@
             <misc>word usually written using kana alone</misc>
             <s_inf xml:lang="pol">gatunek ryby</s_inf>
             <gloss xml:lang="eng">black scraper fish (Novodon modestus)</gloss>
-            <gloss xml:lang="pol">novodon modestus</gloss>
+            <gloss xml:lang="pol">Novodon modestus</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -13444,9 +13447,9 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">np. produkowana w Australii, ang: "southern" beef</s_inf>
+            <s_inf xml:lang="pol">np. produkowana w Australii, ang: 'southern' beef</s_inf>
             <gloss xml:lang="eng">"southern" beef (i.e. produced in Australia)</gloss>
-            <gloss xml:lang="pol">wołowina “południowa”</gloss>
+            <gloss xml:lang="pol">wołowina 'południowa'</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -14694,6 +14697,7 @@
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>1293074</exampleSentenceGroupIdsList>
+                <exampleSentenceGroupIdsList>16686</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>270500</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>296354</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>298131</exampleSentenceGroupIdsList>
@@ -14702,7 +14706,6 @@
                 <exampleSentenceGroupIdsList>312611</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>345069</exampleSentenceGroupIdsList>
                 <exampleSentenceGroupIdsList>362298</exampleSentenceGroupIdsList>
-                <exampleSentenceGroupIdsList>388401</exampleSentenceGroupIdsList>
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
@@ -15065,7 +15068,7 @@
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
             <pos>nouns which may take the genitive case particle 'no'</pos>
-            <xref type="see" seq="2138450" xk="形" xr="なり">形(なり)</xref>
+            <xref type="see" seq="2138450" sno="1" xk="形" xr="なり">形(なり)[1]</xref>
             <gloss xml:lang="eng">(in) one's own way</gloss>
             <gloss xml:lang="pol">(na) swój własny sposób</gloss>
         </sense>
@@ -18262,8 +18265,12 @@
             <misc>word usually written using kana alone</misc>
             <s_inf xml:lang="pol">dialekt Tsugaru</s_inf>
             <dial>Tsugaru-ben</dial>
+            <dial>Hokkaido-ben</dial>
+            <gloss xml:lang="eng">pleasant</gloss>
             <gloss xml:lang="eng">feeling good</gloss>
-            <gloss xml:lang="eng">feeling comfortable</gloss>
+            <gloss xml:lang="eng">comfortable</gloss>
+            <gloss xml:lang="eng">calm</gloss>
+            <gloss xml:lang="eng">satisfactory</gloss>
             <gloss xml:lang="pol">dobrze się czuć</gloss>
             <gloss xml:lang="pol">czuć się komfortowo</gloss>
         </sense>
@@ -19839,6 +19846,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">spreadsheet program</gloss>
             <gloss xml:lang="pol">program do arkusza kalkulacyjnego</gloss>
+            <gloss xml:lang="pol">program do arkuszy kalkulacyjnych</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -21294,9 +21302,10 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <field>law</field>
             <s_inf xml:lang="pol">pojęcie wywodzi się bezpośrednio z cywilnego prawa rzymskiego. Dosłownie termin można przetłumaczyć jako „nie dwa razy w tej samej ”. W terminologii prawniczej oznacza to zasadę, wedle której nie można orzekać dwa razy w tej samej sprawie</s_inf>
+            <gloss xml:lang="eng">prohibition against double jeopardy</gloss>
             <gloss xml:lang="eng">ne bis in idem</gloss>
-            <gloss g_type="expl" xml:lang="eng">prohibition against double jeopardy</gloss>
             <gloss xml:lang="pol">ne bis in idem</gloss>
         </sense>
         <misc>
@@ -22009,7 +22018,7 @@
             <keb>固いことは言いっこなし</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="katai koto wa iikkonashi">かたいことはいいっこなし</reb>
+            <reb kana_type="HIRAGANA_EXCEPTION" romaji="katai koto wa iikkonashi">かたいことはいいっこなし</reb>
         </r_ele>
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
@@ -22606,6 +22615,7 @@
             <misc>word usually written using kana alone</misc>
             <gloss xml:lang="eng">to advise strongly</gloss>
             <gloss xml:lang="eng">to insist (on something)</gloss>
+            <gloss xml:lang="pol">zdecydowanie zalecać</gloss>
             <gloss xml:lang="pol">doradzać zdecydowanie</gloss>
             <gloss xml:lang="pol">nalegać (na coś)</gloss>
         </sense>
@@ -24825,6 +24835,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1001890" xk="お好み焼き">お好み焼き</xref>
             <field>food, cooking</field>
+            <s_inf xml:lang="pol">zazwyczaj zawiera makaron oraz mięso i/lub owoce morza, które nie są wymieszane z ciastem</s_inf>
             <gloss xml:lang="eng">Hiroshima-style okonomiyaki (usu. contains noodles and meat and/or seafood which are not mixed in with the batter)</gloss>
             <gloss xml:lang="pol">okonomiyaki z Hiroshimy</gloss>
         </sense>
@@ -32852,6 +32863,7 @@
         </r_ele>
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
+            <pos>adjective (keiyoushi)</pos>
             <xref type="see" seq="1305420" sno="1" xk="仕方がない">仕方がない[1]</xref>
             <dial>Kansai-ben</dial>
             <gloss xml:lang="eng">it can't be helped</gloss>
@@ -32864,8 +32876,8 @@
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="109836" dictionaryEntryTypeList="WORD_EXPRESSION" kana="しゃあない" romaji="shaanai" uniqueKey="-/しゃあない/1"/>
-                <entries id="109989" dictionaryEntryTypeList="WORD_EXPRESSION" kana="しゃーない" romaji="shaanai" uniqueKey="-/しゃーない/1"/>
+                <entries id="109836" dictionaryEntryTypeList="WORD_ADJECTIVE_I,WORD_EXPRESSION" kana="しゃあない" romaji="shaanai" uniqueKey="-/しゃあない/1"/>
+                <entries id="109989" dictionaryEntryTypeList="WORD_ADJECTIVE_I,WORD_EXPRESSION" kana="しゃーない" romaji="shaanai" uniqueKey="-/しゃーない/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -33002,7 +33014,6 @@
         </r_ele>
         <sense>
             <pos>interjection (kandoushi)</pos>
-            <s_inf xml:lang="pol">dialekt z Osaki</s_inf>
             <dial>Osaka-ben</dial>
             <gloss xml:lang="eng">really?</gloss>
             <gloss xml:lang="pol">naprawdę?</gloss>
@@ -37398,7 +37409,6 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1939830" xk="社会民主党">社会民主党</xref>
             <misc>abbreviation</misc>
-            <s_inf xml:lang="pol">skrót</s_inf>
             <gloss xml:lang="eng">Social Democratic Party</gloss>
             <gloss xml:lang="pol">Partia Socjaldemokratyczna</gloss>
         </sense>
@@ -37666,7 +37676,9 @@
             <gloss xml:lang="eng">with a start</gloss>
             <gloss xml:lang="eng">in a fright</gloss>
             <gloss xml:lang="eng">alarmedly</gloss>
-            <gloss xml:lang="pol">z początku</gloss>
+            <gloss xml:lang="pol">z zaskoczeniem</gloss>
+            <gloss xml:lang="pol">przerażony</gloss>
+            <gloss xml:lang="pol">z niepokojem</gloss>
             <gloss xml:lang="pol">być zaskoczony</gloss>
             <gloss xml:lang="pol">być przerażony</gloss>
         </sense>
@@ -38912,7 +38924,6 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>obsolete term</misc>
             <misc>slang</misc>
-            <s_inf xml:lang="pol">przestarzałe słowo, slang, przestarzałe słowo</s_inf>
             <gloss xml:lang="eng">forger</gloss>
             <gloss xml:lang="pol">???</gloss>
         </sense>
@@ -38959,7 +38970,6 @@
         <sense>
             <pos>Godan verb with 'ru' ending</pos>
             <misc>slang</misc>
-            <s_inf xml:lang="pol">slang</s_inf>
             <gloss xml:lang="eng">to refuse</gloss>
             <gloss xml:lang="eng">to reject</gloss>
             <gloss xml:lang="eng">to deny</gloss>
@@ -39035,7 +39045,7 @@
             <xref type="see" seq="1526550" xk="万葉集" xr="まんようしゅう">万葉集(まんようしゅう)</xref>
             <s_inf xml:lang="pol">najstarsza zachowana do naszych czasów antologia poezji japońskiej</s_inf>
             <gloss xml:lang="eng">poetic style typical of Man'yōshū</gloss>
-            <gloss xml:lang="pol">man'youchou</gloss>
+            <gloss xml:lang="pol">styl poetycki charakterystyczny dla Man'yōshū</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -41008,7 +41018,7 @@
     <entry>
         <ent_seq>2116800</ent_seq>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="eropuri">エロプリ</reb>
+            <reb kana_type="KATAKANA" romaji="ero puri">エロプリ</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -41016,13 +41026,12 @@
             <xref type="see" seq="1924850" xr="プリクラ">プリクラ</xref>
             <misc>abbreviation</misc>
             <misc>slang</misc>
-            <s_inf xml:lang="pol">slang, skrót</s_inf>
             <gloss xml:lang="eng">erotic pictures taken at a purikura</gloss>
-            <gloss xml:lang="pol">erotyczne zdjęcie z purikuta</gloss>
+            <gloss xml:lang="pol">zdjęcia erotyczne zrobione w fotobudce purikura</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="77619" dictionaryEntryTypeList="WORD_NOUN" kana="エロプリ" romaji="eropuri" uniqueKey="-/エロプリ/1"/>
+                <entries id="77619" dictionaryEntryTypeList="WORD_NOUN" kana="エロプリ" romaji="ero puri" uniqueKey="-/エロプリ/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -41911,7 +41920,8 @@
             <pos>Ichidan verb</pos>
             <gloss xml:lang="eng">to ease up</gloss>
             <gloss xml:lang="eng">to relax attention</gloss>
-            <gloss xml:lang="pol">zelżeć</gloss>
+            <gloss xml:lang="pol">rozluźnić</gloss>
+            <gloss xml:lang="pol">odprężyć uwagę</gloss>
             <gloss xml:lang="pol">zrelaksować uwagę</gloss>
         </sense>
         <misc>
@@ -42832,27 +42842,33 @@
         </k_ele>
         <k_ele>
             <keb>がん見</keb>
+            <ke_inf>search-only kanji form</ke_inf>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="gan mi">がんみ</reb>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="gan mi">ガンみ</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <pos>noun or participle which takes the aux. verb suru</pos>
             <pos>transitive verb</pos>
-            <misc>slang</misc>
+            <xref type="see" seq="2117540" xk="チラ見">チラ見</xref>
+            <misc>colloquial</misc>
+            <gloss xml:lang="eng">staring at</gloss>
             <gloss xml:lang="eng">gazing at</gloss>
-            <gloss xml:lang="eng">staring at fixedly</gloss>
             <gloss xml:lang="eng">eyeballing</gloss>
             <gloss xml:lang="eng">glaring</gloss>
             <gloss xml:lang="eng">giving a hard look</gloss>
             <gloss xml:lang="pol">wpatrywanie się w</gloss>
+            <gloss xml:lang="pol">patrzenie na</gloss>
+            <gloss xml:lang="pol">przyglądanie się</gloss>
             <gloss xml:lang="pol">patrzenie w oczy</gloss>
+            <gloss xml:lang="pol">spoglądanie gniewnie</gloss>
+            <gloss xml:lang="pol">rzucanie surowego spojrzenia</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="155951" dictionaryEntryTypeList="WORD_NOUN" kanji="ガン見" kana="がんみ" romaji="gan mi" uniqueKey="ガン見/がんみ/1"/>
-                <entries id="155996" dictionaryEntryTypeList="WORD_NOUN" kanji="がん見" kana="がんみ" romaji="gan mi" uniqueKey="がん見/がんみ/1"/>
+                <entries id="70882" dictionaryEntryTypeList="WORD_NOUN" kanji="ガン見" kana="ガンみ" romaji="gan mi" uniqueKey="ガン見/ガンみ/1"/>
+                <entries id="113961" dictionaryEntryTypeList="WORD_NOUN" kanji="がん見" kana="ガンみ" romaji="gan mi" uniqueKey="がん見/ガンみ/1"/>
                 <attributeList type="SURU_VERB"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
@@ -42874,11 +42890,17 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <pos>noun or participle which takes the aux. verb suru</pos>
             <pos>transitive verb</pos>
+            <xref type="see" seq="2117530" xk="ガン見">ガン見</xref>
             <misc>colloquial</misc>
-            <gloss xml:lang="eng">glancing look</gloss>
-            <gloss xml:lang="eng">quick glimpse</gloss>
+            <gloss xml:lang="eng">taking a glance at</gloss>
+            <gloss xml:lang="eng">glimpsing at</gloss>
+            <gloss xml:lang="eng">taking a peek at</gloss>
+            <gloss xml:lang="eng">quick look</gloss>
+            <gloss xml:lang="eng">peep</gloss>
             <gloss xml:lang="pol">zerknięcie</gloss>
             <gloss xml:lang="pol">rzucenie okiem</gloss>
+            <gloss xml:lang="pol">zajrzenie do środka</gloss>
+            <gloss xml:lang="pol">szybki rzut oka</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -46051,6 +46073,7 @@
             <gloss xml:lang="eng">to make a long story short</gloss>
             <gloss xml:lang="pol">jednym słowem</gloss>
             <gloss xml:lang="pol">krótko mówiąc</gloss>
+            <gloss xml:lang="pol">mówiąc w skrócie</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -47391,9 +47414,11 @@
         <ent_seq>2119310</ent_seq>
         <k_ele>
             <keb>本来なら</keb>
+            <ke_pri>spec2</ke_pri>
         </k_ele>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="honrai nara">ほんらいなら</reb>
+            <re_pri>spec2</re_pri>
         </r_ele>
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
@@ -47407,7 +47432,8 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="101118" dictionaryEntryTypeList="WORD_EXPRESSION" kanji="本来なら" kana="ほんらいなら" romaji="honrai nara" uniqueKey="本来なら/ほんらいなら/1"/>
-                <attributeList type="PRIORITY" value="255"/>
+                <attributeList type="COMMON_WORD"/>
+                <attributeList type="PRIORITY" value="108"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -49373,7 +49399,6 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <pos>noun or participle which takes the aux. verb suru</pos>
             <xref type="see" seq="2120020" xr="タイムトラベル">タイムトラベル</xref>
-            <s_inf xml:lang="pol">ang: time trip</s_inf>
             <gloss xml:lang="eng">time travel</gloss>
             <gloss xml:lang="pol">podróż w czasie</gloss>
         </sense>
@@ -49422,12 +49447,13 @@
             <pos>Ichidan verb</pos>
             <gloss xml:lang="eng">to have a surreptitious sexual relationship with</gloss>
             <gloss xml:lang="eng">to have an illicit love affair with</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">mieć ukryty związek seksualny z</gloss>
+            <gloss xml:lang="pol">mieć nielegalny romans z</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="78778" dictionaryEntryTypeList="WORD_VERB_RU,WORD_EXPRESSION" kanji="慇懃を通じる" kana="いんぎんをつうじる" romaji="ingin o tsuujiru" uniqueKey="慇懃を通じる/いんぎんをつうじる/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -49568,7 +49594,6 @@
             <pos>adjective (keiyoushi)</pos>
             <xref type="see" seq="1460850" sno="1" xk="難しい">難しい[1]</xref>
             <misc>abbreviation</misc>
-            <s_inf xml:lang="pol">skrót</s_inf>
             <gloss xml:lang="eng">difficult</gloss>
             <gloss xml:lang="pol">trudny</gloss>
         </sense>
@@ -52109,12 +52134,14 @@
             <pos>Godan verb with 'ku' ending</pos>
             <misc>idiomatic expression</misc>
             <s_inf xml:lang="eng">usu. as 〜て待つ or 〜て待ち構える; from 手に薬煉を引く</s_inf>
-            <s_inf xml:lang="pol">od 手に薬煉を引く</s_inf>
+            <s_inf xml:lang="pol">zwykle jako 〜て待つ lub 〜て待ち構える; od 手に薬煉を引く</s_inf>
             <gloss xml:lang="eng">to be ready and waiting</gloss>
             <gloss xml:lang="eng">to be on the alert</gloss>
             <gloss xml:lang="eng">to be on the watch</gloss>
             <gloss xml:lang="pol">być gotowy i czekać na</gloss>
             <gloss xml:lang="pol">być w pogotowiu na</gloss>
+            <gloss xml:lang="pol">być w stanie gotowości</gloss>
+            <gloss xml:lang="pol">być czujnym</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -54452,8 +54479,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">szczegóły mogą się znacznie różnić, ale jest to grupa studentów, która bierze udział w nadzorowaniu zachowania lub aktywności studentów</s_inf>
-            <gloss xml:lang="eng">student council (details vary widely but a body of students that takes part in overseeing student behaviour or student activities)</gloss>
+            <gloss xml:lang="eng">student council</gloss>
             <gloss xml:lang="pol">rada studentów</gloss>
         </sense>
         <misc>
@@ -54767,7 +54793,7 @@
             <gloss xml:lang="eng">having exhausted every available means</gloss>
             <gloss g_type="lit" xml:lang="eng">having broken one's sword and exhausted one's arrows</gloss>
             <gloss xml:lang="pol">po wyczerpaniu wszystkich możliwych środków</gloss>
-            <gloss xml:lang="pol">połamanie miecza i zużycie wszystkich swoich strzał</gloss>
+            <gloss g_type="lit" xml:lang="pol">połamanie miecza i zużycie wszystkich swoich strzał</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -55202,7 +55228,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">envelope containing betrothal money and given as part of a betrothal gift</gloss>
-            <gloss xml:lang="pol">koperta zawierająca pieniądze i wręczana jako część prezentu na zaręczyny</gloss>
+            <gloss xml:lang="pol">koperta zawierająca pieniądze i wręczana jako część prezentu zaręczynowego</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -57240,7 +57266,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="2123010" xk="核兵器国">核兵器国</xref>
             <gloss xml:lang="eng">non-nuclear-weapon state</gloss>
-            <gloss xml:lang="pol">państwo nie posiadające broń atomową</gloss>
+            <gloss xml:lang="pol">państwo nieposiadające broń atomową</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -59750,7 +59776,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">niewielka „sprężynka”, najczęściej ze stali 316 LVM albo stopu chromowo-kobaltowego, umieszczana wewnątrz naczynia krwionośnego w celu przywrócenia drożności naczynia</s_inf>
+            <s_inf xml:lang="pol">niewielka 'sprężynka', najczęściej ze stali 316 LVM albo stopu chromowo-kobaltowego, umieszczana wewnątrz naczynia krwionośnego w celu przywrócenia drożności naczynia</s_inf>
             <gloss xml:lang="eng">stent (tubular support temporarily placed inside a blood vessel, etc.)</gloss>
             <gloss xml:lang="pol">stent</gloss>
         </sense>
@@ -60403,6 +60429,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="2124350" xk="動物由来感染症">動物由来感染症</xref>
             <field>medicine</field>
+            <s_inf xml:lang="pol">choroba przenoszona ze zwierząt na ludzi lub odwrotnie</s_inf>
             <gloss xml:lang="eng">zoonosis (disease transmissible from animals to humans or vice versa)</gloss>
             <gloss xml:lang="pol">choroba odzwierzęca</gloss>
             <gloss xml:lang="pol">zoonoza</gloss>
@@ -64289,10 +64316,10 @@
             <pos>expressions (phrases, clauses, etc.)</pos>
             <pos>adjective (keiyoushi)</pos>
             <misc>idiomatic expression</misc>
-            <s_inf xml:lang="pol">idiom</s_inf>
             <gloss xml:lang="eng">beyond help</gloss>
             <gloss xml:lang="eng">there's nothing that can be done</gloss>
-            <gloss xml:lang="pol">poza pomocą</gloss>
+            <gloss xml:lang="pol">bez szans na ratunek</gloss>
+            <gloss xml:lang="pol">nic już nie da się zrobić</gloss>
             <gloss xml:lang="pol">nic nie można zrobić</gloss>
         </sense>
         <misc>
@@ -73033,7 +73060,8 @@
             <pos>Ichidan verb</pos>
             <gloss xml:lang="eng">to feel blessed to be in one's position</gloss>
             <gloss xml:lang="eng">to be thankful for one's good fortune</gloss>
-            <gloss xml:lang="pol">zyskać więcej przez los niż zasługuje się</gloss>
+            <gloss xml:lang="pol">czuć się szczęśliwym z powodu swojej sytuacji</gloss>
+            <gloss xml:lang="pol">być wdzięcznym za swoje szczęście</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -74452,6 +74480,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">feelings of bliss</gloss>
             <gloss xml:lang="pol">poczucie szczęścia</gloss>
+            <gloss xml:lang="pol">uczucie błogości</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -80571,9 +80600,10 @@
             <pos>Godan verb with 'u' ending</pos>
             <pos>transitive verb</pos>
             <misc>word usually written using kana alone</misc>
+            <s_inf xml:lang="pol">włókno w celu zrobienia liny</s_inf>
             <gloss xml:lang="eng">to twine (fibers to make rope)</gloss>
             <gloss xml:lang="eng">to twist</gloss>
-            <gloss xml:lang="pol">skręcać (włókno w celu zrobienia liny)</gloss>
+            <gloss xml:lang="pol">skręcać</gloss>
             <gloss xml:lang="pol">splatać</gloss>
         </sense>
         <misc>
@@ -81305,6 +81335,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">ideal type</gloss>
             <gloss xml:lang="pol">typ idealny</gloss>
+            <gloss xml:lang="pol">idealny typ</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -82391,7 +82422,7 @@
             <gloss xml:lang="eng">special session of the Diet</gloss>
             <gloss g_type="expl" xml:lang="eng">Diet session required to be convoked within thirty days of a general election</gloss>
             <gloss xml:lang="pol">specjalna sesja parlamentu</gloss>
-            <gloss xml:lang="pol">sesja parlamentu zwołana w przeciągu trzydziestu dni od wyborów powszechnych</gloss>
+            <gloss g_type="expl" xml:lang="pol">sesja parlamentu zwołana w przeciągu trzydziestu dni od wyborów powszechnych</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -85682,16 +85713,20 @@
         </k_ele>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="nibu chin">にぶちん</reb>
-            <re_restr>鈍ちん</re_restr>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="nibu chin">ニブちん</reb>
+            <re_nokanji/>
         </r_ele>
         <r_ele>
             <reb kana_type="HIRAGANA_KATAKANA" romaji="nibu chin">にぶチン</reb>
-            <re_restr>鈍チン</re_restr>
+            <re_inf>search-only kana form</re_inf>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1582430" sno="2" xk="鈍い" xr="にぶい">鈍い(にぶい)[2]</xref>
             <misc>word usually written using kana alone</misc>
+            <s_inf xml:lang="pol">zwykle wynikający z niezdolności do wyczuwania uczuć innych ludzi</s_inf>
             <gloss xml:lang="eng">dullard (gen. from not picking up on other people's feelings)</gloss>
             <gloss xml:lang="pol">cymbał</gloss>
             <gloss xml:lang="pol">tępak</gloss>
@@ -85700,6 +85735,9 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="182548" dictionaryEntryTypeList="WORD_NOUN" kanji="鈍ちん" kana="にぶちん" romaji="nibu chin" uniqueKey="鈍ちん/にぶちん/1"/>
+                <entries id="327360" dictionaryEntryTypeList="WORD_NOUN" kanji="鈍チン" kana="にぶちん" romaji="nibu chin" uniqueKey="鈍チン/にぶちん/1"/>
+                <entries id="327361" dictionaryEntryTypeList="WORD_NOUN" kana="ニブちん" romaji="nibu chin" uniqueKey="-/ニブちん/1"/>
+                <entries id="327362" dictionaryEntryTypeList="WORD_NOUN" kanji="鈍ちん" kana="にぶチン" romaji="nibu chin" uniqueKey="鈍ちん/にぶチン/1"/>
                 <entries id="182576" dictionaryEntryTypeList="WORD_NOUN" kanji="鈍チン" kana="にぶチン" romaji="nibu chin" uniqueKey="鈍チン/にぶチン/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
@@ -86997,8 +87035,9 @@
             <gloss xml:lang="eng">bulk buying</gloss>
             <gloss xml:lang="eng">buying in quantity</gloss>
             <gloss xml:lang="eng">stocking up (on)</gloss>
-            <gloss xml:lang="pol">zbieranie razem i kupowanie</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">zakupy hurtowe</gloss>
+            <gloss xml:lang="pol">kupowanie w dużych ilościach</gloss>
+            <gloss xml:lang="pol">gromadzenie zapasów</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -89549,6 +89588,7 @@
             <gloss xml:lang="eng">athletic park</gloss>
             <gloss xml:lang="eng">stadium</gloss>
             <gloss xml:lang="pol">park sportowy</gloss>
+            <gloss xml:lang="pol">park lekkoatletyczny</gloss>
             <gloss xml:lang="pol">stadion</gloss>
         </sense>
         <misc>
@@ -89937,7 +89977,7 @@
             <reb kana_type="HIRAGANA" romaji="to atte">とあって</reb>
         </r_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="toari">とあり</reb>
+            <reb kana_type="HIRAGANA" romaji="to ari">とあり</reb>
         </r_ele>
         <sense>
             <pos>conjunction</pos>
@@ -89949,7 +89989,7 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="109873" dictionaryEntryTypeList="WORD_CONJUNCTION" kana="とあって" romaji="to atte" uniqueKey="-/とあって/1"/>
-                <entries id="110000" dictionaryEntryTypeList="WORD_CONJUNCTION" kana="とあり" romaji="toari" uniqueKey="-/とあり/1"/>
+                <entries id="110000" dictionaryEntryTypeList="WORD_CONJUNCTION" kana="とあり" romaji="to ari" uniqueKey="-/とあり/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -90485,6 +90525,7 @@
             <gloss xml:lang="eng">electoral system allowing for the election of multiple candidates from one district</gloss>
             <gloss xml:lang="eng">multi-member constituent electoral system</gloss>
             <gloss xml:lang="pol">system wyborczy umożliwiający wybór wielu kandydatów z jednego okręgu</gloss>
+            <gloss xml:lang="pol">wielomandatowy system wyborczy</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -92511,9 +92552,9 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1622960" xk="長打">長打</xref>
             <field>baseball</field>
-            <s_inf xml:lang="pol">statystyka w baseballu dla pałkarza, określająca stosunek liczby zdobytych baz ogółem poprzez uderzenie (single, double, triple, home run) do liczby pojawienia się na na pałce</s_inf>
+            <s_inf xml:lang="pol">statystyka w baseballu dla pałkarza, określająca stosunek liczby zdobytych baz ogółem poprzez uderzenie (single, double, triple, home run) do liczby pojawienia się na na pałce, ang: slugging percentage</s_inf>
             <gloss xml:lang="eng">slugging percentage</gloss>
-            <gloss xml:lang="pol">ang: slugging percentage</gloss>
+            <gloss xml:lang="pol">wskaźnik sluggingowy</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -95450,6 +95491,21 @@
             <gloss xml:lang="pol">forma</gloss>
             <gloss xml:lang="pol">wygląd</gloss>
             <gloss xml:lang="pol">stan</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>word usually written using kana alone</misc>
+            <gloss xml:lang="eng">dress</gloss>
+            <gloss xml:lang="eng">attire</gloss>
+            <gloss xml:lang="eng">clothing</gloss>
+            <gloss xml:lang="eng">getup</gloss>
+            <gloss xml:lang="eng">outfit</gloss>
+            <gloss xml:lang="eng">personal appearance</gloss>
+            <gloss xml:lang="pol">strój</gloss>
+            <gloss xml:lang="pol">odzież</gloss>
+            <gloss xml:lang="pol">ubranie</gloss>
+            <gloss xml:lang="pol">outfit</gloss>
+            <gloss xml:lang="pol">wygląd zewnętrzny</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -103409,14 +103465,13 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>archaic</misc>
-            <s_inf xml:lang="pol">archaizm</s_inf>
             <gloss xml:lang="eng">large undertaking attempted in a far-off land</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">wielkie przedsięwzięcie podjęte w odległej krainie</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="145627" dictionaryEntryTypeList="WORD_NOUN" kanji="図南" kana="となん" romaji="tonan" uniqueKey="図南/となん/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -103777,10 +103832,10 @@
             <keb>何よりも</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="naniyorimo">なによりも</reb>
+            <reb kana_type="HIRAGANA" romaji="nani yori mo">なによりも</reb>
         </r_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="nan'yorimo">なんよりも</reb>
+            <reb kana_type="HIRAGANA" romaji="nan' yori mo">なんよりも</reb>
         </r_ele>
         <sense>
             <pos>adverb (fukushi)</pos>
@@ -103792,8 +103847,8 @@
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="20705" dictionaryEntryTypeList="WORD_ADVERB" kanji="何よりも" kana="なによりも" romaji="naniyorimo" uniqueKey="何よりも/なによりも/1"/>
-                <entries id="30257" dictionaryEntryTypeList="WORD_ADVERB" kanji="何よりも" kana="なんよりも" romaji="nan'yorimo" uniqueKey="何よりも/なんよりも/1"/>
+                <entries id="20705" dictionaryEntryTypeList="WORD_ADVERB" kanji="何よりも" kana="なによりも" romaji="nani yori mo" uniqueKey="何よりも/なによりも/1"/>
+                <entries id="30257" dictionaryEntryTypeList="WORD_ADVERB" kanji="何よりも" kana="なんよりも" romaji="nan' yori mo" uniqueKey="何よりも/なんよりも/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
                 <exampleSentenceGroupIdsList>238994</exampleSentenceGroupIdsList>
@@ -104803,8 +104858,8 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">Japan and Spain</gloss>
             <gloss xml:lang="eng">Japanese-Spanish</gloss>
-            <gloss xml:lang="pol">japońsko-hiszpański (generalnie dla tłumaczeń i słowników)</gloss>
-            <gloss xml:lang="pol">Japonia-Hiszpania (np. handel zagraniczny i stosunki międzynarodowe)</gloss>
+            <gloss xml:lang="pol">Japonia i Hiszpania</gloss>
+            <gloss xml:lang="pol">japońsko-hiszpański</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -107037,7 +107092,7 @@
             <reb kana_type="HIRAGANA" romaji="shoukoushu">しょうこうしゅ</reb>
         </r_ele>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="shaoshinchuu">シャオシンチュウ</reb>
+            <reb kana_type="KATAKANA_EXCEPTION" romaji="shaoshinchuu">シャオシンチュウ</reb>
             <re_nokanji/>
         </r_ele>
         <r_ele>
@@ -107050,7 +107105,7 @@
             <field>food, cooking</field>
             <s_inf xml:lang="pol">chiński alkohol wykonany z ryżu lub kleistego prosa</s_inf>
             <gloss xml:lang="eng">Shaoxing wine</gloss>
-            <gloss xml:lang="pol">shaoxingjiu</gloss>
+            <gloss xml:lang="pol">wino Shaoxing</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -113247,6 +113302,7 @@
             <s_inf xml:lang="pol">ang: punch drunk</s_inf>
             <gloss xml:lang="eng">befuddled</gloss>
             <gloss xml:lang="eng">confused</gloss>
+            <gloss xml:lang="pol">oszołomiony</gloss>
             <gloss xml:lang="pol">zamroczony</gloss>
             <gloss xml:lang="pol">przytępiony</gloss>
             <gloss xml:lang="pol">zdezorientowany</gloss>
@@ -117789,7 +117845,9 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">total income</gloss>
             <gloss xml:lang="eng">gross earnings</gloss>
+            <gloss xml:lang="pol">dochód ogółem</gloss>
             <gloss xml:lang="pol">całkowity przychód</gloss>
+            <gloss xml:lang="pol">zarobki brutto</gloss>
             <gloss xml:lang="pol">dochody brutto</gloss>
         </sense>
         <misc>
@@ -117968,6 +118026,7 @@
             <gloss xml:lang="eng">female supremacy</gloss>
             <gloss xml:lang="pol">kobieca dominacja</gloss>
             <gloss xml:lang="pol">kobieca przewaga</gloss>
+            <gloss xml:lang="pol">supremacja kobiet</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -118698,12 +118757,12 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">snow melting heater</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">nagrzewnica do topienia śniegu</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="68389" dictionaryEntryTypeList="WORD_NOUN" kanji="融雪ヒータ" kana="ゆうせつヒータ" romaji="yuusetsu hiita" uniqueKey="融雪ヒータ/ゆうせつヒータ/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -121458,7 +121517,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>historical term</misc>
-            <s_inf xml:lang="pol">archaizm</s_inf>
             <gloss xml:lang="eng">land-tax system during the Edo period under which the government took half of the year's crop and the farmers kept the other half</gloss>
             <gloss xml:lang="pol">system podatkowy podczas okresu Edo, w której rolnik musi oddać połowę swoich rocznych plonów</gloss>
         </sense>
@@ -125060,6 +125118,14 @@
             <keb>今わの際</keb>
             <ke_inf>search-only kanji form</ke_inf>
         </k_ele>
+        <k_ele>
+            <keb>今際のきわ</keb>
+            <ke_inf>search-only kanji form</ke_inf>
+        </k_ele>
+        <k_ele>
+            <keb>今わのきわ</keb>
+            <ke_inf>search-only kanji form</ke_inf>
+        </k_ele>
         <r_ele>
             <reb kana_type="HIRAGANA" romaji="imawa no kiwa">いまわのきわ</reb>
         </r_ele>
@@ -125076,6 +125142,8 @@
                 <entries id="319233" dictionaryEntryTypeList="WORD_NOUN,WORD_EXPRESSION" kanji="いまわの際" kana="いまわのきわ" romaji="imawa no kiwa" uniqueKey="いまわの際/いまわのきわ/1"/>
                 <entries id="215556" dictionaryEntryTypeList="WORD_NOUN,WORD_EXPRESSION" kanji="今際の際" kana="いまわのきわ" romaji="imawa no kiwa" uniqueKey="今際の際/いまわのきわ/1"/>
                 <entries id="215588" dictionaryEntryTypeList="WORD_NOUN,WORD_EXPRESSION" kanji="今わの際" kana="いまわのきわ" romaji="imawa no kiwa" uniqueKey="今わの際/いまわのきわ/1"/>
+                <entries id="326957" dictionaryEntryTypeList="WORD_NOUN,WORD_EXPRESSION" kanji="今際のきわ" kana="いまわのきわ" romaji="imawa no kiwa" uniqueKey="今際のきわ/いまわのきわ/1"/>
+                <entries id="326958" dictionaryEntryTypeList="WORD_NOUN,WORD_EXPRESSION" kanji="今わのきわ" kana="いまわのきわ" romaji="imawa no kiwa" uniqueKey="今わのきわ/いまわのきわ/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -126675,7 +126743,7 @@
         </sense>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <misc>vulgar expression or word</misc>
+            <misc>euphemistic</misc>
             <gloss xml:lang="eng">genitals</gloss>
             <gloss xml:lang="pol">genitalia</gloss>
         </sense>
@@ -127832,7 +127900,9 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">ocean trade</gloss>
             <gloss xml:lang="eng">trade by sea</gloss>
-            <gloss xml:lang="pol">wymiana (handlowa) morska</gloss>
+            <gloss xml:lang="pol">handel morski</gloss>
+            <gloss xml:lang="pol">handel drogą morską</gloss>
+            <gloss xml:lang="pol">morska wymiana (handlowa)</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -129702,7 +129772,7 @@
             <keb>巻髪</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="makigami">まきがみ</reb>
+            <reb kana_type="HIRAGANA" romaji="maki gami">まきがみ</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -129712,8 +129782,8 @@
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="39047" dictionaryEntryTypeList="WORD_NOUN" kanji="巻き髪" kana="まきがみ" romaji="makigami" uniqueKey="巻き髪/まきがみ/1"/>
-                <entries id="39048" dictionaryEntryTypeList="WORD_NOUN" kanji="巻髪" kana="まきがみ" romaji="makigami" uniqueKey="巻髪/まきがみ/1"/>
+                <entries id="39047" dictionaryEntryTypeList="WORD_NOUN" kanji="巻き髪" kana="まきがみ" romaji="maki gami" uniqueKey="巻き髪/まきがみ/1"/>
+                <entries id="39048" dictionaryEntryTypeList="WORD_NOUN" kanji="巻髪" kana="まきがみ" romaji="maki gami" uniqueKey="巻髪/まきがみ/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -133012,9 +133082,9 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>Greek mythology</field>
-            <s_inf xml:lang="pol">protokół uwierzytelniania i autoryzacji w sieci komputerowej z wykorzystaniem Centrum Dystrybucji Kluczy, zaprojektowanym w Massachusetts Institute of Technology</s_inf>
+            <s_inf xml:lang="pol">w mitologii greckiej olbrzymi trzygłowy pies strzegący wejścia do świata zmarłych</s_inf>
             <gloss xml:lang="eng">Cerberus</gloss>
-            <gloss xml:lang="pol">Kerberos</gloss>
+            <gloss xml:lang="pol">Cerber</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -135827,7 +135897,7 @@
             <gloss xml:lang="eng">on sale soon</gloss>
             <gloss xml:lang="eng">coming soon</gloss>
             <gloss xml:lang="pol">wkrótce w sprzedaży</gloss>
-            <gloss xml:lang="pol">wkrótce</gloss>
+            <gloss xml:lang="pol">wkrótce dostępne</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -141240,11 +141310,13 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">mustela erminea</s_inf>
+            <s_inf xml:lang="pol">gatunek małego drapieżnego ssaka z rodziny łasicowatych, Mustela erminea</s_inf>
             <gloss xml:lang="eng">stoat (Mustela erminea)</gloss>
             <gloss xml:lang="eng">ermine</gloss>
             <gloss xml:lang="eng">short-tailed weasel</gloss>
+            <gloss xml:lang="pol">gronostaj europejski</gloss>
             <gloss xml:lang="pol">gronostaj</gloss>
+            <gloss xml:lang="pol">łasica gronostaj</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -144576,17 +144648,18 @@
             <keb>切り絵細工</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="kiriezaiku">きりえざいく</reb>
+            <reb kana_type="HIRAGANA" romaji="kiri ezaiku">きりえざいく</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1721560" xk="切り紙細工">切り紙細工</xref>
             <gloss xml:lang="eng">paper cutouts</gloss>
             <gloss xml:lang="pol">papierowe wycinanki</gloss>
+            <gloss xml:lang="pol">wycinanki z papieru</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="43325" dictionaryEntryTypeList="WORD_NOUN" kanji="切り絵細工" kana="きりえざいく" romaji="kiriezaiku" uniqueKey="切り絵細工/きりえざいく/1"/>
+                <entries id="43325" dictionaryEntryTypeList="WORD_NOUN" kanji="切り絵細工" kana="きりえざいく" romaji="kiri ezaiku" uniqueKey="切り絵細工/きりえざいく/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -147047,7 +147120,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">typ urządzenia wprowadzającego polecenia do komputera, "odwrócona" mysz</s_inf>
+            <s_inf xml:lang="pol">urządzenie wskazujące do komputera lub innego urządzenia, służące do interakcji użytkownika z interfejsem graficznym. Bywa nazywane żartobliwie kotem</s_inf>
             <gloss xml:lang="eng">trackball</gloss>
             <gloss xml:lang="pol">trackball</gloss>
             <gloss xml:lang="pol">manipulator kulkowy</gloss>
@@ -156437,7 +156510,6 @@
             <pos>interjection (kandoushi)</pos>
             <xref type="see" seq="1242070" xk="謹啓">謹啓</xref>
             <misc>honorific or respectful (sonkeigo) language</misc>
-            <s_inf xml:lang="pol">honoryfikatywnie</s_inf>
             <gloss xml:lang="eng">Dear (name)</gloss>
             <gloss xml:lang="pol">Drogi (imię)</gloss>
         </sense>
@@ -158393,6 +158465,7 @@
             <gloss xml:lang="eng">labor force participation rate</gloss>
             <gloss xml:lang="eng">labour force participation rate</gloss>
             <gloss xml:lang="pol">wskaźnik siły roboczej</gloss>
+            <gloss xml:lang="pol">wskaźnik aktywności zawodowej</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -159217,11 +159290,10 @@
             <xref type="see" seq="2164350" xk="鬼も十八番茶も出花">鬼も十八番茶も出花</xref>
             <misc>abbreviation</misc>
             <misc>proverb</misc>
-            <s_inf xml:lang="pol">skrót</s_inf>
             <gloss xml:lang="eng">even a homely girl looks beautiful at the peak of her youth</gloss>
             <gloss g_type="lit" xml:lang="eng">even coarse tea tastes good when freshly brewed</gloss>
             <gloss xml:lang="pol">każda nieatrakcyjna dziewczyna wygląda pięknie w szczycie swojej młodości</gloss>
-            <gloss xml:lang="pol">nawet grube liście herbaty smakują dobrze kiedy są świeżo wyparzone</gloss>
+            <gloss g_type="lit" xml:lang="pol">nawet zwykła herbata smakuje dobrze, gdy jest świeżo zaparzona</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -162411,7 +162483,7 @@
             <misc>word usually written using kana alone</misc>
             <s_inf xml:lang="pol">gatunek jadowitego pająka</s_inf>
             <gloss xml:lang="eng">redback spider (Latrodectus hasselti)</gloss>
-            <gloss xml:lang="pol">latrodectus hasselti</gloss>
+            <gloss xml:lang="pol">Latrodectus hasselti</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -162886,6 +162958,7 @@
             <gloss xml:lang="eng">decompression surgery</gloss>
             <gloss xml:lang="eng">surgery under decompression</gloss>
             <gloss xml:lang="pol">operacja medyczna pod dekompresją</gloss>
+            <gloss xml:lang="pol">operacja w warunkach dekompresyjnych</gloss>
             <gloss xml:lang="pol">operacja medyczna pod zmniejszonym ciśnieniem</gloss>
         </sense>
         <misc>
@@ -163871,14 +163944,14 @@
             <reb kana_type="HIRAGANA" romaji="erabu unagi">えらぶうなぎ</reb>
         </r_ele>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="erabu unagi">エラブウナギ</reb>
+            <reb kana_type="KATAKANA_EXCEPTION" romaji="erabu unagi">エラブウナギ</reb>
             <re_nokanji/>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="2166210" xk="永良部海蛇">永良部海蛇</xref>
             <misc>word usually written using kana alone</misc>
-            <s_inf xml:lang="pol">wąż, laticauda semifasciata</s_inf>
+            <s_inf xml:lang="pol">gatunek węża, Laticauda semifasciata</s_inf>
             <gloss xml:lang="eng">Erabu black-banded sea krait (Laticauda semifasciata)</gloss>
             <gloss xml:lang="pol">wiosłogon prążkowany</gloss>
         </sense>
@@ -165196,7 +165269,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
-            <s_inf xml:lang="pol">gatunek ssaka z rodziny zyfiowatych (Ziphiidae)</s_inf>
+            <s_inf xml:lang="pol">gatunek ssaka z rodziny zyfiowatych (Ziphiidae), Berardius arnuxii</s_inf>
             <gloss xml:lang="eng">Arnoux's beaked whale (Berardius arnuxii)</gloss>
             <gloss xml:lang="pol">dziobogłowiec południowy</gloss>
         </sense>
@@ -165704,7 +165777,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
-            <s_inf xml:lang="pol">owad</s_inf>
+            <s_inf xml:lang="pol">gatunek chrząszcza</s_inf>
             <gloss xml:lang="eng">sweet potato weevil (Cylas formicarius)</gloss>
             <gloss xml:lang="pol">Cylas formicarius</gloss>
         </sense>
@@ -166315,9 +166388,9 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
-            <s_inf xml:lang="pol">ryba</s_inf>
+            <s_inf xml:lang="pol">gatunek ryby</s_inf>
             <gloss xml:lang="eng">largescale blackfish (Girella punctata)</gloss>
-            <gloss xml:lang="pol">girella punctata</gloss>
+            <gloss xml:lang="pol">Girella punctata</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -169479,12 +169552,13 @@
             <keb>多芸は無芸</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="tagei wa mugei">たげいはむげい</reb>
+            <reb kana_type="HIRAGANA_EXCEPTION" romaji="tagei wa mugei">たげいはむげい</reb>
         </r_ele>
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
             <misc>proverb</misc>
             <gloss xml:lang="eng">a jack of all trades is a master of none</gloss>
+            <gloss xml:lang="pol">kto potrafi wszystko, ten nie jest mistrzem w niczym</gloss>
             <gloss xml:lang="pol">bycie wszechstronnie utalentowanym oznacza, że nigdy naprawdę nie jest się szczególnie dobry w jednym</gloss>
         </sense>
         <misc>
@@ -178453,10 +178527,12 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1035960" xr="オンザジョブトレーニング">オンザジョブトレーニング</xref>
+            <s_inf xml:lang="pol">ang: on-the-job training, OJT</s_inf>
             <gloss xml:lang="eng">on-the-job training</gloss>
             <gloss xml:lang="eng">OJT</gloss>
-            <gloss xml:lang="pol">on-the-job training</gloss>
-            <gloss xml:lang="pol">OJT</gloss>
+            <gloss xml:lang="pol">szkolenie w pracy</gloss>
+            <gloss xml:lang="pol">szkolenie w czasie pracy</gloss>
+            <gloss xml:lang="pol">szkolenie w ramach pracy</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -180977,13 +181053,14 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">skamieniałości zwierząt znalezione w łupkach z Burgess</s_inf>
             <gloss xml:lang="eng">Burgess fauna (animal fossils found in the Burgess Shale)</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">fauna z Burgess</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="168394" dictionaryEntryTypeList="WORD_NOUN" kanji="バージェス動物群" kana="バージェスどうぶつぐん" romaji="baajesu doubutsugun" uniqueKey="バージェス動物群/バージェスどうぶつぐん/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -182004,7 +182081,6 @@
         </r_ele>
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
-            <pos>intransitive verb</pos>
             <pos>Godan verb with 'bu' ending</pos>
             <gloss xml:lang="eng">to come to mind</gloss>
             <gloss xml:lang="eng">to pop into one's head</gloss>
@@ -182029,7 +182105,6 @@
         </r_ele>
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
-            <pos>intransitive verb</pos>
             <pos>Godan verb with 'bu' ending</pos>
             <gloss xml:lang="eng">to come to mind</gloss>
             <gloss xml:lang="eng">to pop into one's head</gloss>
@@ -183586,9 +183661,9 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
-            <s_inf xml:lang="pol">ptak, szczególnie nurzec czarnoskrzydły, pelecanoides urinatrix</s_inf>
+            <s_inf xml:lang="pol">gatunek średniej wielkości ptaka z rodziny burzykowatych, Pelecanoides urinatrix</s_inf>
             <gloss xml:lang="eng">diving petrel (esp. the common diving petrel, Pelecanoides urinatrix)</gloss>
-            <gloss xml:lang="pol">pelecanoides</gloss>
+            <gloss xml:lang="pol">nurzec czarnoskrzydły</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -185593,9 +185668,8 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="2175880" sno="1" xk="銭" xr="ぜに">銭(ぜに)[1]</xref>
             <misc>archaic</misc>
-            <s_inf xml:lang="pol">archaizm</s_inf>
             <gloss xml:lang="eng">smooth unlettered back surface of an old "zeni" coin</gloss>
-            <gloss xml:lang="pol">gładka tylna powierzchnia starej monety “zeni”</gloss>
+            <gloss xml:lang="pol">gładka tylna powierzchnia starej monety 'zeni'</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -186004,6 +186078,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">np. Wyspy Aleuckie</s_inf>
             <gloss xml:lang="eng">island arc (like the Aleutian Islands)</gloss>
             <gloss xml:lang="pol">łuk wyspowy</gloss>
         </sense>
@@ -187776,7 +187851,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
             <gloss xml:lang="eng">kanji "suinyō" radical (radical 35)</gloss>
-            <gloss xml:lang="pol">element podstawowy kanji “suinyou”</gloss>
+            <gloss xml:lang="pol">element podstawowy kanji suinyō</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -190719,7 +190794,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>astronomy</field>
-            <s_inf xml:lang="pol">księżyc Jowisza</s_inf>
+            <s_inf xml:lang="pol">drugi co do wielkości księżyc Jowisza, trzeci w Układzie Słonecznym, najbardziej oddalony z księżyców galileuszowych</s_inf>
             <gloss xml:lang="eng">Callisto (moon of Jupiter)</gloss>
             <gloss xml:lang="pol">Kallisto</gloss>
         </sense>
@@ -191384,8 +191459,8 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <gloss xml:lang="eng">division of a shrine's tutelary deity, in order to share it with another shrine</gloss>
-            <gloss xml:lang="eng">spirit divided in such a manner</gloss>
+            <gloss xml:lang="eng">making a branch shrine for a deity</gloss>
+            <gloss xml:lang="eng">enshrining a divided portion of a deity's spirit at another shrine</gloss>
             <gloss xml:lang="pol">???</gloss>
         </sense>
         <misc>
@@ -191548,7 +191623,6 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="2177080" xk="三后">三后</xref>
             <misc>rare term</misc>
-            <s_inf xml:lang="pol">mało znane słowo</s_inf>
             <gloss xml:lang="eng">Grand Empress Dowager, the Empress Dowager and the Empress Consort</gloss>
             <gloss xml:lang="pol">Wielka Cesarzowa Wdowa, Cesarzowa Wdowa i Cesarzowa Małżonka</gloss>
         </sense>
@@ -192981,10 +193055,11 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">ang: Universal Time</s_inf>
             <gloss xml:lang="eng">Universal Time</gloss>
             <gloss xml:lang="eng">UT</gloss>
             <gloss xml:lang="pol">czas uniwersalny</gloss>
-            <gloss xml:lang="pol">UT (ang: Universal Time)</gloss>
+            <gloss xml:lang="pol">UT</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -193086,7 +193161,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="1561500" xk="六分儀">六分儀</xref>
             <misc>rare term</misc>
-            <s_inf xml:lang="pol">przyrząd nawigacyjny, mało znane słowo</s_inf>
+            <s_inf xml:lang="pol">przyrząd nawigacyjny</s_inf>
             <gloss xml:lang="eng">sextant</gloss>
             <gloss xml:lang="pol">sekstant</gloss>
             <gloss xml:lang="pol">sekstans</gloss>
@@ -193186,8 +193261,8 @@
             <xref type="see" seq="1217970" xk="願わくは">願わくは</xref>
             <gloss xml:lang="eng">I pray</gloss>
             <gloss xml:lang="eng">I wish</gloss>
-            <gloss xml:lang="pol">ja proszę</gloss>
-            <gloss xml:lang="pol">ja życzę sobie</gloss>
+            <gloss xml:lang="pol">proszę</gloss>
+            <gloss xml:lang="pol">życzę sobie</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -194612,18 +194687,18 @@
             <keb>肉月</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="nikuduki">にくづき</reb>
+            <reb kana_type="HIRAGANA" romaji="niku duki">にくづき</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="2178280" xk="月偏">月偏</xref>
-            <s_inf xml:lang="pol">wygląda ja element podstawowy kanji “księżyc”</s_inf>
+            <s_inf xml:lang="pol">wygląda ja element podstawowy kanji 'księżyc'</s_inf>
             <gloss xml:lang="eng">kanji "meat" radical at left (looks like "moon" radical, radical 74)</gloss>
-            <gloss xml:lang="pol">element podstawowy kanji “mięso” po lewej stronie</gloss>
+            <gloss xml:lang="pol">element podstawowy kanji 'mięso' po lewej stronie</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="144973" dictionaryEntryTypeList="WORD_NOUN" kanji="肉月" kana="にくづき" romaji="nikuduki" uniqueKey="肉月/にくづき/1"/>
+                <entries id="144973" dictionaryEntryTypeList="WORD_NOUN" kanji="肉月" kana="にくづき" romaji="niku duki" uniqueKey="肉月/にくづき/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -196513,7 +196588,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">brimming with curiosity</gloss>
             <gloss xml:lang="pol">bycie wypełniony ciekawością</gloss>
-            <gloss xml:lang="pol">pełen ciakwości</gloss>
+            <gloss xml:lang="pol">pełen ciekawości</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -200933,7 +201008,6 @@
             <xref type="see" seq="1279120" sno="2" xk="攻め">攻め[2]</xref>
             <xref type="see" seq="1659120" sno="5" xr="ウケ">ウケ[5]</xref>
             <misc>slang</misc>
-            <s_inf xml:lang="pol">kolokwializm</s_inf>
             <gloss xml:lang="eng">top (dominant partner of a homosexual relationship)</gloss>
             <gloss xml:lang="pol">dominujący partner w homoseksualnym związku</gloss>
         </sense>
@@ -202821,7 +202895,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">kanji "bird" radical</gloss>
-            <gloss xml:lang="pol">element podstawowy kanji “ptak”</gloss>
+            <gloss xml:lang="pol">element podstawowy kanji 'ptak'</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -202842,7 +202916,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">kanji "bird of the zodiac" radical (radical 164)</gloss>
-            <gloss xml:lang="pol">element podstawowy kanji “ptak zodiaku”</gloss>
+            <gloss xml:lang="pol">element podstawowy kanji 'ptak zodiaku'</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -205726,7 +205800,7 @@
             <keb>ないでは居られない</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="nai de wa irarenai">ないではいられない</reb>
+            <reb kana_type="HIRAGANA_EXCEPTION" romaji="nai de wa irarenai">ないではいられない</reb>
         </r_ele>
         <sense>
             <pos>expressions (phrases, clauses, etc.)</pos>
@@ -205737,8 +205811,8 @@
             <gloss xml:lang="eng">can't help but feel</gloss>
             <gloss xml:lang="eng">can't help but do</gloss>
             <gloss xml:lang="pol">czuć się zmuszony do</gloss>
-            <gloss xml:lang="pol">nie móc pomóc, ale czuć</gloss>
-            <gloss xml:lang="pol">nie móc pomóc, ale robić</gloss>
+            <gloss xml:lang="pol">nie mogę się powstrzymać od uczucia</gloss>
+            <gloss xml:lang="pol">nie mogę się powstrzymać od zrobienia</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -210056,11 +210130,10 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <gloss xml:lang="eng">performer of an action</gloss>
+            <xref type="see" seq="2872609" xk="被動者">被動者</xref>
+            <field>grammar</field>
             <gloss xml:lang="eng">agent</gloss>
-            <gloss xml:lang="eng">actor</gloss>
-            <gloss xml:lang="pol">aktor</gloss>
-            <gloss xml:lang="pol">agent</gloss>
+            <gloss xml:lang="pol">agens</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -213970,9 +214043,9 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>Buddhism</field>
-            <s_inf xml:lang="pol">zgrubienie na czupku głowy buddy</s_inf>
+            <s_inf xml:lang="pol">wypukłość na głowie Buddy. Symbolizuje on osiągnięcie zaufania w przewodnictwie duchowym</s_inf>
             <gloss xml:lang="eng">ushnisha (protrusion on the top of a buddha's head)</gloss>
-            <gloss xml:lang="pol">ushnisha</gloss>
+            <gloss xml:lang="pol">usznisza</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -214424,7 +214497,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>food, cooking</field>
-            <s_inf xml:lang="pol">indyjski chleb pieczony w glinianym piecu, ang: naan, nan</s_inf>
+            <s_inf xml:lang="pol">indyjski chleb pieczony w glinianym piecu</s_inf>
             <gloss xml:lang="eng">naan (bread)</gloss>
             <gloss xml:lang="eng">nan</gloss>
             <gloss xml:lang="pol">chleb naan</gloss>
@@ -215813,7 +215886,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>Buddhism</field>
-            <s_inf xml:lang="pol">buddyzm</s_inf>
+            <s_inf xml:lang="pol">miejsce praktyki buddyjskiej lub medytacji, zwłaszcza miejsce pod drzewem bodhi, gdzie Budda osiągnął oświecenie</s_inf>
             <gloss xml:lang="eng">Bodhi-manda (place of Buddhist practice or meditation, esp. the place under the bodhi tree where Buddha attained enlightenment)</gloss>
             <gloss xml:lang="pol">Bodhi-manda</gloss>
         </sense>
@@ -217647,9 +217720,8 @@
         <lsource ls_wasei="y" xml:lang="eng">counter kitchen</lsource>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">ang: counter kitchen</s_inf>
             <gloss xml:lang="eng">kitchen with a small counter for eating, usu. allowing a view into the living and dining rooms</gloss>
-            <gloss xml:lang="pol">kuchnia z małym okienkiem (ladą) zwykle pozwalając na patrzenie w kierunku jadalni</gloss>
+            <gloss xml:lang="pol">kuchnia z niewielkim blatem do spożywania posiłków, z której zazwyczaj rozciąga się widok na salon i jadalnię</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -217981,6 +218053,7 @@
             <s_inf xml:lang="pol">ang: aroma oil</s_inf>
             <gloss xml:lang="eng">aroma oil</gloss>
             <gloss xml:lang="pol">olej aromatyczny</gloss>
+            <gloss xml:lang="pol">olejek zapachowy</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -219454,6 +219527,7 @@
             <gloss xml:lang="eng">time travel</gloss>
             <gloss xml:lang="pol">zakrzywienie czasoprzestrzeni</gloss>
             <gloss xml:lang="pol">podróż w czasie</gloss>
+            <gloss xml:lang="pol">skok w czasie</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -220047,9 +220121,9 @@
         <sense>
             <pos>Yodan verb with 'ku' ending (archaic)</pos>
             <misc>archaic</misc>
-            <s_inf xml:lang="pol">jedna z form kary w starożytnej Japonii, archaizm</s_inf>
+            <s_inf xml:lang="pol">forma kary w starożytnej Japonii</s_inf>
             <gloss xml:lang="eng">to tattoo a criminal around the eye (form of punishment in ancient Japan)</gloss>
-            <gloss xml:lang="pol">mieć tatuaż na twarzy</gloss>
+            <gloss xml:lang="pol">tatuowanie przestępcy wokół oka</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -224389,7 +224463,7 @@
             <reb kana_type="HIRAGANA" romaji="ooyoshikiri">おおよしきり</reb>
         </r_ele>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="ooyoshikiri">オオヨシキリ</reb>
+            <reb kana_type="KATAKANA_EXCEPTION" romaji="ooyoshikiri">オオヨシキリ</reb>
             <re_nokanji/>
         </r_ele>
         <sense>
@@ -224623,13 +224697,13 @@
             <reb kana_type="HIRAGANA" romaji="nabeduru">なべづる</reb>
         </r_ele>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="nabeduru">ナベヅル</reb>
+            <reb kana_type="KATAKANA_EXCEPTION" romaji="nabeduru">ナベヅル</reb>
             <re_nokanji/>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
-            <s_inf xml:lang="pol">gatunek dużego ptaka z rodziny żurawi</s_inf>
+            <s_inf xml:lang="pol">gatunek dużego ptaka z rodziny żurawi, Grus monacha</s_inf>
             <gloss xml:lang="eng">hooded crane (Grus monacha)</gloss>
             <gloss xml:lang="pol">żuraw białogłowy</gloss>
         </sense>
@@ -229239,7 +229313,7 @@
             <xref type="see" seq="2096890" xk="兜率天">兜率天</xref>
             <field>Buddhism</field>
             <misc>abbreviation</misc>
-            <s_inf xml:lang="pol">dziewiąty świat w kosmologii buddyjskiej, będący częścią Szczęśliwych Miejsc Przeznaczenia, skrót</s_inf>
+            <s_inf xml:lang="pol">dziewiąty świat w kosmologii buddyjskiej, będący częścią Szczęśliwych Miejsc Przeznaczenia</s_inf>
             <gloss xml:lang="eng">Tusita (heaven, pure land)</gloss>
             <gloss xml:lang="pol">Tuszita</gloss>
         </sense>
@@ -233236,6 +233310,7 @@
             <s_inf xml:lang="pol">ang: Christmas wreath</s_inf>
             <gloss xml:lang="eng">Christmas wreath</gloss>
             <gloss xml:lang="pol">bożonarodzeniowy wieniec</gloss>
+            <gloss xml:lang="pol">bożonarodzeniowy stroik</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -233256,7 +233331,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
-            <s_inf xml:lang="pol">gatunek wieloletniej rośliny z rodziny jaskrowatych, helleborus niger, ang: Christmas rose</s_inf>
+            <s_inf xml:lang="pol">gatunek wieloletniej rośliny z rodziny jaskrowatych, Helleborus niger, ang: Christmas rose</s_inf>
             <gloss xml:lang="eng">Christmas rose (Helleborus niger)</gloss>
             <gloss xml:lang="pol">ciemiernik biały</gloss>
         </sense>
@@ -233759,7 +233834,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <field>anatomy</field>
             <gloss xml:lang="eng">bones of the hand</gloss>
-            <gloss xml:lang="pol">kości ręki</gloss>
+            <gloss xml:lang="pol">kości dłoni</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -235963,6 +236038,7 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <s_inf xml:lang="pol">skrobia pozyskiwana z kłączy paproci orlicowej</s_inf>
             <gloss xml:lang="eng">bracken starch (starch produced from the rhizomes of bracken)</gloss>
             <gloss xml:lang="pol">skrobia z orlicy</gloss>
         </sense>
@@ -236638,12 +236714,11 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
+            <s_inf xml:lang="pol">dowolny szkarłupień z klasy Asteroidea</s_inf>
             <gloss xml:lang="eng">starfish</gloss>
             <gloss xml:lang="eng">sea star</gloss>
-            <gloss xml:lang="eng">asteroid</gloss>
-            <gloss g_type="expl" xml:lang="eng">any echinoderm of the class Asteroidea</gloss>
+            <gloss xml:lang="eng">asteroid (any echinoderm of the class Asteroidea)</gloss>
             <gloss xml:lang="pol">rozgwiazda</gloss>
-            <gloss g_type="expl" xml:lang="pol">dowolny szkarłupień z klasy Asteroidea</gloss>
         </sense>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -237695,6 +237770,7 @@
             <gloss xml:lang="eng">hacksaw</gloss>
             <gloss xml:lang="eng">bow saw</gloss>
             <gloss xml:lang="pol">piłka do metalu</gloss>
+            <gloss xml:lang="pol">piła łukowa</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -242066,6 +242142,7 @@
             <xref type="see" seq="2196860" xk="逆断層">逆断層</xref>
             <gloss xml:lang="eng">normal fault</gloss>
             <gloss xml:lang="pol">normalny błąd</gloss>
+            <gloss xml:lang="pol">normalna usterka</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -246664,7 +246741,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
-            <s_inf xml:lang="pol">roślina, lysichiton americanum</s_inf>
+            <s_inf xml:lang="pol">gatunek rośliny z rodziny obrazkowatych, Lysichiton americanum</s_inf>
             <gloss xml:lang="eng">yellow skunk cabbage (Lysichiton americanum)</gloss>
             <gloss xml:lang="pol">tulejnik amerykański</gloss>
         </sense>
@@ -248204,23 +248281,25 @@
             <keb>西岩燕</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="nishiiwatsubame">にしいわつばめ</reb>
+            <reb kana_type="HIRAGANA" romaji="nishiiwa tsubame">にしいわつばめ</reb>
         </r_ele>
         <r_ele>
-            <reb kana_type="KATAKANA" romaji="nishiiwatsubame">ニシイワツバメ</reb>
+            <reb kana_type="KATAKANA_EXCEPTION" romaji="nishiiwa tsubame">ニシイワツバメ</reb>
             <re_nokanji/>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>word usually written using kana alone</misc>
-            <s_inf xml:lang="pol">gatunek ptaka</s_inf>
+            <s_inf xml:lang="pol">niewielki gatunek ptaka wędrownego z rodziny jaskółkowatych, Delichon urbica</s_inf>
             <gloss xml:lang="eng">common house martin (species of songbird, Delichon urbica)</gloss>
+            <gloss xml:lang="pol">oknówka zwyczajna</gloss>
+            <gloss xml:lang="pol">oknówka</gloss>
             <gloss xml:lang="pol">jaskółka oknówka</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="36671" dictionaryEntryTypeList="WORD_NOUN" kanji="西岩燕" kana="にしいわつばめ" romaji="nishiiwatsubame" uniqueKey="西岩燕/にしいわつばめ/1"/>
-                <entries id="36672" dictionaryEntryTypeList="WORD_NOUN" kana="ニシイワツバメ" romaji="nishiiwatsubame" uniqueKey="-/ニシイワツバメ/1"/>
+                <entries id="36671" dictionaryEntryTypeList="WORD_NOUN" kanji="西岩燕" kana="にしいわつばめ" romaji="nishiiwa tsubame" uniqueKey="西岩燕/にしいわつばめ/1"/>
+                <entries id="36672" dictionaryEntryTypeList="WORD_NOUN" kana="ニシイワツバメ" romaji="nishiiwa tsubame" uniqueKey="-/ニシイワツバメ/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>

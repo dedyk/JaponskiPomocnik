@@ -38357,7 +38357,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>work of art, literature, music, etc. name</misc>
             <s_inf xml:lang="pol">chińskie wojenne opracowanie napisane w VI wieku p.n.e. przez Sun Zi</s_inf>
-            <gloss xml:lang="eng">The Art of War (military text by Sun Tzu; c. 5th century BCE)</gloss>
+            <gloss xml:lang="eng">The Art of War (military text by Sun Tzu; ca. 5th century BCE)</gloss>
             <gloss xml:lang="pol">Sztuka Wojenna Sun Zi</gloss>
         </sense>
         <misc>
@@ -42558,7 +42558,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <misc>work of art, literature, music, etc. name</misc>
             <s_inf xml:lang="pol">kompilacja starożytnych pieśni i wierszy z Okinawy z ok. XII wieku</s_inf>
-            <gloss xml:lang="eng">Omoro Sōshi (compilation of ancient songs and poems from Okinawa from c. 12th century)</gloss>
+            <gloss xml:lang="eng">Omoro Sōshi (compilation of ancient songs and poems from Okinawa from ca. 12th century)</gloss>
             <gloss xml:lang="pol">Omoro Sōshi</gloss>
         </sense>
         <misc>
@@ -56874,6 +56874,150 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="326446" dictionaryEntryTypeList="WORD_NOUN" kanji="三帝協商" kana="さんていきょうしょう" romaji="santei kyoushou" uniqueKey="三帝協商/さんていきょうしょう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747961</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="pakojetto">パコジェット</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>product name</misc>
+            <s_inf xml:lang="pol">kuchenne urządzenie</s_inf>
+            <gloss xml:lang="eng">Pacojet (kitchen appliance)</gloss>
+            <gloss xml:lang="pol">Pacojet</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="326644" dictionaryEntryTypeList="WORD_NOUN" kana="パコジェット" romaji="pakojetto" uniqueKey="-/パコジェット/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5747993</ent_seq>
+        <k_ele>
+            <keb>盲人書簡</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="moujin shokan">もうじんしょかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>work of art, literature, music, etc. name</misc>
+            <s_inf xml:lang="pol">esej filozoficzny Denisa Diderota z 1749 roku</s_inf>
+            <gloss xml:lang="eng">Letter on the Blind (1749 essay by Denis Diderot)</gloss>
+            <gloss xml:lang="pol">List o ślepcach</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="326892" dictionaryEntryTypeList="WORD_NOUN" kanji="盲人書簡" kana="もうじんしょかん" romaji="moujin shokan" uniqueKey="盲人書簡/もうじんしょかん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5748011</ent_seq>
+        <k_ele>
+            <keb>光復節</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="koufukusetsu">こうふくせつ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <gloss xml:lang="eng">Korean Liberation Day (August 15)</gloss>
+            <gloss xml:lang="eng">Gwangbokjeol</gloss>
+            <gloss xml:lang="pol">Dzień Wyzwolenia Korei (15 sierpnia)</gloss>
+            <gloss xml:lang="pol">Gwangbokjeol</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327061" dictionaryEntryTypeList="WORD_NOUN" kanji="光復節" kana="こうふくせつ" romaji="koufukusetsu" uniqueKey="光復節/こうふくせつ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5748012</ent_seq>
+        <k_ele>
+            <keb>黄巣の乱</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kousou no ran">こうそうのらん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <s_inf xml:lang="pol">powstanie w Chinach w latach 874–884</s_inf>
+            <gloss xml:lang="eng">Huang Chao Rebellion (uprising in China from 874 to 884)</gloss>
+            <gloss xml:lang="pol">Powstanie Huang Chao</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327092" dictionaryEntryTypeList="WORD_NOUN" kanji="黄巣の乱" kana="こうそうのらん" romaji="kousou no ran" uniqueKey="黄巣の乱/こうそうのらん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5748021</ent_seq>
+        <k_ele>
+            <keb>楚漢戦争</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="sokan sensou">そかんせんそう</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <gloss xml:lang="eng">Chu-Han Contention (206-202 BCE)</gloss>
+            <gloss xml:lang="eng">Chu-Han War</gloss>
+            <gloss xml:lang="pol">Konflikt między Chu a Han (206–202 p.n.e.)</gloss>
+            <gloss xml:lang="pol">Wojna między Chu a Han</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327138" dictionaryEntryTypeList="WORD_NOUN" kanji="楚漢戦争" kana="そかんせんそう" romaji="sokan sensou" uniqueKey="楚漢戦争/そかんせんそう/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5748026</ent_seq>
+        <k_ele>
+            <keb>納涼祭</keb>
+        </k_ele>
+        <k_ele>
+            <keb>納涼まつり</keb>
+        </k_ele>
+        <k_ele>
+            <keb>納涼祭り</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="nouryou matsuri">のうりょうまつり</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>event</misc>
+            <gloss xml:lang="eng">Nōryō Matsuri</gloss>
+            <gloss xml:lang="pol">Nōryō Matsuri</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327165" dictionaryEntryTypeList="WORD_NOUN" kanji="納涼祭" kana="のうりょうまつり" romaji="nouryou matsuri" uniqueKey="納涼祭/のうりょうまつり/1"/>
+                <entries id="327166" dictionaryEntryTypeList="WORD_NOUN" kanji="納涼まつり" kana="のうりょうまつり" romaji="nouryou matsuri" uniqueKey="納涼まつり/のうりょうまつり/1"/>
+                <entries id="327167" dictionaryEntryTypeList="WORD_NOUN" kanji="納涼祭り" kana="のうりょうまつり" romaji="nouryou matsuri" uniqueKey="納涼祭り/のうりょうまつり/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
