@@ -37,9 +37,9 @@ public class WordKanjiDictionaryUtils {
 
         String kanji = dictionaryEntry.getKanji();
         String prefixKana = dictionaryEntry.getPrefixKana();
-        List<String> kanaList = dictionaryEntry.getKanaList();
+        String kana = dictionaryEntry.getKana();
         String prefixRomaji = dictionaryEntry.getPrefixRomaji();
-        List<String> romajiList = dictionaryEntry.getRomajiList();
+        String romaji = dictionaryEntry.getRomaji();
         List<String> translates = dictionaryEntry.getTranslates();
         String info = dictionaryEntry.getInfo();
 
@@ -49,7 +49,6 @@ public class WordKanjiDictionaryUtils {
         String tempPrefixRomaji = prefixRomaji != null && prefixRomaji.equals("") == false ? prefixRomaji : null;
 
         if (dictionaryEntry.isKanjiExists() == true) {
-
             if (tempPrefixKana != null) {
                 result.append("(").append(getStringWithMark(tempPrefixKana, null, false)).append(") ");
             }
@@ -57,12 +56,20 @@ public class WordKanjiDictionaryUtils {
             result.append(getStringWithMark(kanji, null, false)).append(" ");
         }
 
-        if (kanaList != null && kanaList.size() > 0) {
-            result.append(getStringWithMark(toString(kanaList, tempPrefixKana), null, false)).append(" - ");
+        if (kana != null) { // && kanaList.size() > 0) {
+            if (tempPrefixKana != null) {
+                result.append("(").append(getStringWithMark(tempPrefixKana, null, false)).append(") ");
+            }
+
+            result.append(getStringWithMark(kana, null, false)).append(" ").append(" - ");
         }
 
-        if (romajiList != null && romajiList.size() > 0) {
-            result.append(getStringWithMark(toString(romajiList, tempPrefixRomaji), null, false));
+        if (romaji != null) { // && romajiList.size() > 0) {
+            if (tempPrefixRomaji != null) {
+                result.append("(").append(getStringWithMark(tempPrefixRomaji, null, false));
+            }
+
+            result.append(getStringWithMark(romaji, null, false)).append(" ");
         }
 
         if (translates != null && translates.size() > 0) {

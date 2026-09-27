@@ -1,6 +1,7 @@
 package pl.idedyk.android.japaneselearnhelper.testsm2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import pl.idedyk.android.japaneselearnhelper.JapaneseAndroidLearnHelperApplication;
@@ -211,15 +212,14 @@ public class WordTestSM2 extends Activity {
 			// check user answer
 			int correctAnswersNo = getCorrectAnswersNo();
 
-			@SuppressWarnings("deprecation")
-			List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+			String kana = currentWordDictionaryEntry.getKana();
 
 			View stateInfoView = findViewById(R.id.word_test_sm2_state_info);
 
 			int[] stateInfoLocation = new int[2];
 			stateInfoView.getLocationOnScreen(stateInfoLocation);
 
-			if (correctAnswersNo == kanaList.size()) {
+			if (correctAnswersNo == 1) { // kanaList.size()) {
 				Toast toast = Toast.makeText(WordTestSM2.this, getString(R.string.word_test_sm2_correct),
 						Toast.LENGTH_SHORT);
 
@@ -276,8 +276,7 @@ public class WordTestSM2 extends Activity {
 			kanjiInput.setVisibility(View.VISIBLE);
 		}
 
-		@SuppressWarnings("deprecation")
-		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+		String kana = currentWordDictionaryEntry.getKana();
 
 		// show kana
 		for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
@@ -286,8 +285,8 @@ public class WordTestSM2 extends Activity {
 
 			String currentKana = null;
 
-			if (kanaListIdx < kanaList.size()) {
-				currentKana = kanaList.get(kanaListIdx);
+			if (kanaListIdx < 1) { // kanaList.size()) {
+				currentKana = kana;
 			}
 
 			if (currentKana != null) {
@@ -337,18 +336,17 @@ public class WordTestSM2 extends Activity {
 	private int getCorrectAnswersNo() {
 
 		@SuppressWarnings("deprecation")
-		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+		String kana = currentWordDictionaryEntry.getKana();
 
-		List<String> kanaListToRemove = new ArrayList<String>(kanaList);
+		List<String> kanaListToRemove = new ArrayList<String>(Arrays.asList(kana));
 
-		for (int kanaListIdx = 0; kanaListIdx < kanaList.size(); ++kanaListIdx) {
-
+		for (int kanaListIdx = 0; kanaListIdx < 1 /* kanaList.size()*/; ++kanaListIdx) {
 			String currentUserAnswer = textViewAndEditTextForWordAsArray[kanaListIdx].editText.getText().toString();
 
 			kanaListToRemove.remove(currentUserAnswer);
 		}
 
-		return kanaList.size() - kanaListToRemove.size();
+		return 1 /* kanaList.size() */ - kanaListToRemove.size();
 	}
 
 	@Override
@@ -467,7 +465,7 @@ public class WordTestSM2 extends Activity {
 				kanjiInput.setEnabled(false);
 			}
 
-			List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+			String kana = currentWordDictionaryEntry.getKana();
 
 			/*
 			if (kanaList.size() >= Utils.MAX_LIST_SIZE) {
@@ -475,7 +473,7 @@ public class WordTestSM2 extends Activity {
 			}
 			 */
 
-			createTextViewAndEditTextForWordAsArray(kanaList.size() - 1);
+			createTextViewAndEditTextForWordAsArray(1 /* kanaList.size() */ - 1);
 
 			for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
 
@@ -483,8 +481,8 @@ public class WordTestSM2 extends Activity {
 
 				String currentKana = null;
 
-				if (kanaListIdx < kanaList.size()) {
-					currentKana = kanaList.get(kanaListIdx);
+				if (kanaListIdx < 1) { // kanaList.size()) {
+					currentKana = kana; // kanaList.get(kanaListIdx);
 				}
 
 				if (currentKana != null) {

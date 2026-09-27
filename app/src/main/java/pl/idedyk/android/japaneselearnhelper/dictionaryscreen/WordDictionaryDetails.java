@@ -1947,61 +1947,59 @@ public class WordDictionaryDetails extends Activity {
 			tabLayoutItem.addToTabContents(new StringValue(grammaFormKanjiSb.toString(), 15.0f, 2));
 		}
 
-		List<String> grammaFormKanaList = grammaFormConjugateResult.getKanaList();
-		List<String> grammaFormRomajiList = grammaFormConjugateResult.getRomajiList();
+		String grammaFormKana = grammaFormConjugateResult.getKana();
+		String grammaFormRomaji = grammaFormConjugateResult.getRomaji();
 
-		for (int idx = 0; idx < grammaFormKanaList.size(); ++idx) {
+		// kana i romaji
+		StringBuffer sb = new StringBuffer();
 
-			StringBuffer sb = new StringBuffer();
-
-			if (prefixKana != null && prefixKana.equals("") == false) {
-				sb.append("(").append(prefixKana).append(") ");
-			}
-
-			sb.append(grammaFormKanaList.get(idx));
-
-			tabLayoutItem.addToTabContents(new StringValue(sb.toString(), 15.0f, 2));
-
-			StringBuffer grammaFormRomajiSb = new StringBuffer();
-
-			if (prefixRomaji != null && prefixRomaji.equals("") == false) {
-				grammaFormRomajiSb.append("(").append(prefixRomaji).append(") ");
-			}
-
-			grammaFormRomajiSb.append(grammaFormRomajiList.get(idx));
-
-			tabLayoutItem.addToTabContents(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
-
-			if (info != null) {
-				tabLayoutItem.addToTabContents(new StringValue(info, 12.0f, 2));
-			}
-
-			// speak image
-			Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 2);
-			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, grammaFormKanaList.get(idx)));
-			actionTableRow.addScreenItem(speakImage);
-
-			// clipboard kanji
-			if (grammaFormKanji != null) {
-				Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
-				clipboardKanji.setOnClickListener(new CopyToClipboard(grammaFormKanji));
-				actionTableRow.addScreenItem(clipboardKanji);
-			}
-
-			// clipboard kana
-			Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
-			clipboardKana.setOnClickListener(new CopyToClipboard(grammaFormKanaList.get(idx)));
-			actionTableRow.addScreenItem(clipboardKana);
-
-			// clipboard romaji
-			Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
-			clipboardRomaji.setOnClickListener(new CopyToClipboard(grammaFormRomajiList.get(idx)));
-			actionTableRow.addScreenItem(clipboardRomaji);
-
-			actionButtons.addTableRow(actionTableRow);
-
-			tabLayoutItem.addToTabContents(actionButtons);
+		if (prefixKana != null && prefixKana.equals("") == false) {
+			sb.append("(").append(prefixKana).append(") ");
 		}
+
+		sb.append(grammaFormKana);
+
+		tabLayoutItem.addToTabContents(new StringValue(sb.toString(), 15.0f, 2));
+
+		StringBuffer grammaFormRomajiSb = new StringBuffer();
+
+		if (prefixRomaji != null && prefixRomaji.equals("") == false) {
+			grammaFormRomajiSb.append("(").append(prefixRomaji).append(") ");
+		}
+
+		grammaFormRomajiSb.append(grammaFormRomaji);
+
+		tabLayoutItem.addToTabContents(new StringValue(grammaFormRomajiSb.toString(), 15.0f, 2));
+
+		if (info != null) {
+			tabLayoutItem.addToTabContents(new StringValue(info, 12.0f, 2));
+		}
+
+		// speak image
+		Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 2);
+		speakImage.setOnClickListener(new TTSJapaneseSpeak(null, grammaFormKana));
+		actionTableRow.addScreenItem(speakImage);
+
+		// clipboard kanji
+		if (grammaFormKanji != null) {
+			Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
+			clipboardKanji.setOnClickListener(new CopyToClipboard(grammaFormKanji));
+			actionTableRow.addScreenItem(clipboardKanji);
+		}
+
+		// clipboard kana
+		Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
+		clipboardKana.setOnClickListener(new CopyToClipboard(grammaFormKana));
+		actionTableRow.addScreenItem(clipboardKana);
+
+		// clipboard romaji
+		Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
+		clipboardRomaji.setOnClickListener(new CopyToClipboard(grammaFormRomaji));
+		actionTableRow.addScreenItem(clipboardRomaji);
+
+		actionButtons.addTableRow(actionTableRow);
+
+		tabLayoutItem.addToTabContents(actionButtons);
 
 		GrammaFormConjugateResult alternative = grammaFormConjugateResult.getAlternative();
 
@@ -2033,63 +2031,61 @@ public class WordDictionaryDetails extends Activity {
 			tabLayoutItem.addToTabContents(new StringValue(exampleKanjiSb.toString(), 15.0f, 2));
 		}
 
-		List<String> exampleKanaList = exampleResult.getKanaList();
-		List<String> exampleRomajiList = exampleResult.getRomajiList();
+		String exampleKana = exampleResult.getKana();
+		String exampleRomaji = exampleResult.getRomaji();
 
-		for (int idx = 0; idx < exampleKanaList.size(); ++idx) {
+		// kana i romaji
+		StringBuffer sb = new StringBuffer();
 
-			StringBuffer sb = new StringBuffer();
-
-			if (prefixKana != null && prefixKana.equals("") == false) {
-				sb.append("(").append(prefixKana).append(") ");
-			}
-
-			sb.append(exampleKanaList.get(idx));
-
-			tabLayoutItem.addToTabContents(new StringValue(sb.toString(), 15.0f, 2));
-
-			StringBuffer exampleRomajiSb = new StringBuffer();
-
-			if (prefixRomaji != null && prefixRomaji.equals("") == false) {
-				exampleRomajiSb.append("(").append(prefixRomaji).append(") ");
-			}
-
-			exampleRomajiSb.append(exampleRomajiList.get(idx));
-
-			tabLayoutItem.addToTabContents(new StringValue(exampleRomajiSb.toString(), 15.0f, 2));
-
-			String exampleResultInfo = exampleResult.getInfo();
-
-			if (exampleResultInfo != null) {
-				tabLayoutItem.addToTabContents(new StringValue(exampleResultInfo, 12.0f, 2));
-			}
-
-			// speak image
-			Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 2);
-			speakImage.setOnClickListener(new TTSJapaneseSpeak(null, exampleKanaList.get(idx)));
-			actionTableRow.addScreenItem(speakImage);
-
-			// clipboard kanji
-			if (exampleKanji != null) {
-				Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
-				clipboardKanji.setOnClickListener(new CopyToClipboard(exampleKanji));
-				actionTableRow.addScreenItem(clipboardKanji);
-			}
-
-			// clipboard kana
-			Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
-			clipboardKana.setOnClickListener(new CopyToClipboard(exampleKanaList.get(idx)));
-			actionTableRow.addScreenItem(clipboardKana);
-
-			// clipboard romaji
-			Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
-			clipboardRomaji.setOnClickListener(new CopyToClipboard(exampleRomajiList.get(idx)));
-			actionTableRow.addScreenItem(clipboardRomaji);
-
-			actionButtons.addTableRow(actionTableRow);
-
-			tabLayoutItem.addToTabContents(actionButtons);
+		if (prefixKana != null && prefixKana.equals("") == false) {
+			sb.append("(").append(prefixKana).append(") ");
 		}
+
+		sb.append(exampleKana);
+
+		tabLayoutItem.addToTabContents(new StringValue(sb.toString(), 15.0f, 2));
+
+		StringBuffer exampleRomajiSb = new StringBuffer();
+
+		if (prefixRomaji != null && prefixRomaji.equals("") == false) {
+			exampleRomajiSb.append("(").append(prefixRomaji).append(") ");
+		}
+
+		exampleRomajiSb.append(exampleRomaji);
+
+		tabLayoutItem.addToTabContents(new StringValue(exampleRomajiSb.toString(), 15.0f, 2));
+
+		String exampleResultInfo = exampleResult.getInfo();
+
+		if (exampleResultInfo != null) {
+			tabLayoutItem.addToTabContents(new StringValue(exampleResultInfo, 12.0f, 2));
+		}
+
+		// speak image
+		Image speakImage = new Image(getResources().getDrawable(JapaneseAndroidLearnHelperApplication.getInstance().getThemeType().getListenIconId()), 2);
+		speakImage.setOnClickListener(new TTSJapaneseSpeak(null, exampleKana));
+		actionTableRow.addScreenItem(speakImage);
+
+		// clipboard kanji
+		if (exampleKanji != null) {
+			Image clipboardKanji = new Image(getResources().getDrawable(R.drawable.clipboard_kanji), 0);
+			clipboardKanji.setOnClickListener(new CopyToClipboard(exampleKanji));
+			actionTableRow.addScreenItem(clipboardKanji);
+		}
+
+		// clipboard kana
+		Image clipboardKana = new Image(getResources().getDrawable(R.drawable.clipboard_kana), 0);
+		clipboardKana.setOnClickListener(new CopyToClipboard(exampleKana));
+		actionTableRow.addScreenItem(clipboardKana);
+
+		// clipboard romaji
+		Image clipboardRomaji = new Image(getResources().getDrawable(R.drawable.clipboard_romaji), 0);
+		clipboardRomaji.setOnClickListener(new CopyToClipboard(exampleRomaji));
+		actionTableRow.addScreenItem(clipboardRomaji);
+
+		actionButtons.addTableRow(actionTableRow);
+
+		tabLayoutItem.addToTabContents(actionButtons);
 
 		ExampleResult alternative = exampleResult.getAlternative();
 

@@ -235,7 +235,7 @@ public class WordTest extends Activity {
 		final DictionaryEntry currentWordDictionaryEntry = currentDictionaryEntryAndDictionaryEntry2.getDictionaryEntry();
 		final JMdict.Entry currentWordDictionaryEntry2 = currentDictionaryEntryAndDictionaryEntry2.getDictionaryEntry2();
 
-		List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+		String kana = currentWordDictionaryEntry.getKana();
 		// List<String> translateList = currentWordDictionaryEntry.getTranslates();
 
 		WordTestMode wordTestMode = wordTestConfig.getWordTestMode();
@@ -255,7 +255,7 @@ public class WordTest extends Activity {
 				return;
 			}
 
-			wordTestContext.addWordTestAnswers(kanaList.size());
+			wordTestContext.addWordTestAnswers(1); //kanaList.size());
 			wordTestContext.addWordTestCorrectAnswers(isCorrectKanjiOrKanaAnswersResult.isCorrect == true ? 1 : 0);
 			wordTestContext.addWordTestIncorrentAnswers(isCorrectKanjiOrKanaAnswersResult.isCorrect == false ? 1 : 0);
 
@@ -335,8 +335,8 @@ public class WordTest extends Activity {
 
 			if (full == true || showAnswer == true) {
 
-				wordTestContext.addWordTestAnswers(kanaList.size());
-				wordTestContext.addWordTestCorrectAnswers(kanaList.size());
+				wordTestContext.addWordTestAnswers(1); // kanaList.size());
+				wordTestContext.addWordTestCorrectAnswers(1); // kanaList.size());
 				wordTestContext.addWordTestIncorrentAnswers(0);
 
 				wordDictionaryEntries.currentPositionOk();
@@ -368,8 +368,7 @@ public class WordTest extends Activity {
 			kanjiInput.setVisibility(View.VISIBLE);
 		}
 
-		@SuppressWarnings("deprecation")
-		List<String> kanaList = dictionaryEntry.getKanaList();
+		String kana = dictionaryEntry.getKana();
 
 		// show kana
 		for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
@@ -378,8 +377,8 @@ public class WordTest extends Activity {
 
 			String currentKana = null;
 
-			if (kanaListIdx < kanaList.size()) {
-				currentKana = kanaList.get(kanaListIdx);
+			if (kanaListIdx < 1) { // kanaList.size()) {
+				currentKana = kana; // kanaList.get(kanaListIdx);
 			}
 
 			if (currentKana != null) {
@@ -629,8 +628,7 @@ public class WordTest extends Activity {
 				kanjiInput.setEnabled(false);
 			}
 
-			@SuppressWarnings("deprecation")
-			List<String> kanaList = currentWordDictionaryEntry.getKanaList();
+			String kana = currentWordDictionaryEntry.getKana();
 
 			/*
 			if (kanaList.size() >= Utils.MAX_LIST_SIZE) {
@@ -638,7 +636,7 @@ public class WordTest extends Activity {
 			}
 			 */
 
-			createTextViewAndEditTextForWordAsArray(kanaList.size() - 1);
+			createTextViewAndEditTextForWordAsArray(1 - 1); //kanaList.size() - 1);
 
 			for (int kanaListIdx = 0; kanaListIdx < textViewAndEditTextForWordAsArray.length; ++kanaListIdx) {
 
@@ -646,8 +644,8 @@ public class WordTest extends Activity {
 
 				String currentKana = null;
 
-				if (kanaListIdx < kanaList.size()) {
-					currentKana = kanaList.get(kanaListIdx);
+				if (kanaListIdx < 1) { // kanaList.size()) {
+					currentKana = kana; // kanaList.get(kanaListIdx);
 				}
 
 				if (currentKana != null) {
