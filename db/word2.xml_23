@@ -2805,7 +2805,7 @@
             <field>video games</field>
             <s_inf xml:lang="pol">ang: shooting game</s_inf>
             <gloss xml:lang="eng">shooter game</gloss>
-            <gloss xml:lang="pol">strzelania (gra komputerowa)</gloss>
+            <gloss xml:lang="pol">strzelanina</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -3661,7 +3661,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">podczas debugowania, informatyka</s_inf>
+            <s_inf xml:lang="pol">podczas debugowania</s_inf>
             <gloss xml:lang="eng">single step (debugging mode)</gloss>
             <gloss xml:lang="pol">pojedynczy krok</gloss>
         </sense>
@@ -3731,13 +3731,13 @@
             <field>computing</field>
             <s_inf xml:lang="pol">ang: single source supplier</s_inf>
             <gloss xml:lang="eng">single source supplier</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">dostawca z jednego źródła</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="77836" dictionaryEntryTypeList="WORD_NOUN" kana="シングルソースサプライヤー" romaji="shinguru soosu sapuraiyaa" uniqueKey="-/シングルソースサプライヤー/1"/>
                 <entries id="77882" dictionaryEntryTypeList="WORD_NOUN" kana="シングル・ソース・サプライヤー" romaji="shinguru soosu sapuraiyaa" uniqueKey="-/シングル・ソース・サプライヤー/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -5406,7 +5406,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka, ang: switching router</s_inf>
+            <s_inf xml:lang="pol">ang: switching router</s_inf>
             <gloss xml:lang="eng">switching router</gloss>
             <gloss xml:lang="pol">router przełącznikowy</gloss>
         </sense>
@@ -9859,7 +9859,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka, ang: separate addressing</s_inf>
+            <s_inf xml:lang="pol">ang: separate addressing</s_inf>
             <gloss xml:lang="eng">separate addressing</gloss>
             <gloss xml:lang="pol">oddzielne adresowanie</gloss>
         </sense>
@@ -10031,13 +10031,13 @@
             <field>computing</field>
             <s_inf xml:lang="pol">ang: cell buffer</s_inf>
             <gloss xml:lang="eng">cell buffer</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">bufor komórkowy</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="92196" dictionaryEntryTypeList="WORD_NOUN" kana="セルバッファ" romaji="seru baffa" uniqueKey="-/セルバッファ/1"/>
                 <entries id="92256" dictionaryEntryTypeList="WORD_NOUN" kana="セル・バッファ" romaji="seru baffa" uniqueKey="-/セル・バッファ/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -11644,6 +11644,7 @@
             <s_inf xml:lang="pol">ang: soft copy</s_inf>
             <gloss xml:lang="eng">soft copy</gloss>
             <gloss xml:lang="pol">kopia w wersji elektronicznej</gloss>
+            <gloss xml:lang="pol">cyfrowa wersja</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -32623,7 +32624,7 @@
             <xref type="see" seq="2317650" xr="ハイレゾリューション">ハイレゾリューション</xref>
             <field>computing</field>
             <misc>abbreviation</misc>
-            <s_inf xml:lang="pol">skrót, ang: high-res, high resolution</s_inf>
+            <s_inf xml:lang="pol">ang: high-res, high resolution</s_inf>
             <gloss xml:lang="eng">high-res</gloss>
             <gloss xml:lang="eng">high resolution</gloss>
             <gloss xml:lang="pol">wysoka rozdzielczość</gloss>
@@ -32722,16 +32723,16 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">ang: housing service</s_inf>
             <gloss xml:lang="eng">colocation service</gloss>
             <gloss xml:lang="eng">server housing</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">usługi kolokacji</gloss>
+            <gloss xml:lang="pol">lokowanie serwerów</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="81235" dictionaryEntryTypeList="WORD_NOUN" kana="ハウジングサービス" romaji="haujingu saabisu" uniqueKey="-/ハウジングサービス/1"/>
                 <entries id="81284" dictionaryEntryTypeList="WORD_NOUN" kana="ハウジング・サービス" romaji="haujingu saabisu" uniqueKey="-/ハウジング・サービス/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -33743,7 +33744,7 @@
             <field>photography</field>
             <s_inf xml:lang="pol">ang: burst mode</s_inf>
             <gloss xml:lang="eng">burst mode</gloss>
-            <gloss xml:lang="pol">ogranicznik długości serii</gloss>
+            <gloss xml:lang="pol">tryb seryjny</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -36893,12 +36894,12 @@
             <field>printing</field>
             <s_inf xml:lang="pol">ang: pica</s_inf>
             <gloss xml:lang="eng">pica</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">jednostka odpowiadająca 1/6 cala</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="94784" dictionaryEntryTypeList="WORD_NOUN" kana="パイカ" romaji="paika" uniqueKey="-/パイカ/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -41646,13 +41647,13 @@
             <field>computing</field>
             <s_inf xml:lang="pol">ang: peer system</s_inf>
             <gloss xml:lang="eng">peer system</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">system rówieśniczy</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="85735" dictionaryEntryTypeList="WORD_NOUN" kana="ピアシステム" romaji="pia shisutemu" uniqueKey="-/ピアシステム/1"/>
                 <entries id="85785" dictionaryEntryTypeList="WORD_NOUN" kana="ピア・システム" romaji="pia shisutemu" uniqueKey="-/ピア・システム/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -46069,6 +46070,7 @@
             <s_inf xml:lang="pol">ang: fly out</s_inf>
             <gloss xml:lang="eng">fly out</gloss>
             <gloss xml:lang="pol">wylatywanie</gloss>
+            <gloss xml:lang="pol">odlatywanie</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -54011,7 +54013,7 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka, ang: basic service</s_inf>
+            <s_inf xml:lang="pol">ang: basic service</s_inf>
             <gloss xml:lang="eng">basic service</gloss>
             <gloss xml:lang="pol">podstawowa usługa</gloss>
         </sense>
@@ -55662,11 +55664,12 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">ang: paint software</s_inf>
             <gloss xml:lang="eng">painting software</gloss>
             <gloss xml:lang="eng">raster graphics editor</gloss>
             <gloss xml:lang="eng">bitmap graphics editor</gloss>
             <gloss xml:lang="pol">oprogramowanie do rysowania</gloss>
+            <gloss xml:lang="pol">edytor grafiki rastrowej</gloss>
+            <gloss xml:lang="pol">edytor grafiki bitmapowej</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -56226,6 +56229,7 @@
             <s_inf xml:lang="pol">ang: hosting service</s_inf>
             <gloss xml:lang="eng">hosting service</gloss>
             <gloss xml:lang="pol">usługa hostingu</gloss>
+            <gloss xml:lang="pol">usługa hostingowa</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -57931,7 +57935,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">markup language</gloss>
             <gloss xml:lang="pol">język znaczników</gloss>
         </sense>
@@ -65573,6 +65576,7 @@
             <s_inf xml:lang="pol">ang: modem card</s_inf>
             <gloss xml:lang="eng">modem card</gloss>
             <gloss xml:lang="pol">karta z modemem</gloss>
+            <gloss xml:lang="pol">karta modemowa</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -66790,7 +66794,7 @@
             <field>computing</field>
             <gloss xml:lang="eng">Unicode Technical Committee</gloss>
             <gloss xml:lang="eng">UTC</gloss>
-            <gloss xml:lang="pol">Konsorcjum Unicode</gloss>
+            <gloss xml:lang="pol">Konsorcjum Techniczne Unicode</gloss>
             <gloss xml:lang="pol">UTC (Unicode Technical Committee)</gloss>
         </sense>
         <misc>
@@ -67151,15 +67155,14 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka, ang: write-through cache</s_inf>
             <gloss xml:lang="eng">write-through cache</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">write-through cache</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="108849" dictionaryEntryTypeList="WORD_NOUN" kana="ライトスルーキャッシュ" romaji="raito suruu kyasshu" uniqueKey="-/ライトスルーキャッシュ/1"/>
                 <entries id="108884" dictionaryEntryTypeList="WORD_NOUN" kana="ライトスルー・キャッシュ" romaji="raito suruu kyasshu" uniqueKey="-/ライトスルー・キャッシュ/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -73661,6 +73664,7 @@
             <s_inf xml:lang="pol">ang: local operator</s_inf>
             <gloss xml:lang="eng">local operator</gloss>
             <gloss xml:lang="pol">operator lokalny</gloss>
+            <gloss xml:lang="pol">lokalny operator</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -73807,6 +73811,8 @@
             <gloss xml:lang="eng">local bus</gloss>
             <gloss xml:lang="pol">lokalny autobus</gloss>
             <gloss xml:lang="pol">miejscowy autobus</gloss>
+            <gloss xml:lang="pol">lokalna szyna</gloss>
+            <gloss xml:lang="pol">lokalna magistrala</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -73881,6 +73887,7 @@
             <s_inf xml:lang="pol">ang: local file</s_inf>
             <gloss xml:lang="eng">local file</gloss>
             <gloss xml:lang="pol">lokalny plik</gloss>
+            <gloss xml:lang="pol">plik lokalny</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -73958,9 +73965,10 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka, ang: local loop</s_inf>
+            <s_inf xml:lang="pol">ang: local loop</s_inf>
             <gloss xml:lang="eng">local loop</gloss>
             <gloss xml:lang="pol">lokalna pętla</gloss>
+            <gloss xml:lang="pol">lokalna pętla abonencka</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -73982,7 +73990,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">local variable</gloss>
             <gloss xml:lang="pol">zmienna lokalna</gloss>
         </sense>
@@ -74330,14 +74337,15 @@
             <s_inf xml:lang="pol">ang: roll in</s_inf>
             <gloss xml:lang="eng">rolling in (memory contents)</gloss>
             <gloss xml:lang="eng">swapping in</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">wczytywanie (zawartość pamięci)</gloss>
+            <gloss xml:lang="pol">wczytywanie z pamięci wymiany</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="87883" dictionaryEntryTypeList="WORD_NOUN" kana="ロールイン" romaji="rooru in" uniqueKey="-/ロールイン/1"/>
                 <entries id="87939" dictionaryEntryTypeList="WORD_NOUN" kana="ロール・イン" romaji="rooru in" uniqueKey="-/ロール・イン/1"/>
                 <attributeList type="SURU_VERB"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -75855,7 +75863,7 @@
             <field>computing</field>
             <s_inf xml:lang="pol">ang: one-chip computer</s_inf>
             <gloss xml:lang="eng">one-chip computer</gloss>
-            <gloss xml:lang="pol">jedno czipowy komputer</gloss>
+            <gloss xml:lang="pol">jedno-czipowy komputer</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -79338,21 +79346,19 @@
             <keb>隠し機能</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="kakushikinou">かくしきのう</reb>
+            <reb kana_type="HIRAGANA" romaji="kakushi kinou">かくしきのう</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">ang: easter egg</s_inf>
+            <s_inf xml:lang="pol">ukryte przed użytkownikiem treści w interaktywnych produktach cyfrowych lub jawne nawiązanie do innej treści, ale w oczywisty sposób niepasujące do treści/fabuły produktu</s_inf>
             <gloss xml:lang="eng">Easter egg</gloss>
             <gloss xml:lang="eng">hidden feature</gloss>
-            <gloss xml:lang="pol">pisanka</gloss>
-            <gloss xml:lang="pol">wielkanocne jajko</gloss>
-            <gloss xml:lang="pol">nawiązanie do rzeczywistości, bądź żart umieszczony w programie komputerowym</gloss>
+            <gloss xml:lang="pol">Easter egg</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="40031" dictionaryEntryTypeList="WORD_NOUN" kanji="隠し機能" kana="かくしきのう" romaji="kakushikinou" uniqueKey="隠し機能/かくしきのう/1"/>
+                <entries id="40031" dictionaryEntryTypeList="WORD_NOUN" kanji="隠し機能" kana="かくしきのう" romaji="kakushi kinou" uniqueKey="隠し機能/かくしきのう/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -81925,6 +81931,7 @@
             <field>computing</field>
             <gloss xml:lang="eng">Latin font</gloss>
             <gloss xml:lang="pol">łacińska czcionka</gloss>
+            <gloss xml:lang="pol">czcionka łacińska</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -84425,6 +84432,7 @@
             <field>computing</field>
             <gloss xml:lang="eng">availability ratio</gloss>
             <gloss xml:lang="pol">wskaźnik dostępności</gloss>
+            <gloss xml:lang="pol">współczynnik dostępności</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -91437,6 +91445,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">simplified version</gloss>
             <gloss xml:lang="eng">abridged edition</gloss>
+            <gloss xml:lang="pol">wersja uproszczona</gloss>
             <gloss xml:lang="pol">wersja skrócona</gloss>
             <gloss xml:lang="pol">wersja w okrojonej postaci</gloss>
         </sense>
@@ -94389,7 +94398,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">function character</gloss>
             <gloss xml:lang="pol">znak funkcyjny</gloss>
         </sense>
@@ -115334,7 +115342,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">visual editor</gloss>
             <gloss xml:lang="eng">vi</gloss>
             <gloss xml:lang="pol">edytor wizualny</gloss>
@@ -116546,12 +116553,12 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
             <gloss xml:lang="eng">class condition</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">warunek klasy</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="79607" dictionaryEntryTypeList="WORD_NOUN" kanji="字類条件" kana="じるいじょうけん" romaji="jirui jouken" uniqueKey="字類条件/じるいじょうけん/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -116562,18 +116569,17 @@
             <keb>字類名</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="jirui mei">じるいめい</reb>
+            <reb kana_type="HIRAGANA" romaji="jiruimei">じるいめい</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">class name</gloss>
             <gloss xml:lang="pol">nazwa klasy</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="79605" dictionaryEntryTypeList="WORD_NOUN" kanji="字類名" kana="じるいめい" romaji="jirui mei" uniqueKey="字類名/じるいめい/1"/>
+                <entries id="79605" dictionaryEntryTypeList="WORD_NOUN" kanji="字類名" kana="じるいめい" romaji="jiruimei" uniqueKey="字類名/じるいめい/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -117345,12 +117351,13 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
             <gloss xml:lang="eng">gap width</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">szerokość szczeliny</gloss>
+            <gloss xml:lang="pol">szerokość odstępu</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="102379" dictionaryEntryTypeList="WORD_NOUN" kanji="磁極間隔" kana="じきょくかんかく" romaji="jikyoku kankaku" uniqueKey="磁極間隔/じきょくかんかく/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -118089,7 +118096,7 @@
             <field>computing</field>
             <gloss xml:lang="eng">Automatic Request for Repetition</gloss>
             <gloss xml:lang="eng">ARQ</gloss>
-            <gloss xml:lang="pol">automatyczne żądanie powtórzenia</gloss>
+            <gloss xml:lang="pol">Automatyczne Żądanie Powtórzenia</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -119272,7 +119279,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">ang: real storage</s_inf>
             <gloss xml:lang="eng">real storage</gloss>
             <gloss xml:lang="pol">rzeczywista przestrzeń przechowywania danych</gloss>
         </sense>
@@ -125564,12 +125570,11 @@
             <keb>処理能力</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="shorinouryoku">しょりのうりょく</reb>
+            <reb kana_type="HIRAGANA" romaji="shori nouryoku">しょりのうりょく</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">throughput</gloss>
             <gloss xml:lang="eng">processing power</gloss>
             <gloss xml:lang="pol">przepustowość</gloss>
@@ -125577,7 +125582,7 @@
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="108055" dictionaryEntryTypeList="WORD_NOUN" kanji="処理能力" kana="しょりのうりょく" romaji="shorinouryoku" uniqueKey="処理能力/しょりのうりょく/1"/>
+                <entries id="108055" dictionaryEntryTypeList="WORD_NOUN" kanji="処理能力" kana="しょりのうりょく" romaji="shori nouryoku" uniqueKey="処理能力/しょりのうりょく/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -126614,7 +126619,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
             <gloss xml:lang="eng">subtotal function</gloss>
-            <gloss xml:lang="pol">funkcje sum częściowych</gloss>
+            <gloss xml:lang="pol">funkcja sumy częściowej</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -126809,18 +126814,18 @@
             <keb>抄録ページ</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA_KATAKANA" romaji="shourokupeeji">しょうろくページ</reb>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="shouroku peeji">しょうろくページ</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
             <gloss xml:lang="eng">abstract page</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">strona z podsumowaniem</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="62016" dictionaryEntryTypeList="WORD_NOUN" kanji="抄録ページ" kana="しょうろくページ" romaji="shourokupeeji" uniqueKey="抄録ページ/しょうろくページ/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <entries id="62016" dictionaryEntryTypeList="WORD_NOUN" kanji="抄録ページ" kana="しょうろくページ" romaji="shouroku peeji" uniqueKey="抄録ページ/しょうろくページ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -127838,10 +127843,10 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <xref type="see" seq="2343550" sno="1" xk="下位語">下位語[1]</xref>
             <field>linguistics</field>
+            <s_inf xml:lang="pol">wyraz o znaczeniu szerszym i nadrzędnym w stosunku do innych</s_inf>
             <gloss xml:lang="eng">hypernym</gloss>
             <gloss xml:lang="eng">hyperonym</gloss>
-            <gloss xml:lang="pol">szeroki termin</gloss>
-            <gloss xml:lang="pol">szerokie wyrażenie</gloss>
+            <gloss xml:lang="pol">hiperonim</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -138538,6 +138543,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">retrospective bibliography</gloss>
             <gloss xml:lang="pol">retrospektywna bibliografia</gloss>
+            <gloss xml:lang="pol">bibliografia retrospektywna</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -140746,7 +140752,7 @@
             <keb>送信側ＴＳ利用者</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA_KATAKANA" romaji="soushingawa tiiesuri yousha">そうしんがわティーエスりようしゃ</reb>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="soushingawa tiiesu riyousha">そうしんがわティーエスりようしゃ</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -140756,7 +140762,7 @@
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="67625" dictionaryEntryTypeList="WORD_NOUN" kanji="送信側ＴＳ利用者" kana="そうしんがわティーエスりようしゃ" romaji="soushingawa tiiesuri yousha" uniqueKey="送信側ＴＳ利用者/そうしんがわティーエスりようしゃ/1"/>
+                <entries id="67625" dictionaryEntryTypeList="WORD_NOUN" kanji="送信側ＴＳ利用者" kana="そうしんがわティーエスりようしゃ" romaji="soushingawa tiiesu riyousha" uniqueKey="送信側ＴＳ利用者/そうしんがわティーエスりようしゃ/1"/>
                 <attributeList type="PRIORITY" value="999"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -143271,7 +143277,6 @@
             <field>computing</field>
             <gloss xml:lang="eng">queue</gloss>
             <gloss xml:lang="pol">kolejka</gloss>
-            <gloss xml:lang="pol">???</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -144581,7 +144586,7 @@
             <field>computing</field>
             <gloss xml:lang="eng">monadic operation</gloss>
             <gloss xml:lang="eng">unary operation</gloss>
-            <gloss xml:lang="pol">operator jednoargumentowy</gloss>
+            <gloss xml:lang="pol">operacja jednoargumentowa</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -144843,7 +144848,7 @@
             <keb>単線式回線</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="tansenshikikaisen">たんせんしきかいせん</reb>
+            <reb kana_type="HIRAGANA" romaji="tansenshiki kaisen">たんせんしきかいせん</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -144853,7 +144858,7 @@
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="57522" dictionaryEntryTypeList="WORD_NOUN" kanji="単線式回線" kana="たんせんしきかいせん" romaji="tansenshikikaisen" uniqueKey="単線式回線/たんせんしきかいせん/1"/>
+                <entries id="57522" dictionaryEntryTypeList="WORD_NOUN" kanji="単線式回線" kana="たんせんしきかいせん" romaji="tansenshiki kaisen" uniqueKey="単線式回線/たんせんしきかいせん/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -144870,7 +144875,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">embedded testing</gloss>
             <gloss xml:lang="pol">testy wbudowane</gloss>
         </sense>
@@ -148148,7 +148152,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">HIPPI</gloss>
             <gloss xml:lang="eng">High Performance Parallel Interface</gloss>
             <gloss xml:lang="pol">HIPPI</gloss>
@@ -155977,6 +155980,7 @@
             <s_inf xml:lang="pol">ang: custom software</s_inf>
             <gloss xml:lang="eng">custom software</gloss>
             <gloss xml:lang="pol">program komputerowy wykonany na zamówienie użytkownika</gloss>
+            <gloss xml:lang="pol">oprogramowanie wykonane na zamówienie użytkownika</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -156594,7 +156598,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">read-write slot</gloss>
             <gloss xml:lang="eng">read-write opening</gloss>
             <gloss xml:lang="pol">slot odczytu-zapisu</gloss>
@@ -158304,7 +158307,7 @@
             <keb>日本語化</keb>
         </k_ele>
         <r_ele>
-            <reb kana_type="HIRAGANA" romaji="nihon goka">にほんごか</reb>
+            <reb kana_type="HIRAGANA" romaji="nihongoka">にほんごか</reb>
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
@@ -158314,7 +158317,7 @@
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
-                <entries id="131845" dictionaryEntryTypeList="WORD_NOUN" kanji="日本語化" kana="にほんごか" romaji="nihon goka" uniqueKey="日本語化/にほんごか/1"/>
+                <entries id="131845" dictionaryEntryTypeList="WORD_NOUN" kanji="日本語化" kana="にほんごか" romaji="nihongoka" uniqueKey="日本語化/にほんごか/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
@@ -166312,7 +166315,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">image</gloss>
             <gloss xml:lang="pol">obraz</gloss>
         </sense>
@@ -173199,7 +173201,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">grammar checker</gloss>
             <gloss xml:lang="pol">sprawdzanie gramatyki</gloss>
         </sense>
@@ -176781,7 +176782,6 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
-            <s_inf xml:lang="pol">informatyka</s_inf>
             <gloss xml:lang="eng">production run</gloss>
             <gloss xml:lang="pol">produkcyjne uruchomienie</gloss>
         </sense>
@@ -177341,7 +177341,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <field>computing</field>
             <gloss xml:lang="eng">ultimate component</gloss>
-            <gloss xml:lang="pol">finalny komponent</gloss>
+            <gloss xml:lang="pol">końcowy komponent</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -182911,6 +182911,7 @@
             <gloss xml:lang="eng">quasi-synonymy</gloss>
             <gloss xml:lang="eng">quasi-synonymity</gloss>
             <gloss xml:lang="pol">quasi-synonimia</gloss>
+            <gloss xml:lang="pol">quasi-synonimiczność</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -185955,7 +185956,7 @@
             <s_inf xml:lang="pol">przedrostek jednostek miary o symbolu Z</s_inf>
             <gloss xml:lang="eng">zetta-</gloss>
             <gloss xml:lang="eng">10^21</gloss>
-            <gloss xml:lang="pol">zetta</gloss>
+            <gloss xml:lang="pol">zetta-</gloss>
             <gloss xml:lang="pol">10^21 (tryliard)</gloss>
         </sense>
         <misc>
@@ -189433,7 +189434,7 @@
             <gloss xml:lang="eng">graduation album</gloss>
             <gloss xml:lang="pol">pamiątkowa księga klasowa</gloss>
             <gloss xml:lang="pol">kronika szkolna</gloss>
-            <gloss xml:lang="pol">album zdjęciowy na zakończenie studiów</gloss>
+            <gloss xml:lang="pol">album zdjęciowy na zakończenie szkoły</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -190172,7 +190173,6 @@
         <sense>
             <pos>pre-noun adjectival (rentaishi)</pos>
             <misc>poetical term</misc>
-            <s_inf xml:lang="pol">poetycki termin</s_inf>
             <gloss xml:lang="eng">dear</gloss>
             <gloss xml:lang="pol">drogi</gloss>
             <gloss xml:lang="pol">kochany</gloss>
@@ -190502,9 +190502,11 @@
         </r_ele>
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
+            <field>medicine</field>
             <s_inf xml:lang="pol">powierzchowne zakażenie naskórka, objawiające się żółtobrunatnymi plamami zlokalizowanymi głównie na klatce piersiowej, wywołane przez grzyby drożdżopodobne z rodzaju Malassezia</s_inf>
-            <gloss xml:lang="eng">chromophytosis</gloss>
             <gloss xml:lang="eng">tinea versicolor</gloss>
+            <gloss xml:lang="eng">pityriasis versicolor</gloss>
+            <gloss xml:lang="eng">chromophytosis</gloss>
             <gloss xml:lang="pol">łupież pstry</gloss>
         </sense>
         <misc>
@@ -191712,6 +191714,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">prefab</gloss>
             <gloss xml:lang="eng">prefabricated house</gloss>
+            <gloss xml:lang="pol">prefabrykat</gloss>
             <gloss xml:lang="pol">dom z prefabrykatów</gloss>
         </sense>
         <misc>
@@ -194569,6 +194572,7 @@
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">employed person</gloss>
             <gloss xml:lang="pol">osoba zatrudniona</gloss>
+            <gloss xml:lang="pol">zatrudniona osoba</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -195614,12 +195618,12 @@
         <sense>
             <pos>noun (common) (futsuumeishi)</pos>
             <gloss xml:lang="eng">retroperitoneum</gloss>
-            <gloss xml:lang="pol">???</gloss>
+            <gloss xml:lang="pol">przestrzeń zaotrzewnowa</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="63136" dictionaryEntryTypeList="WORD_NOUN" kanji="後腹膜" kana="こうふくまく" romaji="koufukumaku" uniqueKey="後腹膜/こうふくまく/1"/>
-                <attributeList type="PRIORITY" value="999"/>
+                <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
         </misc>
@@ -196947,13 +196951,13 @@
             <pos>nouns which may take the genitive case particle 'no'</pos>
             <xref type="see" seq="2012920" xk="非核">非核</xref>
             <misc>rare term</misc>
-            <s_inf xml:lang="pol">mało znane słowo</s_inf>
             <gloss xml:lang="eng">nuclear weapon free</gloss>
             <gloss xml:lang="eng">non-nuclear</gloss>
             <gloss xml:lang="eng">denuclearized</gloss>
-            <gloss xml:lang="pol">bez broni atomowej</gloss>
+            <gloss xml:lang="pol">wolny od broni jądrowej</gloss>
+            <gloss xml:lang="pol">niejądrowy</gloss>
             <gloss xml:lang="pol">bezatomowy</gloss>
-            <gloss xml:lang="pol">denuklearyzowany</gloss>
+            <gloss xml:lang="pol">zdenuklearyzowany</gloss>
         </sense>
         <misc>
             <oldPolishJapaneseDictionary>
@@ -198388,7 +198392,7 @@
             <gloss xml:lang="eng">to mutually recognize</gloss>
             <gloss xml:lang="eng">to agree</gloss>
             <gloss xml:lang="eng">to accept</gloss>
-            <gloss xml:lang="pol">wzajemnie uznać</gloss>
+            <gloss xml:lang="pol">wzajemnie uznawać</gloss>
             <gloss xml:lang="pol">zgadzać się</gloss>
             <gloss xml:lang="pol">przyjmować</gloss>
             <gloss xml:lang="pol">akceptować</gloss>

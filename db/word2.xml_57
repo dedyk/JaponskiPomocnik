@@ -57023,4 +57023,77 @@
             </oldPolishJapaneseDictionary>
         </misc>
     </entry>
+    <entry>
+        <ent_seq>5748051</ent_seq>
+        <k_ele>
+            <keb>国家サイバー統括室</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA_KATAKANA" romaji="kokka saibaa toukatsushitsu">こっかサイバーとうかつしつ</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">w Japonii</s_inf>
+            <gloss xml:lang="eng">National Cybersecurity Office (Japan)</gloss>
+            <gloss xml:lang="eng">NCO</gloss>
+            <gloss xml:lang="pol">Krajowe Biuro ds. Cyberbezpieczeństwa</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327463" dictionaryEntryTypeList="WORD_NOUN" kanji="国家サイバー統括室" kana="こっかサイバーとうかつしつ" romaji="kokka saibaa toukatsushitsu" uniqueKey="国家サイバー統括室/こっかサイバーとうかつしつ/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5748052</ent_seq>
+        <k_ele>
+            <keb>国家情報局</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="kokka jouhoukyoku">こっかじょうほうきょく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>organization name</misc>
+            <s_inf xml:lang="pol">w Japonii</s_inf>
+            <gloss xml:lang="eng">National Intelligence Bureau (Japan)</gloss>
+            <gloss xml:lang="pol">Krajowe Biuro Wywiadowcze</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327464" dictionaryEntryTypeList="WORD_NOUN" kanji="国家情報局" kana="こっかじょうほうきょく" romaji="kokka jouhoukyoku" uniqueKey="国家情報局/こっかじょうほうきょく/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5748098</ent_seq>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="aton">アトン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="aten">アテン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>deity</misc>
+            <s_inf xml:lang="pol">egipski bóg słońca</s_inf>
+            <gloss xml:lang="eng">Aton (Egyptian sun god)</gloss>
+            <gloss xml:lang="eng">Aten</gloss>
+            <gloss xml:lang="pol">Aton</gloss>
+            <gloss xml:lang="pol">Aten</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327660" dictionaryEntryTypeList="WORD_NOUN" kana="アトン" romaji="aton" uniqueKey="-/アトン/1"/>
+                <entries id="327661" dictionaryEntryTypeList="WORD_NOUN" kana="アテン" romaji="aten" uniqueKey="-/アテン/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
 </JMdict>

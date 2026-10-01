@@ -5704,6 +5704,36 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5253128</ent_seq>
+        <k_ele>
+            <keb>原宿</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="HIRAGANA" romaji="harajuku">はらじゅく</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>place name</misc>
+            <s_inf xml:lang="pol">część tokijskiej dzielnicy Shibuya, w pobliżu chramu Meiji-jingū</s_inf>
+            <gloss xml:lang="eng">Harajuku (Shibuya Ward; Tokyo)</gloss>
+            <gloss xml:lang="eng">Harajuku urban area</gloss>
+            <gloss xml:lang="pol">Harajuku</gloss>
+        </sense>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>family or surname</misc>
+            <gloss xml:lang="eng">Harajuku</gloss>
+            <gloss xml:lang="pol">Harajuku</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327546" dictionaryEntryTypeList="WORD_NOUN" kanji="原宿" kana="はらじゅく" romaji="harajuku" uniqueKey="原宿/はらじゅく/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5253504</ent_seq>
         <k_ele>
             <keb>原美術館</keb>
