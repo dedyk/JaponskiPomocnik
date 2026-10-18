@@ -2087,6 +2087,7 @@ public class WordDictionaryDetails extends Activity {
 
 		tabLayoutItem.addToTabContents(actionButtons);
 
+		/*
 		ExampleResult alternative = exampleResult.getAlternative();
 
 		if (alternative != null) {
@@ -2094,6 +2095,7 @@ public class WordDictionaryDetails extends Activity {
 
 			addExampleResult(tabLayoutItem, alternative);
 		}
+		*/
 	}
 
 	// special
