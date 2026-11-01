@@ -2,8 +2,8 @@
 <kanjidic2>
     <header>
         <file_version>4</file_version>
-        <database_version>2026-274</database_version>
-        <date_of_creation>2026-10-01</date_of_creation>
+        <database_version>2026-305</database_version>
+        <date_of_creation>2026-11-01</date_of_creation>
     </header>
     <character>
         <id>1</id>
@@ -302719,7 +302719,7 @@
                 <reading r_type="ja_kun">あかざ</reading>
                 <meaning m_lang="en">goosefoot</meaning>
                 <meaning m_lang="en">wild spinach</meaning>
-                <meaning m_lang="pl">komosa biada</meaning>
+                <meaning m_lang="pl">komosa biała</meaning>
                 <meaning m_lang="pl">lebioda</meaning>
                 <meaning m_lang="pl">dziki szpinak</meaning>
             </rmgroup>

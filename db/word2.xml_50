@@ -12238,6 +12238,30 @@
         </misc>
     </entry>
     <entry>
+        <ent_seq>5042700</ent_seq>
+        <k_ele>
+            <keb>ジンギス汗</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA_HIRAGANA" romaji="jingisu kan">ジンギスかん</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>full name of a particular person</misc>
+            <s_inf xml:lang="pol">1162-1227</s_inf>
+            <gloss xml:lang="eng">Genghis Khan (1162-1227)</gloss>
+            <gloss xml:lang="pol">Czyngis-chan</gloss>
+            <gloss xml:lang="pol">Dżyngis-chan</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327879" dictionaryEntryTypeList="WORD_NOUN" kanji="ジンギス汗" kana="ジンギスかん" romaji="jingisu kan" uniqueKey="ジンギス汗/ジンギスかん/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
         <ent_seq>5042810</ent_seq>
         <r_ele>
             <reb kana_type="KATAKANA" romaji="suupaa famikon">スーパーファミコン</reb>
@@ -14800,6 +14824,66 @@
         <misc>
             <oldPolishJapaneseDictionary>
                 <entries id="289277" dictionaryEntryTypeList="WORD_NOUN" kana="チルット" romaji="chirutto" uniqueKey="-/チルット/1"/>
+                <attributeList type="PRIORITY" value="255"/>
+                <groupsList>OTHER</groupsList>
+            </oldPolishJapaneseDictionary>
+        </misc>
+    </entry>
+    <entry>
+        <ent_seq>5051185</ent_seq>
+        <k_ele>
+            <keb>成吉思汗</keb>
+        </k_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="jingisu kan">ジンギスカン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="jingisu kan">ジンギス・カン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="chingisu haan">チンギスハーン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="chingisu haan">チンギス・ハーン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="chingisu han">チンギスハン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="chingisu han">チンギス・ハン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="chingisu kan">チンギスカン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="chingisu kan">チンギス・カン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="jingisu han">ジンギスハン</reb>
+        </r_ele>
+        <r_ele>
+            <reb kana_type="KATAKANA" romaji="jingisu han">ジンギス・ハン</reb>
+        </r_ele>
+        <sense>
+            <pos>noun (common) (futsuumeishi)</pos>
+            <misc>full name of a particular person</misc>
+            <s_inf xml:lang="pol">1162-1227</s_inf>
+            <gloss xml:lang="eng">Genghis Khan (c. 1162-1227)</gloss>
+            <gloss xml:lang="pol">Czyngis-chan</gloss>
+            <gloss xml:lang="pol">Dżyngis-chan</gloss>
+        </sense>
+        <misc>
+            <oldPolishJapaneseDictionary>
+                <entries id="327876" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="ジンギスカン" romaji="jingisu kan" uniqueKey="成吉思汗/ジンギスカン/2"/>
+                <entries id="327880" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="ジンギス・カン" romaji="jingisu kan" uniqueKey="成吉思汗/ジンギス・カン/1"/>
+                <entries id="327881" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="チンギスハーン" romaji="chingisu haan" uniqueKey="成吉思汗/チンギスハーン/1"/>
+                <entries id="327882" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="チンギス・ハーン" romaji="chingisu haan" uniqueKey="成吉思汗/チンギス・ハーン/1"/>
+                <entries id="327883" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="チンギスハン" romaji="chingisu han" uniqueKey="成吉思汗/チンギスハン/1"/>
+                <entries id="327884" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="チンギス・ハン" romaji="chingisu han" uniqueKey="成吉思汗/チンギス・ハン/1"/>
+                <entries id="327885" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="チンギスカン" romaji="chingisu kan" uniqueKey="成吉思汗/チンギスカン/1"/>
+                <entries id="327886" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="チンギス・カン" romaji="chingisu kan" uniqueKey="成吉思汗/チンギス・カン/1"/>
+                <entries id="327887" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="ジンギスハン" romaji="jingisu han" uniqueKey="成吉思汗/ジンギスハン/1"/>
+                <entries id="327888" dictionaryEntryTypeList="WORD_NOUN" kanji="成吉思汗" kana="ジンギス・ハン" romaji="jingisu han" uniqueKey="成吉思汗/ジンギス・ハン/1"/>
                 <attributeList type="PRIORITY" value="255"/>
                 <groupsList>OTHER</groupsList>
             </oldPolishJapaneseDictionary>
